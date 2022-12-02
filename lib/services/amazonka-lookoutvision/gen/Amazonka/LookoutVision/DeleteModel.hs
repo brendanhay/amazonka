@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,7 +153,7 @@ instance Core.AWSRequest DeleteModel where
     Response.receiveJSON
       ( \s h x ->
           DeleteModelResponse'
-            Prelude.<$> (x Core..?> "ModelArn")
+            Prelude.<$> (x Data..?> "ModelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,24 +169,24 @@ instance Prelude.NFData DeleteModel where
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf modelVersion
 
-instance Core.ToHeaders DeleteModel where
+instance Data.ToHeaders DeleteModel where
   toHeaders DeleteModel' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteModel where
+instance Data.ToPath DeleteModel where
   toPath DeleteModel' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/models/",
-        Core.toBS modelVersion
+        Data.toBS modelVersion
       ]
 
-instance Core.ToQuery DeleteModel where
+instance Data.ToQuery DeleteModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteModelResponse' smart constructor.

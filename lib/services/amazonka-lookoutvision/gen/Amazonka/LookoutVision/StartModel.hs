@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,7 +198,7 @@ instance Core.AWSRequest StartModel where
     Response.receiveJSON
       ( \s h x ->
           StartModelResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,36 +218,36 @@ instance Prelude.NFData StartModel where
       `Prelude.seq` Prelude.rnf modelVersion
       `Prelude.seq` Prelude.rnf minInferenceUnits
 
-instance Core.ToHeaders StartModel where
+instance Data.ToHeaders StartModel where
   toHeaders StartModel' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON StartModel where
+instance Data.ToJSON StartModel where
   toJSON StartModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxInferenceUnits" Core..=)
+          [ ("MaxInferenceUnits" Data..=)
               Prelude.<$> maxInferenceUnits,
             Prelude.Just
-              ("MinInferenceUnits" Core..= minInferenceUnits)
+              ("MinInferenceUnits" Data..= minInferenceUnits)
           ]
       )
 
-instance Core.ToPath StartModel where
+instance Data.ToPath StartModel where
   toPath StartModel' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/models/",
-        Core.toBS modelVersion,
+        Data.toBS modelVersion,
         "/start"
       ]
 
-instance Core.ToQuery StartModel where
+instance Data.ToQuery StartModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartModelResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.DatasetGroundTruthManifest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.InputS3Object
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,9 +64,9 @@ instance Prelude.NFData DatasetGroundTruthManifest where
   rnf DatasetGroundTruthManifest' {..} =
     Prelude.rnf s3Object
 
-instance Core.ToJSON DatasetGroundTruthManifest where
+instance Data.ToJSON DatasetGroundTruthManifest where
   toJSON DatasetGroundTruthManifest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3Object" Core..=) Prelude.<$> s3Object]
+          [("S3Object" Data..=) Prelude.<$> s3Object]
       )

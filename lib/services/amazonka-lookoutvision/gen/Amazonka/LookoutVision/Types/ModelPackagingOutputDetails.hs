@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.ModelPackagingOutputDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.GreengrassOutputDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newModelPackagingOutputDetails =
 modelPackagingOutputDetails_greengrass :: Lens.Lens' ModelPackagingOutputDetails (Prelude.Maybe GreengrassOutputDetails)
 modelPackagingOutputDetails_greengrass = Lens.lens (\ModelPackagingOutputDetails' {greengrass} -> greengrass) (\s@ModelPackagingOutputDetails' {} a -> s {greengrass = a} :: ModelPackagingOutputDetails)
 
-instance Core.FromJSON ModelPackagingOutputDetails where
+instance Data.FromJSON ModelPackagingOutputDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPackagingOutputDetails"
       ( \x ->
           ModelPackagingOutputDetails'
-            Prelude.<$> (x Core..:? "Greengrass")
+            Prelude.<$> (x Data..:? "Greengrass")
       )
 
 instance Prelude.Hashable ModelPackagingOutputDetails where

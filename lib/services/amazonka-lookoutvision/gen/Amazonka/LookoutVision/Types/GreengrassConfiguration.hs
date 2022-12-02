@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.GreengrassConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.S3Location
 import Amazonka.LookoutVision.Types.Tag
 import Amazonka.LookoutVision.Types.TargetDevice
@@ -168,20 +169,20 @@ greengrassConfiguration_s3OutputLocation = Lens.lens (\GreengrassConfiguration' 
 greengrassConfiguration_componentName :: Lens.Lens' GreengrassConfiguration Prelude.Text
 greengrassConfiguration_componentName = Lens.lens (\GreengrassConfiguration' {componentName} -> componentName) (\s@GreengrassConfiguration' {} a -> s {componentName = a} :: GreengrassConfiguration)
 
-instance Core.FromJSON GreengrassConfiguration where
+instance Data.FromJSON GreengrassConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GreengrassConfiguration"
       ( \x ->
           GreengrassConfiguration'
-            Prelude.<$> (x Core..:? "ComponentDescription")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ComponentVersion")
-            Prelude.<*> (x Core..:? "TargetDevice")
-            Prelude.<*> (x Core..:? "TargetPlatform")
-            Prelude.<*> (x Core..:? "CompilerOptions")
-            Prelude.<*> (x Core..: "S3OutputLocation")
-            Prelude.<*> (x Core..: "ComponentName")
+            Prelude.<$> (x Data..:? "ComponentDescription")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ComponentVersion")
+            Prelude.<*> (x Data..:? "TargetDevice")
+            Prelude.<*> (x Data..:? "TargetPlatform")
+            Prelude.<*> (x Data..:? "CompilerOptions")
+            Prelude.<*> (x Data..: "S3OutputLocation")
+            Prelude.<*> (x Data..: "ComponentName")
       )
 
 instance Prelude.Hashable GreengrassConfiguration where
@@ -206,23 +207,23 @@ instance Prelude.NFData GreengrassConfiguration where
       `Prelude.seq` Prelude.rnf s3OutputLocation
       `Prelude.seq` Prelude.rnf componentName
 
-instance Core.ToJSON GreengrassConfiguration where
+instance Data.ToJSON GreengrassConfiguration where
   toJSON GreengrassConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ComponentDescription" Core..=)
+          [ ("ComponentDescription" Data..=)
               Prelude.<$> componentDescription,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("ComponentVersion" Core..=)
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("ComponentVersion" Data..=)
               Prelude.<$> componentVersion,
-            ("TargetDevice" Core..=) Prelude.<$> targetDevice,
-            ("TargetPlatform" Core..=)
+            ("TargetDevice" Data..=) Prelude.<$> targetDevice,
+            ("TargetPlatform" Data..=)
               Prelude.<$> targetPlatform,
-            ("CompilerOptions" Core..=)
+            ("CompilerOptions" Data..=)
               Prelude.<$> compilerOptions,
             Prelude.Just
-              ("S3OutputLocation" Core..= s3OutputLocation),
+              ("S3OutputLocation" Data..= s3OutputLocation),
             Prelude.Just
-              ("ComponentName" Core..= componentName)
+              ("ComponentName" Data..= componentName)
           ]
       )

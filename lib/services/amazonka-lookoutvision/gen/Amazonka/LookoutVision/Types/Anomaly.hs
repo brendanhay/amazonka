@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.Anomaly where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.PixelAnomaly
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,14 +73,14 @@ anomaly_name = Lens.lens (\Anomaly' {name} -> name) (\s@Anomaly' {} a -> s {name
 anomaly_pixelAnomaly :: Lens.Lens' Anomaly (Prelude.Maybe PixelAnomaly)
 anomaly_pixelAnomaly = Lens.lens (\Anomaly' {pixelAnomaly} -> pixelAnomaly) (\s@Anomaly' {} a -> s {pixelAnomaly = a} :: Anomaly)
 
-instance Core.FromJSON Anomaly where
+instance Data.FromJSON Anomaly where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Anomaly"
       ( \x ->
           Anomaly'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "PixelAnomaly")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "PixelAnomaly")
       )
 
 instance Prelude.Hashable Anomaly where

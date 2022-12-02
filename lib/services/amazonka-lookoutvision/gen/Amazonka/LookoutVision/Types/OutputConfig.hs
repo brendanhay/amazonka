@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.OutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.S3Location
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,12 +55,12 @@ newOutputConfig pS3Location_ =
 outputConfig_s3Location :: Lens.Lens' OutputConfig S3Location
 outputConfig_s3Location = Lens.lens (\OutputConfig' {s3Location} -> s3Location) (\s@OutputConfig' {} a -> s {s3Location = a} :: OutputConfig)
 
-instance Core.FromJSON OutputConfig where
+instance Data.FromJSON OutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputConfig"
       ( \x ->
-          OutputConfig' Prelude.<$> (x Core..: "S3Location")
+          OutputConfig' Prelude.<$> (x Data..: "S3Location")
       )
 
 instance Prelude.Hashable OutputConfig where
@@ -69,9 +70,9 @@ instance Prelude.Hashable OutputConfig where
 instance Prelude.NFData OutputConfig where
   rnf OutputConfig' {..} = Prelude.rnf s3Location
 
-instance Core.ToJSON OutputConfig where
+instance Data.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3Location" Core..= s3Location)]
+          [Prelude.Just ("S3Location" Data..= s3Location)]
       )

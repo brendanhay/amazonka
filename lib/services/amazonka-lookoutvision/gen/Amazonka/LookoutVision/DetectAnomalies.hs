@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -78,7 +79,7 @@ data DetectAnomalies = DetectAnomalies'
     -- (PNG format images) and @image\/jpeg@ (JPG format images).
     contentType :: Prelude.Text,
     -- | The unencrypted image bytes that you want to analyze.
-    body :: Core.HashedBody
+    body :: Data.HashedBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -107,7 +108,7 @@ newDetectAnomalies ::
   -- | 'contentType'
   Prelude.Text ->
   -- | 'body'
-  Core.HashedBody ->
+  Data.HashedBody ->
   DetectAnomalies
 newDetectAnomalies
   pProjectName_
@@ -136,7 +137,7 @@ detectAnomalies_contentType :: Lens.Lens' DetectAnomalies Prelude.Text
 detectAnomalies_contentType = Lens.lens (\DetectAnomalies' {contentType} -> contentType) (\s@DetectAnomalies' {} a -> s {contentType = a} :: DetectAnomalies)
 
 -- | The unencrypted image bytes that you want to analyze.
-detectAnomalies_body :: Lens.Lens' DetectAnomalies Core.HashedBody
+detectAnomalies_body :: Lens.Lens' DetectAnomalies Data.HashedBody
 detectAnomalies_body = Lens.lens (\DetectAnomalies' {body} -> body) (\s@DetectAnomalies' {} a -> s {body = a} :: DetectAnomalies)
 
 instance Core.AWSRequest DetectAnomalies where
@@ -149,29 +150,29 @@ instance Core.AWSRequest DetectAnomalies where
     Response.receiveJSON
       ( \s h x ->
           DetectAnomaliesResponse'
-            Prelude.<$> (x Core..?> "DetectAnomalyResult")
+            Prelude.<$> (x Data..?> "DetectAnomalyResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Core.ToBody DetectAnomalies where
-  toBody DetectAnomalies' {..} = Core.toBody body
+instance Data.ToBody DetectAnomalies where
+  toBody DetectAnomalies' {..} = Data.toBody body
 
-instance Core.ToHeaders DetectAnomalies where
+instance Data.ToHeaders DetectAnomalies where
   toHeaders DetectAnomalies' {..} =
     Prelude.mconcat
-      ["Content-Type" Core.=# contentType]
+      ["Content-Type" Data.=# contentType]
 
-instance Core.ToPath DetectAnomalies where
+instance Data.ToPath DetectAnomalies where
   toPath DetectAnomalies' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/models/",
-        Core.toBS modelVersion,
+        Data.toBS modelVersion,
         "/detect"
       ]
 
-instance Core.ToQuery DetectAnomalies where
+instance Data.ToQuery DetectAnomalies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetectAnomaliesResponse' smart constructor.

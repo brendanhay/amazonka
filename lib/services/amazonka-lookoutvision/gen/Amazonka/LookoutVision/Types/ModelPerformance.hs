@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.ModelPerformance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the evaluation performance of a trained model.
@@ -70,15 +71,15 @@ modelPerformance_recall = Lens.lens (\ModelPerformance' {recall} -> recall) (\s@
 modelPerformance_precision :: Lens.Lens' ModelPerformance (Prelude.Maybe Prelude.Double)
 modelPerformance_precision = Lens.lens (\ModelPerformance' {precision} -> precision) (\s@ModelPerformance' {} a -> s {precision = a} :: ModelPerformance)
 
-instance Core.FromJSON ModelPerformance where
+instance Data.FromJSON ModelPerformance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelPerformance"
       ( \x ->
           ModelPerformance'
-            Prelude.<$> (x Core..:? "F1Score")
-            Prelude.<*> (x Core..:? "Recall")
-            Prelude.<*> (x Core..:? "Precision")
+            Prelude.<$> (x Data..:? "F1Score")
+            Prelude.<*> (x Data..:? "Recall")
+            Prelude.<*> (x Data..:? "Precision")
       )
 
 instance Prelude.Hashable ModelPerformance where

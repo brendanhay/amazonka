@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.ModelDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.ModelPerformance
 import Amazonka.LookoutVision.Types.ModelStatus
 import Amazonka.LookoutVision.Types.OutputConfig
@@ -41,13 +42,13 @@ data ModelDescription = ModelDescription'
     -- | The version of the model
     modelVersion :: Prelude.Maybe Prelude.Text,
     -- | The unix timestamp for the date and time that the evaluation ended.
-    evaluationEndTimestamp :: Prelude.Maybe Core.POSIX,
+    evaluationEndTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the model.
     status :: Prelude.Maybe ModelStatus,
     -- | The description for the model.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unix timestamp for the date and time that the model was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Performance metrics for the model. Created during training.
     performance :: Prelude.Maybe ModelPerformance,
     -- | The Amazon Resource Name (ARN) of the model.
@@ -149,7 +150,7 @@ modelDescription_modelVersion = Lens.lens (\ModelDescription' {modelVersion} -> 
 
 -- | The unix timestamp for the date and time that the evaluation ended.
 modelDescription_evaluationEndTimestamp :: Lens.Lens' ModelDescription (Prelude.Maybe Prelude.UTCTime)
-modelDescription_evaluationEndTimestamp = Lens.lens (\ModelDescription' {evaluationEndTimestamp} -> evaluationEndTimestamp) (\s@ModelDescription' {} a -> s {evaluationEndTimestamp = a} :: ModelDescription) Prelude.. Lens.mapping Core._Time
+modelDescription_evaluationEndTimestamp = Lens.lens (\ModelDescription' {evaluationEndTimestamp} -> evaluationEndTimestamp) (\s@ModelDescription' {} a -> s {evaluationEndTimestamp = a} :: ModelDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the model.
 modelDescription_status :: Lens.Lens' ModelDescription (Prelude.Maybe ModelStatus)
@@ -161,7 +162,7 @@ modelDescription_description = Lens.lens (\ModelDescription' {description} -> de
 
 -- | The unix timestamp for the date and time that the model was created.
 modelDescription_creationTimestamp :: Lens.Lens' ModelDescription (Prelude.Maybe Prelude.UTCTime)
-modelDescription_creationTimestamp = Lens.lens (\ModelDescription' {creationTimestamp} -> creationTimestamp) (\s@ModelDescription' {} a -> s {creationTimestamp = a} :: ModelDescription) Prelude.. Lens.mapping Core._Time
+modelDescription_creationTimestamp = Lens.lens (\ModelDescription' {creationTimestamp} -> creationTimestamp) (\s@ModelDescription' {} a -> s {creationTimestamp = a} :: ModelDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Performance metrics for the model. Created during training.
 modelDescription_performance :: Lens.Lens' ModelDescription (Prelude.Maybe ModelPerformance)
@@ -195,26 +196,26 @@ modelDescription_statusMessage = Lens.lens (\ModelDescription' {statusMessage} -
 modelDescription_outputConfig :: Lens.Lens' ModelDescription (Prelude.Maybe OutputConfig)
 modelDescription_outputConfig = Lens.lens (\ModelDescription' {outputConfig} -> outputConfig) (\s@ModelDescription' {} a -> s {outputConfig = a} :: ModelDescription)
 
-instance Core.FromJSON ModelDescription where
+instance Data.FromJSON ModelDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelDescription"
       ( \x ->
           ModelDescription'
-            Prelude.<$> (x Core..:? "EvaluationManifest")
-            Prelude.<*> (x Core..:? "MinInferenceUnits")
-            Prelude.<*> (x Core..:? "ModelVersion")
-            Prelude.<*> (x Core..:? "EvaluationEndTimestamp")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "Performance")
-            Prelude.<*> (x Core..:? "ModelArn")
-            Prelude.<*> (x Core..:? "EvaluationResult")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "MaxInferenceUnits")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "OutputConfig")
+            Prelude.<$> (x Data..:? "EvaluationManifest")
+            Prelude.<*> (x Data..:? "MinInferenceUnits")
+            Prelude.<*> (x Data..:? "ModelVersion")
+            Prelude.<*> (x Data..:? "EvaluationEndTimestamp")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "Performance")
+            Prelude.<*> (x Data..:? "ModelArn")
+            Prelude.<*> (x Data..:? "EvaluationResult")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "MaxInferenceUnits")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "OutputConfig")
       )
 
 instance Prelude.Hashable ModelDescription where

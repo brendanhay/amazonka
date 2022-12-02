@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.InputS3Object where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon S3 Location information for an input manifest file.
@@ -86,12 +87,12 @@ instance Prelude.NFData InputS3Object where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON InputS3Object where
+instance Data.ToJSON InputS3Object where
   toJSON InputS3Object' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionId" Core..=) Prelude.<$> versionId,
-            Prelude.Just ("Bucket" Core..= bucket),
-            Prelude.Just ("Key" Core..= key)
+          [ ("VersionId" Data..=) Prelude.<$> versionId,
+            Prelude.Just ("Bucket" Data..= bucket),
+            Prelude.Just ("Key" Data..= key)
           ]
       )

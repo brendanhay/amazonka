@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.TargetPlatform where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.TargetPlatformAccelerator
 import Amazonka.LookoutVision.Types.TargetPlatformArch
 import Amazonka.LookoutVision.Types.TargetPlatformOs
@@ -125,15 +126,15 @@ targetPlatform_os = Lens.lens (\TargetPlatform' {os} -> os) (\s@TargetPlatform' 
 targetPlatform_arch :: Lens.Lens' TargetPlatform TargetPlatformArch
 targetPlatform_arch = Lens.lens (\TargetPlatform' {arch} -> arch) (\s@TargetPlatform' {} a -> s {arch = a} :: TargetPlatform)
 
-instance Core.FromJSON TargetPlatform where
+instance Data.FromJSON TargetPlatform where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetPlatform"
       ( \x ->
           TargetPlatform'
-            Prelude.<$> (x Core..:? "Accelerator")
-            Prelude.<*> (x Core..: "Os")
-            Prelude.<*> (x Core..: "Arch")
+            Prelude.<$> (x Data..:? "Accelerator")
+            Prelude.<*> (x Data..: "Os")
+            Prelude.<*> (x Data..: "Arch")
       )
 
 instance Prelude.Hashable TargetPlatform where
@@ -148,12 +149,12 @@ instance Prelude.NFData TargetPlatform where
       `Prelude.seq` Prelude.rnf os
       `Prelude.seq` Prelude.rnf arch
 
-instance Core.ToJSON TargetPlatform where
+instance Data.ToJSON TargetPlatform where
   toJSON TargetPlatform' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Accelerator" Core..=) Prelude.<$> accelerator,
-            Prelude.Just ("Os" Core..= os),
-            Prelude.Just ("Arch" Core..= arch)
+          [ ("Accelerator" Data..=) Prelude.<$> accelerator,
+            Prelude.Just ("Os" Data..= os),
+            Prelude.Just ("Arch" Data..= arch)
           ]
       )

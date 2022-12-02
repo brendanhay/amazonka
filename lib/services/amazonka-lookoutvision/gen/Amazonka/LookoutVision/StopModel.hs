@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,7 +151,7 @@ instance Core.AWSRequest StopModel where
     Response.receiveJSON
       ( \s h x ->
           StopModelResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,28 +167,28 @@ instance Prelude.NFData StopModel where
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf modelVersion
 
-instance Core.ToHeaders StopModel where
+instance Data.ToHeaders StopModel where
   toHeaders StopModel' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON StopModel where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopModel where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopModel where
+instance Data.ToPath StopModel where
   toPath StopModel' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/models/",
-        Core.toBS modelVersion,
+        Data.toBS modelVersion,
         "/stop"
       ]
 
-instance Core.ToQuery StopModel where
+instance Data.ToQuery StopModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopModelResponse' smart constructor.

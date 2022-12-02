@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ data UpdateDatasetEntries = UpdateDatasetEntries'
     -- If you have a single dataset project, specify @train@.
     datasetType :: Prelude.Text,
     -- | The entries to add to the dataset.
-    changes :: Core.Base64
+    changes :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -152,7 +153,7 @@ newUpdateDatasetEntries
           Prelude.Nothing,
         projectName = pProjectName_,
         datasetType = pDatasetType_,
-        changes = Core._Base64 Lens.# pChanges_
+        changes = Data._Base64 Lens.# pChanges_
       }
 
 -- | ClientToken is an idempotency token that ensures a call to
@@ -190,7 +191,7 @@ updateDatasetEntries_datasetType = Lens.lens (\UpdateDatasetEntries' {datasetTyp
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateDatasetEntries_changes :: Lens.Lens' UpdateDatasetEntries Prelude.ByteString
-updateDatasetEntries_changes = Lens.lens (\UpdateDatasetEntries' {changes} -> changes) (\s@UpdateDatasetEntries' {} a -> s {changes = a} :: UpdateDatasetEntries) Prelude.. Core._Base64
+updateDatasetEntries_changes = Lens.lens (\UpdateDatasetEntries' {changes} -> changes) (\s@UpdateDatasetEntries' {} a -> s {changes = a} :: UpdateDatasetEntries) Prelude.. Data._Base64
 
 instance Core.AWSRequest UpdateDatasetEntries where
   type
@@ -202,7 +203,7 @@ instance Core.AWSRequest UpdateDatasetEntries where
     Response.receiveJSON
       ( \s h x ->
           UpdateDatasetEntriesResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,32 +221,32 @@ instance Prelude.NFData UpdateDatasetEntries where
       `Prelude.seq` Prelude.rnf datasetType
       `Prelude.seq` Prelude.rnf changes
 
-instance Core.ToHeaders UpdateDatasetEntries where
+instance Data.ToHeaders UpdateDatasetEntries where
   toHeaders UpdateDatasetEntries' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON UpdateDatasetEntries where
+instance Data.ToJSON UpdateDatasetEntries where
   toJSON UpdateDatasetEntries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Changes" Core..= changes)]
+          [Prelude.Just ("Changes" Data..= changes)]
       )
 
-instance Core.ToPath UpdateDatasetEntries where
+instance Data.ToPath UpdateDatasetEntries where
   toPath UpdateDatasetEntries' {..} =
     Prelude.mconcat
       [ "/2020-11-20/projects/",
-        Core.toBS projectName,
+        Data.toBS projectName,
         "/datasets/",
-        Core.toBS datasetType,
+        Data.toBS datasetType,
         "/entries"
       ]
 
-instance Core.ToQuery UpdateDatasetEntries where
+instance Data.ToQuery UpdateDatasetEntries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatasetEntriesResponse' smart constructor.

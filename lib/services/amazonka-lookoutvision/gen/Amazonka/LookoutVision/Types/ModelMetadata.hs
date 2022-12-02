@@ -21,6 +21,7 @@ module Amazonka.LookoutVision.Types.ModelMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutVision.Types.ModelPerformance
 import Amazonka.LookoutVision.Types.ModelStatus
 import qualified Amazonka.Prelude as Prelude
@@ -36,7 +37,7 @@ data ModelMetadata = ModelMetadata'
     -- | The description for the model.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unix timestamp for the date and time that the model was created.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Performance metrics for the model. Not available until training has
     -- successfully completed.
     performance :: Prelude.Maybe ModelPerformance,
@@ -96,7 +97,7 @@ modelMetadata_description = Lens.lens (\ModelMetadata' {description} -> descript
 
 -- | The unix timestamp for the date and time that the model was created.
 modelMetadata_creationTimestamp :: Lens.Lens' ModelMetadata (Prelude.Maybe Prelude.UTCTime)
-modelMetadata_creationTimestamp = Lens.lens (\ModelMetadata' {creationTimestamp} -> creationTimestamp) (\s@ModelMetadata' {} a -> s {creationTimestamp = a} :: ModelMetadata) Prelude.. Lens.mapping Core._Time
+modelMetadata_creationTimestamp = Lens.lens (\ModelMetadata' {creationTimestamp} -> creationTimestamp) (\s@ModelMetadata' {} a -> s {creationTimestamp = a} :: ModelMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | Performance metrics for the model. Not available until training has
 -- successfully completed.
@@ -111,19 +112,19 @@ modelMetadata_modelArn = Lens.lens (\ModelMetadata' {modelArn} -> modelArn) (\s@
 modelMetadata_statusMessage :: Lens.Lens' ModelMetadata (Prelude.Maybe Prelude.Text)
 modelMetadata_statusMessage = Lens.lens (\ModelMetadata' {statusMessage} -> statusMessage) (\s@ModelMetadata' {} a -> s {statusMessage = a} :: ModelMetadata)
 
-instance Core.FromJSON ModelMetadata where
+instance Data.FromJSON ModelMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelMetadata"
       ( \x ->
           ModelMetadata'
-            Prelude.<$> (x Core..:? "ModelVersion")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "Performance")
-            Prelude.<*> (x Core..:? "ModelArn")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "ModelVersion")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "Performance")
+            Prelude.<*> (x Data..:? "ModelArn")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable ModelMetadata where

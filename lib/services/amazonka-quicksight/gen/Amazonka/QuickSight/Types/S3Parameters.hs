@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.S3Parameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ManifestFileLocation
 
@@ -59,13 +60,13 @@ newS3Parameters pManifestFileLocation_ =
 s3Parameters_manifestFileLocation :: Lens.Lens' S3Parameters ManifestFileLocation
 s3Parameters_manifestFileLocation = Lens.lens (\S3Parameters' {manifestFileLocation} -> manifestFileLocation) (\s@S3Parameters' {} a -> s {manifestFileLocation = a} :: S3Parameters)
 
-instance Core.FromJSON S3Parameters where
+instance Data.FromJSON S3Parameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Parameters"
       ( \x ->
           S3Parameters'
-            Prelude.<$> (x Core..: "ManifestFileLocation")
+            Prelude.<$> (x Data..: "ManifestFileLocation")
       )
 
 instance Prelude.Hashable S3Parameters where
@@ -76,13 +77,13 @@ instance Prelude.NFData S3Parameters where
   rnf S3Parameters' {..} =
     Prelude.rnf manifestFileLocation
 
-instance Core.ToJSON S3Parameters where
+instance Data.ToJSON S3Parameters where
   toJSON S3Parameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ManifestFileLocation"
-                  Core..= manifestFileLocation
+                  Data..= manifestFileLocation
               )
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AuroraParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters for Amazon Aurora.
@@ -76,15 +77,15 @@ auroraParameters_port = Lens.lens (\AuroraParameters' {port} -> port) (\s@Aurora
 auroraParameters_database :: Lens.Lens' AuroraParameters Prelude.Text
 auroraParameters_database = Lens.lens (\AuroraParameters' {database} -> database) (\s@AuroraParameters' {} a -> s {database = a} :: AuroraParameters)
 
-instance Core.FromJSON AuroraParameters where
+instance Data.FromJSON AuroraParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuroraParameters"
       ( \x ->
           AuroraParameters'
-            Prelude.<$> (x Core..: "Host")
-            Prelude.<*> (x Core..: "Port")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable AuroraParameters where
@@ -99,12 +100,12 @@ instance Prelude.NFData AuroraParameters where
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON AuroraParameters where
+instance Data.ToJSON AuroraParameters where
   toJSON AuroraParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Port" Core..= port),
-            Prelude.Just ("Database" Core..= database)
+          [ Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Port" Data..= port),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -131,9 +132,9 @@ instance Core.AWSRequest CreateFolderMembership where
     Response.receiveJSON
       ( \s h x ->
           CreateFolderMembershipResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "FolderMember")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "FolderMember")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,34 +152,34 @@ instance Prelude.NFData CreateFolderMembership where
       `Prelude.seq` Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf memberType
 
-instance Core.ToHeaders CreateFolderMembership where
+instance Data.ToHeaders CreateFolderMembership where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFolderMembership where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateFolderMembership where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateFolderMembership where
+instance Data.ToPath CreateFolderMembership where
   toPath CreateFolderMembership' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId,
+        Data.toBS folderId,
         "/members/",
-        Core.toBS memberType,
+        Data.toBS memberType,
         "/",
-        Core.toBS memberId
+        Data.toBS memberId
       ]
 
-instance Core.ToQuery CreateFolderMembership where
+instance Data.ToQuery CreateFolderMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFolderMembershipResponse' smart constructor.

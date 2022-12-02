@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -69,7 +70,7 @@ data UpdateDataSource = UpdateDataSource'
     -- | The credentials that Amazon QuickSight that uses to connect to your
     -- underlying source. Currently, only credentials based on user name and
     -- password are supported.
-    credentials :: Prelude.Maybe (Core.Sensitive DataSourceCredentials),
+    credentials :: Prelude.Maybe (Data.Sensitive DataSourceCredentials),
     -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Text,
     -- | The ID of the data source. This ID is unique per Amazon Web Services
@@ -149,7 +150,7 @@ updateDataSource_sslProperties = Lens.lens (\UpdateDataSource' {sslProperties} -
 -- underlying source. Currently, only credentials based on user name and
 -- password are supported.
 updateDataSource_credentials :: Lens.Lens' UpdateDataSource (Prelude.Maybe DataSourceCredentials)
-updateDataSource_credentials = Lens.lens (\UpdateDataSource' {credentials} -> credentials) (\s@UpdateDataSource' {} a -> s {credentials = a} :: UpdateDataSource) Prelude.. Lens.mapping Core._Sensitive
+updateDataSource_credentials = Lens.lens (\UpdateDataSource' {credentials} -> credentials) (\s@UpdateDataSource' {} a -> s {credentials = a} :: UpdateDataSource) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Web Services account ID.
 updateDataSource_awsAccountId :: Lens.Lens' UpdateDataSource Prelude.Text
@@ -174,10 +175,10 @@ instance Core.AWSRequest UpdateDataSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateDataSourceResponse'
-            Prelude.<$> (x Core..?> "DataSourceId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "UpdateStatus")
+            Prelude.<$> (x Data..?> "DataSourceId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "UpdateStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,41 +202,41 @@ instance Prelude.NFData UpdateDataSource where
       `Prelude.seq` Prelude.rnf dataSourceId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateDataSource where
+instance Data.ToHeaders UpdateDataSource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataSource where
+instance Data.ToJSON UpdateDataSource where
   toJSON UpdateDataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceParameters" Core..=)
+          [ ("DataSourceParameters" Data..=)
               Prelude.<$> dataSourceParameters,
-            ("VpcConnectionProperties" Core..=)
+            ("VpcConnectionProperties" Data..=)
               Prelude.<$> vpcConnectionProperties,
-            ("SslProperties" Core..=) Prelude.<$> sslProperties,
-            ("Credentials" Core..=) Prelude.<$> credentials,
-            Prelude.Just ("Name" Core..= name)
+            ("SslProperties" Data..=) Prelude.<$> sslProperties,
+            ("Credentials" Data..=) Prelude.<$> credentials,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateDataSource where
+instance Data.ToPath UpdateDataSource where
   toPath UpdateDataSource' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sources/",
-        Core.toBS dataSourceId
+        Data.toBS dataSourceId
       ]
 
-instance Core.ToQuery UpdateDataSource where
+instance Data.ToQuery UpdateDataSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataSourceResponse' smart constructor.

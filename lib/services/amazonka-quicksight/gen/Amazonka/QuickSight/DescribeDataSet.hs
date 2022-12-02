@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -102,8 +103,8 @@ instance Core.AWSRequest DescribeDataSet where
     Response.receiveJSON
       ( \s h x ->
           DescribeDataSetResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "DataSet")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "DataSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,27 +118,27 @@ instance Prelude.NFData DescribeDataSet where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSetId
 
-instance Core.ToHeaders DescribeDataSet where
+instance Data.ToHeaders DescribeDataSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDataSet where
+instance Data.ToPath DescribeDataSet where
   toPath DescribeDataSet' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sets/",
-        Core.toBS dataSetId
+        Data.toBS dataSetId
       ]
 
-instance Core.ToQuery DescribeDataSet where
+instance Data.ToQuery DescribeDataSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDataSetResponse' smart constructor.

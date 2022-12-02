@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -136,11 +137,11 @@ instance Core.AWSRequest ListDashboards where
     Response.receiveJSON
       ( \s h x ->
           ListDashboardsResponse'
-            Prelude.<$> ( x Core..?> "DashboardSummaryList"
+            Prelude.<$> ( x Data..?> "DashboardSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,27 +157,27 @@ instance Prelude.NFData ListDashboards where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders ListDashboards where
+instance Data.ToHeaders ListDashboards where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDashboards where
+instance Data.ToPath ListDashboards where
   toPath ListDashboards' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId, "/dashboards"]
+      ["/accounts/", Data.toBS awsAccountId, "/dashboards"]
 
-instance Core.ToQuery ListDashboards where
+instance Data.ToQuery ListDashboards where
   toQuery ListDashboards' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDashboardsResponse' smart constructor.

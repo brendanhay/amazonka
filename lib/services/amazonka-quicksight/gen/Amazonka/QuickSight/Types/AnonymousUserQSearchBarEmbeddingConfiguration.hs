@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AnonymousUserQSearchBarEmbeddingConfiguration w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The settings that you want to use with the Q search bar.
@@ -95,14 +96,14 @@ instance
       Prelude.rnf initialTopicId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AnonymousUserQSearchBarEmbeddingConfiguration
   where
   toJSON
     AnonymousUserQSearchBarEmbeddingConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("InitialTopicId" Core..= initialTopicId)
+                ("InitialTopicId" Data..= initialTopicId)
             ]
         )

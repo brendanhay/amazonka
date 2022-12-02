@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RowLevelPermissionTagConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.RowLevelPermissionTagRule
 import Amazonka.QuickSight.Types.Status
@@ -74,16 +75,16 @@ rowLevelPermissionTagConfiguration_tagRules :: Lens.Lens' RowLevelPermissionTagC
 rowLevelPermissionTagConfiguration_tagRules = Lens.lens (\RowLevelPermissionTagConfiguration' {tagRules} -> tagRules) (\s@RowLevelPermissionTagConfiguration' {} a -> s {tagRules = a} :: RowLevelPermissionTagConfiguration) Prelude.. Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RowLevelPermissionTagConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RowLevelPermissionTagConfiguration"
       ( \x ->
           RowLevelPermissionTagConfiguration'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..: "TagRules")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..: "TagRules")
       )
 
 instance
@@ -105,13 +106,13 @@ instance
       `Prelude.seq` Prelude.rnf tagRules
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RowLevelPermissionTagConfiguration
   where
   toJSON RowLevelPermissionTagConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            Prelude.Just ("TagRules" Core..= tagRules)
+          [ ("Status" Data..=) Prelude.<$> status,
+            Prelude.Just ("TagRules" Data..= tagRules)
           ]
       )

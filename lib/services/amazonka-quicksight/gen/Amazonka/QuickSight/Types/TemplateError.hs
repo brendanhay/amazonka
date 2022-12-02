@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TemplateError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.TemplateErrorType
 
@@ -62,14 +63,14 @@ templateError_message = Lens.lens (\TemplateError' {message} -> message) (\s@Tem
 templateError_type :: Lens.Lens' TemplateError (Prelude.Maybe TemplateErrorType)
 templateError_type = Lens.lens (\TemplateError' {type'} -> type') (\s@TemplateError' {} a -> s {type' = a} :: TemplateError)
 
-instance Core.FromJSON TemplateError where
+instance Data.FromJSON TemplateError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateError"
       ( \x ->
           TemplateError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable TemplateError where

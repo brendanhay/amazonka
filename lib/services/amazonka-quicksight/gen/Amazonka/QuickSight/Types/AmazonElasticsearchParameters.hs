@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AmazonElasticsearchParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for OpenSearch.
@@ -52,13 +53,13 @@ newAmazonElasticsearchParameters pDomain_ =
 amazonElasticsearchParameters_domain :: Lens.Lens' AmazonElasticsearchParameters Prelude.Text
 amazonElasticsearchParameters_domain = Lens.lens (\AmazonElasticsearchParameters' {domain} -> domain) (\s@AmazonElasticsearchParameters' {} a -> s {domain = a} :: AmazonElasticsearchParameters)
 
-instance Core.FromJSON AmazonElasticsearchParameters where
+instance Data.FromJSON AmazonElasticsearchParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmazonElasticsearchParameters"
       ( \x ->
           AmazonElasticsearchParameters'
-            Prelude.<$> (x Core..: "Domain")
+            Prelude.<$> (x Data..: "Domain")
       )
 
 instance
@@ -72,9 +73,9 @@ instance Prelude.NFData AmazonElasticsearchParameters where
   rnf AmazonElasticsearchParameters' {..} =
     Prelude.rnf domain
 
-instance Core.ToJSON AmazonElasticsearchParameters where
+instance Data.ToJSON AmazonElasticsearchParameters where
   toJSON AmazonElasticsearchParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Domain" Core..= domain)]
+          [Prelude.Just ("Domain" Data..= domain)]
       )

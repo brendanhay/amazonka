@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -147,11 +148,11 @@ instance Core.AWSRequest UpdateDashboardPermissions where
     Response.receiveJSON
       ( \s h x ->
           UpdateDashboardPermissionsResponse'
-            Prelude.<$> (x Core..?> "LinkSharingConfiguration")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Permissions")
-            Prelude.<*> (x Core..?> "DashboardId")
-            Prelude.<*> (x Core..?> "DashboardArn")
+            Prelude.<$> (x Data..?> "LinkSharingConfiguration")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "DashboardId")
+            Prelude.<*> (x Data..?> "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,43 +174,43 @@ instance Prelude.NFData UpdateDashboardPermissions where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
 
-instance Core.ToHeaders UpdateDashboardPermissions where
+instance Data.ToHeaders UpdateDashboardPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDashboardPermissions where
+instance Data.ToJSON UpdateDashboardPermissions where
   toJSON UpdateDashboardPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantPermissions" Core..=)
+          [ ("GrantPermissions" Data..=)
               Prelude.<$> grantPermissions,
-            ("RevokeLinkPermissions" Core..=)
+            ("RevokeLinkPermissions" Data..=)
               Prelude.<$> revokeLinkPermissions,
-            ("GrantLinkPermissions" Core..=)
+            ("GrantLinkPermissions" Data..=)
               Prelude.<$> grantLinkPermissions,
-            ("RevokePermissions" Core..=)
+            ("RevokePermissions" Data..=)
               Prelude.<$> revokePermissions
           ]
       )
 
-instance Core.ToPath UpdateDashboardPermissions where
+instance Data.ToPath UpdateDashboardPermissions where
   toPath UpdateDashboardPermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/dashboards/",
-        Core.toBS dashboardId,
+        Data.toBS dashboardId,
         "/permissions"
       ]
 
-instance Core.ToQuery UpdateDashboardPermissions where
+instance Data.ToQuery UpdateDashboardPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDashboardPermissionsResponse' smart constructor.

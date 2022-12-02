@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RelationalTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.InputColumn
 
@@ -101,17 +102,17 @@ relationalTable_name = Lens.lens (\RelationalTable' {name} -> name) (\s@Relation
 relationalTable_inputColumns :: Lens.Lens' RelationalTable (Prelude.NonEmpty InputColumn)
 relationalTable_inputColumns = Lens.lens (\RelationalTable' {inputColumns} -> inputColumns) (\s@RelationalTable' {} a -> s {inputColumns = a} :: RelationalTable) Prelude.. Lens.coerced
 
-instance Core.FromJSON RelationalTable where
+instance Data.FromJSON RelationalTable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationalTable"
       ( \x ->
           RelationalTable'
-            Prelude.<$> (x Core..:? "Catalog")
-            Prelude.<*> (x Core..:? "Schema")
-            Prelude.<*> (x Core..: "DataSourceArn")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "InputColumns")
+            Prelude.<$> (x Data..:? "Catalog")
+            Prelude.<*> (x Data..:? "Schema")
+            Prelude.<*> (x Data..: "DataSourceArn")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "InputColumns")
       )
 
 instance Prelude.Hashable RelationalTable where
@@ -130,14 +131,14 @@ instance Prelude.NFData RelationalTable where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputColumns
 
-instance Core.ToJSON RelationalTable where
+instance Data.ToJSON RelationalTable where
   toJSON RelationalTable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Catalog" Core..=) Prelude.<$> catalog,
-            ("Schema" Core..=) Prelude.<$> schema,
-            Prelude.Just ("DataSourceArn" Core..= dataSourceArn),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("InputColumns" Core..= inputColumns)
+          [ ("Catalog" Data..=) Prelude.<$> catalog,
+            ("Schema" Data..=) Prelude.<$> schema,
+            Prelude.Just ("DataSourceArn" Data..= dataSourceArn),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("InputColumns" Data..= inputColumns)
           ]
       )

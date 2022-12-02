@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DashboardVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardError
 import Amazonka.QuickSight.Types.ResourceStatus
@@ -35,7 +36,7 @@ data DashboardVersion = DashboardVersion'
     -- | The ARN of the theme associated with a version of the dashboard.
     themeArn :: Prelude.Maybe Prelude.Text,
     -- | The time that this dashboard version was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -111,7 +112,7 @@ dashboardVersion_themeArn = Lens.lens (\DashboardVersion' {themeArn} -> themeArn
 
 -- | The time that this dashboard version was created.
 dashboardVersion_createdTime :: Lens.Lens' DashboardVersion (Prelude.Maybe Prelude.UTCTime)
-dashboardVersion_createdTime = Lens.lens (\DashboardVersion' {createdTime} -> createdTime) (\s@DashboardVersion' {} a -> s {createdTime = a} :: DashboardVersion) Prelude.. Lens.mapping Core._Time
+dashboardVersion_createdTime = Lens.lens (\DashboardVersion' {createdTime} -> createdTime) (\s@DashboardVersion' {} a -> s {createdTime = a} :: DashboardVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the resource.
 dashboardVersion_arn :: Lens.Lens' DashboardVersion (Prelude.Maybe Prelude.Text)
@@ -143,22 +144,22 @@ dashboardVersion_versionNumber = Lens.lens (\DashboardVersion' {versionNumber} -
 dashboardVersion_sheets :: Lens.Lens' DashboardVersion (Prelude.Maybe [Sheet])
 dashboardVersion_sheets = Lens.lens (\DashboardVersion' {sheets} -> sheets) (\s@DashboardVersion' {} a -> s {sheets = a} :: DashboardVersion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DashboardVersion where
+instance Data.FromJSON DashboardVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashboardVersion"
       ( \x ->
           DashboardVersion'
-            Prelude.<$> (x Core..:? "SourceEntityArn")
-            Prelude.<*> (x Core..:? "ThemeArn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Errors")
-            Prelude.<*> (x Core..:? "DataSetArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VersionNumber")
-            Prelude.<*> (x Core..:? "Sheets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SourceEntityArn")
+            Prelude.<*> (x Data..:? "ThemeArn")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Errors")
+            Prelude.<*> (x Data..:? "DataSetArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VersionNumber")
+            Prelude.<*> (x Data..:? "Sheets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DashboardVersion where

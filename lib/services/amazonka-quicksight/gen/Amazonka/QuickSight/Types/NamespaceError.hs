@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.NamespaceError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.NamespaceErrorType
 
@@ -62,14 +63,14 @@ namespaceError_message = Lens.lens (\NamespaceError' {message} -> message) (\s@N
 namespaceError_type :: Lens.Lens' NamespaceError (Prelude.Maybe NamespaceErrorType)
 namespaceError_type = Lens.lens (\NamespaceError' {type'} -> type') (\s@NamespaceError' {} a -> s {type' = a} :: NamespaceError)
 
-instance Core.FromJSON NamespaceError where
+instance Data.FromJSON NamespaceError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NamespaceError"
       ( \x ->
           NamespaceError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable NamespaceError where

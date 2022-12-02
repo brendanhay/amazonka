@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TileLayoutStyle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.GutterStyle
 import Amazonka.QuickSight.Types.MarginStyle
@@ -63,14 +64,14 @@ tileLayoutStyle_gutter = Lens.lens (\TileLayoutStyle' {gutter} -> gutter) (\s@Ti
 tileLayoutStyle_margin :: Lens.Lens' TileLayoutStyle (Prelude.Maybe MarginStyle)
 tileLayoutStyle_margin = Lens.lens (\TileLayoutStyle' {margin} -> margin) (\s@TileLayoutStyle' {} a -> s {margin = a} :: TileLayoutStyle)
 
-instance Core.FromJSON TileLayoutStyle where
+instance Data.FromJSON TileLayoutStyle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TileLayoutStyle"
       ( \x ->
           TileLayoutStyle'
-            Prelude.<$> (x Core..:? "Gutter")
-            Prelude.<*> (x Core..:? "Margin")
+            Prelude.<$> (x Data..:? "Gutter")
+            Prelude.<*> (x Data..:? "Margin")
       )
 
 instance Prelude.Hashable TileLayoutStyle where
@@ -82,11 +83,11 @@ instance Prelude.NFData TileLayoutStyle where
   rnf TileLayoutStyle' {..} =
     Prelude.rnf gutter `Prelude.seq` Prelude.rnf margin
 
-instance Core.ToJSON TileLayoutStyle where
+instance Data.ToJSON TileLayoutStyle where
   toJSON TileLayoutStyle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Gutter" Core..=) Prelude.<$> gutter,
-            ("Margin" Core..=) Prelude.<$> margin
+          [ ("Gutter" Data..=) Prelude.<$> gutter,
+            ("Margin" Data..=) Prelude.<$> margin
           ]
       )

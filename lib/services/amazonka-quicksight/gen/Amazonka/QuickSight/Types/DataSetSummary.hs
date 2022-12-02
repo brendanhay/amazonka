@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSetImportMode
 import Amazonka.QuickSight.Types.RowLevelPermissionDataSet
@@ -35,11 +36,11 @@ data DataSetSummary = DataSetSummary'
     -- configured.
     columnLevelPermissionRulesApplied :: Prelude.Maybe Prelude.Bool,
     -- | The time that this dataset was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the dataset.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The last time that this dataset was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The row-level security configuration for the dataset.
     rowLevelPermissionDataSet :: Prelude.Maybe RowLevelPermissionDataSet,
     -- | Whether or not the row level permission tags are applied.
@@ -104,7 +105,7 @@ dataSetSummary_columnLevelPermissionRulesApplied = Lens.lens (\DataSetSummary' {
 
 -- | The time that this dataset was created.
 dataSetSummary_createdTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
-dataSetSummary_createdTime = Lens.lens (\DataSetSummary' {createdTime} -> createdTime) (\s@DataSetSummary' {} a -> s {createdTime = a} :: DataSetSummary) Prelude.. Lens.mapping Core._Time
+dataSetSummary_createdTime = Lens.lens (\DataSetSummary' {createdTime} -> createdTime) (\s@DataSetSummary' {} a -> s {createdTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the dataset.
 dataSetSummary_arn :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
@@ -112,7 +113,7 @@ dataSetSummary_arn = Lens.lens (\DataSetSummary' {arn} -> arn) (\s@DataSetSummar
 
 -- | The last time that this dataset was updated.
 dataSetSummary_lastUpdatedTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
-dataSetSummary_lastUpdatedTime = Lens.lens (\DataSetSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSetSummary' {} a -> s {lastUpdatedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Core._Time
+dataSetSummary_lastUpdatedTime = Lens.lens (\DataSetSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSetSummary' {} a -> s {lastUpdatedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The row-level security configuration for the dataset.
 dataSetSummary_rowLevelPermissionDataSet :: Lens.Lens' DataSetSummary (Prelude.Maybe RowLevelPermissionDataSet)
@@ -130,23 +131,23 @@ dataSetSummary_dataSetId = Lens.lens (\DataSetSummary' {dataSetId} -> dataSetId)
 dataSetSummary_importMode :: Lens.Lens' DataSetSummary (Prelude.Maybe DataSetImportMode)
 dataSetSummary_importMode = Lens.lens (\DataSetSummary' {importMode} -> importMode) (\s@DataSetSummary' {} a -> s {importMode = a} :: DataSetSummary)
 
-instance Core.FromJSON DataSetSummary where
+instance Data.FromJSON DataSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSetSummary"
       ( \x ->
           DataSetSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ColumnLevelPermissionRulesApplied")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "RowLevelPermissionDataSet")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ColumnLevelPermissionRulesApplied")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "RowLevelPermissionDataSet")
             Prelude.<*> ( x
-                            Core..:? "RowLevelPermissionTagConfigurationApplied"
+                            Data..:? "RowLevelPermissionTagConfigurationApplied"
                         )
-            Prelude.<*> (x Core..:? "DataSetId")
-            Prelude.<*> (x Core..:? "ImportMode")
+            Prelude.<*> (x Data..:? "DataSetId")
+            Prelude.<*> (x Data..:? "ImportMode")
       )
 
 instance Prelude.Hashable DataSetSummary where

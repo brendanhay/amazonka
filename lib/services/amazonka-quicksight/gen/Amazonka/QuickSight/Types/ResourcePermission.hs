@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ResourcePermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Permission for the resource.
@@ -101,14 +102,14 @@ resourcePermission_principal = Lens.lens (\ResourcePermission' {principal} -> pr
 resourcePermission_actions :: Lens.Lens' ResourcePermission (Prelude.NonEmpty Prelude.Text)
 resourcePermission_actions = Lens.lens (\ResourcePermission' {actions} -> actions) (\s@ResourcePermission' {} a -> s {actions = a} :: ResourcePermission) Prelude.. Lens.coerced
 
-instance Core.FromJSON ResourcePermission where
+instance Data.FromJSON ResourcePermission where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcePermission"
       ( \x ->
           ResourcePermission'
-            Prelude.<$> (x Core..: "Principal")
-            Prelude.<*> (x Core..: "Actions")
+            Prelude.<$> (x Data..: "Principal")
+            Prelude.<*> (x Data..: "Actions")
       )
 
 instance Prelude.Hashable ResourcePermission where
@@ -121,11 +122,11 @@ instance Prelude.NFData ResourcePermission where
     Prelude.rnf principal
       `Prelude.seq` Prelude.rnf actions
 
-instance Core.ToJSON ResourcePermission where
+instance Data.ToJSON ResourcePermission where
   toJSON ResourcePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Principal" Core..= principal),
-            Prelude.Just ("Actions" Core..= actions)
+          [ Prelude.Just ("Principal" Data..= principal),
+            Prelude.Just ("Actions" Data..= actions)
           ]
       )

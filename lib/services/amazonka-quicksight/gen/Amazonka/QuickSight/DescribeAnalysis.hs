@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -107,8 +108,8 @@ instance Core.AWSRequest DescribeAnalysis where
     Response.receiveJSON
       ( \s h x ->
           DescribeAnalysisResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Analysis")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Analysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,27 +123,27 @@ instance Prelude.NFData DescribeAnalysis where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf analysisId
 
-instance Core.ToHeaders DescribeAnalysis where
+instance Data.ToHeaders DescribeAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAnalysis where
+instance Data.ToPath DescribeAnalysis where
   toPath DescribeAnalysis' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/analyses/",
-        Core.toBS analysisId
+        Data.toBS analysisId
       ]
 
-instance Core.ToQuery DescribeAnalysis where
+instance Data.ToQuery DescribeAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAnalysisResponse' smart constructor.

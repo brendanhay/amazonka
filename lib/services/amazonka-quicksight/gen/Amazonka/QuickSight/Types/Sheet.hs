@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Sheet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A /sheet/, which is an object that contains a set of visuals that are
@@ -69,14 +70,14 @@ sheet_name = Lens.lens (\Sheet' {name} -> name) (\s@Sheet' {} a -> s {name = a} 
 sheet_sheetId :: Lens.Lens' Sheet (Prelude.Maybe Prelude.Text)
 sheet_sheetId = Lens.lens (\Sheet' {sheetId} -> sheetId) (\s@Sheet' {} a -> s {sheetId = a} :: Sheet)
 
-instance Core.FromJSON Sheet where
+instance Data.FromJSON Sheet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Sheet"
       ( \x ->
           Sheet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SheetId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SheetId")
       )
 
 instance Prelude.Hashable Sheet where

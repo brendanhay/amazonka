@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.JiraParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for Jira.
@@ -52,13 +53,13 @@ newJiraParameters pSiteBaseUrl_ =
 jiraParameters_siteBaseUrl :: Lens.Lens' JiraParameters Prelude.Text
 jiraParameters_siteBaseUrl = Lens.lens (\JiraParameters' {siteBaseUrl} -> siteBaseUrl) (\s@JiraParameters' {} a -> s {siteBaseUrl = a} :: JiraParameters)
 
-instance Core.FromJSON JiraParameters where
+instance Data.FromJSON JiraParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JiraParameters"
       ( \x ->
           JiraParameters'
-            Prelude.<$> (x Core..: "SiteBaseUrl")
+            Prelude.<$> (x Data..: "SiteBaseUrl")
       )
 
 instance Prelude.Hashable JiraParameters where
@@ -68,9 +69,9 @@ instance Prelude.Hashable JiraParameters where
 instance Prelude.NFData JiraParameters where
   rnf JiraParameters' {..} = Prelude.rnf siteBaseUrl
 
-instance Core.ToJSON JiraParameters where
+instance Data.ToJSON JiraParameters where
   toJSON JiraParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("SiteBaseUrl" Core..= siteBaseUrl)]
+          [Prelude.Just ("SiteBaseUrl" Data..= siteBaseUrl)]
       )

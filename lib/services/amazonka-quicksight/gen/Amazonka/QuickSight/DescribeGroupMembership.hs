@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest DescribeGroupMembership where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupMembershipResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "GroupMember")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "GroupMember")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,31 +154,31 @@ instance Prelude.NFData DescribeGroupMembership where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders DescribeGroupMembership where
+instance Data.ToHeaders DescribeGroupMembership where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeGroupMembership where
+instance Data.ToPath DescribeGroupMembership where
   toPath DescribeGroupMembership' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/namespaces/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/groups/",
-        Core.toBS groupName,
+        Data.toBS groupName,
         "/members/",
-        Core.toBS memberName
+        Data.toBS memberName
       ]
 
-instance Core.ToQuery DescribeGroupMembership where
+instance Data.ToQuery DescribeGroupMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGroupMembershipResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest DescribeIngestion where
     Response.receiveJSON
       ( \s h x ->
           DescribeIngestionResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Ingestion")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Ingestion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,29 +131,29 @@ instance Prelude.NFData DescribeIngestion where
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf ingestionId
 
-instance Core.ToHeaders DescribeIngestion where
+instance Data.ToHeaders DescribeIngestion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeIngestion where
+instance Data.ToPath DescribeIngestion where
   toPath DescribeIngestion' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sets/",
-        Core.toBS dataSetId,
+        Data.toBS dataSetId,
         "/ingestions/",
-        Core.toBS ingestionId
+        Data.toBS ingestionId
       ]
 
-instance Core.ToQuery DescribeIngestion where
+instance Data.ToQuery DescribeIngestion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIngestionResponse' smart constructor.

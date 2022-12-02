@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ExasolParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The required parameters for connecting to an Exasol data source.
@@ -62,13 +63,13 @@ exasolParameters_host = Lens.lens (\ExasolParameters' {host} -> host) (\s@Exasol
 exasolParameters_port :: Lens.Lens' ExasolParameters Prelude.Natural
 exasolParameters_port = Lens.lens (\ExasolParameters' {port} -> port) (\s@ExasolParameters' {} a -> s {port = a} :: ExasolParameters)
 
-instance Core.FromJSON ExasolParameters where
+instance Data.FromJSON ExasolParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExasolParameters"
       ( \x ->
           ExasolParameters'
-            Prelude.<$> (x Core..: "Host") Prelude.<*> (x Core..: "Port")
+            Prelude.<$> (x Data..: "Host") Prelude.<*> (x Data..: "Port")
       )
 
 instance Prelude.Hashable ExasolParameters where
@@ -80,11 +81,11 @@ instance Prelude.NFData ExasolParameters where
   rnf ExasolParameters' {..} =
     Prelude.rnf host `Prelude.seq` Prelude.rnf port
 
-instance Core.ToJSON ExasolParameters where
+instance Data.ToJSON ExasolParameters where
   toJSON ExasolParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Port" Core..= port)
+          [ Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Port" Data..= port)
           ]
       )

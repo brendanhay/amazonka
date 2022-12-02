@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.GroupSearchFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.GroupFilterAttribute
 import Amazonka.QuickSight.Types.GroupFilterOperator
@@ -105,12 +106,12 @@ instance Prelude.NFData GroupSearchFilter where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON GroupSearchFilter where
+instance Data.ToJSON GroupSearchFilter where
   toJSON GroupSearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Operator" Core..= operator),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Operator" Data..= operator),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -102,9 +103,9 @@ instance Core.AWSRequest DeleteDataSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteDataSetResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "DataSetId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "DataSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,27 +119,27 @@ instance Prelude.NFData DeleteDataSet where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSetId
 
-instance Core.ToHeaders DeleteDataSet where
+instance Data.ToHeaders DeleteDataSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDataSet where
+instance Data.ToPath DeleteDataSet where
   toPath DeleteDataSet' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sets/",
-        Core.toBS dataSetId
+        Data.toBS dataSetId
       ]
 
-instance Core.ToQuery DeleteDataSet where
+instance Data.ToQuery DeleteDataSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDataSetResponse' smart constructor.

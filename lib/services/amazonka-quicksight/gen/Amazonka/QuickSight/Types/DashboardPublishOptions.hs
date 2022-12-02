@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DashboardPublishOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AdHocFilteringOption
 import Amazonka.QuickSight.Types.ExportToCSVOption
@@ -86,15 +87,15 @@ instance Prelude.NFData DashboardPublishOptions where
       `Prelude.seq` Prelude.rnf sheetControlsOption
       `Prelude.seq` Prelude.rnf exportToCSVOption
 
-instance Core.ToJSON DashboardPublishOptions where
+instance Data.ToJSON DashboardPublishOptions where
   toJSON DashboardPublishOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdHocFilteringOption" Core..=)
+          [ ("AdHocFilteringOption" Data..=)
               Prelude.<$> adHocFilteringOption,
-            ("SheetControlsOption" Core..=)
+            ("SheetControlsOption" Data..=)
               Prelude.<$> sheetControlsOption,
-            ("ExportToCSVOption" Core..=)
+            ("ExportToCSVOption" Data..=)
               Prelude.<$> exportToCSVOption
           ]
       )

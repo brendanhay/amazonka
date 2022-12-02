@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.OutputColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnDataType
 
@@ -71,15 +72,15 @@ outputColumn_type = Lens.lens (\OutputColumn' {type'} -> type') (\s@OutputColumn
 outputColumn_description :: Lens.Lens' OutputColumn (Prelude.Maybe Prelude.Text)
 outputColumn_description = Lens.lens (\OutputColumn' {description} -> description) (\s@OutputColumn' {} a -> s {description = a} :: OutputColumn)
 
-instance Core.FromJSON OutputColumn where
+instance Data.FromJSON OutputColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputColumn"
       ( \x ->
           OutputColumn'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable OutputColumn where

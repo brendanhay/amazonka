@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest UpdateTemplateAlias where
     Response.receiveJSON
       ( \s h x ->
           UpdateTemplateAliasResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "TemplateAlias")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "TemplateAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,40 +161,40 @@ instance Prelude.NFData UpdateTemplateAlias where
       `Prelude.seq` Prelude.rnf aliasName
       `Prelude.seq` Prelude.rnf templateVersionNumber
 
-instance Core.ToHeaders UpdateTemplateAlias where
+instance Data.ToHeaders UpdateTemplateAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTemplateAlias where
+instance Data.ToJSON UpdateTemplateAlias where
   toJSON UpdateTemplateAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "TemplateVersionNumber"
-                  Core..= templateVersionNumber
+                  Data..= templateVersionNumber
               )
           ]
       )
 
-instance Core.ToPath UpdateTemplateAlias where
+instance Data.ToPath UpdateTemplateAlias where
   toPath UpdateTemplateAlias' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/templates/",
-        Core.toBS templateId,
+        Data.toBS templateId,
         "/aliases/",
-        Core.toBS aliasName
+        Data.toBS aliasName
       ]
 
-instance Core.ToQuery UpdateTemplateAlias where
+instance Data.ToQuery UpdateTemplateAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTemplateAliasResponse' smart constructor.

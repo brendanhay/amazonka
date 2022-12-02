@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TemplateAlias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The template alias.
@@ -71,15 +72,15 @@ templateAlias_arn = Lens.lens (\TemplateAlias' {arn} -> arn) (\s@TemplateAlias' 
 templateAlias_aliasName :: Lens.Lens' TemplateAlias (Prelude.Maybe Prelude.Text)
 templateAlias_aliasName = Lens.lens (\TemplateAlias' {aliasName} -> aliasName) (\s@TemplateAlias' {} a -> s {aliasName = a} :: TemplateAlias)
 
-instance Core.FromJSON TemplateAlias where
+instance Data.FromJSON TemplateAlias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateAlias"
       ( \x ->
           TemplateAlias'
-            Prelude.<$> (x Core..:? "TemplateVersionNumber")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "AliasName")
+            Prelude.<$> (x Data..:? "TemplateVersionNumber")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "AliasName")
       )
 
 instance Prelude.Hashable TemplateAlias where

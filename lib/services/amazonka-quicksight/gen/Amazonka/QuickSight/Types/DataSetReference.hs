@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSetReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Dataset reference.
@@ -76,12 +77,12 @@ instance Prelude.NFData DataSetReference where
     Prelude.rnf dataSetPlaceholder
       `Prelude.seq` Prelude.rnf dataSetArn
 
-instance Core.ToJSON DataSetReference where
+instance Data.ToJSON DataSetReference where
   toJSON DataSetReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DataSetPlaceholder" Core..= dataSetPlaceholder),
-            Prelude.Just ("DataSetArn" Core..= dataSetArn)
+              ("DataSetPlaceholder" Data..= dataSetPlaceholder),
+            Prelude.Just ("DataSetArn" Data..= dataSetArn)
           ]
       )

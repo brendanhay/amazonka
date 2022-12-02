@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -118,9 +119,9 @@ instance Core.AWSRequest DeleteTemplate where
     Response.receiveJSON
       ( \s h x ->
           DeleteTemplateResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "TemplateId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "TemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,30 +137,30 @@ instance Prelude.NFData DeleteTemplate where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf templateId
 
-instance Core.ToHeaders DeleteTemplate where
+instance Data.ToHeaders DeleteTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteTemplate where
+instance Data.ToPath DeleteTemplate where
   toPath DeleteTemplate' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/templates/",
-        Core.toBS templateId
+        Data.toBS templateId
       ]
 
-instance Core.ToQuery DeleteTemplate where
+instance Data.ToQuery DeleteTemplate where
   toQuery DeleteTemplate' {..} =
     Prelude.mconcat
-      ["version-number" Core.=: versionNumber]
+      ["version-number" Data.=: versionNumber]
 
 -- | /See:/ 'newDeleteTemplateResponse' smart constructor.
 data DeleteTemplateResponse = DeleteTemplateResponse'

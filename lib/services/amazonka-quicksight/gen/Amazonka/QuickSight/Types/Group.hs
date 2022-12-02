@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Group where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A /group/ in Amazon QuickSight consists of a set of users. You can use
@@ -80,16 +81,16 @@ group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -
 group_description :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group)
 
-instance Core.FromJSON Group where
+instance Data.FromJSON Group where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable Group where

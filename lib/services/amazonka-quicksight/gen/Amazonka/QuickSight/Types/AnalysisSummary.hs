@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AnalysisSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ResourceStatus
 
@@ -34,13 +35,13 @@ data AnalysisSummary = AnalysisSummary'
     -- QuickSight console.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time that the analysis was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the analysis.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The last known status for the analysis.
     status :: Prelude.Maybe ResourceStatus,
     -- | The time that the analysis was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,7 +88,7 @@ analysisSummary_name = Lens.lens (\AnalysisSummary' {name} -> name) (\s@Analysis
 
 -- | The time that the analysis was created.
 analysisSummary_createdTime :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.UTCTime)
-analysisSummary_createdTime = Lens.lens (\AnalysisSummary' {createdTime} -> createdTime) (\s@AnalysisSummary' {} a -> s {createdTime = a} :: AnalysisSummary) Prelude.. Lens.mapping Core._Time
+analysisSummary_createdTime = Lens.lens (\AnalysisSummary' {createdTime} -> createdTime) (\s@AnalysisSummary' {} a -> s {createdTime = a} :: AnalysisSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the analysis.
 analysisSummary_arn :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.Text)
@@ -99,20 +100,20 @@ analysisSummary_status = Lens.lens (\AnalysisSummary' {status} -> status) (\s@An
 
 -- | The time that the analysis was last updated.
 analysisSummary_lastUpdatedTime :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.UTCTime)
-analysisSummary_lastUpdatedTime = Lens.lens (\AnalysisSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@AnalysisSummary' {} a -> s {lastUpdatedTime = a} :: AnalysisSummary) Prelude.. Lens.mapping Core._Time
+analysisSummary_lastUpdatedTime = Lens.lens (\AnalysisSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@AnalysisSummary' {} a -> s {lastUpdatedTime = a} :: AnalysisSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AnalysisSummary where
+instance Data.FromJSON AnalysisSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnalysisSummary"
       ( \x ->
           AnalysisSummary'
-            Prelude.<$> (x Core..:? "AnalysisId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<$> (x Data..:? "AnalysisId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
       )
 
 instance Prelude.Hashable AnalysisSummary where

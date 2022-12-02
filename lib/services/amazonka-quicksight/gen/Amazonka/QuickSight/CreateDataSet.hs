@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -253,11 +254,11 @@ instance Core.AWSRequest CreateDataSet where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSetResponse'
-            Prelude.<$> (x Core..?> "IngestionArn")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "IngestionId")
+            Prelude.<$> (x Data..?> "IngestionArn")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "DataSetId")
+            Prelude.<*> (x Data..?> "IngestionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -295,49 +296,49 @@ instance Prelude.NFData CreateDataSet where
       `Prelude.seq` Prelude.rnf physicalTableMap
       `Prelude.seq` Prelude.rnf importMode
 
-instance Core.ToHeaders CreateDataSet where
+instance Data.ToHeaders CreateDataSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataSet where
+instance Data.ToJSON CreateDataSet where
   toJSON CreateDataSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ColumnLevelPermissionRules" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ColumnLevelPermissionRules" Data..=)
               Prelude.<$> columnLevelPermissionRules,
-            ("DataSetUsageConfiguration" Core..=)
+            ("DataSetUsageConfiguration" Data..=)
               Prelude.<$> dataSetUsageConfiguration,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("RowLevelPermissionTagConfiguration" Core..=)
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("RowLevelPermissionTagConfiguration" Data..=)
               Prelude.<$> rowLevelPermissionTagConfiguration,
-            ("ColumnGroups" Core..=) Prelude.<$> columnGroups,
-            ("FieldFolders" Core..=) Prelude.<$> fieldFolders,
-            ("RowLevelPermissionDataSet" Core..=)
+            ("ColumnGroups" Data..=) Prelude.<$> columnGroups,
+            ("FieldFolders" Data..=) Prelude.<$> fieldFolders,
+            ("RowLevelPermissionDataSet" Data..=)
               Prelude.<$> rowLevelPermissionDataSet,
-            ("LogicalTableMap" Core..=)
+            ("LogicalTableMap" Data..=)
               Prelude.<$> logicalTableMap,
-            Prelude.Just ("DataSetId" Core..= dataSetId),
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("DataSetId" Data..= dataSetId),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("PhysicalTableMap" Core..= physicalTableMap),
-            Prelude.Just ("ImportMode" Core..= importMode)
+              ("PhysicalTableMap" Data..= physicalTableMap),
+            Prelude.Just ("ImportMode" Data..= importMode)
           ]
       )
 
-instance Core.ToPath CreateDataSet where
+instance Data.ToPath CreateDataSet where
   toPath CreateDataSet' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId, "/data-sets"]
+      ["/accounts/", Data.toBS awsAccountId, "/data-sets"]
 
-instance Core.ToQuery CreateDataSet where
+instance Data.ToQuery CreateDataSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataSetResponse' smart constructor.

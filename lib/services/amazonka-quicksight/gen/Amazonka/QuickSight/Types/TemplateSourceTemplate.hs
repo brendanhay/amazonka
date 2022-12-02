@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TemplateSourceTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source template of the template.
@@ -59,9 +60,9 @@ instance Prelude.Hashable TemplateSourceTemplate where
 instance Prelude.NFData TemplateSourceTemplate where
   rnf TemplateSourceTemplate' {..} = Prelude.rnf arn
 
-instance Core.ToJSON TemplateSourceTemplate where
+instance Data.ToJSON TemplateSourceTemplate where
   toJSON TemplateSourceTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Arn" Core..= arn)]
+          [Prelude.Just ("Arn" Data..= arn)]
       )

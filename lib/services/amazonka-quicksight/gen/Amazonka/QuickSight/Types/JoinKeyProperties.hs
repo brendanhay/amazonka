@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.JoinKeyProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties associated with the columns participating in a join.
@@ -56,13 +57,13 @@ newJoinKeyProperties =
 joinKeyProperties_uniqueKey :: Lens.Lens' JoinKeyProperties (Prelude.Maybe Prelude.Bool)
 joinKeyProperties_uniqueKey = Lens.lens (\JoinKeyProperties' {uniqueKey} -> uniqueKey) (\s@JoinKeyProperties' {} a -> s {uniqueKey = a} :: JoinKeyProperties)
 
-instance Core.FromJSON JoinKeyProperties where
+instance Data.FromJSON JoinKeyProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JoinKeyProperties"
       ( \x ->
           JoinKeyProperties'
-            Prelude.<$> (x Core..:? "UniqueKey")
+            Prelude.<$> (x Data..:? "UniqueKey")
       )
 
 instance Prelude.Hashable JoinKeyProperties where
@@ -72,9 +73,9 @@ instance Prelude.Hashable JoinKeyProperties where
 instance Prelude.NFData JoinKeyProperties where
   rnf JoinKeyProperties' {..} = Prelude.rnf uniqueKey
 
-instance Core.ToJSON JoinKeyProperties where
+instance Data.ToJSON JoinKeyProperties where
   toJSON JoinKeyProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("UniqueKey" Core..=) Prelude.<$> uniqueKey]
+          [("UniqueKey" Data..=) Prelude.<$> uniqueKey]
       )

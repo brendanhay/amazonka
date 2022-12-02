@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -143,11 +144,11 @@ instance Core.AWSRequest SearchDataSets where
     Response.receiveJSON
       ( \s h x ->
           SearchDataSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DataSetSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DataSetSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,36 +166,36 @@ instance Prelude.NFData SearchDataSets where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders SearchDataSets where
+instance Data.ToHeaders SearchDataSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchDataSets where
+instance Data.ToJSON SearchDataSets where
   toJSON SearchDataSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Filters" Core..= filters)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath SearchDataSets where
+instance Data.ToPath SearchDataSets where
   toPath SearchDataSets' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/search/data-sets"
       ]
 
-instance Core.ToQuery SearchDataSets where
+instance Data.ToQuery SearchDataSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchDataSetsResponse' smart constructor.

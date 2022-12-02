@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DecimalParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A decimal parameter.
@@ -72,11 +73,11 @@ instance Prelude.NFData DecimalParameter where
   rnf DecimalParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON DecimalParameter where
+instance Data.ToJSON DecimalParameter where
   toJSON DecimalParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

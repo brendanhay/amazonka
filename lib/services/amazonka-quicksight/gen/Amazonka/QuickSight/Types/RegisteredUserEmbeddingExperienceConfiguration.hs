@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.RegisteredUserDashboardEmbeddingConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserDashboardVisualEmbeddingConfiguration
@@ -199,18 +200,18 @@ instance
         `Prelude.seq` Prelude.rnf quickSightConsole
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RegisteredUserEmbeddingExperienceConfiguration
   where
   toJSON
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("DashboardVisual" Core..=)
+            [ ("DashboardVisual" Data..=)
                 Prelude.<$> dashboardVisual,
-              ("Dashboard" Core..=) Prelude.<$> dashboard,
-              ("QSearchBar" Core..=) Prelude.<$> qSearchBar,
-              ("QuickSightConsole" Core..=)
+              ("Dashboard" Data..=) Prelude.<$> dashboard,
+              ("QSearchBar" Data..=) Prelude.<$> qSearchBar,
+              ("QuickSightConsole" Data..=)
                 Prelude.<$> quickSightConsole
             ]
         )

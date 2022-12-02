@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -131,9 +132,9 @@ instance Core.AWSRequest UpdateDataSourcePermissions where
     Response.receiveJSON
       ( \s h x ->
           UpdateDataSourcePermissionsResponse'
-            Prelude.<$> (x Core..?> "DataSourceArn")
-            Prelude.<*> (x Core..?> "DataSourceId")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "DataSourceArn")
+            Prelude.<*> (x Data..?> "DataSourceId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,39 +152,39 @@ instance Prelude.NFData UpdateDataSourcePermissions where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSourceId
 
-instance Core.ToHeaders UpdateDataSourcePermissions where
+instance Data.ToHeaders UpdateDataSourcePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataSourcePermissions where
+instance Data.ToJSON UpdateDataSourcePermissions where
   toJSON UpdateDataSourcePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantPermissions" Core..=)
+          [ ("GrantPermissions" Data..=)
               Prelude.<$> grantPermissions,
-            ("RevokePermissions" Core..=)
+            ("RevokePermissions" Data..=)
               Prelude.<$> revokePermissions
           ]
       )
 
-instance Core.ToPath UpdateDataSourcePermissions where
+instance Data.ToPath UpdateDataSourcePermissions where
   toPath UpdateDataSourcePermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sources/",
-        Core.toBS dataSourceId,
+        Data.toBS dataSourceId,
         "/permissions"
       ]
 
-instance Core.ToQuery UpdateDataSourcePermissions where
+instance Data.ToQuery UpdateDataSourcePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataSourcePermissionsResponse' smart constructor.

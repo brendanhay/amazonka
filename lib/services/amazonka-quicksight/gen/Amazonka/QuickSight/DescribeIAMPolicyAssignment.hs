@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -118,8 +119,8 @@ instance Core.AWSRequest DescribeIAMPolicyAssignment where
     Response.receiveJSON
       ( \s h x ->
           DescribeIAMPolicyAssignmentResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "IAMPolicyAssignment")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "IAMPolicyAssignment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,29 +136,29 @@ instance Prelude.NFData DescribeIAMPolicyAssignment where
       `Prelude.seq` Prelude.rnf assignmentName
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders DescribeIAMPolicyAssignment where
+instance Data.ToHeaders DescribeIAMPolicyAssignment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeIAMPolicyAssignment where
+instance Data.ToPath DescribeIAMPolicyAssignment where
   toPath DescribeIAMPolicyAssignment' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/namespaces/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/iam-policy-assignments/",
-        Core.toBS assignmentName
+        Data.toBS assignmentName
       ]
 
-instance Core.ToQuery DescribeIAMPolicyAssignment where
+instance Data.ToQuery DescribeIAMPolicyAssignment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeIAMPolicyAssignmentResponse' smart constructor.

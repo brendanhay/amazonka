@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Parameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DateTimeParameter
 import Amazonka.QuickSight.Types.DecimalParameter
@@ -97,17 +98,17 @@ instance Prelude.NFData Parameters where
       `Prelude.seq` Prelude.rnf integerParameters
       `Prelude.seq` Prelude.rnf stringParameters
 
-instance Core.ToJSON Parameters where
+instance Data.ToJSON Parameters where
   toJSON Parameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DecimalParameters" Core..=)
+          [ ("DecimalParameters" Data..=)
               Prelude.<$> decimalParameters,
-            ("DateTimeParameters" Core..=)
+            ("DateTimeParameters" Data..=)
               Prelude.<$> dateTimeParameters,
-            ("IntegerParameters" Core..=)
+            ("IntegerParameters" Data..=)
               Prelude.<$> integerParameters,
-            ("StringParameters" Core..=)
+            ("StringParameters" Data..=)
               Prelude.<$> stringParameters
           ]
       )

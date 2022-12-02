@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest DeleteFolderMembership where
     Response.receiveJSON
       ( \s h x ->
           DeleteFolderMembershipResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,31 +151,31 @@ instance Prelude.NFData DeleteFolderMembership where
       `Prelude.seq` Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf memberType
 
-instance Core.ToHeaders DeleteFolderMembership where
+instance Data.ToHeaders DeleteFolderMembership where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteFolderMembership where
+instance Data.ToPath DeleteFolderMembership where
   toPath DeleteFolderMembership' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId,
+        Data.toBS folderId,
         "/members/",
-        Core.toBS memberType,
+        Data.toBS memberType,
         "/",
-        Core.toBS memberId
+        Data.toBS memberId
       ]
 
-instance Core.ToQuery DeleteFolderMembership where
+instance Data.ToQuery DeleteFolderMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFolderMembershipResponse' smart constructor.

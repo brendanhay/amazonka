@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.MySqlParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for MySQL.
@@ -76,15 +77,15 @@ mySqlParameters_port = Lens.lens (\MySqlParameters' {port} -> port) (\s@MySqlPar
 mySqlParameters_database :: Lens.Lens' MySqlParameters Prelude.Text
 mySqlParameters_database = Lens.lens (\MySqlParameters' {database} -> database) (\s@MySqlParameters' {} a -> s {database = a} :: MySqlParameters)
 
-instance Core.FromJSON MySqlParameters where
+instance Data.FromJSON MySqlParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MySqlParameters"
       ( \x ->
           MySqlParameters'
-            Prelude.<$> (x Core..: "Host")
-            Prelude.<*> (x Core..: "Port")
-            Prelude.<*> (x Core..: "Database")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
+            Prelude.<*> (x Data..: "Database")
       )
 
 instance Prelude.Hashable MySqlParameters where
@@ -99,12 +100,12 @@ instance Prelude.NFData MySqlParameters where
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf database
 
-instance Core.ToJSON MySqlParameters where
+instance Data.ToJSON MySqlParameters where
   toJSON MySqlParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Port" Core..= port),
-            Prelude.Just ("Database" Core..= database)
+          [ Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Port" Data..= port),
+            Prelude.Just ("Database" Data..= database)
           ]
       )

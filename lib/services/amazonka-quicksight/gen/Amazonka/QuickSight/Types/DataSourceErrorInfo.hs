@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSourceErrorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSourceErrorInfoType
 
@@ -62,14 +63,14 @@ dataSourceErrorInfo_message = Lens.lens (\DataSourceErrorInfo' {message} -> mess
 dataSourceErrorInfo_type :: Lens.Lens' DataSourceErrorInfo (Prelude.Maybe DataSourceErrorInfoType)
 dataSourceErrorInfo_type = Lens.lens (\DataSourceErrorInfo' {type'} -> type') (\s@DataSourceErrorInfo' {} a -> s {type' = a} :: DataSourceErrorInfo)
 
-instance Core.FromJSON DataSourceErrorInfo where
+instance Data.FromJSON DataSourceErrorInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceErrorInfo"
       ( \x ->
           DataSourceErrorInfo'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable DataSourceErrorInfo where

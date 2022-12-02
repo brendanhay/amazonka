@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ThemeAlias where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An alias for a theme.
@@ -70,15 +71,15 @@ themeAlias_aliasName = Lens.lens (\ThemeAlias' {aliasName} -> aliasName) (\s@The
 themeAlias_themeVersionNumber :: Lens.Lens' ThemeAlias (Prelude.Maybe Prelude.Natural)
 themeAlias_themeVersionNumber = Lens.lens (\ThemeAlias' {themeVersionNumber} -> themeVersionNumber) (\s@ThemeAlias' {} a -> s {themeVersionNumber = a} :: ThemeAlias)
 
-instance Core.FromJSON ThemeAlias where
+instance Data.FromJSON ThemeAlias where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThemeAlias"
       ( \x ->
           ThemeAlias'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "AliasName")
-            Prelude.<*> (x Core..:? "ThemeVersionNumber")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "AliasName")
+            Prelude.<*> (x Data..:? "ThemeVersionNumber")
       )
 
 instance Prelude.Hashable ThemeAlias where

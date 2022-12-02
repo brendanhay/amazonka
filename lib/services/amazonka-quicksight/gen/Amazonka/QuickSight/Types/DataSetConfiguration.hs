@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSetConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnGroupSchema
 import Amazonka.QuickSight.Types.DataSetSchema
@@ -73,17 +74,17 @@ dataSetConfiguration_columnGroupSchemaList = Lens.lens (\DataSetConfiguration' {
 dataSetConfiguration_placeholder :: Lens.Lens' DataSetConfiguration (Prelude.Maybe Prelude.Text)
 dataSetConfiguration_placeholder = Lens.lens (\DataSetConfiguration' {placeholder} -> placeholder) (\s@DataSetConfiguration' {} a -> s {placeholder = a} :: DataSetConfiguration)
 
-instance Core.FromJSON DataSetConfiguration where
+instance Data.FromJSON DataSetConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSetConfiguration"
       ( \x ->
           DataSetConfiguration'
-            Prelude.<$> (x Core..:? "DataSetSchema")
-            Prelude.<*> ( x Core..:? "ColumnGroupSchemaList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DataSetSchema")
+            Prelude.<*> ( x Data..:? "ColumnGroupSchemaList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Placeholder")
+            Prelude.<*> (x Data..:? "Placeholder")
       )
 
 instance Prelude.Hashable DataSetConfiguration where

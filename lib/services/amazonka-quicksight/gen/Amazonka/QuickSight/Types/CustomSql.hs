@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.CustomSql where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.InputColumn
 
@@ -86,16 +87,16 @@ customSql_name = Lens.lens (\CustomSql' {name} -> name) (\s@CustomSql' {} a -> s
 customSql_sqlQuery :: Lens.Lens' CustomSql Prelude.Text
 customSql_sqlQuery = Lens.lens (\CustomSql' {sqlQuery} -> sqlQuery) (\s@CustomSql' {} a -> s {sqlQuery = a} :: CustomSql)
 
-instance Core.FromJSON CustomSql where
+instance Data.FromJSON CustomSql where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomSql"
       ( \x ->
           CustomSql'
-            Prelude.<$> (x Core..:? "Columns")
-            Prelude.<*> (x Core..: "DataSourceArn")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "SqlQuery")
+            Prelude.<$> (x Data..:? "Columns")
+            Prelude.<*> (x Data..: "DataSourceArn")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "SqlQuery")
       )
 
 instance Prelude.Hashable CustomSql where
@@ -112,13 +113,13 @@ instance Prelude.NFData CustomSql where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sqlQuery
 
-instance Core.ToJSON CustomSql where
+instance Data.ToJSON CustomSql where
   toJSON CustomSql' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Columns" Core..=) Prelude.<$> columns,
-            Prelude.Just ("DataSourceArn" Core..= dataSourceArn),
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SqlQuery" Core..= sqlQuery)
+          [ ("Columns" Data..=) Prelude.<$> columns,
+            Prelude.Just ("DataSourceArn" Data..= dataSourceArn),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SqlQuery" Data..= sqlQuery)
           ]
       )

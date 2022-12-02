@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest DeleteAccountSubscription where
     Response.receiveJSON
       ( \s h x ->
           DeleteAccountSubscriptionResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,23 +108,23 @@ instance Prelude.NFData DeleteAccountSubscription where
   rnf DeleteAccountSubscription' {..} =
     Prelude.rnf awsAccountId
 
-instance Core.ToHeaders DeleteAccountSubscription where
+instance Data.ToHeaders DeleteAccountSubscription where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteAccountSubscription where
+instance Data.ToPath DeleteAccountSubscription where
   toPath DeleteAccountSubscription' {..} =
     Prelude.mconcat
-      ["/account/", Core.toBS awsAccountId]
+      ["/account/", Data.toBS awsAccountId]
 
-instance Core.ToQuery DeleteAccountSubscription where
+instance Data.ToQuery DeleteAccountSubscription where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAccountSubscriptionResponse' smart constructor.

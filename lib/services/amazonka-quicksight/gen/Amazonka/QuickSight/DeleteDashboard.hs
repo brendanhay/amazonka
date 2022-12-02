@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -115,9 +116,9 @@ instance Core.AWSRequest DeleteDashboard where
     Response.receiveJSON
       ( \s h x ->
           DeleteDashboardResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "DashboardId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "DashboardId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,30 +134,30 @@ instance Prelude.NFData DeleteDashboard where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
 
-instance Core.ToHeaders DeleteDashboard where
+instance Data.ToHeaders DeleteDashboard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDashboard where
+instance Data.ToPath DeleteDashboard where
   toPath DeleteDashboard' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/dashboards/",
-        Core.toBS dashboardId
+        Data.toBS dashboardId
       ]
 
-instance Core.ToQuery DeleteDashboard where
+instance Data.ToQuery DeleteDashboard where
   toQuery DeleteDashboard' {..} =
     Prelude.mconcat
-      ["version-number" Core.=: versionNumber]
+      ["version-number" Data.=: versionNumber]
 
 -- | /See:/ 'newDeleteDashboardResponse' smart constructor.
 data DeleteDashboardResponse = DeleteDashboardResponse'

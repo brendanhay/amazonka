@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DashboardSearchFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardFilterAttribute
 import Amazonka.QuickSight.Types.FilterOperator
@@ -227,12 +228,12 @@ instance Prelude.NFData DashboardSearchFilter where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON DashboardSearchFilter where
+instance Data.ToJSON DashboardSearchFilter where
   toJSON DashboardSearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Operator" Core..= operator)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Operator" Data..= operator)
           ]
       )

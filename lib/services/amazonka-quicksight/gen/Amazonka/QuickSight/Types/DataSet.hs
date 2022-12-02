@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnGroup
 import Amazonka.QuickSight.Types.ColumnLevelPermissionRule
@@ -42,7 +43,7 @@ data DataSet = DataSet'
     -- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
     columnLevelPermissionRules :: Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule),
     -- | The time that this dataset was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The usage configuration to apply to child datasets that reference this
     -- dataset as a source.
     dataSetUsageConfiguration :: Prelude.Maybe DataSetUsageConfiguration,
@@ -57,7 +58,7 @@ data DataSet = DataSet'
     -- | The element you can use to define tags for row-level security.
     rowLevelPermissionTagConfiguration :: Prelude.Maybe RowLevelPermissionTagConfiguration,
     -- | The last time that this dataset was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | Groupings of columns that work together in certain Amazon QuickSight
     -- features. Currently, only geospatial hierarchy is supported.
     columnGroups :: Prelude.Maybe (Prelude.NonEmpty ColumnGroup),
@@ -155,7 +156,7 @@ dataSet_columnLevelPermissionRules = Lens.lens (\DataSet' {columnLevelPermission
 
 -- | The time that this dataset was created.
 dataSet_createdTime :: Lens.Lens' DataSet (Prelude.Maybe Prelude.UTCTime)
-dataSet_createdTime = Lens.lens (\DataSet' {createdTime} -> createdTime) (\s@DataSet' {} a -> s {createdTime = a} :: DataSet) Prelude.. Lens.mapping Core._Time
+dataSet_createdTime = Lens.lens (\DataSet' {createdTime} -> createdTime) (\s@DataSet' {} a -> s {createdTime = a} :: DataSet) Prelude.. Lens.mapping Data._Time
 
 -- | The usage configuration to apply to child datasets that reference this
 -- dataset as a source.
@@ -182,7 +183,7 @@ dataSet_rowLevelPermissionTagConfiguration = Lens.lens (\DataSet' {rowLevelPermi
 
 -- | The last time that this dataset was updated.
 dataSet_lastUpdatedTime :: Lens.Lens' DataSet (Prelude.Maybe Prelude.UTCTime)
-dataSet_lastUpdatedTime = Lens.lens (\DataSet' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSet' {} a -> s {lastUpdatedTime = a} :: DataSet) Prelude.. Lens.mapping Core._Time
+dataSet_lastUpdatedTime = Lens.lens (\DataSet' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSet' {} a -> s {lastUpdatedTime = a} :: DataSet) Prelude.. Lens.mapping Data._Time
 
 -- | Groupings of columns that work together in certain Amazon QuickSight
 -- features. Currently, only geospatial hierarchy is supported.
@@ -215,31 +216,31 @@ dataSet_importMode = Lens.lens (\DataSet' {importMode} -> importMode) (\s@DataSe
 dataSet_physicalTableMap :: Lens.Lens' DataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text PhysicalTable))
 dataSet_physicalTableMap = Lens.lens (\DataSet' {physicalTableMap} -> physicalTableMap) (\s@DataSet' {} a -> s {physicalTableMap = a} :: DataSet) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DataSet where
+instance Data.FromJSON DataSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSet"
       ( \x ->
           DataSet'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ColumnLevelPermissionRules")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "DataSetUsageConfiguration")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "OutputColumns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConsumedSpiceCapacityInBytes")
-            Prelude.<*> (x Core..:? "RowLevelPermissionTagConfiguration")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "ColumnGroups")
-            Prelude.<*> (x Core..:? "FieldFolders" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RowLevelPermissionDataSet")
-            Prelude.<*> (x Core..:? "DataSetId")
-            Prelude.<*> ( x Core..:? "LogicalTableMap"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ColumnLevelPermissionRules")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "DataSetUsageConfiguration")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "OutputColumns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ConsumedSpiceCapacityInBytes")
+            Prelude.<*> (x Data..:? "RowLevelPermissionTagConfiguration")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "ColumnGroups")
+            Prelude.<*> (x Data..:? "FieldFolders" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RowLevelPermissionDataSet")
+            Prelude.<*> (x Data..:? "DataSetId")
+            Prelude.<*> ( x Data..:? "LogicalTableMap"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ImportMode")
-            Prelude.<*> ( x Core..:? "PhysicalTableMap"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ImportMode")
+            Prelude.<*> ( x Data..:? "PhysicalTableMap"
+                            Data..!= Prelude.mempty
                         )
       )
 

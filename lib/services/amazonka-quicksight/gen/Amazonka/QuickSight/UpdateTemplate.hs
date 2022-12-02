@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -185,11 +186,11 @@ instance Core.AWSRequest UpdateTemplate where
     Response.receiveJSON
       ( \s h x ->
           UpdateTemplateResponse'
-            Prelude.<$> (x Core..?> "CreationStatus")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "TemplateId")
-            Prelude.<*> (x Core..?> "VersionArn")
+            Prelude.<$> (x Data..?> "CreationStatus")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "TemplateId")
+            Prelude.<*> (x Data..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,38 +210,38 @@ instance Prelude.NFData UpdateTemplate where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf sourceEntity
 
-instance Core.ToHeaders UpdateTemplate where
+instance Data.ToHeaders UpdateTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTemplate where
+instance Data.ToJSON UpdateTemplate where
   toJSON UpdateTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("VersionDescription" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("VersionDescription" Data..=)
               Prelude.<$> versionDescription,
-            Prelude.Just ("SourceEntity" Core..= sourceEntity)
+            Prelude.Just ("SourceEntity" Data..= sourceEntity)
           ]
       )
 
-instance Core.ToPath UpdateTemplate where
+instance Data.ToPath UpdateTemplate where
   toPath UpdateTemplate' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/templates/",
-        Core.toBS templateId
+        Data.toBS templateId
       ]
 
-instance Core.ToQuery UpdateTemplate where
+instance Data.ToQuery UpdateTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTemplateResponse' smart constructor.

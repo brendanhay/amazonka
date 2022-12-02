@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -139,8 +140,8 @@ instance Core.AWSRequest DescribeTheme where
     Response.receiveJSON
       ( \s h x ->
           DescribeThemeResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Theme")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Theme")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,31 +159,31 @@ instance Prelude.NFData DescribeTheme where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf themeId
 
-instance Core.ToHeaders DescribeTheme where
+instance Data.ToHeaders DescribeTheme where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeTheme where
+instance Data.ToPath DescribeTheme where
   toPath DescribeTheme' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/themes/",
-        Core.toBS themeId
+        Data.toBS themeId
       ]
 
-instance Core.ToQuery DescribeTheme where
+instance Data.ToQuery DescribeTheme where
   toQuery DescribeTheme' {..} =
     Prelude.mconcat
-      [ "version-number" Core.=: versionNumber,
-        "alias-name" Core.=: aliasName
+      [ "version-number" Data.=: versionNumber,
+        "alias-name" Data.=: aliasName
       ]
 
 -- | /See:/ 'newDescribeThemeResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.UploadSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.FileFormat
 import Amazonka.QuickSight.Types.TextQualifier
@@ -90,17 +91,17 @@ uploadSettings_delimiter = Lens.lens (\UploadSettings' {delimiter} -> delimiter)
 uploadSettings_startFromRow :: Lens.Lens' UploadSettings (Prelude.Maybe Prelude.Natural)
 uploadSettings_startFromRow = Lens.lens (\UploadSettings' {startFromRow} -> startFromRow) (\s@UploadSettings' {} a -> s {startFromRow = a} :: UploadSettings)
 
-instance Core.FromJSON UploadSettings where
+instance Data.FromJSON UploadSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UploadSettings"
       ( \x ->
           UploadSettings'
-            Prelude.<$> (x Core..:? "ContainsHeader")
-            Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "TextQualifier")
-            Prelude.<*> (x Core..:? "Delimiter")
-            Prelude.<*> (x Core..:? "StartFromRow")
+            Prelude.<$> (x Data..:? "ContainsHeader")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "TextQualifier")
+            Prelude.<*> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "StartFromRow")
       )
 
 instance Prelude.Hashable UploadSettings where
@@ -119,15 +120,15 @@ instance Prelude.NFData UploadSettings where
       `Prelude.seq` Prelude.rnf delimiter
       `Prelude.seq` Prelude.rnf startFromRow
 
-instance Core.ToJSON UploadSettings where
+instance Data.ToJSON UploadSettings where
   toJSON UploadSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ContainsHeader" Core..=)
+          [ ("ContainsHeader" Data..=)
               Prelude.<$> containsHeader,
-            ("Format" Core..=) Prelude.<$> format,
-            ("TextQualifier" Core..=) Prelude.<$> textQualifier,
-            ("Delimiter" Core..=) Prelude.<$> delimiter,
-            ("StartFromRow" Core..=) Prelude.<$> startFromRow
+            ("Format" Data..=) Prelude.<$> format,
+            ("TextQualifier" Data..=) Prelude.<$> textQualifier,
+            ("Delimiter" Data..=) Prelude.<$> delimiter,
+            ("StartFromRow" Data..=) Prelude.<$> startFromRow
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ColumnLevelPermissionRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A rule defined to grant access on one or more restricted columns. Each
@@ -69,14 +70,14 @@ columnLevelPermissionRule_columnNames = Lens.lens (\ColumnLevelPermissionRule' {
 columnLevelPermissionRule_principals :: Lens.Lens' ColumnLevelPermissionRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 columnLevelPermissionRule_principals = Lens.lens (\ColumnLevelPermissionRule' {principals} -> principals) (\s@ColumnLevelPermissionRule' {} a -> s {principals = a} :: ColumnLevelPermissionRule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ColumnLevelPermissionRule where
+instance Data.FromJSON ColumnLevelPermissionRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnLevelPermissionRule"
       ( \x ->
           ColumnLevelPermissionRule'
-            Prelude.<$> (x Core..:? "ColumnNames")
-            Prelude.<*> (x Core..:? "Principals")
+            Prelude.<$> (x Data..:? "ColumnNames")
+            Prelude.<*> (x Data..:? "Principals")
       )
 
 instance Prelude.Hashable ColumnLevelPermissionRule where
@@ -89,11 +90,11 @@ instance Prelude.NFData ColumnLevelPermissionRule where
     Prelude.rnf columnNames
       `Prelude.seq` Prelude.rnf principals
 
-instance Core.ToJSON ColumnLevelPermissionRule where
+instance Data.ToJSON ColumnLevelPermissionRule where
   toJSON ColumnLevelPermissionRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ColumnNames" Core..=) Prelude.<$> columnNames,
-            ("Principals" Core..=) Prelude.<$> principals
+          [ ("ColumnNames" Data..=) Prelude.<$> columnNames,
+            ("Principals" Data..=) Prelude.<$> principals
           ]
       )

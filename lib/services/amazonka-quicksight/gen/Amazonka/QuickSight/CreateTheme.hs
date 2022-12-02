@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -202,11 +203,11 @@ instance Core.AWSRequest CreateTheme where
     Response.receiveJSON
       ( \s h x ->
           CreateThemeResponse'
-            Prelude.<$> (x Core..?> "CreationStatus")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "VersionArn")
-            Prelude.<*> (x Core..?> "ThemeId")
+            Prelude.<$> (x Data..?> "CreationStatus")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "VersionArn")
+            Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,42 +233,42 @@ instance Prelude.NFData CreateTheme where
       `Prelude.seq` Prelude.rnf baseThemeId
       `Prelude.seq` Prelude.rnf configuration
 
-instance Core.ToHeaders CreateTheme where
+instance Data.ToHeaders CreateTheme where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTheme where
+instance Data.ToJSON CreateTheme where
   toJSON CreateTheme' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("VersionDescription" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("VersionDescription" Data..=)
               Prelude.<$> versionDescription,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("BaseThemeId" Core..= baseThemeId),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("BaseThemeId" Data..= baseThemeId),
             Prelude.Just
-              ("Configuration" Core..= configuration)
+              ("Configuration" Data..= configuration)
           ]
       )
 
-instance Core.ToPath CreateTheme where
+instance Data.ToPath CreateTheme where
   toPath CreateTheme' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/themes/",
-        Core.toBS themeId
+        Data.toBS themeId
       ]
 
-instance Core.ToQuery CreateTheme where
+instance Data.ToQuery CreateTheme where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateThemeResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AnalysisSearchFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AnalysisFilterAttribute
 import Amazonka.QuickSight.Types.FilterOperator
@@ -225,12 +226,12 @@ instance Prelude.NFData AnalysisSearchFilter where
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON AnalysisSearchFilter where
+instance Data.ToJSON AnalysisSearchFilter where
   toJSON AnalysisSearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Operator" Core..=) Prelude.<$> operator,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Operator" Data..=) Prelude.<$> operator,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

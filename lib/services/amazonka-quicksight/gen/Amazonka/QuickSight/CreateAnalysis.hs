@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -216,10 +217,10 @@ instance Core.AWSRequest CreateAnalysis where
     Response.receiveJSON
       ( \s h x ->
           CreateAnalysisResponse'
-            Prelude.<$> (x Core..?> "AnalysisId")
-            Prelude.<*> (x Core..?> "CreationStatus")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "AnalysisId")
+            Prelude.<*> (x Data..?> "CreationStatus")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,40 +246,40 @@ instance Prelude.NFData CreateAnalysis where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceEntity
 
-instance Core.ToHeaders CreateAnalysis where
+instance Data.ToHeaders CreateAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAnalysis where
+instance Data.ToJSON CreateAnalysis where
   toJSON CreateAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ThemeArn" Core..=) Prelude.<$> themeArn,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SourceEntity" Core..= sourceEntity)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ThemeArn" Data..=) Prelude.<$> themeArn,
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SourceEntity" Data..= sourceEntity)
           ]
       )
 
-instance Core.ToPath CreateAnalysis where
+instance Data.ToPath CreateAnalysis where
   toPath CreateAnalysis' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/analyses/",
-        Core.toBS analysisId
+        Data.toBS analysisId
       ]
 
-instance Core.ToQuery CreateAnalysis where
+instance Data.ToQuery CreateAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAnalysisResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -112,10 +113,10 @@ instance Core.AWSRequest DescribeAnalysisPermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeAnalysisPermissionsResponse'
-            Prelude.<$> (x Core..?> "AnalysisId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Permissions")
-            Prelude.<*> (x Core..?> "AnalysisArn")
+            Prelude.<$> (x Data..?> "AnalysisId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "AnalysisArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,28 +130,28 @@ instance Prelude.NFData DescribeAnalysisPermissions where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf analysisId
 
-instance Core.ToHeaders DescribeAnalysisPermissions where
+instance Data.ToHeaders DescribeAnalysisPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAnalysisPermissions where
+instance Data.ToPath DescribeAnalysisPermissions where
   toPath DescribeAnalysisPermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/analyses/",
-        Core.toBS analysisId,
+        Data.toBS analysisId,
         "/permissions"
       ]
 
-instance Core.ToQuery DescribeAnalysisPermissions where
+instance Data.ToQuery DescribeAnalysisPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAnalysisPermissionsResponse' smart constructor.

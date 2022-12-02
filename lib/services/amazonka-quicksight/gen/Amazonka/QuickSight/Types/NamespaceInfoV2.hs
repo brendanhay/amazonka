@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.NamespaceInfoV2 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.IdentityStore
 import Amazonka.QuickSight.Types.NamespaceError
@@ -100,18 +101,18 @@ namespaceInfoV2_capacityRegion = Lens.lens (\NamespaceInfoV2' {capacityRegion} -
 namespaceInfoV2_identityStore :: Lens.Lens' NamespaceInfoV2 (Prelude.Maybe IdentityStore)
 namespaceInfoV2_identityStore = Lens.lens (\NamespaceInfoV2' {identityStore} -> identityStore) (\s@NamespaceInfoV2' {} a -> s {identityStore = a} :: NamespaceInfoV2)
 
-instance Core.FromJSON NamespaceInfoV2 where
+instance Data.FromJSON NamespaceInfoV2 where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NamespaceInfoV2"
       ( \x ->
           NamespaceInfoV2'
-            Prelude.<$> (x Core..:? "CreationStatus")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "NamespaceError")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CapacityRegion")
-            Prelude.<*> (x Core..:? "IdentityStore")
+            Prelude.<$> (x Data..:? "CreationStatus")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "NamespaceError")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CapacityRegion")
+            Prelude.<*> (x Data..:? "IdentityStore")
       )
 
 instance Prelude.Hashable NamespaceInfoV2 where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -101,8 +102,8 @@ instance Core.AWSRequest DescribeNamespace where
     Response.receiveJSON
       ( \s h x ->
           DescribeNamespaceResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Namespace")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Namespace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,27 +117,27 @@ instance Prelude.NFData DescribeNamespace where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders DescribeNamespace where
+instance Data.ToHeaders DescribeNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeNamespace where
+instance Data.ToPath DescribeNamespace where
   toPath DescribeNamespace' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/namespaces/",
-        Core.toBS namespace
+        Data.toBS namespace
       ]
 
-instance Core.ToQuery DescribeNamespace where
+instance Data.ToQuery DescribeNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeNamespaceResponse' smart constructor.

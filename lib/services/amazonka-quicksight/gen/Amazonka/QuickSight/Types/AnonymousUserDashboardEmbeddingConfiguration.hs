@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AnonymousUserDashboardEmbeddingConfiguration wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the dashboard that you want to embed.
@@ -91,14 +92,14 @@ instance
     Prelude.rnf initialDashboardId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AnonymousUserDashboardEmbeddingConfiguration
   where
   toJSON
     AnonymousUserDashboardEmbeddingConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("InitialDashboardId" Core..= initialDashboardId)
+                ("InitialDashboardId" Data..= initialDashboardId)
             ]
         )

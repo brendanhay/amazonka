@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DashboardError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardErrorType
 
@@ -62,14 +63,14 @@ dashboardError_message = Lens.lens (\DashboardError' {message} -> message) (\s@D
 dashboardError_type :: Lens.Lens' DashboardError (Prelude.Maybe DashboardErrorType)
 dashboardError_type = Lens.lens (\DashboardError' {type'} -> type') (\s@DashboardError' {} a -> s {type' = a} :: DashboardError)
 
-instance Core.FromJSON DashboardError where
+instance Data.FromJSON DashboardError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashboardError"
       ( \x ->
           DashboardError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable DashboardError where

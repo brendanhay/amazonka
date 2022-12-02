@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ThemeError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ThemeErrorType
 
@@ -62,14 +63,14 @@ themeError_message = Lens.lens (\ThemeError' {message} -> message) (\s@ThemeErro
 themeError_type :: Lens.Lens' ThemeError (Prelude.Maybe ThemeErrorType)
 themeError_type = Lens.lens (\ThemeError' {type'} -> type') (\s@ThemeError' {} a -> s {type' = a} :: ThemeError)
 
-instance Core.FromJSON ThemeError where
+instance Data.FromJSON ThemeError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThemeError"
       ( \x ->
           ThemeError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable ThemeError where

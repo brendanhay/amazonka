@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -147,12 +148,12 @@ instance Core.AWSRequest CreateNamespace where
     Response.receiveJSON
       ( \s h x ->
           CreateNamespaceResponse'
-            Prelude.<$> (x Core..?> "CreationStatus")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CapacityRegion")
-            Prelude.<*> (x Core..?> "IdentityStore")
+            Prelude.<$> (x Data..?> "CreationStatus")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "CapacityRegion")
+            Prelude.<*> (x Data..?> "IdentityStore")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,34 +171,34 @@ instance Prelude.NFData CreateNamespace where
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf identityStore
 
-instance Core.ToHeaders CreateNamespace where
+instance Data.ToHeaders CreateNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNamespace where
+instance Data.ToJSON CreateNamespace where
   toJSON CreateNamespace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("Namespace" Core..= namespace),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("Namespace" Data..= namespace),
             Prelude.Just
-              ("IdentityStore" Core..= identityStore)
+              ("IdentityStore" Data..= identityStore)
           ]
       )
 
-instance Core.ToPath CreateNamespace where
+instance Data.ToPath CreateNamespace where
   toPath CreateNamespace' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS awsAccountId]
+      ["/accounts/", Data.toBS awsAccountId]
 
-instance Core.ToQuery CreateNamespace where
+instance Data.ToQuery CreateNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNamespaceResponse' smart constructor.

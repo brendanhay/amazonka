@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -374,8 +375,8 @@ instance Core.AWSRequest UpdateUser where
     Response.receiveJSON
       ( \s h x ->
           UpdateUserResponse'
-            Prelude.<$> (x Core..?> "User")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "User")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -406,48 +407,48 @@ instance Prelude.NFData UpdateUser where
       `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf role'
 
-instance Core.ToHeaders UpdateUser where
+instance Data.ToHeaders UpdateUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateUser where
+instance Data.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExternalLoginFederationProviderType" Core..=)
+          [ ("ExternalLoginFederationProviderType" Data..=)
               Prelude.<$> externalLoginFederationProviderType,
-            ("UnapplyCustomPermissions" Core..=)
+            ("UnapplyCustomPermissions" Data..=)
               Prelude.<$> unapplyCustomPermissions,
-            ("CustomFederationProviderUrl" Core..=)
+            ("CustomFederationProviderUrl" Data..=)
               Prelude.<$> customFederationProviderUrl,
-            ("ExternalLoginId" Core..=)
+            ("ExternalLoginId" Data..=)
               Prelude.<$> externalLoginId,
-            ("CustomPermissionsName" Core..=)
+            ("CustomPermissionsName" Data..=)
               Prelude.<$> customPermissionsName,
-            Prelude.Just ("Email" Core..= email),
-            Prelude.Just ("Role" Core..= role')
+            Prelude.Just ("Email" Data..= email),
+            Prelude.Just ("Role" Data..= role')
           ]
       )
 
-instance Core.ToPath UpdateUser where
+instance Data.ToPath UpdateUser where
   toPath UpdateUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/namespaces/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/users/",
-        Core.toBS userName
+        Data.toBS userName
       ]
 
-instance Core.ToQuery UpdateUser where
+instance Data.ToQuery UpdateUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateUserResponse' smart constructor.

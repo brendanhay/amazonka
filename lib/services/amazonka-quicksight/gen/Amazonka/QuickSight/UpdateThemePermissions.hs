@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -163,10 +164,10 @@ instance Core.AWSRequest UpdateThemePermissions where
     Response.receiveJSON
       ( \s h x ->
           UpdateThemePermissionsResponse'
-            Prelude.<$> (x Core..?> "ThemeArn")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Permissions")
-            Prelude.<*> (x Core..?> "ThemeId")
+            Prelude.<$> (x Data..?> "ThemeArn")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,39 +185,39 @@ instance Prelude.NFData UpdateThemePermissions where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf themeId
 
-instance Core.ToHeaders UpdateThemePermissions where
+instance Data.ToHeaders UpdateThemePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateThemePermissions where
+instance Data.ToJSON UpdateThemePermissions where
   toJSON UpdateThemePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GrantPermissions" Core..=)
+          [ ("GrantPermissions" Data..=)
               Prelude.<$> grantPermissions,
-            ("RevokePermissions" Core..=)
+            ("RevokePermissions" Data..=)
               Prelude.<$> revokePermissions
           ]
       )
 
-instance Core.ToPath UpdateThemePermissions where
+instance Data.ToPath UpdateThemePermissions where
   toPath UpdateThemePermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/themes/",
-        Core.toBS themeId,
+        Data.toBS themeId,
         "/permissions"
       ]
 
-instance Core.ToQuery UpdateThemePermissions where
+instance Data.ToQuery UpdateThemePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateThemePermissionsResponse' smart constructor.

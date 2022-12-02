@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ErrorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.IngestionErrorType
 
@@ -62,14 +63,14 @@ errorInfo_message = Lens.lens (\ErrorInfo' {message} -> message) (\s@ErrorInfo' 
 errorInfo_type :: Lens.Lens' ErrorInfo (Prelude.Maybe IngestionErrorType)
 errorInfo_type = Lens.lens (\ErrorInfo' {type'} -> type') (\s@ErrorInfo' {} a -> s {type' = a} :: ErrorInfo)
 
-instance Core.FromJSON ErrorInfo where
+instance Data.FromJSON ErrorInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorInfo"
       ( \x ->
           ErrorInfo'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable ErrorInfo where

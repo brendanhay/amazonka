@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AccountInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.Edition
 
@@ -115,17 +116,17 @@ accountInfo_accountSubscriptionStatus = Lens.lens (\AccountInfo' {accountSubscri
 accountInfo_accountName :: Lens.Lens' AccountInfo (Prelude.Maybe Prelude.Text)
 accountInfo_accountName = Lens.lens (\AccountInfo' {accountName} -> accountName) (\s@AccountInfo' {} a -> s {accountName = a} :: AccountInfo)
 
-instance Core.FromJSON AccountInfo where
+instance Data.FromJSON AccountInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountInfo"
       ( \x ->
           AccountInfo'
-            Prelude.<$> (x Core..:? "AuthenticationType")
-            Prelude.<*> (x Core..:? "NotificationEmail")
-            Prelude.<*> (x Core..:? "Edition")
-            Prelude.<*> (x Core..:? "AccountSubscriptionStatus")
-            Prelude.<*> (x Core..:? "AccountName")
+            Prelude.<$> (x Data..:? "AuthenticationType")
+            Prelude.<*> (x Data..:? "NotificationEmail")
+            Prelude.<*> (x Data..:? "Edition")
+            Prelude.<*> (x Data..:? "AccountSubscriptionStatus")
+            Prelude.<*> (x Data..:? "AccountName")
       )
 
 instance Prelude.Hashable AccountInfo where

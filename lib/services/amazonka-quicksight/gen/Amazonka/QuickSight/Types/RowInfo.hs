@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RowInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about rows for a data set SPICE ingestion.
@@ -70,15 +71,15 @@ rowInfo_rowsDropped = Lens.lens (\RowInfo' {rowsDropped} -> rowsDropped) (\s@Row
 rowInfo_rowsIngested :: Lens.Lens' RowInfo (Prelude.Maybe Prelude.Integer)
 rowInfo_rowsIngested = Lens.lens (\RowInfo' {rowsIngested} -> rowsIngested) (\s@RowInfo' {} a -> s {rowsIngested = a} :: RowInfo)
 
-instance Core.FromJSON RowInfo where
+instance Data.FromJSON RowInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RowInfo"
       ( \x ->
           RowInfo'
-            Prelude.<$> (x Core..:? "TotalRowsInDataset")
-            Prelude.<*> (x Core..:? "RowsDropped")
-            Prelude.<*> (x Core..:? "RowsIngested")
+            Prelude.<$> (x Data..:? "TotalRowsInDataset")
+            Prelude.<*> (x Data..:? "RowsDropped")
+            Prelude.<*> (x Data..:? "RowsIngested")
       )
 
 instance Prelude.Hashable RowInfo where

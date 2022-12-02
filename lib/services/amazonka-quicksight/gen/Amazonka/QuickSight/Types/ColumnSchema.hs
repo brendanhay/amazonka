@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ColumnSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The column schema.
@@ -70,15 +71,15 @@ columnSchema_geographicRole = Lens.lens (\ColumnSchema' {geographicRole} -> geog
 columnSchema_dataType :: Lens.Lens' ColumnSchema (Prelude.Maybe Prelude.Text)
 columnSchema_dataType = Lens.lens (\ColumnSchema' {dataType} -> dataType) (\s@ColumnSchema' {} a -> s {dataType = a} :: ColumnSchema)
 
-instance Core.FromJSON ColumnSchema where
+instance Data.FromJSON ColumnSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnSchema"
       ( \x ->
           ColumnSchema'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "GeographicRole")
-            Prelude.<*> (x Core..:? "DataType")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "GeographicRole")
+            Prelude.<*> (x Data..:? "DataType")
       )
 
 instance Prelude.Hashable ColumnSchema where

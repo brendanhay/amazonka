@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TransformOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.CastColumnTypeOperation
 import Amazonka.QuickSight.Types.CreateColumnsOperation
@@ -121,19 +122,19 @@ transformOperation_filterOperation = Lens.lens (\TransformOperation' {filterOper
 transformOperation_castColumnTypeOperation :: Lens.Lens' TransformOperation (Prelude.Maybe CastColumnTypeOperation)
 transformOperation_castColumnTypeOperation = Lens.lens (\TransformOperation' {castColumnTypeOperation} -> castColumnTypeOperation) (\s@TransformOperation' {} a -> s {castColumnTypeOperation = a} :: TransformOperation)
 
-instance Core.FromJSON TransformOperation where
+instance Data.FromJSON TransformOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TransformOperation"
       ( \x ->
           TransformOperation'
-            Prelude.<$> (x Core..:? "UntagColumnOperation")
-            Prelude.<*> (x Core..:? "CreateColumnsOperation")
-            Prelude.<*> (x Core..:? "RenameColumnOperation")
-            Prelude.<*> (x Core..:? "ProjectOperation")
-            Prelude.<*> (x Core..:? "TagColumnOperation")
-            Prelude.<*> (x Core..:? "FilterOperation")
-            Prelude.<*> (x Core..:? "CastColumnTypeOperation")
+            Prelude.<$> (x Data..:? "UntagColumnOperation")
+            Prelude.<*> (x Data..:? "CreateColumnsOperation")
+            Prelude.<*> (x Data..:? "RenameColumnOperation")
+            Prelude.<*> (x Data..:? "ProjectOperation")
+            Prelude.<*> (x Data..:? "TagColumnOperation")
+            Prelude.<*> (x Data..:? "FilterOperation")
+            Prelude.<*> (x Data..:? "CastColumnTypeOperation")
       )
 
 instance Prelude.Hashable TransformOperation where
@@ -156,23 +157,23 @@ instance Prelude.NFData TransformOperation where
       `Prelude.seq` Prelude.rnf filterOperation
       `Prelude.seq` Prelude.rnf castColumnTypeOperation
 
-instance Core.ToJSON TransformOperation where
+instance Data.ToJSON TransformOperation where
   toJSON TransformOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UntagColumnOperation" Core..=)
+          [ ("UntagColumnOperation" Data..=)
               Prelude.<$> untagColumnOperation,
-            ("CreateColumnsOperation" Core..=)
+            ("CreateColumnsOperation" Data..=)
               Prelude.<$> createColumnsOperation,
-            ("RenameColumnOperation" Core..=)
+            ("RenameColumnOperation" Data..=)
               Prelude.<$> renameColumnOperation,
-            ("ProjectOperation" Core..=)
+            ("ProjectOperation" Data..=)
               Prelude.<$> projectOperation,
-            ("TagColumnOperation" Core..=)
+            ("TagColumnOperation" Data..=)
               Prelude.<$> tagColumnOperation,
-            ("FilterOperation" Core..=)
+            ("FilterOperation" Data..=)
               Prelude.<$> filterOperation,
-            ("CastColumnTypeOperation" Core..=)
+            ("CastColumnTypeOperation" Data..=)
               Prelude.<$> castColumnTypeOperation
           ]
       )

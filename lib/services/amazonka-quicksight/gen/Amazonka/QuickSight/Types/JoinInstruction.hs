@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.JoinInstruction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.JoinKeyProperties
 import Amazonka.QuickSight.Types.JoinType
@@ -112,18 +113,18 @@ joinInstruction_type = Lens.lens (\JoinInstruction' {type'} -> type') (\s@JoinIn
 joinInstruction_onClause :: Lens.Lens' JoinInstruction Prelude.Text
 joinInstruction_onClause = Lens.lens (\JoinInstruction' {onClause} -> onClause) (\s@JoinInstruction' {} a -> s {onClause = a} :: JoinInstruction)
 
-instance Core.FromJSON JoinInstruction where
+instance Data.FromJSON JoinInstruction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JoinInstruction"
       ( \x ->
           JoinInstruction'
-            Prelude.<$> (x Core..:? "LeftJoinKeyProperties")
-            Prelude.<*> (x Core..:? "RightJoinKeyProperties")
-            Prelude.<*> (x Core..: "LeftOperand")
-            Prelude.<*> (x Core..: "RightOperand")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "OnClause")
+            Prelude.<$> (x Data..:? "LeftJoinKeyProperties")
+            Prelude.<*> (x Data..:? "RightJoinKeyProperties")
+            Prelude.<*> (x Data..: "LeftOperand")
+            Prelude.<*> (x Data..: "RightOperand")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "OnClause")
       )
 
 instance Prelude.Hashable JoinInstruction where
@@ -144,17 +145,17 @@ instance Prelude.NFData JoinInstruction where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf onClause
 
-instance Core.ToJSON JoinInstruction where
+instance Data.ToJSON JoinInstruction where
   toJSON JoinInstruction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LeftJoinKeyProperties" Core..=)
+          [ ("LeftJoinKeyProperties" Data..=)
               Prelude.<$> leftJoinKeyProperties,
-            ("RightJoinKeyProperties" Core..=)
+            ("RightJoinKeyProperties" Data..=)
               Prelude.<$> rightJoinKeyProperties,
-            Prelude.Just ("LeftOperand" Core..= leftOperand),
-            Prelude.Just ("RightOperand" Core..= rightOperand),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("OnClause" Core..= onClause)
+            Prelude.Just ("LeftOperand" Data..= leftOperand),
+            Prelude.Just ("RightOperand" Data..= rightOperand),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("OnClause" Data..= onClause)
           ]
       )

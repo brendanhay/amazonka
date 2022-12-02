@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -135,10 +136,10 @@ instance Core.AWSRequest CreateIngestion where
     Response.receiveJSON
       ( \s h x ->
           CreateIngestionResponse'
-            Prelude.<$> (x Core..?> "IngestionStatus")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "IngestionId")
+            Prelude.<$> (x Data..?> "IngestionStatus")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "IngestionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,38 +157,38 @@ instance Prelude.NFData CreateIngestion where
       `Prelude.seq` Prelude.rnf ingestionId
       `Prelude.seq` Prelude.rnf awsAccountId
 
-instance Core.ToHeaders CreateIngestion where
+instance Data.ToHeaders CreateIngestion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateIngestion where
+instance Data.ToJSON CreateIngestion where
   toJSON CreateIngestion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IngestionType" Core..=)
+          [ ("IngestionType" Data..=)
               Prelude.<$> ingestionType
           ]
       )
 
-instance Core.ToPath CreateIngestion where
+instance Data.ToPath CreateIngestion where
   toPath CreateIngestion' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sets/",
-        Core.toBS dataSetId,
+        Data.toBS dataSetId,
         "/ingestions/",
-        Core.toBS ingestionId
+        Data.toBS ingestionId
       ]
 
-instance Core.ToQuery CreateIngestion where
+instance Data.ToQuery CreateIngestion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateIngestionResponse' smart constructor.

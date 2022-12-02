@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TwitterParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for Twitter.
@@ -65,14 +66,14 @@ twitterParameters_query = Lens.lens (\TwitterParameters' {query} -> query) (\s@T
 twitterParameters_maxRows :: Lens.Lens' TwitterParameters Prelude.Natural
 twitterParameters_maxRows = Lens.lens (\TwitterParameters' {maxRows} -> maxRows) (\s@TwitterParameters' {} a -> s {maxRows = a} :: TwitterParameters)
 
-instance Core.FromJSON TwitterParameters where
+instance Data.FromJSON TwitterParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TwitterParameters"
       ( \x ->
           TwitterParameters'
-            Prelude.<$> (x Core..: "Query")
-            Prelude.<*> (x Core..: "MaxRows")
+            Prelude.<$> (x Data..: "Query")
+            Prelude.<*> (x Data..: "MaxRows")
       )
 
 instance Prelude.Hashable TwitterParameters where
@@ -84,11 +85,11 @@ instance Prelude.NFData TwitterParameters where
   rnf TwitterParameters' {..} =
     Prelude.rnf query `Prelude.seq` Prelude.rnf maxRows
 
-instance Core.ToJSON TwitterParameters where
+instance Data.ToJSON TwitterParameters where
   toJSON TwitterParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Query" Core..= query),
-            Prelude.Just ("MaxRows" Core..= maxRows)
+          [ Prelude.Just ("Query" Data..= query),
+            Prelude.Just ("MaxRows" Data..= maxRows)
           ]
       )

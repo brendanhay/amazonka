@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -112,9 +113,9 @@ instance Core.AWSRequest UpdateFolder where
     Response.receiveJSON
       ( \s h x ->
           UpdateFolderResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "FolderId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,34 +131,34 @@ instance Prelude.NFData UpdateFolder where
       `Prelude.seq` Prelude.rnf folderId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateFolder where
+instance Data.ToHeaders UpdateFolder where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFolder where
+instance Data.ToJSON UpdateFolder where
   toJSON UpdateFolder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )
 
-instance Core.ToPath UpdateFolder where
+instance Data.ToPath UpdateFolder where
   toPath UpdateFolder' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId
+        Data.toBS folderId
       ]
 
-instance Core.ToQuery UpdateFolder where
+instance Data.ToQuery UpdateFolder where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFolderResponse' smart constructor.

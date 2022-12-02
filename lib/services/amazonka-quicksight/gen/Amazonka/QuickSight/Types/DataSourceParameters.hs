@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DataSourceParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AmazonElasticsearchParameters
 import Amazonka.QuickSight.Types.AmazonOpenSearchParameters
@@ -279,35 +280,35 @@ dataSourceParameters_sqlServerParameters = Lens.lens (\DataSourceParameters' {sq
 dataSourceParameters_auroraParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AuroraParameters)
 dataSourceParameters_auroraParameters = Lens.lens (\DataSourceParameters' {auroraParameters} -> auroraParameters) (\s@DataSourceParameters' {} a -> s {auroraParameters = a} :: DataSourceParameters)
 
-instance Core.FromJSON DataSourceParameters where
+instance Data.FromJSON DataSourceParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceParameters"
       ( \x ->
           DataSourceParameters'
-            Prelude.<$> (x Core..:? "ServiceNowParameters")
-            Prelude.<*> (x Core..:? "S3Parameters")
-            Prelude.<*> (x Core..:? "PostgreSqlParameters")
-            Prelude.<*> (x Core..:? "MySqlParameters")
-            Prelude.<*> (x Core..:? "ExasolParameters")
-            Prelude.<*> (x Core..:? "RedshiftParameters")
-            Prelude.<*> (x Core..:? "AwsIotAnalyticsParameters")
-            Prelude.<*> (x Core..:? "SparkParameters")
-            Prelude.<*> (x Core..:? "TeradataParameters")
-            Prelude.<*> (x Core..:? "TwitterParameters")
-            Prelude.<*> (x Core..:? "PrestoParameters")
-            Prelude.<*> (x Core..:? "SnowflakeParameters")
-            Prelude.<*> (x Core..:? "RdsParameters")
-            Prelude.<*> (x Core..:? "OracleParameters")
-            Prelude.<*> (x Core..:? "AuroraPostgreSqlParameters")
-            Prelude.<*> (x Core..:? "MariaDbParameters")
-            Prelude.<*> (x Core..:? "AthenaParameters")
-            Prelude.<*> (x Core..:? "AmazonOpenSearchParameters")
-            Prelude.<*> (x Core..:? "DatabricksParameters")
-            Prelude.<*> (x Core..:? "JiraParameters")
-            Prelude.<*> (x Core..:? "AmazonElasticsearchParameters")
-            Prelude.<*> (x Core..:? "SqlServerParameters")
-            Prelude.<*> (x Core..:? "AuroraParameters")
+            Prelude.<$> (x Data..:? "ServiceNowParameters")
+            Prelude.<*> (x Data..:? "S3Parameters")
+            Prelude.<*> (x Data..:? "PostgreSqlParameters")
+            Prelude.<*> (x Data..:? "MySqlParameters")
+            Prelude.<*> (x Data..:? "ExasolParameters")
+            Prelude.<*> (x Data..:? "RedshiftParameters")
+            Prelude.<*> (x Data..:? "AwsIotAnalyticsParameters")
+            Prelude.<*> (x Data..:? "SparkParameters")
+            Prelude.<*> (x Data..:? "TeradataParameters")
+            Prelude.<*> (x Data..:? "TwitterParameters")
+            Prelude.<*> (x Data..:? "PrestoParameters")
+            Prelude.<*> (x Data..:? "SnowflakeParameters")
+            Prelude.<*> (x Data..:? "RdsParameters")
+            Prelude.<*> (x Data..:? "OracleParameters")
+            Prelude.<*> (x Data..:? "AuroraPostgreSqlParameters")
+            Prelude.<*> (x Data..:? "MariaDbParameters")
+            Prelude.<*> (x Data..:? "AthenaParameters")
+            Prelude.<*> (x Data..:? "AmazonOpenSearchParameters")
+            Prelude.<*> (x Data..:? "DatabricksParameters")
+            Prelude.<*> (x Data..:? "JiraParameters")
+            Prelude.<*> (x Data..:? "AmazonElasticsearchParameters")
+            Prelude.<*> (x Data..:? "SqlServerParameters")
+            Prelude.<*> (x Data..:? "AuroraParameters")
       )
 
 instance Prelude.Hashable DataSourceParameters where
@@ -366,53 +367,53 @@ instance Prelude.NFData DataSourceParameters where
       `Prelude.seq` Prelude.rnf
         auroraParameters
 
-instance Core.ToJSON DataSourceParameters where
+instance Data.ToJSON DataSourceParameters where
   toJSON DataSourceParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServiceNowParameters" Core..=)
+          [ ("ServiceNowParameters" Data..=)
               Prelude.<$> serviceNowParameters,
-            ("S3Parameters" Core..=) Prelude.<$> s3Parameters,
-            ("PostgreSqlParameters" Core..=)
+            ("S3Parameters" Data..=) Prelude.<$> s3Parameters,
+            ("PostgreSqlParameters" Data..=)
               Prelude.<$> postgreSqlParameters,
-            ("MySqlParameters" Core..=)
+            ("MySqlParameters" Data..=)
               Prelude.<$> mySqlParameters,
-            ("ExasolParameters" Core..=)
+            ("ExasolParameters" Data..=)
               Prelude.<$> exasolParameters,
-            ("RedshiftParameters" Core..=)
+            ("RedshiftParameters" Data..=)
               Prelude.<$> redshiftParameters,
-            ("AwsIotAnalyticsParameters" Core..=)
+            ("AwsIotAnalyticsParameters" Data..=)
               Prelude.<$> awsIotAnalyticsParameters,
-            ("SparkParameters" Core..=)
+            ("SparkParameters" Data..=)
               Prelude.<$> sparkParameters,
-            ("TeradataParameters" Core..=)
+            ("TeradataParameters" Data..=)
               Prelude.<$> teradataParameters,
-            ("TwitterParameters" Core..=)
+            ("TwitterParameters" Data..=)
               Prelude.<$> twitterParameters,
-            ("PrestoParameters" Core..=)
+            ("PrestoParameters" Data..=)
               Prelude.<$> prestoParameters,
-            ("SnowflakeParameters" Core..=)
+            ("SnowflakeParameters" Data..=)
               Prelude.<$> snowflakeParameters,
-            ("RdsParameters" Core..=) Prelude.<$> rdsParameters,
-            ("OracleParameters" Core..=)
+            ("RdsParameters" Data..=) Prelude.<$> rdsParameters,
+            ("OracleParameters" Data..=)
               Prelude.<$> oracleParameters,
-            ("AuroraPostgreSqlParameters" Core..=)
+            ("AuroraPostgreSqlParameters" Data..=)
               Prelude.<$> auroraPostgreSqlParameters,
-            ("MariaDbParameters" Core..=)
+            ("MariaDbParameters" Data..=)
               Prelude.<$> mariaDbParameters,
-            ("AthenaParameters" Core..=)
+            ("AthenaParameters" Data..=)
               Prelude.<$> athenaParameters,
-            ("AmazonOpenSearchParameters" Core..=)
+            ("AmazonOpenSearchParameters" Data..=)
               Prelude.<$> amazonOpenSearchParameters,
-            ("DatabricksParameters" Core..=)
+            ("DatabricksParameters" Data..=)
               Prelude.<$> databricksParameters,
-            ("JiraParameters" Core..=)
+            ("JiraParameters" Data..=)
               Prelude.<$> jiraParameters,
-            ("AmazonElasticsearchParameters" Core..=)
+            ("AmazonElasticsearchParameters" Data..=)
               Prelude.<$> amazonElasticsearchParameters,
-            ("SqlServerParameters" Core..=)
+            ("SqlServerParameters" Data..=)
               Prelude.<$> sqlServerParameters,
-            ("AuroraParameters" Core..=)
+            ("AuroraParameters" Data..=)
               Prelude.<$> auroraParameters
           ]
       )

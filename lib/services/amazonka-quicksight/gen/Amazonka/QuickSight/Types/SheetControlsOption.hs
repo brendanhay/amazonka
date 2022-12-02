@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.SheetControlsOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardUIState
 
@@ -62,11 +63,11 @@ instance Prelude.NFData SheetControlsOption where
   rnf SheetControlsOption' {..} =
     Prelude.rnf visibilityState
 
-instance Core.ToJSON SheetControlsOption where
+instance Data.ToJSON SheetControlsOption where
   toJSON SheetControlsOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VisibilityState" Core..=)
+          [ ("VisibilityState" Data..=)
               Prelude.<$> visibilityState
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.LinkSharingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ResourcePermission
 
@@ -55,13 +56,13 @@ newLinkSharingConfiguration =
 linkSharingConfiguration_permissions :: Lens.Lens' LinkSharingConfiguration (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 linkSharingConfiguration_permissions = Lens.lens (\LinkSharingConfiguration' {permissions} -> permissions) (\s@LinkSharingConfiguration' {} a -> s {permissions = a} :: LinkSharingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LinkSharingConfiguration where
+instance Data.FromJSON LinkSharingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LinkSharingConfiguration"
       ( \x ->
           LinkSharingConfiguration'
-            Prelude.<$> (x Core..:? "Permissions")
+            Prelude.<$> (x Data..:? "Permissions")
       )
 
 instance Prelude.Hashable LinkSharingConfiguration where

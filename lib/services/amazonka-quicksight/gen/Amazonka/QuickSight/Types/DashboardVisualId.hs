@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DashboardVisualId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains the following elements:
@@ -131,12 +132,12 @@ instance Prelude.NFData DashboardVisualId where
       `Prelude.seq` Prelude.rnf sheetId
       `Prelude.seq` Prelude.rnf visualId
 
-instance Core.ToJSON DashboardVisualId where
+instance Data.ToJSON DashboardVisualId where
   toJSON DashboardVisualId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DashboardId" Core..= dashboardId),
-            Prelude.Just ("SheetId" Core..= sheetId),
-            Prelude.Just ("VisualId" Core..= visualId)
+          [ Prelude.Just ("DashboardId" Data..= dashboardId),
+            Prelude.Just ("SheetId" Data..= sheetId),
+            Prelude.Just ("VisualId" Data..= visualId)
           ]
       )

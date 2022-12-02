@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -103,10 +104,10 @@ instance Core.AWSRequest DescribeFolderPermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeFolderPermissionsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Permissions")
-            Prelude.<*> (x Core..?> "FolderId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,28 +121,28 @@ instance Prelude.NFData DescribeFolderPermissions where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf folderId
 
-instance Core.ToHeaders DescribeFolderPermissions where
+instance Data.ToHeaders DescribeFolderPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeFolderPermissions where
+instance Data.ToPath DescribeFolderPermissions where
   toPath DescribeFolderPermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/folders/",
-        Core.toBS folderId,
+        Data.toBS folderId,
         "/permissions"
       ]
 
-instance Core.ToQuery DescribeFolderPermissions where
+instance Data.ToQuery DescribeFolderPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFolderPermissionsResponse' smart constructor.

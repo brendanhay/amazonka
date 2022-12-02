@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ProjectOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A transform operation that projects columns. Operations that come after
@@ -56,13 +57,13 @@ newProjectOperation pProjectedColumns_ =
 projectOperation_projectedColumns :: Lens.Lens' ProjectOperation (Prelude.NonEmpty Prelude.Text)
 projectOperation_projectedColumns = Lens.lens (\ProjectOperation' {projectedColumns} -> projectedColumns) (\s@ProjectOperation' {} a -> s {projectedColumns = a} :: ProjectOperation) Prelude.. Lens.coerced
 
-instance Core.FromJSON ProjectOperation where
+instance Data.FromJSON ProjectOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectOperation"
       ( \x ->
           ProjectOperation'
-            Prelude.<$> (x Core..: "ProjectedColumns")
+            Prelude.<$> (x Data..: "ProjectedColumns")
       )
 
 instance Prelude.Hashable ProjectOperation where
@@ -73,11 +74,11 @@ instance Prelude.NFData ProjectOperation where
   rnf ProjectOperation' {..} =
     Prelude.rnf projectedColumns
 
-instance Core.ToJSON ProjectOperation where
+instance Data.ToJSON ProjectOperation where
   toJSON ProjectOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ProjectedColumns" Core..= projectedColumns)
+              ("ProjectedColumns" Data..= projectedColumns)
           ]
       )

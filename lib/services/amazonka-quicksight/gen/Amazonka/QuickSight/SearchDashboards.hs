@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -158,11 +159,11 @@ instance Core.AWSRequest SearchDashboards where
     Response.receiveJSON
       ( \s h x ->
           SearchDashboardsResponse'
-            Prelude.<$> ( x Core..?> "DashboardSummaryList"
+            Prelude.<$> ( x Data..?> "DashboardSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,36 +181,36 @@ instance Prelude.NFData SearchDashboards where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders SearchDashboards where
+instance Data.ToHeaders SearchDashboards where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchDashboards where
+instance Data.ToJSON SearchDashboards where
   toJSON SearchDashboards' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Filters" Core..= filters)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath SearchDashboards where
+instance Data.ToPath SearchDashboards where
   toPath SearchDashboards' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/search/dashboards"
       ]
 
-instance Core.ToQuery SearchDashboards where
+instance Data.ToQuery SearchDashboards where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchDashboardsResponse' smart constructor.

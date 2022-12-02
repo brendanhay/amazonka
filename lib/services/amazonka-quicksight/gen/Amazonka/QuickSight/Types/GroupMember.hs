@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.GroupMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A member of an Amazon QuickSight group. Currently, group members must be
@@ -62,14 +63,14 @@ groupMember_memberName = Lens.lens (\GroupMember' {memberName} -> memberName) (\
 groupMember_arn :: Lens.Lens' GroupMember (Prelude.Maybe Prelude.Text)
 groupMember_arn = Lens.lens (\GroupMember' {arn} -> arn) (\s@GroupMember' {} a -> s {arn = a} :: GroupMember)
 
-instance Core.FromJSON GroupMember where
+instance Data.FromJSON GroupMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupMember"
       ( \x ->
           GroupMember'
-            Prelude.<$> (x Core..:? "MemberName")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "MemberName")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable GroupMember where

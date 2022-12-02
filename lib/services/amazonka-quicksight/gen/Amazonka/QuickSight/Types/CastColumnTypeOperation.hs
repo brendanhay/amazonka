@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.CastColumnTypeOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnDataType
 
@@ -83,15 +84,15 @@ castColumnTypeOperation_columnName = Lens.lens (\CastColumnTypeOperation' {colum
 castColumnTypeOperation_newColumnType :: Lens.Lens' CastColumnTypeOperation ColumnDataType
 castColumnTypeOperation_newColumnType = Lens.lens (\CastColumnTypeOperation' {newColumnType'} -> newColumnType') (\s@CastColumnTypeOperation' {} a -> s {newColumnType' = a} :: CastColumnTypeOperation)
 
-instance Core.FromJSON CastColumnTypeOperation where
+instance Data.FromJSON CastColumnTypeOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CastColumnTypeOperation"
       ( \x ->
           CastColumnTypeOperation'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..: "ColumnName")
-            Prelude.<*> (x Core..: "NewColumnType")
+            Prelude.<$> (x Data..:? "Format")
+            Prelude.<*> (x Data..: "ColumnName")
+            Prelude.<*> (x Data..: "NewColumnType")
       )
 
 instance Prelude.Hashable CastColumnTypeOperation where
@@ -106,13 +107,13 @@ instance Prelude.NFData CastColumnTypeOperation where
       `Prelude.seq` Prelude.rnf columnName
       `Prelude.seq` Prelude.rnf newColumnType'
 
-instance Core.ToJSON CastColumnTypeOperation where
+instance Data.ToJSON CastColumnTypeOperation where
   toJSON CastColumnTypeOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            Prelude.Just ("ColumnName" Core..= columnName),
+          [ ("Format" Data..=) Prelude.<$> format,
+            Prelude.Just ("ColumnName" Data..= columnName),
             Prelude.Just
-              ("NewColumnType" Core..= newColumnType')
+              ("NewColumnType" Data..= newColumnType')
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Folder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.FolderType
 
@@ -31,11 +32,11 @@ data Folder = Folder'
   { -- | A display name for the folder.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time that the folder was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the folder.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time that the folder was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
     -- | The type of folder it is.
@@ -85,7 +86,7 @@ folder_name = Lens.lens (\Folder' {name} -> name) (\s@Folder' {} a -> s {name = 
 
 -- | The time that the folder was created.
 folder_createdTime :: Lens.Lens' Folder (Prelude.Maybe Prelude.UTCTime)
-folder_createdTime = Lens.lens (\Folder' {createdTime} -> createdTime) (\s@Folder' {} a -> s {createdTime = a} :: Folder) Prelude.. Lens.mapping Core._Time
+folder_createdTime = Lens.lens (\Folder' {createdTime} -> createdTime) (\s@Folder' {} a -> s {createdTime = a} :: Folder) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the folder.
 folder_arn :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
@@ -93,7 +94,7 @@ folder_arn = Lens.lens (\Folder' {arn} -> arn) (\s@Folder' {} a -> s {arn = a} :
 
 -- | The time that the folder was last updated.
 folder_lastUpdatedTime :: Lens.Lens' Folder (Prelude.Maybe Prelude.UTCTime)
-folder_lastUpdatedTime = Lens.lens (\Folder' {lastUpdatedTime} -> lastUpdatedTime) (\s@Folder' {} a -> s {lastUpdatedTime = a} :: Folder) Prelude.. Lens.mapping Core._Time
+folder_lastUpdatedTime = Lens.lens (\Folder' {lastUpdatedTime} -> lastUpdatedTime) (\s@Folder' {} a -> s {lastUpdatedTime = a} :: Folder) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the folder.
 folder_folderId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
@@ -107,19 +108,19 @@ folder_folderType = Lens.lens (\Folder' {folderType} -> folderType) (\s@Folder' 
 folder_folderPath :: Lens.Lens' Folder (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 folder_folderPath = Lens.lens (\Folder' {folderPath} -> folderPath) (\s@Folder' {} a -> s {folderPath = a} :: Folder) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Folder where
+instance Data.FromJSON Folder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Folder"
       ( \x ->
           Folder'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "FolderId")
-            Prelude.<*> (x Core..:? "FolderType")
-            Prelude.<*> (x Core..:? "FolderPath")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "FolderId")
+            Prelude.<*> (x Data..:? "FolderType")
+            Prelude.<*> (x Data..:? "FolderPath")
       )
 
 instance Prelude.Hashable Folder where

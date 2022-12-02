@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -175,10 +176,10 @@ instance Core.AWSRequest UpdateAnalysis where
     Response.receiveJSON
       ( \s h x ->
           UpdateAnalysisResponse'
-            Prelude.<$> (x Core..?> "AnalysisId")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "UpdateStatus")
+            Prelude.<$> (x Data..?> "AnalysisId")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "UpdateStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,38 +201,38 @@ instance Prelude.NFData UpdateAnalysis where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceEntity
 
-instance Core.ToHeaders UpdateAnalysis where
+instance Data.ToHeaders UpdateAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAnalysis where
+instance Data.ToJSON UpdateAnalysis where
   toJSON UpdateAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ThemeArn" Core..=) Prelude.<$> themeArn,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("SourceEntity" Core..= sourceEntity)
+          [ ("ThemeArn" Data..=) Prelude.<$> themeArn,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("SourceEntity" Data..= sourceEntity)
           ]
       )
 
-instance Core.ToPath UpdateAnalysis where
+instance Data.ToPath UpdateAnalysis where
   toPath UpdateAnalysis' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/analyses/",
-        Core.toBS analysisId
+        Data.toBS analysisId
       ]
 
-instance Core.ToQuery UpdateAnalysis where
+instance Data.ToQuery UpdateAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAnalysisResponse' smart constructor.

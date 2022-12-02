@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DashboardVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ResourceStatus
 
@@ -31,7 +32,7 @@ data DashboardVersionSummary = DashboardVersionSummary'
   { -- | Source entity ARN.
     sourceEntityArn :: Prelude.Maybe Prelude.Text,
     -- | The time that this dashboard version was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -81,7 +82,7 @@ dashboardVersionSummary_sourceEntityArn = Lens.lens (\DashboardVersionSummary' {
 
 -- | The time that this dashboard version was created.
 dashboardVersionSummary_createdTime :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.UTCTime)
-dashboardVersionSummary_createdTime = Lens.lens (\DashboardVersionSummary' {createdTime} -> createdTime) (\s@DashboardVersionSummary' {} a -> s {createdTime = a} :: DashboardVersionSummary) Prelude.. Lens.mapping Core._Time
+dashboardVersionSummary_createdTime = Lens.lens (\DashboardVersionSummary' {createdTime} -> createdTime) (\s@DashboardVersionSummary' {} a -> s {createdTime = a} :: DashboardVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the resource.
 dashboardVersionSummary_arn :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.Text)
@@ -99,18 +100,18 @@ dashboardVersionSummary_description = Lens.lens (\DashboardVersionSummary' {desc
 dashboardVersionSummary_versionNumber :: Lens.Lens' DashboardVersionSummary (Prelude.Maybe Prelude.Natural)
 dashboardVersionSummary_versionNumber = Lens.lens (\DashboardVersionSummary' {versionNumber} -> versionNumber) (\s@DashboardVersionSummary' {} a -> s {versionNumber = a} :: DashboardVersionSummary)
 
-instance Core.FromJSON DashboardVersionSummary where
+instance Data.FromJSON DashboardVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DashboardVersionSummary"
       ( \x ->
           DashboardVersionSummary'
-            Prelude.<$> (x Core..:? "SourceEntityArn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "VersionNumber")
+            Prelude.<$> (x Data..:? "SourceEntityArn")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "VersionNumber")
       )
 
 instance Prelude.Hashable DashboardVersionSummary where

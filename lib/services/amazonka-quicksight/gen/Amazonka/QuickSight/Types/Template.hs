@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Template where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.TemplateVersion
 
@@ -41,11 +42,11 @@ data Template = Template'
   { -- | The display name of the template.
     name :: Prelude.Maybe Prelude.Text,
     -- | Time when this was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the template.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Time when this was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The ID for the template. This is unique per Amazon Web Services Region
     -- for each Amazon Web Services account.
     templateId :: Prelude.Maybe Prelude.Text,
@@ -92,7 +93,7 @@ template_name = Lens.lens (\Template' {name} -> name) (\s@Template' {} a -> s {n
 
 -- | Time when this was created.
 template_createdTime :: Lens.Lens' Template (Prelude.Maybe Prelude.UTCTime)
-template_createdTime = Lens.lens (\Template' {createdTime} -> createdTime) (\s@Template' {} a -> s {createdTime = a} :: Template) Prelude.. Lens.mapping Core._Time
+template_createdTime = Lens.lens (\Template' {createdTime} -> createdTime) (\s@Template' {} a -> s {createdTime = a} :: Template) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the template.
 template_arn :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
@@ -100,7 +101,7 @@ template_arn = Lens.lens (\Template' {arn} -> arn) (\s@Template' {} a -> s {arn 
 
 -- | Time when this was last updated.
 template_lastUpdatedTime :: Lens.Lens' Template (Prelude.Maybe Prelude.UTCTime)
-template_lastUpdatedTime = Lens.lens (\Template' {lastUpdatedTime} -> lastUpdatedTime) (\s@Template' {} a -> s {lastUpdatedTime = a} :: Template) Prelude.. Lens.mapping Core._Time
+template_lastUpdatedTime = Lens.lens (\Template' {lastUpdatedTime} -> lastUpdatedTime) (\s@Template' {} a -> s {lastUpdatedTime = a} :: Template) Prelude.. Lens.mapping Data._Time
 
 -- | The ID for the template. This is unique per Amazon Web Services Region
 -- for each Amazon Web Services account.
@@ -111,18 +112,18 @@ template_templateId = Lens.lens (\Template' {templateId} -> templateId) (\s@Temp
 template_version :: Lens.Lens' Template (Prelude.Maybe TemplateVersion)
 template_version = Lens.lens (\Template' {version} -> version) (\s@Template' {} a -> s {version = a} :: Template)
 
-instance Core.FromJSON Template where
+instance Data.FromJSON Template where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Template"
       ( \x ->
           Template'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "TemplateId")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "TemplateId")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Template where

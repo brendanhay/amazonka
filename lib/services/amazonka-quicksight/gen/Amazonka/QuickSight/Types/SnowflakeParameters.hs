@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.SnowflakeParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for Snowflake.
@@ -76,15 +77,15 @@ snowflakeParameters_database = Lens.lens (\SnowflakeParameters' {database} -> da
 snowflakeParameters_warehouse :: Lens.Lens' SnowflakeParameters Prelude.Text
 snowflakeParameters_warehouse = Lens.lens (\SnowflakeParameters' {warehouse} -> warehouse) (\s@SnowflakeParameters' {} a -> s {warehouse = a} :: SnowflakeParameters)
 
-instance Core.FromJSON SnowflakeParameters where
+instance Data.FromJSON SnowflakeParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnowflakeParameters"
       ( \x ->
           SnowflakeParameters'
-            Prelude.<$> (x Core..: "Host")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Warehouse")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Warehouse")
       )
 
 instance Prelude.Hashable SnowflakeParameters where
@@ -99,12 +100,12 @@ instance Prelude.NFData SnowflakeParameters where
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf warehouse
 
-instance Core.ToJSON SnowflakeParameters where
+instance Data.ToJSON SnowflakeParameters where
   toJSON SnowflakeParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Warehouse" Core..= warehouse)
+          [ Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Warehouse" Data..= warehouse)
           ]
       )

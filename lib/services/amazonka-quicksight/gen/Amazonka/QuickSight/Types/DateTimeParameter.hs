@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DateTimeParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A date-time parameter.
@@ -30,7 +31,7 @@ data DateTimeParameter = DateTimeParameter'
   { -- | A display name for the date-time parameter.
     name :: Prelude.Text,
     -- | The values for the date-time parameter.
-    values :: [Core.POSIX]
+    values :: [Data.POSIX]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,11 +73,11 @@ instance Prelude.NFData DateTimeParameter where
   rnf DateTimeParameter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON DateTimeParameter where
+instance Data.ToJSON DateTimeParameter where
   toJSON DateTimeParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

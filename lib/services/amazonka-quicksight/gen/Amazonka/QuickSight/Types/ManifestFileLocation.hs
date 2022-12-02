@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ManifestFileLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon S3 manifest file location.
@@ -65,13 +66,13 @@ manifestFileLocation_bucket = Lens.lens (\ManifestFileLocation' {bucket} -> buck
 manifestFileLocation_key :: Lens.Lens' ManifestFileLocation Prelude.Text
 manifestFileLocation_key = Lens.lens (\ManifestFileLocation' {key} -> key) (\s@ManifestFileLocation' {} a -> s {key = a} :: ManifestFileLocation)
 
-instance Core.FromJSON ManifestFileLocation where
+instance Data.FromJSON ManifestFileLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManifestFileLocation"
       ( \x ->
           ManifestFileLocation'
-            Prelude.<$> (x Core..: "Bucket") Prelude.<*> (x Core..: "Key")
+            Prelude.<$> (x Data..: "Bucket") Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable ManifestFileLocation where
@@ -83,11 +84,11 @@ instance Prelude.NFData ManifestFileLocation where
   rnf ManifestFileLocation' {..} =
     Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON ManifestFileLocation where
+instance Data.ToJSON ManifestFileLocation where
   toJSON ManifestFileLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Bucket" Core..= bucket),
-            Prelude.Just ("Key" Core..= key)
+          [ Prelude.Just ("Bucket" Data..= bucket),
+            Prelude.Just ("Key" Data..= key)
           ]
       )

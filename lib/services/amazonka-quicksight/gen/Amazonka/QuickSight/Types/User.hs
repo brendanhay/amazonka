@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.IdentityType
 import Amazonka.QuickSight.Types.UserRole
@@ -220,23 +221,23 @@ user_identityType = Lens.lens (\User' {identityType} -> identityType) (\s@User' 
 user_customPermissionsName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_customPermissionsName = Lens.lens (\User' {customPermissionsName} -> customPermissionsName) (\s@User' {} a -> s {customPermissionsName = a} :: User)
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "ExternalLoginFederationProviderType")
-            Prelude.<*> (x Core..:? "Active")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "ExternalLoginFederationProviderUrl")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "ExternalLoginId")
-            Prelude.<*> (x Core..:? "IdentityType")
-            Prelude.<*> (x Core..:? "CustomPermissionsName")
+            Prelude.<$> (x Data..:? "PrincipalId")
+            Prelude.<*> (x Data..:? "ExternalLoginFederationProviderType")
+            Prelude.<*> (x Data..:? "Active")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "ExternalLoginFederationProviderUrl")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "ExternalLoginId")
+            Prelude.<*> (x Data..:? "IdentityType")
+            Prelude.<*> (x Data..:? "CustomPermissionsName")
       )
 
 instance Prelude.Hashable User where

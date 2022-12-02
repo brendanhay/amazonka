@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -109,10 +110,10 @@ instance Core.AWSRequest DescribeDataSetPermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeDataSetPermissionsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Permissions")
-            Prelude.<*> (x Core..?> "DataSetArn")
-            Prelude.<*> (x Core..?> "DataSetId")
+            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "DataSetArn")
+            Prelude.<*> (x Data..?> "DataSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,28 +127,28 @@ instance Prelude.NFData DescribeDataSetPermissions where
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSetId
 
-instance Core.ToHeaders DescribeDataSetPermissions where
+instance Data.ToHeaders DescribeDataSetPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDataSetPermissions where
+instance Data.ToPath DescribeDataSetPermissions where
   toPath DescribeDataSetPermissions' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/data-sets/",
-        Core.toBS dataSetId,
+        Data.toBS dataSetId,
         "/permissions"
       ]
 
-instance Core.ToQuery DescribeDataSetPermissions where
+instance Data.ToQuery DescribeDataSetPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDataSetPermissionsResponse' smart constructor.

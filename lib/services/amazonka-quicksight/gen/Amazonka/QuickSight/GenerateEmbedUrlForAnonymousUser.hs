@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -262,9 +263,9 @@ instance
       ( \s h x ->
           GenerateEmbedUrlForAnonymousUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "EmbedUrl")
-            Prelude.<*> (x Core..:> "RequestId")
-            Prelude.<*> (x Core..:> "AnonymousUserArn")
+            Prelude.<*> (x Data..:> "EmbedUrl")
+            Prelude.<*> (x Data..:> "RequestId")
+            Prelude.<*> (x Data..:> "AnonymousUserArn")
       )
 
 instance
@@ -296,50 +297,50 @@ instance
       `Prelude.seq` Prelude.rnf experienceConfiguration
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GenerateEmbedUrlForAnonymousUser
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GenerateEmbedUrlForAnonymousUser where
+instance Data.ToJSON GenerateEmbedUrlForAnonymousUser where
   toJSON GenerateEmbedUrlForAnonymousUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SessionTags" Core..=) Prelude.<$> sessionTags,
-            ("SessionLifetimeInMinutes" Core..=)
+          [ ("SessionTags" Data..=) Prelude.<$> sessionTags,
+            ("SessionLifetimeInMinutes" Data..=)
               Prelude.<$> sessionLifetimeInMinutes,
-            ("AllowedDomains" Core..=)
+            ("AllowedDomains" Data..=)
               Prelude.<$> allowedDomains,
-            Prelude.Just ("Namespace" Core..= namespace),
+            Prelude.Just ("Namespace" Data..= namespace),
             Prelude.Just
               ( "AuthorizedResourceArns"
-                  Core..= authorizedResourceArns
+                  Data..= authorizedResourceArns
               ),
             Prelude.Just
               ( "ExperienceConfiguration"
-                  Core..= experienceConfiguration
+                  Data..= experienceConfiguration
               )
           ]
       )
 
-instance Core.ToPath GenerateEmbedUrlForAnonymousUser where
+instance Data.ToPath GenerateEmbedUrlForAnonymousUser where
   toPath GenerateEmbedUrlForAnonymousUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/embed-url/anonymous-user"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GenerateEmbedUrlForAnonymousUser
   where
   toQuery = Prelude.const Prelude.mempty
@@ -349,7 +350,7 @@ data GenerateEmbedUrlForAnonymousUserResponse = GenerateEmbedUrlForAnonymousUser
   { -- | The HTTP status of the request.
     status :: Prelude.Int,
     -- | The embed URL for the dashboard.
-    embedUrl :: Core.Sensitive Prelude.Text,
+    embedUrl :: Data.Sensitive Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) to use for the anonymous Amazon
@@ -393,7 +394,7 @@ newGenerateEmbedUrlForAnonymousUserResponse
       { status =
           pStatus_,
         embedUrl =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pEmbedUrl_,
         requestId = pRequestId_,
         anonymousUserArn =
@@ -406,7 +407,7 @@ generateEmbedUrlForAnonymousUserResponse_status = Lens.lens (\GenerateEmbedUrlFo
 
 -- | The embed URL for the dashboard.
 generateEmbedUrlForAnonymousUserResponse_embedUrl :: Lens.Lens' GenerateEmbedUrlForAnonymousUserResponse Prelude.Text
-generateEmbedUrlForAnonymousUserResponse_embedUrl = Lens.lens (\GenerateEmbedUrlForAnonymousUserResponse' {embedUrl} -> embedUrl) (\s@GenerateEmbedUrlForAnonymousUserResponse' {} a -> s {embedUrl = a} :: GenerateEmbedUrlForAnonymousUserResponse) Prelude.. Core._Sensitive
+generateEmbedUrlForAnonymousUserResponse_embedUrl = Lens.lens (\GenerateEmbedUrlForAnonymousUserResponse' {embedUrl} -> embedUrl) (\s@GenerateEmbedUrlForAnonymousUserResponse' {} a -> s {embedUrl = a} :: GenerateEmbedUrlForAnonymousUserResponse) Prelude.. Data._Sensitive
 
 -- | The Amazon Web Services request ID for this operation.
 generateEmbedUrlForAnonymousUserResponse_requestId :: Lens.Lens' GenerateEmbedUrlForAnonymousUserResponse Prelude.Text

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AthenaParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters for Amazon Athena.
@@ -79,14 +80,14 @@ athenaParameters_roleArn = Lens.lens (\AthenaParameters' {roleArn} -> roleArn) (
 athenaParameters_workGroup :: Lens.Lens' AthenaParameters (Prelude.Maybe Prelude.Text)
 athenaParameters_workGroup = Lens.lens (\AthenaParameters' {workGroup} -> workGroup) (\s@AthenaParameters' {} a -> s {workGroup = a} :: AthenaParameters)
 
-instance Core.FromJSON AthenaParameters where
+instance Data.FromJSON AthenaParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AthenaParameters"
       ( \x ->
           AthenaParameters'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "WorkGroup")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "WorkGroup")
       )
 
 instance Prelude.Hashable AthenaParameters where
@@ -99,11 +100,11 @@ instance Prelude.NFData AthenaParameters where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf workGroup
 
-instance Core.ToJSON AthenaParameters where
+instance Data.ToJSON AthenaParameters where
   toJSON AthenaParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("WorkGroup" Core..=) Prelude.<$> workGroup
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("WorkGroup" Data..=) Prelude.<$> workGroup
           ]
       )

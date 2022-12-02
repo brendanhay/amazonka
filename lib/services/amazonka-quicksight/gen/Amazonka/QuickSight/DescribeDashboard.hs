@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -124,8 +125,8 @@ instance Core.AWSRequest DescribeDashboard where
     Response.receiveJSON
       ( \s h x ->
           DescribeDashboardResponse'
-            Prelude.<$> (x Core..?> "Dashboard")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<$> (x Data..?> "Dashboard")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,31 +144,31 @@ instance Prelude.NFData DescribeDashboard where
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
 
-instance Core.ToHeaders DescribeDashboard where
+instance Data.ToHeaders DescribeDashboard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDashboard where
+instance Data.ToPath DescribeDashboard where
   toPath DescribeDashboard' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/dashboards/",
-        Core.toBS dashboardId
+        Data.toBS dashboardId
       ]
 
-instance Core.ToQuery DescribeDashboard where
+instance Data.ToQuery DescribeDashboard where
   toQuery DescribeDashboard' {..} =
     Prelude.mconcat
-      [ "version-number" Core.=: versionNumber,
-        "alias-name" Core.=: aliasName
+      [ "version-number" Data.=: versionNumber,
+        "alias-name" Data.=: aliasName
       ]
 
 -- | /See:/ 'newDescribeDashboardResponse' smart constructor.

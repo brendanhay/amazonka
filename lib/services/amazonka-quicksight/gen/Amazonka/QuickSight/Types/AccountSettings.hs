@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AccountSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.Edition
 
@@ -136,18 +137,18 @@ accountSettings_terminationProtectionEnabled = Lens.lens (\AccountSettings' {ter
 accountSettings_publicSharingEnabled :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
 accountSettings_publicSharingEnabled = Lens.lens (\AccountSettings' {publicSharingEnabled} -> publicSharingEnabled) (\s@AccountSettings' {} a -> s {publicSharingEnabled = a} :: AccountSettings)
 
-instance Core.FromJSON AccountSettings where
+instance Data.FromJSON AccountSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountSettings"
       ( \x ->
           AccountSettings'
-            Prelude.<$> (x Core..:? "NotificationEmail")
-            Prelude.<*> (x Core..:? "Edition")
-            Prelude.<*> (x Core..:? "AccountName")
-            Prelude.<*> (x Core..:? "DefaultNamespace")
-            Prelude.<*> (x Core..:? "TerminationProtectionEnabled")
-            Prelude.<*> (x Core..:? "PublicSharingEnabled")
+            Prelude.<$> (x Data..:? "NotificationEmail")
+            Prelude.<*> (x Data..:? "Edition")
+            Prelude.<*> (x Data..:? "AccountName")
+            Prelude.<*> (x Data..:? "DefaultNamespace")
+            Prelude.<*> (x Data..:? "TerminationProtectionEnabled")
+            Prelude.<*> (x Data..:? "PublicSharingEnabled")
       )
 
 instance Prelude.Hashable AccountSettings where

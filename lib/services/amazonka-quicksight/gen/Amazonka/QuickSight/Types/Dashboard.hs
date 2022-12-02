@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Dashboard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardVersion
 
@@ -31,17 +32,17 @@ data Dashboard = Dashboard'
   { -- | A display name for the dashboard.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time that this dataset was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The last time that this dataset was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | Dashboard ID.
     dashboardId :: Prelude.Maybe Prelude.Text,
     -- | Version.
     version :: Prelude.Maybe DashboardVersion,
     -- | The last time that this dataset was published.
-    lastPublishedTime :: Prelude.Maybe Core.POSIX
+    lastPublishedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,7 +86,7 @@ dashboard_name = Lens.lens (\Dashboard' {name} -> name) (\s@Dashboard' {} a -> s
 
 -- | The time that this dataset was created.
 dashboard_createdTime :: Lens.Lens' Dashboard (Prelude.Maybe Prelude.UTCTime)
-dashboard_createdTime = Lens.lens (\Dashboard' {createdTime} -> createdTime) (\s@Dashboard' {} a -> s {createdTime = a} :: Dashboard) Prelude.. Lens.mapping Core._Time
+dashboard_createdTime = Lens.lens (\Dashboard' {createdTime} -> createdTime) (\s@Dashboard' {} a -> s {createdTime = a} :: Dashboard) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the resource.
 dashboard_arn :: Lens.Lens' Dashboard (Prelude.Maybe Prelude.Text)
@@ -93,7 +94,7 @@ dashboard_arn = Lens.lens (\Dashboard' {arn} -> arn) (\s@Dashboard' {} a -> s {a
 
 -- | The last time that this dataset was updated.
 dashboard_lastUpdatedTime :: Lens.Lens' Dashboard (Prelude.Maybe Prelude.UTCTime)
-dashboard_lastUpdatedTime = Lens.lens (\Dashboard' {lastUpdatedTime} -> lastUpdatedTime) (\s@Dashboard' {} a -> s {lastUpdatedTime = a} :: Dashboard) Prelude.. Lens.mapping Core._Time
+dashboard_lastUpdatedTime = Lens.lens (\Dashboard' {lastUpdatedTime} -> lastUpdatedTime) (\s@Dashboard' {} a -> s {lastUpdatedTime = a} :: Dashboard) Prelude.. Lens.mapping Data._Time
 
 -- | Dashboard ID.
 dashboard_dashboardId :: Lens.Lens' Dashboard (Prelude.Maybe Prelude.Text)
@@ -105,21 +106,21 @@ dashboard_version = Lens.lens (\Dashboard' {version} -> version) (\s@Dashboard' 
 
 -- | The last time that this dataset was published.
 dashboard_lastPublishedTime :: Lens.Lens' Dashboard (Prelude.Maybe Prelude.UTCTime)
-dashboard_lastPublishedTime = Lens.lens (\Dashboard' {lastPublishedTime} -> lastPublishedTime) (\s@Dashboard' {} a -> s {lastPublishedTime = a} :: Dashboard) Prelude.. Lens.mapping Core._Time
+dashboard_lastPublishedTime = Lens.lens (\Dashboard' {lastPublishedTime} -> lastPublishedTime) (\s@Dashboard' {} a -> s {lastPublishedTime = a} :: Dashboard) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Dashboard where
+instance Data.FromJSON Dashboard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Dashboard"
       ( \x ->
           Dashboard'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "DashboardId")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "LastPublishedTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "DashboardId")
+            Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "LastPublishedTime")
       )
 
 instance Prelude.Hashable Dashboard where

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DatabricksParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The required parameters that are needed to connect to a Databricks data
@@ -80,15 +81,15 @@ databricksParameters_port = Lens.lens (\DatabricksParameters' {port} -> port) (\
 databricksParameters_sqlEndpointPath :: Lens.Lens' DatabricksParameters Prelude.Text
 databricksParameters_sqlEndpointPath = Lens.lens (\DatabricksParameters' {sqlEndpointPath} -> sqlEndpointPath) (\s@DatabricksParameters' {} a -> s {sqlEndpointPath = a} :: DatabricksParameters)
 
-instance Core.FromJSON DatabricksParameters where
+instance Data.FromJSON DatabricksParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabricksParameters"
       ( \x ->
           DatabricksParameters'
-            Prelude.<$> (x Core..: "Host")
-            Prelude.<*> (x Core..: "Port")
-            Prelude.<*> (x Core..: "SqlEndpointPath")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
+            Prelude.<*> (x Data..: "SqlEndpointPath")
       )
 
 instance Prelude.Hashable DatabricksParameters where
@@ -103,13 +104,13 @@ instance Prelude.NFData DatabricksParameters where
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf sqlEndpointPath
 
-instance Core.ToJSON DatabricksParameters where
+instance Data.ToJSON DatabricksParameters where
   toJSON DatabricksParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Host" Core..= host),
-            Prelude.Just ("Port" Core..= port),
+          [ Prelude.Just ("Host" Data..= host),
+            Prelude.Just ("Port" Data..= port),
             Prelude.Just
-              ("SqlEndpointPath" Core..= sqlEndpointPath)
+              ("SqlEndpointPath" Data..= sqlEndpointPath)
           ]
       )

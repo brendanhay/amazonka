@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AdHocFilteringOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardBehavior
 
@@ -62,11 +63,11 @@ instance Prelude.NFData AdHocFilteringOption where
   rnf AdHocFilteringOption' {..} =
     Prelude.rnf availabilityStatus
 
-instance Core.ToJSON AdHocFilteringOption where
+instance Data.ToJSON AdHocFilteringOption where
   toJSON AdHocFilteringOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AvailabilityStatus" Core..=)
+          [ ("AvailabilityStatus" Data..=)
               Prelude.<$> availabilityStatus
           ]
       )

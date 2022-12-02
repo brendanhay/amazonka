@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.FolderMember where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.MemberType
 
@@ -63,14 +64,14 @@ folderMember_memberId = Lens.lens (\FolderMember' {memberId} -> memberId) (\s@Fo
 folderMember_memberType :: Lens.Lens' FolderMember (Prelude.Maybe MemberType)
 folderMember_memberType = Lens.lens (\FolderMember' {memberType} -> memberType) (\s@FolderMember' {} a -> s {memberType = a} :: FolderMember)
 
-instance Core.FromJSON FolderMember where
+instance Data.FromJSON FolderMember where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FolderMember"
       ( \x ->
           FolderMember'
-            Prelude.<$> (x Core..:? "MemberId")
-            Prelude.<*> (x Core..:? "MemberType")
+            Prelude.<$> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "MemberType")
       )
 
 instance Prelude.Hashable FolderMember where

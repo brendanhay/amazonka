@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TemplateVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSetConfiguration
 import Amazonka.QuickSight.Types.ResourceStatus
@@ -37,7 +38,7 @@ data TemplateVersion = TemplateVersion'
     -- | The ARN of the theme associated with this version of the template.
     themeArn :: Prelude.Maybe Prelude.Text,
     -- | The time that this template version was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The HTTP status of the request.
     status :: Prelude.Maybe ResourceStatus,
     -- | The description of the template.
@@ -111,7 +112,7 @@ templateVersion_themeArn = Lens.lens (\TemplateVersion' {themeArn} -> themeArn) 
 
 -- | The time that this template version was created.
 templateVersion_createdTime :: Lens.Lens' TemplateVersion (Prelude.Maybe Prelude.UTCTime)
-templateVersion_createdTime = Lens.lens (\TemplateVersion' {createdTime} -> createdTime) (\s@TemplateVersion' {} a -> s {createdTime = a} :: TemplateVersion) Prelude.. Lens.mapping Core._Time
+templateVersion_createdTime = Lens.lens (\TemplateVersion' {createdTime} -> createdTime) (\s@TemplateVersion' {} a -> s {createdTime = a} :: TemplateVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The HTTP status of the request.
 templateVersion_status :: Lens.Lens' TemplateVersion (Prelude.Maybe ResourceStatus)
@@ -140,22 +141,22 @@ templateVersion_sheets = Lens.lens (\TemplateVersion' {sheets} -> sheets) (\s@Te
 templateVersion_dataSetConfigurations :: Lens.Lens' TemplateVersion (Prelude.Maybe [DataSetConfiguration])
 templateVersion_dataSetConfigurations = Lens.lens (\TemplateVersion' {dataSetConfigurations} -> dataSetConfigurations) (\s@TemplateVersion' {} a -> s {dataSetConfigurations = a} :: TemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TemplateVersion where
+instance Data.FromJSON TemplateVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TemplateVersion"
       ( \x ->
           TemplateVersion'
-            Prelude.<$> (x Core..:? "SourceEntityArn")
-            Prelude.<*> (x Core..:? "ThemeArn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Errors")
-            Prelude.<*> (x Core..:? "VersionNumber")
-            Prelude.<*> (x Core..:? "Sheets" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "DataSetConfigurations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "SourceEntityArn")
+            Prelude.<*> (x Data..:? "ThemeArn")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Errors")
+            Prelude.<*> (x Data..:? "VersionNumber")
+            Prelude.<*> (x Data..:? "Sheets" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "DataSetConfigurations"
+                            Data..!= Prelude.mempty
                         )
       )
 

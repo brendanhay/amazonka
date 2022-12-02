@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.GeoSpatialColumnGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.GeoSpatialCountryCode
 
@@ -76,15 +77,15 @@ geoSpatialColumnGroup_name = Lens.lens (\GeoSpatialColumnGroup' {name} -> name) 
 geoSpatialColumnGroup_columns :: Lens.Lens' GeoSpatialColumnGroup (Prelude.NonEmpty Prelude.Text)
 geoSpatialColumnGroup_columns = Lens.lens (\GeoSpatialColumnGroup' {columns} -> columns) (\s@GeoSpatialColumnGroup' {} a -> s {columns = a} :: GeoSpatialColumnGroup) Prelude.. Lens.coerced
 
-instance Core.FromJSON GeoSpatialColumnGroup where
+instance Data.FromJSON GeoSpatialColumnGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeoSpatialColumnGroup"
       ( \x ->
           GeoSpatialColumnGroup'
-            Prelude.<$> (x Core..:? "CountryCode")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Columns")
+            Prelude.<$> (x Data..:? "CountryCode")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Columns")
       )
 
 instance Prelude.Hashable GeoSpatialColumnGroup where
@@ -99,12 +100,12 @@ instance Prelude.NFData GeoSpatialColumnGroup where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf columns
 
-instance Core.ToJSON GeoSpatialColumnGroup where
+instance Data.ToJSON GeoSpatialColumnGroup where
   toJSON GeoSpatialColumnGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CountryCode" Core..=) Prelude.<$> countryCode,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Columns" Core..= columns)
+          [ ("CountryCode" Data..=) Prelude.<$> countryCode,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Columns" Data..= columns)
           ]
       )

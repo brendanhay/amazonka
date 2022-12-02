@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.RenameColumnOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A transform operation that renames a column.
@@ -65,14 +66,14 @@ renameColumnOperation_columnName = Lens.lens (\RenameColumnOperation' {columnNam
 renameColumnOperation_newColumnName :: Lens.Lens' RenameColumnOperation Prelude.Text
 renameColumnOperation_newColumnName = Lens.lens (\RenameColumnOperation' {newColumnName'} -> newColumnName') (\s@RenameColumnOperation' {} a -> s {newColumnName' = a} :: RenameColumnOperation)
 
-instance Core.FromJSON RenameColumnOperation where
+instance Data.FromJSON RenameColumnOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RenameColumnOperation"
       ( \x ->
           RenameColumnOperation'
-            Prelude.<$> (x Core..: "ColumnName")
-            Prelude.<*> (x Core..: "NewColumnName")
+            Prelude.<$> (x Data..: "ColumnName")
+            Prelude.<*> (x Data..: "NewColumnName")
       )
 
 instance Prelude.Hashable RenameColumnOperation where
@@ -85,12 +86,12 @@ instance Prelude.NFData RenameColumnOperation where
     Prelude.rnf columnName
       `Prelude.seq` Prelude.rnf newColumnName'
 
-instance Core.ToJSON RenameColumnOperation where
+instance Data.ToJSON RenameColumnOperation where
   toJSON RenameColumnOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ColumnName" Core..= columnName),
+          [ Prelude.Just ("ColumnName" Data..= columnName),
             Prelude.Just
-              ("NewColumnName" Core..= newColumnName')
+              ("NewColumnName" Data..= newColumnName')
           ]
       )

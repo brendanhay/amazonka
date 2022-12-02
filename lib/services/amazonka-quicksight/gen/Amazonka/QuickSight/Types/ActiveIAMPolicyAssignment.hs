@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.ActiveIAMPolicyAssignment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The active Identity and Access Management (IAM) policy assignment.
@@ -62,14 +63,14 @@ activeIAMPolicyAssignment_policyArn = Lens.lens (\ActiveIAMPolicyAssignment' {po
 activeIAMPolicyAssignment_assignmentName :: Lens.Lens' ActiveIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 activeIAMPolicyAssignment_assignmentName = Lens.lens (\ActiveIAMPolicyAssignment' {assignmentName} -> assignmentName) (\s@ActiveIAMPolicyAssignment' {} a -> s {assignmentName = a} :: ActiveIAMPolicyAssignment)
 
-instance Core.FromJSON ActiveIAMPolicyAssignment where
+instance Data.FromJSON ActiveIAMPolicyAssignment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActiveIAMPolicyAssignment"
       ( \x ->
           ActiveIAMPolicyAssignment'
-            Prelude.<$> (x Core..:? "PolicyArn")
-            Prelude.<*> (x Core..:? "AssignmentName")
+            Prelude.<$> (x Data..:? "PolicyArn")
+            Prelude.<*> (x Data..:? "AssignmentName")
       )
 
 instance Prelude.Hashable ActiveIAMPolicyAssignment where

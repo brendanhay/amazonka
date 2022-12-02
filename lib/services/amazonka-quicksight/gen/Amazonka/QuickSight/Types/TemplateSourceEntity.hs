@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.TemplateSourceEntity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.TemplateSourceAnalysis
 import Amazonka.QuickSight.Types.TemplateSourceTemplate
@@ -74,13 +75,13 @@ instance Prelude.NFData TemplateSourceEntity where
     Prelude.rnf sourceAnalysis
       `Prelude.seq` Prelude.rnf sourceTemplate
 
-instance Core.ToJSON TemplateSourceEntity where
+instance Data.ToJSON TemplateSourceEntity where
   toJSON TemplateSourceEntity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceAnalysis" Core..=)
+          [ ("SourceAnalysis" Data..=)
               Prelude.<$> sourceAnalysis,
-            ("SourceTemplate" Core..=)
+            ("SourceTemplate" Data..=)
               Prelude.<$> sourceTemplate
           ]
       )

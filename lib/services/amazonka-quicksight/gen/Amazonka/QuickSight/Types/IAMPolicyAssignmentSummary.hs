@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.IAMPolicyAssignmentSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AssignmentStatus
 
@@ -63,14 +64,14 @@ iAMPolicyAssignmentSummary_assignmentName = Lens.lens (\IAMPolicyAssignmentSumma
 iAMPolicyAssignmentSummary_assignmentStatus :: Lens.Lens' IAMPolicyAssignmentSummary (Prelude.Maybe AssignmentStatus)
 iAMPolicyAssignmentSummary_assignmentStatus = Lens.lens (\IAMPolicyAssignmentSummary' {assignmentStatus} -> assignmentStatus) (\s@IAMPolicyAssignmentSummary' {} a -> s {assignmentStatus = a} :: IAMPolicyAssignmentSummary)
 
-instance Core.FromJSON IAMPolicyAssignmentSummary where
+instance Data.FromJSON IAMPolicyAssignmentSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IAMPolicyAssignmentSummary"
       ( \x ->
           IAMPolicyAssignmentSummary'
-            Prelude.<$> (x Core..:? "AssignmentName")
-            Prelude.<*> (x Core..:? "AssignmentStatus")
+            Prelude.<$> (x Data..:? "AssignmentName")
+            Prelude.<*> (x Data..:? "AssignmentStatus")
       )
 
 instance Prelude.Hashable IAMPolicyAssignmentSummary where

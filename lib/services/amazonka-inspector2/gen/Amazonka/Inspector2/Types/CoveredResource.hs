@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.CoveredResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.CoverageResourceType
 import Amazonka.Inspector2.Types.ResourceScanMetadata
 import Amazonka.Inspector2.Types.ScanStatus
@@ -115,18 +116,18 @@ coveredResource_resourceType = Lens.lens (\CoveredResource' {resourceType} -> re
 coveredResource_scanType :: Lens.Lens' CoveredResource ScanType
 coveredResource_scanType = Lens.lens (\CoveredResource' {scanType} -> scanType) (\s@CoveredResource' {} a -> s {scanType = a} :: CoveredResource)
 
-instance Core.FromJSON CoveredResource where
+instance Data.FromJSON CoveredResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoveredResource"
       ( \x ->
           CoveredResource'
-            Prelude.<$> (x Core..:? "resourceMetadata")
-            Prelude.<*> (x Core..:? "scanStatus")
-            Prelude.<*> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "resourceId")
-            Prelude.<*> (x Core..: "resourceType")
-            Prelude.<*> (x Core..: "scanType")
+            Prelude.<$> (x Data..:? "resourceMetadata")
+            Prelude.<*> (x Data..:? "scanStatus")
+            Prelude.<*> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "resourceId")
+            Prelude.<*> (x Data..: "resourceType")
+            Prelude.<*> (x Data..: "scanType")
       )
 
 instance Prelude.Hashable CoveredResource where

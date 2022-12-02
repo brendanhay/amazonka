@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AccountAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ accountAggregationResponse_severityCounts = Lens.lens (\AccountAggregationRespon
 accountAggregationResponse_accountId :: Lens.Lens' AccountAggregationResponse (Prelude.Maybe Prelude.Text)
 accountAggregationResponse_accountId = Lens.lens (\AccountAggregationResponse' {accountId} -> accountId) (\s@AccountAggregationResponse' {} a -> s {accountId = a} :: AccountAggregationResponse)
 
-instance Core.FromJSON AccountAggregationResponse where
+instance Data.FromJSON AccountAggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountAggregationResponse"
       ( \x ->
           AccountAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable AccountAggregationResponse where

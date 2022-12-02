@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.NetworkPath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.Step
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,12 +52,12 @@ newNetworkPath =
 networkPath_steps :: Lens.Lens' NetworkPath (Prelude.Maybe (Prelude.NonEmpty Step))
 networkPath_steps = Lens.lens (\NetworkPath' {steps} -> steps) (\s@NetworkPath' {} a -> s {steps = a} :: NetworkPath) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON NetworkPath where
+instance Data.FromJSON NetworkPath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkPath"
       ( \x ->
-          NetworkPath' Prelude.<$> (x Core..:? "steps")
+          NetworkPath' Prelude.<$> (x Data..:? "steps")
       )
 
 instance Prelude.Hashable NetworkPath where

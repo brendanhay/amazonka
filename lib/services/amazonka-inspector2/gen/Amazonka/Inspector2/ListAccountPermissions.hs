@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,9 +138,9 @@ instance Core.AWSRequest ListAccountPermissions where
     Response.receiveJSON
       ( \s h x ->
           ListAccountPermissionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "permissions" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListAccountPermissions where
@@ -154,31 +155,31 @@ instance Prelude.NFData ListAccountPermissions where
       `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListAccountPermissions where
+instance Data.ToHeaders ListAccountPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAccountPermissions where
+instance Data.ToJSON ListAccountPermissions where
   toJSON ListAccountPermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("service" Core..=) Prelude.<$> service,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("service" Data..=) Prelude.<$> service,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListAccountPermissions where
+instance Data.ToPath ListAccountPermissions where
   toPath = Prelude.const "/accountpermissions/list"
 
-instance Core.ToQuery ListAccountPermissions where
+instance Data.ToQuery ListAccountPermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAccountPermissionsResponse' smart constructor.

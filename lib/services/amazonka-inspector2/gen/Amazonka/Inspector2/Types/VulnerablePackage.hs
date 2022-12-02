@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.VulnerablePackage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.PackageManager
 import qualified Amazonka.Prelude as Prelude
 
@@ -141,22 +142,22 @@ vulnerablePackage_name = Lens.lens (\VulnerablePackage' {name} -> name) (\s@Vuln
 vulnerablePackage_version :: Lens.Lens' VulnerablePackage Prelude.Text
 vulnerablePackage_version = Lens.lens (\VulnerablePackage' {version} -> version) (\s@VulnerablePackage' {} a -> s {version = a} :: VulnerablePackage)
 
-instance Core.FromJSON VulnerablePackage where
+instance Data.FromJSON VulnerablePackage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VulnerablePackage"
       ( \x ->
           VulnerablePackage'
-            Prelude.<$> (x Core..:? "filePath")
-            Prelude.<*> (x Core..:? "fixedInVersion")
-            Prelude.<*> (x Core..:? "remediation")
-            Prelude.<*> (x Core..:? "arch")
-            Prelude.<*> (x Core..:? "epoch")
-            Prelude.<*> (x Core..:? "packageManager")
-            Prelude.<*> (x Core..:? "release")
-            Prelude.<*> (x Core..:? "sourceLayerHash")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "version")
+            Prelude.<$> (x Data..:? "filePath")
+            Prelude.<*> (x Data..:? "fixedInVersion")
+            Prelude.<*> (x Data..:? "remediation")
+            Prelude.<*> (x Data..:? "arch")
+            Prelude.<*> (x Data..:? "epoch")
+            Prelude.<*> (x Data..:? "packageManager")
+            Prelude.<*> (x Data..:? "release")
+            Prelude.<*> (x Data..:? "sourceLayerHash")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "version")
       )
 
 instance Prelude.Hashable VulnerablePackage where

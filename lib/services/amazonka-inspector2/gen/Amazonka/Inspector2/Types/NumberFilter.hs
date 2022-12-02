@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.NumberFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes the details of a number filter.
@@ -61,14 +62,14 @@ numberFilter_lowerInclusive = Lens.lens (\NumberFilter' {lowerInclusive} -> lowe
 numberFilter_upperInclusive :: Lens.Lens' NumberFilter (Prelude.Maybe Prelude.Double)
 numberFilter_upperInclusive = Lens.lens (\NumberFilter' {upperInclusive} -> upperInclusive) (\s@NumberFilter' {} a -> s {upperInclusive = a} :: NumberFilter)
 
-instance Core.FromJSON NumberFilter where
+instance Data.FromJSON NumberFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NumberFilter"
       ( \x ->
           NumberFilter'
-            Prelude.<$> (x Core..:? "lowerInclusive")
-            Prelude.<*> (x Core..:? "upperInclusive")
+            Prelude.<$> (x Data..:? "lowerInclusive")
+            Prelude.<*> (x Data..:? "upperInclusive")
       )
 
 instance Prelude.Hashable NumberFilter where
@@ -81,13 +82,13 @@ instance Prelude.NFData NumberFilter where
     Prelude.rnf lowerInclusive
       `Prelude.seq` Prelude.rnf upperInclusive
 
-instance Core.ToJSON NumberFilter where
+instance Data.ToJSON NumberFilter where
   toJSON NumberFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lowerInclusive" Core..=)
+          [ ("lowerInclusive" Data..=)
               Prelude.<$> lowerInclusive,
-            ("upperInclusive" Core..=)
+            ("upperInclusive" Data..=)
               Prelude.<$> upperInclusive
           ]
       )

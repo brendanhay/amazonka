@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,9 +106,9 @@ instance Core.AWSRequest Enable where
     Response.receiveJSON
       ( \s h x ->
           EnableResponse'
-            Prelude.<$> (x Core..?> "failedAccounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failedAccounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable Enable where
@@ -122,32 +123,32 @@ instance Prelude.NFData Enable where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf resourceTypes
 
-instance Core.ToHeaders Enable where
+instance Data.ToHeaders Enable where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON Enable where
+instance Data.ToJSON Enable where
   toJSON Enable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("resourceTypes" Core..= resourceTypes)
+              ("resourceTypes" Data..= resourceTypes)
           ]
       )
 
-instance Core.ToPath Enable where
+instance Data.ToPath Enable where
   toPath = Prelude.const "/enable"
 
-instance Core.ToQuery Enable where
+instance Data.ToQuery Enable where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableResponse' smart constructor.

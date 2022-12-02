@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.CvssScoreAdjustment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on adjustments Amazon Inspector made to the CVSS score for a
@@ -66,14 +67,14 @@ cvssScoreAdjustment_metric = Lens.lens (\CvssScoreAdjustment' {metric} -> metric
 cvssScoreAdjustment_reason :: Lens.Lens' CvssScoreAdjustment Prelude.Text
 cvssScoreAdjustment_reason = Lens.lens (\CvssScoreAdjustment' {reason} -> reason) (\s@CvssScoreAdjustment' {} a -> s {reason = a} :: CvssScoreAdjustment)
 
-instance Core.FromJSON CvssScoreAdjustment where
+instance Data.FromJSON CvssScoreAdjustment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CvssScoreAdjustment"
       ( \x ->
           CvssScoreAdjustment'
-            Prelude.<$> (x Core..: "metric")
-            Prelude.<*> (x Core..: "reason")
+            Prelude.<$> (x Data..: "metric")
+            Prelude.<*> (x Data..: "reason")
       )
 
 instance Prelude.Hashable CvssScoreAdjustment where

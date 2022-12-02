@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AmiAggregation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.AmiSortBy
 import Amazonka.Inspector2.Types.SortOrder
 import Amazonka.Inspector2.Types.StringFilter
@@ -86,12 +87,12 @@ instance Prelude.NFData AmiAggregation where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf amis
 
-instance Core.ToJSON AmiAggregation where
+instance Data.ToJSON AmiAggregation where
   toJSON AmiAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("amis" Core..=) Prelude.<$> amis
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("amis" Data..=) Prelude.<$> amis
           ]
       )

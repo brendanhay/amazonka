@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.PackageAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ packageAggregationResponse_accountId = Lens.lens (\PackageAggregationResponse' {
 packageAggregationResponse_packageName :: Lens.Lens' PackageAggregationResponse Prelude.Text
 packageAggregationResponse_packageName = Lens.lens (\PackageAggregationResponse' {packageName} -> packageName) (\s@PackageAggregationResponse' {} a -> s {packageName = a} :: PackageAggregationResponse)
 
-instance Core.FromJSON PackageAggregationResponse where
+instance Data.FromJSON PackageAggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageAggregationResponse"
       ( \x ->
           PackageAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..: "packageName")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..: "packageName")
       )
 
 instance Prelude.Hashable PackageAggregationResponse where

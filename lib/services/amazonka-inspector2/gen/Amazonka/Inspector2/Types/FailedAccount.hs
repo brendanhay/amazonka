@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.FailedAccount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.ErrorCode
 import Amazonka.Inspector2.Types.ResourceStatus
 import Amazonka.Inspector2.Types.Status
@@ -110,17 +111,17 @@ failedAccount_errorCode = Lens.lens (\FailedAccount' {errorCode} -> errorCode) (
 failedAccount_errorMessage :: Lens.Lens' FailedAccount Prelude.Text
 failedAccount_errorMessage = Lens.lens (\FailedAccount' {errorMessage} -> errorMessage) (\s@FailedAccount' {} a -> s {errorMessage = a} :: FailedAccount)
 
-instance Core.FromJSON FailedAccount where
+instance Data.FromJSON FailedAccount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedAccount"
       ( \x ->
           FailedAccount'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "resourceStatus")
-            Prelude.<*> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "errorCode")
-            Prelude.<*> (x Core..: "errorMessage")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "resourceStatus")
+            Prelude.<*> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "errorCode")
+            Prelude.<*> (x Data..: "errorMessage")
       )
 
 instance Prelude.Hashable FailedAccount where

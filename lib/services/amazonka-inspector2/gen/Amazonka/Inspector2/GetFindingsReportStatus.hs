@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,12 +90,12 @@ instance Core.AWSRequest GetFindingsReportStatus where
     Response.receiveJSON
       ( \s h x ->
           GetFindingsReportStatusResponse'
-            Prelude.<$> (x Core..?> "destination")
-            Prelude.<*> (x Core..?> "errorMessage")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "filterCriteria")
-            Prelude.<*> (x Core..?> "reportId")
-            Prelude.<*> (x Core..?> "errorCode")
+            Prelude.<$> (x Data..?> "destination")
+            Prelude.<*> (x Data..?> "errorMessage")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "filterCriteria")
+            Prelude.<*> (x Data..?> "reportId")
+            Prelude.<*> (x Data..?> "errorCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,28 +107,28 @@ instance Prelude.NFData GetFindingsReportStatus where
   rnf GetFindingsReportStatus' {..} =
     Prelude.rnf reportId
 
-instance Core.ToHeaders GetFindingsReportStatus where
+instance Data.ToHeaders GetFindingsReportStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFindingsReportStatus where
+instance Data.ToJSON GetFindingsReportStatus where
   toJSON GetFindingsReportStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("reportId" Core..=) Prelude.<$> reportId]
+          [("reportId" Data..=) Prelude.<$> reportId]
       )
 
-instance Core.ToPath GetFindingsReportStatus where
+instance Data.ToPath GetFindingsReportStatus where
   toPath = Prelude.const "/reporting/status/get"
 
-instance Core.ToQuery GetFindingsReportStatus where
+instance Data.ToQuery GetFindingsReportStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFindingsReportStatusResponse' smart constructor.

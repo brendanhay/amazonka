@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -67,7 +68,7 @@ instance Core.AWSRequest GetConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetConfigurationResponse'
-            Prelude.<$> (x Core..?> "ecrConfiguration")
+            Prelude.<$> (x Data..?> "ecrConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -78,24 +79,24 @@ instance Prelude.Hashable GetConfiguration where
 instance Prelude.NFData GetConfiguration where
   rnf _ = ()
 
-instance Core.ToHeaders GetConfiguration where
+instance Data.ToHeaders GetConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetConfiguration where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetConfiguration where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetConfiguration where
+instance Data.ToPath GetConfiguration where
   toPath = Prelude.const "/configuration/get"
 
-instance Core.ToQuery GetConfiguration where
+instance Data.ToQuery GetConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetConfigurationResponse' smart constructor.

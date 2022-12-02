@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.FreeTrialInfoError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.FreeTrialInfoErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,15 +79,15 @@ freeTrialInfoError_code = Lens.lens (\FreeTrialInfoError' {code} -> code) (\s@Fr
 freeTrialInfoError_message :: Lens.Lens' FreeTrialInfoError Prelude.Text
 freeTrialInfoError_message = Lens.lens (\FreeTrialInfoError' {message} -> message) (\s@FreeTrialInfoError' {} a -> s {message = a} :: FreeTrialInfoError)
 
-instance Core.FromJSON FreeTrialInfoError where
+instance Data.FromJSON FreeTrialInfoError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FreeTrialInfoError"
       ( \x ->
           FreeTrialInfoError'
-            Prelude.<$> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "code")
-            Prelude.<*> (x Core..: "message")
+            Prelude.<$> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "code")
+            Prelude.<*> (x Data..: "message")
       )
 
 instance Prelude.Hashable FreeTrialInfoError where

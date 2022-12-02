@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AggregationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.AccountAggregation
 import Amazonka.Inspector2.Types.AmiAggregation
 import Amazonka.Inspector2.Types.AwsEcrContainerAggregation
@@ -185,27 +186,27 @@ instance Prelude.NFData AggregationRequest where
       `Prelude.seq` Prelude.rnf titleAggregation
       `Prelude.seq` Prelude.rnf amiAggregation
 
-instance Core.ToJSON AggregationRequest where
+instance Data.ToJSON AggregationRequest where
   toJSON AggregationRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("repositoryAggregation" Core..=)
+          [ ("repositoryAggregation" Data..=)
               Prelude.<$> repositoryAggregation,
-            ("imageLayerAggregation" Core..=)
+            ("imageLayerAggregation" Data..=)
               Prelude.<$> imageLayerAggregation,
-            ("accountAggregation" Core..=)
+            ("accountAggregation" Data..=)
               Prelude.<$> accountAggregation,
-            ("awsEcrContainerAggregation" Core..=)
+            ("awsEcrContainerAggregation" Data..=)
               Prelude.<$> awsEcrContainerAggregation,
-            ("ec2InstanceAggregation" Core..=)
+            ("ec2InstanceAggregation" Data..=)
               Prelude.<$> ec2InstanceAggregation,
-            ("findingTypeAggregation" Core..=)
+            ("findingTypeAggregation" Data..=)
               Prelude.<$> findingTypeAggregation,
-            ("packageAggregation" Core..=)
+            ("packageAggregation" Data..=)
               Prelude.<$> packageAggregation,
-            ("titleAggregation" Core..=)
+            ("titleAggregation" Data..=)
               Prelude.<$> titleAggregation,
-            ("amiAggregation" Core..=)
+            ("amiAggregation" Data..=)
               Prelude.<$> amiAggregation
           ]
       )

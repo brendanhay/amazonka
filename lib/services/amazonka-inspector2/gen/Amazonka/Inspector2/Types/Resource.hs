@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.ResourceDetails
 import Amazonka.Inspector2.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
@@ -106,18 +107,18 @@ resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a}
 resource_type :: Lens.Lens' Resource ResourceType
 resource_type = Lens.lens (\Resource' {type'} -> type') (\s@Resource' {} a -> s {type' = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "details")
-            Prelude.<*> (x Core..:? "partition")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "details")
+            Prelude.<*> (x Data..:? "partition")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable Resource where

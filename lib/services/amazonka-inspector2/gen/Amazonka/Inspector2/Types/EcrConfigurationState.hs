@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.EcrConfigurationState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.EcrRescanDurationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newEcrConfigurationState =
 ecrConfigurationState_rescanDurationState :: Lens.Lens' EcrConfigurationState (Prelude.Maybe EcrRescanDurationState)
 ecrConfigurationState_rescanDurationState = Lens.lens (\EcrConfigurationState' {rescanDurationState} -> rescanDurationState) (\s@EcrConfigurationState' {} a -> s {rescanDurationState = a} :: EcrConfigurationState)
 
-instance Core.FromJSON EcrConfigurationState where
+instance Data.FromJSON EcrConfigurationState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EcrConfigurationState"
       ( \x ->
           EcrConfigurationState'
-            Prelude.<$> (x Core..:? "rescanDurationState")
+            Prelude.<$> (x Data..:? "rescanDurationState")
       )
 
 instance Prelude.Hashable EcrConfigurationState where

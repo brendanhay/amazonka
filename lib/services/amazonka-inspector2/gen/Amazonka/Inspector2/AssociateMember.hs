@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest AssociateMember where
       ( \s h x ->
           AssociateMemberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "accountId")
+            Prelude.<*> (x Data..:> "accountId")
       )
 
 instance Prelude.Hashable AssociateMember where
@@ -98,28 +99,28 @@ instance Prelude.Hashable AssociateMember where
 instance Prelude.NFData AssociateMember where
   rnf AssociateMember' {..} = Prelude.rnf accountId
 
-instance Core.ToHeaders AssociateMember where
+instance Data.ToHeaders AssociateMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateMember where
+instance Data.ToJSON AssociateMember where
   toJSON AssociateMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("accountId" Core..= accountId)]
+          [Prelude.Just ("accountId" Data..= accountId)]
       )
 
-instance Core.ToPath AssociateMember where
+instance Data.ToPath AssociateMember where
   toPath = Prelude.const "/members/associate"
 
-instance Core.ToQuery AssociateMember where
+instance Data.ToQuery AssociateMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateMemberResponse' smart constructor.

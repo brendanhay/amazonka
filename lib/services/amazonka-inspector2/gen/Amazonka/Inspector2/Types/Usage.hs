@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Usage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.Currency
 import Amazonka.Inspector2.Types.UsageType
 import qualified Amazonka.Prelude as Prelude
@@ -81,16 +82,16 @@ usage_estimatedMonthlyCost = Lens.lens (\Usage' {estimatedMonthlyCost} -> estima
 usage_currency :: Lens.Lens' Usage (Prelude.Maybe Currency)
 usage_currency = Lens.lens (\Usage' {currency} -> currency) (\s@Usage' {} a -> s {currency = a} :: Usage)
 
-instance Core.FromJSON Usage where
+instance Data.FromJSON Usage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Usage"
       ( \x ->
           Usage'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "estimatedMonthlyCost")
-            Prelude.<*> (x Core..:? "currency")
+            Prelude.<$> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "estimatedMonthlyCost")
+            Prelude.<*> (x Data..:? "currency")
       )
 
 instance Prelude.Hashable Usage where

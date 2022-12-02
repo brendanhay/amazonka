@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.RepositoryAggregation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.RepositorySortBy
 import Amazonka.Inspector2.Types.SortOrder
 import Amazonka.Inspector2.Types.StringFilter
@@ -85,12 +86,12 @@ instance Prelude.NFData RepositoryAggregation where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf repositories
 
-instance Core.ToJSON RepositoryAggregation where
+instance Data.ToJSON RepositoryAggregation where
   toJSON RepositoryAggregation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("repositories" Core..=) Prelude.<$> repositories
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("repositories" Data..=) Prelude.<$> repositories
           ]
       )

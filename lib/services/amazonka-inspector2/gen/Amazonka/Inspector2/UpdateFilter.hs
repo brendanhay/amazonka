@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance Core.AWSRequest UpdateFilter where
       ( \s h x ->
           UpdateFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable UpdateFilter where
@@ -159,35 +160,35 @@ instance Prelude.NFData UpdateFilter where
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf filterArn
 
-instance Core.ToHeaders UpdateFilter where
+instance Data.ToHeaders UpdateFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFilter where
+instance Data.ToJSON UpdateFilter where
   toJSON UpdateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description,
-            ("filterCriteria" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description,
+            ("filterCriteria" Data..=)
               Prelude.<$> filterCriteria,
-            ("reason" Core..=) Prelude.<$> reason,
-            ("action" Core..=) Prelude.<$> action,
-            Prelude.Just ("filterArn" Core..= filterArn)
+            ("reason" Data..=) Prelude.<$> reason,
+            ("action" Data..=) Prelude.<$> action,
+            Prelude.Just ("filterArn" Data..= filterArn)
           ]
       )
 
-instance Core.ToPath UpdateFilter where
+instance Data.ToPath UpdateFilter where
   toPath = Prelude.const "/filters/update"
 
-instance Core.ToQuery UpdateFilter where
+instance Data.ToQuery UpdateFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFilterResponse' smart constructor.

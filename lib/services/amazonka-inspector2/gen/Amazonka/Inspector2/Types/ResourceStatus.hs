@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.ResourceStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.Status
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,13 +65,13 @@ resourceStatus_ec2 = Lens.lens (\ResourceStatus' {ec2} -> ec2) (\s@ResourceStatu
 resourceStatus_ecr :: Lens.Lens' ResourceStatus Status
 resourceStatus_ecr = Lens.lens (\ResourceStatus' {ecr} -> ecr) (\s@ResourceStatus' {} a -> s {ecr = a} :: ResourceStatus)
 
-instance Core.FromJSON ResourceStatus where
+instance Data.FromJSON ResourceStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceStatus"
       ( \x ->
           ResourceStatus'
-            Prelude.<$> (x Core..: "ec2") Prelude.<*> (x Core..: "ecr")
+            Prelude.<$> (x Data..: "ec2") Prelude.<*> (x Data..: "ecr")
       )
 
 instance Prelude.Hashable ResourceStatus where

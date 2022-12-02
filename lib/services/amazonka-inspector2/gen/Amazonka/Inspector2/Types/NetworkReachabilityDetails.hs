@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.NetworkReachabilityDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.NetworkPath
 import Amazonka.Inspector2.Types.NetworkProtocol
 import Amazonka.Inspector2.Types.PortRange
@@ -89,15 +90,15 @@ networkReachabilityDetails_openPortRange = Lens.lens (\NetworkReachabilityDetail
 networkReachabilityDetails_protocol :: Lens.Lens' NetworkReachabilityDetails NetworkProtocol
 networkReachabilityDetails_protocol = Lens.lens (\NetworkReachabilityDetails' {protocol} -> protocol) (\s@NetworkReachabilityDetails' {} a -> s {protocol = a} :: NetworkReachabilityDetails)
 
-instance Core.FromJSON NetworkReachabilityDetails where
+instance Data.FromJSON NetworkReachabilityDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkReachabilityDetails"
       ( \x ->
           NetworkReachabilityDetails'
-            Prelude.<$> (x Core..: "networkPath")
-            Prelude.<*> (x Core..: "openPortRange")
-            Prelude.<*> (x Core..: "protocol")
+            Prelude.<$> (x Data..: "networkPath")
+            Prelude.<*> (x Data..: "openPortRange")
+            Prelude.<*> (x Data..: "protocol")
       )
 
 instance Prelude.Hashable NetworkReachabilityDetails where

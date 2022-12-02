@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AutoEnable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents which scan types are automatically enabled for new members of
@@ -69,13 +70,13 @@ autoEnable_ec2 = Lens.lens (\AutoEnable' {ec2} -> ec2) (\s@AutoEnable' {} a -> s
 autoEnable_ecr :: Lens.Lens' AutoEnable Prelude.Bool
 autoEnable_ecr = Lens.lens (\AutoEnable' {ecr} -> ecr) (\s@AutoEnable' {} a -> s {ecr = a} :: AutoEnable)
 
-instance Core.FromJSON AutoEnable where
+instance Data.FromJSON AutoEnable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoEnable"
       ( \x ->
           AutoEnable'
-            Prelude.<$> (x Core..: "ec2") Prelude.<*> (x Core..: "ecr")
+            Prelude.<$> (x Data..: "ec2") Prelude.<*> (x Data..: "ecr")
       )
 
 instance Prelude.Hashable AutoEnable where
@@ -87,11 +88,11 @@ instance Prelude.NFData AutoEnable where
   rnf AutoEnable' {..} =
     Prelude.rnf ec2 `Prelude.seq` Prelude.rnf ecr
 
-instance Core.ToJSON AutoEnable where
+instance Data.ToJSON AutoEnable where
   toJSON AutoEnable' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ec2" Core..= ec2),
-            Prelude.Just ("ecr" Core..= ecr)
+          [ Prelude.Just ("ec2" Data..= ec2),
+            Prelude.Just ("ecr" Data..= ecr)
           ]
       )

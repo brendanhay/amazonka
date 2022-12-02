@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,7 +70,7 @@ instance Core.AWSRequest GetDelegatedAdminAccount where
     Response.receiveJSON
       ( \s h x ->
           GetDelegatedAdminAccountResponse'
-            Prelude.<$> (x Core..?> "delegatedAdmin")
+            Prelude.<$> (x Data..?> "delegatedAdmin")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -80,24 +81,24 @@ instance Prelude.Hashable GetDelegatedAdminAccount where
 instance Prelude.NFData GetDelegatedAdminAccount where
   rnf _ = ()
 
-instance Core.ToHeaders GetDelegatedAdminAccount where
+instance Data.ToHeaders GetDelegatedAdminAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDelegatedAdminAccount where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetDelegatedAdminAccount where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetDelegatedAdminAccount where
+instance Data.ToPath GetDelegatedAdminAccount where
   toPath = Prelude.const "/delegatedadminaccounts/get"
 
-instance Core.ToQuery GetDelegatedAdminAccount where
+instance Data.ToQuery GetDelegatedAdminAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDelegatedAdminAccountResponse' smart constructor.

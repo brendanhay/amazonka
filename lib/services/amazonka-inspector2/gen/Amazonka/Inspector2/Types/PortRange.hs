@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.PortRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the port range associated with a finding.
@@ -62,13 +63,13 @@ portRange_begin = Lens.lens (\PortRange' {begin} -> begin) (\s@PortRange' {} a -
 portRange_end :: Lens.Lens' PortRange Prelude.Natural
 portRange_end = Lens.lens (\PortRange' {end} -> end) (\s@PortRange' {} a -> s {end = a} :: PortRange)
 
-instance Core.FromJSON PortRange where
+instance Data.FromJSON PortRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortRange"
       ( \x ->
           PortRange'
-            Prelude.<$> (x Core..: "begin") Prelude.<*> (x Core..: "end")
+            Prelude.<$> (x Data..: "begin") Prelude.<*> (x Data..: "end")
       )
 
 instance Prelude.Hashable PortRange where

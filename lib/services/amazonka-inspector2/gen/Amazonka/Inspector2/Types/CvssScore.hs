@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.CvssScore where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The CVSS score for a finding.
@@ -91,16 +92,16 @@ cvssScore_source = Lens.lens (\CvssScore' {source} -> source) (\s@CvssScore' {} 
 cvssScore_version :: Lens.Lens' CvssScore Prelude.Text
 cvssScore_version = Lens.lens (\CvssScore' {version} -> version) (\s@CvssScore' {} a -> s {version = a} :: CvssScore)
 
-instance Core.FromJSON CvssScore where
+instance Data.FromJSON CvssScore where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CvssScore"
       ( \x ->
           CvssScore'
-            Prelude.<$> (x Core..: "baseScore")
-            Prelude.<*> (x Core..: "scoringVector")
-            Prelude.<*> (x Core..: "source")
-            Prelude.<*> (x Core..: "version")
+            Prelude.<$> (x Data..: "baseScore")
+            Prelude.<*> (x Data..: "scoringVector")
+            Prelude.<*> (x Data..: "source")
+            Prelude.<*> (x Data..: "version")
       )
 
 instance Prelude.Hashable CvssScore where

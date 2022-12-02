@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.AwsEcrContainerAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,21 +115,21 @@ awsEcrContainerAggregationResponse_resourceId :: Lens.Lens' AwsEcrContainerAggre
 awsEcrContainerAggregationResponse_resourceId = Lens.lens (\AwsEcrContainerAggregationResponse' {resourceId} -> resourceId) (\s@AwsEcrContainerAggregationResponse' {} a -> s {resourceId = a} :: AwsEcrContainerAggregationResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcrContainerAggregationResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcrContainerAggregationResponse"
       ( \x ->
           AwsEcrContainerAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..:? "repository")
-            Prelude.<*> (x Core..:? "imageSha")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "imageTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "architecture")
-            Prelude.<*> (x Core..: "resourceId")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..:? "repository")
+            Prelude.<*> (x Data..:? "imageSha")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "architecture")
+            Prelude.<*> (x Data..: "resourceId")
       )
 
 instance

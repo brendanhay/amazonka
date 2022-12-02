@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest CancelFindingsReport where
       ( \s h x ->
           CancelFindingsReportResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "reportId")
+            Prelude.<*> (x Data..:> "reportId")
       )
 
 instance Prelude.Hashable CancelFindingsReport where
@@ -94,28 +95,28 @@ instance Prelude.Hashable CancelFindingsReport where
 instance Prelude.NFData CancelFindingsReport where
   rnf CancelFindingsReport' {..} = Prelude.rnf reportId
 
-instance Core.ToHeaders CancelFindingsReport where
+instance Data.ToHeaders CancelFindingsReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelFindingsReport where
+instance Data.ToJSON CancelFindingsReport where
   toJSON CancelFindingsReport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("reportId" Core..= reportId)]
+          [Prelude.Just ("reportId" Data..= reportId)]
       )
 
-instance Core.ToPath CancelFindingsReport where
+instance Data.ToPath CancelFindingsReport where
   toPath = Prelude.const "/reporting/cancel"
 
-instance Core.ToQuery CancelFindingsReport where
+instance Data.ToQuery CancelFindingsReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelFindingsReportResponse' smart constructor.

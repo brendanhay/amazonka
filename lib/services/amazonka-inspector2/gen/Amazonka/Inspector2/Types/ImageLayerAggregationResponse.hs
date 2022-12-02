@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.ImageLayerAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -106,17 +107,17 @@ imageLayerAggregationResponse_repository = Lens.lens (\ImageLayerAggregationResp
 imageLayerAggregationResponse_resourceId :: Lens.Lens' ImageLayerAggregationResponse Prelude.Text
 imageLayerAggregationResponse_resourceId = Lens.lens (\ImageLayerAggregationResponse' {resourceId} -> resourceId) (\s@ImageLayerAggregationResponse' {} a -> s {resourceId = a} :: ImageLayerAggregationResponse)
 
-instance Core.FromJSON ImageLayerAggregationResponse where
+instance Data.FromJSON ImageLayerAggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImageLayerAggregationResponse"
       ( \x ->
           ImageLayerAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "layerHash")
-            Prelude.<*> (x Core..: "repository")
-            Prelude.<*> (x Core..: "resourceId")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "layerHash")
+            Prelude.<*> (x Data..: "repository")
+            Prelude.<*> (x Data..: "resourceId")
       )
 
 instance

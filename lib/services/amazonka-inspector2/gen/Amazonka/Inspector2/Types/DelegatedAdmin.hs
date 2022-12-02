@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.DelegatedAdmin where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.RelationshipStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ delegatedAdmin_accountId = Lens.lens (\DelegatedAdmin' {accountId} -> accountId)
 delegatedAdmin_relationshipStatus :: Lens.Lens' DelegatedAdmin (Prelude.Maybe RelationshipStatus)
 delegatedAdmin_relationshipStatus = Lens.lens (\DelegatedAdmin' {relationshipStatus} -> relationshipStatus) (\s@DelegatedAdmin' {} a -> s {relationshipStatus = a} :: DelegatedAdmin)
 
-instance Core.FromJSON DelegatedAdmin where
+instance Data.FromJSON DelegatedAdmin where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DelegatedAdmin"
       ( \x ->
           DelegatedAdmin'
-            Prelude.<$> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "relationshipStatus")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "relationshipStatus")
       )
 
 instance Prelude.Hashable DelegatedAdmin where

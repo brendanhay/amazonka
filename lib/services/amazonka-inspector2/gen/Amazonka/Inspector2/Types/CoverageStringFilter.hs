@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.CoverageStringFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.CoverageStringComparison
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,11 +77,11 @@ instance Prelude.NFData CoverageStringFilter where
     Prelude.rnf comparison
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON CoverageStringFilter where
+instance Data.ToJSON CoverageStringFilter where
   toJSON CoverageStringFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("comparison" Core..= comparison),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("comparison" Data..= comparison),
+            Prelude.Just ("value" Data..= value)
           ]
       )

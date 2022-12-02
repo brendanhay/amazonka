@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Finding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.FindingStatus
 import Amazonka.Inspector2.Types.FindingType
 import Amazonka.Inspector2.Types.FixAvailable
@@ -52,7 +53,7 @@ data Finding = Finding'
     -- available through updated versions.
     fixAvailable :: Prelude.Maybe FixAvailable,
     -- | The date and time the finding was last updated at.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID associated with the finding.
     awsAccountId :: Prelude.Text,
     -- | The description of the finding.
@@ -60,9 +61,9 @@ data Finding = Finding'
     -- | The Amazon Resource Number (ARN) of the finding.
     findingArn :: Prelude.Text,
     -- | The date and time that the finding was first observed.
-    firstObservedAt :: Core.POSIX,
+    firstObservedAt :: Data.POSIX,
     -- | The date and time that the finding was last observed.
-    lastObservedAt :: Core.POSIX,
+    lastObservedAt :: Data.POSIX,
     -- | An object that contains the details about how to remediate a finding.
     remediation :: Remediation,
     -- | Contains information on the resources involved in a finding.
@@ -165,8 +166,8 @@ newFinding
         description = pDescription_,
         findingArn = pFindingArn_,
         firstObservedAt =
-          Core._Time Lens.# pFirstObservedAt_,
-        lastObservedAt = Core._Time Lens.# pLastObservedAt_,
+          Data._Time Lens.# pFirstObservedAt_,
+        lastObservedAt = Data._Time Lens.# pLastObservedAt_,
         remediation = pRemediation_,
         resources = Lens.coerced Lens.# pResources_,
         severity = pSeverity_,
@@ -203,7 +204,7 @@ finding_fixAvailable = Lens.lens (\Finding' {fixAvailable} -> fixAvailable) (\s@
 
 -- | The date and time the finding was last updated at.
 finding_updatedAt :: Lens.Lens' Finding (Prelude.Maybe Prelude.UTCTime)
-finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Lens.mapping Core._Time
+finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID associated with the finding.
 finding_awsAccountId :: Lens.Lens' Finding Prelude.Text
@@ -219,11 +220,11 @@ finding_findingArn = Lens.lens (\Finding' {findingArn} -> findingArn) (\s@Findin
 
 -- | The date and time that the finding was first observed.
 finding_firstObservedAt :: Lens.Lens' Finding Prelude.UTCTime
-finding_firstObservedAt = Lens.lens (\Finding' {firstObservedAt} -> firstObservedAt) (\s@Finding' {} a -> s {firstObservedAt = a} :: Finding) Prelude.. Core._Time
+finding_firstObservedAt = Lens.lens (\Finding' {firstObservedAt} -> firstObservedAt) (\s@Finding' {} a -> s {firstObservedAt = a} :: Finding) Prelude.. Data._Time
 
 -- | The date and time that the finding was last observed.
 finding_lastObservedAt :: Lens.Lens' Finding Prelude.UTCTime
-finding_lastObservedAt = Lens.lens (\Finding' {lastObservedAt} -> lastObservedAt) (\s@Finding' {} a -> s {lastObservedAt = a} :: Finding) Prelude.. Core._Time
+finding_lastObservedAt = Lens.lens (\Finding' {lastObservedAt} -> lastObservedAt) (\s@Finding' {} a -> s {lastObservedAt = a} :: Finding) Prelude.. Data._Time
 
 -- | An object that contains the details about how to remediate a finding.
 finding_remediation :: Lens.Lens' Finding Remediation
@@ -245,29 +246,29 @@ finding_status = Lens.lens (\Finding' {status} -> status) (\s@Finding' {} a -> s
 finding_type :: Lens.Lens' Finding FindingType
 finding_type = Lens.lens (\Finding' {type'} -> type') (\s@Finding' {} a -> s {type' = a} :: Finding)
 
-instance Core.FromJSON Finding where
+instance Data.FromJSON Finding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Core..:? "inspectorScore")
-            Prelude.<*> (x Core..:? "packageVulnerabilityDetails")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "inspectorScoreDetails")
-            Prelude.<*> (x Core..:? "networkReachabilityDetails")
-            Prelude.<*> (x Core..:? "fixAvailable")
-            Prelude.<*> (x Core..:? "updatedAt")
-            Prelude.<*> (x Core..: "awsAccountId")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "findingArn")
-            Prelude.<*> (x Core..: "firstObservedAt")
-            Prelude.<*> (x Core..: "lastObservedAt")
-            Prelude.<*> (x Core..: "remediation")
-            Prelude.<*> (x Core..: "resources")
-            Prelude.<*> (x Core..: "severity")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "inspectorScore")
+            Prelude.<*> (x Data..:? "packageVulnerabilityDetails")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "inspectorScoreDetails")
+            Prelude.<*> (x Data..:? "networkReachabilityDetails")
+            Prelude.<*> (x Data..:? "fixAvailable")
+            Prelude.<*> (x Data..:? "updatedAt")
+            Prelude.<*> (x Data..: "awsAccountId")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "findingArn")
+            Prelude.<*> (x Data..: "firstObservedAt")
+            Prelude.<*> (x Data..: "lastObservedAt")
+            Prelude.<*> (x Data..: "remediation")
+            Prelude.<*> (x Data..: "resources")
+            Prelude.<*> (x Data..: "severity")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable Finding where

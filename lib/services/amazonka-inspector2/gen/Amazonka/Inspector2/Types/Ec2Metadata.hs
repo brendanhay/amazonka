@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Ec2Metadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.Ec2Platform
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ ec2Metadata_amiId = Lens.lens (\Ec2Metadata' {amiId} -> amiId) (\s@Ec2Metadata' 
 ec2Metadata_platform :: Lens.Lens' Ec2Metadata (Prelude.Maybe Ec2Platform)
 ec2Metadata_platform = Lens.lens (\Ec2Metadata' {platform} -> platform) (\s@Ec2Metadata' {} a -> s {platform = a} :: Ec2Metadata)
 
-instance Core.FromJSON Ec2Metadata where
+instance Data.FromJSON Ec2Metadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ec2Metadata"
       ( \x ->
           Ec2Metadata'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "amiId")
-            Prelude.<*> (x Core..:? "platform")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "amiId")
+            Prelude.<*> (x Data..:? "platform")
       )
 
 instance Prelude.Hashable Ec2Metadata where

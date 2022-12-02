@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.State where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.ErrorCode
 import Amazonka.Inspector2.Types.Status
 import qualified Amazonka.Prelude as Prelude
@@ -85,15 +86,15 @@ state_errorMessage = Lens.lens (\State' {errorMessage} -> errorMessage) (\s@Stat
 state_status :: Lens.Lens' State Status
 state_status = Lens.lens (\State' {status} -> status) (\s@State' {} a -> s {status = a} :: State)
 
-instance Core.FromJSON State where
+instance Data.FromJSON State where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "State"
       ( \x ->
           State'
-            Prelude.<$> (x Core..: "errorCode")
-            Prelude.<*> (x Core..: "errorMessage")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..: "errorCode")
+            Prelude.<*> (x Data..: "errorMessage")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable State where

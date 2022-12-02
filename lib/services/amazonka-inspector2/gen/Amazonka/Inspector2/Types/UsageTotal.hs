@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.UsageTotal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.Usage
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ usageTotal_usage = Lens.lens (\UsageTotal' {usage} -> usage) (\s@UsageTotal' {} 
 usageTotal_accountId :: Lens.Lens' UsageTotal (Prelude.Maybe Prelude.Text)
 usageTotal_accountId = Lens.lens (\UsageTotal' {accountId} -> accountId) (\s@UsageTotal' {} a -> s {accountId = a} :: UsageTotal)
 
-instance Core.FromJSON UsageTotal where
+instance Data.FromJSON UsageTotal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageTotal"
       ( \x ->
           UsageTotal'
-            Prelude.<$> (x Core..:? "usage" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "usage" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable UsageTotal where

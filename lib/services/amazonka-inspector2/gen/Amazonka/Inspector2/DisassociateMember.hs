@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest DisassociateMember where
       ( \s h x ->
           DisassociateMemberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "accountId")
+            Prelude.<*> (x Data..:> "accountId")
       )
 
 instance Prelude.Hashable DisassociateMember where
@@ -98,28 +99,28 @@ instance Prelude.Hashable DisassociateMember where
 instance Prelude.NFData DisassociateMember where
   rnf DisassociateMember' {..} = Prelude.rnf accountId
 
-instance Core.ToHeaders DisassociateMember where
+instance Data.ToHeaders DisassociateMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateMember where
+instance Data.ToJSON DisassociateMember where
   toJSON DisassociateMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("accountId" Core..= accountId)]
+          [Prelude.Just ("accountId" Data..= accountId)]
       )
 
-instance Core.ToPath DisassociateMember where
+instance Data.ToPath DisassociateMember where
   toPath = Prelude.const "/members/disassociate"
 
-instance Core.ToQuery DisassociateMember where
+instance Data.ToQuery DisassociateMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateMemberResponse' smart constructor.

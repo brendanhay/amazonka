@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest EnableDelegatedAdminAccount where
       ( \s h x ->
           EnableDelegatedAdminAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "delegatedAdminAccountId")
+            Prelude.<*> (x Data..:> "delegatedAdminAccountId")
       )
 
 instance Prelude.Hashable EnableDelegatedAdminAccount where
@@ -116,34 +117,34 @@ instance Prelude.NFData EnableDelegatedAdminAccount where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf delegatedAdminAccountId
 
-instance Core.ToHeaders EnableDelegatedAdminAccount where
+instance Data.ToHeaders EnableDelegatedAdminAccount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableDelegatedAdminAccount where
+instance Data.ToJSON EnableDelegatedAdminAccount where
   toJSON EnableDelegatedAdminAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "delegatedAdminAccountId"
-                  Core..= delegatedAdminAccountId
+                  Data..= delegatedAdminAccountId
               )
           ]
       )
 
-instance Core.ToPath EnableDelegatedAdminAccount where
+instance Data.ToPath EnableDelegatedAdminAccount where
   toPath =
     Prelude.const "/delegatedadminaccounts/enable"
 
-instance Core.ToQuery EnableDelegatedAdminAccount where
+instance Data.ToQuery EnableDelegatedAdminAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableDelegatedAdminAccountResponse' smart constructor.

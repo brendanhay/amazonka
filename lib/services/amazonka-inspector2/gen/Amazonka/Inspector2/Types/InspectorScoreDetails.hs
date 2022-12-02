@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.InspectorScoreDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.CvssScoreDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newInspectorScoreDetails =
 inspectorScoreDetails_adjustedCvss :: Lens.Lens' InspectorScoreDetails (Prelude.Maybe CvssScoreDetails)
 inspectorScoreDetails_adjustedCvss = Lens.lens (\InspectorScoreDetails' {adjustedCvss} -> adjustedCvss) (\s@InspectorScoreDetails' {} a -> s {adjustedCvss = a} :: InspectorScoreDetails)
 
-instance Core.FromJSON InspectorScoreDetails where
+instance Data.FromJSON InspectorScoreDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InspectorScoreDetails"
       ( \x ->
           InspectorScoreDetails'
-            Prelude.<$> (x Core..:? "adjustedCvss")
+            Prelude.<$> (x Data..:? "adjustedCvss")
       )
 
 instance Prelude.Hashable InspectorScoreDetails where

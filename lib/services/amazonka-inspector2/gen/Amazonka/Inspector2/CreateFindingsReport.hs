@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest CreateFindingsReport where
     Response.receiveJSON
       ( \s h x ->
           CreateFindingsReportResponse'
-            Prelude.<$> (x Core..?> "reportId")
+            Prelude.<$> (x Data..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,33 +127,33 @@ instance Prelude.NFData CreateFindingsReport where
       `Prelude.seq` Prelude.rnf reportFormat
       `Prelude.seq` Prelude.rnf s3Destination
 
-instance Core.ToHeaders CreateFindingsReport where
+instance Data.ToHeaders CreateFindingsReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFindingsReport where
+instance Data.ToJSON CreateFindingsReport where
   toJSON CreateFindingsReport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filterCriteria" Core..=)
+          [ ("filterCriteria" Data..=)
               Prelude.<$> filterCriteria,
-            Prelude.Just ("reportFormat" Core..= reportFormat),
+            Prelude.Just ("reportFormat" Data..= reportFormat),
             Prelude.Just
-              ("s3Destination" Core..= s3Destination)
+              ("s3Destination" Data..= s3Destination)
           ]
       )
 
-instance Core.ToPath CreateFindingsReport where
+instance Data.ToPath CreateFindingsReport where
   toPath = Prelude.const "/reporting/create"
 
-instance Core.ToQuery CreateFindingsReport where
+instance Data.ToQuery CreateFindingsReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFindingsReportResponse' smart constructor.

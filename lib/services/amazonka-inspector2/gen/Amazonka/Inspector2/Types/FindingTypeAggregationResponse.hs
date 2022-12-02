@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.FindingTypeAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ findingTypeAggregationResponse_severityCounts = Lens.lens (\FindingTypeAggregati
 findingTypeAggregationResponse_accountId :: Lens.Lens' FindingTypeAggregationResponse (Prelude.Maybe Prelude.Text)
 findingTypeAggregationResponse_accountId = Lens.lens (\FindingTypeAggregationResponse' {accountId} -> accountId) (\s@FindingTypeAggregationResponse' {} a -> s {accountId = a} :: FindingTypeAggregationResponse)
 
-instance Core.FromJSON FindingTypeAggregationResponse where
+instance Data.FromJSON FindingTypeAggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingTypeAggregationResponse"
       ( \x ->
           FindingTypeAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance

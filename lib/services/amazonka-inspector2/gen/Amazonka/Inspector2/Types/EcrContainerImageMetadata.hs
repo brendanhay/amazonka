@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.EcrContainerImageMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information on the Amazon ECR image metadata associated with a finding.
@@ -50,13 +51,13 @@ newEcrContainerImageMetadata =
 ecrContainerImageMetadata_tags :: Lens.Lens' EcrContainerImageMetadata (Prelude.Maybe [Prelude.Text])
 ecrContainerImageMetadata_tags = Lens.lens (\EcrContainerImageMetadata' {tags} -> tags) (\s@EcrContainerImageMetadata' {} a -> s {tags = a} :: EcrContainerImageMetadata) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EcrContainerImageMetadata where
+instance Data.FromJSON EcrContainerImageMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EcrContainerImageMetadata"
       ( \x ->
           EcrContainerImageMetadata'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EcrContainerImageMetadata where

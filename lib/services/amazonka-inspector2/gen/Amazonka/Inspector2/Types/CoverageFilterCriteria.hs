@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.CoverageFilterCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.CoverageMapFilter
 import Amazonka.Inspector2.Types.CoverageStringFilter
 import qualified Amazonka.Prelude as Prelude
@@ -166,22 +167,22 @@ instance Prelude.NFData CoverageFilterCriteria where
       `Prelude.seq` Prelude.rnf scanStatusCode
       `Prelude.seq` Prelude.rnf ecrRepositoryName
 
-instance Core.ToJSON CoverageFilterCriteria where
+instance Data.ToJSON CoverageFilterCriteria where
   toJSON CoverageFilterCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceId" Core..=) Prelude.<$> resourceId,
-            ("resourceType" Core..=) Prelude.<$> resourceType,
-            ("ecrImageTags" Core..=) Prelude.<$> ecrImageTags,
-            ("scanType" Core..=) Prelude.<$> scanType,
-            ("accountId" Core..=) Prelude.<$> accountId,
-            ("ec2InstanceTags" Core..=)
+          [ ("resourceId" Data..=) Prelude.<$> resourceId,
+            ("resourceType" Data..=) Prelude.<$> resourceType,
+            ("ecrImageTags" Data..=) Prelude.<$> ecrImageTags,
+            ("scanType" Data..=) Prelude.<$> scanType,
+            ("accountId" Data..=) Prelude.<$> accountId,
+            ("ec2InstanceTags" Data..=)
               Prelude.<$> ec2InstanceTags,
-            ("scanStatusReason" Core..=)
+            ("scanStatusReason" Data..=)
               Prelude.<$> scanStatusReason,
-            ("scanStatusCode" Core..=)
+            ("scanStatusCode" Data..=)
               Prelude.<$> scanStatusCode,
-            ("ecrRepositoryName" Core..=)
+            ("ecrRepositoryName" Data..=)
               Prelude.<$> ecrRepositoryName
           ]
       )

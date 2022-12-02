@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest UpdateDataset where
       ( \s h x ->
           UpdateDatasetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable UpdateDataset where
@@ -151,33 +152,33 @@ instance Prelude.NFData UpdateDataset where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf input
 
-instance Core.ToHeaders UpdateDataset where
+instance Data.ToHeaders UpdateDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataset where
+instance Data.ToJSON UpdateDataset where
   toJSON UpdateDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PathOptions" Core..=) Prelude.<$> pathOptions,
-            ("Format" Core..=) Prelude.<$> format,
-            ("FormatOptions" Core..=) Prelude.<$> formatOptions,
-            Prelude.Just ("Input" Core..= input)
+          [ ("PathOptions" Data..=) Prelude.<$> pathOptions,
+            ("Format" Data..=) Prelude.<$> format,
+            ("FormatOptions" Data..=) Prelude.<$> formatOptions,
+            Prelude.Just ("Input" Data..= input)
           ]
       )
 
-instance Core.ToPath UpdateDataset where
+instance Data.ToPath UpdateDataset where
   toPath UpdateDataset' {..} =
-    Prelude.mconcat ["/datasets/", Core.toBS name]
+    Prelude.mconcat ["/datasets/", Data.toBS name]
 
-instance Core.ToQuery UpdateDataset where
+instance Data.ToQuery UpdateDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDatasetResponse' smart constructor.

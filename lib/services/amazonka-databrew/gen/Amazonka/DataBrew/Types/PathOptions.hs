@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.PathOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.DatasetParameter
 import Amazonka.DataBrew.Types.FilesLimit
 import Amazonka.DataBrew.Types.FilterExpression
@@ -84,15 +85,15 @@ pathOptions_filesLimit = Lens.lens (\PathOptions' {filesLimit} -> filesLimit) (\
 pathOptions_parameters :: Lens.Lens' PathOptions (Prelude.Maybe (Prelude.HashMap Prelude.Text DatasetParameter))
 pathOptions_parameters = Lens.lens (\PathOptions' {parameters} -> parameters) (\s@PathOptions' {} a -> s {parameters = a} :: PathOptions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PathOptions where
+instance Data.FromJSON PathOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PathOptions"
       ( \x ->
           PathOptions'
-            Prelude.<$> (x Core..:? "LastModifiedDateCondition")
-            Prelude.<*> (x Core..:? "FilesLimit")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "LastModifiedDateCondition")
+            Prelude.<*> (x Data..:? "FilesLimit")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PathOptions where
@@ -108,13 +109,13 @@ instance Prelude.NFData PathOptions where
       `Prelude.seq` Prelude.rnf filesLimit
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON PathOptions where
+instance Data.ToJSON PathOptions where
   toJSON PathOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LastModifiedDateCondition" Core..=)
+          [ ("LastModifiedDateCondition" Data..=)
               Prelude.<$> lastModifiedDateCondition,
-            ("FilesLimit" Core..=) Prelude.<$> filesLimit,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("FilesLimit" Data..=) Prelude.<$> filesLimit,
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

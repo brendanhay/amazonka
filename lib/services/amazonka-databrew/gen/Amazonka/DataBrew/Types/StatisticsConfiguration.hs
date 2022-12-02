@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.StatisticsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.StatisticOverride
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ statisticsConfiguration_includedStatistics = Lens.lens (\StatisticsConfiguration
 statisticsConfiguration_overrides :: Lens.Lens' StatisticsConfiguration (Prelude.Maybe (Prelude.NonEmpty StatisticOverride))
 statisticsConfiguration_overrides = Lens.lens (\StatisticsConfiguration' {overrides} -> overrides) (\s@StatisticsConfiguration' {} a -> s {overrides = a} :: StatisticsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON StatisticsConfiguration where
+instance Data.FromJSON StatisticsConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatisticsConfiguration"
       ( \x ->
           StatisticsConfiguration'
-            Prelude.<$> (x Core..:? "IncludedStatistics")
-            Prelude.<*> (x Core..:? "Overrides")
+            Prelude.<$> (x Data..:? "IncludedStatistics")
+            Prelude.<*> (x Data..:? "Overrides")
       )
 
 instance Prelude.Hashable StatisticsConfiguration where
@@ -88,12 +89,12 @@ instance Prelude.NFData StatisticsConfiguration where
     Prelude.rnf includedStatistics
       `Prelude.seq` Prelude.rnf overrides
 
-instance Core.ToJSON StatisticsConfiguration where
+instance Data.ToJSON StatisticsConfiguration where
   toJSON StatisticsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IncludedStatistics" Core..=)
+          [ ("IncludedStatistics" Data..=)
               Prelude.<$> includedStatistics,
-            ("Overrides" Core..=) Prelude.<$> overrides
+            ("Overrides" Data..=) Prelude.<$> overrides
           ]
       )

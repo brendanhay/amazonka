@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Rule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.ColumnSelector
 import Amazonka.DataBrew.Types.Threshold
 import qualified Amazonka.Prelude as Prelude
@@ -176,20 +177,20 @@ rule_name = Lens.lens (\Rule' {name} -> name) (\s@Rule' {} a -> s {name = a} :: 
 rule_checkExpression :: Lens.Lens' Rule Prelude.Text
 rule_checkExpression = Lens.lens (\Rule' {checkExpression} -> checkExpression) (\s@Rule' {} a -> s {checkExpression = a} :: Rule)
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> ( x Core..:? "SubstitutionMap"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SubstitutionMap"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ColumnSelectors")
-            Prelude.<*> (x Core..:? "Disabled")
-            Prelude.<*> (x Core..:? "Threshold")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "CheckExpression")
+            Prelude.<*> (x Data..:? "ColumnSelectors")
+            Prelude.<*> (x Data..:? "Disabled")
+            Prelude.<*> (x Data..:? "Threshold")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "CheckExpression")
       )
 
 instance Prelude.Hashable Rule where
@@ -210,18 +211,18 @@ instance Prelude.NFData Rule where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf checkExpression
 
-instance Core.ToJSON Rule where
+instance Data.ToJSON Rule where
   toJSON Rule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SubstitutionMap" Core..=)
+          [ ("SubstitutionMap" Data..=)
               Prelude.<$> substitutionMap,
-            ("ColumnSelectors" Core..=)
+            ("ColumnSelectors" Data..=)
               Prelude.<$> columnSelectors,
-            ("Disabled" Core..=) Prelude.<$> disabled,
-            ("Threshold" Core..=) Prelude.<$> threshold,
-            Prelude.Just ("Name" Core..= name),
+            ("Disabled" Data..=) Prelude.<$> disabled,
+            ("Threshold" Data..=) Prelude.<$> threshold,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("CheckExpression" Core..= checkExpression)
+              ("CheckExpression" Data..= checkExpression)
           ]
       )

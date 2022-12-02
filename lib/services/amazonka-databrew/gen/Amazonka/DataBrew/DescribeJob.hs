@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,31 +104,31 @@ instance Core.AWSRequest DescribeJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "EncryptionKeyArn")
-            Prelude.<*> (x Core..?> "JobSample")
-            Prelude.<*> (x Core..?> "Timeout")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "DatabaseOutputs")
-            Prelude.<*> (x Core..?> "LastModifiedDate")
-            Prelude.<*> (x Core..?> "DataCatalogOutputs")
-            Prelude.<*> (x Core..?> "DatasetName")
-            Prelude.<*> (x Core..?> "LogSubscription")
-            Prelude.<*> (x Core..?> "MaxRetries")
-            Prelude.<*> (x Core..?> "RecipeReference")
-            Prelude.<*> (x Core..?> "Outputs")
-            Prelude.<*> (x Core..?> "CreateDate")
-            Prelude.<*> (x Core..?> "ProfileConfiguration")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "ProjectName")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "MaxCapacity")
-            Prelude.<*> (x Core..?> "EncryptionMode")
-            Prelude.<*> (x Core..?> "ValidationConfigurations")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "EncryptionKeyArn")
+            Prelude.<*> (x Data..?> "JobSample")
+            Prelude.<*> (x Data..?> "Timeout")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "DatabaseOutputs")
+            Prelude.<*> (x Data..?> "LastModifiedDate")
+            Prelude.<*> (x Data..?> "DataCatalogOutputs")
+            Prelude.<*> (x Data..?> "DatasetName")
+            Prelude.<*> (x Data..?> "LogSubscription")
+            Prelude.<*> (x Data..?> "MaxRetries")
+            Prelude.<*> (x Data..?> "RecipeReference")
+            Prelude.<*> (x Data..?> "Outputs")
+            Prelude.<*> (x Data..?> "CreateDate")
+            Prelude.<*> (x Data..?> "ProfileConfiguration")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "ProjectName")
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "MaxCapacity")
+            Prelude.<*> (x Data..?> "EncryptionMode")
+            Prelude.<*> (x Data..?> "ValidationConfigurations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable DescribeJob where
@@ -137,22 +138,22 @@ instance Prelude.Hashable DescribeJob where
 instance Prelude.NFData DescribeJob where
   rnf DescribeJob' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeJob where
+instance Data.ToHeaders DescribeJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeJob where
+instance Data.ToPath DescribeJob where
   toPath DescribeJob' {..} =
-    Prelude.mconcat ["/jobs/", Core.toBS name]
+    Prelude.mconcat ["/jobs/", Data.toBS name]
 
-instance Core.ToQuery DescribeJob where
+instance Data.ToQuery DescribeJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobResponse' smart constructor.
@@ -182,7 +183,7 @@ data DescribeJobResponse = DescribeJobResponse'
     -- output destination for a DataBrew recipe job to write into.
     databaseOutputs :: Prelude.Maybe (Prelude.NonEmpty DatabaseOutput),
     -- | The date and time that the job was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | One or more artifacts that represent the Glue Data Catalog output from
     -- running the job.
     dataCatalogOutputs :: Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput),
@@ -196,7 +197,7 @@ data DescribeJobResponse = DescribeJobResponse'
     -- | One or more artifacts that represent the output from running the job.
     outputs :: Prelude.Maybe (Prelude.NonEmpty Output),
     -- | The date and time that the job was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | Configuration for profile jobs. Used to select columns, do evaluations,
     -- and override default parameters of evaluations. When configuration is
     -- null, the profile job will run with default settings.
@@ -379,7 +380,7 @@ describeJobResponse_databaseOutputs = Lens.lens (\DescribeJobResponse' {database
 
 -- | The date and time that the job was last modified.
 describeJobResponse_lastModifiedDate :: Lens.Lens' DescribeJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeJobResponse_lastModifiedDate = Lens.lens (\DescribeJobResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeJobResponse' {} a -> s {lastModifiedDate = a} :: DescribeJobResponse) Prelude.. Lens.mapping Core._Time
+describeJobResponse_lastModifiedDate = Lens.lens (\DescribeJobResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeJobResponse' {} a -> s {lastModifiedDate = a} :: DescribeJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | One or more artifacts that represent the Glue Data Catalog output from
 -- running the job.
@@ -408,7 +409,7 @@ describeJobResponse_outputs = Lens.lens (\DescribeJobResponse' {outputs} -> outp
 
 -- | The date and time that the job was created.
 describeJobResponse_createDate :: Lens.Lens' DescribeJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeJobResponse_createDate = Lens.lens (\DescribeJobResponse' {createDate} -> createDate) (\s@DescribeJobResponse' {} a -> s {createDate = a} :: DescribeJobResponse) Prelude.. Lens.mapping Core._Time
+describeJobResponse_createDate = Lens.lens (\DescribeJobResponse' {createDate} -> createDate) (\s@DescribeJobResponse' {} a -> s {createDate = a} :: DescribeJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Configuration for profile jobs. Used to select columns, do evaluations,
 -- and override default parameters of evaluations. When configuration is

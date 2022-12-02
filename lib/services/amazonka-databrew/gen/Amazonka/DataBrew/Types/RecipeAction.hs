@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.RecipeAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a transformation and associated parameters that are used to
@@ -65,14 +66,14 @@ recipeAction_parameters = Lens.lens (\RecipeAction' {parameters} -> parameters) 
 recipeAction_operation :: Lens.Lens' RecipeAction Prelude.Text
 recipeAction_operation = Lens.lens (\RecipeAction' {operation} -> operation) (\s@RecipeAction' {} a -> s {operation = a} :: RecipeAction)
 
-instance Core.FromJSON RecipeAction where
+instance Data.FromJSON RecipeAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecipeAction"
       ( \x ->
           RecipeAction'
-            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Operation")
+            Prelude.<$> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Operation")
       )
 
 instance Prelude.Hashable RecipeAction where
@@ -85,11 +86,11 @@ instance Prelude.NFData RecipeAction where
     Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf operation
 
-instance Core.ToJSON RecipeAction where
+instance Data.ToJSON RecipeAction where
   toJSON RecipeAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Operation" Core..= operation)
+          [ ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Operation" Data..= operation)
           ]
       )

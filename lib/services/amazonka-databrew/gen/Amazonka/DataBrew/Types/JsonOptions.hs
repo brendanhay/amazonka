@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.JsonOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the JSON-specific options that define how input is to be
@@ -54,12 +55,12 @@ newJsonOptions =
 jsonOptions_multiLine :: Lens.Lens' JsonOptions (Prelude.Maybe Prelude.Bool)
 jsonOptions_multiLine = Lens.lens (\JsonOptions' {multiLine} -> multiLine) (\s@JsonOptions' {} a -> s {multiLine = a} :: JsonOptions)
 
-instance Core.FromJSON JsonOptions where
+instance Data.FromJSON JsonOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JsonOptions"
       ( \x ->
-          JsonOptions' Prelude.<$> (x Core..:? "MultiLine")
+          JsonOptions' Prelude.<$> (x Data..:? "MultiLine")
       )
 
 instance Prelude.Hashable JsonOptions where
@@ -69,9 +70,9 @@ instance Prelude.Hashable JsonOptions where
 instance Prelude.NFData JsonOptions where
   rnf JsonOptions' {..} = Prelude.rnf multiLine
 
-instance Core.ToJSON JsonOptions where
+instance Data.ToJSON JsonOptions where
   toJSON JsonOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("MultiLine" Core..=) Prelude.<$> multiLine]
+          [("MultiLine" Data..=) Prelude.<$> multiLine]
       )

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -273,7 +274,7 @@ instance Core.AWSRequest CreateProfileJob where
       ( \s h x ->
           CreateProfileJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable CreateProfileJob where
@@ -310,47 +311,47 @@ instance Prelude.NFData CreateProfileJob where
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateProfileJob where
+instance Data.ToHeaders CreateProfileJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProfileJob where
+instance Data.ToJSON CreateProfileJob where
   toJSON CreateProfileJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EncryptionKeyArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EncryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("JobSample" Core..=) Prelude.<$> jobSample,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("LogSubscription" Core..=)
+            ("JobSample" Data..=) Prelude.<$> jobSample,
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("LogSubscription" Data..=)
               Prelude.<$> logSubscription,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("EncryptionMode" Core..=)
+            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("EncryptionMode" Data..=)
               Prelude.<$> encryptionMode,
-            ("ValidationConfigurations" Core..=)
+            ("ValidationConfigurations" Data..=)
               Prelude.<$> validationConfigurations,
-            Prelude.Just ("DatasetName" Core..= datasetName),
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("DatasetName" Data..= datasetName),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("OutputLocation" Core..= outputLocation),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+              ("OutputLocation" Data..= outputLocation),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateProfileJob where
+instance Data.ToPath CreateProfileJob where
   toPath = Prelude.const "/profileJobs"
 
-instance Core.ToQuery CreateProfileJob where
+instance Data.ToQuery CreateProfileJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProfileJobResponse' smart constructor.

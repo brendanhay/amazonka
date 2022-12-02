@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.StatisticOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Override of a particular evaluation for a profile job.
@@ -63,14 +64,14 @@ statisticOverride_statistic = Lens.lens (\StatisticOverride' {statistic} -> stat
 statisticOverride_parameters :: Lens.Lens' StatisticOverride (Prelude.HashMap Prelude.Text Prelude.Text)
 statisticOverride_parameters = Lens.lens (\StatisticOverride' {parameters} -> parameters) (\s@StatisticOverride' {} a -> s {parameters = a} :: StatisticOverride) Prelude.. Lens.coerced
 
-instance Core.FromJSON StatisticOverride where
+instance Data.FromJSON StatisticOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StatisticOverride"
       ( \x ->
           StatisticOverride'
-            Prelude.<$> (x Core..: "Statistic")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Statistic")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StatisticOverride where
@@ -83,11 +84,11 @@ instance Prelude.NFData StatisticOverride where
     Prelude.rnf statistic
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON StatisticOverride where
+instance Data.ToJSON StatisticOverride where
   toJSON StatisticOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Statistic" Core..= statistic),
-            Prelude.Just ("Parameters" Core..= parameters)
+          [ Prelude.Just ("Statistic" Data..= statistic),
+            Prelude.Just ("Parameters" Data..= parameters)
           ]
       )

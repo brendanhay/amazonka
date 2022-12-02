@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.CsvOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of options that define how DataBrew will read a
@@ -68,14 +69,14 @@ csvOptions_delimiter = Lens.lens (\CsvOptions' {delimiter} -> delimiter) (\s@Csv
 csvOptions_headerRow :: Lens.Lens' CsvOptions (Prelude.Maybe Prelude.Bool)
 csvOptions_headerRow = Lens.lens (\CsvOptions' {headerRow} -> headerRow) (\s@CsvOptions' {} a -> s {headerRow = a} :: CsvOptions)
 
-instance Core.FromJSON CsvOptions where
+instance Data.FromJSON CsvOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CsvOptions"
       ( \x ->
           CsvOptions'
-            Prelude.<$> (x Core..:? "Delimiter")
-            Prelude.<*> (x Core..:? "HeaderRow")
+            Prelude.<$> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "HeaderRow")
       )
 
 instance Prelude.Hashable CsvOptions where
@@ -88,11 +89,11 @@ instance Prelude.NFData CsvOptions where
     Prelude.rnf delimiter
       `Prelude.seq` Prelude.rnf headerRow
 
-instance Core.ToJSON CsvOptions where
+instance Data.ToJSON CsvOptions where
   toJSON CsvOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Delimiter" Core..=) Prelude.<$> delimiter,
-            ("HeaderRow" Core..=) Prelude.<$> headerRow
+          [ ("Delimiter" Data..=) Prelude.<$> delimiter,
+            ("HeaderRow" Data..=) Prelude.<$> headerRow
           ]
       )

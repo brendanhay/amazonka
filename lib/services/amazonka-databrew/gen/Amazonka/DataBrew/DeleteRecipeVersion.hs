@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,8 +106,8 @@ instance Core.AWSRequest DeleteRecipeVersion where
       ( \s h x ->
           DeleteRecipeVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
-            Prelude.<*> (x Core..:> "RecipeVersion")
+            Prelude.<*> (x Data..:> "Name")
+            Prelude.<*> (x Data..:> "RecipeVersion")
       )
 
 instance Prelude.Hashable DeleteRecipeVersion where
@@ -119,27 +120,27 @@ instance Prelude.NFData DeleteRecipeVersion where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf recipeVersion
 
-instance Core.ToHeaders DeleteRecipeVersion where
+instance Data.ToHeaders DeleteRecipeVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRecipeVersion where
+instance Data.ToPath DeleteRecipeVersion where
   toPath DeleteRecipeVersion' {..} =
     Prelude.mconcat
       [ "/recipes/",
-        Core.toBS name,
+        Data.toBS name,
         "/recipeVersion/",
-        Core.toBS recipeVersion
+        Data.toBS recipeVersion
       ]
 
-instance Core.ToQuery DeleteRecipeVersion where
+instance Data.ToQuery DeleteRecipeVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRecipeVersionResponse' smart constructor.

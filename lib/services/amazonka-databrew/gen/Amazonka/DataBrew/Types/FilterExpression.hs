@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.FilterExpression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a structure for defining parameter conditions. Supported
@@ -81,14 +82,14 @@ filterExpression_expression = Lens.lens (\FilterExpression' {expression} -> expr
 filterExpression_valuesMap :: Lens.Lens' FilterExpression (Prelude.HashMap Prelude.Text Prelude.Text)
 filterExpression_valuesMap = Lens.lens (\FilterExpression' {valuesMap} -> valuesMap) (\s@FilterExpression' {} a -> s {valuesMap = a} :: FilterExpression) Prelude.. Lens.coerced
 
-instance Core.FromJSON FilterExpression where
+instance Data.FromJSON FilterExpression where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilterExpression"
       ( \x ->
           FilterExpression'
-            Prelude.<$> (x Core..: "Expression")
-            Prelude.<*> (x Core..:? "ValuesMap" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "Expression")
+            Prelude.<*> (x Data..:? "ValuesMap" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FilterExpression where
@@ -101,11 +102,11 @@ instance Prelude.NFData FilterExpression where
     Prelude.rnf expression
       `Prelude.seq` Prelude.rnf valuesMap
 
-instance Core.ToJSON FilterExpression where
+instance Data.ToJSON FilterExpression where
   toJSON FilterExpression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Expression" Core..= expression),
-            Prelude.Just ("ValuesMap" Core..= valuesMap)
+          [ Prelude.Just ("Expression" Data..= expression),
+            Prelude.Just ("ValuesMap" Data..= valuesMap)
           ]
       )

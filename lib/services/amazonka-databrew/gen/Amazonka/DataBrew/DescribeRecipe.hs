@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,20 +112,20 @@ instance Core.AWSRequest DescribeRecipe where
     Response.receiveJSON
       ( \s h x ->
           DescribeRecipeResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PublishedBy")
-            Prelude.<*> (x Core..?> "LastModifiedDate")
-            Prelude.<*> (x Core..?> "Steps" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "CreateDate")
-            Prelude.<*> (x Core..?> "PublishedDate")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "ProjectName")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "RecipeVersion")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PublishedBy")
+            Prelude.<*> (x Data..?> "LastModifiedDate")
+            Prelude.<*> (x Data..?> "Steps" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "CreateDate")
+            Prelude.<*> (x Data..?> "PublishedDate")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "ProjectName")
+            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "RecipeVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable DescribeRecipe where
@@ -137,25 +138,25 @@ instance Prelude.NFData DescribeRecipe where
     Prelude.rnf recipeVersion
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DescribeRecipe where
+instance Data.ToHeaders DescribeRecipe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRecipe where
+instance Data.ToPath DescribeRecipe where
   toPath DescribeRecipe' {..} =
-    Prelude.mconcat ["/recipes/", Core.toBS name]
+    Prelude.mconcat ["/recipes/", Data.toBS name]
 
-instance Core.ToQuery DescribeRecipe where
+instance Data.ToQuery DescribeRecipe where
   toQuery DescribeRecipe' {..} =
     Prelude.mconcat
-      ["recipeVersion" Core.=: recipeVersion]
+      ["recipeVersion" Data.=: recipeVersion]
 
 -- | /See:/ 'newDescribeRecipeResponse' smart constructor.
 data DescribeRecipeResponse = DescribeRecipeResponse'
@@ -164,16 +165,16 @@ data DescribeRecipeResponse = DescribeRecipeResponse'
     -- | The identifier (user name) of the user who last published the recipe.
     publishedBy :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the recipe was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | One or more steps to be performed by the recipe. Each step consists of
     -- an action, and the conditions under which the action should succeed.
     steps :: Prelude.Maybe [RecipeStep],
     -- | The description of the recipe.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the recipe was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the recipe was last published.
-    publishedDate :: Prelude.Maybe Core.POSIX,
+    publishedDate :: Prelude.Maybe Data.POSIX,
     -- | The identifier (user name) of the user who last modified the recipe.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the recipe.
@@ -261,7 +262,7 @@ describeRecipeResponse_publishedBy = Lens.lens (\DescribeRecipeResponse' {publis
 
 -- | The date and time that the recipe was last modified.
 describeRecipeResponse_lastModifiedDate :: Lens.Lens' DescribeRecipeResponse (Prelude.Maybe Prelude.UTCTime)
-describeRecipeResponse_lastModifiedDate = Lens.lens (\DescribeRecipeResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeRecipeResponse' {} a -> s {lastModifiedDate = a} :: DescribeRecipeResponse) Prelude.. Lens.mapping Core._Time
+describeRecipeResponse_lastModifiedDate = Lens.lens (\DescribeRecipeResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeRecipeResponse' {} a -> s {lastModifiedDate = a} :: DescribeRecipeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | One or more steps to be performed by the recipe. Each step consists of
 -- an action, and the conditions under which the action should succeed.
@@ -274,11 +275,11 @@ describeRecipeResponse_description = Lens.lens (\DescribeRecipeResponse' {descri
 
 -- | The date and time that the recipe was created.
 describeRecipeResponse_createDate :: Lens.Lens' DescribeRecipeResponse (Prelude.Maybe Prelude.UTCTime)
-describeRecipeResponse_createDate = Lens.lens (\DescribeRecipeResponse' {createDate} -> createDate) (\s@DescribeRecipeResponse' {} a -> s {createDate = a} :: DescribeRecipeResponse) Prelude.. Lens.mapping Core._Time
+describeRecipeResponse_createDate = Lens.lens (\DescribeRecipeResponse' {createDate} -> createDate) (\s@DescribeRecipeResponse' {} a -> s {createDate = a} :: DescribeRecipeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the recipe was last published.
 describeRecipeResponse_publishedDate :: Lens.Lens' DescribeRecipeResponse (Prelude.Maybe Prelude.UTCTime)
-describeRecipeResponse_publishedDate = Lens.lens (\DescribeRecipeResponse' {publishedDate} -> publishedDate) (\s@DescribeRecipeResponse' {} a -> s {publishedDate = a} :: DescribeRecipeResponse) Prelude.. Lens.mapping Core._Time
+describeRecipeResponse_publishedDate = Lens.lens (\DescribeRecipeResponse' {publishedDate} -> publishedDate) (\s@DescribeRecipeResponse' {} a -> s {publishedDate = a} :: DescribeRecipeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier (user name) of the user who last modified the recipe.
 describeRecipeResponse_lastModifiedBy :: Lens.Lens' DescribeRecipeResponse (Prelude.Maybe Prelude.Text)

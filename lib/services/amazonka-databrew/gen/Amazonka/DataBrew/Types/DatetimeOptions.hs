@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.DatetimeOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents additional options for correct interpretation of datetime
@@ -91,15 +92,15 @@ datetimeOptions_timezoneOffset = Lens.lens (\DatetimeOptions' {timezoneOffset} -
 datetimeOptions_format :: Lens.Lens' DatetimeOptions Prelude.Text
 datetimeOptions_format = Lens.lens (\DatetimeOptions' {format} -> format) (\s@DatetimeOptions' {} a -> s {format = a} :: DatetimeOptions)
 
-instance Core.FromJSON DatetimeOptions where
+instance Data.FromJSON DatetimeOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatetimeOptions"
       ( \x ->
           DatetimeOptions'
-            Prelude.<$> (x Core..:? "LocaleCode")
-            Prelude.<*> (x Core..:? "TimezoneOffset")
-            Prelude.<*> (x Core..: "Format")
+            Prelude.<$> (x Data..:? "LocaleCode")
+            Prelude.<*> (x Data..:? "TimezoneOffset")
+            Prelude.<*> (x Data..: "Format")
       )
 
 instance Prelude.Hashable DatetimeOptions where
@@ -114,13 +115,13 @@ instance Prelude.NFData DatetimeOptions where
       `Prelude.seq` Prelude.rnf timezoneOffset
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToJSON DatetimeOptions where
+instance Data.ToJSON DatetimeOptions where
   toJSON DatetimeOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LocaleCode" Core..=) Prelude.<$> localeCode,
-            ("TimezoneOffset" Core..=)
+          [ ("LocaleCode" Data..=) Prelude.<$> localeCode,
+            ("TimezoneOffset" Data..=)
               Prelude.<$> timezoneOffset,
-            Prelude.Just ("Format" Core..= format)
+            Prelude.Just ("Format" Data..= format)
           ]
       )

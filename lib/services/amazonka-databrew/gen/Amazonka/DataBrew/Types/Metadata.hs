@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Metadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains additional resource information needed for specific datasets.
@@ -52,12 +53,12 @@ newMetadata = Metadata' {sourceArn = Prelude.Nothing}
 metadata_sourceArn :: Lens.Lens' Metadata (Prelude.Maybe Prelude.Text)
 metadata_sourceArn = Lens.lens (\Metadata' {sourceArn} -> sourceArn) (\s@Metadata' {} a -> s {sourceArn = a} :: Metadata)
 
-instance Core.FromJSON Metadata where
+instance Data.FromJSON Metadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Metadata"
       ( \x ->
-          Metadata' Prelude.<$> (x Core..:? "SourceArn")
+          Metadata' Prelude.<$> (x Data..:? "SourceArn")
       )
 
 instance Prelude.Hashable Metadata where
@@ -67,9 +68,9 @@ instance Prelude.Hashable Metadata where
 instance Prelude.NFData Metadata where
   rnf Metadata' {..} = Prelude.rnf sourceArn
 
-instance Core.ToJSON Metadata where
+instance Data.ToJSON Metadata where
   toJSON Metadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("SourceArn" Core..=) Prelude.<$> sourceArn]
+          [("SourceArn" Data..=) Prelude.<$> sourceArn]
       )

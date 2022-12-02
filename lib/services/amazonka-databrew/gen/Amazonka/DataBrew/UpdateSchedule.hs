@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,7 +118,7 @@ instance Core.AWSRequest UpdateSchedule where
       ( \s h x ->
           UpdateScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable UpdateSchedule where
@@ -132,32 +133,32 @@ instance Prelude.NFData UpdateSchedule where
       `Prelude.seq` Prelude.rnf cronExpression
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateSchedule where
+instance Data.ToHeaders UpdateSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSchedule where
+instance Data.ToJSON UpdateSchedule where
   toJSON UpdateSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("JobNames" Core..=) Prelude.<$> jobNames,
+          [ ("JobNames" Data..=) Prelude.<$> jobNames,
             Prelude.Just
-              ("CronExpression" Core..= cronExpression)
+              ("CronExpression" Data..= cronExpression)
           ]
       )
 
-instance Core.ToPath UpdateSchedule where
+instance Data.ToPath UpdateSchedule where
   toPath UpdateSchedule' {..} =
-    Prelude.mconcat ["/schedules/", Core.toBS name]
+    Prelude.mconcat ["/schedules/", Data.toBS name]
 
-instance Core.ToQuery UpdateSchedule where
+instance Data.ToQuery UpdateSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateScheduleResponse' smart constructor.

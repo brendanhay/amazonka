@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Input where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.DataCatalogInputDefinition
 import Amazonka.DataBrew.Types.DatabaseInputDefinition
 import Amazonka.DataBrew.Types.Metadata
@@ -84,16 +85,16 @@ input_dataCatalogInputDefinition = Lens.lens (\Input' {dataCatalogInputDefinitio
 input_databaseInputDefinition :: Lens.Lens' Input (Prelude.Maybe DatabaseInputDefinition)
 input_databaseInputDefinition = Lens.lens (\Input' {databaseInputDefinition} -> databaseInputDefinition) (\s@Input' {} a -> s {databaseInputDefinition = a} :: Input)
 
-instance Core.FromJSON Input where
+instance Data.FromJSON Input where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Input"
       ( \x ->
           Input'
-            Prelude.<$> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "S3InputDefinition")
-            Prelude.<*> (x Core..:? "DataCatalogInputDefinition")
-            Prelude.<*> (x Core..:? "DatabaseInputDefinition")
+            Prelude.<$> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "S3InputDefinition")
+            Prelude.<*> (x Data..:? "DataCatalogInputDefinition")
+            Prelude.<*> (x Data..:? "DatabaseInputDefinition")
       )
 
 instance Prelude.Hashable Input where
@@ -110,16 +111,16 @@ instance Prelude.NFData Input where
       `Prelude.seq` Prelude.rnf dataCatalogInputDefinition
       `Prelude.seq` Prelude.rnf databaseInputDefinition
 
-instance Core.ToJSON Input where
+instance Data.ToJSON Input where
   toJSON Input' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Metadata" Core..=) Prelude.<$> metadata,
-            ("S3InputDefinition" Core..=)
+          [ ("Metadata" Data..=) Prelude.<$> metadata,
+            ("S3InputDefinition" Data..=)
               Prelude.<$> s3InputDefinition,
-            ("DataCatalogInputDefinition" Core..=)
+            ("DataCatalogInputDefinition" Data..=)
               Prelude.<$> dataCatalogInputDefinition,
-            ("DatabaseInputDefinition" Core..=)
+            ("DatabaseInputDefinition" Data..=)
               Prelude.<$> databaseInputDefinition
           ]
       )

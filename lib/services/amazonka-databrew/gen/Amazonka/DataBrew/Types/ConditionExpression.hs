@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.ConditionExpression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an individual condition that evaluates to true or false.
@@ -94,15 +95,15 @@ conditionExpression_condition = Lens.lens (\ConditionExpression' {condition} -> 
 conditionExpression_targetColumn :: Lens.Lens' ConditionExpression Prelude.Text
 conditionExpression_targetColumn = Lens.lens (\ConditionExpression' {targetColumn} -> targetColumn) (\s@ConditionExpression' {} a -> s {targetColumn = a} :: ConditionExpression)
 
-instance Core.FromJSON ConditionExpression where
+instance Data.FromJSON ConditionExpression where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConditionExpression"
       ( \x ->
           ConditionExpression'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..: "Condition")
-            Prelude.<*> (x Core..: "TargetColumn")
+            Prelude.<$> (x Data..:? "Value")
+            Prelude.<*> (x Data..: "Condition")
+            Prelude.<*> (x Data..: "TargetColumn")
       )
 
 instance Prelude.Hashable ConditionExpression where
@@ -117,12 +118,12 @@ instance Prelude.NFData ConditionExpression where
       `Prelude.seq` Prelude.rnf condition
       `Prelude.seq` Prelude.rnf targetColumn
 
-instance Core.ToJSON ConditionExpression where
+instance Data.ToJSON ConditionExpression where
   toJSON ConditionExpression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Condition" Core..= condition),
-            Prelude.Just ("TargetColumn" Core..= targetColumn)
+          [ ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Condition" Data..= condition),
+            Prelude.Just ("TargetColumn" Data..= targetColumn)
           ]
       )

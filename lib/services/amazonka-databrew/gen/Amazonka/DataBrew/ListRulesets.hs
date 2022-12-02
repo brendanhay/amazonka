@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,9 +138,9 @@ instance Core.AWSRequest ListRulesets where
     Response.receiveJSON
       ( \s h x ->
           ListRulesetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Rulesets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Rulesets" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListRulesets where
@@ -154,26 +155,26 @@ instance Prelude.NFData ListRulesets where
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRulesets where
+instance Data.ToHeaders ListRulesets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRulesets where
+instance Data.ToPath ListRulesets where
   toPath = Prelude.const "/rulesets"
 
-instance Core.ToQuery ListRulesets where
+instance Data.ToQuery ListRulesets where
   toQuery ListRulesets' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "targetArn" Core.=: targetArn,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "targetArn" Data.=: targetArn,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListRulesetsResponse' smart constructor.

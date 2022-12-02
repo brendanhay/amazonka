@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.ColumnSelector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Selector of a column from a dataset for profile job configuration. One
@@ -62,13 +63,13 @@ columnSelector_name = Lens.lens (\ColumnSelector' {name} -> name) (\s@ColumnSele
 columnSelector_regex :: Lens.Lens' ColumnSelector (Prelude.Maybe Prelude.Text)
 columnSelector_regex = Lens.lens (\ColumnSelector' {regex} -> regex) (\s@ColumnSelector' {} a -> s {regex = a} :: ColumnSelector)
 
-instance Core.FromJSON ColumnSelector where
+instance Data.FromJSON ColumnSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnSelector"
       ( \x ->
           ColumnSelector'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Regex")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Regex")
       )
 
 instance Prelude.Hashable ColumnSelector where
@@ -80,11 +81,11 @@ instance Prelude.NFData ColumnSelector where
   rnf ColumnSelector' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf regex
 
-instance Core.ToJSON ColumnSelector where
+instance Data.ToJSON ColumnSelector where
   toJSON ColumnSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Regex" Core..=) Prelude.<$> regex
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Regex" Data..=) Prelude.<$> regex
           ]
       )

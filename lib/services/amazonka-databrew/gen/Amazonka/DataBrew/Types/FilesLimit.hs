@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.FilesLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.Order
 import Amazonka.DataBrew.Types.OrderedBy
 import qualified Amazonka.Prelude as Prelude
@@ -87,15 +88,15 @@ filesLimit_order = Lens.lens (\FilesLimit' {order} -> order) (\s@FilesLimit' {} 
 filesLimit_maxFiles :: Lens.Lens' FilesLimit Prelude.Natural
 filesLimit_maxFiles = Lens.lens (\FilesLimit' {maxFiles} -> maxFiles) (\s@FilesLimit' {} a -> s {maxFiles = a} :: FilesLimit)
 
-instance Core.FromJSON FilesLimit where
+instance Data.FromJSON FilesLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilesLimit"
       ( \x ->
           FilesLimit'
-            Prelude.<$> (x Core..:? "OrderedBy")
-            Prelude.<*> (x Core..:? "Order")
-            Prelude.<*> (x Core..: "MaxFiles")
+            Prelude.<$> (x Data..:? "OrderedBy")
+            Prelude.<*> (x Data..:? "Order")
+            Prelude.<*> (x Data..: "MaxFiles")
       )
 
 instance Prelude.Hashable FilesLimit where
@@ -110,12 +111,12 @@ instance Prelude.NFData FilesLimit where
       `Prelude.seq` Prelude.rnf order
       `Prelude.seq` Prelude.rnf maxFiles
 
-instance Core.ToJSON FilesLimit where
+instance Data.ToJSON FilesLimit where
   toJSON FilesLimit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OrderedBy" Core..=) Prelude.<$> orderedBy,
-            ("Order" Core..=) Prelude.<$> order,
-            Prelude.Just ("MaxFiles" Core..= maxFiles)
+          [ ("OrderedBy" Data..=) Prelude.<$> orderedBy,
+            ("Order" Data..=) Prelude.<$> order,
+            Prelude.Just ("MaxFiles" Data..= maxFiles)
           ]
       )

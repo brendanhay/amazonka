@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.RulesetItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about the ruleset.
@@ -30,13 +31,13 @@ data RulesetItem = RulesetItem'
   { -- | Metadata tags that have been applied to the ruleset.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The modification date and time of the ruleset.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the ruleset.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that owns the ruleset.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the ruleset was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The number of rules that are defined in the ruleset.
     ruleCount :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the user who last modified the
@@ -112,7 +113,7 @@ rulesetItem_tags = Lens.lens (\RulesetItem' {tags} -> tags) (\s@RulesetItem' {} 
 
 -- | The modification date and time of the ruleset.
 rulesetItem_lastModifiedDate :: Lens.Lens' RulesetItem (Prelude.Maybe Prelude.UTCTime)
-rulesetItem_lastModifiedDate = Lens.lens (\RulesetItem' {lastModifiedDate} -> lastModifiedDate) (\s@RulesetItem' {} a -> s {lastModifiedDate = a} :: RulesetItem) Prelude.. Lens.mapping Core._Time
+rulesetItem_lastModifiedDate = Lens.lens (\RulesetItem' {lastModifiedDate} -> lastModifiedDate) (\s@RulesetItem' {} a -> s {lastModifiedDate = a} :: RulesetItem) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the ruleset.
 rulesetItem_description :: Lens.Lens' RulesetItem (Prelude.Maybe Prelude.Text)
@@ -124,7 +125,7 @@ rulesetItem_accountId = Lens.lens (\RulesetItem' {accountId} -> accountId) (\s@R
 
 -- | The date and time that the ruleset was created.
 rulesetItem_createDate :: Lens.Lens' RulesetItem (Prelude.Maybe Prelude.UTCTime)
-rulesetItem_createDate = Lens.lens (\RulesetItem' {createDate} -> createDate) (\s@RulesetItem' {} a -> s {createDate = a} :: RulesetItem) Prelude.. Lens.mapping Core._Time
+rulesetItem_createDate = Lens.lens (\RulesetItem' {createDate} -> createDate) (\s@RulesetItem' {} a -> s {createDate = a} :: RulesetItem) Prelude.. Lens.mapping Data._Time
 
 -- | The number of rules that are defined in the ruleset.
 rulesetItem_ruleCount :: Lens.Lens' RulesetItem (Prelude.Maybe Prelude.Natural)
@@ -152,23 +153,23 @@ rulesetItem_name = Lens.lens (\RulesetItem' {name} -> name) (\s@RulesetItem' {} 
 rulesetItem_targetArn :: Lens.Lens' RulesetItem Prelude.Text
 rulesetItem_targetArn = Lens.lens (\RulesetItem' {targetArn} -> targetArn) (\s@RulesetItem' {} a -> s {targetArn = a} :: RulesetItem)
 
-instance Core.FromJSON RulesetItem where
+instance Data.FromJSON RulesetItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RulesetItem"
       ( \x ->
           RulesetItem'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "RuleCount")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "TargetArn")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "RuleCount")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "TargetArn")
       )
 
 instance Prelude.Hashable RulesetItem where

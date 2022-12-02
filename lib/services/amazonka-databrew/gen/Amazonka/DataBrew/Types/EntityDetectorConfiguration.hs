@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.EntityDetectorConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.AllowedStatistics
 import qualified Amazonka.Prelude as Prelude
 
@@ -196,14 +197,14 @@ entityDetectorConfiguration_allowedStatistics = Lens.lens (\EntityDetectorConfig
 entityDetectorConfiguration_entityTypes :: Lens.Lens' EntityDetectorConfiguration (Prelude.NonEmpty Prelude.Text)
 entityDetectorConfiguration_entityTypes = Lens.lens (\EntityDetectorConfiguration' {entityTypes} -> entityTypes) (\s@EntityDetectorConfiguration' {} a -> s {entityTypes = a} :: EntityDetectorConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON EntityDetectorConfiguration where
+instance Data.FromJSON EntityDetectorConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityDetectorConfiguration"
       ( \x ->
           EntityDetectorConfiguration'
-            Prelude.<$> (x Core..:? "AllowedStatistics")
-            Prelude.<*> (x Core..: "EntityTypes")
+            Prelude.<$> (x Data..:? "AllowedStatistics")
+            Prelude.<*> (x Data..: "EntityTypes")
       )
 
 instance Prelude.Hashable EntityDetectorConfiguration where
@@ -216,12 +217,12 @@ instance Prelude.NFData EntityDetectorConfiguration where
     Prelude.rnf allowedStatistics
       `Prelude.seq` Prelude.rnf entityTypes
 
-instance Core.ToJSON EntityDetectorConfiguration where
+instance Data.ToJSON EntityDetectorConfiguration where
   toJSON EntityDetectorConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowedStatistics" Core..=)
+          [ ("AllowedStatistics" Data..=)
               Prelude.<$> allowedStatistics,
-            Prelude.Just ("EntityTypes" Core..= entityTypes)
+            Prelude.Just ("EntityTypes" Data..= entityTypes)
           ]
       )

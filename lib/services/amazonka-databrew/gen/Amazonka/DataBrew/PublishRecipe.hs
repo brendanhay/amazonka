@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest PublishRecipe where
       ( \s h x ->
           PublishRecipeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable PublishRecipe where
@@ -112,30 +113,30 @@ instance Prelude.NFData PublishRecipe where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders PublishRecipe where
+instance Data.ToHeaders PublishRecipe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PublishRecipe where
+instance Data.ToJSON PublishRecipe where
   toJSON PublishRecipe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Description" Core..=) Prelude.<$> description]
+          [("Description" Data..=) Prelude.<$> description]
       )
 
-instance Core.ToPath PublishRecipe where
+instance Data.ToPath PublishRecipe where
   toPath PublishRecipe' {..} =
     Prelude.mconcat
-      ["/recipes/", Core.toBS name, "/publishRecipe"]
+      ["/recipes/", Data.toBS name, "/publishRecipe"]
 
-instance Core.ToQuery PublishRecipe where
+instance Data.ToQuery PublishRecipe where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPublishRecipeResponse' smart constructor.

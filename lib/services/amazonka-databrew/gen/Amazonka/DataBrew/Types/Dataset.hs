@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Dataset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.FormatOptions
 import Amazonka.DataBrew.Types.Input
 import Amazonka.DataBrew.Types.InputFormat
@@ -38,7 +39,7 @@ data Dataset = Dataset'
     -- of the dataset.
     pathOptions :: Prelude.Maybe PathOptions,
     -- | The last modification date and time of the dataset.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The file format of a dataset that is created from an Amazon S3 file or
     -- folder.
     format :: Prelude.Maybe InputFormat,
@@ -48,7 +49,7 @@ data Dataset = Dataset'
     -- Data Catalog.
     source :: Prelude.Maybe Source,
     -- | The date and time that the dataset was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | A set of options that define how DataBrew interprets the data in the
     -- dataset.
     formatOptions :: Prelude.Maybe FormatOptions,
@@ -140,7 +141,7 @@ dataset_pathOptions = Lens.lens (\Dataset' {pathOptions} -> pathOptions) (\s@Dat
 
 -- | The last modification date and time of the dataset.
 dataset_lastModifiedDate :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_lastModifiedDate = Lens.lens (\Dataset' {lastModifiedDate} -> lastModifiedDate) (\s@Dataset' {} a -> s {lastModifiedDate = a} :: Dataset) Prelude.. Lens.mapping Core._Time
+dataset_lastModifiedDate = Lens.lens (\Dataset' {lastModifiedDate} -> lastModifiedDate) (\s@Dataset' {} a -> s {lastModifiedDate = a} :: Dataset) Prelude.. Lens.mapping Data._Time
 
 -- | The file format of a dataset that is created from an Amazon S3 file or
 -- folder.
@@ -158,7 +159,7 @@ dataset_source = Lens.lens (\Dataset' {source} -> source) (\s@Dataset' {} a -> s
 
 -- | The date and time that the dataset was created.
 dataset_createDate :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_createDate = Lens.lens (\Dataset' {createDate} -> createDate) (\s@Dataset' {} a -> s {createDate = a} :: Dataset) Prelude.. Lens.mapping Core._Time
+dataset_createDate = Lens.lens (\Dataset' {createDate} -> createDate) (\s@Dataset' {} a -> s {createDate = a} :: Dataset) Prelude.. Lens.mapping Data._Time
 
 -- | A set of options that define how DataBrew interprets the data in the
 -- dataset.
@@ -187,25 +188,25 @@ dataset_name = Lens.lens (\Dataset' {name} -> name) (\s@Dataset' {} a -> s {name
 dataset_input :: Lens.Lens' Dataset Input
 dataset_input = Lens.lens (\Dataset' {input} -> input) (\s@Dataset' {} a -> s {input = a} :: Dataset)
 
-instance Core.FromJSON Dataset where
+instance Data.FromJSON Dataset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Dataset"
       ( \x ->
           Dataset'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PathOptions")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "FormatOptions")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Input")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PathOptions")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "Format")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "FormatOptions")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Input")
       )
 
 instance Prelude.Hashable Dataset where

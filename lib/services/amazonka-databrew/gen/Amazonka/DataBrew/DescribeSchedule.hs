@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,16 +92,16 @@ instance Core.AWSRequest DescribeSchedule where
     Response.receiveJSON
       ( \s h x ->
           DescribeScheduleResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LastModifiedDate")
-            Prelude.<*> (x Core..?> "CreateDate")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "JobNames" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CronExpression")
-            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LastModifiedDate")
+            Prelude.<*> (x Data..?> "CreateDate")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "JobNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CronExpression")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable DescribeSchedule where
@@ -110,22 +111,22 @@ instance Prelude.Hashable DescribeSchedule where
 instance Prelude.NFData DescribeSchedule where
   rnf DescribeSchedule' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeSchedule where
+instance Data.ToHeaders DescribeSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeSchedule where
+instance Data.ToPath DescribeSchedule where
   toPath DescribeSchedule' {..} =
-    Prelude.mconcat ["/schedules/", Core.toBS name]
+    Prelude.mconcat ["/schedules/", Data.toBS name]
 
-instance Core.ToQuery DescribeSchedule where
+instance Data.ToQuery DescribeSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScheduleResponse' smart constructor.
@@ -133,9 +134,9 @@ data DescribeScheduleResponse = DescribeScheduleResponse'
   { -- | Metadata tags associated with this schedule.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time that the schedule was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the schedule was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The identifier (user name) of the user who last modified the schedule.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the schedule.
@@ -212,11 +213,11 @@ describeScheduleResponse_tags = Lens.lens (\DescribeScheduleResponse' {tags} -> 
 
 -- | The date and time that the schedule was last modified.
 describeScheduleResponse_lastModifiedDate :: Lens.Lens' DescribeScheduleResponse (Prelude.Maybe Prelude.UTCTime)
-describeScheduleResponse_lastModifiedDate = Lens.lens (\DescribeScheduleResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeScheduleResponse' {} a -> s {lastModifiedDate = a} :: DescribeScheduleResponse) Prelude.. Lens.mapping Core._Time
+describeScheduleResponse_lastModifiedDate = Lens.lens (\DescribeScheduleResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeScheduleResponse' {} a -> s {lastModifiedDate = a} :: DescribeScheduleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time that the schedule was created.
 describeScheduleResponse_createDate :: Lens.Lens' DescribeScheduleResponse (Prelude.Maybe Prelude.UTCTime)
-describeScheduleResponse_createDate = Lens.lens (\DescribeScheduleResponse' {createDate} -> createDate) (\s@DescribeScheduleResponse' {} a -> s {createDate = a} :: DescribeScheduleResponse) Prelude.. Lens.mapping Core._Time
+describeScheduleResponse_createDate = Lens.lens (\DescribeScheduleResponse' {createDate} -> createDate) (\s@DescribeScheduleResponse' {} a -> s {createDate = a} :: DescribeScheduleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier (user name) of the user who last modified the schedule.
 describeScheduleResponse_lastModifiedBy :: Lens.Lens' DescribeScheduleResponse (Prelude.Maybe Prelude.Text)

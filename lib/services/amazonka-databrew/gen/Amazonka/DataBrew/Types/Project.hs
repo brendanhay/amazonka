@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Project where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.Sample
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,15 +38,15 @@ data Project = Project'
     -- project.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The last modification date and time for the project.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The dataset that the project is to act upon.
     datasetName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that owns the project.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the project was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the project was opened.
-    openDate :: Prelude.Maybe Core.POSIX,
+    openDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who last modified the
     -- project.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
@@ -144,7 +145,7 @@ project_roleArn = Lens.lens (\Project' {roleArn} -> roleArn) (\s@Project' {} a -
 
 -- | The last modification date and time for the project.
 project_lastModifiedDate :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_lastModifiedDate = Lens.lens (\Project' {lastModifiedDate} -> lastModifiedDate) (\s@Project' {} a -> s {lastModifiedDate = a} :: Project) Prelude.. Lens.mapping Core._Time
+project_lastModifiedDate = Lens.lens (\Project' {lastModifiedDate} -> lastModifiedDate) (\s@Project' {} a -> s {lastModifiedDate = a} :: Project) Prelude.. Lens.mapping Data._Time
 
 -- | The dataset that the project is to act upon.
 project_datasetName :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
@@ -156,11 +157,11 @@ project_accountId = Lens.lens (\Project' {accountId} -> accountId) (\s@Project' 
 
 -- | The date and time that the project was created.
 project_createDate :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_createDate = Lens.lens (\Project' {createDate} -> createDate) (\s@Project' {} a -> s {createDate = a} :: Project) Prelude.. Lens.mapping Core._Time
+project_createDate = Lens.lens (\Project' {createDate} -> createDate) (\s@Project' {} a -> s {createDate = a} :: Project) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the project was opened.
 project_openDate :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_openDate = Lens.lens (\Project' {openDate} -> openDate) (\s@Project' {} a -> s {openDate = a} :: Project) Prelude.. Lens.mapping Core._Time
+project_openDate = Lens.lens (\Project' {openDate} -> openDate) (\s@Project' {} a -> s {openDate = a} :: Project) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the user who last modified the
 -- project.
@@ -189,26 +190,26 @@ project_name = Lens.lens (\Project' {name} -> name) (\s@Project' {} a -> s {name
 project_recipeName :: Lens.Lens' Project Prelude.Text
 project_recipeName = Lens.lens (\Project' {recipeName} -> recipeName) (\s@Project' {} a -> s {recipeName = a} :: Project)
 
-instance Core.FromJSON Project where
+instance Data.FromJSON Project where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Project"
       ( \x ->
           Project'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OpenedBy")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "DatasetName")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "OpenDate")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "Sample")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "RecipeName")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OpenedBy")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "DatasetName")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "OpenDate")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "Sample")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "RecipeName")
       )
 
 instance Prelude.Hashable Project where

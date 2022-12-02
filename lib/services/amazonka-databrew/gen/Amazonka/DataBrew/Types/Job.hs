@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.Job where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.DataCatalogOutput
 import Amazonka.DataBrew.Types.DatabaseOutput
 import Amazonka.DataBrew.Types.EncryptionMode
@@ -63,7 +64,7 @@ data Job = Job'
     -- output destination for a DataBrew recipe job to write into.
     databaseOutputs :: Prelude.Maybe (Prelude.NonEmpty DatabaseOutput),
     -- | The modification date and time of the job.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | One or more artifacts that represent the Glue Data Catalog output from
     -- running the job.
     dataCatalogOutputs :: Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput),
@@ -80,7 +81,7 @@ data Job = Job'
     -- | One or more artifacts that represent output from running the job.
     outputs :: Prelude.Maybe (Prelude.NonEmpty Output),
     -- | The date and time that the job was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who last modified the job.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | The unique Amazon Resource Name (ARN) for the job.
@@ -252,7 +253,7 @@ job_databaseOutputs = Lens.lens (\Job' {databaseOutputs} -> databaseOutputs) (\s
 
 -- | The modification date and time of the job.
 job_lastModifiedDate :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_lastModifiedDate = Lens.lens (\Job' {lastModifiedDate} -> lastModifiedDate) (\s@Job' {} a -> s {lastModifiedDate = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_lastModifiedDate = Lens.lens (\Job' {lastModifiedDate} -> lastModifiedDate) (\s@Job' {} a -> s {lastModifiedDate = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | One or more artifacts that represent the Glue Data Catalog output from
 -- running the job.
@@ -285,7 +286,7 @@ job_outputs = Lens.lens (\Job' {outputs} -> outputs) (\s@Job' {} a -> s {outputs
 
 -- | The date and time that the job was created.
 job_createDate :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_createDate = Lens.lens (\Job' {createDate} -> createDate) (\s@Job' {} a -> s {createDate = a} :: Job) Prelude.. Lens.mapping Core._Time
+job_createDate = Lens.lens (\Job' {createDate} -> createDate) (\s@Job' {} a -> s {createDate = a} :: Job) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the user who last modified the job.
 job_lastModifiedBy :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
@@ -324,36 +325,36 @@ job_validationConfigurations = Lens.lens (\Job' {validationConfigurations} -> va
 job_name :: Lens.Lens' Job Prelude.Text
 job_name = Lens.lens (\Job' {name} -> name) (\s@Job' {} a -> s {name = a} :: Job)
 
-instance Core.FromJSON Job where
+instance Data.FromJSON Job where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EncryptionKeyArn")
-            Prelude.<*> (x Core..:? "JobSample")
-            Prelude.<*> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "DatabaseOutputs")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "DataCatalogOutputs")
-            Prelude.<*> (x Core..:? "DatasetName")
-            Prelude.<*> (x Core..:? "LogSubscription")
-            Prelude.<*> (x Core..:? "MaxRetries")
-            Prelude.<*> (x Core..:? "RecipeReference")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Outputs")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "ProjectName")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "MaxCapacity")
-            Prelude.<*> (x Core..:? "EncryptionMode")
-            Prelude.<*> (x Core..:? "ValidationConfigurations")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EncryptionKeyArn")
+            Prelude.<*> (x Data..:? "JobSample")
+            Prelude.<*> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "DatabaseOutputs")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "DataCatalogOutputs")
+            Prelude.<*> (x Data..:? "DatasetName")
+            Prelude.<*> (x Data..:? "LogSubscription")
+            Prelude.<*> (x Data..:? "MaxRetries")
+            Prelude.<*> (x Data..:? "RecipeReference")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Outputs")
+            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ProjectName")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "MaxCapacity")
+            Prelude.<*> (x Data..:? "EncryptionMode")
+            Prelude.<*> (x Data..:? "ValidationConfigurations")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable Job where

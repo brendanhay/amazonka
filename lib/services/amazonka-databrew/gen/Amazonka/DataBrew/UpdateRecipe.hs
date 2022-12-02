@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest UpdateRecipe where
       ( \s h x ->
           UpdateRecipeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable UpdateRecipe where
@@ -123,31 +124,31 @@ instance Prelude.NFData UpdateRecipe where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateRecipe where
+instance Data.ToHeaders UpdateRecipe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRecipe where
+instance Data.ToJSON UpdateRecipe where
   toJSON UpdateRecipe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Steps" Core..=) Prelude.<$> steps,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Steps" Data..=) Prelude.<$> steps,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateRecipe where
+instance Data.ToPath UpdateRecipe where
   toPath UpdateRecipe' {..} =
-    Prelude.mconcat ["/recipes/", Core.toBS name]
+    Prelude.mconcat ["/recipes/", Data.toBS name]
 
-instance Core.ToQuery UpdateRecipe where
+instance Data.ToQuery UpdateRecipe where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRecipeResponse' smart constructor.

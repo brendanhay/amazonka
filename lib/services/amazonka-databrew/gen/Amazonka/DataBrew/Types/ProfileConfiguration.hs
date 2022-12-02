@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.ProfileConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.ColumnSelector
 import Amazonka.DataBrew.Types.ColumnStatisticsConfiguration
 import Amazonka.DataBrew.Types.EntityDetectorConfiguration
@@ -117,16 +118,16 @@ profileConfiguration_profileColumns = Lens.lens (\ProfileConfiguration' {profile
 profileConfiguration_entityDetectorConfiguration :: Lens.Lens' ProfileConfiguration (Prelude.Maybe EntityDetectorConfiguration)
 profileConfiguration_entityDetectorConfiguration = Lens.lens (\ProfileConfiguration' {entityDetectorConfiguration} -> entityDetectorConfiguration) (\s@ProfileConfiguration' {} a -> s {entityDetectorConfiguration = a} :: ProfileConfiguration)
 
-instance Core.FromJSON ProfileConfiguration where
+instance Data.FromJSON ProfileConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProfileConfiguration"
       ( \x ->
           ProfileConfiguration'
-            Prelude.<$> (x Core..:? "ColumnStatisticsConfigurations")
-            Prelude.<*> (x Core..:? "DatasetStatisticsConfiguration")
-            Prelude.<*> (x Core..:? "ProfileColumns")
-            Prelude.<*> (x Core..:? "EntityDetectorConfiguration")
+            Prelude.<$> (x Data..:? "ColumnStatisticsConfigurations")
+            Prelude.<*> (x Data..:? "DatasetStatisticsConfiguration")
+            Prelude.<*> (x Data..:? "ProfileColumns")
+            Prelude.<*> (x Data..:? "EntityDetectorConfiguration")
       )
 
 instance Prelude.Hashable ProfileConfiguration where
@@ -144,17 +145,17 @@ instance Prelude.NFData ProfileConfiguration where
       `Prelude.seq` Prelude.rnf profileColumns
       `Prelude.seq` Prelude.rnf entityDetectorConfiguration
 
-instance Core.ToJSON ProfileConfiguration where
+instance Data.ToJSON ProfileConfiguration where
   toJSON ProfileConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ColumnStatisticsConfigurations" Core..=)
+          [ ("ColumnStatisticsConfigurations" Data..=)
               Prelude.<$> columnStatisticsConfigurations,
-            ("DatasetStatisticsConfiguration" Core..=)
+            ("DatasetStatisticsConfiguration" Data..=)
               Prelude.<$> datasetStatisticsConfiguration,
-            ("ProfileColumns" Core..=)
+            ("ProfileColumns" Data..=)
               Prelude.<$> profileColumns,
-            ("EntityDetectorConfiguration" Core..=)
+            ("EntityDetectorConfiguration" Data..=)
               Prelude.<$> entityDetectorConfiguration
           ]
       )

@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,26 +113,26 @@ instance Core.AWSRequest DescribeJobRun where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobRunResponse'
-            Prelude.<$> (x Core..?> "JobSample")
-            Prelude.<*> (x Core..?> "DatabaseOutputs")
-            Prelude.<*> (x Core..?> "StartedOn")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "Attempt")
-            Prelude.<*> (x Core..?> "DataCatalogOutputs")
-            Prelude.<*> (x Core..?> "DatasetName")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "ExecutionTime")
-            Prelude.<*> (x Core..?> "LogSubscription")
-            Prelude.<*> (x Core..?> "CompletedOn")
-            Prelude.<*> (x Core..?> "StartedBy")
-            Prelude.<*> (x Core..?> "RecipeReference")
-            Prelude.<*> (x Core..?> "Outputs")
-            Prelude.<*> (x Core..?> "ProfileConfiguration")
-            Prelude.<*> (x Core..?> "RunId")
-            Prelude.<*> (x Core..?> "LogGroupName")
-            Prelude.<*> (x Core..?> "ValidationConfigurations")
+            Prelude.<$> (x Data..?> "JobSample")
+            Prelude.<*> (x Data..?> "DatabaseOutputs")
+            Prelude.<*> (x Data..?> "StartedOn")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "Attempt")
+            Prelude.<*> (x Data..?> "DataCatalogOutputs")
+            Prelude.<*> (x Data..?> "DatasetName")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "ExecutionTime")
+            Prelude.<*> (x Data..?> "LogSubscription")
+            Prelude.<*> (x Data..?> "CompletedOn")
+            Prelude.<*> (x Data..?> "StartedBy")
+            Prelude.<*> (x Data..?> "RecipeReference")
+            Prelude.<*> (x Data..?> "Outputs")
+            Prelude.<*> (x Data..?> "ProfileConfiguration")
+            Prelude.<*> (x Data..?> "RunId")
+            Prelude.<*> (x Data..?> "LogGroupName")
+            Prelude.<*> (x Data..?> "ValidationConfigurations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "JobName")
+            Prelude.<*> (x Data..:> "JobName")
       )
 
 instance Prelude.Hashable DescribeJobRun where
@@ -143,27 +144,27 @@ instance Prelude.NFData DescribeJobRun where
   rnf DescribeJobRun' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf runId
 
-instance Core.ToHeaders DescribeJobRun where
+instance Data.ToHeaders DescribeJobRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeJobRun where
+instance Data.ToPath DescribeJobRun where
   toPath DescribeJobRun' {..} =
     Prelude.mconcat
       [ "/jobs/",
-        Core.toBS name,
+        Data.toBS name,
         "/jobRun/",
-        Core.toBS runId
+        Data.toBS runId
       ]
 
-instance Core.ToQuery DescribeJobRun where
+instance Data.ToQuery DescribeJobRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeJobRunResponse' smart constructor.
@@ -177,7 +178,7 @@ data DescribeJobRunResponse = DescribeJobRunResponse'
     -- output destination for a DataBrew recipe job to write into.
     databaseOutputs :: Prelude.Maybe (Prelude.NonEmpty DatabaseOutput),
     -- | The date and time when the job run began.
-    startedOn :: Prelude.Maybe Core.POSIX,
+    startedOn :: Prelude.Maybe Data.POSIX,
     -- | A message indicating an error (if any) that was encountered when the job
     -- ran.
     errorMessage :: Prelude.Maybe Prelude.Text,
@@ -196,7 +197,7 @@ data DescribeJobRunResponse = DescribeJobRunResponse'
     -- | The current status of Amazon CloudWatch logging for the job run.
     logSubscription :: Prelude.Maybe LogSubscription,
     -- | The date and time when the job completed processing.
-    completedOn :: Prelude.Maybe Core.POSIX,
+    completedOn :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who started the job run.
     startedBy :: Prelude.Maybe Prelude.Text,
     recipeReference :: Prelude.Maybe RecipeReference,
@@ -322,7 +323,7 @@ describeJobRunResponse_databaseOutputs = Lens.lens (\DescribeJobRunResponse' {da
 
 -- | The date and time when the job run began.
 describeJobRunResponse_startedOn :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.UTCTime)
-describeJobRunResponse_startedOn = Lens.lens (\DescribeJobRunResponse' {startedOn} -> startedOn) (\s@DescribeJobRunResponse' {} a -> s {startedOn = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Core._Time
+describeJobRunResponse_startedOn = Lens.lens (\DescribeJobRunResponse' {startedOn} -> startedOn) (\s@DescribeJobRunResponse' {} a -> s {startedOn = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A message indicating an error (if any) that was encountered when the job
 -- ran.
@@ -357,7 +358,7 @@ describeJobRunResponse_logSubscription = Lens.lens (\DescribeJobRunResponse' {lo
 
 -- | The date and time when the job completed processing.
 describeJobRunResponse_completedOn :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.UTCTime)
-describeJobRunResponse_completedOn = Lens.lens (\DescribeJobRunResponse' {completedOn} -> completedOn) (\s@DescribeJobRunResponse' {} a -> s {completedOn = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Core._Time
+describeJobRunResponse_completedOn = Lens.lens (\DescribeJobRunResponse' {completedOn} -> completedOn) (\s@DescribeJobRunResponse' {} a -> s {completedOn = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the user who started the job run.
 describeJobRunResponse_startedBy :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)

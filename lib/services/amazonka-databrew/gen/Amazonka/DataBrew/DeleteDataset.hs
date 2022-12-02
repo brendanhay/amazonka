@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteDataset where
       ( \s h x ->
           DeleteDatasetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable DeleteDataset where
@@ -94,22 +95,22 @@ instance Prelude.Hashable DeleteDataset where
 instance Prelude.NFData DeleteDataset where
   rnf DeleteDataset' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteDataset where
+instance Data.ToHeaders DeleteDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDataset where
+instance Data.ToPath DeleteDataset where
   toPath DeleteDataset' {..} =
-    Prelude.mconcat ["/datasets/", Core.toBS name]
+    Prelude.mconcat ["/datasets/", Data.toBS name]
 
-instance Core.ToQuery DeleteDataset where
+instance Data.ToQuery DeleteDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDatasetResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.RecipeReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the name and version of a DataBrew recipe.
@@ -63,14 +64,14 @@ recipeReference_recipeVersion = Lens.lens (\RecipeReference' {recipeVersion} -> 
 recipeReference_name :: Lens.Lens' RecipeReference Prelude.Text
 recipeReference_name = Lens.lens (\RecipeReference' {name} -> name) (\s@RecipeReference' {} a -> s {name = a} :: RecipeReference)
 
-instance Core.FromJSON RecipeReference where
+instance Data.FromJSON RecipeReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecipeReference"
       ( \x ->
           RecipeReference'
-            Prelude.<$> (x Core..:? "RecipeVersion")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "RecipeVersion")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable RecipeReference where
@@ -83,11 +84,11 @@ instance Prelude.NFData RecipeReference where
     Prelude.rnf recipeVersion
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON RecipeReference where
+instance Data.ToJSON RecipeReference where
   toJSON RecipeReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecipeVersion" Core..=) Prelude.<$> recipeVersion,
-            Prelude.Just ("Name" Core..= name)
+          [ ("RecipeVersion" Data..=) Prelude.<$> recipeVersion,
+            Prelude.Just ("Name" Data..= name)
           ]
       )

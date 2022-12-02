@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -222,7 +223,7 @@ instance Core.AWSRequest UpdateRecipeJob where
       ( \s h x ->
           UpdateRecipeJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable UpdateRecipeJob where
@@ -253,44 +254,44 @@ instance Prelude.NFData UpdateRecipeJob where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders UpdateRecipeJob where
+instance Data.ToHeaders UpdateRecipeJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRecipeJob where
+instance Data.ToJSON UpdateRecipeJob where
   toJSON UpdateRecipeJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionKeyArn" Core..=)
+          [ ("EncryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("DatabaseOutputs" Core..=)
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("DatabaseOutputs" Data..=)
               Prelude.<$> databaseOutputs,
-            ("DataCatalogOutputs" Core..=)
+            ("DataCatalogOutputs" Data..=)
               Prelude.<$> dataCatalogOutputs,
-            ("LogSubscription" Core..=)
+            ("LogSubscription" Data..=)
               Prelude.<$> logSubscription,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("Outputs" Core..=) Prelude.<$> outputs,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("EncryptionMode" Core..=)
+            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
+            ("Outputs" Data..=) Prelude.<$> outputs,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("EncryptionMode" Data..=)
               Prelude.<$> encryptionMode,
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath UpdateRecipeJob where
+instance Data.ToPath UpdateRecipeJob where
   toPath UpdateRecipeJob' {..} =
-    Prelude.mconcat ["/recipeJobs/", Core.toBS name]
+    Prelude.mconcat ["/recipeJobs/", Data.toBS name]
 
-instance Core.ToQuery UpdateRecipeJob where
+instance Data.ToQuery UpdateRecipeJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRecipeJobResponse' smart constructor.

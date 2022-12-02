@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.DatabaseInputDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.S3Location
 import qualified Amazonka.Prelude as Prelude
 
@@ -88,16 +89,16 @@ databaseInputDefinition_queryString = Lens.lens (\DatabaseInputDefinition' {quer
 databaseInputDefinition_glueConnectionName :: Lens.Lens' DatabaseInputDefinition Prelude.Text
 databaseInputDefinition_glueConnectionName = Lens.lens (\DatabaseInputDefinition' {glueConnectionName} -> glueConnectionName) (\s@DatabaseInputDefinition' {} a -> s {glueConnectionName = a} :: DatabaseInputDefinition)
 
-instance Core.FromJSON DatabaseInputDefinition where
+instance Data.FromJSON DatabaseInputDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseInputDefinition"
       ( \x ->
           DatabaseInputDefinition'
-            Prelude.<$> (x Core..:? "TempDirectory")
-            Prelude.<*> (x Core..:? "DatabaseTableName")
-            Prelude.<*> (x Core..:? "QueryString")
-            Prelude.<*> (x Core..: "GlueConnectionName")
+            Prelude.<$> (x Data..:? "TempDirectory")
+            Prelude.<*> (x Data..:? "DatabaseTableName")
+            Prelude.<*> (x Data..:? "QueryString")
+            Prelude.<*> (x Data..: "GlueConnectionName")
       )
 
 instance Prelude.Hashable DatabaseInputDefinition where
@@ -114,15 +115,15 @@ instance Prelude.NFData DatabaseInputDefinition where
       `Prelude.seq` Prelude.rnf queryString
       `Prelude.seq` Prelude.rnf glueConnectionName
 
-instance Core.ToJSON DatabaseInputDefinition where
+instance Data.ToJSON DatabaseInputDefinition where
   toJSON DatabaseInputDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TempDirectory" Core..=) Prelude.<$> tempDirectory,
-            ("DatabaseTableName" Core..=)
+          [ ("TempDirectory" Data..=) Prelude.<$> tempDirectory,
+            ("DatabaseTableName" Data..=)
               Prelude.<$> databaseTableName,
-            ("QueryString" Core..=) Prelude.<$> queryString,
+            ("QueryString" Data..=) Prelude.<$> queryString,
             Prelude.Just
-              ("GlueConnectionName" Core..= glueConnectionName)
+              ("GlueConnectionName" Data..= glueConnectionName)
           ]
       )

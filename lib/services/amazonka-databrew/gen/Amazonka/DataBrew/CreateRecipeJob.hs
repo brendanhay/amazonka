@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -267,7 +268,7 @@ instance Core.AWSRequest CreateRecipeJob where
       ( \s h x ->
           CreateRecipeJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable CreateRecipeJob where
@@ -306,49 +307,49 @@ instance Prelude.NFData CreateRecipeJob where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateRecipeJob where
+instance Data.ToHeaders CreateRecipeJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRecipeJob where
+instance Data.ToJSON CreateRecipeJob where
   toJSON CreateRecipeJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EncryptionKeyArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EncryptionKeyArn" Data..=)
               Prelude.<$> encryptionKeyArn,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("DatabaseOutputs" Core..=)
+            ("Timeout" Data..=) Prelude.<$> timeout,
+            ("DatabaseOutputs" Data..=)
               Prelude.<$> databaseOutputs,
-            ("DataCatalogOutputs" Core..=)
+            ("DataCatalogOutputs" Data..=)
               Prelude.<$> dataCatalogOutputs,
-            ("DatasetName" Core..=) Prelude.<$> datasetName,
-            ("LogSubscription" Core..=)
+            ("DatasetName" Data..=) Prelude.<$> datasetName,
+            ("LogSubscription" Data..=)
               Prelude.<$> logSubscription,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("RecipeReference" Core..=)
+            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
+            ("RecipeReference" Data..=)
               Prelude.<$> recipeReference,
-            ("Outputs" Core..=) Prelude.<$> outputs,
-            ("ProjectName" Core..=) Prelude.<$> projectName,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("EncryptionMode" Core..=)
+            ("Outputs" Data..=) Prelude.<$> outputs,
+            ("ProjectName" Data..=) Prelude.<$> projectName,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("EncryptionMode" Data..=)
               Prelude.<$> encryptionMode,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateRecipeJob where
+instance Data.ToPath CreateRecipeJob where
   toPath = Prelude.const "/recipeJobs"
 
-instance Core.ToQuery CreateRecipeJob where
+instance Data.ToQuery CreateRecipeJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRecipeJobResponse' smart constructor.

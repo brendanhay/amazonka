@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,7 +112,7 @@ instance Core.AWSRequest UpdateRuleset where
       ( \s h x ->
           UpdateRulesetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable UpdateRuleset where
@@ -126,31 +127,31 @@ instance Prelude.NFData UpdateRuleset where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToHeaders UpdateRuleset where
+instance Data.ToHeaders UpdateRuleset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRuleset where
+instance Data.ToJSON UpdateRuleset where
   toJSON UpdateRuleset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Rules" Core..= rules)
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Rules" Data..= rules)
           ]
       )
 
-instance Core.ToPath UpdateRuleset where
+instance Data.ToPath UpdateRuleset where
   toPath UpdateRuleset' {..} =
-    Prelude.mconcat ["/rulesets/", Core.toBS name]
+    Prelude.mconcat ["/rulesets/", Data.toBS name]
 
-instance Core.ToQuery UpdateRuleset where
+instance Data.ToQuery UpdateRuleset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRulesetResponse' smart constructor.

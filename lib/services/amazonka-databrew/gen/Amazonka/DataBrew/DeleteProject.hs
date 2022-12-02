@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteProject where
       ( \s h x ->
           DeleteProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable DeleteProject where
@@ -94,22 +95,22 @@ instance Prelude.Hashable DeleteProject where
 instance Prelude.NFData DeleteProject where
   rnf DeleteProject' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteProject where
+instance Data.ToHeaders DeleteProject where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteProject where
+instance Data.ToPath DeleteProject where
   toPath DeleteProject' {..} =
-    Prelude.mconcat ["/projects/", Core.toBS name]
+    Prelude.mconcat ["/projects/", Data.toBS name]
 
-instance Core.ToQuery DeleteProject where
+instance Data.ToQuery DeleteProject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProjectResponse' smart constructor.

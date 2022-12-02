@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.OutputFormatOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.CsvOutputOptions
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ newOutputFormatOptions =
 outputFormatOptions_csv :: Lens.Lens' OutputFormatOptions (Prelude.Maybe CsvOutputOptions)
 outputFormatOptions_csv = Lens.lens (\OutputFormatOptions' {csv} -> csv) (\s@OutputFormatOptions' {} a -> s {csv = a} :: OutputFormatOptions)
 
-instance Core.FromJSON OutputFormatOptions where
+instance Data.FromJSON OutputFormatOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputFormatOptions"
       ( \x ->
-          OutputFormatOptions' Prelude.<$> (x Core..:? "Csv")
+          OutputFormatOptions' Prelude.<$> (x Data..:? "Csv")
       )
 
 instance Prelude.Hashable OutputFormatOptions where
@@ -70,7 +71,7 @@ instance Prelude.Hashable OutputFormatOptions where
 instance Prelude.NFData OutputFormatOptions where
   rnf OutputFormatOptions' {..} = Prelude.rnf csv
 
-instance Core.ToJSON OutputFormatOptions where
+instance Data.ToJSON OutputFormatOptions where
   toJSON OutputFormatOptions' {..} =
-    Core.object
-      (Prelude.catMaybes [("Csv" Core..=) Prelude.<$> csv])
+    Data.object
+      (Prelude.catMaybes [("Csv" Data..=) Prelude.<$> csv])

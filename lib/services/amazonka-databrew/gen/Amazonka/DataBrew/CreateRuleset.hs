@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest CreateRuleset where
       ( \s h x ->
           CreateRulesetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable CreateRuleset where
@@ -159,33 +160,33 @@ instance Prelude.NFData CreateRuleset where
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToHeaders CreateRuleset where
+instance Data.ToHeaders CreateRuleset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRuleset where
+instance Data.ToJSON CreateRuleset where
   toJSON CreateRuleset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("TargetArn" Core..= targetArn),
-            Prelude.Just ("Rules" Core..= rules)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("TargetArn" Data..= targetArn),
+            Prelude.Just ("Rules" Data..= rules)
           ]
       )
 
-instance Core.ToPath CreateRuleset where
+instance Data.ToPath CreateRuleset where
   toPath = Prelude.const "/rulesets"
 
-instance Core.ToQuery CreateRuleset where
+instance Data.ToQuery CreateRuleset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRulesetResponse' smart constructor.

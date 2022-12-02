@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.CsvOutputOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of options that define how DataBrew will write a
@@ -54,13 +55,13 @@ newCsvOutputOptions =
 csvOutputOptions_delimiter :: Lens.Lens' CsvOutputOptions (Prelude.Maybe Prelude.Text)
 csvOutputOptions_delimiter = Lens.lens (\CsvOutputOptions' {delimiter} -> delimiter) (\s@CsvOutputOptions' {} a -> s {delimiter = a} :: CsvOutputOptions)
 
-instance Core.FromJSON CsvOutputOptions where
+instance Data.FromJSON CsvOutputOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CsvOutputOptions"
       ( \x ->
           CsvOutputOptions'
-            Prelude.<$> (x Core..:? "Delimiter")
+            Prelude.<$> (x Data..:? "Delimiter")
       )
 
 instance Prelude.Hashable CsvOutputOptions where
@@ -70,9 +71,9 @@ instance Prelude.Hashable CsvOutputOptions where
 instance Prelude.NFData CsvOutputOptions where
   rnf CsvOutputOptions' {..} = Prelude.rnf delimiter
 
-instance Core.ToJSON CsvOutputOptions where
+instance Data.ToJSON CsvOutputOptions where
   toJSON CsvOutputOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Delimiter" Core..=) Prelude.<$> delimiter]
+          [("Delimiter" Data..=) Prelude.<$> delimiter]
       )

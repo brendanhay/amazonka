@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -361,8 +362,8 @@ instance Core.AWSRequest UpdateAccess where
       ( \s h x ->
           UpdateAccessResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
-            Prelude.<*> (x Core..:> "ExternalId")
+            Prelude.<*> (x Data..:> "ServerId")
+            Prelude.<*> (x Data..:> "ExternalId")
       )
 
 instance Prelude.Hashable UpdateAccess where
@@ -387,42 +388,42 @@ instance Prelude.NFData UpdateAccess where
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf externalId
 
-instance Core.ToHeaders UpdateAccess where
+instance Data.ToHeaders UpdateAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.UpdateAccess" ::
+              Data.=# ( "TransferService.UpdateAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAccess where
+instance Data.ToJSON UpdateAccess where
   toJSON UpdateAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HomeDirectory" Core..=) Prelude.<$> homeDirectory,
-            ("Policy" Core..=) Prelude.<$> policy,
-            ("PosixProfile" Core..=) Prelude.<$> posixProfile,
-            ("Role" Core..=) Prelude.<$> role',
-            ("HomeDirectoryType" Core..=)
+          [ ("HomeDirectory" Data..=) Prelude.<$> homeDirectory,
+            ("Policy" Data..=) Prelude.<$> policy,
+            ("PosixProfile" Data..=) Prelude.<$> posixProfile,
+            ("Role" Data..=) Prelude.<$> role',
+            ("HomeDirectoryType" Data..=)
               Prelude.<$> homeDirectoryType,
-            ("HomeDirectoryMappings" Core..=)
+            ("HomeDirectoryMappings" Data..=)
               Prelude.<$> homeDirectoryMappings,
-            Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("ExternalId" Core..= externalId)
+            Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("ExternalId" Data..= externalId)
           ]
       )
 
-instance Core.ToPath UpdateAccess where
+instance Data.ToPath UpdateAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAccess where
+instance Data.ToQuery UpdateAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAccessResponse' smart constructor.

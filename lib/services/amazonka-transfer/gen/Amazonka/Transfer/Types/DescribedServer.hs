@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.Domain
 import Amazonka.Transfer.Types.EndpointDetails
@@ -560,31 +561,31 @@ describedServer_workflowDetails = Lens.lens (\DescribedServer' {workflowDetails}
 describedServer_arn :: Lens.Lens' DescribedServer Prelude.Text
 describedServer_arn = Lens.lens (\DescribedServer' {arn} -> arn) (\s@DescribedServer' {} a -> s {arn = a} :: DescribedServer)
 
-instance Core.FromJSON DescribedServer where
+instance Data.FromJSON DescribedServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedServer"
       ( \x ->
           DescribedServer'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "UserCount")
-            Prelude.<*> (x Core..:? "PreAuthenticationLoginBanner")
-            Prelude.<*> (x Core..:? "ProtocolDetails")
-            Prelude.<*> (x Core..:? "IdentityProviderDetails")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "IdentityProviderType")
-            Prelude.<*> (x Core..:? "SecurityPolicyName")
-            Prelude.<*> (x Core..:? "EndpointDetails")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Certificate")
-            Prelude.<*> (x Core..:? "Protocols")
-            Prelude.<*> (x Core..:? "EndpointType")
-            Prelude.<*> (x Core..:? "HostKeyFingerprint")
-            Prelude.<*> (x Core..:? "LoggingRole")
-            Prelude.<*> (x Core..:? "ServerId")
-            Prelude.<*> (x Core..:? "PostAuthenticationLoginBanner")
-            Prelude.<*> (x Core..:? "WorkflowDetails")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "UserCount")
+            Prelude.<*> (x Data..:? "PreAuthenticationLoginBanner")
+            Prelude.<*> (x Data..:? "ProtocolDetails")
+            Prelude.<*> (x Data..:? "IdentityProviderDetails")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "IdentityProviderType")
+            Prelude.<*> (x Data..:? "SecurityPolicyName")
+            Prelude.<*> (x Data..:? "EndpointDetails")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Certificate")
+            Prelude.<*> (x Data..:? "Protocols")
+            Prelude.<*> (x Data..:? "EndpointType")
+            Prelude.<*> (x Data..:? "HostKeyFingerprint")
+            Prelude.<*> (x Data..:? "LoggingRole")
+            Prelude.<*> (x Data..:? "ServerId")
+            Prelude.<*> (x Data..:? "PostAuthenticationLoginBanner")
+            Prelude.<*> (x Data..:? "WorkflowDetails")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedServer where

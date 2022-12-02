@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ExecutionStepResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.ExecutionError
 import Amazonka.Transfer.Types.WorkflowStepType
@@ -103,15 +104,15 @@ executionStepResult_stepType = Lens.lens (\ExecutionStepResult' {stepType} -> st
 executionStepResult_error :: Lens.Lens' ExecutionStepResult (Prelude.Maybe ExecutionError)
 executionStepResult_error = Lens.lens (\ExecutionStepResult' {error} -> error) (\s@ExecutionStepResult' {} a -> s {error = a} :: ExecutionStepResult)
 
-instance Core.FromJSON ExecutionStepResult where
+instance Data.FromJSON ExecutionStepResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionStepResult"
       ( \x ->
           ExecutionStepResult'
-            Prelude.<$> (x Core..:? "Outputs")
-            Prelude.<*> (x Core..:? "StepType")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "Outputs")
+            Prelude.<*> (x Data..:? "StepType")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable ExecutionStepResult where

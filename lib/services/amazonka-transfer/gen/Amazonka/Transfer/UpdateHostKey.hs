@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,8 +116,8 @@ instance Core.AWSRequest UpdateHostKey where
       ( \s h x ->
           UpdateHostKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
-            Prelude.<*> (x Core..:> "HostKeyId")
+            Prelude.<*> (x Data..:> "ServerId")
+            Prelude.<*> (x Data..:> "HostKeyId")
       )
 
 instance Prelude.Hashable UpdateHostKey where
@@ -131,35 +132,35 @@ instance Prelude.NFData UpdateHostKey where
       `Prelude.seq` Prelude.rnf hostKeyId
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders UpdateHostKey where
+instance Data.ToHeaders UpdateHostKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.UpdateHostKey" ::
+              Data.=# ( "TransferService.UpdateHostKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateHostKey where
+instance Data.ToJSON UpdateHostKey where
   toJSON UpdateHostKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("HostKeyId" Core..= hostKeyId),
-            Prelude.Just ("Description" Core..= description)
+          [ Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("HostKeyId" Data..= hostKeyId),
+            Prelude.Just ("Description" Data..= description)
           ]
       )
 
-instance Core.ToPath UpdateHostKey where
+instance Data.ToPath UpdateHostKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateHostKey where
+instance Data.ToQuery UpdateHostKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateHostKeyResponse' smart constructor.

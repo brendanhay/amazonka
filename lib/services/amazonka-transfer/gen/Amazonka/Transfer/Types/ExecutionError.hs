@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ExecutionError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.ExecutionErrorType
 
@@ -154,13 +155,13 @@ executionError_type = Lens.lens (\ExecutionError' {type'} -> type') (\s@Executio
 executionError_message :: Lens.Lens' ExecutionError Prelude.Text
 executionError_message = Lens.lens (\ExecutionError' {message} -> message) (\s@ExecutionError' {} a -> s {message = a} :: ExecutionError)
 
-instance Core.FromJSON ExecutionError where
+instance Data.FromJSON ExecutionError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionError"
       ( \x ->
           ExecutionError'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Message")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Message")
       )
 
 instance Prelude.Hashable ExecutionError where

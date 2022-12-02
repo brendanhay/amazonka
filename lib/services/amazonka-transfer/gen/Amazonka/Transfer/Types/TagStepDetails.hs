@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.TagStepDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.S3Tag
 
@@ -101,15 +102,15 @@ tagStepDetails_name = Lens.lens (\TagStepDetails' {name} -> name) (\s@TagStepDet
 tagStepDetails_sourceFileLocation :: Lens.Lens' TagStepDetails (Prelude.Maybe Prelude.Text)
 tagStepDetails_sourceFileLocation = Lens.lens (\TagStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@TagStepDetails' {} a -> s {sourceFileLocation = a} :: TagStepDetails)
 
-instance Core.FromJSON TagStepDetails where
+instance Data.FromJSON TagStepDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TagStepDetails"
       ( \x ->
           TagStepDetails'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SourceFileLocation")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SourceFileLocation")
       )
 
 instance Prelude.Hashable TagStepDetails where
@@ -124,13 +125,13 @@ instance Prelude.NFData TagStepDetails where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceFileLocation
 
-instance Core.ToJSON TagStepDetails where
+instance Data.ToJSON TagStepDetails where
   toJSON TagStepDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("SourceFileLocation" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("SourceFileLocation" Data..=)
               Prelude.<$> sourceFileLocation
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ListedExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.ExecutionStatus
 import Amazonka.Transfer.Types.FileLocation
@@ -94,16 +95,16 @@ listedExecution_status = Lens.lens (\ListedExecution' {status} -> status) (\s@Li
 listedExecution_executionId :: Lens.Lens' ListedExecution (Prelude.Maybe Prelude.Text)
 listedExecution_executionId = Lens.lens (\ListedExecution' {executionId} -> executionId) (\s@ListedExecution' {} a -> s {executionId = a} :: ListedExecution)
 
-instance Core.FromJSON ListedExecution where
+instance Data.FromJSON ListedExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedExecution"
       ( \x ->
           ListedExecution'
-            Prelude.<$> (x Core..:? "ServiceMetadata")
-            Prelude.<*> (x Core..:? "InitialFileLocation")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ExecutionId")
+            Prelude.<$> (x Data..:? "ServiceMetadata")
+            Prelude.<*> (x Data..:? "InitialFileLocation")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ExecutionId")
       )
 
 instance Prelude.Hashable ListedExecution where

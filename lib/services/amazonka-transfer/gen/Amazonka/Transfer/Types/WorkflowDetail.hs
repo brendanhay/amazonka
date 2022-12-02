@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.WorkflowDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the workflow ID for the workflow to assign and the execution
@@ -77,14 +78,14 @@ workflowDetail_workflowId = Lens.lens (\WorkflowDetail' {workflowId} -> workflow
 workflowDetail_executionRole :: Lens.Lens' WorkflowDetail Prelude.Text
 workflowDetail_executionRole = Lens.lens (\WorkflowDetail' {executionRole} -> executionRole) (\s@WorkflowDetail' {} a -> s {executionRole = a} :: WorkflowDetail)
 
-instance Core.FromJSON WorkflowDetail where
+instance Data.FromJSON WorkflowDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowDetail"
       ( \x ->
           WorkflowDetail'
-            Prelude.<$> (x Core..: "WorkflowId")
-            Prelude.<*> (x Core..: "ExecutionRole")
+            Prelude.<$> (x Data..: "WorkflowId")
+            Prelude.<*> (x Data..: "ExecutionRole")
       )
 
 instance Prelude.Hashable WorkflowDetail where
@@ -97,12 +98,12 @@ instance Prelude.NFData WorkflowDetail where
     Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf executionRole
 
-instance Core.ToJSON WorkflowDetail where
+instance Data.ToJSON WorkflowDetail where
   toJSON WorkflowDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("WorkflowId" Core..= workflowId),
+          [ Prelude.Just ("WorkflowId" Data..= workflowId),
             Prelude.Just
-              ("ExecutionRole" Core..= executionRole)
+              ("ExecutionRole" Data..= executionRole)
           ]
       )

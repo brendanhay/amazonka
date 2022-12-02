@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,34 +146,34 @@ instance Prelude.NFData DeleteAccess where
     Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf externalId
 
-instance Core.ToHeaders DeleteAccess where
+instance Data.ToHeaders DeleteAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DeleteAccess" ::
+              Data.=# ( "TransferService.DeleteAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAccess where
+instance Data.ToJSON DeleteAccess where
   toJSON DeleteAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("ExternalId" Core..= externalId)
+          [ Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("ExternalId" Data..= externalId)
           ]
       )
 
-instance Core.ToPath DeleteAccess where
+instance Data.ToPath DeleteAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAccess where
+instance Data.ToQuery DeleteAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAccessResponse' smart constructor.

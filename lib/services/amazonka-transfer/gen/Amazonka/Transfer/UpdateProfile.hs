@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest UpdateProfile where
       ( \s h x ->
           UpdateProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ProfileId")
+            Prelude.<*> (x Data..:> "ProfileId")
       )
 
 instance Prelude.Hashable UpdateProfile where
@@ -114,35 +115,35 @@ instance Prelude.NFData UpdateProfile where
     Prelude.rnf certificateIds
       `Prelude.seq` Prelude.rnf profileId
 
-instance Core.ToHeaders UpdateProfile where
+instance Data.ToHeaders UpdateProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.UpdateProfile" ::
+              Data.=# ( "TransferService.UpdateProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProfile where
+instance Data.ToJSON UpdateProfile where
   toJSON UpdateProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CertificateIds" Core..=)
+          [ ("CertificateIds" Data..=)
               Prelude.<$> certificateIds,
-            Prelude.Just ("ProfileId" Core..= profileId)
+            Prelude.Just ("ProfileId" Data..= profileId)
           ]
       )
 
-instance Core.ToPath UpdateProfile where
+instance Data.ToPath UpdateProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateProfile where
+instance Data.ToQuery UpdateProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProfileResponse' smart constructor.

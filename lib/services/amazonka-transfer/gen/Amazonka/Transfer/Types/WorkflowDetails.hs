@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.WorkflowDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.WorkflowDetail
 
@@ -96,16 +97,16 @@ workflowDetails_onPartialUpload = Lens.lens (\WorkflowDetails' {onPartialUpload}
 workflowDetails_onUpload :: Lens.Lens' WorkflowDetails (Prelude.Maybe [WorkflowDetail])
 workflowDetails_onUpload = Lens.lens (\WorkflowDetails' {onUpload} -> onUpload) (\s@WorkflowDetails' {} a -> s {onUpload = a} :: WorkflowDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON WorkflowDetails where
+instance Data.FromJSON WorkflowDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowDetails"
       ( \x ->
           WorkflowDetails'
-            Prelude.<$> ( x Core..:? "OnPartialUpload"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "OnPartialUpload"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "OnUpload" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OnUpload" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable WorkflowDetails where
@@ -118,12 +119,12 @@ instance Prelude.NFData WorkflowDetails where
     Prelude.rnf onPartialUpload
       `Prelude.seq` Prelude.rnf onUpload
 
-instance Core.ToJSON WorkflowDetails where
+instance Data.ToJSON WorkflowDetails where
   toJSON WorkflowDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OnPartialUpload" Core..=)
+          [ ("OnPartialUpload" Data..=)
               Prelude.<$> onPartialUpload,
-            ("OnUpload" Core..=) Prelude.<$> onUpload
+            ("OnUpload" Data..=) Prelude.<$> onUpload
           ]
       )

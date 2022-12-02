@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,30 +96,30 @@ instance Prelude.Hashable StopServer where
 instance Prelude.NFData StopServer where
   rnf StopServer' {..} = Prelude.rnf serverId
 
-instance Core.ToHeaders StopServer where
+instance Data.ToHeaders StopServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("TransferService.StopServer" :: Prelude.ByteString),
+              Data.=# ("TransferService.StopServer" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopServer where
+instance Data.ToJSON StopServer where
   toJSON StopServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ServerId" Core..= serverId)]
+          [Prelude.Just ("ServerId" Data..= serverId)]
       )
 
-instance Core.ToPath StopServer where
+instance Data.ToPath StopServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopServer where
+instance Data.ToQuery StopServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopServerResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.HomeDirectoryMapEntry
 import Amazonka.Transfer.Types.HomeDirectoryType
@@ -263,22 +264,22 @@ describedUser_homeDirectoryMappings = Lens.lens (\DescribedUser' {homeDirectoryM
 describedUser_arn :: Lens.Lens' DescribedUser Prelude.Text
 describedUser_arn = Lens.lens (\DescribedUser' {arn} -> arn) (\s@DescribedUser' {} a -> s {arn = a} :: DescribedUser)
 
-instance Core.FromJSON DescribedUser where
+instance Data.FromJSON DescribedUser where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedUser"
       ( \x ->
           DescribedUser'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "HomeDirectory")
-            Prelude.<*> (x Core..:? "Policy")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "PosixProfile")
-            Prelude.<*> (x Core..:? "SshPublicKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "HomeDirectoryType")
-            Prelude.<*> (x Core..:? "HomeDirectoryMappings")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "HomeDirectory")
+            Prelude.<*> (x Data..:? "Policy")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "PosixProfile")
+            Prelude.<*> (x Data..:? "SshPublicKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "HomeDirectoryType")
+            Prelude.<*> (x Data..:? "HomeDirectoryMappings")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedUser where

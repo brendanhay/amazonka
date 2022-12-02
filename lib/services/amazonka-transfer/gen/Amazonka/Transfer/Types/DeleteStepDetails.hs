@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DeleteStepDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The name of the step, used to identify the delete step.
@@ -88,14 +89,14 @@ deleteStepDetails_name = Lens.lens (\DeleteStepDetails' {name} -> name) (\s@Dele
 deleteStepDetails_sourceFileLocation :: Lens.Lens' DeleteStepDetails (Prelude.Maybe Prelude.Text)
 deleteStepDetails_sourceFileLocation = Lens.lens (\DeleteStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@DeleteStepDetails' {} a -> s {sourceFileLocation = a} :: DeleteStepDetails)
 
-instance Core.FromJSON DeleteStepDetails where
+instance Data.FromJSON DeleteStepDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeleteStepDetails"
       ( \x ->
           DeleteStepDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SourceFileLocation")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SourceFileLocation")
       )
 
 instance Prelude.Hashable DeleteStepDetails where
@@ -108,12 +109,12 @@ instance Prelude.NFData DeleteStepDetails where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceFileLocation
 
-instance Core.ToJSON DeleteStepDetails where
+instance Data.ToJSON DeleteStepDetails where
   toJSON DeleteStepDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("SourceFileLocation" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("SourceFileLocation" Data..=)
               Prelude.<$> sourceFileLocation
           ]
       )

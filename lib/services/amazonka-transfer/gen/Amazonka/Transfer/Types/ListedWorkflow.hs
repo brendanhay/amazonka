@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ListedWorkflow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the identifier, text description, and Amazon Resource Name
@@ -71,15 +72,15 @@ listedWorkflow_arn = Lens.lens (\ListedWorkflow' {arn} -> arn) (\s@ListedWorkflo
 listedWorkflow_description :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
 listedWorkflow_description = Lens.lens (\ListedWorkflow' {description} -> description) (\s@ListedWorkflow' {} a -> s {description = a} :: ListedWorkflow)
 
-instance Core.FromJSON ListedWorkflow where
+instance Data.FromJSON ListedWorkflow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedWorkflow"
       ( \x ->
           ListedWorkflow'
-            Prelude.<$> (x Core..:? "WorkflowId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "WorkflowId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable ListedWorkflow where

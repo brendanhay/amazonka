@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,36 +126,36 @@ instance Prelude.NFData DeleteSshPublicKey where
       `Prelude.seq` Prelude.rnf sshPublicKeyId
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders DeleteSshPublicKey where
+instance Data.ToHeaders DeleteSshPublicKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DeleteSshPublicKey" ::
+              Data.=# ( "TransferService.DeleteSshPublicKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSshPublicKey where
+instance Data.ToJSON DeleteSshPublicKey where
   toJSON DeleteSshPublicKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServerId" Core..= serverId),
+          [ Prelude.Just ("ServerId" Data..= serverId),
             Prelude.Just
-              ("SshPublicKeyId" Core..= sshPublicKeyId),
-            Prelude.Just ("UserName" Core..= userName)
+              ("SshPublicKeyId" Data..= sshPublicKeyId),
+            Prelude.Just ("UserName" Data..= userName)
           ]
       )
 
-instance Core.ToPath DeleteSshPublicKey where
+instance Data.ToPath DeleteSshPublicKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSshPublicKey where
+instance Data.ToQuery DeleteSshPublicKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSshPublicKeyResponse' smart constructor.

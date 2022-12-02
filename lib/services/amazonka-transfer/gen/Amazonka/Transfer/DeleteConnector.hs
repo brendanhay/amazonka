@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,32 +86,32 @@ instance Prelude.Hashable DeleteConnector where
 instance Prelude.NFData DeleteConnector where
   rnf DeleteConnector' {..} = Prelude.rnf connectorId
 
-instance Core.ToHeaders DeleteConnector where
+instance Data.ToHeaders DeleteConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DeleteConnector" ::
+              Data.=# ( "TransferService.DeleteConnector" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConnector where
+instance Data.ToJSON DeleteConnector where
   toJSON DeleteConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ConnectorId" Core..= connectorId)]
+          [Prelude.Just ("ConnectorId" Data..= connectorId)]
       )
 
-instance Core.ToPath DeleteConnector where
+instance Data.ToPath DeleteConnector where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConnector where
+instance Data.ToQuery DeleteConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConnectorResponse' smart constructor.

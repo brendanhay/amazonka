@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ServiceMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.UserDetails
 
@@ -57,13 +58,13 @@ newServiceMetadata pUserDetails_ =
 serviceMetadata_userDetails :: Lens.Lens' ServiceMetadata UserDetails
 serviceMetadata_userDetails = Lens.lens (\ServiceMetadata' {userDetails} -> userDetails) (\s@ServiceMetadata' {} a -> s {userDetails = a} :: ServiceMetadata)
 
-instance Core.FromJSON ServiceMetadata where
+instance Data.FromJSON ServiceMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceMetadata"
       ( \x ->
           ServiceMetadata'
-            Prelude.<$> (x Core..: "UserDetails")
+            Prelude.<$> (x Data..: "UserDetails")
       )
 
 instance Prelude.Hashable ServiceMetadata where

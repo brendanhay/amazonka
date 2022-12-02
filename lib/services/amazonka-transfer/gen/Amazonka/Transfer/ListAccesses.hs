@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,10 +137,10 @@ instance Core.AWSRequest ListAccesses where
     Response.receiveJSON
       ( \s h x ->
           ListAccessesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
-            Prelude.<*> (x Core..?> "Accesses" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "ServerId")
+            Prelude.<*> (x Data..?> "Accesses" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListAccesses where
@@ -154,35 +155,35 @@ instance Prelude.NFData ListAccesses where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serverId
 
-instance Core.ToHeaders ListAccesses where
+instance Data.ToHeaders ListAccesses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.ListAccesses" ::
+              Data.=# ( "TransferService.ListAccesses" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAccesses where
+instance Data.ToJSON ListAccesses where
   toJSON ListAccesses' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServerId" Core..= serverId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServerId" Data..= serverId)
           ]
       )
 
-instance Core.ToPath ListAccesses where
+instance Data.ToPath ListAccesses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAccesses where
+instance Data.ToQuery ListAccesses where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAccessesResponse' smart constructor.

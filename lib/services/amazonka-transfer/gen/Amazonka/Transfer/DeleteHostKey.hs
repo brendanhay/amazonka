@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,34 +106,34 @@ instance Prelude.NFData DeleteHostKey where
     Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf hostKeyId
 
-instance Core.ToHeaders DeleteHostKey where
+instance Data.ToHeaders DeleteHostKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DeleteHostKey" ::
+              Data.=# ( "TransferService.DeleteHostKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteHostKey where
+instance Data.ToJSON DeleteHostKey where
   toJSON DeleteHostKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("HostKeyId" Core..= hostKeyId)
+          [ Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("HostKeyId" Data..= hostKeyId)
           ]
       )
 
-instance Core.ToPath DeleteHostKey where
+instance Data.ToPath DeleteHostKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteHostKey where
+instance Data.ToQuery DeleteHostKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteHostKeyResponse' smart constructor.

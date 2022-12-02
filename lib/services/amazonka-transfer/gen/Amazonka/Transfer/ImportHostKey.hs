@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,7 +64,7 @@ data ImportHostKey = ImportHostKey'
     -- | The public key portion of an SSH key pair.
     --
     -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
-    hostKeyBody :: Core.Sensitive Prelude.Text
+    hostKeyBody :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -96,7 +97,7 @@ newImportHostKey pServerId_ pHostKeyBody_ =
     { tags = Prelude.Nothing,
       description = Prelude.Nothing,
       serverId = pServerId_,
-      hostKeyBody = Core._Sensitive Lens.# pHostKeyBody_
+      hostKeyBody = Data._Sensitive Lens.# pHostKeyBody_
     }
 
 -- | Key-value pairs that can be used to group and search for host keys.
@@ -116,7 +117,7 @@ importHostKey_serverId = Lens.lens (\ImportHostKey' {serverId} -> serverId) (\s@
 --
 -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 importHostKey_hostKeyBody :: Lens.Lens' ImportHostKey Prelude.Text
-importHostKey_hostKeyBody = Lens.lens (\ImportHostKey' {hostKeyBody} -> hostKeyBody) (\s@ImportHostKey' {} a -> s {hostKeyBody = a} :: ImportHostKey) Prelude.. Core._Sensitive
+importHostKey_hostKeyBody = Lens.lens (\ImportHostKey' {hostKeyBody} -> hostKeyBody) (\s@ImportHostKey' {} a -> s {hostKeyBody = a} :: ImportHostKey) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ImportHostKey where
   type
@@ -129,8 +130,8 @@ instance Core.AWSRequest ImportHostKey where
       ( \s h x ->
           ImportHostKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
-            Prelude.<*> (x Core..:> "HostKeyId")
+            Prelude.<*> (x Data..:> "ServerId")
+            Prelude.<*> (x Data..:> "HostKeyId")
       )
 
 instance Prelude.Hashable ImportHostKey where
@@ -147,36 +148,36 @@ instance Prelude.NFData ImportHostKey where
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf hostKeyBody
 
-instance Core.ToHeaders ImportHostKey where
+instance Data.ToHeaders ImportHostKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.ImportHostKey" ::
+              Data.=# ( "TransferService.ImportHostKey" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportHostKey where
+instance Data.ToJSON ImportHostKey where
   toJSON ImportHostKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("HostKeyBody" Core..= hostKeyBody)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("HostKeyBody" Data..= hostKeyBody)
           ]
       )
 
-instance Core.ToPath ImportHostKey where
+instance Data.ToPath ImportHostKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportHostKey where
+instance Data.ToQuery ImportHostKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportHostKeyResponse' smart constructor.

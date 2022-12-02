@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedWorkflow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.Tag
 import Amazonka.Transfer.Types.WorkflowStep
@@ -107,20 +108,20 @@ describedWorkflow_onExceptionSteps = Lens.lens (\DescribedWorkflow' {onException
 describedWorkflow_arn :: Lens.Lens' DescribedWorkflow Prelude.Text
 describedWorkflow_arn = Lens.lens (\DescribedWorkflow' {arn} -> arn) (\s@DescribedWorkflow' {} a -> s {arn = a} :: DescribedWorkflow)
 
-instance Core.FromJSON DescribedWorkflow where
+instance Data.FromJSON DescribedWorkflow where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedWorkflow"
       ( \x ->
           DescribedWorkflow'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "WorkflowId")
-            Prelude.<*> (x Core..:? "Steps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "OnExceptionSteps"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "WorkflowId")
+            Prelude.<*> (x Data..:? "Steps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "OnExceptionSteps"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedWorkflow where

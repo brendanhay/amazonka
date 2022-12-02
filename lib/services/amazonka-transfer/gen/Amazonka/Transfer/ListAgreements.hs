@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -140,9 +141,9 @@ instance Core.AWSRequest ListAgreements where
     Response.receiveJSON
       ( \s h x ->
           ListAgreementsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Agreements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Agreements" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListAgreements where
@@ -157,35 +158,35 @@ instance Prelude.NFData ListAgreements where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serverId
 
-instance Core.ToHeaders ListAgreements where
+instance Data.ToHeaders ListAgreements where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.ListAgreements" ::
+              Data.=# ( "TransferService.ListAgreements" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAgreements where
+instance Data.ToJSON ListAgreements where
   toJSON ListAgreements' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServerId" Core..= serverId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServerId" Data..= serverId)
           ]
       )
 
-instance Core.ToPath ListAgreements where
+instance Data.ToPath ListAgreements where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAgreements where
+instance Data.ToQuery ListAgreements where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAgreementsResponse' smart constructor.

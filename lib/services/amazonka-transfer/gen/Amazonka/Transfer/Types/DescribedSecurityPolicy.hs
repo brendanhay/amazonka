@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedSecurityPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the properties of a security policy that was specified. For
@@ -120,18 +121,18 @@ describedSecurityPolicy_sshMacs = Lens.lens (\DescribedSecurityPolicy' {sshMacs}
 describedSecurityPolicy_securityPolicyName :: Lens.Lens' DescribedSecurityPolicy Prelude.Text
 describedSecurityPolicy_securityPolicyName = Lens.lens (\DescribedSecurityPolicy' {securityPolicyName} -> securityPolicyName) (\s@DescribedSecurityPolicy' {} a -> s {securityPolicyName = a} :: DescribedSecurityPolicy)
 
-instance Core.FromJSON DescribedSecurityPolicy where
+instance Data.FromJSON DescribedSecurityPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedSecurityPolicy"
       ( \x ->
           DescribedSecurityPolicy'
-            Prelude.<$> (x Core..:? "TlsCiphers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SshKexs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Fips")
-            Prelude.<*> (x Core..:? "SshCiphers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SshMacs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "SecurityPolicyName")
+            Prelude.<$> (x Data..:? "TlsCiphers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SshKexs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Fips")
+            Prelude.<*> (x Data..:? "SshCiphers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SshMacs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "SecurityPolicyName")
       )
 
 instance Prelude.Hashable DescribedSecurityPolicy where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,20 +61,20 @@ data ImportCertificate = ImportCertificate'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The file that contains the private key for the certificate that\'s being
     -- imported.
-    privateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A short description that helps identify the certificate.
     description :: Prelude.Maybe Prelude.Text,
     -- | An optional date that specifies when the certificate becomes active.
-    activeDate :: Prelude.Maybe Core.POSIX,
+    activeDate :: Prelude.Maybe Data.POSIX,
     -- | An optional list of certificates that make up the chain for the
     -- certificate that\'s being imported.
-    certificateChain :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    certificateChain :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An optional date that specifies when the certificate becomes inactive.
-    inactiveDate :: Prelude.Maybe Core.POSIX,
+    inactiveDate :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether this certificate is used for signing or encryption.
     usage :: CertificateUsageType,
     -- | The file that contains the certificate to import.
-    certificate :: Core.Sensitive Prelude.Text
+    certificate :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -117,7 +118,7 @@ newImportCertificate pUsage_ pCertificate_ =
       certificateChain = Prelude.Nothing,
       inactiveDate = Prelude.Nothing,
       usage = pUsage_,
-      certificate = Core._Sensitive Lens.# pCertificate_
+      certificate = Data._Sensitive Lens.# pCertificate_
     }
 
 -- | Key-value pairs that can be used to group and search for certificates.
@@ -127,7 +128,7 @@ importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@Impo
 -- | The file that contains the private key for the certificate that\'s being
 -- imported.
 importCertificate_privateKey :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
-importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Sensitive
+importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A short description that helps identify the certificate.
 importCertificate_description :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
@@ -135,16 +136,16 @@ importCertificate_description = Lens.lens (\ImportCertificate' {description} -> 
 
 -- | An optional date that specifies when the certificate becomes active.
 importCertificate_activeDate :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.UTCTime)
-importCertificate_activeDate = Lens.lens (\ImportCertificate' {activeDate} -> activeDate) (\s@ImportCertificate' {} a -> s {activeDate = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Time
+importCertificate_activeDate = Lens.lens (\ImportCertificate' {activeDate} -> activeDate) (\s@ImportCertificate' {} a -> s {activeDate = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | An optional list of certificates that make up the chain for the
 -- certificate that\'s being imported.
 importCertificate_certificateChain :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
-importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Sensitive
+importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An optional date that specifies when the certificate becomes inactive.
 importCertificate_inactiveDate :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.UTCTime)
-importCertificate_inactiveDate = Lens.lens (\ImportCertificate' {inactiveDate} -> inactiveDate) (\s@ImportCertificate' {} a -> s {inactiveDate = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Time
+importCertificate_inactiveDate = Lens.lens (\ImportCertificate' {inactiveDate} -> inactiveDate) (\s@ImportCertificate' {} a -> s {inactiveDate = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether this certificate is used for signing or encryption.
 importCertificate_usage :: Lens.Lens' ImportCertificate CertificateUsageType
@@ -152,7 +153,7 @@ importCertificate_usage = Lens.lens (\ImportCertificate' {usage} -> usage) (\s@I
 
 -- | The file that contains the certificate to import.
 importCertificate_certificate :: Lens.Lens' ImportCertificate Prelude.Text
-importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> certificate) (\s@ImportCertificate' {} a -> s {certificate = a} :: ImportCertificate) Prelude.. Core._Sensitive
+importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> certificate) (\s@ImportCertificate' {} a -> s {certificate = a} :: ImportCertificate) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ImportCertificate where
   type
@@ -165,7 +166,7 @@ instance Core.AWSRequest ImportCertificate where
       ( \s h x ->
           ImportCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CertificateId")
+            Prelude.<*> (x Data..:> "CertificateId")
       )
 
 instance Prelude.Hashable ImportCertificate where
@@ -190,41 +191,41 @@ instance Prelude.NFData ImportCertificate where
       `Prelude.seq` Prelude.rnf usage
       `Prelude.seq` Prelude.rnf certificate
 
-instance Core.ToHeaders ImportCertificate where
+instance Data.ToHeaders ImportCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.ImportCertificate" ::
+              Data.=# ( "TransferService.ImportCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportCertificate where
+instance Data.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("PrivateKey" Core..=) Prelude.<$> privateKey,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ActiveDate" Core..=) Prelude.<$> activeDate,
-            ("CertificateChain" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("PrivateKey" Data..=) Prelude.<$> privateKey,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ActiveDate" Data..=) Prelude.<$> activeDate,
+            ("CertificateChain" Data..=)
               Prelude.<$> certificateChain,
-            ("InactiveDate" Core..=) Prelude.<$> inactiveDate,
-            Prelude.Just ("Usage" Core..= usage),
-            Prelude.Just ("Certificate" Core..= certificate)
+            ("InactiveDate" Data..=) Prelude.<$> inactiveDate,
+            Prelude.Just ("Usage" Data..= usage),
+            Prelude.Just ("Certificate" Data..= certificate)
           ]
       )
 
-instance Core.ToPath ImportCertificate where
+instance Data.ToPath ImportCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportCertificate where
+instance Data.ToQuery ImportCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportCertificateResponse' smart constructor.

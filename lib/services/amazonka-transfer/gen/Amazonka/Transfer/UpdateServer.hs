@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -251,7 +252,7 @@ data UpdateServer = UpdateServer'
     -- For more information, see
     -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
     -- in the /Transfer Family User Guide/.
-    hostKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    hostKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A system-assigned unique identifier for a server instance that the user
     -- account is assigned to.
     serverId :: Prelude.Text
@@ -688,7 +689,7 @@ updateServer_workflowDetails = Lens.lens (\UpdateServer' {workflowDetails} -> wo
 -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 updateServer_hostKey :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
-updateServer_hostKey = Lens.lens (\UpdateServer' {hostKey} -> hostKey) (\s@UpdateServer' {} a -> s {hostKey = a} :: UpdateServer) Prelude.. Lens.mapping Core._Sensitive
+updateServer_hostKey = Lens.lens (\UpdateServer' {hostKey} -> hostKey) (\s@UpdateServer' {} a -> s {hostKey = a} :: UpdateServer) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A system-assigned unique identifier for a server instance that the user
 -- account is assigned to.
@@ -704,7 +705,7 @@ instance Core.AWSRequest UpdateServer where
       ( \s h x ->
           UpdateServerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
+            Prelude.<*> (x Data..:> "ServerId")
       )
 
 instance Prelude.Hashable UpdateServer where
@@ -740,52 +741,52 @@ instance Prelude.NFData UpdateServer where
       `Prelude.seq` Prelude.rnf hostKey
       `Prelude.seq` Prelude.rnf serverId
 
-instance Core.ToHeaders UpdateServer where
+instance Data.ToHeaders UpdateServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.UpdateServer" ::
+              Data.=# ( "TransferService.UpdateServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServer where
+instance Data.ToJSON UpdateServer where
   toJSON UpdateServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PreAuthenticationLoginBanner" Core..=)
+          [ ("PreAuthenticationLoginBanner" Data..=)
               Prelude.<$> preAuthenticationLoginBanner,
-            ("ProtocolDetails" Core..=)
+            ("ProtocolDetails" Data..=)
               Prelude.<$> protocolDetails,
-            ("IdentityProviderDetails" Core..=)
+            ("IdentityProviderDetails" Data..=)
               Prelude.<$> identityProviderDetails,
-            ("SecurityPolicyName" Core..=)
+            ("SecurityPolicyName" Data..=)
               Prelude.<$> securityPolicyName,
-            ("EndpointDetails" Core..=)
+            ("EndpointDetails" Data..=)
               Prelude.<$> endpointDetails,
-            ("Certificate" Core..=) Prelude.<$> certificate,
-            ("Protocols" Core..=) Prelude.<$> protocols,
-            ("EndpointType" Core..=) Prelude.<$> endpointType,
-            ("LoggingRole" Core..=) Prelude.<$> loggingRole,
-            ("PostAuthenticationLoginBanner" Core..=)
+            ("Certificate" Data..=) Prelude.<$> certificate,
+            ("Protocols" Data..=) Prelude.<$> protocols,
+            ("EndpointType" Data..=) Prelude.<$> endpointType,
+            ("LoggingRole" Data..=) Prelude.<$> loggingRole,
+            ("PostAuthenticationLoginBanner" Data..=)
               Prelude.<$> postAuthenticationLoginBanner,
-            ("WorkflowDetails" Core..=)
+            ("WorkflowDetails" Data..=)
               Prelude.<$> workflowDetails,
-            ("HostKey" Core..=) Prelude.<$> hostKey,
-            Prelude.Just ("ServerId" Core..= serverId)
+            ("HostKey" Data..=) Prelude.<$> hostKey,
+            Prelude.Just ("ServerId" Data..= serverId)
           ]
       )
 
-instance Core.ToPath UpdateServer where
+instance Data.ToPath UpdateServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServer where
+instance Data.ToQuery UpdateServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServerResponse' smart constructor.

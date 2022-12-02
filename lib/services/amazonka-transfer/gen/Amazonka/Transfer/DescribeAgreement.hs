@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest DescribeAgreement where
       ( \s h x ->
           DescribeAgreementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Agreement")
+            Prelude.<*> (x Data..:> "Agreement")
       )
 
 instance Prelude.Hashable DescribeAgreement where
@@ -114,34 +115,34 @@ instance Prelude.NFData DescribeAgreement where
     Prelude.rnf agreementId
       `Prelude.seq` Prelude.rnf serverId
 
-instance Core.ToHeaders DescribeAgreement where
+instance Data.ToHeaders DescribeAgreement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DescribeAgreement" ::
+              Data.=# ( "TransferService.DescribeAgreement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAgreement where
+instance Data.ToJSON DescribeAgreement where
   toJSON DescribeAgreement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AgreementId" Core..= agreementId),
-            Prelude.Just ("ServerId" Core..= serverId)
+          [ Prelude.Just ("AgreementId" Data..= agreementId),
+            Prelude.Just ("ServerId" Data..= serverId)
           ]
       )
 
-instance Core.ToPath DescribeAgreement where
+instance Data.ToPath DescribeAgreement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAgreement where
+instance Data.ToQuery DescribeAgreement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAgreementResponse' smart constructor.

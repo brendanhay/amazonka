@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.HomeDirectoryMapEntry
 import Amazonka.Transfer.Types.HomeDirectoryType
@@ -243,19 +244,19 @@ describedAccess_homeDirectoryType = Lens.lens (\DescribedAccess' {homeDirectoryT
 describedAccess_homeDirectoryMappings :: Lens.Lens' DescribedAccess (Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry))
 describedAccess_homeDirectoryMappings = Lens.lens (\DescribedAccess' {homeDirectoryMappings} -> homeDirectoryMappings) (\s@DescribedAccess' {} a -> s {homeDirectoryMappings = a} :: DescribedAccess) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON DescribedAccess where
+instance Data.FromJSON DescribedAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedAccess"
       ( \x ->
           DescribedAccess'
-            Prelude.<$> (x Core..:? "HomeDirectory")
-            Prelude.<*> (x Core..:? "Policy")
-            Prelude.<*> (x Core..:? "PosixProfile")
-            Prelude.<*> (x Core..:? "ExternalId")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "HomeDirectoryType")
-            Prelude.<*> (x Core..:? "HomeDirectoryMappings")
+            Prelude.<$> (x Data..:? "HomeDirectory")
+            Prelude.<*> (x Data..:? "Policy")
+            Prelude.<*> (x Data..:? "PosixProfile")
+            Prelude.<*> (x Data..:? "ExternalId")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "HomeDirectoryType")
+            Prelude.<*> (x Data..:? "HomeDirectoryMappings")
       )
 
 instance Prelude.Hashable DescribedAccess where

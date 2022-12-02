@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ListedAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.HomeDirectoryType
 
@@ -167,16 +168,16 @@ listedAccess_role = Lens.lens (\ListedAccess' {role'} -> role') (\s@ListedAccess
 listedAccess_homeDirectoryType :: Lens.Lens' ListedAccess (Prelude.Maybe HomeDirectoryType)
 listedAccess_homeDirectoryType = Lens.lens (\ListedAccess' {homeDirectoryType} -> homeDirectoryType) (\s@ListedAccess' {} a -> s {homeDirectoryType = a} :: ListedAccess)
 
-instance Core.FromJSON ListedAccess where
+instance Data.FromJSON ListedAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedAccess"
       ( \x ->
           ListedAccess'
-            Prelude.<$> (x Core..:? "HomeDirectory")
-            Prelude.<*> (x Core..:? "ExternalId")
-            Prelude.<*> (x Core..:? "Role")
-            Prelude.<*> (x Core..:? "HomeDirectoryType")
+            Prelude.<$> (x Data..:? "HomeDirectory")
+            Prelude.<*> (x Data..:? "ExternalId")
+            Prelude.<*> (x Data..:? "Role")
+            Prelude.<*> (x Data..:? "HomeDirectoryType")
       )
 
 instance Prelude.Hashable ListedAccess where

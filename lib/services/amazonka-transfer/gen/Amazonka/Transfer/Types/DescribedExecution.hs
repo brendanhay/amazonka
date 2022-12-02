@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.ExecutionResults
 import Amazonka.Transfer.Types.ExecutionStatus
@@ -139,20 +140,20 @@ describedExecution_results = Lens.lens (\DescribedExecution' {results} -> result
 describedExecution_loggingConfiguration :: Lens.Lens' DescribedExecution (Prelude.Maybe LoggingConfiguration)
 describedExecution_loggingConfiguration = Lens.lens (\DescribedExecution' {loggingConfiguration} -> loggingConfiguration) (\s@DescribedExecution' {} a -> s {loggingConfiguration = a} :: DescribedExecution)
 
-instance Core.FromJSON DescribedExecution where
+instance Data.FromJSON DescribedExecution where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedExecution"
       ( \x ->
           DescribedExecution'
-            Prelude.<$> (x Core..:? "ExecutionRole")
-            Prelude.<*> (x Core..:? "ServiceMetadata")
-            Prelude.<*> (x Core..:? "InitialFileLocation")
-            Prelude.<*> (x Core..:? "PosixProfile")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ExecutionId")
-            Prelude.<*> (x Core..:? "Results")
-            Prelude.<*> (x Core..:? "LoggingConfiguration")
+            Prelude.<$> (x Data..:? "ExecutionRole")
+            Prelude.<*> (x Data..:? "ServiceMetadata")
+            Prelude.<*> (x Data..:? "InitialFileLocation")
+            Prelude.<*> (x Data..:? "PosixProfile")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ExecutionId")
+            Prelude.<*> (x Data..:? "Results")
+            Prelude.<*> (x Data..:? "LoggingConfiguration")
       )
 
 instance Prelude.Hashable DescribedExecution where

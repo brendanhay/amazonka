@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest DescribeCertificate where
       ( \s h x ->
           DescribeCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Certificate")
+            Prelude.<*> (x Data..:> "Certificate")
       )
 
 instance Prelude.Hashable DescribeCertificate where
@@ -101,34 +102,34 @@ instance Prelude.NFData DescribeCertificate where
   rnf DescribeCertificate' {..} =
     Prelude.rnf certificateId
 
-instance Core.ToHeaders DescribeCertificate where
+instance Data.ToHeaders DescribeCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DescribeCertificate" ::
+              Data.=# ( "TransferService.DescribeCertificate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeCertificate where
+instance Data.ToJSON DescribeCertificate where
   toJSON DescribeCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("CertificateId" Core..= certificateId)
+              ("CertificateId" Data..= certificateId)
           ]
       )
 
-instance Core.ToPath DescribeCertificate where
+instance Data.ToPath DescribeCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCertificate where
+instance Data.ToQuery DescribeCertificate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCertificateResponse' smart constructor.

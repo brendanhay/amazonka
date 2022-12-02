@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.S3FileLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the details for the file location for the file that\'s being
@@ -86,16 +87,16 @@ s3FileLocation_etag = Lens.lens (\S3FileLocation' {etag} -> etag) (\s@S3FileLoca
 s3FileLocation_versionId :: Lens.Lens' S3FileLocation (Prelude.Maybe Prelude.Text)
 s3FileLocation_versionId = Lens.lens (\S3FileLocation' {versionId} -> versionId) (\s@S3FileLocation' {} a -> s {versionId = a} :: S3FileLocation)
 
-instance Core.FromJSON S3FileLocation where
+instance Data.FromJSON S3FileLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3FileLocation"
       ( \x ->
           S3FileLocation'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Bucket")
-            Prelude.<*> (x Core..:? "Etag")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Bucket")
+            Prelude.<*> (x Data..:? "Etag")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable S3FileLocation where

@@ -18,6 +18,7 @@ module Amazonka.Transfer.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.DescribeServer
 import Amazonka.Transfer.Lens
@@ -37,7 +38,7 @@ newServerOnline =
             ( describeServerResponse_server
                 Prelude.. describedServer_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "START_FAILED"
@@ -45,7 +46,7 @@ newServerOnline =
             ( describeServerResponse_server
                 Prelude.. describedServer_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -64,7 +65,7 @@ newServerOffline =
             ( describeServerResponse_server
                 Prelude.. describedServer_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "STOP_FAILED"
@@ -72,7 +73,7 @@ newServerOffline =
             ( describeServerResponse_server
                 Prelude.. describedServer_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

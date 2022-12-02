@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ListedProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.ProfileType
 
@@ -101,16 +102,16 @@ listedProfile_arn = Lens.lens (\ListedProfile' {arn} -> arn) (\s@ListedProfile' 
 listedProfile_profileType :: Lens.Lens' ListedProfile (Prelude.Maybe ProfileType)
 listedProfile_profileType = Lens.lens (\ListedProfile' {profileType} -> profileType) (\s@ListedProfile' {} a -> s {profileType = a} :: ListedProfile)
 
-instance Core.FromJSON ListedProfile where
+instance Data.FromJSON ListedProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedProfile"
       ( \x ->
           ListedProfile'
-            Prelude.<$> (x Core..:? "ProfileId")
-            Prelude.<*> (x Core..:? "As2Id")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "ProfileType")
+            Prelude.<$> (x Data..:? "ProfileId")
+            Prelude.<*> (x Data..:? "As2Id")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ProfileType")
       )
 
 instance Prelude.Hashable ListedProfile where

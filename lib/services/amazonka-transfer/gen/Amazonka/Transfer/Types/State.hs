@@ -31,6 +31,7 @@ module Amazonka.Transfer.Types.State
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the condition of a file transfer protocol-enabled server with
@@ -45,7 +46,7 @@ import qualified Amazonka.Prelude as Prelude
 -- operations. Under normal conditions, it can take a couple of minutes for
 -- the server to be completely operational. Both @START_FAILED@ and
 -- @STOP_FAILED@ are error conditions.
-newtype State = State' {fromState :: Core.Text}
+newtype State = State' {fromState :: Data.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -56,18 +57,18 @@ newtype State = State' {fromState :: Core.Text}
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern State_OFFLINE :: State

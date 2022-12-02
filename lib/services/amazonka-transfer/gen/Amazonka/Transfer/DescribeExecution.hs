@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,8 +101,8 @@ instance Core.AWSRequest DescribeExecution where
       ( \s h x ->
           DescribeExecutionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "WorkflowId")
-            Prelude.<*> (x Core..:> "Execution")
+            Prelude.<*> (x Data..:> "WorkflowId")
+            Prelude.<*> (x Data..:> "Execution")
       )
 
 instance Prelude.Hashable DescribeExecution where
@@ -114,34 +115,34 @@ instance Prelude.NFData DescribeExecution where
     Prelude.rnf executionId
       `Prelude.seq` Prelude.rnf workflowId
 
-instance Core.ToHeaders DescribeExecution where
+instance Data.ToHeaders DescribeExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DescribeExecution" ::
+              Data.=# ( "TransferService.DescribeExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeExecution where
+instance Data.ToJSON DescribeExecution where
   toJSON DescribeExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ExecutionId" Core..= executionId),
-            Prelude.Just ("WorkflowId" Core..= workflowId)
+          [ Prelude.Just ("ExecutionId" Data..= executionId),
+            Prelude.Just ("WorkflowId" Data..= workflowId)
           ]
       )
 
-instance Core.ToPath DescribeExecution where
+instance Data.ToPath DescribeExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExecution where
+instance Data.ToQuery DescribeExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExecutionResponse' smart constructor.

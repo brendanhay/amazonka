@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.EfsFileLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Reserved for future use.
@@ -61,14 +62,14 @@ efsFileLocation_path = Lens.lens (\EfsFileLocation' {path} -> path) (\s@EfsFileL
 efsFileLocation_fileSystemId :: Lens.Lens' EfsFileLocation (Prelude.Maybe Prelude.Text)
 efsFileLocation_fileSystemId = Lens.lens (\EfsFileLocation' {fileSystemId} -> fileSystemId) (\s@EfsFileLocation' {} a -> s {fileSystemId = a} :: EfsFileLocation)
 
-instance Core.FromJSON EfsFileLocation where
+instance Data.FromJSON EfsFileLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EfsFileLocation"
       ( \x ->
           EfsFileLocation'
-            Prelude.<$> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "FileSystemId")
+            Prelude.<$> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "FileSystemId")
       )
 
 instance Prelude.Hashable EfsFileLocation where
@@ -81,11 +82,11 @@ instance Prelude.NFData EfsFileLocation where
     Prelude.rnf path
       `Prelude.seq` Prelude.rnf fileSystemId
 
-instance Core.ToJSON EfsFileLocation where
+instance Data.ToJSON EfsFileLocation where
   toJSON EfsFileLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Path" Core..=) Prelude.<$> path,
-            ("FileSystemId" Core..=) Prelude.<$> fileSystemId
+          [ ("Path" Data..=) Prelude.<$> path,
+            ("FileSystemId" Data..=) Prelude.<$> fileSystemId
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.S3InputFileLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the customer input S3 file location. If it is used inside
@@ -80,13 +81,13 @@ s3InputFileLocation_key = Lens.lens (\S3InputFileLocation' {key} -> key) (\s@S3I
 s3InputFileLocation_bucket :: Lens.Lens' S3InputFileLocation (Prelude.Maybe Prelude.Text)
 s3InputFileLocation_bucket = Lens.lens (\S3InputFileLocation' {bucket} -> bucket) (\s@S3InputFileLocation' {} a -> s {bucket = a} :: S3InputFileLocation)
 
-instance Core.FromJSON S3InputFileLocation where
+instance Data.FromJSON S3InputFileLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3InputFileLocation"
       ( \x ->
           S3InputFileLocation'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Bucket")
+            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Bucket")
       )
 
 instance Prelude.Hashable S3InputFileLocation where
@@ -98,11 +99,11 @@ instance Prelude.NFData S3InputFileLocation where
   rnf S3InputFileLocation' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToJSON S3InputFileLocation where
+instance Data.ToJSON S3InputFileLocation where
   toJSON S3InputFileLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Bucket" Core..=) Prelude.<$> bucket
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Bucket" Data..=) Prelude.<$> bucket
           ]
       )

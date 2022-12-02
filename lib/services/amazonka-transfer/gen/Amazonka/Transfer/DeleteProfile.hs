@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,32 +86,32 @@ instance Prelude.Hashable DeleteProfile where
 instance Prelude.NFData DeleteProfile where
   rnf DeleteProfile' {..} = Prelude.rnf profileId
 
-instance Core.ToHeaders DeleteProfile where
+instance Data.ToHeaders DeleteProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DeleteProfile" ::
+              Data.=# ( "TransferService.DeleteProfile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteProfile where
+instance Data.ToJSON DeleteProfile where
   toJSON DeleteProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ProfileId" Core..= profileId)]
+          [Prelude.Just ("ProfileId" Data..= profileId)]
       )
 
-instance Core.ToPath DeleteProfile where
+instance Data.ToPath DeleteProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteProfile where
+instance Data.ToQuery DeleteProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProfileResponse' smart constructor.

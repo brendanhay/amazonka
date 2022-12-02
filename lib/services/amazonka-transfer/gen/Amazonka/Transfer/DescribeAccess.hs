@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest DescribeAccess where
       ( \s h x ->
           DescribeAccessResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
-            Prelude.<*> (x Core..:> "Access")
+            Prelude.<*> (x Data..:> "ServerId")
+            Prelude.<*> (x Data..:> "Access")
       )
 
 instance Prelude.Hashable DescribeAccess where
@@ -163,34 +164,34 @@ instance Prelude.NFData DescribeAccess where
     Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf externalId
 
-instance Core.ToHeaders DescribeAccess where
+instance Data.ToHeaders DescribeAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.DescribeAccess" ::
+              Data.=# ( "TransferService.DescribeAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAccess where
+instance Data.ToJSON DescribeAccess where
   toJSON DescribeAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ServerId" Core..= serverId),
-            Prelude.Just ("ExternalId" Core..= externalId)
+          [ Prelude.Just ("ServerId" Data..= serverId),
+            Prelude.Just ("ExternalId" Data..= externalId)
           ]
       )
 
-instance Core.ToPath DescribeAccess where
+instance Data.ToPath DescribeAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccess where
+instance Data.ToQuery DescribeAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAccessResponse' smart constructor.

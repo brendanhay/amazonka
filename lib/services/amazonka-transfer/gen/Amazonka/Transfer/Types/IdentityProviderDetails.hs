@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.IdentityProviderDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information related to the type of user authentication that is
@@ -91,16 +92,16 @@ identityProviderDetails_invocationRole = Lens.lens (\IdentityProviderDetails' {i
 identityProviderDetails_function :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
 identityProviderDetails_function = Lens.lens (\IdentityProviderDetails' {function} -> function) (\s@IdentityProviderDetails' {} a -> s {function = a} :: IdentityProviderDetails)
 
-instance Core.FromJSON IdentityProviderDetails where
+instance Data.FromJSON IdentityProviderDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityProviderDetails"
       ( \x ->
           IdentityProviderDetails'
-            Prelude.<$> (x Core..:? "DirectoryId")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "InvocationRole")
-            Prelude.<*> (x Core..:? "Function")
+            Prelude.<$> (x Data..:? "DirectoryId")
+            Prelude.<*> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "InvocationRole")
+            Prelude.<*> (x Data..:? "Function")
       )
 
 instance Prelude.Hashable IdentityProviderDetails where
@@ -117,14 +118,14 @@ instance Prelude.NFData IdentityProviderDetails where
       `Prelude.seq` Prelude.rnf invocationRole
       `Prelude.seq` Prelude.rnf function
 
-instance Core.ToJSON IdentityProviderDetails where
+instance Data.ToJSON IdentityProviderDetails where
   toJSON IdentityProviderDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("Url" Core..=) Prelude.<$> url,
-            ("InvocationRole" Core..=)
+          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
+            ("Url" Data..=) Prelude.<$> url,
+            ("InvocationRole" Data..=)
               Prelude.<$> invocationRole,
-            ("Function" Core..=) Prelude.<$> function
+            ("Function" Data..=) Prelude.<$> function
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.SshPublicKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the public Secure Shell (SSH) key that is
@@ -33,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSshPublicKey' smart constructor.
 data SshPublicKey = SshPublicKey'
   { -- | Specifies the date that the public key was added to the user account.
-    dateImported :: Core.POSIX,
+    dateImported :: Data.POSIX,
     -- | Specifies the content of the SSH public key as specified by the
     -- @PublicKeyId@.
     --
@@ -76,14 +77,14 @@ newSshPublicKey
   pSshPublicKeyId_ =
     SshPublicKey'
       { dateImported =
-          Core._Time Lens.# pDateImported_,
+          Data._Time Lens.# pDateImported_,
         sshPublicKeyBody = pSshPublicKeyBody_,
         sshPublicKeyId = pSshPublicKeyId_
       }
 
 -- | Specifies the date that the public key was added to the user account.
 sshPublicKey_dateImported :: Lens.Lens' SshPublicKey Prelude.UTCTime
-sshPublicKey_dateImported = Lens.lens (\SshPublicKey' {dateImported} -> dateImported) (\s@SshPublicKey' {} a -> s {dateImported = a} :: SshPublicKey) Prelude.. Core._Time
+sshPublicKey_dateImported = Lens.lens (\SshPublicKey' {dateImported} -> dateImported) (\s@SshPublicKey' {} a -> s {dateImported = a} :: SshPublicKey) Prelude.. Data._Time
 
 -- | Specifies the content of the SSH public key as specified by the
 -- @PublicKeyId@.
@@ -97,15 +98,15 @@ sshPublicKey_sshPublicKeyBody = Lens.lens (\SshPublicKey' {sshPublicKeyBody} -> 
 sshPublicKey_sshPublicKeyId :: Lens.Lens' SshPublicKey Prelude.Text
 sshPublicKey_sshPublicKeyId = Lens.lens (\SshPublicKey' {sshPublicKeyId} -> sshPublicKeyId) (\s@SshPublicKey' {} a -> s {sshPublicKeyId = a} :: SshPublicKey)
 
-instance Core.FromJSON SshPublicKey where
+instance Data.FromJSON SshPublicKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SshPublicKey"
       ( \x ->
           SshPublicKey'
-            Prelude.<$> (x Core..: "DateImported")
-            Prelude.<*> (x Core..: "SshPublicKeyBody")
-            Prelude.<*> (x Core..: "SshPublicKeyId")
+            Prelude.<$> (x Data..: "DateImported")
+            Prelude.<*> (x Data..: "SshPublicKeyBody")
+            Prelude.<*> (x Data..: "SshPublicKeyId")
       )
 
 instance Prelude.Hashable SshPublicKey where

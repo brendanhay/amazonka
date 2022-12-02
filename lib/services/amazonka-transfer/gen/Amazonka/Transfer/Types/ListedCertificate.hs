@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.ListedCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.CertificateStatusType
 import Amazonka.Transfer.Types.CertificateType
@@ -48,9 +49,9 @@ data ListedCertificate = ListedCertificate'
     -- identifier for working with profiles and partner profiles.
     certificateId :: Prelude.Maybe Prelude.Text,
     -- | An optional date that specifies when the certificate becomes active.
-    activeDate :: Prelude.Maybe Core.POSIX,
+    activeDate :: Prelude.Maybe Data.POSIX,
     -- | An optional date that specifies when the certificate becomes inactive.
-    inactiveDate :: Prelude.Maybe Core.POSIX
+    inactiveDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -127,26 +128,26 @@ listedCertificate_certificateId = Lens.lens (\ListedCertificate' {certificateId}
 
 -- | An optional date that specifies when the certificate becomes active.
 listedCertificate_activeDate :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.UTCTime)
-listedCertificate_activeDate = Lens.lens (\ListedCertificate' {activeDate} -> activeDate) (\s@ListedCertificate' {} a -> s {activeDate = a} :: ListedCertificate) Prelude.. Lens.mapping Core._Time
+listedCertificate_activeDate = Lens.lens (\ListedCertificate' {activeDate} -> activeDate) (\s@ListedCertificate' {} a -> s {activeDate = a} :: ListedCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | An optional date that specifies when the certificate becomes inactive.
 listedCertificate_inactiveDate :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.UTCTime)
-listedCertificate_inactiveDate = Lens.lens (\ListedCertificate' {inactiveDate} -> inactiveDate) (\s@ListedCertificate' {} a -> s {inactiveDate = a} :: ListedCertificate) Prelude.. Lens.mapping Core._Time
+listedCertificate_inactiveDate = Lens.lens (\ListedCertificate' {inactiveDate} -> inactiveDate) (\s@ListedCertificate' {} a -> s {inactiveDate = a} :: ListedCertificate) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ListedCertificate where
+instance Data.FromJSON ListedCertificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListedCertificate"
       ( \x ->
           ListedCertificate'
-            Prelude.<$> (x Core..:? "Usage")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CertificateId")
-            Prelude.<*> (x Core..:? "ActiveDate")
-            Prelude.<*> (x Core..:? "InactiveDate")
+            Prelude.<$> (x Data..:? "Usage")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CertificateId")
+            Prelude.<*> (x Data..:? "ActiveDate")
+            Prelude.<*> (x Data..:? "InactiveDate")
       )
 
 instance Prelude.Hashable ListedCertificate where

@@ -88,6 +88,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ data UpdateSecret = UpdateSecret'
     -- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
     --
     -- You can\'t access this parameter in the Secrets Manager console.
-    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    secretBinary :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
     -- encrypt new secret versions as well as any existing versions with the
     -- staging labels @AWSCURRENT@, @AWSPENDING@, or @AWSPREVIOUS@. For more
@@ -150,7 +151,7 @@ data UpdateSecret = UpdateSecret'
     -- value.
     --
     -- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
-    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretString :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN or name of the secret.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -279,7 +280,7 @@ updateSecret_description = Lens.lens (\UpdateSecret' {description} -> descriptio
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateSecret_secretBinary :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.ByteString)
-updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBinary) (\s@UpdateSecret' {} a -> s {secretBinary = a} :: UpdateSecret) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBinary) (\s@UpdateSecret' {} a -> s {secretBinary = a} :: UpdateSecret) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
 -- encrypt new secret versions as well as any existing versions with the
@@ -315,7 +316,7 @@ updateSecret_kmsKeyId = Lens.lens (\UpdateSecret' {kmsKeyId} -> kmsKeyId) (\s@Up
 --
 -- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
 updateSecret_secretString :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
-updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretString) (\s@UpdateSecret' {} a -> s {secretString = a} :: UpdateSecret) Prelude.. Lens.mapping Core._Sensitive
+updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretString) (\s@UpdateSecret' {} a -> s {secretString = a} :: UpdateSecret) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN or name of the secret.
 --
@@ -333,9 +334,9 @@ instance Core.AWSRequest UpdateSecret where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -357,39 +358,39 @@ instance Prelude.NFData UpdateSecret where
       `Prelude.seq` Prelude.rnf secretString
       `Prelude.seq` Prelude.rnf secretId
 
-instance Core.ToHeaders UpdateSecret where
+instance Data.ToHeaders UpdateSecret where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.UpdateSecret" ::
+              Data.=# ( "secretsmanager.UpdateSecret" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSecret where
+instance Data.ToJSON UpdateSecret where
   toJSON UpdateSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SecretBinary" Core..=) Prelude.<$> secretBinary,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("SecretString" Core..=) Prelude.<$> secretString,
-            Prelude.Just ("SecretId" Core..= secretId)
+            ("Description" Data..=) Prelude.<$> description,
+            ("SecretBinary" Data..=) Prelude.<$> secretBinary,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("SecretString" Data..=) Prelude.<$> secretString,
+            Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
 
-instance Core.ToPath UpdateSecret where
+instance Data.ToPath UpdateSecret where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSecret where
+instance Data.ToQuery UpdateSecret where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSecretResponse' smart constructor.

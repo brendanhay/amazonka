@@ -21,6 +21,7 @@ module Amazonka.SecretsManager.Types.SecretVersionsListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about one version of a secret.
@@ -33,11 +34,11 @@ data SecretVersionsListEntry = SecretVersionsListEntry'
     -- | The date that this version of the secret was last accessed. Note that
     -- the resolution of this field is at the date level and does not include
     -- the time.
-    lastAccessedDate :: Prelude.Maybe Core.POSIX,
+    lastAccessedDate :: Prelude.Maybe Data.POSIX,
     -- | The KMS keys used to encrypt the secret version.
     kmsKeyIds :: Prelude.Maybe [Prelude.Text],
     -- | The date and time this version of the secret was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The unique version identifier of this version of the secret.
     versionId :: Prelude.Maybe Prelude.Text
   }
@@ -84,7 +85,7 @@ secretVersionsListEntry_versionStages = Lens.lens (\SecretVersionsListEntry' {ve
 -- the resolution of this field is at the date level and does not include
 -- the time.
 secretVersionsListEntry_lastAccessedDate :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe Prelude.UTCTime)
-secretVersionsListEntry_lastAccessedDate = Lens.lens (\SecretVersionsListEntry' {lastAccessedDate} -> lastAccessedDate) (\s@SecretVersionsListEntry' {} a -> s {lastAccessedDate = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Core._Time
+secretVersionsListEntry_lastAccessedDate = Lens.lens (\SecretVersionsListEntry' {lastAccessedDate} -> lastAccessedDate) (\s@SecretVersionsListEntry' {} a -> s {lastAccessedDate = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The KMS keys used to encrypt the secret version.
 secretVersionsListEntry_kmsKeyIds :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe [Prelude.Text])
@@ -92,23 +93,23 @@ secretVersionsListEntry_kmsKeyIds = Lens.lens (\SecretVersionsListEntry' {kmsKey
 
 -- | The date and time this version of the secret was created.
 secretVersionsListEntry_createdDate :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe Prelude.UTCTime)
-secretVersionsListEntry_createdDate = Lens.lens (\SecretVersionsListEntry' {createdDate} -> createdDate) (\s@SecretVersionsListEntry' {} a -> s {createdDate = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Core._Time
+secretVersionsListEntry_createdDate = Lens.lens (\SecretVersionsListEntry' {createdDate} -> createdDate) (\s@SecretVersionsListEntry' {} a -> s {createdDate = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The unique version identifier of this version of the secret.
 secretVersionsListEntry_versionId :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe Prelude.Text)
 secretVersionsListEntry_versionId = Lens.lens (\SecretVersionsListEntry' {versionId} -> versionId) (\s@SecretVersionsListEntry' {} a -> s {versionId = a} :: SecretVersionsListEntry)
 
-instance Core.FromJSON SecretVersionsListEntry where
+instance Data.FromJSON SecretVersionsListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecretVersionsListEntry"
       ( \x ->
           SecretVersionsListEntry'
-            Prelude.<$> (x Core..:? "VersionStages")
-            Prelude.<*> (x Core..:? "LastAccessedDate")
-            Prelude.<*> (x Core..:? "KmsKeyIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "VersionStages")
+            Prelude.<*> (x Data..:? "LastAccessedDate")
+            Prelude.<*> (x Data..:? "KmsKeyIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable SecretVersionsListEntry where

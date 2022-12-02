@@ -88,6 +88,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,14 +149,14 @@ data PutSecretValue = PutSecretValue'
     -- You must include @SecretBinary@ or @SecretString@, but not both.
     --
     -- You can\'t access this value from the Secrets Manager console.
-    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    secretBinary :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The text to encrypt and store in the new version of the secret.
     --
     -- You must include @SecretBinary@ or @SecretString@, but not both.
     --
     -- We recommend you create the secret string as JSON key\/value pairs, as
     -- shown in the example.
-    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretString :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN or name of the secret to add a new version to.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -322,7 +323,7 @@ putSecretValue_clientRequestToken = Lens.lens (\PutSecretValue' {clientRequestTo
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 putSecretValue_secretBinary :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.ByteString)
-putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secretBinary) (\s@PutSecretValue' {} a -> s {secretBinary = a} :: PutSecretValue) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secretBinary) (\s@PutSecretValue' {} a -> s {secretBinary = a} :: PutSecretValue) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The text to encrypt and store in the new version of the secret.
 --
@@ -331,7 +332,7 @@ putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secr
 -- We recommend you create the secret string as JSON key\/value pairs, as
 -- shown in the example.
 putSecretValue_secretString :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
-putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secretString) (\s@PutSecretValue' {} a -> s {secretString = a} :: PutSecretValue) Prelude.. Lens.mapping Core._Sensitive
+putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secretString) (\s@PutSecretValue' {} a -> s {secretString = a} :: PutSecretValue) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN or name of the secret to add a new version to.
 --
@@ -353,10 +354,10 @@ instance Core.AWSRequest PutSecretValue where
     Response.receiveJSON
       ( \s h x ->
           PutSecretValueResponse'
-            Prelude.<$> (x Core..?> "VersionStages")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<$> (x Data..?> "VersionStages")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -376,38 +377,38 @@ instance Prelude.NFData PutSecretValue where
       `Prelude.seq` Prelude.rnf secretString
       `Prelude.seq` Prelude.rnf secretId
 
-instance Core.ToHeaders PutSecretValue where
+instance Data.ToHeaders PutSecretValue where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.PutSecretValue" ::
+              Data.=# ( "secretsmanager.PutSecretValue" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutSecretValue where
+instance Data.ToJSON PutSecretValue where
   toJSON PutSecretValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionStages" Core..=) Prelude.<$> versionStages,
-            ("ClientRequestToken" Core..=)
+          [ ("VersionStages" Data..=) Prelude.<$> versionStages,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("SecretBinary" Core..=) Prelude.<$> secretBinary,
-            ("SecretString" Core..=) Prelude.<$> secretString,
-            Prelude.Just ("SecretId" Core..= secretId)
+            ("SecretBinary" Data..=) Prelude.<$> secretBinary,
+            ("SecretString" Data..=) Prelude.<$> secretString,
+            Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
 
-instance Core.ToPath PutSecretValue where
+instance Data.ToPath PutSecretValue where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutSecretValue where
+instance Data.ToQuery PutSecretValue where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutSecretValueResponse' smart constructor.

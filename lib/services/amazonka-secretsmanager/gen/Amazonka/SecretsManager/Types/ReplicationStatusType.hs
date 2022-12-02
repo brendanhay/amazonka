@@ -21,6 +21,7 @@ module Amazonka.SecretsManager.Types.ReplicationStatusType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecretsManager.Types.StatusType
 
@@ -31,7 +32,7 @@ import Amazonka.SecretsManager.Types.StatusType
 data ReplicationStatusType = ReplicationStatusType'
   { -- | The date that the secret was last accessed in the Region. This field is
     -- omitted if the secret has never been retrieved in the Region.
-    lastAccessedDate :: Prelude.Maybe Core.POSIX,
+    lastAccessedDate :: Prelude.Maybe Data.POSIX,
     -- | The status can be @InProgress@, @Failed@, or @InSync@.
     status :: Prelude.Maybe StatusType,
     -- | The Region where replication occurs.
@@ -78,7 +79,7 @@ newReplicationStatusType =
 -- | The date that the secret was last accessed in the Region. This field is
 -- omitted if the secret has never been retrieved in the Region.
 replicationStatusType_lastAccessedDate :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.UTCTime)
-replicationStatusType_lastAccessedDate = Lens.lens (\ReplicationStatusType' {lastAccessedDate} -> lastAccessedDate) (\s@ReplicationStatusType' {} a -> s {lastAccessedDate = a} :: ReplicationStatusType) Prelude.. Lens.mapping Core._Time
+replicationStatusType_lastAccessedDate = Lens.lens (\ReplicationStatusType' {lastAccessedDate} -> lastAccessedDate) (\s@ReplicationStatusType' {} a -> s {lastAccessedDate = a} :: ReplicationStatusType) Prelude.. Lens.mapping Data._Time
 
 -- | The status can be @InProgress@, @Failed@, or @InSync@.
 replicationStatusType_status :: Lens.Lens' ReplicationStatusType (Prelude.Maybe StatusType)
@@ -97,17 +98,17 @@ replicationStatusType_kmsKeyId = Lens.lens (\ReplicationStatusType' {kmsKeyId} -
 replicationStatusType_statusMessage :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.Text)
 replicationStatusType_statusMessage = Lens.lens (\ReplicationStatusType' {statusMessage} -> statusMessage) (\s@ReplicationStatusType' {} a -> s {statusMessage = a} :: ReplicationStatusType)
 
-instance Core.FromJSON ReplicationStatusType where
+instance Data.FromJSON ReplicationStatusType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationStatusType"
       ( \x ->
           ReplicationStatusType'
-            Prelude.<$> (x Core..:? "LastAccessedDate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "LastAccessedDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable ReplicationStatusType where

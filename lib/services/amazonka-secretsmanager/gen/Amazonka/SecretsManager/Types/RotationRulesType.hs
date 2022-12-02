@@ -21,6 +21,7 @@ module Amazonka.SecretsManager.Types.RotationRulesType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines the rotation configuration for the secret.
@@ -191,15 +192,15 @@ rotationRulesType_duration = Lens.lens (\RotationRulesType' {duration} -> durati
 rotationRulesType_automaticallyAfterDays :: Lens.Lens' RotationRulesType (Prelude.Maybe Prelude.Natural)
 rotationRulesType_automaticallyAfterDays = Lens.lens (\RotationRulesType' {automaticallyAfterDays} -> automaticallyAfterDays) (\s@RotationRulesType' {} a -> s {automaticallyAfterDays = a} :: RotationRulesType)
 
-instance Core.FromJSON RotationRulesType where
+instance Data.FromJSON RotationRulesType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RotationRulesType"
       ( \x ->
           RotationRulesType'
-            Prelude.<$> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "AutomaticallyAfterDays")
+            Prelude.<$> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "AutomaticallyAfterDays")
       )
 
 instance Prelude.Hashable RotationRulesType where
@@ -214,14 +215,14 @@ instance Prelude.NFData RotationRulesType where
       `Prelude.seq` Prelude.rnf duration
       `Prelude.seq` Prelude.rnf automaticallyAfterDays
 
-instance Core.ToJSON RotationRulesType where
+instance Data.ToJSON RotationRulesType where
   toJSON RotationRulesType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScheduleExpression" Core..=)
+          [ ("ScheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            ("Duration" Core..=) Prelude.<$> duration,
-            ("AutomaticallyAfterDays" Core..=)
+            ("Duration" Data..=) Prelude.<$> duration,
+            ("AutomaticallyAfterDays" Data..=)
               Prelude.<$> automaticallyAfterDays
           ]
       )

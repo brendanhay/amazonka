@@ -101,6 +101,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -275,9 +276,9 @@ instance Core.AWSRequest RotateSecret where
     Response.receiveJSON
       ( \s h x ->
           RotateSecretResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -297,40 +298,40 @@ instance Prelude.NFData RotateSecret where
       `Prelude.seq` Prelude.rnf rotateImmediately
       `Prelude.seq` Prelude.rnf secretId
 
-instance Core.ToHeaders RotateSecret where
+instance Data.ToHeaders RotateSecret where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.RotateSecret" ::
+              Data.=# ( "secretsmanager.RotateSecret" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RotateSecret where
+instance Data.ToJSON RotateSecret where
   toJSON RotateSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RotationLambdaARN" Core..=)
+          [ ("RotationLambdaARN" Data..=)
               Prelude.<$> rotationLambdaARN,
-            ("ClientRequestToken" Core..=)
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("RotationRules" Core..=) Prelude.<$> rotationRules,
-            ("RotateImmediately" Core..=)
+            ("RotationRules" Data..=) Prelude.<$> rotationRules,
+            ("RotateImmediately" Data..=)
               Prelude.<$> rotateImmediately,
-            Prelude.Just ("SecretId" Core..= secretId)
+            Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
 
-instance Core.ToPath RotateSecret where
+instance Data.ToPath RotateSecret where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RotateSecret where
+instance Data.ToQuery RotateSecret where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRotateSecretResponse' smart constructor.

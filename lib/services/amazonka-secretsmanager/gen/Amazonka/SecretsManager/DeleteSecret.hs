@@ -88,6 +88,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -215,9 +216,9 @@ instance Core.AWSRequest DeleteSecret where
     Response.receiveJSON
       ( \s h x ->
           DeleteSecretResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "DeletionDate")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "DeletionDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -233,37 +234,37 @@ instance Prelude.NFData DeleteSecret where
       `Prelude.seq` Prelude.rnf forceDeleteWithoutRecovery
       `Prelude.seq` Prelude.rnf secretId
 
-instance Core.ToHeaders DeleteSecret where
+instance Data.ToHeaders DeleteSecret where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "secretsmanager.DeleteSecret" ::
+              Data.=# ( "secretsmanager.DeleteSecret" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSecret where
+instance Data.ToJSON DeleteSecret where
   toJSON DeleteSecret' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecoveryWindowInDays" Core..=)
+          [ ("RecoveryWindowInDays" Data..=)
               Prelude.<$> recoveryWindowInDays,
-            ("ForceDeleteWithoutRecovery" Core..=)
+            ("ForceDeleteWithoutRecovery" Data..=)
               Prelude.<$> forceDeleteWithoutRecovery,
-            Prelude.Just ("SecretId" Core..= secretId)
+            Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
 
-instance Core.ToPath DeleteSecret where
+instance Data.ToPath DeleteSecret where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSecret where
+instance Data.ToQuery DeleteSecret where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSecretResponse' smart constructor.
@@ -276,7 +277,7 @@ data DeleteSecretResponse = DeleteSecretResponse'
     -- permanently delete this secret, and it can no longer be restored. This
     -- value is the date and time of the delete request plus the number of days
     -- in @RecoveryWindowInDays@.
-    deletionDate :: Prelude.Maybe Core.POSIX,
+    deletionDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -325,7 +326,7 @@ deleteSecretResponse_arn = Lens.lens (\DeleteSecretResponse' {arn} -> arn) (\s@D
 -- value is the date and time of the delete request plus the number of days
 -- in @RecoveryWindowInDays@.
 deleteSecretResponse_deletionDate :: Lens.Lens' DeleteSecretResponse (Prelude.Maybe Prelude.UTCTime)
-deleteSecretResponse_deletionDate = Lens.lens (\DeleteSecretResponse' {deletionDate} -> deletionDate) (\s@DeleteSecretResponse' {} a -> s {deletionDate = a} :: DeleteSecretResponse) Prelude.. Lens.mapping Core._Time
+deleteSecretResponse_deletionDate = Lens.lens (\DeleteSecretResponse' {deletionDate} -> deletionDate) (\s@DeleteSecretResponse' {} a -> s {deletionDate = a} :: DeleteSecretResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 deleteSecretResponse_httpStatus :: Lens.Lens' DeleteSecretResponse Prelude.Int

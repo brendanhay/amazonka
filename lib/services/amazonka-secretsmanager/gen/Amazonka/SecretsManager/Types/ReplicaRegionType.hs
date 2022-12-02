@@ -21,6 +21,7 @@ module Amazonka.SecretsManager.Types.ReplicaRegionType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A custom type that specifies a @Region@ and the @KmsKeyId@ for a replica
@@ -78,11 +79,11 @@ instance Prelude.NFData ReplicaRegionType where
     Prelude.rnf region
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToJSON ReplicaRegionType where
+instance Data.ToJSON ReplicaRegionType where
   toJSON ReplicaRegionType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Region" Core..=) Prelude.<$> region,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId
+          [ ("Region" Data..=) Prelude.<$> region,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.ServiceSpecificCredential where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.StatusType
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data ServiceSpecificCredential = ServiceSpecificCredential'
   { -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- service-specific credential were created.
-    createDate :: Core.ISO8601,
+    createDate :: Data.ISO8601,
     -- | The name of the service associated with the service-specific credential.
     serviceName :: Prelude.Text,
     -- | The generated user name for the service-specific credential. This value
@@ -40,7 +41,7 @@ data ServiceSpecificCredential = ServiceSpecificCredential'
     -- for example. This value cannot be configured by the user.
     serviceUserName :: Prelude.Text,
     -- | The generated password for the service-specific credential.
-    servicePassword :: Core.Sensitive Prelude.Text,
+    servicePassword :: Data.Sensitive Prelude.Text,
     -- | The unique identifier for the service-specific credential.
     serviceSpecificCredentialId :: Prelude.Text,
     -- | The name of the IAM user associated with the service-specific
@@ -106,11 +107,11 @@ newServiceSpecificCredential
   pStatus_ =
     ServiceSpecificCredential'
       { createDate =
-          Core._Time Lens.# pCreateDate_,
+          Data._Time Lens.# pCreateDate_,
         serviceName = pServiceName_,
         serviceUserName = pServiceUserName_,
         servicePassword =
-          Core._Sensitive Lens.# pServicePassword_,
+          Data._Sensitive Lens.# pServicePassword_,
         serviceSpecificCredentialId =
           pServiceSpecificCredentialId_,
         userName = pUserName_,
@@ -121,7 +122,7 @@ newServiceSpecificCredential
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- service-specific credential were created.
 serviceSpecificCredential_createDate :: Lens.Lens' ServiceSpecificCredential Prelude.UTCTime
-serviceSpecificCredential_createDate = Lens.lens (\ServiceSpecificCredential' {createDate} -> createDate) (\s@ServiceSpecificCredential' {} a -> s {createDate = a} :: ServiceSpecificCredential) Prelude.. Core._Time
+serviceSpecificCredential_createDate = Lens.lens (\ServiceSpecificCredential' {createDate} -> createDate) (\s@ServiceSpecificCredential' {} a -> s {createDate = a} :: ServiceSpecificCredential) Prelude.. Data._Time
 
 -- | The name of the service associated with the service-specific credential.
 serviceSpecificCredential_serviceName :: Lens.Lens' ServiceSpecificCredential Prelude.Text
@@ -136,7 +137,7 @@ serviceSpecificCredential_serviceUserName = Lens.lens (\ServiceSpecificCredentia
 
 -- | The generated password for the service-specific credential.
 serviceSpecificCredential_servicePassword :: Lens.Lens' ServiceSpecificCredential Prelude.Text
-serviceSpecificCredential_servicePassword = Lens.lens (\ServiceSpecificCredential' {servicePassword} -> servicePassword) (\s@ServiceSpecificCredential' {} a -> s {servicePassword = a} :: ServiceSpecificCredential) Prelude.. Core._Sensitive
+serviceSpecificCredential_servicePassword = Lens.lens (\ServiceSpecificCredential' {servicePassword} -> servicePassword) (\s@ServiceSpecificCredential' {} a -> s {servicePassword = a} :: ServiceSpecificCredential) Prelude.. Data._Sensitive
 
 -- | The unique identifier for the service-specific credential.
 serviceSpecificCredential_serviceSpecificCredentialId :: Lens.Lens' ServiceSpecificCredential Prelude.Text
@@ -152,16 +153,16 @@ serviceSpecificCredential_userName = Lens.lens (\ServiceSpecificCredential' {use
 serviceSpecificCredential_status :: Lens.Lens' ServiceSpecificCredential StatusType
 serviceSpecificCredential_status = Lens.lens (\ServiceSpecificCredential' {status} -> status) (\s@ServiceSpecificCredential' {} a -> s {status = a} :: ServiceSpecificCredential)
 
-instance Core.FromXML ServiceSpecificCredential where
+instance Data.FromXML ServiceSpecificCredential where
   parseXML x =
     ServiceSpecificCredential'
-      Prelude.<$> (x Core..@ "CreateDate")
-      Prelude.<*> (x Core..@ "ServiceName")
-      Prelude.<*> (x Core..@ "ServiceUserName")
-      Prelude.<*> (x Core..@ "ServicePassword")
-      Prelude.<*> (x Core..@ "ServiceSpecificCredentialId")
-      Prelude.<*> (x Core..@ "UserName")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<$> (x Data..@ "CreateDate")
+      Prelude.<*> (x Data..@ "ServiceName")
+      Prelude.<*> (x Data..@ "ServiceUserName")
+      Prelude.<*> (x Data..@ "ServicePassword")
+      Prelude.<*> (x Data..@ "ServiceSpecificCredentialId")
+      Prelude.<*> (x Data..@ "UserName")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable ServiceSpecificCredential where
   hashWithSalt _salt ServiceSpecificCredential' {..} =

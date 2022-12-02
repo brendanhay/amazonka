@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,27 +169,27 @@ instance
       `Prelude.seq` Prelude.rnf status
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateServiceSpecificCredential
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateServiceSpecificCredential where
+instance Data.ToPath UpdateServiceSpecificCredential where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServiceSpecificCredential where
+instance Data.ToQuery UpdateServiceSpecificCredential where
   toQuery UpdateServiceSpecificCredential' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "UpdateServiceSpecificCredential" ::
+          Data.=: ( "UpdateServiceSpecificCredential" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
         "ServiceSpecificCredentialId"
-          Core.=: serviceSpecificCredentialId,
-        "Status" Core.=: status
+          Data.=: serviceSpecificCredentialId,
+        "Status" Data.=: status
       ]
 
 -- | /See:/ 'newUpdateServiceSpecificCredentialResponse' smart constructor.

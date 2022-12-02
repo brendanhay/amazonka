@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.SigningCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.StatusType
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSigningCertificate' smart constructor.
 data SigningCertificate = SigningCertificate'
   { -- | The date when the signing certificate was uploaded.
-    uploadDate :: Prelude.Maybe Core.ISO8601,
+    uploadDate :: Prelude.Maybe Data.ISO8601,
     -- | The name of the user the signing certificate is associated with.
     userName :: Prelude.Text,
     -- | The ID for the signing certificate.
@@ -88,7 +89,7 @@ newSigningCertificate
 
 -- | The date when the signing certificate was uploaded.
 signingCertificate_uploadDate :: Lens.Lens' SigningCertificate (Prelude.Maybe Prelude.UTCTime)
-signingCertificate_uploadDate = Lens.lens (\SigningCertificate' {uploadDate} -> uploadDate) (\s@SigningCertificate' {} a -> s {uploadDate = a} :: SigningCertificate) Prelude.. Lens.mapping Core._Time
+signingCertificate_uploadDate = Lens.lens (\SigningCertificate' {uploadDate} -> uploadDate) (\s@SigningCertificate' {} a -> s {uploadDate = a} :: SigningCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the user the signing certificate is associated with.
 signingCertificate_userName :: Lens.Lens' SigningCertificate Prelude.Text
@@ -107,14 +108,14 @@ signingCertificate_certificateBody = Lens.lens (\SigningCertificate' {certificat
 signingCertificate_status :: Lens.Lens' SigningCertificate StatusType
 signingCertificate_status = Lens.lens (\SigningCertificate' {status} -> status) (\s@SigningCertificate' {} a -> s {status = a} :: SigningCertificate)
 
-instance Core.FromXML SigningCertificate where
+instance Data.FromXML SigningCertificate where
   parseXML x =
     SigningCertificate'
-      Prelude.<$> (x Core..@? "UploadDate")
-      Prelude.<*> (x Core..@ "UserName")
-      Prelude.<*> (x Core..@ "CertificateId")
-      Prelude.<*> (x Core..@ "CertificateBody")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<$> (x Data..@? "UploadDate")
+      Prelude.<*> (x Data..@ "UserName")
+      Prelude.<*> (x Data..@ "CertificateId")
+      Prelude.<*> (x Data..@ "CertificateBody")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable SigningCertificate where
   hashWithSalt _salt SigningCertificate' {..} =

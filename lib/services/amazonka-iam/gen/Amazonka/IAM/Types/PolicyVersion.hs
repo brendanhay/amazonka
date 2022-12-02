@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.PolicyVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a version of a managed policy.
@@ -41,7 +42,7 @@ data PolicyVersion = PolicyVersion'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- policy version was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The policy document.
     --
     -- The policy document is returned in the response to the GetPolicyVersion
@@ -114,7 +115,7 @@ policyVersion_isDefaultVersion = Lens.lens (\PolicyVersion' {isDefaultVersion} -
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- policy version was created.
 policyVersion_createDate :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.UTCTime)
-policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Core._Time
+policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The policy document.
 --
@@ -138,13 +139,13 @@ policyVersion_document = Lens.lens (\PolicyVersion' {document} -> document) (\s@
 policyVersion_versionId :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
 policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (\s@PolicyVersion' {} a -> s {versionId = a} :: PolicyVersion)
 
-instance Core.FromXML PolicyVersion where
+instance Data.FromXML PolicyVersion where
   parseXML x =
     PolicyVersion'
-      Prelude.<$> (x Core..@? "IsDefaultVersion")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "Document")
-      Prelude.<*> (x Core..@? "VersionId")
+      Prelude.<$> (x Data..@? "IsDefaultVersion")
+      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<*> (x Data..@? "Document")
+      Prelude.<*> (x Data..@? "VersionId")
 
 instance Prelude.Hashable PolicyVersion where
   hashWithSalt _salt PolicyVersion' {..} =

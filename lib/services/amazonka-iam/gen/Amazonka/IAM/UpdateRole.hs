@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,22 +164,22 @@ instance Prelude.NFData UpdateRole where
       `Prelude.seq` Prelude.rnf maxSessionDuration
       `Prelude.seq` Prelude.rnf roleName
 
-instance Core.ToHeaders UpdateRole where
+instance Data.ToHeaders UpdateRole where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateRole where
+instance Data.ToPath UpdateRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateRole where
+instance Data.ToQuery UpdateRole where
   toQuery UpdateRole' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateRole" :: Prelude.ByteString),
+          Data.=: ("UpdateRole" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Description" Core.=: description,
-        "MaxSessionDuration" Core.=: maxSessionDuration,
-        "RoleName" Core.=: roleName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "MaxSessionDuration" Data.=: maxSessionDuration,
+        "RoleName" Data.=: roleName
       ]
 
 -- | /See:/ 'newUpdateRoleResponse' smart constructor.

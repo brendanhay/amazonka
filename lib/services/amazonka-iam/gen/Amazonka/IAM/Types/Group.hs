@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.Group where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an IAM group entity.
@@ -55,7 +56,7 @@ data Group = Group'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- group was created.
-    createDate :: Core.ISO8601
+    createDate :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,7 +110,7 @@ newGroup
         groupName = pGroupName_,
         groupId = pGroupId_,
         arn = pArn_,
-        createDate = Core._Time Lens.# pCreateDate_
+        createDate = Data._Time Lens.# pCreateDate_
       }
 
 -- | The path to the group. For more information about paths, see
@@ -140,16 +141,16 @@ group_arn = Lens.lens (\Group' {arn} -> arn) (\s@Group' {} a -> s {arn = a} :: G
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- group was created.
 group_createDate :: Lens.Lens' Group Prelude.UTCTime
-group_createDate = Lens.lens (\Group' {createDate} -> createDate) (\s@Group' {} a -> s {createDate = a} :: Group) Prelude.. Core._Time
+group_createDate = Lens.lens (\Group' {createDate} -> createDate) (\s@Group' {} a -> s {createDate = a} :: Group) Prelude.. Data._Time
 
-instance Core.FromXML Group where
+instance Data.FromXML Group where
   parseXML x =
     Group'
-      Prelude.<$> (x Core..@ "Path")
-      Prelude.<*> (x Core..@ "GroupName")
-      Prelude.<*> (x Core..@ "GroupId")
-      Prelude.<*> (x Core..@ "Arn")
-      Prelude.<*> (x Core..@ "CreateDate")
+      Prelude.<$> (x Data..@ "Path")
+      Prelude.<*> (x Data..@ "GroupName")
+      Prelude.<*> (x Data..@ "GroupId")
+      Prelude.<*> (x Data..@ "Arn")
+      Prelude.<*> (x Data..@ "CreateDate")
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =

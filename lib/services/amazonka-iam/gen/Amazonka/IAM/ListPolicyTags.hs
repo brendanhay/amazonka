@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,11 +161,11 @@ instance Core.AWSRequest ListPolicyTags where
       "ListPolicyTagsResult"
       ( \s h x ->
           ListPolicyTagsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -180,22 +181,22 @@ instance Prelude.NFData ListPolicyTags where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders ListPolicyTags where
+instance Data.ToHeaders ListPolicyTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPolicyTags where
+instance Data.ToPath ListPolicyTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPolicyTags where
+instance Data.ToQuery ListPolicyTags where
   toQuery ListPolicyTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListPolicyTags" :: Prelude.ByteString),
+          Data.=: ("ListPolicyTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | /See:/ 'newListPolicyTagsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.EvaluationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.OrganizationsDecisionDetail
 import Amazonka.IAM.Types.PermissionsBoundaryDecisionDetail
 import Amazonka.IAM.Types.PolicyEvaluationDecisionType
@@ -236,30 +237,30 @@ evaluationResult_evalActionName = Lens.lens (\EvaluationResult' {evalActionName}
 evaluationResult_evalDecision :: Lens.Lens' EvaluationResult PolicyEvaluationDecisionType
 evaluationResult_evalDecision = Lens.lens (\EvaluationResult' {evalDecision} -> evalDecision) (\s@EvaluationResult' {} a -> s {evalDecision = a} :: EvaluationResult)
 
-instance Core.FromXML EvaluationResult where
+instance Data.FromXML EvaluationResult where
   parseXML x =
     EvaluationResult'
-      Prelude.<$> (x Core..@? "EvalResourceName")
-      Prelude.<*> (x Core..@? "PermissionsBoundaryDecisionDetail")
-      Prelude.<*> ( x Core..@? "MissingContextValues"
+      Prelude.<$> (x Data..@? "EvalResourceName")
+      Prelude.<*> (x Data..@? "PermissionsBoundaryDecisionDetail")
+      Prelude.<*> ( x Data..@? "MissingContextValues"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "ResourceSpecificResults"
+      Prelude.<*> ( x Data..@? "ResourceSpecificResults"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "EvalDecisionDetails"
+      Prelude.<*> ( x Data..@? "EvalDecisionDetails"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                      Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
-      Prelude.<*> ( x Core..@? "MatchedStatements"
+      Prelude.<*> ( x Data..@? "MatchedStatements"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "OrganizationsDecisionDetail")
-      Prelude.<*> (x Core..@ "EvalActionName")
-      Prelude.<*> (x Core..@ "EvalDecision")
+      Prelude.<*> (x Data..@? "OrganizationsDecisionDetail")
+      Prelude.<*> (x Data..@ "EvalActionName")
+      Prelude.<*> (x Data..@ "EvalDecision")
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =

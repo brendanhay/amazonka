@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,8 +74,8 @@ instance Core.AWSRequest GetAccountSummary where
       "GetAccountSummaryResult"
       ( \s h x ->
           GetAccountSummaryResponse'
-            Prelude.<$> ( x Core..@? "SummaryMap" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+            Prelude.<$> ( x Data..@? "SummaryMap" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -86,20 +87,20 @@ instance Prelude.Hashable GetAccountSummary where
 instance Prelude.NFData GetAccountSummary where
   rnf _ = ()
 
-instance Core.ToHeaders GetAccountSummary where
+instance Data.ToHeaders GetAccountSummary where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAccountSummary where
+instance Data.ToPath GetAccountSummary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccountSummary where
+instance Data.ToQuery GetAccountSummary where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetAccountSummary" :: Prelude.ByteString),
+              Data.=: ("GetAccountSummary" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2010-05-08" :: Prelude.ByteString)
+              Data.=: ("2010-05-08" :: Prelude.ByteString)
           ]
       )
 

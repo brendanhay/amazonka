@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -327,7 +328,7 @@ instance Core.AWSRequest CreatePolicy where
       "CreatePolicyResult"
       ( \s h x ->
           CreatePolicyResponse'
-            Prelude.<$> (x Core..@? "Policy")
+            Prelude.<$> (x Data..@? "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -347,26 +348,26 @@ instance Prelude.NFData CreatePolicy where
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyDocument
 
-instance Core.ToHeaders CreatePolicy where
+instance Data.ToHeaders CreatePolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreatePolicy where
+instance Data.ToPath CreatePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePolicy where
+instance Data.ToQuery CreatePolicy where
   toQuery CreatePolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreatePolicy" :: Prelude.ByteString),
+          Data.=: ("CreatePolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Path" Core.=: path,
-        "Description" Core.=: description,
-        "PolicyName" Core.=: policyName,
-        "PolicyDocument" Core.=: policyDocument
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Path" Data.=: path,
+        "Description" Data.=: description,
+        "PolicyName" Data.=: policyName,
+        "PolicyDocument" Data.=: policyDocument
       ]
 
 -- | Contains the response to a successful CreatePolicy request.

@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.PolicyUser where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a user that a managed policy is attached to.
@@ -77,11 +78,11 @@ policyUser_userName = Lens.lens (\PolicyUser' {userName} -> userName) (\s@Policy
 policyUser_userId :: Lens.Lens' PolicyUser (Prelude.Maybe Prelude.Text)
 policyUser_userId = Lens.lens (\PolicyUser' {userId} -> userId) (\s@PolicyUser' {} a -> s {userId = a} :: PolicyUser)
 
-instance Core.FromXML PolicyUser where
+instance Data.FromXML PolicyUser where
   parseXML x =
     PolicyUser'
-      Prelude.<$> (x Core..@? "UserName")
-      Prelude.<*> (x Core..@? "UserId")
+      Prelude.<$> (x Data..@? "UserName")
+      Prelude.<*> (x Data..@? "UserId")
 
 instance Prelude.Hashable PolicyUser where
   hashWithSalt _salt PolicyUser' {..} =

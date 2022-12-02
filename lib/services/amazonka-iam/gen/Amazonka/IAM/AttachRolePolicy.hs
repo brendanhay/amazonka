@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,21 +147,21 @@ instance Prelude.NFData AttachRolePolicy where
     Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders AttachRolePolicy where
+instance Data.ToHeaders AttachRolePolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AttachRolePolicy where
+instance Data.ToPath AttachRolePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachRolePolicy where
+instance Data.ToQuery AttachRolePolicy where
   toQuery AttachRolePolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachRolePolicy" :: Prelude.ByteString),
+          Data.=: ("AttachRolePolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Core.=: roleName,
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Data.=: roleName,
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | /See:/ 'newAttachRolePolicyResponse' smart constructor.

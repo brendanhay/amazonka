@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,11 +191,11 @@ instance Core.AWSRequest ListSigningCertificates where
       "ListSigningCertificatesResult"
       ( \s h x ->
           ListSigningCertificatesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -210,22 +211,22 @@ instance Prelude.NFData ListSigningCertificates where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListSigningCertificates where
+instance Data.ToHeaders ListSigningCertificates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSigningCertificates where
+instance Data.ToPath ListSigningCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSigningCertificates where
+instance Data.ToQuery ListSigningCertificates where
   toQuery ListSigningCertificates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListSigningCertificates" :: Prelude.ByteString),
+          Data.=: ("ListSigningCertificates" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "UserName" Core.=: userName,
-        "MaxItems" Core.=: maxItems
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "UserName" Data.=: userName,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | Contains the response to a successful ListSigningCertificates request.

@@ -99,6 +99,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -211,18 +212,18 @@ instance
       "GetServiceLastAccessedDetailsResult"
       ( \s h x ->
           GetServiceLastAccessedDetailsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "Error")
-            Prelude.<*> (x Core..@? "JobType")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Error")
+            Prelude.<*> (x Data..@? "JobType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "JobStatus")
-            Prelude.<*> (x Core..@ "JobCreationDate")
-            Prelude.<*> ( x Core..@? "ServicesLastAccessed"
+            Prelude.<*> (x Data..@ "JobStatus")
+            Prelude.<*> (x Data..@ "JobCreationDate")
+            Prelude.<*> ( x Data..@? "ServicesLastAccessed"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+                            Prelude.>>= Data.parseXMLList "member"
                         )
-            Prelude.<*> (x Core..@ "JobCompletionDate")
+            Prelude.<*> (x Data..@ "JobCompletionDate")
       )
 
 instance
@@ -240,24 +241,24 @@ instance Prelude.NFData GetServiceLastAccessedDetails where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetServiceLastAccessedDetails where
+instance Data.ToHeaders GetServiceLastAccessedDetails where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetServiceLastAccessedDetails where
+instance Data.ToPath GetServiceLastAccessedDetails where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetServiceLastAccessedDetails where
+instance Data.ToQuery GetServiceLastAccessedDetails where
   toQuery GetServiceLastAccessedDetails' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetServiceLastAccessedDetails" ::
+          Data.=: ( "GetServiceLastAccessedDetails" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "JobId" Core.=: jobId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "JobId" Data.=: jobId
       ]
 
 -- | /See:/ 'newGetServiceLastAccessedDetailsResponse' smart constructor.
@@ -287,7 +288,7 @@ data GetServiceLastAccessedDetailsResponse = GetServiceLastAccessedDetailsRespon
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- report job was created.
-    jobCreationDate :: Core.ISO8601,
+    jobCreationDate :: Data.ISO8601,
     -- | A @ServiceLastAccessed@ object that contains details about the most
     -- recent attempt to access the service.
     servicesLastAccessed :: [ServiceLastAccessed],
@@ -297,7 +298,7 @@ data GetServiceLastAccessedDetailsResponse = GetServiceLastAccessedDetailsRespon
     --
     -- This field is null if the job is still in progress, as indicated by a
     -- job status value of @IN_PROGRESS@.
-    jobCompletionDate :: Core.ISO8601
+    jobCompletionDate :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -368,12 +369,12 @@ newGetServiceLastAccessedDetailsResponse
         httpStatus = pHttpStatus_,
         jobStatus = pJobStatus_,
         jobCreationDate =
-          Core._Time
+          Data._Time
             Lens.# pJobCreationDate_,
         servicesLastAccessed =
           Prelude.mempty,
         jobCompletionDate =
-          Core._Time
+          Data._Time
             Lens.# pJobCompletionDate_
       }
 
@@ -415,7 +416,7 @@ getServiceLastAccessedDetailsResponse_jobStatus = Lens.lens (\GetServiceLastAcce
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- report job was created.
 getServiceLastAccessedDetailsResponse_jobCreationDate :: Lens.Lens' GetServiceLastAccessedDetailsResponse Prelude.UTCTime
-getServiceLastAccessedDetailsResponse_jobCreationDate = Lens.lens (\GetServiceLastAccessedDetailsResponse' {jobCreationDate} -> jobCreationDate) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {jobCreationDate = a} :: GetServiceLastAccessedDetailsResponse) Prelude.. Core._Time
+getServiceLastAccessedDetailsResponse_jobCreationDate = Lens.lens (\GetServiceLastAccessedDetailsResponse' {jobCreationDate} -> jobCreationDate) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {jobCreationDate = a} :: GetServiceLastAccessedDetailsResponse) Prelude.. Data._Time
 
 -- | A @ServiceLastAccessed@ object that contains details about the most
 -- recent attempt to access the service.
@@ -429,7 +430,7 @@ getServiceLastAccessedDetailsResponse_servicesLastAccessed = Lens.lens (\GetServ
 -- This field is null if the job is still in progress, as indicated by a
 -- job status value of @IN_PROGRESS@.
 getServiceLastAccessedDetailsResponse_jobCompletionDate :: Lens.Lens' GetServiceLastAccessedDetailsResponse Prelude.UTCTime
-getServiceLastAccessedDetailsResponse_jobCompletionDate = Lens.lens (\GetServiceLastAccessedDetailsResponse' {jobCompletionDate} -> jobCompletionDate) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {jobCompletionDate = a} :: GetServiceLastAccessedDetailsResponse) Prelude.. Core._Time
+getServiceLastAccessedDetailsResponse_jobCompletionDate = Lens.lens (\GetServiceLastAccessedDetailsResponse' {jobCompletionDate} -> jobCompletionDate) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {jobCompletionDate = a} :: GetServiceLastAccessedDetailsResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

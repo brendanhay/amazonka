@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,21 +155,21 @@ instance Prelude.NFData AddRoleToInstanceProfile where
     Prelude.rnf instanceProfileName
       `Prelude.seq` Prelude.rnf roleName
 
-instance Core.ToHeaders AddRoleToInstanceProfile where
+instance Data.ToHeaders AddRoleToInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AddRoleToInstanceProfile where
+instance Data.ToPath AddRoleToInstanceProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddRoleToInstanceProfile where
+instance Data.ToQuery AddRoleToInstanceProfile where
   toQuery AddRoleToInstanceProfile' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AddRoleToInstanceProfile" :: Prelude.ByteString),
+          Data.=: ("AddRoleToInstanceProfile" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "InstanceProfileName" Core.=: instanceProfileName,
-        "RoleName" Core.=: roleName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "InstanceProfileName" Data.=: instanceProfileName,
+        "RoleName" Data.=: roleName
       ]
 
 -- | /See:/ 'newAddRoleToInstanceProfileResponse' smart constructor.

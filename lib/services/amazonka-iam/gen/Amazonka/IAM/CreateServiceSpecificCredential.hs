@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,7 +151,7 @@ instance
       "CreateServiceSpecificCredentialResult"
       ( \s h x ->
           CreateServiceSpecificCredentialResponse'
-            Prelude.<$> (x Core..@? "ServiceSpecificCredential")
+            Prelude.<$> (x Data..@? "ServiceSpecificCredential")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,25 +174,25 @@ instance
       `Prelude.seq` Prelude.rnf serviceName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateServiceSpecificCredential
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateServiceSpecificCredential where
+instance Data.ToPath CreateServiceSpecificCredential where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateServiceSpecificCredential where
+instance Data.ToQuery CreateServiceSpecificCredential where
   toQuery CreateServiceSpecificCredential' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateServiceSpecificCredential" ::
+          Data.=: ( "CreateServiceSpecificCredential" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "ServiceName" Core.=: serviceName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "ServiceName" Data.=: serviceName
       ]
 
 -- | /See:/ 'newCreateServiceSpecificCredentialResponse' smart constructor.

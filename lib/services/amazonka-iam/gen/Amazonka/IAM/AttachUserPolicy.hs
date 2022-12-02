@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,21 +145,21 @@ instance Prelude.NFData AttachUserPolicy where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders AttachUserPolicy where
+instance Data.ToHeaders AttachUserPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AttachUserPolicy where
+instance Data.ToPath AttachUserPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachUserPolicy where
+instance Data.ToQuery AttachUserPolicy where
   toQuery AttachUserPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachUserPolicy" :: Prelude.ByteString),
+          Data.=: ("AttachUserPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | /See:/ 'newAttachUserPolicyResponse' smart constructor.

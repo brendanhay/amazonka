@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.InstanceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.Role
 import Amazonka.IAM.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -62,7 +63,7 @@ data InstanceProfile = InstanceProfile'
     -- in the /IAM User Guide/.
     arn :: Prelude.Text,
     -- | The date when the instance profile was created.
-    createDate :: Core.ISO8601,
+    createDate :: Data.ISO8601,
     -- | The role associated with the instance profile.
     roles :: [Role]
   }
@@ -124,7 +125,7 @@ newInstanceProfile
         instanceProfileName = pInstanceProfileName_,
         instanceProfileId = pInstanceProfileId_,
         arn = pArn_,
-        createDate = Core._Time Lens.# pCreateDate_,
+        createDate = Data._Time Lens.# pCreateDate_,
         roles = Prelude.mempty
       }
 
@@ -161,25 +162,25 @@ instanceProfile_arn = Lens.lens (\InstanceProfile' {arn} -> arn) (\s@InstancePro
 
 -- | The date when the instance profile was created.
 instanceProfile_createDate :: Lens.Lens' InstanceProfile Prelude.UTCTime
-instanceProfile_createDate = Lens.lens (\InstanceProfile' {createDate} -> createDate) (\s@InstanceProfile' {} a -> s {createDate = a} :: InstanceProfile) Prelude.. Core._Time
+instanceProfile_createDate = Lens.lens (\InstanceProfile' {createDate} -> createDate) (\s@InstanceProfile' {} a -> s {createDate = a} :: InstanceProfile) Prelude.. Data._Time
 
 -- | The role associated with the instance profile.
 instanceProfile_roles :: Lens.Lens' InstanceProfile [Role]
 instanceProfile_roles = Lens.lens (\InstanceProfile' {roles} -> roles) (\s@InstanceProfile' {} a -> s {roles = a} :: InstanceProfile) Prelude.. Lens.coerced
 
-instance Core.FromXML InstanceProfile where
+instance Data.FromXML InstanceProfile where
   parseXML x =
     InstanceProfile'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@ "Path")
-      Prelude.<*> (x Core..@ "InstanceProfileName")
-      Prelude.<*> (x Core..@ "InstanceProfileId")
-      Prelude.<*> (x Core..@ "Arn")
-      Prelude.<*> (x Core..@ "CreateDate")
-      Prelude.<*> ( x Core..@? "Roles" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+      Prelude.<*> (x Data..@ "Path")
+      Prelude.<*> (x Data..@ "InstanceProfileName")
+      Prelude.<*> (x Data..@ "InstanceProfileId")
+      Prelude.<*> (x Data..@ "Arn")
+      Prelude.<*> (x Data..@ "CreateDate")
+      Prelude.<*> ( x Data..@? "Roles" Core..!@ Prelude.mempty
+                      Prelude.>>= Data.parseXMLList "member"
                   )
 
 instance Prelude.Hashable InstanceProfile where

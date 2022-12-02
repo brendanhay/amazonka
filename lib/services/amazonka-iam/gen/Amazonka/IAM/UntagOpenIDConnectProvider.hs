@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,22 +129,22 @@ instance Prelude.NFData UntagOpenIDConnectProvider where
     Prelude.rnf openIDConnectProviderArn
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders UntagOpenIDConnectProvider where
+instance Data.ToHeaders UntagOpenIDConnectProvider where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UntagOpenIDConnectProvider where
+instance Data.ToPath UntagOpenIDConnectProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UntagOpenIDConnectProvider where
+instance Data.ToQuery UntagOpenIDConnectProvider where
   toQuery UntagOpenIDConnectProvider' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UntagOpenIDConnectProvider" :: Prelude.ByteString),
+          Data.=: ("UntagOpenIDConnectProvider" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "OpenIDConnectProviderArn"
-          Core.=: openIDConnectProviderArn,
-        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
+          Data.=: openIDConnectProviderArn,
+        "TagKeys" Data.=: Data.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newUntagOpenIDConnectProviderResponse' smart constructor.

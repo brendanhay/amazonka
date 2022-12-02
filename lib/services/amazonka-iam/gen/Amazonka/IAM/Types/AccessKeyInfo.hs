@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.AccessKeyInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.StatusType
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAccessKeyInfo' smart constructor.
 data AccessKeyInfo = AccessKeyInfo'
   { -- | The date when the access key was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The name of the IAM user that the access key is associated with.
     userName :: Prelude.Text,
     -- | The ID for this access key.
@@ -46,7 +47,7 @@ data AccessKeyInfo = AccessKeyInfo'
     -- API calls, while @Inactive@ means it is not.
     status :: StatusType,
     -- | The secret key used to sign requests.
-    secretAccessKey :: Core.Sensitive Prelude.Text
+    secretAccessKey :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -89,12 +90,12 @@ newAccessKeyInfo
         accessKeyId = pAccessKeyId_,
         status = pStatus_,
         secretAccessKey =
-          Core._Sensitive Lens.# pSecretAccessKey_
+          Data._Sensitive Lens.# pSecretAccessKey_
       }
 
 -- | The date when the access key was created.
 accessKeyInfo_createDate :: Lens.Lens' AccessKeyInfo (Prelude.Maybe Prelude.UTCTime)
-accessKeyInfo_createDate = Lens.lens (\AccessKeyInfo' {createDate} -> createDate) (\s@AccessKeyInfo' {} a -> s {createDate = a} :: AccessKeyInfo) Prelude.. Lens.mapping Core._Time
+accessKeyInfo_createDate = Lens.lens (\AccessKeyInfo' {createDate} -> createDate) (\s@AccessKeyInfo' {} a -> s {createDate = a} :: AccessKeyInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the IAM user that the access key is associated with.
 accessKeyInfo_userName :: Lens.Lens' AccessKeyInfo Prelude.Text
@@ -111,16 +112,16 @@ accessKeyInfo_status = Lens.lens (\AccessKeyInfo' {status} -> status) (\s@Access
 
 -- | The secret key used to sign requests.
 accessKeyInfo_secretAccessKey :: Lens.Lens' AccessKeyInfo Prelude.Text
-accessKeyInfo_secretAccessKey = Lens.lens (\AccessKeyInfo' {secretAccessKey} -> secretAccessKey) (\s@AccessKeyInfo' {} a -> s {secretAccessKey = a} :: AccessKeyInfo) Prelude.. Core._Sensitive
+accessKeyInfo_secretAccessKey = Lens.lens (\AccessKeyInfo' {secretAccessKey} -> secretAccessKey) (\s@AccessKeyInfo' {} a -> s {secretAccessKey = a} :: AccessKeyInfo) Prelude.. Data._Sensitive
 
-instance Core.FromXML AccessKeyInfo where
+instance Data.FromXML AccessKeyInfo where
   parseXML x =
     AccessKeyInfo'
-      Prelude.<$> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@ "UserName")
-      Prelude.<*> (x Core..@ "AccessKeyId")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "SecretAccessKey")
+      Prelude.<$> (x Data..@? "CreateDate")
+      Prelude.<*> (x Data..@ "UserName")
+      Prelude.<*> (x Data..@ "AccessKeyId")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "SecretAccessKey")
 
 instance Prelude.Hashable AccessKeyInfo where
   hashWithSalt _salt AccessKeyInfo' {..} =

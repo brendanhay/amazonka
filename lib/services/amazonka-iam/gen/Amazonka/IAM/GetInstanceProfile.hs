@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest GetInstanceProfile where
       ( \s h x ->
           GetInstanceProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "InstanceProfile")
+            Prelude.<*> (x Data..@ "InstanceProfile")
       )
 
 instance Prelude.Hashable GetInstanceProfile where
@@ -118,20 +119,20 @@ instance Prelude.NFData GetInstanceProfile where
   rnf GetInstanceProfile' {..} =
     Prelude.rnf instanceProfileName
 
-instance Core.ToHeaders GetInstanceProfile where
+instance Data.ToHeaders GetInstanceProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetInstanceProfile where
+instance Data.ToPath GetInstanceProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetInstanceProfile where
+instance Data.ToQuery GetInstanceProfile where
   toQuery GetInstanceProfile' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetInstanceProfile" :: Prelude.ByteString),
+          Data.=: ("GetInstanceProfile" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "InstanceProfileName" Core.=: instanceProfileName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "InstanceProfileName" Data.=: instanceProfileName
       ]
 
 -- | Contains the response to a successful GetInstanceProfile request.

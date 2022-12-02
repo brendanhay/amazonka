@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.PolicyGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a group that a managed policy is attached to.
@@ -77,11 +78,11 @@ policyGroup_groupName = Lens.lens (\PolicyGroup' {groupName} -> groupName) (\s@P
 policyGroup_groupId :: Lens.Lens' PolicyGroup (Prelude.Maybe Prelude.Text)
 policyGroup_groupId = Lens.lens (\PolicyGroup' {groupId} -> groupId) (\s@PolicyGroup' {} a -> s {groupId = a} :: PolicyGroup)
 
-instance Core.FromXML PolicyGroup where
+instance Data.FromXML PolicyGroup where
   parseXML x =
     PolicyGroup'
-      Prelude.<$> (x Core..@? "GroupName")
-      Prelude.<*> (x Core..@? "GroupId")
+      Prelude.<$> (x Data..@? "GroupName")
+      Prelude.<*> (x Data..@? "GroupId")
 
 instance Prelude.Hashable PolicyGroup where
   hashWithSalt _salt PolicyGroup' {..} =

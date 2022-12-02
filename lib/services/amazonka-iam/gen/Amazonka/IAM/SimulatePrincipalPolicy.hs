@@ -90,6 +90,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -745,7 +746,7 @@ instance Core.AWSRequest SimulatePrincipalPolicy where
   response =
     Response.receiveXMLWrapper
       "SimulatePrincipalPolicyResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable SimulatePrincipalPolicy where
   hashWithSalt _salt SimulatePrincipalPolicy' {..} =
@@ -778,45 +779,45 @@ instance Prelude.NFData SimulatePrincipalPolicy where
       `Prelude.seq` Prelude.rnf policySourceArn
       `Prelude.seq` Prelude.rnf actionNames
 
-instance Core.ToHeaders SimulatePrincipalPolicy where
+instance Data.ToHeaders SimulatePrincipalPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SimulatePrincipalPolicy where
+instance Data.ToPath SimulatePrincipalPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SimulatePrincipalPolicy where
+instance Data.ToQuery SimulatePrincipalPolicy where
   toQuery SimulatePrincipalPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SimulatePrincipalPolicy" :: Prelude.ByteString),
+          Data.=: ("SimulatePrincipalPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "PermissionsBoundaryPolicyInputList"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> permissionsBoundaryPolicyInputList
             ),
-        "Marker" Core.=: marker,
+        "Marker" Data.=: marker,
         "ContextEntries"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> contextEntries
             ),
-        "MaxItems" Core.=: maxItems,
-        "ResourceOwner" Core.=: resourceOwner,
-        "ResourcePolicy" Core.=: resourcePolicy,
+        "MaxItems" Data.=: maxItems,
+        "ResourceOwner" Data.=: resourceOwner,
+        "ResourcePolicy" Data.=: resourcePolicy,
         "PolicyInputList"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> policyInputList
             ),
-        "CallerArn" Core.=: callerArn,
+        "CallerArn" Data.=: callerArn,
         "ResourceHandlingOption"
-          Core.=: resourceHandlingOption,
+          Data.=: resourceHandlingOption,
         "ResourceArns"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> resourceArns),
-        "PolicySourceArn" Core.=: policySourceArn,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> resourceArns),
+        "PolicySourceArn" Data.=: policySourceArn,
         "ActionNames"
-          Core.=: Core.toQueryList "member" actionNames
+          Data.=: Data.toQueryList "member" actionNames
       ]

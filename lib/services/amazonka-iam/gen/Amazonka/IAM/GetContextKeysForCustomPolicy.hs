@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance
   response =
     Response.receiveXMLWrapper
       "GetContextKeysForCustomPolicyResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance
   Prelude.Hashable
@@ -151,21 +152,21 @@ instance Prelude.NFData GetContextKeysForCustomPolicy where
   rnf GetContextKeysForCustomPolicy' {..} =
     Prelude.rnf policyInputList
 
-instance Core.ToHeaders GetContextKeysForCustomPolicy where
+instance Data.ToHeaders GetContextKeysForCustomPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetContextKeysForCustomPolicy where
+instance Data.ToPath GetContextKeysForCustomPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContextKeysForCustomPolicy where
+instance Data.ToQuery GetContextKeysForCustomPolicy where
   toQuery GetContextKeysForCustomPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetContextKeysForCustomPolicy" ::
+          Data.=: ( "GetContextKeysForCustomPolicy" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "PolicyInputList"
-          Core.=: Core.toQueryList "member" policyInputList
+          Data.=: Data.toQueryList "member" policyInputList
       ]

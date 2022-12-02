@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.SAMLProviderListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the list of SAML providers for this account.
@@ -30,9 +31,9 @@ data SAMLProviderListEntry = SAMLProviderListEntry'
   { -- | The Amazon Resource Name (ARN) of the SAML provider.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the SAML provider was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The expiration date and time for the SAML provider.
-    validUntil :: Prelude.Maybe Core.ISO8601
+    validUntil :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,18 +65,18 @@ sAMLProviderListEntry_arn = Lens.lens (\SAMLProviderListEntry' {arn} -> arn) (\s
 
 -- | The date and time when the SAML provider was created.
 sAMLProviderListEntry_createDate :: Lens.Lens' SAMLProviderListEntry (Prelude.Maybe Prelude.UTCTime)
-sAMLProviderListEntry_createDate = Lens.lens (\SAMLProviderListEntry' {createDate} -> createDate) (\s@SAMLProviderListEntry' {} a -> s {createDate = a} :: SAMLProviderListEntry) Prelude.. Lens.mapping Core._Time
+sAMLProviderListEntry_createDate = Lens.lens (\SAMLProviderListEntry' {createDate} -> createDate) (\s@SAMLProviderListEntry' {} a -> s {createDate = a} :: SAMLProviderListEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The expiration date and time for the SAML provider.
 sAMLProviderListEntry_validUntil :: Lens.Lens' SAMLProviderListEntry (Prelude.Maybe Prelude.UTCTime)
-sAMLProviderListEntry_validUntil = Lens.lens (\SAMLProviderListEntry' {validUntil} -> validUntil) (\s@SAMLProviderListEntry' {} a -> s {validUntil = a} :: SAMLProviderListEntry) Prelude.. Lens.mapping Core._Time
+sAMLProviderListEntry_validUntil = Lens.lens (\SAMLProviderListEntry' {validUntil} -> validUntil) (\s@SAMLProviderListEntry' {} a -> s {validUntil = a} :: SAMLProviderListEntry) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML SAMLProviderListEntry where
+instance Data.FromXML SAMLProviderListEntry where
   parseXML x =
     SAMLProviderListEntry'
-      Prelude.<$> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "ValidUntil")
+      Prelude.<$> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<*> (x Data..@? "ValidUntil")
 
 instance Prelude.Hashable SAMLProviderListEntry where
   hashWithSalt _salt SAMLProviderListEntry' {..} =

@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.AttachedPermissionsBoundary
 import Amazonka.IAM.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -71,7 +72,7 @@ data User = User'
     -- used.
     --
     -- This value is returned only in the GetUser and ListUsers operations.
-    passwordLastUsed :: Prelude.Maybe Core.ISO8601,
+    passwordLastUsed :: Prelude.Maybe Data.ISO8601,
     -- | For more information about permissions boundaries, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
     -- in the /IAM User Guide/.
@@ -91,7 +92,7 @@ data User = User'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- user was created.
-    createDate :: Core.ISO8601
+    createDate :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -175,7 +176,7 @@ newUser pUserName_ pUserId_ pArn_ pCreateDate_ =
       userName = pUserName_,
       userId = pUserId_,
       arn = pArn_,
-      createDate = Core._Time Lens.# pCreateDate_
+      createDate = Data._Time Lens.# pCreateDate_
     }
 
 -- | A list of tags that are associated with the user. For more information
@@ -216,7 +217,7 @@ user_path = Lens.lens (\User' {path} -> path) (\s@User' {} a -> s {path = a} :: 
 --
 -- This value is returned only in the GetUser and ListUsers operations.
 user_passwordLastUsed :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_passwordLastUsed = Lens.lens (\User' {passwordLastUsed} -> passwordLastUsed) (\s@User' {} a -> s {passwordLastUsed = a} :: User) Prelude.. Lens.mapping Core._Time
+user_passwordLastUsed = Lens.lens (\User' {passwordLastUsed} -> passwordLastUsed) (\s@User' {} a -> s {passwordLastUsed = a} :: User) Prelude.. Lens.mapping Data._Time
 
 -- | For more information about permissions boundaries, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
@@ -246,21 +247,21 @@ user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- user was created.
 user_createDate :: Lens.Lens' User Prelude.UTCTime
-user_createDate = Lens.lens (\User' {createDate} -> createDate) (\s@User' {} a -> s {createDate = a} :: User) Prelude.. Core._Time
+user_createDate = Lens.lens (\User' {createDate} -> createDate) (\s@User' {} a -> s {createDate = a} :: User) Prelude.. Data._Time
 
-instance Core.FromXML User where
+instance Data.FromXML User where
   parseXML x =
     User'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> (x Core..@? "PasswordLastUsed")
-      Prelude.<*> (x Core..@? "PermissionsBoundary")
-      Prelude.<*> (x Core..@ "UserName")
-      Prelude.<*> (x Core..@ "UserId")
-      Prelude.<*> (x Core..@ "Arn")
-      Prelude.<*> (x Core..@ "CreateDate")
+      Prelude.<*> (x Data..@? "Path")
+      Prelude.<*> (x Data..@? "PasswordLastUsed")
+      Prelude.<*> (x Data..@? "PermissionsBoundary")
+      Prelude.<*> (x Data..@ "UserName")
+      Prelude.<*> (x Data..@ "UserId")
+      Prelude.<*> (x Data..@ "Arn")
+      Prelude.<*> (x Data..@ "CreateDate")
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =

@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.OrganizationsDecisionDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the effect that Organizations has on a policy
@@ -60,10 +61,10 @@ newOrganizationsDecisionDetail =
 organizationsDecisionDetail_allowedByOrganizations :: Lens.Lens' OrganizationsDecisionDetail (Prelude.Maybe Prelude.Bool)
 organizationsDecisionDetail_allowedByOrganizations = Lens.lens (\OrganizationsDecisionDetail' {allowedByOrganizations} -> allowedByOrganizations) (\s@OrganizationsDecisionDetail' {} a -> s {allowedByOrganizations = a} :: OrganizationsDecisionDetail)
 
-instance Core.FromXML OrganizationsDecisionDetail where
+instance Data.FromXML OrganizationsDecisionDetail where
   parseXML x =
     OrganizationsDecisionDetail'
-      Prelude.<$> (x Core..@? "AllowedByOrganizations")
+      Prelude.<$> (x Data..@? "AllowedByOrganizations")
 
 instance Prelude.Hashable OrganizationsDecisionDetail where
   hashWithSalt _salt OrganizationsDecisionDetail' {..} =

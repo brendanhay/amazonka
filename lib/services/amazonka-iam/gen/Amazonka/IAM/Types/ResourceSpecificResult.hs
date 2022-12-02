@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.ResourceSpecificResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.PermissionsBoundaryDecisionDetail
 import Amazonka.IAM.Types.PolicyEvaluationDecisionType
 import Amazonka.IAM.Types.Statement
@@ -164,24 +165,24 @@ resourceSpecificResult_evalResourceName = Lens.lens (\ResourceSpecificResult' {e
 resourceSpecificResult_evalResourceDecision :: Lens.Lens' ResourceSpecificResult PolicyEvaluationDecisionType
 resourceSpecificResult_evalResourceDecision = Lens.lens (\ResourceSpecificResult' {evalResourceDecision} -> evalResourceDecision) (\s@ResourceSpecificResult' {} a -> s {evalResourceDecision = a} :: ResourceSpecificResult)
 
-instance Core.FromXML ResourceSpecificResult where
+instance Data.FromXML ResourceSpecificResult where
   parseXML x =
     ResourceSpecificResult'
-      Prelude.<$> (x Core..@? "PermissionsBoundaryDecisionDetail")
-      Prelude.<*> ( x Core..@? "MissingContextValues"
+      Prelude.<$> (x Data..@? "PermissionsBoundaryDecisionDetail")
+      Prelude.<*> ( x Data..@? "MissingContextValues"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "EvalDecisionDetails"
+      Prelude.<*> ( x Data..@? "EvalDecisionDetails"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                      Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
-      Prelude.<*> ( x Core..@? "MatchedStatements"
+      Prelude.<*> ( x Data..@? "MatchedStatements"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@ "EvalResourceName")
-      Prelude.<*> (x Core..@ "EvalResourceDecision")
+      Prelude.<*> (x Data..@ "EvalResourceName")
+      Prelude.<*> (x Data..@ "EvalResourceDecision")
 
 instance Prelude.Hashable ResourceSpecificResult where
   hashWithSalt _salt ResourceSpecificResult' {..} =

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest UpdateSAMLProvider where
       "UpdateSAMLProviderResult"
       ( \s h x ->
           UpdateSAMLProviderResponse'
-            Prelude.<$> (x Core..@? "SAMLProviderArn")
+            Prelude.<$> (x Data..@? "SAMLProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,21 +147,21 @@ instance Prelude.NFData UpdateSAMLProvider where
     Prelude.rnf sAMLMetadataDocument
       `Prelude.seq` Prelude.rnf sAMLProviderArn
 
-instance Core.ToHeaders UpdateSAMLProvider where
+instance Data.ToHeaders UpdateSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateSAMLProvider where
+instance Data.ToPath UpdateSAMLProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateSAMLProvider where
+instance Data.ToQuery UpdateSAMLProvider where
   toQuery UpdateSAMLProvider' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateSAMLProvider" :: Prelude.ByteString),
+          Data.=: ("UpdateSAMLProvider" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "SAMLMetadataDocument" Core.=: sAMLMetadataDocument,
-        "SAMLProviderArn" Core.=: sAMLProviderArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "SAMLMetadataDocument" Data.=: sAMLMetadataDocument,
+        "SAMLProviderArn" Data.=: sAMLProviderArn
       ]
 
 -- | Contains the response to a successful UpdateSAMLProvider request.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,21 +143,21 @@ instance Prelude.NFData DeleteUserPolicy where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders DeleteUserPolicy where
+instance Data.ToHeaders DeleteUserPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteUserPolicy where
+instance Data.ToPath DeleteUserPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUserPolicy where
+instance Data.ToQuery DeleteUserPolicy where
   toQuery DeleteUserPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteUserPolicy" :: Prelude.ByteString),
+          Data.=: ("DeleteUserPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "PolicyName" Core.=: policyName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "PolicyName" Data.=: policyName
       ]
 
 -- | /See:/ 'newDeleteUserPolicyResponse' smart constructor.

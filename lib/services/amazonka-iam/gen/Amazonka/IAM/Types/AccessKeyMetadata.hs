@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.AccessKeyMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.StatusType
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data AccessKeyMetadata = AccessKeyMetadata'
     -- API calls; @Inactive@ means it is not.
     status :: Prelude.Maybe StatusType,
     -- | The date when the access key was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The ID for this access key.
     accessKeyId :: Prelude.Maybe Core.AccessKey
   }
@@ -81,19 +82,19 @@ accessKeyMetadata_status = Lens.lens (\AccessKeyMetadata' {status} -> status) (\
 
 -- | The date when the access key was created.
 accessKeyMetadata_createDate :: Lens.Lens' AccessKeyMetadata (Prelude.Maybe Prelude.UTCTime)
-accessKeyMetadata_createDate = Lens.lens (\AccessKeyMetadata' {createDate} -> createDate) (\s@AccessKeyMetadata' {} a -> s {createDate = a} :: AccessKeyMetadata) Prelude.. Lens.mapping Core._Time
+accessKeyMetadata_createDate = Lens.lens (\AccessKeyMetadata' {createDate} -> createDate) (\s@AccessKeyMetadata' {} a -> s {createDate = a} :: AccessKeyMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The ID for this access key.
 accessKeyMetadata_accessKeyId :: Lens.Lens' AccessKeyMetadata (Prelude.Maybe Core.AccessKey)
 accessKeyMetadata_accessKeyId = Lens.lens (\AccessKeyMetadata' {accessKeyId} -> accessKeyId) (\s@AccessKeyMetadata' {} a -> s {accessKeyId = a} :: AccessKeyMetadata)
 
-instance Core.FromXML AccessKeyMetadata where
+instance Data.FromXML AccessKeyMetadata where
   parseXML x =
     AccessKeyMetadata'
-      Prelude.<$> (x Core..@? "UserName")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "AccessKeyId")
+      Prelude.<$> (x Data..@? "UserName")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<*> (x Data..@? "AccessKeyId")
 
 instance Prelude.Hashable AccessKeyMetadata where
   hashWithSalt _salt AccessKeyMetadata' {..} =

@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.GroupDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.AttachedPolicy
 import Amazonka.IAM.Types.PolicyDetail
 import qualified Amazonka.Prelude as Prelude
@@ -45,7 +46,7 @@ data GroupDetail = GroupDetail'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- group was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The stable and unique string identifying the group. For more information
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -119,7 +120,7 @@ groupDetail_attachedManagedPolicies = Lens.lens (\GroupDetail' {attachedManagedP
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- group was created.
 groupDetail_createDate :: Lens.Lens' GroupDetail (Prelude.Maybe Prelude.UTCTime)
-groupDetail_createDate = Lens.lens (\GroupDetail' {createDate} -> createDate) (\s@GroupDetail' {} a -> s {createDate = a} :: GroupDetail) Prelude.. Lens.mapping Core._Time
+groupDetail_createDate = Lens.lens (\GroupDetail' {createDate} -> createDate) (\s@GroupDetail' {} a -> s {createDate = a} :: GroupDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The stable and unique string identifying the group. For more information
 -- about IDs, see
@@ -132,20 +133,20 @@ groupDetail_groupId = Lens.lens (\GroupDetail' {groupId} -> groupId) (\s@GroupDe
 groupDetail_groupPolicyList :: Lens.Lens' GroupDetail (Prelude.Maybe [PolicyDetail])
 groupDetail_groupPolicyList = Lens.lens (\GroupDetail' {groupPolicyList} -> groupPolicyList) (\s@GroupDetail' {} a -> s {groupPolicyList = a} :: GroupDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML GroupDetail where
+instance Data.FromXML GroupDetail where
   parseXML x =
     GroupDetail'
-      Prelude.<$> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> (x Core..@? "GroupName")
-      Prelude.<*> ( x Core..@? "AttachedManagedPolicies"
+      Prelude.<$> (x Data..@? "Arn")
+      Prelude.<*> (x Data..@? "Path")
+      Prelude.<*> (x Data..@? "GroupName")
+      Prelude.<*> ( x Data..@? "AttachedManagedPolicies"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "GroupId")
-      Prelude.<*> ( x Core..@? "GroupPolicyList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "CreateDate")
+      Prelude.<*> (x Data..@? "GroupId")
+      Prelude.<*> ( x Data..@? "GroupPolicyList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable GroupDetail where

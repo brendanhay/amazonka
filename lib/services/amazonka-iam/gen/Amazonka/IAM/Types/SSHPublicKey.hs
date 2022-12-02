@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.SSHPublicKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.StatusType
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data SSHPublicKey = SSHPublicKey'
   { -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
     -- public key was uploaded.
-    uploadDate :: Prelude.Maybe Core.ISO8601,
+    uploadDate :: Prelude.Maybe Data.ISO8601,
     -- | The name of the IAM user associated with the SSH public key.
     userName :: Prelude.Text,
     -- | The unique identifier for the SSH public key.
@@ -104,7 +105,7 @@ newSSHPublicKey
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
 -- public key was uploaded.
 sSHPublicKey_uploadDate :: Lens.Lens' SSHPublicKey (Prelude.Maybe Prelude.UTCTime)
-sSHPublicKey_uploadDate = Lens.lens (\SSHPublicKey' {uploadDate} -> uploadDate) (\s@SSHPublicKey' {} a -> s {uploadDate = a} :: SSHPublicKey) Prelude.. Lens.mapping Core._Time
+sSHPublicKey_uploadDate = Lens.lens (\SSHPublicKey' {uploadDate} -> uploadDate) (\s@SSHPublicKey' {} a -> s {uploadDate = a} :: SSHPublicKey) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the IAM user associated with the SSH public key.
 sSHPublicKey_userName :: Lens.Lens' SSHPublicKey Prelude.Text
@@ -128,15 +129,15 @@ sSHPublicKey_sSHPublicKeyBody = Lens.lens (\SSHPublicKey' {sSHPublicKeyBody} -> 
 sSHPublicKey_status :: Lens.Lens' SSHPublicKey StatusType
 sSHPublicKey_status = Lens.lens (\SSHPublicKey' {status} -> status) (\s@SSHPublicKey' {} a -> s {status = a} :: SSHPublicKey)
 
-instance Core.FromXML SSHPublicKey where
+instance Data.FromXML SSHPublicKey where
   parseXML x =
     SSHPublicKey'
-      Prelude.<$> (x Core..@? "UploadDate")
-      Prelude.<*> (x Core..@ "UserName")
-      Prelude.<*> (x Core..@ "SSHPublicKeyId")
-      Prelude.<*> (x Core..@ "Fingerprint")
-      Prelude.<*> (x Core..@ "SSHPublicKeyBody")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<$> (x Data..@? "UploadDate")
+      Prelude.<*> (x Data..@ "UserName")
+      Prelude.<*> (x Data..@ "SSHPublicKeyId")
+      Prelude.<*> (x Data..@ "Fingerprint")
+      Prelude.<*> (x Data..@ "SSHPublicKeyBody")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable SSHPublicKey where
   hashWithSalt _salt SSHPublicKey' {..} =

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,17 +112,17 @@ instance Core.AWSRequest GetOpenIDConnectProvider where
       "GetOpenIDConnectProviderResult"
       ( \s h x ->
           GetOpenIDConnectProviderResponse'
-            Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "ClientIDList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "ClientIDList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "ThumbprintList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "ThumbprintList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Url")
-            Prelude.<*> (x Core..@? "CreateDate")
+            Prelude.<*> (x Data..@? "Url")
+            Prelude.<*> (x Data..@? "CreateDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,21 +135,21 @@ instance Prelude.NFData GetOpenIDConnectProvider where
   rnf GetOpenIDConnectProvider' {..} =
     Prelude.rnf openIDConnectProviderArn
 
-instance Core.ToHeaders GetOpenIDConnectProvider where
+instance Data.ToHeaders GetOpenIDConnectProvider where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetOpenIDConnectProvider where
+instance Data.ToPath GetOpenIDConnectProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOpenIDConnectProvider where
+instance Data.ToQuery GetOpenIDConnectProvider where
   toQuery GetOpenIDConnectProvider' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetOpenIDConnectProvider" :: Prelude.ByteString),
+          Data.=: ("GetOpenIDConnectProvider" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "OpenIDConnectProviderArn"
-          Core.=: openIDConnectProviderArn
+          Data.=: openIDConnectProviderArn
       ]
 
 -- | Contains the response to a successful GetOpenIDConnectProvider request.
@@ -174,7 +175,7 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
     url :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the IAM OIDC provider resource object was created
     -- in the Amazon Web Services account.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,7 +253,7 @@ getOpenIDConnectProviderResponse_url = Lens.lens (\GetOpenIDConnectProviderRespo
 -- | The date and time when the IAM OIDC provider resource object was created
 -- in the Amazon Web Services account.
 getOpenIDConnectProviderResponse_createDate :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.UTCTime)
-getOpenIDConnectProviderResponse_createDate = Lens.lens (\GetOpenIDConnectProviderResponse' {createDate} -> createDate) (\s@GetOpenIDConnectProviderResponse' {} a -> s {createDate = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Core._Time
+getOpenIDConnectProviderResponse_createDate = Lens.lens (\GetOpenIDConnectProviderResponse' {createDate} -> createDate) (\s@GetOpenIDConnectProviderResponse' {} a -> s {createDate = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getOpenIDConnectProviderResponse_httpStatus :: Lens.Lens' GetOpenIDConnectProviderResponse Prelude.Int

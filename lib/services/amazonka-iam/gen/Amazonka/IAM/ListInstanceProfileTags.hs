@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,11 +161,11 @@ instance Core.AWSRequest ListInstanceProfileTags where
       "ListInstanceProfileTagsResult"
       ( \s h x ->
           ListInstanceProfileTagsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -180,22 +181,22 @@ instance Prelude.NFData ListInstanceProfileTags where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf instanceProfileName
 
-instance Core.ToHeaders ListInstanceProfileTags where
+instance Data.ToHeaders ListInstanceProfileTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListInstanceProfileTags where
+instance Data.ToPath ListInstanceProfileTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListInstanceProfileTags where
+instance Data.ToQuery ListInstanceProfileTags where
   toQuery ListInstanceProfileTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListInstanceProfileTags" :: Prelude.ByteString),
+          Data.=: ("ListInstanceProfileTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "InstanceProfileName" Core.=: instanceProfileName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "InstanceProfileName" Data.=: instanceProfileName
       ]
 
 -- | /See:/ 'newListInstanceProfileTagsResponse' smart constructor.

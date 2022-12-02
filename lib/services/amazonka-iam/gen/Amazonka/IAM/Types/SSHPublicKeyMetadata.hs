@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.SSHPublicKeyMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.StatusType
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
     -- public key was uploaded.
-    uploadDate :: Core.ISO8601
+    uploadDate :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,7 +86,7 @@ newSSHPublicKeyMetadata
       { userName = pUserName_,
         sSHPublicKeyId = pSSHPublicKeyId_,
         status = pStatus_,
-        uploadDate = Core._Time Lens.# pUploadDate_
+        uploadDate = Data._Time Lens.# pUploadDate_
       }
 
 -- | The name of the IAM user associated with the SSH public key.
@@ -106,15 +107,15 @@ sSHPublicKeyMetadata_status = Lens.lens (\SSHPublicKeyMetadata' {status} -> stat
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
 -- public key was uploaded.
 sSHPublicKeyMetadata_uploadDate :: Lens.Lens' SSHPublicKeyMetadata Prelude.UTCTime
-sSHPublicKeyMetadata_uploadDate = Lens.lens (\SSHPublicKeyMetadata' {uploadDate} -> uploadDate) (\s@SSHPublicKeyMetadata' {} a -> s {uploadDate = a} :: SSHPublicKeyMetadata) Prelude.. Core._Time
+sSHPublicKeyMetadata_uploadDate = Lens.lens (\SSHPublicKeyMetadata' {uploadDate} -> uploadDate) (\s@SSHPublicKeyMetadata' {} a -> s {uploadDate = a} :: SSHPublicKeyMetadata) Prelude.. Data._Time
 
-instance Core.FromXML SSHPublicKeyMetadata where
+instance Data.FromXML SSHPublicKeyMetadata where
   parseXML x =
     SSHPublicKeyMetadata'
-      Prelude.<$> (x Core..@ "UserName")
-      Prelude.<*> (x Core..@ "SSHPublicKeyId")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "UploadDate")
+      Prelude.<$> (x Data..@ "UserName")
+      Prelude.<*> (x Data..@ "SSHPublicKeyId")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "UploadDate")
 
 instance Prelude.Hashable SSHPublicKeyMetadata where
   hashWithSalt _salt SSHPublicKeyMetadata' {..} =

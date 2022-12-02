@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,21 +119,21 @@ instance Prelude.NFData UntagUser where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders UntagUser where
+instance Data.ToHeaders UntagUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UntagUser where
+instance Data.ToPath UntagUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UntagUser where
+instance Data.ToQuery UntagUser where
   toQuery UntagUser' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UntagUser" :: Prelude.ByteString),
+          Data.=: ("UntagUser" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "TagKeys" Data.=: Data.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newUntagUserResponse' smart constructor.

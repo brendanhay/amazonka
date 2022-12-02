@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,21 +142,21 @@ instance Prelude.NFData AttachGroupPolicy where
     Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf policyArn
 
-instance Core.ToHeaders AttachGroupPolicy where
+instance Data.ToHeaders AttachGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AttachGroupPolicy where
+instance Data.ToPath AttachGroupPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachGroupPolicy where
+instance Data.ToQuery AttachGroupPolicy where
   toQuery AttachGroupPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachGroupPolicy" :: Prelude.ByteString),
+          Data.=: ("AttachGroupPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Core.=: groupName,
-        "PolicyArn" Core.=: policyArn
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "GroupName" Data.=: groupName,
+        "PolicyArn" Data.=: policyArn
       ]
 
 -- | /See:/ 'newAttachGroupPolicyResponse' smart constructor.

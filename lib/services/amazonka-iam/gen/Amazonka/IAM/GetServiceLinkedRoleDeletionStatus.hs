@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,9 +104,9 @@ instance
       "GetServiceLinkedRoleDeletionStatusResult"
       ( \s h x ->
           GetServiceLinkedRoleDeletionStatusResponse'
-            Prelude.<$> (x Core..@? "Reason")
+            Prelude.<$> (x Data..@? "Reason")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..@ "Status")
+              Prelude.<*> (x Data..@ "Status")
       )
 
 instance
@@ -125,30 +126,30 @@ instance
     Prelude.rnf deletionTaskId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetServiceLinkedRoleDeletionStatus
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetServiceLinkedRoleDeletionStatus
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetServiceLinkedRoleDeletionStatus
   where
   toQuery GetServiceLinkedRoleDeletionStatus' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetServiceLinkedRoleDeletionStatus" ::
+          Data.=: ( "GetServiceLinkedRoleDeletionStatus" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "DeletionTaskId" Core.=: deletionTaskId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "DeletionTaskId" Data.=: deletionTaskId
       ]
 
 -- | /See:/ 'newGetServiceLinkedRoleDeletionStatusResponse' smart constructor.

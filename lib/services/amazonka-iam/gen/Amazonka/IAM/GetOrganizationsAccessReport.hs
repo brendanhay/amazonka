@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,18 +191,18 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
       "GetOrganizationsAccessReportResult"
       ( \s h x ->
           GetOrganizationsAccessReportResponse'
-            Prelude.<$> (x Core..@? "NumberOfServicesNotAccessed")
-            Prelude.<*> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "AccessDetails" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NumberOfServicesNotAccessed")
+            Prelude.<*> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "AccessDetails" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "ErrorDetails")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "NumberOfServicesAccessible")
-            Prelude.<*> (x Core..@? "JobCompletionDate")
+            Prelude.<*> (x Data..@? "ErrorDetails")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "NumberOfServicesAccessible")
+            Prelude.<*> (x Data..@? "JobCompletionDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "JobStatus")
-            Prelude.<*> (x Core..@ "JobCreationDate")
+            Prelude.<*> (x Data..@ "JobStatus")
+            Prelude.<*> (x Data..@ "JobCreationDate")
       )
 
 instance
@@ -221,25 +222,25 @@ instance Prelude.NFData GetOrganizationsAccessReport where
       `Prelude.seq` Prelude.rnf sortKey
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders GetOrganizationsAccessReport where
+instance Data.ToHeaders GetOrganizationsAccessReport where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetOrganizationsAccessReport where
+instance Data.ToPath GetOrganizationsAccessReport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetOrganizationsAccessReport where
+instance Data.ToQuery GetOrganizationsAccessReport where
   toQuery GetOrganizationsAccessReport' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetOrganizationsAccessReport" ::
+          Data.=: ( "GetOrganizationsAccessReport" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "SortKey" Core.=: sortKey,
-        "JobId" Core.=: jobId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "SortKey" Data.=: sortKey,
+        "JobId" Data.=: jobId
       ]
 
 -- | /See:/ 'newGetOrganizationsAccessReportResponse' smart constructor.
@@ -272,7 +273,7 @@ data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse
     --
     -- This field is null if the job is still in progress, as indicated by a
     -- job status value of @IN_PROGRESS@.
-    jobCompletionDate :: Prelude.Maybe Core.ISO8601,
+    jobCompletionDate :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The status of the job.
@@ -280,7 +281,7 @@ data GetOrganizationsAccessReportResponse = GetOrganizationsAccessReportResponse
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- report job was created.
-    jobCreationDate :: Core.ISO8601
+    jobCreationDate :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -354,7 +355,7 @@ newGetOrganizationsAccessReportResponse
         httpStatus = pHttpStatus_,
         jobStatus = pJobStatus_,
         jobCreationDate =
-          Core._Time Lens.# pJobCreationDate_
+          Data._Time Lens.# pJobCreationDate_
       }
 
 -- | The number of services that account principals are allowed but did not
@@ -399,7 +400,7 @@ getOrganizationsAccessReportResponse_numberOfServicesAccessible = Lens.lens (\Ge
 -- This field is null if the job is still in progress, as indicated by a
 -- job status value of @IN_PROGRESS@.
 getOrganizationsAccessReportResponse_jobCompletionDate :: Lens.Lens' GetOrganizationsAccessReportResponse (Prelude.Maybe Prelude.UTCTime)
-getOrganizationsAccessReportResponse_jobCompletionDate = Lens.lens (\GetOrganizationsAccessReportResponse' {jobCompletionDate} -> jobCompletionDate) (\s@GetOrganizationsAccessReportResponse' {} a -> s {jobCompletionDate = a} :: GetOrganizationsAccessReportResponse) Prelude.. Lens.mapping Core._Time
+getOrganizationsAccessReportResponse_jobCompletionDate = Lens.lens (\GetOrganizationsAccessReportResponse' {jobCompletionDate} -> jobCompletionDate) (\s@GetOrganizationsAccessReportResponse' {} a -> s {jobCompletionDate = a} :: GetOrganizationsAccessReportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getOrganizationsAccessReportResponse_httpStatus :: Lens.Lens' GetOrganizationsAccessReportResponse Prelude.Int
@@ -413,7 +414,7 @@ getOrganizationsAccessReportResponse_jobStatus = Lens.lens (\GetOrganizationsAcc
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- report job was created.
 getOrganizationsAccessReportResponse_jobCreationDate :: Lens.Lens' GetOrganizationsAccessReportResponse Prelude.UTCTime
-getOrganizationsAccessReportResponse_jobCreationDate = Lens.lens (\GetOrganizationsAccessReportResponse' {jobCreationDate} -> jobCreationDate) (\s@GetOrganizationsAccessReportResponse' {} a -> s {jobCreationDate = a} :: GetOrganizationsAccessReportResponse) Prelude.. Core._Time
+getOrganizationsAccessReportResponse_jobCreationDate = Lens.lens (\GetOrganizationsAccessReportResponse' {jobCreationDate} -> jobCreationDate) (\s@GetOrganizationsAccessReportResponse' {} a -> s {jobCreationDate = a} :: GetOrganizationsAccessReportResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

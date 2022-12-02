@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -218,22 +219,22 @@ instance Prelude.NFData PutGroupPolicy where
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyDocument
 
-instance Core.ToHeaders PutGroupPolicy where
+instance Data.ToHeaders PutGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PutGroupPolicy where
+instance Data.ToPath PutGroupPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutGroupPolicy where
+instance Data.ToQuery PutGroupPolicy where
   toQuery PutGroupPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PutGroupPolicy" :: Prelude.ByteString),
+          Data.=: ("PutGroupPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Core.=: groupName,
-        "PolicyName" Core.=: policyName,
-        "PolicyDocument" Core.=: policyDocument
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "GroupName" Data.=: groupName,
+        "PolicyName" Data.=: policyName,
+        "PolicyDocument" Data.=: policyDocument
       ]
 
 -- | /See:/ 'newPutGroupPolicyResponse' smart constructor.

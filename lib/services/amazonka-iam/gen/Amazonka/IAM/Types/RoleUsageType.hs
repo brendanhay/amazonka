@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.RoleUsageType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains details about how a service-linked role is used,
@@ -65,12 +66,12 @@ roleUsageType_region = Lens.lens (\RoleUsageType' {region} -> region) (\s@RoleUs
 roleUsageType_resources :: Lens.Lens' RoleUsageType (Prelude.Maybe [Prelude.Text])
 roleUsageType_resources = Lens.lens (\RoleUsageType' {resources} -> resources) (\s@RoleUsageType' {} a -> s {resources = a} :: RoleUsageType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML RoleUsageType where
+instance Data.FromXML RoleUsageType where
   parseXML x =
     RoleUsageType'
-      Prelude.<$> (x Core..@? "Region")
-      Prelude.<*> ( x Core..@? "Resources" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "Region")
+      Prelude.<*> ( x Data..@? "Resources" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable RoleUsageType where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest GetRole where
       ( \s h x ->
           GetRoleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Role")
+            Prelude.<*> (x Data..@ "Role")
       )
 
 instance Prelude.Hashable GetRole where
@@ -118,19 +119,19 @@ instance Prelude.Hashable GetRole where
 instance Prelude.NFData GetRole where
   rnf GetRole' {..} = Prelude.rnf roleName
 
-instance Core.ToHeaders GetRole where
+instance Data.ToHeaders GetRole where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetRole where
+instance Data.ToPath GetRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRole where
+instance Data.ToQuery GetRole where
   toQuery GetRole' {..} =
     Prelude.mconcat
-      [ "Action" Core.=: ("GetRole" :: Prelude.ByteString),
+      [ "Action" Data.=: ("GetRole" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Core.=: roleName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Data.=: roleName
       ]
 
 -- | Contains the response to a successful GetRole request.

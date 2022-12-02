@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,11 +158,11 @@ instance Core.AWSRequest ListAccountAliases where
       "ListAccountAliasesResult"
       ( \s h x ->
           ListAccountAliasesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "AccountAliases" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "AccountAliases" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -175,21 +176,21 @@ instance Prelude.NFData ListAccountAliases where
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListAccountAliases where
+instance Data.ToHeaders ListAccountAliases where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAccountAliases where
+instance Data.ToPath ListAccountAliases where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAccountAliases where
+instance Data.ToQuery ListAccountAliases where
   toQuery ListAccountAliases' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListAccountAliases" :: Prelude.ByteString),
+          Data.=: ("ListAccountAliases" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | Contains the response to a successful ListAccountAliases request.

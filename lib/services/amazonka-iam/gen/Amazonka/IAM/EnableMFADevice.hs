@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -229,23 +230,23 @@ instance Prelude.NFData EnableMFADevice where
       `Prelude.seq` Prelude.rnf authenticationCode1
       `Prelude.seq` Prelude.rnf authenticationCode2
 
-instance Core.ToHeaders EnableMFADevice where
+instance Data.ToHeaders EnableMFADevice where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EnableMFADevice where
+instance Data.ToPath EnableMFADevice where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableMFADevice where
+instance Data.ToQuery EnableMFADevice where
   toQuery EnableMFADevice' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableMFADevice" :: Prelude.ByteString),
+          Data.=: ("EnableMFADevice" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "SerialNumber" Core.=: serialNumber,
-        "AuthenticationCode1" Core.=: authenticationCode1,
-        "AuthenticationCode2" Core.=: authenticationCode2
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "SerialNumber" Data.=: serialNumber,
+        "AuthenticationCode1" Data.=: authenticationCode1,
+        "AuthenticationCode2" Data.=: authenticationCode2
       ]
 
 -- | /See:/ 'newEnableMFADeviceResponse' smart constructor.

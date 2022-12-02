@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,20 +105,20 @@ instance Prelude.NFData CreateAccountAlias where
   rnf CreateAccountAlias' {..} =
     Prelude.rnf accountAlias
 
-instance Core.ToHeaders CreateAccountAlias where
+instance Data.ToHeaders CreateAccountAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateAccountAlias where
+instance Data.ToPath CreateAccountAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAccountAlias where
+instance Data.ToQuery CreateAccountAlias where
   toQuery CreateAccountAlias' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateAccountAlias" :: Prelude.ByteString),
+          Data.=: ("CreateAccountAlias" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "AccountAlias" Core.=: accountAlias
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "AccountAlias" Data.=: accountAlias
       ]
 
 -- | /See:/ 'newCreateAccountAliasResponse' smart constructor.

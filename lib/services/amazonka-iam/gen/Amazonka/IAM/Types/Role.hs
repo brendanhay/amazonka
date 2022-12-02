@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.Role where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.AttachedPermissionsBoundary
 import Amazonka.IAM.Types.RoleLastUsed
 import Amazonka.IAM.Types.Tag
@@ -79,7 +80,7 @@ data Role = Role'
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- role was created.
-    createDate :: Core.ISO8601
+    createDate :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -163,7 +164,7 @@ newRole pPath_ pRoleName_ pRoleId_ pArn_ pCreateDate_ =
       roleName = pRoleName_,
       roleId = pRoleId_,
       arn = pArn_,
-      createDate = Core._Time Lens.# pCreateDate_
+      createDate = Data._Time Lens.# pCreateDate_
     }
 
 -- | A list of tags that are attached to the role. For more information about
@@ -235,24 +236,24 @@ role_arn = Lens.lens (\Role' {arn} -> arn) (\s@Role' {} a -> s {arn = a} :: Role
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- role was created.
 role_createDate :: Lens.Lens' Role Prelude.UTCTime
-role_createDate = Lens.lens (\Role' {createDate} -> createDate) (\s@Role' {} a -> s {createDate = a} :: Role) Prelude.. Core._Time
+role_createDate = Lens.lens (\Role' {createDate} -> createDate) (\s@Role' {} a -> s {createDate = a} :: Role) Prelude.. Data._Time
 
-instance Core.FromXML Role where
+instance Data.FromXML Role where
   parseXML x =
     Role'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "RoleLastUsed")
-      Prelude.<*> (x Core..@? "AssumeRolePolicyDocument")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "PermissionsBoundary")
-      Prelude.<*> (x Core..@? "MaxSessionDuration")
-      Prelude.<*> (x Core..@ "Path")
-      Prelude.<*> (x Core..@ "RoleName")
-      Prelude.<*> (x Core..@ "RoleId")
-      Prelude.<*> (x Core..@ "Arn")
-      Prelude.<*> (x Core..@ "CreateDate")
+      Prelude.<*> (x Data..@? "RoleLastUsed")
+      Prelude.<*> (x Data..@? "AssumeRolePolicyDocument")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "PermissionsBoundary")
+      Prelude.<*> (x Data..@? "MaxSessionDuration")
+      Prelude.<*> (x Data..@ "Path")
+      Prelude.<*> (x Data..@ "RoleName")
+      Prelude.<*> (x Data..@ "RoleId")
+      Prelude.<*> (x Data..@ "Arn")
+      Prelude.<*> (x Data..@ "CreateDate")
 
 instance Prelude.Hashable Role where
   hashWithSalt _salt Role' {..} =

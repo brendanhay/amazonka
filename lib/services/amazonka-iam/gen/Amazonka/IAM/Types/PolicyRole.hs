@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.PolicyRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a role that a managed policy is attached to.
@@ -77,11 +78,11 @@ policyRole_roleName = Lens.lens (\PolicyRole' {roleName} -> roleName) (\s@Policy
 policyRole_roleId :: Lens.Lens' PolicyRole (Prelude.Maybe Prelude.Text)
 policyRole_roleId = Lens.lens (\PolicyRole' {roleId} -> roleId) (\s@PolicyRole' {} a -> s {roleId = a} :: PolicyRole)
 
-instance Core.FromXML PolicyRole where
+instance Data.FromXML PolicyRole where
   parseXML x =
     PolicyRole'
-      Prelude.<$> (x Core..@? "RoleName")
-      Prelude.<*> (x Core..@? "RoleId")
+      Prelude.<$> (x Data..@? "RoleName")
+      Prelude.<*> (x Data..@? "RoleId")
 
 instance Prelude.Hashable PolicyRole where
   hashWithSalt _salt PolicyRole' {..} =

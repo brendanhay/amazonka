@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,21 +133,21 @@ instance Prelude.NFData AddUserToGroup where
     Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders AddUserToGroup where
+instance Data.ToHeaders AddUserToGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AddUserToGroup where
+instance Data.ToPath AddUserToGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddUserToGroup where
+instance Data.ToQuery AddUserToGroup where
   toQuery AddUserToGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AddUserToGroup" :: Prelude.ByteString),
+          Data.=: ("AddUserToGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Core.=: groupName,
-        "UserName" Core.=: userName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "GroupName" Data.=: groupName,
+        "UserName" Data.=: userName
       ]
 
 -- | /See:/ 'newAddUserToGroupResponse' smart constructor.

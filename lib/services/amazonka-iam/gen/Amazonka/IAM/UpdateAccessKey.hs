@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,22 +163,22 @@ instance Prelude.NFData UpdateAccessKey where
       `Prelude.seq` Prelude.rnf accessKeyId
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders UpdateAccessKey where
+instance Data.ToHeaders UpdateAccessKey where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateAccessKey where
+instance Data.ToPath UpdateAccessKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAccessKey where
+instance Data.ToQuery UpdateAccessKey where
   toQuery UpdateAccessKey' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateAccessKey" :: Prelude.ByteString),
+          Data.=: ("UpdateAccessKey" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "AccessKeyId" Core.=: accessKeyId,
-        "Status" Core.=: status
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "AccessKeyId" Data.=: accessKeyId,
+        "Status" Data.=: status
       ]
 
 -- | /See:/ 'newUpdateAccessKeyResponse' smart constructor.

@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,21 +133,21 @@ instance Prelude.NFData RemoveUserFromGroup where
     Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders RemoveUserFromGroup where
+instance Data.ToHeaders RemoveUserFromGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RemoveUserFromGroup where
+instance Data.ToPath RemoveUserFromGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveUserFromGroup where
+instance Data.ToQuery RemoveUserFromGroup where
   toQuery RemoveUserFromGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveUserFromGroup" :: Prelude.ByteString),
+          Data.=: ("RemoveUserFromGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Core.=: groupName,
-        "UserName" Core.=: userName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "GroupName" Data.=: groupName,
+        "UserName" Data.=: userName
       ]
 
 -- | /See:/ 'newRemoveUserFromGroupResponse' smart constructor.

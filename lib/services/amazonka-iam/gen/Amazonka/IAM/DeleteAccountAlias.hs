@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,20 +105,20 @@ instance Prelude.NFData DeleteAccountAlias where
   rnf DeleteAccountAlias' {..} =
     Prelude.rnf accountAlias
 
-instance Core.ToHeaders DeleteAccountAlias where
+instance Data.ToHeaders DeleteAccountAlias where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAccountAlias where
+instance Data.ToPath DeleteAccountAlias where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAccountAlias where
+instance Data.ToQuery DeleteAccountAlias where
   toQuery DeleteAccountAlias' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAccountAlias" :: Prelude.ByteString),
+          Data.=: ("DeleteAccountAlias" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "AccountAlias" Core.=: accountAlias
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "AccountAlias" Data.=: accountAlias
       ]
 
 -- | /See:/ 'newDeleteAccountAliasResponse' smart constructor.

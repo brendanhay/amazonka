@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,9 +149,9 @@ instance Core.AWSRequest GetGroupPolicy where
       ( \s h x ->
           GetGroupPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "GroupName")
-            Prelude.<*> (x Core..@ "PolicyName")
-            Prelude.<*> (x Core..@ "PolicyDocument")
+            Prelude.<*> (x Data..@ "GroupName")
+            Prelude.<*> (x Data..@ "PolicyName")
+            Prelude.<*> (x Data..@ "PolicyDocument")
       )
 
 instance Prelude.Hashable GetGroupPolicy where
@@ -163,21 +164,21 @@ instance Prelude.NFData GetGroupPolicy where
     Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders GetGroupPolicy where
+instance Data.ToHeaders GetGroupPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetGroupPolicy where
+instance Data.ToPath GetGroupPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetGroupPolicy where
+instance Data.ToQuery GetGroupPolicy where
   toQuery GetGroupPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetGroupPolicy" :: Prelude.ByteString),
+          Data.=: ("GetGroupPolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Core.=: groupName,
-        "PolicyName" Core.=: policyName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "GroupName" Data.=: groupName,
+        "PolicyName" Data.=: policyName
       ]
 
 -- | Contains the response to a successful GetGroupPolicy request.

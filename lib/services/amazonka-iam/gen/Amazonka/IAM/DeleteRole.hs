@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,20 +105,20 @@ instance Prelude.Hashable DeleteRole where
 instance Prelude.NFData DeleteRole where
   rnf DeleteRole' {..} = Prelude.rnf roleName
 
-instance Core.ToHeaders DeleteRole where
+instance Data.ToHeaders DeleteRole where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteRole where
+instance Data.ToPath DeleteRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRole where
+instance Data.ToQuery DeleteRole where
   toQuery DeleteRole' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteRole" :: Prelude.ByteString),
+          Data.=: ("DeleteRole" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Core.=: roleName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Data.=: roleName
       ]
 
 -- | /See:/ 'newDeleteRoleResponse' smart constructor.

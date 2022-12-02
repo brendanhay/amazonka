@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance
       "ResetServiceSpecificCredentialResult"
       ( \s h x ->
           ResetServiceSpecificCredentialResponse'
-            Prelude.<$> (x Core..@? "ServiceSpecificCredential")
+            Prelude.<$> (x Data..@? "ServiceSpecificCredential")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,26 +162,26 @@ instance
       `Prelude.seq` Prelude.rnf serviceSpecificCredentialId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ResetServiceSpecificCredential
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetServiceSpecificCredential where
+instance Data.ToPath ResetServiceSpecificCredential where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetServiceSpecificCredential where
+instance Data.ToQuery ResetServiceSpecificCredential where
   toQuery ResetServiceSpecificCredential' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ResetServiceSpecificCredential" ::
+          Data.=: ( "ResetServiceSpecificCredential" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
         "ServiceSpecificCredentialId"
-          Core.=: serviceSpecificCredentialId
+          Data.=: serviceSpecificCredentialId
       ]
 
 -- | /See:/ 'newResetServiceSpecificCredentialResponse' smart constructor.

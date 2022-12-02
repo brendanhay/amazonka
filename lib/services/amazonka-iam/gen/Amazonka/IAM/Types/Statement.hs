@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.Statement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.PolicySourceType
 import Amazonka.IAM.Types.Position
 import qualified Amazonka.Prelude as Prelude
@@ -85,13 +86,13 @@ statement_endPosition = Lens.lens (\Statement' {endPosition} -> endPosition) (\s
 statement_sourcePolicyType :: Lens.Lens' Statement (Prelude.Maybe PolicySourceType)
 statement_sourcePolicyType = Lens.lens (\Statement' {sourcePolicyType} -> sourcePolicyType) (\s@Statement' {} a -> s {sourcePolicyType = a} :: Statement)
 
-instance Core.FromXML Statement where
+instance Data.FromXML Statement where
   parseXML x =
     Statement'
-      Prelude.<$> (x Core..@? "SourcePolicyId")
-      Prelude.<*> (x Core..@? "StartPosition")
-      Prelude.<*> (x Core..@? "EndPosition")
-      Prelude.<*> (x Core..@? "SourcePolicyType")
+      Prelude.<$> (x Data..@? "SourcePolicyId")
+      Prelude.<*> (x Data..@? "StartPosition")
+      Prelude.<*> (x Data..@? "EndPosition")
+      Prelude.<*> (x Data..@? "SourcePolicyType")
 
 instance Prelude.Hashable Statement where
   hashWithSalt _salt Statement' {..} =

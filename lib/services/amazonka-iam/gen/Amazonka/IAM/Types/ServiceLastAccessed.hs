@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.ServiceLastAccessed where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.TrackedActionLastAccessed
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,7 +55,7 @@ data ServiceLastAccessed = ServiceLastAccessed'
     -- This field is null if no IAM entities attempted to access the service
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
-    lastAuthenticated :: Prelude.Maybe Core.ISO8601,
+    lastAuthenticated :: Prelude.Maybe Data.ISO8601,
     -- | An object that contains details about the most recent attempt to access
     -- a tracked action within the service.
     --
@@ -199,7 +200,7 @@ serviceLastAccessed_totalAuthenticatedEntities = Lens.lens (\ServiceLastAccessed
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 serviceLastAccessed_lastAuthenticated :: Lens.Lens' ServiceLastAccessed (Prelude.Maybe Prelude.UTCTime)
-serviceLastAccessed_lastAuthenticated = Lens.lens (\ServiceLastAccessed' {lastAuthenticated} -> lastAuthenticated) (\s@ServiceLastAccessed' {} a -> s {lastAuthenticated = a} :: ServiceLastAccessed) Prelude.. Lens.mapping Core._Time
+serviceLastAccessed_lastAuthenticated = Lens.lens (\ServiceLastAccessed' {lastAuthenticated} -> lastAuthenticated) (\s@ServiceLastAccessed' {} a -> s {lastAuthenticated = a} :: ServiceLastAccessed) Prelude.. Lens.mapping Data._Time
 
 -- | An object that contains details about the most recent attempt to access
 -- a tracked action within the service.
@@ -240,19 +241,19 @@ serviceLastAccessed_serviceName = Lens.lens (\ServiceLastAccessed' {serviceName}
 serviceLastAccessed_serviceNamespace :: Lens.Lens' ServiceLastAccessed Prelude.Text
 serviceLastAccessed_serviceNamespace = Lens.lens (\ServiceLastAccessed' {serviceNamespace} -> serviceNamespace) (\s@ServiceLastAccessed' {} a -> s {serviceNamespace = a} :: ServiceLastAccessed)
 
-instance Core.FromXML ServiceLastAccessed where
+instance Data.FromXML ServiceLastAccessed where
   parseXML x =
     ServiceLastAccessed'
-      Prelude.<$> (x Core..@? "LastAuthenticatedEntity")
-      Prelude.<*> (x Core..@? "TotalAuthenticatedEntities")
-      Prelude.<*> (x Core..@? "LastAuthenticated")
-      Prelude.<*> ( x Core..@? "TrackedActionsLastAccessed"
+      Prelude.<$> (x Data..@? "LastAuthenticatedEntity")
+      Prelude.<*> (x Data..@? "TotalAuthenticatedEntities")
+      Prelude.<*> (x Data..@? "LastAuthenticated")
+      Prelude.<*> ( x Data..@? "TrackedActionsLastAccessed"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "LastAuthenticatedRegion")
-      Prelude.<*> (x Core..@ "ServiceName")
-      Prelude.<*> (x Core..@ "ServiceNamespace")
+      Prelude.<*> (x Data..@? "LastAuthenticatedRegion")
+      Prelude.<*> (x Data..@ "ServiceName")
+      Prelude.<*> (x Data..@ "ServiceNamespace")
 
 instance Prelude.Hashable ServiceLastAccessed where
   hashWithSalt _salt ServiceLastAccessed' {..} =

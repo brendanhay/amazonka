@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.DeletionTaskFailureReasonType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.RoleUsageType
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,13 +88,13 @@ deletionTaskFailureReasonType_roleUsageList = Lens.lens (\DeletionTaskFailureRea
 deletionTaskFailureReasonType_reason :: Lens.Lens' DeletionTaskFailureReasonType (Prelude.Maybe Prelude.Text)
 deletionTaskFailureReasonType_reason = Lens.lens (\DeletionTaskFailureReasonType' {reason} -> reason) (\s@DeletionTaskFailureReasonType' {} a -> s {reason = a} :: DeletionTaskFailureReasonType)
 
-instance Core.FromXML DeletionTaskFailureReasonType where
+instance Data.FromXML DeletionTaskFailureReasonType where
   parseXML x =
     DeletionTaskFailureReasonType'
-      Prelude.<$> ( x Core..@? "RoleUsageList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "RoleUsageList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Reason")
+      Prelude.<*> (x Data..@? "Reason")
 
 instance
   Prelude.Hashable

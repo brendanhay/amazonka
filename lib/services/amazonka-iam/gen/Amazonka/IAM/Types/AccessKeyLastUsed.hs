@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.AccessKeyLastUsed where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the last time an Amazon Web Services access
@@ -43,7 +44,7 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
     --     this information.
     --
     -- -   There is no sign-in data associated with the user.
-    lastUsedDate :: Core.ISO8601,
+    lastUsedDate :: Data.ISO8601,
     -- | The name of the Amazon Web Services service with which this access key
     -- was most recently used. The value of this field is \"N\/A\" in the
     -- following situations:
@@ -130,7 +131,7 @@ newAccessKeyLastUsed
   pRegion_ =
     AccessKeyLastUsed'
       { lastUsedDate =
-          Core._Time Lens.# pLastUsedDate_,
+          Data._Time Lens.# pLastUsedDate_,
         serviceName = pServiceName_,
         region = pRegion_
       }
@@ -147,7 +148,7 @@ newAccessKeyLastUsed
 --
 -- -   There is no sign-in data associated with the user.
 accessKeyLastUsed_lastUsedDate :: Lens.Lens' AccessKeyLastUsed Prelude.UTCTime
-accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -> lastUsedDate) (\s@AccessKeyLastUsed' {} a -> s {lastUsedDate = a} :: AccessKeyLastUsed) Prelude.. Core._Time
+accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -> lastUsedDate) (\s@AccessKeyLastUsed' {} a -> s {lastUsedDate = a} :: AccessKeyLastUsed) Prelude.. Data._Time
 
 -- | The name of the Amazon Web Services service with which this access key
 -- was most recently used. The value of this field is \"N\/A\" in the
@@ -178,12 +179,12 @@ accessKeyLastUsed_serviceName = Lens.lens (\AccessKeyLastUsed' {serviceName} -> 
 accessKeyLastUsed_region :: Lens.Lens' AccessKeyLastUsed Prelude.Text
 accessKeyLastUsed_region = Lens.lens (\AccessKeyLastUsed' {region} -> region) (\s@AccessKeyLastUsed' {} a -> s {region = a} :: AccessKeyLastUsed)
 
-instance Core.FromXML AccessKeyLastUsed where
+instance Data.FromXML AccessKeyLastUsed where
   parseXML x =
     AccessKeyLastUsed'
-      Prelude.<$> (x Core..@ "LastUsedDate")
-      Prelude.<*> (x Core..@ "ServiceName")
-      Prelude.<*> (x Core..@ "Region")
+      Prelude.<$> (x Data..@ "LastUsedDate")
+      Prelude.<*> (x Data..@ "ServiceName")
+      Prelude.<*> (x Data..@ "Region")
 
 instance Prelude.Hashable AccessKeyLastUsed where
   hashWithSalt _salt AccessKeyLastUsed' {..} =

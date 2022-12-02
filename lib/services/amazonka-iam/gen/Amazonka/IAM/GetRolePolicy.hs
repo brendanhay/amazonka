@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,9 +152,9 @@ instance Core.AWSRequest GetRolePolicy where
       ( \s h x ->
           GetRolePolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "RoleName")
-            Prelude.<*> (x Core..@ "PolicyName")
-            Prelude.<*> (x Core..@ "PolicyDocument")
+            Prelude.<*> (x Data..@ "RoleName")
+            Prelude.<*> (x Data..@ "PolicyName")
+            Prelude.<*> (x Data..@ "PolicyDocument")
       )
 
 instance Prelude.Hashable GetRolePolicy where
@@ -166,21 +167,21 @@ instance Prelude.NFData GetRolePolicy where
     Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf policyName
 
-instance Core.ToHeaders GetRolePolicy where
+instance Data.ToHeaders GetRolePolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetRolePolicy where
+instance Data.ToPath GetRolePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRolePolicy where
+instance Data.ToQuery GetRolePolicy where
   toQuery GetRolePolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetRolePolicy" :: Prelude.ByteString),
+          Data.=: ("GetRolePolicy" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Core.=: roleName,
-        "PolicyName" Core.=: policyName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Data.=: roleName,
+        "PolicyName" Data.=: policyName
       ]
 
 -- | Contains the response to a successful GetRolePolicy request.

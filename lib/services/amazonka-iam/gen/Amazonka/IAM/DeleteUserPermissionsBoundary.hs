@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,22 +104,22 @@ instance Prelude.NFData DeleteUserPermissionsBoundary where
   rnf DeleteUserPermissionsBoundary' {..} =
     Prelude.rnf userName
 
-instance Core.ToHeaders DeleteUserPermissionsBoundary where
+instance Data.ToHeaders DeleteUserPermissionsBoundary where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteUserPermissionsBoundary where
+instance Data.ToPath DeleteUserPermissionsBoundary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteUserPermissionsBoundary where
+instance Data.ToQuery DeleteUserPermissionsBoundary where
   toQuery DeleteUserPermissionsBoundary' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteUserPermissionsBoundary" ::
+          Data.=: ( "DeleteUserPermissionsBoundary" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName
       ]
 
 -- | /See:/ 'newDeleteUserPermissionsBoundaryResponse' smart constructor.

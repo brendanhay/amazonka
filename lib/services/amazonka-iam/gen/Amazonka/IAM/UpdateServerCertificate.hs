@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -200,24 +201,24 @@ instance Prelude.NFData UpdateServerCertificate where
       `Prelude.seq` Prelude.rnf newPath'
       `Prelude.seq` Prelude.rnf serverCertificateName
 
-instance Core.ToHeaders UpdateServerCertificate where
+instance Data.ToHeaders UpdateServerCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateServerCertificate where
+instance Data.ToPath UpdateServerCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServerCertificate where
+instance Data.ToQuery UpdateServerCertificate where
   toQuery UpdateServerCertificate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateServerCertificate" :: Prelude.ByteString),
+          Data.=: ("UpdateServerCertificate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "NewServerCertificateName"
-          Core.=: newServerCertificateName',
-        "NewPath" Core.=: newPath',
+          Data.=: newServerCertificateName',
+        "NewPath" Data.=: newPath',
         "ServerCertificateName"
-          Core.=: serverCertificateName
+          Data.=: serverCertificateName
       ]
 
 -- | /See:/ 'newUpdateServerCertificateResponse' smart constructor.

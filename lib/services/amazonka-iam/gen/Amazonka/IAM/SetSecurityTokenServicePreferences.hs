@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,31 +157,31 @@ instance
     Prelude.rnf globalEndpointTokenVersion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     SetSecurityTokenServicePreferences
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     SetSecurityTokenServicePreferences
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     SetSecurityTokenServicePreferences
   where
   toQuery SetSecurityTokenServicePreferences' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "SetSecurityTokenServicePreferences" ::
+          Data.=: ( "SetSecurityTokenServicePreferences" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "GlobalEndpointTokenVersion"
-          Core.=: globalEndpointTokenVersion
+          Data.=: globalEndpointTokenVersion
       ]
 
 -- | /See:/ 'newSetSecurityTokenServicePreferencesResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,21 +138,21 @@ instance Prelude.NFData DeleteAccessKey where
     Prelude.rnf userName
       `Prelude.seq` Prelude.rnf accessKeyId
 
-instance Core.ToHeaders DeleteAccessKey where
+instance Data.ToHeaders DeleteAccessKey where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAccessKey where
+instance Data.ToPath DeleteAccessKey where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAccessKey where
+instance Data.ToQuery DeleteAccessKey where
   toQuery DeleteAccessKey' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAccessKey" :: Prelude.ByteString),
+          Data.=: ("DeleteAccessKey" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
-        "AccessKeyId" Core.=: accessKeyId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Data.=: userName,
+        "AccessKeyId" Data.=: accessKeyId
       ]
 
 -- | /See:/ 'newDeleteAccessKeyResponse' smart constructor.

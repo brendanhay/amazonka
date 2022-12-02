@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.EndSessionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types.TimingInformation
 
@@ -54,13 +55,13 @@ newEndSessionResult =
 endSessionResult_timingInformation :: Lens.Lens' EndSessionResult (Prelude.Maybe TimingInformation)
 endSessionResult_timingInformation = Lens.lens (\EndSessionResult' {timingInformation} -> timingInformation) (\s@EndSessionResult' {} a -> s {timingInformation = a} :: EndSessionResult)
 
-instance Core.FromJSON EndSessionResult where
+instance Data.FromJSON EndSessionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndSessionResult"
       ( \x ->
           EndSessionResult'
-            Prelude.<$> (x Core..:? "TimingInformation")
+            Prelude.<$> (x Data..:? "TimingInformation")
       )
 
 instance Prelude.Hashable EndSessionResult where

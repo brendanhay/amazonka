@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.StartSessionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types.TimingInformation
 
@@ -66,14 +67,14 @@ startSessionResult_timingInformation = Lens.lens (\StartSessionResult' {timingIn
 startSessionResult_sessionToken :: Lens.Lens' StartSessionResult (Prelude.Maybe Prelude.Text)
 startSessionResult_sessionToken = Lens.lens (\StartSessionResult' {sessionToken} -> sessionToken) (\s@StartSessionResult' {} a -> s {sessionToken = a} :: StartSessionResult)
 
-instance Core.FromJSON StartSessionResult where
+instance Data.FromJSON StartSessionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StartSessionResult"
       ( \x ->
           StartSessionResult'
-            Prelude.<$> (x Core..:? "TimingInformation")
-            Prelude.<*> (x Core..:? "SessionToken")
+            Prelude.<$> (x Data..:? "TimingInformation")
+            Prelude.<*> (x Data..:? "SessionToken")
       )
 
 instance Prelude.Hashable StartSessionResult where

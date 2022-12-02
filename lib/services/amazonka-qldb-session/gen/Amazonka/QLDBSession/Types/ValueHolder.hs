@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.ValueHolder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that can contain a value in multiple encoding formats.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newValueHolder' smart constructor.
 data ValueHolder = ValueHolder'
   { -- | An Amazon Ion binary value contained in a @ValueHolder@ structure.
-    ionBinary :: Prelude.Maybe Core.Base64,
+    ionBinary :: Prelude.Maybe Data.Base64,
     -- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
     ionText :: Prelude.Maybe Prelude.Text
   }
@@ -63,20 +64,20 @@ newValueHolder =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 valueHolder_ionBinary :: Lens.Lens' ValueHolder (Prelude.Maybe Prelude.ByteString)
-valueHolder_ionBinary = Lens.lens (\ValueHolder' {ionBinary} -> ionBinary) (\s@ValueHolder' {} a -> s {ionBinary = a} :: ValueHolder) Prelude.. Lens.mapping Core._Base64
+valueHolder_ionBinary = Lens.lens (\ValueHolder' {ionBinary} -> ionBinary) (\s@ValueHolder' {} a -> s {ionBinary = a} :: ValueHolder) Prelude.. Lens.mapping Data._Base64
 
 -- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
 valueHolder_ionText :: Lens.Lens' ValueHolder (Prelude.Maybe Prelude.Text)
 valueHolder_ionText = Lens.lens (\ValueHolder' {ionText} -> ionText) (\s@ValueHolder' {} a -> s {ionText = a} :: ValueHolder)
 
-instance Core.FromJSON ValueHolder where
+instance Data.FromJSON ValueHolder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValueHolder"
       ( \x ->
           ValueHolder'
-            Prelude.<$> (x Core..:? "IonBinary")
-            Prelude.<*> (x Core..:? "IonText")
+            Prelude.<$> (x Data..:? "IonBinary")
+            Prelude.<*> (x Data..:? "IonText")
       )
 
 instance Prelude.Hashable ValueHolder where
@@ -89,11 +90,11 @@ instance Prelude.NFData ValueHolder where
     Prelude.rnf ionBinary
       `Prelude.seq` Prelude.rnf ionText
 
-instance Core.ToJSON ValueHolder where
+instance Data.ToJSON ValueHolder where
   toJSON ValueHolder' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IonBinary" Core..=) Prelude.<$> ionBinary,
-            ("IonText" Core..=) Prelude.<$> ionText
+          [ ("IonBinary" Data..=) Prelude.<$> ionBinary,
+            ("IonText" Data..=) Prelude.<$> ionText
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.EndSessionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a request to end the session.
@@ -46,5 +47,5 @@ instance Prelude.Hashable EndSessionRequest where
 instance Prelude.NFData EndSessionRequest where
   rnf _ = ()
 
-instance Core.ToJSON EndSessionRequest where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON EndSessionRequest where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

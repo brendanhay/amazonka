@@ -21,6 +21,7 @@ module Amazonka.QLDBSession.Types.ExecuteStatementResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDBSession.Types.IOUsage
 import Amazonka.QLDBSession.Types.Page
@@ -74,15 +75,15 @@ executeStatementResult_consumedIOs = Lens.lens (\ExecuteStatementResult' {consum
 executeStatementResult_firstPage :: Lens.Lens' ExecuteStatementResult (Prelude.Maybe Page)
 executeStatementResult_firstPage = Lens.lens (\ExecuteStatementResult' {firstPage} -> firstPage) (\s@ExecuteStatementResult' {} a -> s {firstPage = a} :: ExecuteStatementResult)
 
-instance Core.FromJSON ExecuteStatementResult where
+instance Data.FromJSON ExecuteStatementResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecuteStatementResult"
       ( \x ->
           ExecuteStatementResult'
-            Prelude.<$> (x Core..:? "TimingInformation")
-            Prelude.<*> (x Core..:? "ConsumedIOs")
-            Prelude.<*> (x Core..:? "FirstPage")
+            Prelude.<$> (x Data..:? "TimingInformation")
+            Prelude.<*> (x Data..:? "ConsumedIOs")
+            Prelude.<*> (x Data..:? "FirstPage")
       )
 
 instance Prelude.Hashable ExecuteStatementResult where

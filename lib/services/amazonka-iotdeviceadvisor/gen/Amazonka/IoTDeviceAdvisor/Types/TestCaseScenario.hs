@@ -21,6 +21,7 @@ module Amazonka.IoTDeviceAdvisor.Types.TestCaseScenario where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenarioStatus
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenarioType
 import qualified Amazonka.Prelude as Prelude
@@ -155,17 +156,17 @@ testCaseScenario_systemMessage = Lens.lens (\TestCaseScenario' {systemMessage} -
 testCaseScenario_testCaseScenarioId :: Lens.Lens' TestCaseScenario (Prelude.Maybe Prelude.Text)
 testCaseScenario_testCaseScenarioId = Lens.lens (\TestCaseScenario' {testCaseScenarioId} -> testCaseScenarioId) (\s@TestCaseScenario' {} a -> s {testCaseScenarioId = a} :: TestCaseScenario)
 
-instance Core.FromJSON TestCaseScenario where
+instance Data.FromJSON TestCaseScenario where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestCaseScenario"
       ( \x ->
           TestCaseScenario'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "testCaseScenarioType")
-            Prelude.<*> (x Core..:? "failure")
-            Prelude.<*> (x Core..:? "systemMessage")
-            Prelude.<*> (x Core..:? "testCaseScenarioId")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "testCaseScenarioType")
+            Prelude.<*> (x Data..:? "failure")
+            Prelude.<*> (x Data..:? "systemMessage")
+            Prelude.<*> (x Data..:? "testCaseScenarioId")
       )
 
 instance Prelude.Hashable TestCaseScenario where

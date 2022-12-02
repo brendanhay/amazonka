@@ -21,6 +21,7 @@ module Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,17 +73,17 @@ suiteRunConfiguration_primaryDevice = Lens.lens (\SuiteRunConfiguration' {primar
 suiteRunConfiguration_parallelRun :: Lens.Lens' SuiteRunConfiguration (Prelude.Maybe Prelude.Bool)
 suiteRunConfiguration_parallelRun = Lens.lens (\SuiteRunConfiguration' {parallelRun} -> parallelRun) (\s@SuiteRunConfiguration' {} a -> s {parallelRun = a} :: SuiteRunConfiguration)
 
-instance Core.FromJSON SuiteRunConfiguration where
+instance Data.FromJSON SuiteRunConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuiteRunConfiguration"
       ( \x ->
           SuiteRunConfiguration'
-            Prelude.<$> ( x Core..:? "selectedTestList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "selectedTestList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "primaryDevice")
-            Prelude.<*> (x Core..:? "parallelRun")
+            Prelude.<*> (x Data..:? "primaryDevice")
+            Prelude.<*> (x Data..:? "parallelRun")
       )
 
 instance Prelude.Hashable SuiteRunConfiguration where
@@ -97,13 +98,13 @@ instance Prelude.NFData SuiteRunConfiguration where
       `Prelude.seq` Prelude.rnf primaryDevice
       `Prelude.seq` Prelude.rnf parallelRun
 
-instance Core.ToJSON SuiteRunConfiguration where
+instance Data.ToJSON SuiteRunConfiguration where
   toJSON SuiteRunConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("selectedTestList" Core..=)
+          [ ("selectedTestList" Data..=)
               Prelude.<$> selectedTestList,
-            ("primaryDevice" Core..=) Prelude.<$> primaryDevice,
-            ("parallelRun" Core..=) Prelude.<$> parallelRun
+            ("primaryDevice" Data..=) Prelude.<$> primaryDevice,
+            ("parallelRun" Data..=) Prelude.<$> parallelRun
           ]
       )

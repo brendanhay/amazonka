@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,23 +101,23 @@ instance Prelude.NFData DeleteSuiteDefinition where
   rnf DeleteSuiteDefinition' {..} =
     Prelude.rnf suiteDefinitionId
 
-instance Core.ToHeaders DeleteSuiteDefinition where
+instance Data.ToHeaders DeleteSuiteDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSuiteDefinition where
+instance Data.ToPath DeleteSuiteDefinition where
   toPath DeleteSuiteDefinition' {..} =
     Prelude.mconcat
-      ["/suiteDefinitions/", Core.toBS suiteDefinitionId]
+      ["/suiteDefinitions/", Data.toBS suiteDefinitionId]
 
-instance Core.ToQuery DeleteSuiteDefinition where
+instance Data.ToQuery DeleteSuiteDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSuiteDefinitionResponse' smart constructor.

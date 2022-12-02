@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,10 +99,10 @@ instance Core.AWSRequest ListSuiteDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListSuiteDefinitionsResponse'
-            Prelude.<$> ( x Core..?> "suiteDefinitionInformationList"
+            Prelude.<$> ( x Data..?> "suiteDefinitionInformationList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,25 +116,25 @@ instance Prelude.NFData ListSuiteDefinitions where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSuiteDefinitions where
+instance Data.ToHeaders ListSuiteDefinitions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSuiteDefinitions where
+instance Data.ToPath ListSuiteDefinitions where
   toPath = Prelude.const "/suiteDefinitions"
 
-instance Core.ToQuery ListSuiteDefinitions where
+instance Data.ToQuery ListSuiteDefinitions where
   toQuery ListSuiteDefinitions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSuiteDefinitionsResponse' smart constructor.

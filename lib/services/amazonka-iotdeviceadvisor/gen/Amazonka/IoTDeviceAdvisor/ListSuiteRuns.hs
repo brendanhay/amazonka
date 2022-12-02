@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +127,8 @@ instance Core.AWSRequest ListSuiteRuns where
     Response.receiveJSON
       ( \s h x ->
           ListSuiteRunsResponse'
-            Prelude.<$> (x Core..?> "suiteRunsList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "suiteRunsList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,28 +146,28 @@ instance Prelude.NFData ListSuiteRuns where
       `Prelude.seq` Prelude.rnf suiteDefinitionVersion
       `Prelude.seq` Prelude.rnf suiteDefinitionId
 
-instance Core.ToHeaders ListSuiteRuns where
+instance Data.ToHeaders ListSuiteRuns where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSuiteRuns where
+instance Data.ToPath ListSuiteRuns where
   toPath = Prelude.const "/suiteRuns"
 
-instance Core.ToQuery ListSuiteRuns where
+instance Data.ToQuery ListSuiteRuns where
   toQuery ListSuiteRuns' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
         "suiteDefinitionVersion"
-          Core.=: suiteDefinitionVersion,
-        "suiteDefinitionId" Core.=: suiteDefinitionId
+          Data.=: suiteDefinitionVersion,
+        "suiteDefinitionId" Data.=: suiteDefinitionId
       ]
 
 -- | /See:/ 'newListSuiteRunsResponse' smart constructor.

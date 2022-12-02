@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,17 +111,17 @@ instance Core.AWSRequest GetSuiteRun where
     Response.receiveJSON
       ( \s h x ->
           GetSuiteRunResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "errorReason")
-            Prelude.<*> (x Core..?> "suiteRunArn")
-            Prelude.<*> (x Core..?> "suiteRunConfiguration")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "endTime")
-            Prelude.<*> (x Core..?> "suiteDefinitionVersion")
-            Prelude.<*> (x Core..?> "testResult")
-            Prelude.<*> (x Core..?> "suiteDefinitionId")
-            Prelude.<*> (x Core..?> "startTime")
-            Prelude.<*> (x Core..?> "suiteRunId")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "errorReason")
+            Prelude.<*> (x Data..?> "suiteRunArn")
+            Prelude.<*> (x Data..?> "suiteRunConfiguration")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "endTime")
+            Prelude.<*> (x Data..?> "suiteDefinitionVersion")
+            Prelude.<*> (x Data..?> "testResult")
+            Prelude.<*> (x Data..?> "suiteDefinitionId")
+            Prelude.<*> (x Data..?> "startTime")
+            Prelude.<*> (x Data..?> "suiteRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,27 +135,27 @@ instance Prelude.NFData GetSuiteRun where
     Prelude.rnf suiteDefinitionId
       `Prelude.seq` Prelude.rnf suiteRunId
 
-instance Core.ToHeaders GetSuiteRun where
+instance Data.ToHeaders GetSuiteRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSuiteRun where
+instance Data.ToPath GetSuiteRun where
   toPath GetSuiteRun' {..} =
     Prelude.mconcat
       [ "/suiteDefinitions/",
-        Core.toBS suiteDefinitionId,
+        Data.toBS suiteDefinitionId,
         "/suiteRuns/",
-        Core.toBS suiteRunId
+        Data.toBS suiteRunId
       ]
 
-instance Core.ToQuery GetSuiteRun where
+instance Data.ToQuery GetSuiteRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSuiteRunResponse' smart constructor.
@@ -170,7 +171,7 @@ data GetSuiteRunResponse = GetSuiteRunResponse'
     -- | Status for the test suite run.
     status :: Prelude.Maybe SuiteRunStatus,
     -- | Date (in Unix epoch time) when the test suite run ended.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Suite definition version for the test suite run.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
     -- | Test results for the test suite run.
@@ -178,7 +179,7 @@ data GetSuiteRunResponse = GetSuiteRunResponse'
     -- | Suite definition ID for the test suite run.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Date (in Unix epoch time) when the test suite run started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | Suite run ID for the test suite run.
     suiteRunId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -259,7 +260,7 @@ getSuiteRunResponse_status = Lens.lens (\GetSuiteRunResponse' {status} -> status
 
 -- | Date (in Unix epoch time) when the test suite run ended.
 getSuiteRunResponse_endTime :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
-getSuiteRunResponse_endTime = Lens.lens (\GetSuiteRunResponse' {endTime} -> endTime) (\s@GetSuiteRunResponse' {} a -> s {endTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Core._Time
+getSuiteRunResponse_endTime = Lens.lens (\GetSuiteRunResponse' {endTime} -> endTime) (\s@GetSuiteRunResponse' {} a -> s {endTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Suite definition version for the test suite run.
 getSuiteRunResponse_suiteDefinitionVersion :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
@@ -275,7 +276,7 @@ getSuiteRunResponse_suiteDefinitionId = Lens.lens (\GetSuiteRunResponse' {suiteD
 
 -- | Date (in Unix epoch time) when the test suite run started.
 getSuiteRunResponse_startTime :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
-getSuiteRunResponse_startTime = Lens.lens (\GetSuiteRunResponse' {startTime} -> startTime) (\s@GetSuiteRunResponse' {} a -> s {startTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Core._Time
+getSuiteRunResponse_startTime = Lens.lens (\GetSuiteRunResponse' {startTime} -> startTime) (\s@GetSuiteRunResponse' {} a -> s {startTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Suite run ID for the test suite run.
 getSuiteRunResponse_suiteRunId :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)

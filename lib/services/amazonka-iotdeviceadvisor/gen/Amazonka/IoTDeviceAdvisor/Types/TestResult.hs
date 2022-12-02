@@ -21,6 +21,7 @@ module Amazonka.IoTDeviceAdvisor.Types.TestResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types.GroupResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -50,13 +51,13 @@ newTestResult = TestResult' {groups = Prelude.Nothing}
 testResult_groups :: Lens.Lens' TestResult (Prelude.Maybe [GroupResult])
 testResult_groups = Lens.lens (\TestResult' {groups} -> groups) (\s@TestResult' {} a -> s {groups = a} :: TestResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TestResult where
+instance Data.FromJSON TestResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TestResult"
       ( \x ->
           TestResult'
-            Prelude.<$> (x Core..:? "groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "groups" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TestResult where

@@ -21,6 +21,7 @@ module Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
 import Amazonka.IoTDeviceAdvisor.Types.Protocol
 import qualified Amazonka.Prelude as Prelude
@@ -42,7 +43,7 @@ data SuiteDefinitionInformation = SuiteDefinitionInformation'
     -- | Verifies if the test suite is a long duration test.
     isLongDurationTest :: Prelude.Maybe Prelude.Bool,
     -- | Date (in Unix epoch time) when the test suite was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,21 +108,21 @@ suiteDefinitionInformation_isLongDurationTest = Lens.lens (\SuiteDefinitionInfor
 
 -- | Date (in Unix epoch time) when the test suite was created.
 suiteDefinitionInformation_createdAt :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe Prelude.UTCTime)
-suiteDefinitionInformation_createdAt = Lens.lens (\SuiteDefinitionInformation' {createdAt} -> createdAt) (\s@SuiteDefinitionInformation' {} a -> s {createdAt = a} :: SuiteDefinitionInformation) Prelude.. Lens.mapping Core._Time
+suiteDefinitionInformation_createdAt = Lens.lens (\SuiteDefinitionInformation' {createdAt} -> createdAt) (\s@SuiteDefinitionInformation' {} a -> s {createdAt = a} :: SuiteDefinitionInformation) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SuiteDefinitionInformation where
+instance Data.FromJSON SuiteDefinitionInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuiteDefinitionInformation"
       ( \x ->
           SuiteDefinitionInformation'
-            Prelude.<$> (x Core..:? "suiteDefinitionName")
-            Prelude.<*> (x Core..:? "defaultDevices" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "intendedForQualification")
-            Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "suiteDefinitionId")
-            Prelude.<*> (x Core..:? "isLongDurationTest")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "suiteDefinitionName")
+            Prelude.<*> (x Data..:? "defaultDevices" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "intendedForQualification")
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "suiteDefinitionId")
+            Prelude.<*> (x Data..:? "isLongDurationTest")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable SuiteDefinitionInformation where

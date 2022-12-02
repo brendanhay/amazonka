@@ -21,6 +21,7 @@ module Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information of a test device. A thing ARN or a certificate ARN is
@@ -62,14 +63,14 @@ deviceUnderTest_thingArn = Lens.lens (\DeviceUnderTest' {thingArn} -> thingArn) 
 deviceUnderTest_certificateArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
 deviceUnderTest_certificateArn = Lens.lens (\DeviceUnderTest' {certificateArn} -> certificateArn) (\s@DeviceUnderTest' {} a -> s {certificateArn = a} :: DeviceUnderTest)
 
-instance Core.FromJSON DeviceUnderTest where
+instance Data.FromJSON DeviceUnderTest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceUnderTest"
       ( \x ->
           DeviceUnderTest'
-            Prelude.<$> (x Core..:? "thingArn")
-            Prelude.<*> (x Core..:? "certificateArn")
+            Prelude.<$> (x Data..:? "thingArn")
+            Prelude.<*> (x Data..:? "certificateArn")
       )
 
 instance Prelude.Hashable DeviceUnderTest where
@@ -82,12 +83,12 @@ instance Prelude.NFData DeviceUnderTest where
     Prelude.rnf thingArn
       `Prelude.seq` Prelude.rnf certificateArn
 
-instance Core.ToJSON DeviceUnderTest where
+instance Data.ToJSON DeviceUnderTest where
   toJSON DeviceUnderTest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("thingArn" Core..=) Prelude.<$> thingArn,
-            ("certificateArn" Core..=)
+          [ ("thingArn" Data..=) Prelude.<$> thingArn,
+            ("certificateArn" Data..=)
               Prelude.<$> certificateArn
           ]
       )

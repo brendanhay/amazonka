@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,14 +108,14 @@ instance Core.AWSRequest GetSuiteDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetSuiteDefinitionResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "latestVersion")
-            Prelude.<*> (x Core..?> "suiteDefinitionConfiguration")
-            Prelude.<*> (x Core..?> "suiteDefinitionArn")
-            Prelude.<*> (x Core..?> "suiteDefinitionVersion")
-            Prelude.<*> (x Core..?> "suiteDefinitionId")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "lastModifiedAt")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "latestVersion")
+            Prelude.<*> (x Data..?> "suiteDefinitionConfiguration")
+            Prelude.<*> (x Data..?> "suiteDefinitionArn")
+            Prelude.<*> (x Data..?> "suiteDefinitionVersion")
+            Prelude.<*> (x Data..?> "suiteDefinitionId")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "lastModifiedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,27 +129,27 @@ instance Prelude.NFData GetSuiteDefinition where
     Prelude.rnf suiteDefinitionVersion
       `Prelude.seq` Prelude.rnf suiteDefinitionId
 
-instance Core.ToHeaders GetSuiteDefinition where
+instance Data.ToHeaders GetSuiteDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSuiteDefinition where
+instance Data.ToPath GetSuiteDefinition where
   toPath GetSuiteDefinition' {..} =
     Prelude.mconcat
-      ["/suiteDefinitions/", Core.toBS suiteDefinitionId]
+      ["/suiteDefinitions/", Data.toBS suiteDefinitionId]
 
-instance Core.ToQuery GetSuiteDefinition where
+instance Data.ToQuery GetSuiteDefinition where
   toQuery GetSuiteDefinition' {..} =
     Prelude.mconcat
       [ "suiteDefinitionVersion"
-          Core.=: suiteDefinitionVersion
+          Data.=: suiteDefinitionVersion
       ]
 
 -- | /See:/ 'newGetSuiteDefinitionResponse' smart constructor.
@@ -166,9 +167,9 @@ data GetSuiteDefinitionResponse = GetSuiteDefinitionResponse'
     -- | Suite definition ID of the suite definition.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Date (in Unix epoch time) when the suite definition was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Date (in Unix epoch time) when the suite definition was last modified.
-    lastModifiedAt :: Prelude.Maybe Core.POSIX,
+    lastModifiedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,11 +243,11 @@ getSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\GetSuiteDefinitionRes
 
 -- | Date (in Unix epoch time) when the suite definition was created.
 getSuiteDefinitionResponse_createdAt :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
-getSuiteDefinitionResponse_createdAt = Lens.lens (\GetSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@GetSuiteDefinitionResponse' {} a -> s {createdAt = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
+getSuiteDefinitionResponse_createdAt = Lens.lens (\GetSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@GetSuiteDefinitionResponse' {} a -> s {createdAt = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Date (in Unix epoch time) when the suite definition was last modified.
 getSuiteDefinitionResponse_lastModifiedAt :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
-getSuiteDefinitionResponse_lastModifiedAt = Lens.lens (\GetSuiteDefinitionResponse' {lastModifiedAt} -> lastModifiedAt) (\s@GetSuiteDefinitionResponse' {} a -> s {lastModifiedAt = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
+getSuiteDefinitionResponse_lastModifiedAt = Lens.lens (\GetSuiteDefinitionResponse' {lastModifiedAt} -> lastModifiedAt) (\s@GetSuiteDefinitionResponse' {} a -> s {lastModifiedAt = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getSuiteDefinitionResponse_httpStatus :: Lens.Lens' GetSuiteDefinitionResponse Prelude.Int

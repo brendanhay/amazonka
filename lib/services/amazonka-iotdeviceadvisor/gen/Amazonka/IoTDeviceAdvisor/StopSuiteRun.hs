@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,31 +113,31 @@ instance Prelude.NFData StopSuiteRun where
     Prelude.rnf suiteDefinitionId
       `Prelude.seq` Prelude.rnf suiteRunId
 
-instance Core.ToHeaders StopSuiteRun where
+instance Data.ToHeaders StopSuiteRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopSuiteRun where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StopSuiteRun where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StopSuiteRun where
+instance Data.ToPath StopSuiteRun where
   toPath StopSuiteRun' {..} =
     Prelude.mconcat
       [ "/suiteDefinitions/",
-        Core.toBS suiteDefinitionId,
+        Data.toBS suiteDefinitionId,
         "/suiteRuns/",
-        Core.toBS suiteRunId,
+        Data.toBS suiteRunId,
         "/stop"
       ]
 
-instance Core.ToQuery StopSuiteRun where
+instance Data.ToQuery StopSuiteRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopSuiteRunResponse' smart constructor.

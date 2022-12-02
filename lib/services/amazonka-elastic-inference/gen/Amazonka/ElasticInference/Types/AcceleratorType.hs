@@ -21,6 +21,7 @@ module Amazonka.ElasticInference.Types.AcceleratorType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticInference.Types.KeyValuePair
 import Amazonka.ElasticInference.Types.MemoryInfo
 import qualified Amazonka.Prelude as Prelude
@@ -72,16 +73,16 @@ acceleratorType_acceleratorTypeName = Lens.lens (\AcceleratorType' {acceleratorT
 acceleratorType_throughputInfo :: Lens.Lens' AcceleratorType (Prelude.Maybe [KeyValuePair])
 acceleratorType_throughputInfo = Lens.lens (\AcceleratorType' {throughputInfo} -> throughputInfo) (\s@AcceleratorType' {} a -> s {throughputInfo = a} :: AcceleratorType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AcceleratorType where
+instance Data.FromJSON AcceleratorType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AcceleratorType"
       ( \x ->
           AcceleratorType'
-            Prelude.<$> (x Core..:? "memoryInfo")
-            Prelude.<*> (x Core..:? "acceleratorTypeName")
-            Prelude.<*> ( x Core..:? "throughputInfo"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "memoryInfo")
+            Prelude.<*> (x Data..:? "acceleratorTypeName")
+            Prelude.<*> ( x Data..:? "throughputInfo"
+                            Data..!= Prelude.mempty
                         )
       )
 

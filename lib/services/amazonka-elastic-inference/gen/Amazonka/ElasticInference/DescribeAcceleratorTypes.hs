@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticInference.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -69,7 +70,7 @@ instance Core.AWSRequest DescribeAcceleratorTypes where
     Response.receiveJSON
       ( \s h x ->
           DescribeAcceleratorTypesResponse'
-            Prelude.<$> ( x Core..?> "acceleratorTypes"
+            Prelude.<$> ( x Data..?> "acceleratorTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -82,21 +83,21 @@ instance Prelude.Hashable DescribeAcceleratorTypes where
 instance Prelude.NFData DescribeAcceleratorTypes where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeAcceleratorTypes where
+instance Data.ToHeaders DescribeAcceleratorTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAcceleratorTypes where
+instance Data.ToPath DescribeAcceleratorTypes where
   toPath = Prelude.const "/describe-accelerator-types"
 
-instance Core.ToQuery DescribeAcceleratorTypes where
+instance Data.ToQuery DescribeAcceleratorTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAcceleratorTypesResponse' smart constructor.

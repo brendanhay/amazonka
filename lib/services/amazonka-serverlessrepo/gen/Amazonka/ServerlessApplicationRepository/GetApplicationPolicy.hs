@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest GetApplicationPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationPolicyResponse'
-            Prelude.<$> (x Core..?> "statements" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "statements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,26 +99,26 @@ instance Prelude.NFData GetApplicationPolicy where
   rnf GetApplicationPolicy' {..} =
     Prelude.rnf applicationId
 
-instance Core.ToHeaders GetApplicationPolicy where
+instance Data.ToHeaders GetApplicationPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetApplicationPolicy where
+instance Data.ToPath GetApplicationPolicy where
   toPath GetApplicationPolicy' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/policy"
       ]
 
-instance Core.ToQuery GetApplicationPolicy where
+instance Data.ToQuery GetApplicationPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetApplicationPolicyResponse' smart constructor.

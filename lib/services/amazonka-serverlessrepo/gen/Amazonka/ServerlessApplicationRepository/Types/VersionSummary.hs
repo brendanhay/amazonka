@@ -21,6 +21,7 @@ module Amazonka.ServerlessApplicationRepository.Types.VersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An application version summary.
@@ -97,16 +98,16 @@ versionSummary_applicationId = Lens.lens (\VersionSummary' {applicationId} -> ap
 versionSummary_semanticVersion :: Lens.Lens' VersionSummary Prelude.Text
 versionSummary_semanticVersion = Lens.lens (\VersionSummary' {semanticVersion} -> semanticVersion) (\s@VersionSummary' {} a -> s {semanticVersion = a} :: VersionSummary)
 
-instance Core.FromJSON VersionSummary where
+instance Data.FromJSON VersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VersionSummary"
       ( \x ->
           VersionSummary'
-            Prelude.<$> (x Core..:? "sourceCodeUrl")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "semanticVersion")
+            Prelude.<$> (x Data..:? "sourceCodeUrl")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "semanticVersion")
       )
 
 instance Prelude.Hashable VersionSummary where

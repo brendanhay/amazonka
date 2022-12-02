@@ -21,6 +21,7 @@ module Amazonka.ServerlessApplicationRepository.Types.Version where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServerlessApplicationRepository.Types.Capability
 import Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition
@@ -273,25 +274,25 @@ version_applicationId = Lens.lens (\Version' {applicationId} -> applicationId) (
 version_semanticVersion :: Lens.Lens' Version Prelude.Text
 version_semanticVersion = Lens.lens (\Version' {semanticVersion} -> semanticVersion) (\s@Version' {} a -> s {semanticVersion = a} :: Version)
 
-instance Core.FromJSON Version where
+instance Data.FromJSON Version where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Version"
       ( \x ->
           Version'
-            Prelude.<$> (x Core..:? "sourceCodeArchiveUrl")
-            Prelude.<*> (x Core..:? "sourceCodeUrl")
-            Prelude.<*> (x Core..: "templateUrl")
-            Prelude.<*> ( x Core..:? "parameterDefinitions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "sourceCodeArchiveUrl")
+            Prelude.<*> (x Data..:? "sourceCodeUrl")
+            Prelude.<*> (x Data..: "templateUrl")
+            Prelude.<*> ( x Data..:? "parameterDefinitions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "resourcesSupported")
-            Prelude.<*> (x Core..: "creationTime")
-            Prelude.<*> ( x Core..:? "requiredCapabilities"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..: "resourcesSupported")
+            Prelude.<*> (x Data..: "creationTime")
+            Prelude.<*> ( x Data..:? "requiredCapabilities"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "semanticVersion")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "semanticVersion")
       )
 
 instance Prelude.Hashable Version where

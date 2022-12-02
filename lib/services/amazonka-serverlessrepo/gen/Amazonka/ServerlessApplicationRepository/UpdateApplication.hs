@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -208,19 +209,19 @@ instance Core.AWSRequest UpdateApplication where
     Response.receiveJSON
       ( \s h x ->
           UpdateApplicationResponse'
-            Prelude.<$> (x Core..?> "author")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "isVerifiedAuthor")
-            Prelude.<*> (x Core..?> "licenseUrl")
-            Prelude.<*> (x Core..?> "verifiedAuthorUrl")
-            Prelude.<*> (x Core..?> "readmeUrl")
-            Prelude.<*> (x Core..?> "spdxLicenseId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "homePageUrl")
-            Prelude.<*> (x Core..?> "labels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "applicationId")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<$> (x Data..?> "author")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "isVerifiedAuthor")
+            Prelude.<*> (x Data..?> "licenseUrl")
+            Prelude.<*> (x Data..?> "verifiedAuthorUrl")
+            Prelude.<*> (x Data..?> "readmeUrl")
+            Prelude.<*> (x Data..?> "spdxLicenseId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "homePageUrl")
+            Prelude.<*> (x Data..?> "labels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "applicationId")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -244,36 +245,36 @@ instance Prelude.NFData UpdateApplication where
       `Prelude.seq` Prelude.rnf readmeBody
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders UpdateApplication where
+instance Data.ToHeaders UpdateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplication where
+instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("author" Core..=) Prelude.<$> author,
-            ("readmeUrl" Core..=) Prelude.<$> readmeUrl,
-            ("description" Core..=) Prelude.<$> description,
-            ("homePageUrl" Core..=) Prelude.<$> homePageUrl,
-            ("labels" Core..=) Prelude.<$> labels,
-            ("readmeBody" Core..=) Prelude.<$> readmeBody
+          [ ("author" Data..=) Prelude.<$> author,
+            ("readmeUrl" Data..=) Prelude.<$> readmeUrl,
+            ("description" Data..=) Prelude.<$> description,
+            ("homePageUrl" Data..=) Prelude.<$> homePageUrl,
+            ("labels" Data..=) Prelude.<$> labels,
+            ("readmeBody" Data..=) Prelude.<$> readmeBody
           ]
       )
 
-instance Core.ToPath UpdateApplication where
+instance Data.ToPath UpdateApplication where
   toPath UpdateApplication' {..} =
     Prelude.mconcat
-      ["/applications/", Core.toBS applicationId]
+      ["/applications/", Data.toBS applicationId]
 
-instance Core.ToQuery UpdateApplication where
+instance Data.ToQuery UpdateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of details about the application.
@@ -173,20 +174,20 @@ applicationSummary_applicationId = Lens.lens (\ApplicationSummary' {applicationI
 applicationSummary_name :: Lens.Lens' ApplicationSummary Prelude.Text
 applicationSummary_name = Lens.lens (\ApplicationSummary' {name} -> name) (\s@ApplicationSummary' {} a -> s {name = a} :: ApplicationSummary)
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "spdxLicenseId")
-            Prelude.<*> (x Core..:? "homePageUrl")
-            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..: "description")
-            Prelude.<*> (x Core..: "author")
-            Prelude.<*> (x Core..: "applicationId")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "spdxLicenseId")
+            Prelude.<*> (x Data..:? "homePageUrl")
+            Prelude.<*> (x Data..:? "labels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..: "description")
+            Prelude.<*> (x Data..: "author")
+            Prelude.<*> (x Data..: "applicationId")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ApplicationSummary where

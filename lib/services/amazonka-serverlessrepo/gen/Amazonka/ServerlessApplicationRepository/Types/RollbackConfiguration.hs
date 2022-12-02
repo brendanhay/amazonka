@@ -21,6 +21,7 @@ module Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger
 
@@ -94,13 +95,13 @@ instance Prelude.NFData RollbackConfiguration where
     Prelude.rnf monitoringTimeInMinutes
       `Prelude.seq` Prelude.rnf rollbackTriggers
 
-instance Core.ToJSON RollbackConfiguration where
+instance Data.ToJSON RollbackConfiguration where
   toJSON RollbackConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("monitoringTimeInMinutes" Core..=)
+          [ ("monitoringTimeInMinutes" Data..=)
               Prelude.<$> monitoringTimeInMinutes,
-            ("rollbackTriggers" Core..=)
+            ("rollbackTriggers" Data..=)
               Prelude.<$> rollbackTriggers
           ]
       )

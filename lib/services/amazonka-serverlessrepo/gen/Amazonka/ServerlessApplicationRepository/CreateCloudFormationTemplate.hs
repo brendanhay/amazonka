@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,13 +109,13 @@ instance Core.AWSRequest CreateCloudFormationTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateCloudFormationTemplateResponse'
-            Prelude.<$> (x Core..?> "semanticVersion")
-            Prelude.<*> (x Core..?> "expirationTime")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "templateId")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "applicationId")
-            Prelude.<*> (x Core..?> "templateUrl")
+            Prelude.<$> (x Data..?> "semanticVersion")
+            Prelude.<*> (x Data..?> "expirationTime")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "templateId")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "applicationId")
+            Prelude.<*> (x Data..?> "templateUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,35 +132,35 @@ instance Prelude.NFData CreateCloudFormationTemplate where
     Prelude.rnf semanticVersion
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders CreateCloudFormationTemplate where
+instance Data.ToHeaders CreateCloudFormationTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCloudFormationTemplate where
+instance Data.ToJSON CreateCloudFormationTemplate where
   toJSON CreateCloudFormationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("semanticVersion" Core..=)
+          [ ("semanticVersion" Data..=)
               Prelude.<$> semanticVersion
           ]
       )
 
-instance Core.ToPath CreateCloudFormationTemplate where
+instance Data.ToPath CreateCloudFormationTemplate where
   toPath CreateCloudFormationTemplate' {..} =
     Prelude.mconcat
       [ "/applications/",
-        Core.toBS applicationId,
+        Data.toBS applicationId,
         "/templates"
       ]
 
-instance Core.ToQuery CreateCloudFormationTemplate where
+instance Data.ToQuery CreateCloudFormationTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCloudFormationTemplateResponse' smart constructor.

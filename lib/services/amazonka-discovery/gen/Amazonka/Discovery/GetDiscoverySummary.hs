@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,14 +78,14 @@ instance Core.AWSRequest GetDiscoverySummary where
     Response.receiveJSON
       ( \s h x ->
           GetDiscoverySummaryResponse'
-            Prelude.<$> (x Core..?> "servers")
-            Prelude.<*> (x Core..?> "agentlessCollectorSummary")
-            Prelude.<*> (x Core..?> "applications")
-            Prelude.<*> (x Core..?> "agentSummary")
-            Prelude.<*> (x Core..?> "connectorSummary")
-            Prelude.<*> (x Core..?> "serversMappedtoTags")
-            Prelude.<*> (x Core..?> "meCollectorSummary")
-            Prelude.<*> (x Core..?> "serversMappedToApplications")
+            Prelude.<$> (x Data..?> "servers")
+            Prelude.<*> (x Data..?> "agentlessCollectorSummary")
+            Prelude.<*> (x Data..?> "applications")
+            Prelude.<*> (x Data..?> "agentSummary")
+            Prelude.<*> (x Data..?> "connectorSummary")
+            Prelude.<*> (x Data..?> "serversMappedtoTags")
+            Prelude.<*> (x Data..?> "meCollectorSummary")
+            Prelude.<*> (x Data..?> "serversMappedToApplications")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,28 +96,28 @@ instance Prelude.Hashable GetDiscoverySummary where
 instance Prelude.NFData GetDiscoverySummary where
   rnf _ = ()
 
-instance Core.ToHeaders GetDiscoverySummary where
+instance Data.ToHeaders GetDiscoverySummary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.GetDiscoverySummary" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.GetDiscoverySummary" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDiscoverySummary where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetDiscoverySummary where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetDiscoverySummary where
+instance Data.ToPath GetDiscoverySummary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDiscoverySummary where
+instance Data.ToQuery GetDiscoverySummary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDiscoverySummaryResponse' smart constructor.

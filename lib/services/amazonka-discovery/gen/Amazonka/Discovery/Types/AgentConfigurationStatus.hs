@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.AgentConfigurationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about agents or connectors that were instructed to start
@@ -83,15 +84,15 @@ agentConfigurationStatus_agentId = Lens.lens (\AgentConfigurationStatus' {agentI
 agentConfigurationStatus_operationSucceeded :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Bool)
 agentConfigurationStatus_operationSucceeded = Lens.lens (\AgentConfigurationStatus' {operationSucceeded} -> operationSucceeded) (\s@AgentConfigurationStatus' {} a -> s {operationSucceeded = a} :: AgentConfigurationStatus)
 
-instance Core.FromJSON AgentConfigurationStatus where
+instance Data.FromJSON AgentConfigurationStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentConfigurationStatus"
       ( \x ->
           AgentConfigurationStatus'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "agentId")
-            Prelude.<*> (x Core..:? "operationSucceeded")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "agentId")
+            Prelude.<*> (x Data..:? "operationSucceeded")
       )
 
 instance Prelude.Hashable AgentConfigurationStatus where

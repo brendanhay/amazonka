@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.ExportInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types.ExportStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data ExportInfo = ExportInfo'
   { -- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
     -- requested, this result does not appear in @ExportInfo@.
-    requestedEndTime :: Prelude.Maybe Core.POSIX,
+    requestedEndTime :: Prelude.Maybe Data.POSIX,
     -- | If true, the export of agent information exceeded the size limit for a
     -- single export and the exported data is incomplete for the requested time
     -- range. To address this, select a smaller time range for the export by
@@ -40,7 +41,7 @@ data ExportInfo = ExportInfo'
     -- | The value of @startTime@ parameter in the @StartExportTask@ request. If
     -- no @startTime@ was requested, this result does not appear in
     -- @ExportInfo@.
-    requestedStartTime :: Prelude.Maybe Core.POSIX,
+    requestedStartTime :: Prelude.Maybe Data.POSIX,
     -- | A URL for an Amazon S3 bucket where you can review the exported data.
     -- The URL is displayed only if the export succeeded.
     configurationsDownloadUrl :: Prelude.Maybe Prelude.Text,
@@ -51,7 +52,7 @@ data ExportInfo = ExportInfo'
     -- | A status message provided for API callers.
     statusMessage :: Prelude.Text,
     -- | The time that the data export was initiated.
-    exportRequestTime :: Core.POSIX
+    exportRequestTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,13 +110,13 @@ newExportInfo
         exportStatus = pExportStatus_,
         statusMessage = pStatusMessage_,
         exportRequestTime =
-          Core._Time Lens.# pExportRequestTime_
+          Data._Time Lens.# pExportRequestTime_
       }
 
 -- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
 -- requested, this result does not appear in @ExportInfo@.
 exportInfo_requestedEndTime :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.UTCTime)
-exportInfo_requestedEndTime = Lens.lens (\ExportInfo' {requestedEndTime} -> requestedEndTime) (\s@ExportInfo' {} a -> s {requestedEndTime = a} :: ExportInfo) Prelude.. Lens.mapping Core._Time
+exportInfo_requestedEndTime = Lens.lens (\ExportInfo' {requestedEndTime} -> requestedEndTime) (\s@ExportInfo' {} a -> s {requestedEndTime = a} :: ExportInfo) Prelude.. Lens.mapping Data._Time
 
 -- | If true, the export of agent information exceeded the size limit for a
 -- single export and the exported data is incomplete for the requested time
@@ -128,7 +129,7 @@ exportInfo_isTruncated = Lens.lens (\ExportInfo' {isTruncated} -> isTruncated) (
 -- no @startTime@ was requested, this result does not appear in
 -- @ExportInfo@.
 exportInfo_requestedStartTime :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.UTCTime)
-exportInfo_requestedStartTime = Lens.lens (\ExportInfo' {requestedStartTime} -> requestedStartTime) (\s@ExportInfo' {} a -> s {requestedStartTime = a} :: ExportInfo) Prelude.. Lens.mapping Core._Time
+exportInfo_requestedStartTime = Lens.lens (\ExportInfo' {requestedStartTime} -> requestedStartTime) (\s@ExportInfo' {} a -> s {requestedStartTime = a} :: ExportInfo) Prelude.. Lens.mapping Data._Time
 
 -- | A URL for an Amazon S3 bucket where you can review the exported data.
 -- The URL is displayed only if the export succeeded.
@@ -149,22 +150,22 @@ exportInfo_statusMessage = Lens.lens (\ExportInfo' {statusMessage} -> statusMess
 
 -- | The time that the data export was initiated.
 exportInfo_exportRequestTime :: Lens.Lens' ExportInfo Prelude.UTCTime
-exportInfo_exportRequestTime = Lens.lens (\ExportInfo' {exportRequestTime} -> exportRequestTime) (\s@ExportInfo' {} a -> s {exportRequestTime = a} :: ExportInfo) Prelude.. Core._Time
+exportInfo_exportRequestTime = Lens.lens (\ExportInfo' {exportRequestTime} -> exportRequestTime) (\s@ExportInfo' {} a -> s {exportRequestTime = a} :: ExportInfo) Prelude.. Data._Time
 
-instance Core.FromJSON ExportInfo where
+instance Data.FromJSON ExportInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportInfo"
       ( \x ->
           ExportInfo'
-            Prelude.<$> (x Core..:? "requestedEndTime")
-            Prelude.<*> (x Core..:? "isTruncated")
-            Prelude.<*> (x Core..:? "requestedStartTime")
-            Prelude.<*> (x Core..:? "configurationsDownloadUrl")
-            Prelude.<*> (x Core..: "exportId")
-            Prelude.<*> (x Core..: "exportStatus")
-            Prelude.<*> (x Core..: "statusMessage")
-            Prelude.<*> (x Core..: "exportRequestTime")
+            Prelude.<$> (x Data..:? "requestedEndTime")
+            Prelude.<*> (x Data..:? "isTruncated")
+            Prelude.<*> (x Data..:? "requestedStartTime")
+            Prelude.<*> (x Data..:? "configurationsDownloadUrl")
+            Prelude.<*> (x Data..: "exportId")
+            Prelude.<*> (x Data..: "exportStatus")
+            Prelude.<*> (x Data..: "statusMessage")
+            Prelude.<*> (x Data..: "exportRequestTime")
       )
 
 instance Prelude.Hashable ExportInfo where

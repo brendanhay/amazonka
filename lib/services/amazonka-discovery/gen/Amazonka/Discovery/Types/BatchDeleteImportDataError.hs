@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.BatchDeleteImportDataError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,15 +74,15 @@ batchDeleteImportDataError_errorCode = Lens.lens (\BatchDeleteImportDataError' {
 batchDeleteImportDataError_errorDescription :: Lens.Lens' BatchDeleteImportDataError (Prelude.Maybe Prelude.Text)
 batchDeleteImportDataError_errorDescription = Lens.lens (\BatchDeleteImportDataError' {errorDescription} -> errorDescription) (\s@BatchDeleteImportDataError' {} a -> s {errorDescription = a} :: BatchDeleteImportDataError)
 
-instance Core.FromJSON BatchDeleteImportDataError where
+instance Data.FromJSON BatchDeleteImportDataError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDeleteImportDataError"
       ( \x ->
           BatchDeleteImportDataError'
-            Prelude.<$> (x Core..:? "importTaskId")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "errorDescription")
+            Prelude.<$> (x Data..:? "importTaskId")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorDescription")
       )
 
 instance Prelude.Hashable BatchDeleteImportDataError where

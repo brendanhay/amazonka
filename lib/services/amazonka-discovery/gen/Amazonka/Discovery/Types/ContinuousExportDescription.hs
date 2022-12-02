@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.ContinuousExportDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types.ContinuousExportStatus
 import Amazonka.Discovery.Types.DataSource
 import qualified Amazonka.Prelude as Prelude
@@ -33,7 +34,7 @@ data ContinuousExportDescription = ContinuousExportDescription'
     -- stored.
     s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that represents when this continuous export was stopped.
-    stopTime :: Prelude.Maybe Core.POSIX,
+    stopTime :: Prelude.Maybe Data.POSIX,
     -- | Contains information about any errors that have occurred. This data type
     -- can have the following values:
     --
@@ -138,7 +139,7 @@ data ContinuousExportDescription = ContinuousExportDescription'
     -- | The unique ID assigned to this export.
     exportId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp representing when the continuous export was started.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -281,7 +282,7 @@ continuousExportDescription_s3Bucket = Lens.lens (\ContinuousExportDescription' 
 
 -- | The timestamp that represents when this continuous export was stopped.
 continuousExportDescription_stopTime :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.UTCTime)
-continuousExportDescription_stopTime = Lens.lens (\ContinuousExportDescription' {stopTime} -> stopTime) (\s@ContinuousExportDescription' {} a -> s {stopTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Core._Time
+continuousExportDescription_stopTime = Lens.lens (\ContinuousExportDescription' {stopTime} -> stopTime) (\s@ContinuousExportDescription' {} a -> s {stopTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Contains information about any errors that have occurred. This data type
 -- can have the following values:
@@ -398,24 +399,24 @@ continuousExportDescription_exportId = Lens.lens (\ContinuousExportDescription' 
 
 -- | The timestamp representing when the continuous export was started.
 continuousExportDescription_startTime :: Lens.Lens' ContinuousExportDescription (Prelude.Maybe Prelude.UTCTime)
-continuousExportDescription_startTime = Lens.lens (\ContinuousExportDescription' {startTime} -> startTime) (\s@ContinuousExportDescription' {} a -> s {startTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Core._Time
+continuousExportDescription_startTime = Lens.lens (\ContinuousExportDescription' {startTime} -> startTime) (\s@ContinuousExportDescription' {} a -> s {startTime = a} :: ContinuousExportDescription) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ContinuousExportDescription where
+instance Data.FromJSON ContinuousExportDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContinuousExportDescription"
       ( \x ->
           ContinuousExportDescription'
-            Prelude.<$> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "stopTime")
-            Prelude.<*> (x Core..:? "statusDetail")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> ( x Core..:? "schemaStorageConfig"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "s3Bucket")
+            Prelude.<*> (x Data..:? "stopTime")
+            Prelude.<*> (x Data..:? "statusDetail")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> ( x Data..:? "schemaStorageConfig"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "dataSource")
-            Prelude.<*> (x Core..:? "exportId")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Data..:? "dataSource")
+            Prelude.<*> (x Data..:? "exportId")
+            Prelude.<*> (x Data..:? "startTime")
       )
 
 instance Prelude.Hashable ContinuousExportDescription where

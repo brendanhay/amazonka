@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.OrderByElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types.OrderString
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,11 +75,11 @@ instance Prelude.NFData OrderByElement where
     Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf fieldName
 
-instance Core.ToJSON OrderByElement where
+instance Data.ToJSON OrderByElement where
   toJSON OrderByElement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            Prelude.Just ("fieldName" Core..= fieldName)
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            Prelude.Just ("fieldName" Data..= fieldName)
           ]
       )

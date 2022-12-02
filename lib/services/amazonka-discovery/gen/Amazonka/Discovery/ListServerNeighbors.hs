@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,10 +148,10 @@ instance Core.AWSRequest ListServerNeighbors where
     Response.receiveJSON
       ( \s h x ->
           ListServerNeighborsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "knownDependencyCount")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "knownDependencyCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "neighbors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "neighbors" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListServerNeighbors where
@@ -169,40 +170,40 @@ instance Prelude.NFData ListServerNeighbors where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf configurationId
 
-instance Core.ToHeaders ListServerNeighbors where
+instance Data.ToHeaders ListServerNeighbors where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.ListServerNeighbors" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.ListServerNeighbors" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListServerNeighbors where
+instance Data.ToJSON ListServerNeighbors where
   toJSON ListServerNeighbors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("portInformationNeeded" Core..=)
+          [ ("portInformationNeeded" Data..=)
               Prelude.<$> portInformationNeeded,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("neighborConfigurationIds" Core..=)
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("neighborConfigurationIds" Data..=)
               Prelude.<$> neighborConfigurationIds,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("configurationId" Core..= configurationId)
+              ("configurationId" Data..= configurationId)
           ]
       )
 
-instance Core.ToPath ListServerNeighbors where
+instance Data.ToPath ListServerNeighbors where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServerNeighbors where
+instance Data.ToQuery ListServerNeighbors where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServerNeighborsResponse' smart constructor.

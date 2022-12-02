@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,14 +74,14 @@ data StartExportTask = StartExportTask'
     -- | The end timestamp for exported data from the single Application
     -- Discovery Agent selected in the filters. If no value is specified,
     -- exported data includes the most recent data collected by the agent.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The file format for the returned export data. Default value is @CSV@.
     -- __Note:__ /The/ @GRAPHML@ /option has been deprecated./
     exportDataFormat :: Prelude.Maybe [ExportDataFormat],
     -- | The start timestamp for exported data from the single Application
     -- Discovery Agent selected in the filters. If no value is specified, data
     -- is exported starting from the first data collected by the agent.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -132,7 +133,7 @@ startExportTask_filters = Lens.lens (\StartExportTask' {filters} -> filters) (\s
 -- Discovery Agent selected in the filters. If no value is specified,
 -- exported data includes the most recent data collected by the agent.
 startExportTask_endTime :: Lens.Lens' StartExportTask (Prelude.Maybe Prelude.UTCTime)
-startExportTask_endTime = Lens.lens (\StartExportTask' {endTime} -> endTime) (\s@StartExportTask' {} a -> s {endTime = a} :: StartExportTask) Prelude.. Lens.mapping Core._Time
+startExportTask_endTime = Lens.lens (\StartExportTask' {endTime} -> endTime) (\s@StartExportTask' {} a -> s {endTime = a} :: StartExportTask) Prelude.. Lens.mapping Data._Time
 
 -- | The file format for the returned export data. Default value is @CSV@.
 -- __Note:__ /The/ @GRAPHML@ /option has been deprecated./
@@ -143,7 +144,7 @@ startExportTask_exportDataFormat = Lens.lens (\StartExportTask' {exportDataForma
 -- Discovery Agent selected in the filters. If no value is specified, data
 -- is exported starting from the first data collected by the agent.
 startExportTask_startTime :: Lens.Lens' StartExportTask (Prelude.Maybe Prelude.UTCTime)
-startExportTask_startTime = Lens.lens (\StartExportTask' {startTime} -> startTime) (\s@StartExportTask' {} a -> s {startTime = a} :: StartExportTask) Prelude.. Lens.mapping Core._Time
+startExportTask_startTime = Lens.lens (\StartExportTask' {startTime} -> startTime) (\s@StartExportTask' {} a -> s {startTime = a} :: StartExportTask) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSRequest StartExportTask where
   type
@@ -155,7 +156,7 @@ instance Core.AWSRequest StartExportTask where
     Response.receiveJSON
       ( \s h x ->
           StartExportTaskResponse'
-            Prelude.<$> (x Core..?> "exportId")
+            Prelude.<$> (x Data..?> "exportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,37 +174,37 @@ instance Prelude.NFData StartExportTask where
       `Prelude.seq` Prelude.rnf exportDataFormat
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders StartExportTask where
+instance Data.ToHeaders StartExportTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.StartExportTask" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.StartExportTask" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartExportTask where
+instance Data.ToJSON StartExportTask where
   toJSON StartExportTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("endTime" Core..=) Prelude.<$> endTime,
-            ("exportDataFormat" Core..=)
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("exportDataFormat" Data..=)
               Prelude.<$> exportDataFormat,
-            ("startTime" Core..=) Prelude.<$> startTime
+            ("startTime" Data..=) Prelude.<$> startTime
           ]
       )
 
-instance Core.ToPath StartExportTask where
+instance Data.ToPath StartExportTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartExportTask where
+instance Data.ToQuery StartExportTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartExportTaskResponse' smart constructor.

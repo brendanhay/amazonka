@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.CustomerAgentlessCollectorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newCustomerAgentlessCollectorInfo' smart constructor.
@@ -125,19 +126,19 @@ customerAgentlessCollectorInfo_totalAgentlessCollectors = Lens.lens (\CustomerAg
 customerAgentlessCollectorInfo_unknownAgentlessCollectors :: Lens.Lens' CustomerAgentlessCollectorInfo Prelude.Int
 customerAgentlessCollectorInfo_unknownAgentlessCollectors = Lens.lens (\CustomerAgentlessCollectorInfo' {unknownAgentlessCollectors} -> unknownAgentlessCollectors) (\s@CustomerAgentlessCollectorInfo' {} a -> s {unknownAgentlessCollectors = a} :: CustomerAgentlessCollectorInfo)
 
-instance Core.FromJSON CustomerAgentlessCollectorInfo where
+instance Data.FromJSON CustomerAgentlessCollectorInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerAgentlessCollectorInfo"
       ( \x ->
           CustomerAgentlessCollectorInfo'
-            Prelude.<$> (x Core..: "activeAgentlessCollectors")
-            Prelude.<*> (x Core..: "healthyAgentlessCollectors")
-            Prelude.<*> (x Core..: "denyListedAgentlessCollectors")
-            Prelude.<*> (x Core..: "shutdownAgentlessCollectors")
-            Prelude.<*> (x Core..: "unhealthyAgentlessCollectors")
-            Prelude.<*> (x Core..: "totalAgentlessCollectors")
-            Prelude.<*> (x Core..: "unknownAgentlessCollectors")
+            Prelude.<$> (x Data..: "activeAgentlessCollectors")
+            Prelude.<*> (x Data..: "healthyAgentlessCollectors")
+            Prelude.<*> (x Data..: "denyListedAgentlessCollectors")
+            Prelude.<*> (x Data..: "shutdownAgentlessCollectors")
+            Prelude.<*> (x Data..: "unhealthyAgentlessCollectors")
+            Prelude.<*> (x Data..: "totalAgentlessCollectors")
+            Prelude.<*> (x Data..: "unknownAgentlessCollectors")
       )
 
 instance

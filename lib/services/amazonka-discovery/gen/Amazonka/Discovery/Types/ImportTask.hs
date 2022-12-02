@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.ImportTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types.ImportStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,15 +77,15 @@ data ImportTask = ImportTask'
     applicationImportFailure :: Prelude.Maybe Prelude.Int,
     -- | The time that the import task request finished, presented in the Unix
     -- time stamp format.
-    importCompletionTime :: Prelude.Maybe Core.POSIX,
+    importCompletionTime :: Prelude.Maybe Data.POSIX,
     -- | The time that the import task request was made, presented in the Unix
     -- time stamp format.
-    importRequestTime :: Prelude.Maybe Core.POSIX,
+    importRequestTime :: Prelude.Maybe Data.POSIX,
     -- | The URL for your import file that you\'ve uploaded to Amazon S3.
     importUrl :: Prelude.Maybe Prelude.Text,
     -- | The time that the import task request was deleted, presented in the Unix
     -- time stamp format.
-    importDeletedTime :: Prelude.Maybe Core.POSIX
+    importDeletedTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -234,12 +235,12 @@ importTask_applicationImportFailure = Lens.lens (\ImportTask' {applicationImport
 -- | The time that the import task request finished, presented in the Unix
 -- time stamp format.
 importTask_importCompletionTime :: Lens.Lens' ImportTask (Prelude.Maybe Prelude.UTCTime)
-importTask_importCompletionTime = Lens.lens (\ImportTask' {importCompletionTime} -> importCompletionTime) (\s@ImportTask' {} a -> s {importCompletionTime = a} :: ImportTask) Prelude.. Lens.mapping Core._Time
+importTask_importCompletionTime = Lens.lens (\ImportTask' {importCompletionTime} -> importCompletionTime) (\s@ImportTask' {} a -> s {importCompletionTime = a} :: ImportTask) Prelude.. Lens.mapping Data._Time
 
 -- | The time that the import task request was made, presented in the Unix
 -- time stamp format.
 importTask_importRequestTime :: Lens.Lens' ImportTask (Prelude.Maybe Prelude.UTCTime)
-importTask_importRequestTime = Lens.lens (\ImportTask' {importRequestTime} -> importRequestTime) (\s@ImportTask' {} a -> s {importRequestTime = a} :: ImportTask) Prelude.. Lens.mapping Core._Time
+importTask_importRequestTime = Lens.lens (\ImportTask' {importRequestTime} -> importRequestTime) (\s@ImportTask' {} a -> s {importRequestTime = a} :: ImportTask) Prelude.. Lens.mapping Data._Time
 
 -- | The URL for your import file that you\'ve uploaded to Amazon S3.
 importTask_importUrl :: Lens.Lens' ImportTask (Prelude.Maybe Prelude.Text)
@@ -248,27 +249,27 @@ importTask_importUrl = Lens.lens (\ImportTask' {importUrl} -> importUrl) (\s@Imp
 -- | The time that the import task request was deleted, presented in the Unix
 -- time stamp format.
 importTask_importDeletedTime :: Lens.Lens' ImportTask (Prelude.Maybe Prelude.UTCTime)
-importTask_importDeletedTime = Lens.lens (\ImportTask' {importDeletedTime} -> importDeletedTime) (\s@ImportTask' {} a -> s {importDeletedTime = a} :: ImportTask) Prelude.. Lens.mapping Core._Time
+importTask_importDeletedTime = Lens.lens (\ImportTask' {importDeletedTime} -> importDeletedTime) (\s@ImportTask' {} a -> s {importDeletedTime = a} :: ImportTask) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ImportTask where
+instance Data.FromJSON ImportTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportTask"
       ( \x ->
           ImportTask'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "serverImportFailure")
-            Prelude.<*> (x Core..:? "clientRequestToken")
-            Prelude.<*> (x Core..:? "importTaskId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "serverImportSuccess")
-            Prelude.<*> (x Core..:? "errorsAndFailedEntriesZip")
-            Prelude.<*> (x Core..:? "applicationImportSuccess")
-            Prelude.<*> (x Core..:? "applicationImportFailure")
-            Prelude.<*> (x Core..:? "importCompletionTime")
-            Prelude.<*> (x Core..:? "importRequestTime")
-            Prelude.<*> (x Core..:? "importUrl")
-            Prelude.<*> (x Core..:? "importDeletedTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "serverImportFailure")
+            Prelude.<*> (x Data..:? "clientRequestToken")
+            Prelude.<*> (x Data..:? "importTaskId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "serverImportSuccess")
+            Prelude.<*> (x Data..:? "errorsAndFailedEntriesZip")
+            Prelude.<*> (x Data..:? "applicationImportSuccess")
+            Prelude.<*> (x Data..:? "applicationImportFailure")
+            Prelude.<*> (x Data..:? "importCompletionTime")
+            Prelude.<*> (x Data..:? "importRequestTime")
+            Prelude.<*> (x Data..:? "importUrl")
+            Prelude.<*> (x Data..:? "importDeletedTime")
       )
 
 instance Prelude.Hashable ImportTask where

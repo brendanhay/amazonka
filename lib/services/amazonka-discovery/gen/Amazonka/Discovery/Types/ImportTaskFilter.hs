@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.ImportTaskFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types.ImportTaskFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,11 +82,11 @@ instance Prelude.NFData ImportTaskFilter where
   rnf ImportTaskFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON ImportTaskFilter where
+instance Data.ToJSON ImportTaskFilter where
   toJSON ImportTaskFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("values" Core..=) Prelude.<$> values
+          [ ("name" Data..=) Prelude.<$> name,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

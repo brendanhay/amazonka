@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.ConfigurationTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types.ConfigurationItemType
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ConfigurationTag = ConfigurationTag'
     key :: Prelude.Maybe Prelude.Text,
     -- | The time the configuration tag was created in Coordinated Universal Time
     -- (UTC).
-    timeOfCreation :: Prelude.Maybe Core.POSIX,
+    timeOfCreation :: Prelude.Maybe Data.POSIX,
     -- | The configuration ID for the item to tag. You can specify a list of keys
     -- and values.
     configurationId :: Prelude.Maybe Prelude.Text,
@@ -83,7 +84,7 @@ configurationTag_key = Lens.lens (\ConfigurationTag' {key} -> key) (\s@Configura
 -- | The time the configuration tag was created in Coordinated Universal Time
 -- (UTC).
 configurationTag_timeOfCreation :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.UTCTime)
-configurationTag_timeOfCreation = Lens.lens (\ConfigurationTag' {timeOfCreation} -> timeOfCreation) (\s@ConfigurationTag' {} a -> s {timeOfCreation = a} :: ConfigurationTag) Prelude.. Lens.mapping Core._Time
+configurationTag_timeOfCreation = Lens.lens (\ConfigurationTag' {timeOfCreation} -> timeOfCreation) (\s@ConfigurationTag' {} a -> s {timeOfCreation = a} :: ConfigurationTag) Prelude.. Lens.mapping Data._Time
 
 -- | The configuration ID for the item to tag. You can specify a list of keys
 -- and values.
@@ -99,17 +100,17 @@ configurationTag_configurationType = Lens.lens (\ConfigurationTag' {configuratio
 configurationTag_value :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.Text)
 configurationTag_value = Lens.lens (\ConfigurationTag' {value} -> value) (\s@ConfigurationTag' {} a -> s {value = a} :: ConfigurationTag)
 
-instance Core.FromJSON ConfigurationTag where
+instance Data.FromJSON ConfigurationTag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationTag"
       ( \x ->
           ConfigurationTag'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "timeOfCreation")
-            Prelude.<*> (x Core..:? "configurationId")
-            Prelude.<*> (x Core..:? "configurationType")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "timeOfCreation")
+            Prelude.<*> (x Data..:? "configurationId")
+            Prelude.<*> (x Data..:? "configurationType")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ConfigurationTag where

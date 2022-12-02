@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -200,8 +201,8 @@ instance Core.AWSRequest ListConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "configurations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "configurations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,38 +222,38 @@ instance Prelude.NFData ListConfigurations where
       `Prelude.seq` Prelude.rnf orderBy
       `Prelude.seq` Prelude.rnf configurationType
 
-instance Core.ToHeaders ListConfigurations where
+instance Data.ToHeaders ListConfigurations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.ListConfigurations" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.ListConfigurations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListConfigurations where
+instance Data.ToJSON ListConfigurations where
   toJSON ListConfigurations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("orderBy" Core..=) Prelude.<$> orderBy,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("orderBy" Data..=) Prelude.<$> orderBy,
             Prelude.Just
-              ("configurationType" Core..= configurationType)
+              ("configurationType" Data..= configurationType)
           ]
       )
 
-instance Core.ToPath ListConfigurations where
+instance Data.ToPath ListConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListConfigurations where
+instance Data.ToQuery ListConfigurations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConfigurationsResponse' smart constructor.

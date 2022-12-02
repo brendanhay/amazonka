@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.CustomerMeCollectorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The inventory data for installed Migration Evaluator collectors.
@@ -128,19 +129,19 @@ customerMeCollectorInfo_totalMeCollectors = Lens.lens (\CustomerMeCollectorInfo'
 customerMeCollectorInfo_unknownMeCollectors :: Lens.Lens' CustomerMeCollectorInfo Prelude.Int
 customerMeCollectorInfo_unknownMeCollectors = Lens.lens (\CustomerMeCollectorInfo' {unknownMeCollectors} -> unknownMeCollectors) (\s@CustomerMeCollectorInfo' {} a -> s {unknownMeCollectors = a} :: CustomerMeCollectorInfo)
 
-instance Core.FromJSON CustomerMeCollectorInfo where
+instance Data.FromJSON CustomerMeCollectorInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerMeCollectorInfo"
       ( \x ->
           CustomerMeCollectorInfo'
-            Prelude.<$> (x Core..: "activeMeCollectors")
-            Prelude.<*> (x Core..: "healthyMeCollectors")
-            Prelude.<*> (x Core..: "denyListedMeCollectors")
-            Prelude.<*> (x Core..: "shutdownMeCollectors")
-            Prelude.<*> (x Core..: "unhealthyMeCollectors")
-            Prelude.<*> (x Core..: "totalMeCollectors")
-            Prelude.<*> (x Core..: "unknownMeCollectors")
+            Prelude.<$> (x Data..: "activeMeCollectors")
+            Prelude.<*> (x Data..: "healthyMeCollectors")
+            Prelude.<*> (x Data..: "denyListedMeCollectors")
+            Prelude.<*> (x Data..: "shutdownMeCollectors")
+            Prelude.<*> (x Data..: "unhealthyMeCollectors")
+            Prelude.<*> (x Data..: "totalMeCollectors")
+            Prelude.<*> (x Data..: "unknownMeCollectors")
       )
 
 instance Prelude.Hashable CustomerMeCollectorInfo where

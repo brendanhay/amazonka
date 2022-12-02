@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,8 +85,8 @@ instance Core.AWSRequest StopContinuousExport where
     Response.receiveJSON
       ( \s h x ->
           StopContinuousExportResponse'
-            Prelude.<$> (x Core..?> "stopTime")
-            Prelude.<*> (x Core..?> "startTime")
+            Prelude.<$> (x Data..?> "stopTime")
+            Prelude.<*> (x Data..?> "startTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,41 +97,41 @@ instance Prelude.Hashable StopContinuousExport where
 instance Prelude.NFData StopContinuousExport where
   rnf StopContinuousExport' {..} = Prelude.rnf exportId
 
-instance Core.ToHeaders StopContinuousExport where
+instance Data.ToHeaders StopContinuousExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.StopContinuousExport" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.StopContinuousExport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopContinuousExport where
+instance Data.ToJSON StopContinuousExport where
   toJSON StopContinuousExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("exportId" Core..= exportId)]
+          [Prelude.Just ("exportId" Data..= exportId)]
       )
 
-instance Core.ToPath StopContinuousExport where
+instance Data.ToPath StopContinuousExport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopContinuousExport where
+instance Data.ToQuery StopContinuousExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopContinuousExportResponse' smart constructor.
 data StopContinuousExportResponse = StopContinuousExportResponse'
   { -- | Timestamp that represents when this continuous export was stopped.
-    stopTime :: Prelude.Maybe Core.POSIX,
+    stopTime :: Prelude.Maybe Data.POSIX,
     -- | Timestamp that represents when this continuous export started collecting
     -- data.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,12 +165,12 @@ newStopContinuousExportResponse pHttpStatus_ =
 
 -- | Timestamp that represents when this continuous export was stopped.
 stopContinuousExportResponse_stopTime :: Lens.Lens' StopContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
-stopContinuousExportResponse_stopTime = Lens.lens (\StopContinuousExportResponse' {stopTime} -> stopTime) (\s@StopContinuousExportResponse' {} a -> s {stopTime = a} :: StopContinuousExportResponse) Prelude.. Lens.mapping Core._Time
+stopContinuousExportResponse_stopTime = Lens.lens (\StopContinuousExportResponse' {stopTime} -> stopTime) (\s@StopContinuousExportResponse' {} a -> s {stopTime = a} :: StopContinuousExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Timestamp that represents when this continuous export started collecting
 -- data.
 stopContinuousExportResponse_startTime :: Lens.Lens' StopContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
-stopContinuousExportResponse_startTime = Lens.lens (\StopContinuousExportResponse' {startTime} -> startTime) (\s@StopContinuousExportResponse' {} a -> s {startTime = a} :: StopContinuousExportResponse) Prelude.. Lens.mapping Core._Time
+stopContinuousExportResponse_startTime = Lens.lens (\StopContinuousExportResponse' {startTime} -> startTime) (\s@StopContinuousExportResponse' {} a -> s {startTime = a} :: StopContinuousExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 stopContinuousExportResponse_httpStatus :: Lens.Lens' StopContinuousExportResponse Prelude.Int

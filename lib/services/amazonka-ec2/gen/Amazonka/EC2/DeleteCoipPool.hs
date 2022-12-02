@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest DeleteCoipPool where
     Response.receiveXML
       ( \s h x ->
           DeleteCoipPoolResponse'
-            Prelude.<$> (x Core..@? "coipPool")
+            Prelude.<$> (x Data..@? "coipPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,21 +119,21 @@ instance Prelude.NFData DeleteCoipPool where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf coipPoolId
 
-instance Core.ToHeaders DeleteCoipPool where
+instance Data.ToHeaders DeleteCoipPool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteCoipPool where
+instance Data.ToPath DeleteCoipPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteCoipPool where
+instance Data.ToQuery DeleteCoipPool where
   toQuery DeleteCoipPool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteCoipPool" :: Prelude.ByteString),
+          Data.=: ("DeleteCoipPool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "CoipPoolId" Core.=: coipPoolId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "CoipPoolId" Data.=: coipPoolId
       ]
 
 -- | /See:/ 'newDeleteCoipPoolResponse' smart constructor.

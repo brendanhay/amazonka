@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -453,10 +454,10 @@ instance Core.AWSRequest DescribeSecurityGroups where
     Response.receiveXML
       ( \s h x ->
           DescribeSecurityGroupsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "securityGroupInfo"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "securityGroupInfo"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -479,28 +480,28 @@ instance Prelude.NFData DescribeSecurityGroups where
       `Prelude.seq` Prelude.rnf groupIds
       `Prelude.seq` Prelude.rnf groupNames
 
-instance Core.ToHeaders DescribeSecurityGroups where
+instance Data.ToHeaders DescribeSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSecurityGroups where
+instance Data.ToPath DescribeSecurityGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSecurityGroups where
+instance Data.ToQuery DescribeSecurityGroups where
   toQuery DescribeSecurityGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSecurityGroups" :: Prelude.ByteString),
+          Data.=: ("DescribeSecurityGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          (Core.toQueryList "GroupId" Prelude.<$> groupIds),
-        Core.toQuery
-          ( Core.toQueryList "GroupName"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          (Data.toQueryList "GroupId" Prelude.<$> groupIds),
+        Data.toQuery
+          ( Data.toQueryList "GroupName"
               Prelude.<$> groupNames
           )
       ]

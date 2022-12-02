@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetSpotMaintenanceStrategiesRequest
 import Amazonka.EC2.Types.SpotAllocationStrategy
@@ -340,19 +341,19 @@ instance Prelude.NFData SpotOptionsRequest where
       `Prelude.seq` Prelude.rnf allocationStrategy
       `Prelude.seq` Prelude.rnf maxTotalPrice
 
-instance Core.ToQuery SpotOptionsRequest where
+instance Data.ToQuery SpotOptionsRequest where
   toQuery SpotOptionsRequest' {..} =
     Prelude.mconcat
-      [ "SingleInstanceType" Core.=: singleInstanceType,
+      [ "SingleInstanceType" Data.=: singleInstanceType,
         "InstancePoolsToUseCount"
-          Core.=: instancePoolsToUseCount,
+          Data.=: instancePoolsToUseCount,
         "SingleAvailabilityZone"
-          Core.=: singleAvailabilityZone,
-        "MinTargetCapacity" Core.=: minTargetCapacity,
+          Data.=: singleAvailabilityZone,
+        "MinTargetCapacity" Data.=: minTargetCapacity,
         "InstanceInterruptionBehavior"
-          Core.=: instanceInterruptionBehavior,
+          Data.=: instanceInterruptionBehavior,
         "MaintenanceStrategies"
-          Core.=: maintenanceStrategies,
-        "AllocationStrategy" Core.=: allocationStrategy,
-        "MaxTotalPrice" Core.=: maxTotalPrice
+          Data.=: maintenanceStrategies,
+        "AllocationStrategy" Data.=: allocationStrategy,
+        "MaxTotalPrice" Data.=: maxTotalPrice
       ]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IntegrateServices where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AthenaIntegration
 import qualified Amazonka.Prelude as Prelude
@@ -63,11 +64,11 @@ instance Prelude.NFData IntegrateServices where
   rnf IntegrateServices' {..} =
     Prelude.rnf athenaIntegrations
 
-instance Core.ToQuery IntegrateServices where
+instance Data.ToQuery IntegrateServices where
   toQuery IntegrateServices' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "AthenaIntegration"
+      [ Data.toQuery
+          ( Data.toQueryList "AthenaIntegration"
               Prelude.<$> athenaIntegrations
           )
       ]

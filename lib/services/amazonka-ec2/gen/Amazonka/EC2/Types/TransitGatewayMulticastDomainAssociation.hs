@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayMulticastDomainAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SubnetAssociation
 import Amazonka.EC2.Types.TransitGatewayAttachmentResourceType
@@ -98,16 +99,16 @@ transitGatewayMulticastDomainAssociation_subnet :: Lens.Lens' TransitGatewayMult
 transitGatewayMulticastDomainAssociation_subnet = Lens.lens (\TransitGatewayMulticastDomainAssociation' {subnet} -> subnet) (\s@TransitGatewayMulticastDomainAssociation' {} a -> s {subnet = a} :: TransitGatewayMulticastDomainAssociation)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayMulticastDomainAssociation
   where
   parseXML x =
     TransitGatewayMulticastDomainAssociation'
-      Prelude.<$> (x Core..@? "resourceId")
-        Prelude.<*> (x Core..@? "resourceType")
-        Prelude.<*> (x Core..@? "resourceOwnerId")
-        Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-        Prelude.<*> (x Core..@? "subnet")
+      Prelude.<$> (x Data..@? "resourceId")
+        Prelude.<*> (x Data..@? "resourceType")
+        Prelude.<*> (x Data..@? "resourceOwnerId")
+        Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+        Prelude.<*> (x Data..@? "subnet")
 
 instance
   Prelude.Hashable

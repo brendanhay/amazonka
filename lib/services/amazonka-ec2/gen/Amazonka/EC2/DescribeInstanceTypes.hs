@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -606,9 +607,9 @@ instance Core.AWSRequest DescribeInstanceTypes where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceTypesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "instanceTypeSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -629,28 +630,28 @@ instance Prelude.NFData DescribeInstanceTypes where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeInstanceTypes where
+instance Data.ToHeaders DescribeInstanceTypes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInstanceTypes where
+instance Data.ToPath DescribeInstanceTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstanceTypes where
+instance Data.ToQuery DescribeInstanceTypes where
   toQuery DescribeInstanceTypes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstanceTypes" :: Prelude.ByteString),
+          Data.=: ("DescribeInstanceTypes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          ( Core.toQueryList "InstanceType"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          ( Data.toQueryList "InstanceType"
               Prelude.<$> instanceTypes
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeInstanceTypesResponse' smart constructor.

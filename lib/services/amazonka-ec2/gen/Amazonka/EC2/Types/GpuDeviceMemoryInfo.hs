@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.GpuDeviceMemoryInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newGpuDeviceMemoryInfo =
 gpuDeviceMemoryInfo_sizeInMiB :: Lens.Lens' GpuDeviceMemoryInfo (Prelude.Maybe Prelude.Int)
 gpuDeviceMemoryInfo_sizeInMiB = Lens.lens (\GpuDeviceMemoryInfo' {sizeInMiB} -> sizeInMiB) (\s@GpuDeviceMemoryInfo' {} a -> s {sizeInMiB = a} :: GpuDeviceMemoryInfo)
 
-instance Core.FromXML GpuDeviceMemoryInfo where
+instance Data.FromXML GpuDeviceMemoryInfo where
   parseXML x =
     GpuDeviceMemoryInfo'
-      Prelude.<$> (x Core..@? "sizeInMiB")
+      Prelude.<$> (x Data..@? "sizeInMiB")
 
 instance Prelude.Hashable GpuDeviceMemoryInfo where
   hashWithSalt _salt GpuDeviceMemoryInfo' {..} =

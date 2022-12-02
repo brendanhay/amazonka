@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TargetConfigurationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,9 +82,9 @@ instance Prelude.NFData TargetConfigurationRequest where
     Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf offeringId
 
-instance Core.ToQuery TargetConfigurationRequest where
+instance Data.ToQuery TargetConfigurationRequest where
   toQuery TargetConfigurationRequest' {..} =
     Prelude.mconcat
-      [ "InstanceCount" Core.=: instanceCount,
-        "OfferingId" Core.=: offeringId
+      [ "InstanceCount" Data.=: instanceCount,
+        "OfferingId" Data.=: offeringId
       ]

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -433,9 +434,9 @@ instance Core.AWSRequest DescribeSubnets where
     Response.receiveXML
       ( \s h x ->
           DescribeSubnetsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "subnetSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "subnetSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -456,26 +457,26 @@ instance Prelude.NFData DescribeSubnets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders DescribeSubnets where
+instance Data.ToHeaders DescribeSubnets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSubnets where
+instance Data.ToPath DescribeSubnets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSubnets where
+instance Data.ToQuery DescribeSubnets where
   toQuery DescribeSubnets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSubnets" :: Prelude.ByteString),
+          Data.=: ("DescribeSubnets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          (Core.toQueryList "SubnetId" Prelude.<$> subnetIds)
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          (Data.toQueryList "SubnetId" Prelude.<$> subnetIds)
       ]
 
 -- | /See:/ 'newDescribeSubnetsResponse' smart constructor.

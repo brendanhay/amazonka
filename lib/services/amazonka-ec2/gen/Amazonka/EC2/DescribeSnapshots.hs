@@ -105,6 +105,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -409,9 +410,9 @@ instance Core.AWSRequest DescribeSnapshots where
     Response.receiveXML
       ( \s h x ->
           DescribeSnapshotsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "snapshotSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "snapshotSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -436,34 +437,34 @@ instance Prelude.NFData DescribeSnapshots where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf ownerIds
 
-instance Core.ToHeaders DescribeSnapshots where
+instance Data.ToHeaders DescribeSnapshots where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSnapshots where
+instance Data.ToPath DescribeSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSnapshots where
+instance Data.ToQuery DescribeSnapshots where
   toQuery DescribeSnapshots' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSnapshots" :: Prelude.ByteString),
+          Data.=: ("DescribeSnapshots" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          ( Core.toQueryList "RestorableBy"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          ( Data.toQueryList "RestorableBy"
               Prelude.<$> restorableByUserIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          ( Core.toQueryList "SnapshotId"
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          ( Data.toQueryList "SnapshotId"
               Prelude.<$> snapshotIds
           ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          (Core.toQueryList "Owner" Prelude.<$> ownerIds)
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          (Data.toQueryList "Owner" Prelude.<$> ownerIds)
       ]
 
 -- | /See:/ 'newDescribeSnapshotsResponse' smart constructor.

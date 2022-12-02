@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TargetConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,11 +70,11 @@ targetConfiguration_instanceCount = Lens.lens (\TargetConfiguration' {instanceCo
 targetConfiguration_offeringId :: Lens.Lens' TargetConfiguration (Prelude.Maybe Prelude.Text)
 targetConfiguration_offeringId = Lens.lens (\TargetConfiguration' {offeringId} -> offeringId) (\s@TargetConfiguration' {} a -> s {offeringId = a} :: TargetConfiguration)
 
-instance Core.FromXML TargetConfiguration where
+instance Data.FromXML TargetConfiguration where
   parseXML x =
     TargetConfiguration'
-      Prelude.<$> (x Core..@? "instanceCount")
-      Prelude.<*> (x Core..@? "offeringId")
+      Prelude.<$> (x Data..@? "instanceCount")
+      Prelude.<*> (x Data..@? "offeringId")
 
 instance Prelude.Hashable TargetConfiguration where
   hashWithSalt _salt TargetConfiguration' {..} =

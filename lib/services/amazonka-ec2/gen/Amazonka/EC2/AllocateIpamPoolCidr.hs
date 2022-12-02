@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -244,7 +245,7 @@ instance Core.AWSRequest AllocateIpamPoolCidr where
     Response.receiveXML
       ( \s h x ->
           AllocateIpamPoolCidrResponse'
-            Prelude.<$> (x Core..@? "ipamPoolAllocation")
+            Prelude.<$> (x Data..@? "ipamPoolAllocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -270,30 +271,30 @@ instance Prelude.NFData AllocateIpamPoolCidr where
       `Prelude.seq` Prelude.rnf disallowedCidrs
       `Prelude.seq` Prelude.rnf ipamPoolId
 
-instance Core.ToHeaders AllocateIpamPoolCidr where
+instance Data.ToHeaders AllocateIpamPoolCidr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AllocateIpamPoolCidr where
+instance Data.ToPath AllocateIpamPoolCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AllocateIpamPoolCidr where
+instance Data.ToQuery AllocateIpamPoolCidr where
   toQuery AllocateIpamPoolCidr' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AllocateIpamPoolCidr" :: Prelude.ByteString),
+          Data.=: ("AllocateIpamPoolCidr" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "PreviewNextCidr" Core.=: previewNextCidr,
-        "Cidr" Core.=: cidr,
-        "NetmaskLength" Core.=: netmaskLength,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "DisallowedCidr"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "PreviewNextCidr" Data.=: previewNextCidr,
+        "Cidr" Data.=: cidr,
+        "NetmaskLength" Data.=: netmaskLength,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "DisallowedCidr"
               Prelude.<$> disallowedCidrs
           ),
-        "IpamPoolId" Core.=: ipamPoolId
+        "IpamPoolId" Data.=: ipamPoolId
       ]
 
 -- | /See:/ 'newAllocateIpamPoolCidrResponse' smart constructor.

@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -347,7 +348,7 @@ instance Core.AWSRequest CreateVpc where
     Response.receiveXML
       ( \s h x ->
           CreateVpcResponse'
-            Prelude.<$> (x Core..@? "vpc")
+            Prelude.<$> (x Data..@? "vpc")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -382,36 +383,36 @@ instance Prelude.NFData CreateVpc where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf ipv6CidrBlock
 
-instance Core.ToHeaders CreateVpc where
+instance Data.ToHeaders CreateVpc where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateVpc where
+instance Data.ToPath CreateVpc where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpc where
+instance Data.ToQuery CreateVpc where
   toQuery CreateVpc' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVpc" :: Prelude.ByteString),
+          Data.=: ("CreateVpc" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "Ipv6CidrBlockNetworkBorderGroup"
-          Core.=: ipv6CidrBlockNetworkBorderGroup,
-        "Ipv4IpamPoolId" Core.=: ipv4IpamPoolId,
-        "Ipv6Pool" Core.=: ipv6Pool,
-        "InstanceTenancy" Core.=: instanceTenancy,
-        "Ipv4NetmaskLength" Core.=: ipv4NetmaskLength,
-        "Ipv6IpamPoolId" Core.=: ipv6IpamPoolId,
+          Data.=: ipv6CidrBlockNetworkBorderGroup,
+        "Ipv4IpamPoolId" Data.=: ipv4IpamPoolId,
+        "Ipv6Pool" Data.=: ipv6Pool,
+        "InstanceTenancy" Data.=: instanceTenancy,
+        "Ipv4NetmaskLength" Data.=: ipv4NetmaskLength,
+        "Ipv6IpamPoolId" Data.=: ipv6IpamPoolId,
         "AmazonProvidedIpv6CidrBlock"
-          Core.=: amazonProvidedIpv6CidrBlock,
-        "DryRun" Core.=: dryRun,
-        "Ipv6NetmaskLength" Core.=: ipv6NetmaskLength,
-        "CidrBlock" Core.=: cidrBlock,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: amazonProvidedIpv6CidrBlock,
+        "DryRun" Data.=: dryRun,
+        "Ipv6NetmaskLength" Data.=: ipv6NetmaskLength,
+        "CidrBlock" Data.=: cidrBlock,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Ipv6CidrBlock" Core.=: ipv6CidrBlock
+        "Ipv6CidrBlock" Data.=: ipv6CidrBlock
       ]
 
 -- | /See:/ 'newCreateVpcResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkAcl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.NetworkAclAssociation
 import Amazonka.EC2.Types.NetworkAclEntry
@@ -110,22 +111,22 @@ networkAcl_entries = Lens.lens (\NetworkAcl' {entries} -> entries) (\s@NetworkAc
 networkAcl_vpcId :: Lens.Lens' NetworkAcl (Prelude.Maybe Prelude.Text)
 networkAcl_vpcId = Lens.lens (\NetworkAcl' {vpcId} -> vpcId) (\s@NetworkAcl' {} a -> s {vpcId = a} :: NetworkAcl)
 
-instance Core.FromXML NetworkAcl where
+instance Data.FromXML NetworkAcl where
   parseXML x =
     NetworkAcl'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "networkAclId")
-      Prelude.<*> ( x Core..@? "associationSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "networkAclId")
+      Prelude.<*> ( x Data..@? "associationSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "default")
-      Prelude.<*> ( x Core..@? "entrySet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "default")
+      Prelude.<*> ( x Data..@? "entrySet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable NetworkAcl where
   hashWithSalt _salt NetworkAcl' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientVpnAuthenticationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CertificateAuthenticationRequest
 import Amazonka.EC2.Types.ClientVpnAuthenticationType
@@ -128,12 +129,12 @@ instance
       `Prelude.seq` Prelude.rnf mutualAuthentication
       `Prelude.seq` Prelude.rnf activeDirectory
 
-instance Core.ToQuery ClientVpnAuthenticationRequest where
+instance Data.ToQuery ClientVpnAuthenticationRequest where
   toQuery ClientVpnAuthenticationRequest' {..} =
     Prelude.mconcat
-      [ "Type" Core.=: type',
+      [ "Type" Data.=: type',
         "FederatedAuthentication"
-          Core.=: federatedAuthentication,
-        "MutualAuthentication" Core.=: mutualAuthentication,
-        "ActiveDirectory" Core.=: activeDirectory
+          Data.=: federatedAuthentication,
+        "MutualAuthentication" Data.=: mutualAuthentication,
+        "ActiveDirectory" Data.=: activeDirectory
       ]

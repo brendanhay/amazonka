@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservationOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetCapacityReservationUsageStrategy
 import qualified Amazonka.Prelude as Prelude
@@ -104,10 +105,10 @@ newCapacityReservationOptions =
 capacityReservationOptions_usageStrategy :: Lens.Lens' CapacityReservationOptions (Prelude.Maybe FleetCapacityReservationUsageStrategy)
 capacityReservationOptions_usageStrategy = Lens.lens (\CapacityReservationOptions' {usageStrategy} -> usageStrategy) (\s@CapacityReservationOptions' {} a -> s {usageStrategy = a} :: CapacityReservationOptions)
 
-instance Core.FromXML CapacityReservationOptions where
+instance Data.FromXML CapacityReservationOptions where
   parseXML x =
     CapacityReservationOptions'
-      Prelude.<$> (x Core..@? "usageStrategy")
+      Prelude.<$> (x Data..@? "usageStrategy")
 
 instance Prelude.Hashable CapacityReservationOptions where
   hashWithSalt _salt CapacityReservationOptions' {..} =

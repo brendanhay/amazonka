@@ -146,6 +146,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,7 +198,7 @@ data RunInstances = RunInstances'
     -- If you are using a command line tool, base64-encoding is performed for
     -- you, and you can load the text from a file. Otherwise, you must provide
     -- base64-encoded text. User data is limited to 16 KB.
-    userData :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userData :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Reserved.
     additionalInfo :: Prelude.Maybe Prelude.Text,
     -- | The credit option for CPU usage of the burstable performance instance.
@@ -798,7 +799,7 @@ runInstances_clientToken = Lens.lens (\RunInstances' {clientToken} -> clientToke
 -- you, and you can load the text from a file. Otherwise, you must provide
 -- base64-encoded text. User data is limited to 16 KB.
 runInstances_userData :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
-runInstances_userData = Lens.lens (\RunInstances' {userData} -> userData) (\s@RunInstances' {} a -> s {userData = a} :: RunInstances) Prelude.. Lens.mapping Core._Sensitive
+runInstances_userData = Lens.lens (\RunInstances' {userData} -> userData) (\s@RunInstances' {} a -> s {userData = a} :: RunInstances) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Reserved.
 runInstances_additionalInfo :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
@@ -1090,7 +1091,7 @@ instance Core.AWSRequest RunInstances where
   request overrides =
     Request.postQuery (overrides defaultService)
   response =
-    Response.receiveXML (\s h x -> Core.parseXML x)
+    Response.receiveXML (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable RunInstances where
   hashWithSalt _salt RunInstances' {..} =
@@ -1197,89 +1198,89 @@ instance Prelude.NFData RunInstances where
       `Prelude.seq` Prelude.rnf
         minCount
 
-instance Core.ToHeaders RunInstances where
+instance Data.ToHeaders RunInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RunInstances where
+instance Data.ToPath RunInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RunInstances where
+instance Data.ToQuery RunInstances where
   toQuery RunInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RunInstances" :: Prelude.ByteString),
+          Data.=: ("RunInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "EbsOptimized" Core.=: ebsOptimized,
-        "HibernationOptions" Core.=: hibernationOptions,
-        "IamInstanceProfile" Core.=: iamInstanceProfile,
-        Core.toQuery
-          ( Core.toQueryList "ElasticInferenceAccelerator"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "EbsOptimized" Data.=: ebsOptimized,
+        "HibernationOptions" Data.=: hibernationOptions,
+        "IamInstanceProfile" Data.=: iamInstanceProfile,
+        Data.toQuery
+          ( Data.toQueryList "ElasticInferenceAccelerator"
               Prelude.<$> elasticInferenceAccelerators
           ),
-        "Placement" Core.=: placement,
-        "ClientToken" Core.=: clientToken,
-        "UserData" Core.=: userData,
-        "AdditionalInfo" Core.=: additionalInfo,
-        "CreditSpecification" Core.=: creditSpecification,
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
+        "Placement" Data.=: placement,
+        "ClientToken" Data.=: clientToken,
+        "UserData" Data.=: userData,
+        "AdditionalInfo" Data.=: additionalInfo,
+        "CreditSpecification" Data.=: creditSpecification,
+        Data.toQuery
+          ( Data.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
         "InstanceInitiatedShutdownBehavior"
-          Core.=: instanceInitiatedShutdownBehavior,
-        "Monitoring" Core.=: monitoring,
+          Data.=: instanceInitiatedShutdownBehavior,
+        "Monitoring" Data.=: monitoring,
         "InstanceMarketOptions"
-          Core.=: instanceMarketOptions,
-        "SubnetId" Core.=: subnetId,
-        "LaunchTemplate" Core.=: launchTemplate,
+          Data.=: instanceMarketOptions,
+        "SubnetId" Data.=: subnetId,
+        "LaunchTemplate" Data.=: launchTemplate,
         "CapacityReservationSpecification"
-          Core.=: capacityReservationSpecification,
-        "DryRun" Core.=: dryRun,
-        "InstanceType" Core.=: instanceType,
-        "Ipv6AddressCount" Core.=: ipv6AddressCount,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroup"
+          Data.=: capacityReservationSpecification,
+        "DryRun" Data.=: dryRun,
+        "InstanceType" Data.=: instanceType,
+        "Ipv6AddressCount" Data.=: ipv6AddressCount,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroup"
               Prelude.<$> securityGroups
           ),
-        "RamdiskId" Core.=: ramdiskId,
-        "PrivateIpAddress" Core.=: privateIpAddress,
-        "MaintenanceOptions" Core.=: maintenanceOptions,
+        "RamdiskId" Data.=: ramdiskId,
+        "PrivateIpAddress" Data.=: privateIpAddress,
+        "MaintenanceOptions" Data.=: maintenanceOptions,
         "PrivateDnsNameOptions"
-          Core.=: privateDnsNameOptions,
-        "KeyName" Core.=: keyName,
-        Core.toQuery
-          ( Core.toQueryList "LicenseSpecification"
+          Data.=: privateDnsNameOptions,
+        "KeyName" Data.=: keyName,
+        Data.toQuery
+          ( Data.toQueryList "LicenseSpecification"
               Prelude.<$> licenseSpecifications
           ),
-        "KernelId" Core.=: kernelId,
+        "KernelId" Data.=: kernelId,
         "DisableApiTermination"
-          Core.=: disableApiTermination,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: disableApiTermination,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "CpuOptions" Core.=: cpuOptions,
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Address"
+        "CpuOptions" Data.=: cpuOptions,
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Address"
               Prelude.<$> ipv6Addresses
           ),
-        "DisableApiStop" Core.=: disableApiStop,
-        Core.toQuery
-          ( Core.toQueryList "ElasticGpuSpecification"
+        "DisableApiStop" Data.=: disableApiStop,
+        Data.toQuery
+          ( Data.toQueryList "ElasticGpuSpecification"
               Prelude.<$> elasticGpuSpecification
           ),
-        "ImageId" Core.=: imageId,
-        Core.toQuery
-          ( Core.toQueryList "NetworkInterface"
+        "ImageId" Data.=: imageId,
+        Data.toQuery
+          ( Data.toQueryList "NetworkInterface"
               Prelude.<$> networkInterfaces
           ),
-        "EnclaveOptions" Core.=: enclaveOptions,
-        "MetadataOptions" Core.=: metadataOptions,
-        "MaxCount" Core.=: maxCount,
-        "MinCount" Core.=: minCount
+        "EnclaveOptions" Data.=: enclaveOptions,
+        "MetadataOptions" Data.=: metadataOptions,
+        "MaxCount" Data.=: maxCount,
+        "MinCount" Data.=: minCount
       ]

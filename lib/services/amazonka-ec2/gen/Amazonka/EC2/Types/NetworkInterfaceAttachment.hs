@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterfaceAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AttachmentStatus
 import qualified Amazonka.Prelude as Prelude
@@ -41,7 +42,7 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
     -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp indicating when the attachment initiated.
-    attachTime :: Prelude.Maybe Core.ISO8601,
+    attachTime :: Prelude.Maybe Data.ISO8601,
     -- | The device index of the network interface attachment on the instance.
     deviceIndex :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Web Services account ID of the owner of the instance.
@@ -111,7 +112,7 @@ networkInterfaceAttachment_instanceId = Lens.lens (\NetworkInterfaceAttachment' 
 
 -- | The timestamp indicating when the attachment initiated.
 networkInterfaceAttachment_attachTime :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.UTCTime)
-networkInterfaceAttachment_attachTime = Lens.lens (\NetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@NetworkInterfaceAttachment' {} a -> s {attachTime = a} :: NetworkInterfaceAttachment) Prelude.. Lens.mapping Core._Time
+networkInterfaceAttachment_attachTime = Lens.lens (\NetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@NetworkInterfaceAttachment' {} a -> s {attachTime = a} :: NetworkInterfaceAttachment) Prelude.. Lens.mapping Data._Time
 
 -- | The device index of the network interface attachment on the instance.
 networkInterfaceAttachment_deviceIndex :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.Int)
@@ -121,17 +122,17 @@ networkInterfaceAttachment_deviceIndex = Lens.lens (\NetworkInterfaceAttachment'
 networkInterfaceAttachment_instanceOwnerId :: Lens.Lens' NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
 networkInterfaceAttachment_instanceOwnerId = Lens.lens (\NetworkInterfaceAttachment' {instanceOwnerId} -> instanceOwnerId) (\s@NetworkInterfaceAttachment' {} a -> s {instanceOwnerId = a} :: NetworkInterfaceAttachment)
 
-instance Core.FromXML NetworkInterfaceAttachment where
+instance Data.FromXML NetworkInterfaceAttachment where
   parseXML x =
     NetworkInterfaceAttachment'
-      Prelude.<$> (x Core..@? "networkCardIndex")
-      Prelude.<*> (x Core..@? "deleteOnTermination")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "attachmentId")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "attachTime")
-      Prelude.<*> (x Core..@? "deviceIndex")
-      Prelude.<*> (x Core..@? "instanceOwnerId")
+      Prelude.<$> (x Data..@? "networkCardIndex")
+      Prelude.<*> (x Data..@? "deleteOnTermination")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "attachmentId")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "attachTime")
+      Prelude.<*> (x Data..@? "deviceIndex")
+      Prelude.<*> (x Data..@? "instanceOwnerId")
 
 instance Prelude.Hashable NetworkInterfaceAttachment where
   hashWithSalt _salt NetworkInterfaceAttachment' {..} =

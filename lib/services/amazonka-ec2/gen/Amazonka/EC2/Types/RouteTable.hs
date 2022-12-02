@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RouteTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PropagatingVgw
 import Amazonka.EC2.Types.Route
@@ -114,24 +115,24 @@ routeTable_vpcId = Lens.lens (\RouteTable' {vpcId} -> vpcId) (\s@RouteTable' {} 
 routeTable_routes :: Lens.Lens' RouteTable (Prelude.Maybe [Route])
 routeTable_routes = Lens.lens (\RouteTable' {routes} -> routes) (\s@RouteTable' {} a -> s {routes = a} :: RouteTable) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML RouteTable where
+instance Data.FromXML RouteTable where
   parseXML x =
     RouteTable'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "propagatingVgwSet"
+      Prelude.<*> ( x Data..@? "propagatingVgwSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> ( x Core..@? "associationSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> ( x Data..@? "associationSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "routeTableId")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> ( x Core..@? "routeSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "routeTableId")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> ( x Data..@? "routeSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable RouteTable where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,7 +147,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetVpnConnectionDeviceSampleConfigurationResponse'
-            Prelude.<$> (x Core..@? "vpnConnectionDeviceSampleConfiguration")
+            Prelude.<$> (x Data..@? "vpnConnectionDeviceSampleConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,42 +175,42 @@ instance
       `Prelude.seq` Prelude.rnf vpnConnectionDeviceTypeId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetVpnConnectionDeviceSampleConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetVpnConnectionDeviceSampleConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetVpnConnectionDeviceSampleConfiguration
   where
   toQuery
     GetVpnConnectionDeviceSampleConfiguration' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "GetVpnConnectionDeviceSampleConfiguration" ::
+            Data.=: ( "GetVpnConnectionDeviceSampleConfiguration" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
           "InternetKeyExchangeVersion"
-            Core.=: internetKeyExchangeVersion,
-          "DryRun" Core.=: dryRun,
-          "VpnConnectionId" Core.=: vpnConnectionId,
+            Data.=: internetKeyExchangeVersion,
+          "DryRun" Data.=: dryRun,
+          "VpnConnectionId" Data.=: vpnConnectionId,
           "VpnConnectionDeviceTypeId"
-            Core.=: vpnConnectionDeviceTypeId
+            Data.=: vpnConnectionDeviceTypeId
         ]
 
 -- | /See:/ 'newGetVpnConnectionDeviceSampleConfigurationResponse' smart constructor.
 data GetVpnConnectionDeviceSampleConfigurationResponse = GetVpnConnectionDeviceSampleConfigurationResponse'
   { -- | Sample configuration file for the specified customer gateway device.
-    vpnConnectionDeviceSampleConfiguration :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    vpnConnectionDeviceSampleConfiguration :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -241,7 +242,7 @@ newGetVpnConnectionDeviceSampleConfigurationResponse
 
 -- | Sample configuration file for the specified customer gateway device.
 getVpnConnectionDeviceSampleConfigurationResponse_vpnConnectionDeviceSampleConfiguration :: Lens.Lens' GetVpnConnectionDeviceSampleConfigurationResponse (Prelude.Maybe Prelude.Text)
-getVpnConnectionDeviceSampleConfigurationResponse_vpnConnectionDeviceSampleConfiguration = Lens.lens (\GetVpnConnectionDeviceSampleConfigurationResponse' {vpnConnectionDeviceSampleConfiguration} -> vpnConnectionDeviceSampleConfiguration) (\s@GetVpnConnectionDeviceSampleConfigurationResponse' {} a -> s {vpnConnectionDeviceSampleConfiguration = a} :: GetVpnConnectionDeviceSampleConfigurationResponse) Prelude.. Lens.mapping Core._Sensitive
+getVpnConnectionDeviceSampleConfigurationResponse_vpnConnectionDeviceSampleConfiguration = Lens.lens (\GetVpnConnectionDeviceSampleConfigurationResponse' {vpnConnectionDeviceSampleConfiguration} -> vpnConnectionDeviceSampleConfiguration) (\s@GetVpnConnectionDeviceSampleConfigurationResponse' {} a -> s {vpnConnectionDeviceSampleConfiguration = a} :: GetVpnConnectionDeviceSampleConfigurationResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 getVpnConnectionDeviceSampleConfigurationResponse_httpStatus :: Lens.Lens' GetVpnConnectionDeviceSampleConfigurationResponse Prelude.Int

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,9 +184,9 @@ instance Core.AWSRequest DescribeClientVpnConnections where
     Response.receiveXML
       ( \s h x ->
           DescribeClientVpnConnectionsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "connections" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "connections" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -209,27 +210,27 @@ instance Prelude.NFData DescribeClientVpnConnections where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
-instance Core.ToHeaders DescribeClientVpnConnections where
+instance Data.ToHeaders DescribeClientVpnConnections where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClientVpnConnections where
+instance Data.ToPath DescribeClientVpnConnections where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClientVpnConnections where
+instance Data.ToQuery DescribeClientVpnConnections where
   toQuery DescribeClientVpnConnections' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeClientVpnConnections" ::
+          Data.=: ( "DescribeClientVpnConnections" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "ClientVpnEndpointId" Core.=: clientVpnEndpointId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "ClientVpnEndpointId" Data.=: clientVpnEndpointId
       ]
 
 -- | /See:/ 'newDescribeClientVpnConnectionsResponse' smart constructor.

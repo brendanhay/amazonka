@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -254,10 +255,10 @@ instance Core.AWSRequest DescribeVolumesModifications where
     Response.receiveXML
       ( \s h x ->
           DescribeVolumesModificationsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "volumeModificationSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "volumeModificationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -281,28 +282,28 @@ instance Prelude.NFData DescribeVolumesModifications where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeVolumesModifications where
+instance Data.ToHeaders DescribeVolumesModifications where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVolumesModifications where
+instance Data.ToPath DescribeVolumesModifications where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVolumesModifications where
+instance Data.ToQuery DescribeVolumesModifications where
   toQuery DescribeVolumesModifications' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeVolumesModifications" ::
+          Data.=: ( "DescribeVolumesModifications" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "VolumeId" Prelude.<$> volumeIds),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeVolumesModificationsResponse' smart constructor.

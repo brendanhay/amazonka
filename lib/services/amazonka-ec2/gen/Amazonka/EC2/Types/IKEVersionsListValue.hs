@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IKEVersionsListValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newIKEVersionsListValue =
 iKEVersionsListValue_value :: Lens.Lens' IKEVersionsListValue (Prelude.Maybe Prelude.Text)
 iKEVersionsListValue_value = Lens.lens (\IKEVersionsListValue' {value} -> value) (\s@IKEVersionsListValue' {} a -> s {value = a} :: IKEVersionsListValue)
 
-instance Core.FromXML IKEVersionsListValue where
+instance Data.FromXML IKEVersionsListValue where
   parseXML x =
     IKEVersionsListValue'
-      Prelude.<$> (x Core..@? "value")
+      Prelude.<$> (x Data..@? "value")
 
 instance Prelude.Hashable IKEVersionsListValue where
   hashWithSalt _salt IKEVersionsListValue' {..} =

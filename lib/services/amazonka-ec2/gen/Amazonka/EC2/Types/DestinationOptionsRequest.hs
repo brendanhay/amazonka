@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DestinationOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DestinationFileFormat
 import qualified Amazonka.Prelude as Prelude
@@ -91,11 +92,11 @@ instance Prelude.NFData DestinationOptionsRequest where
       `Prelude.seq` Prelude.rnf hiveCompatiblePartitions
       `Prelude.seq` Prelude.rnf fileFormat
 
-instance Core.ToQuery DestinationOptionsRequest where
+instance Data.ToQuery DestinationOptionsRequest where
   toQuery DestinationOptionsRequest' {..} =
     Prelude.mconcat
-      [ "PerHourPartition" Core.=: perHourPartition,
+      [ "PerHourPartition" Data.=: perHourPartition,
         "HiveCompatiblePartitions"
-          Core.=: hiveCompatiblePartitions,
-        "FileFormat" Core.=: fileFormat
+          Data.=: hiveCompatiblePartitions,
+        "FileFormat" Data.=: fileFormat
       ]

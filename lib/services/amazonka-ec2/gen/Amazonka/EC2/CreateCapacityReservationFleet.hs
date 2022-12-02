@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ data CreateCapacityReservationFleet = CreateCapacityReservationFleet'
     -- specified time. For example, if you specify @5\/31\/2019@, @13:30:55@,
     -- the Capacity Reservation Fleet is guaranteed to expire between
     -- @13:30:55@ and @14:30:55@ on @5\/31\/2019@.
-    endDate :: Prelude.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Data.ISO8601,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -234,7 +235,7 @@ createCapacityReservationFleet_clientToken = Lens.lens (\CreateCapacityReservati
 -- the Capacity Reservation Fleet is guaranteed to expire between
 -- @13:30:55@ and @14:30:55@ on @5\/31\/2019@.
 createCapacityReservationFleet_endDate :: Lens.Lens' CreateCapacityReservationFleet (Prelude.Maybe Prelude.UTCTime)
-createCapacityReservationFleet_endDate = Lens.lens (\CreateCapacityReservationFleet' {endDate} -> endDate) (\s@CreateCapacityReservationFleet' {} a -> s {endDate = a} :: CreateCapacityReservationFleet) Prelude.. Lens.mapping Core._Time
+createCapacityReservationFleet_endDate = Lens.lens (\CreateCapacityReservationFleet' {endDate} -> endDate) (\s@CreateCapacityReservationFleet' {} a -> s {endDate = a} :: CreateCapacityReservationFleet) Prelude.. Lens.mapping Data._Time
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -311,22 +312,22 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateCapacityReservationFleetResponse'
-            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "capacityReservationFleetId")
-            Prelude.<*> (x Core..@? "endDate")
-            Prelude.<*> ( x Core..@? "fleetCapacityReservationSet"
+            Prelude.<*> (x Data..@? "capacityReservationFleetId")
+            Prelude.<*> (x Data..@? "endDate")
+            Prelude.<*> ( x Data..@? "fleetCapacityReservationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "state")
-            Prelude.<*> (x Core..@? "totalFulfilledCapacity")
-            Prelude.<*> (x Core..@? "totalTargetCapacity")
-            Prelude.<*> (x Core..@? "allocationStrategy")
-            Prelude.<*> (x Core..@? "createTime")
-            Prelude.<*> (x Core..@? "instanceMatchCriteria")
-            Prelude.<*> (x Core..@? "tenancy")
+            Prelude.<*> (x Data..@? "state")
+            Prelude.<*> (x Data..@? "totalFulfilledCapacity")
+            Prelude.<*> (x Data..@? "totalTargetCapacity")
+            Prelude.<*> (x Data..@? "allocationStrategy")
+            Prelude.<*> (x Data..@? "createTime")
+            Prelude.<*> (x Data..@? "instanceMatchCriteria")
+            Prelude.<*> (x Data..@? "tenancy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -363,38 +364,38 @@ instance
       `Prelude.seq` Prelude.rnf totalTargetCapacity
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateCapacityReservationFleet
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCapacityReservationFleet where
+instance Data.ToPath CreateCapacityReservationFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCapacityReservationFleet where
+instance Data.ToQuery CreateCapacityReservationFleet where
   toQuery CreateCapacityReservationFleet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateCapacityReservationFleet" ::
+          Data.=: ( "CreateCapacityReservationFleet" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "EndDate" Core.=: endDate,
-        "DryRun" Core.=: dryRun,
-        "AllocationStrategy" Core.=: allocationStrategy,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "EndDate" Data.=: endDate,
+        "DryRun" Data.=: dryRun,
+        "AllocationStrategy" Data.=: allocationStrategy,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "InstanceMatchCriteria"
-          Core.=: instanceMatchCriteria,
-        "Tenancy" Core.=: tenancy,
-        Core.toQueryList
+          Data.=: instanceMatchCriteria,
+        "Tenancy" Data.=: tenancy,
+        Data.toQueryList
           "InstanceTypeSpecification"
           instanceTypeSpecifications,
-        "TotalTargetCapacity" Core.=: totalTargetCapacity
+        "TotalTargetCapacity" Data.=: totalTargetCapacity
       ]
 
 -- | /See:/ 'newCreateCapacityReservationFleetResponse' smart constructor.
@@ -404,7 +405,7 @@ data CreateCapacityReservationFleetResponse = CreateCapacityReservationFleetResp
     -- | The ID of the Capacity Reservation Fleet.
     capacityReservationFleetId :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the Capacity Reservation Fleet expires.
-    endDate :: Prelude.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Data.ISO8601,
     -- | Information about the individual Capacity Reservations in the Capacity
     -- Reservation Fleet.
     fleetCapacityReservations :: Prelude.Maybe [FleetCapacityReservation],
@@ -418,7 +419,7 @@ data CreateCapacityReservationFleetResponse = CreateCapacityReservationFleetResp
     -- | The allocation strategy used by the Capacity Reservation Fleet.
     allocationStrategy :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the Capacity Reservation Fleet was created.
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | The instance matching criteria for the Capacity Reservation Fleet.
     instanceMatchCriteria :: Prelude.Maybe FleetInstanceMatchCriteria,
     -- | Indicates the tenancy of Capacity Reservation Fleet.
@@ -499,7 +500,7 @@ createCapacityReservationFleetResponse_capacityReservationFleetId = Lens.lens (\
 
 -- | The date and time at which the Capacity Reservation Fleet expires.
 createCapacityReservationFleetResponse_endDate :: Lens.Lens' CreateCapacityReservationFleetResponse (Prelude.Maybe Prelude.UTCTime)
-createCapacityReservationFleetResponse_endDate = Lens.lens (\CreateCapacityReservationFleetResponse' {endDate} -> endDate) (\s@CreateCapacityReservationFleetResponse' {} a -> s {endDate = a} :: CreateCapacityReservationFleetResponse) Prelude.. Lens.mapping Core._Time
+createCapacityReservationFleetResponse_endDate = Lens.lens (\CreateCapacityReservationFleetResponse' {endDate} -> endDate) (\s@CreateCapacityReservationFleetResponse' {} a -> s {endDate = a} :: CreateCapacityReservationFleetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the individual Capacity Reservations in the Capacity
 -- Reservation Fleet.
@@ -525,7 +526,7 @@ createCapacityReservationFleetResponse_allocationStrategy = Lens.lens (\CreateCa
 
 -- | The date and time at which the Capacity Reservation Fleet was created.
 createCapacityReservationFleetResponse_createTime :: Lens.Lens' CreateCapacityReservationFleetResponse (Prelude.Maybe Prelude.UTCTime)
-createCapacityReservationFleetResponse_createTime = Lens.lens (\CreateCapacityReservationFleetResponse' {createTime} -> createTime) (\s@CreateCapacityReservationFleetResponse' {} a -> s {createTime = a} :: CreateCapacityReservationFleetResponse) Prelude.. Lens.mapping Core._Time
+createCapacityReservationFleetResponse_createTime = Lens.lens (\CreateCapacityReservationFleetResponse' {createTime} -> createTime) (\s@CreateCapacityReservationFleetResponse' {} a -> s {createTime = a} :: CreateCapacityReservationFleetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The instance matching criteria for the Capacity Reservation Fleet.
 createCapacityReservationFleetResponse_instanceMatchCriteria :: Lens.Lens' CreateCapacityReservationFleetResponse (Prelude.Maybe FleetInstanceMatchCriteria)

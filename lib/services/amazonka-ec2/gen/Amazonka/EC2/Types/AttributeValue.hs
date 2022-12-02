@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,9 +52,9 @@ newAttributeValue =
 attributeValue_value :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
 attributeValue_value = Lens.lens (\AttributeValue' {value} -> value) (\s@AttributeValue' {} a -> s {value = a} :: AttributeValue)
 
-instance Core.FromXML AttributeValue where
+instance Data.FromXML AttributeValue where
   parseXML x =
-    AttributeValue' Prelude.<$> (x Core..@? "value")
+    AttributeValue' Prelude.<$> (x Data..@? "value")
 
 instance Prelude.Hashable AttributeValue where
   hashWithSalt _salt AttributeValue' {..} =
@@ -62,6 +63,6 @@ instance Prelude.Hashable AttributeValue where
 instance Prelude.NFData AttributeValue where
   rnf AttributeValue' {..} = Prelude.rnf value
 
-instance Core.ToQuery AttributeValue where
+instance Data.ToQuery AttributeValue where
   toQuery AttributeValue' {..} =
-    Prelude.mconcat ["Value" Core.=: value]
+    Prelude.mconcat ["Value" Data.=: value]

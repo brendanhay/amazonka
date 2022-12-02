@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ProvisionedBandwidth where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,12 +41,12 @@ data ProvisionedBandwidth = ProvisionedBandwidth'
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits>,
     -- contact us through the
     -- <https://console.aws.amazon.com/support/home? Support Center>.
-    provisionTime :: Prelude.Maybe Core.ISO8601,
+    provisionTime :: Prelude.Maybe Data.ISO8601,
     -- | Reserved. If you need to sustain traffic greater than the
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits>,
     -- contact us through the
     -- <https://console.aws.amazon.com/support/home? Support Center>.
-    requestTime :: Prelude.Maybe Core.ISO8601,
+    requestTime :: Prelude.Maybe Data.ISO8601,
     -- | Reserved. If you need to sustain traffic greater than the
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits>,
     -- contact us through the
@@ -114,14 +115,14 @@ provisionedBandwidth_requested = Lens.lens (\ProvisionedBandwidth' {requested} -
 -- contact us through the
 -- <https://console.aws.amazon.com/support/home? Support Center>.
 provisionedBandwidth_provisionTime :: Lens.Lens' ProvisionedBandwidth (Prelude.Maybe Prelude.UTCTime)
-provisionedBandwidth_provisionTime = Lens.lens (\ProvisionedBandwidth' {provisionTime} -> provisionTime) (\s@ProvisionedBandwidth' {} a -> s {provisionTime = a} :: ProvisionedBandwidth) Prelude.. Lens.mapping Core._Time
+provisionedBandwidth_provisionTime = Lens.lens (\ProvisionedBandwidth' {provisionTime} -> provisionTime) (\s@ProvisionedBandwidth' {} a -> s {provisionTime = a} :: ProvisionedBandwidth) Prelude.. Lens.mapping Data._Time
 
 -- | Reserved. If you need to sustain traffic greater than the
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits>,
 -- contact us through the
 -- <https://console.aws.amazon.com/support/home? Support Center>.
 provisionedBandwidth_requestTime :: Lens.Lens' ProvisionedBandwidth (Prelude.Maybe Prelude.UTCTime)
-provisionedBandwidth_requestTime = Lens.lens (\ProvisionedBandwidth' {requestTime} -> requestTime) (\s@ProvisionedBandwidth' {} a -> s {requestTime = a} :: ProvisionedBandwidth) Prelude.. Lens.mapping Core._Time
+provisionedBandwidth_requestTime = Lens.lens (\ProvisionedBandwidth' {requestTime} -> requestTime) (\s@ProvisionedBandwidth' {} a -> s {requestTime = a} :: ProvisionedBandwidth) Prelude.. Lens.mapping Data._Time
 
 -- | Reserved. If you need to sustain traffic greater than the
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits>,
@@ -137,14 +138,14 @@ provisionedBandwidth_status = Lens.lens (\ProvisionedBandwidth' {status} -> stat
 provisionedBandwidth_provisioned :: Lens.Lens' ProvisionedBandwidth (Prelude.Maybe Prelude.Text)
 provisionedBandwidth_provisioned = Lens.lens (\ProvisionedBandwidth' {provisioned} -> provisioned) (\s@ProvisionedBandwidth' {} a -> s {provisioned = a} :: ProvisionedBandwidth)
 
-instance Core.FromXML ProvisionedBandwidth where
+instance Data.FromXML ProvisionedBandwidth where
   parseXML x =
     ProvisionedBandwidth'
-      Prelude.<$> (x Core..@? "requested")
-      Prelude.<*> (x Core..@? "provisionTime")
-      Prelude.<*> (x Core..@? "requestTime")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "provisioned")
+      Prelude.<$> (x Data..@? "requested")
+      Prelude.<*> (x Data..@? "provisionTime")
+      Prelude.<*> (x Data..@? "requestTime")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "provisioned")
 
 instance Prelude.Hashable ProvisionedBandwidth where
   hashWithSalt _salt ProvisionedBandwidth' {..} =

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -319,7 +320,7 @@ instance Core.AWSRequest ModifyClientVpnEndpoint where
     Response.receiveXML
       ( \s h x ->
           ModifyClientVpnEndpointResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -357,37 +358,37 @@ instance Prelude.NFData ModifyClientVpnEndpoint where
       `Prelude.seq` Prelude.rnf selfServicePortal
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
-instance Core.ToHeaders ModifyClientVpnEndpoint where
+instance Data.ToHeaders ModifyClientVpnEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyClientVpnEndpoint where
+instance Data.ToPath ModifyClientVpnEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyClientVpnEndpoint where
+instance Data.ToQuery ModifyClientVpnEndpoint where
   toQuery ModifyClientVpnEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyClientVpnEndpoint" :: Prelude.ByteString),
+          Data.=: ("ModifyClientVpnEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ServerCertificateArn" Core.=: serverCertificateArn,
-        "SessionTimeoutHours" Core.=: sessionTimeoutHours,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ServerCertificateArn" Data.=: serverCertificateArn,
+        "SessionTimeoutHours" Data.=: sessionTimeoutHours,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
-        "DnsServers" Core.=: dnsServers,
-        "ConnectionLogOptions" Core.=: connectionLogOptions,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
+        "DnsServers" Data.=: dnsServers,
+        "ConnectionLogOptions" Data.=: connectionLogOptions,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
         "ClientLoginBannerOptions"
-          Core.=: clientLoginBannerOptions,
-        "ClientConnectOptions" Core.=: clientConnectOptions,
-        "SplitTunnel" Core.=: splitTunnel,
-        "VpcId" Core.=: vpcId,
-        "VpnPort" Core.=: vpnPort,
-        "SelfServicePortal" Core.=: selfServicePortal,
-        "ClientVpnEndpointId" Core.=: clientVpnEndpointId
+          Data.=: clientLoginBannerOptions,
+        "ClientConnectOptions" Data.=: clientConnectOptions,
+        "SplitTunnel" Data.=: splitTunnel,
+        "VpcId" Data.=: vpcId,
+        "VpnPort" Data.=: vpnPort,
+        "SelfServicePortal" Data.=: selfServicePortal,
+        "ClientVpnEndpointId" Data.=: clientVpnEndpointId
       ]
 
 -- | /See:/ 'newModifyClientVpnEndpointResponse' smart constructor.

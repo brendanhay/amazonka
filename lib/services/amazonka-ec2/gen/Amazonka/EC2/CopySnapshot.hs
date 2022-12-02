@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -380,10 +381,10 @@ instance Core.AWSRequest CopySnapshot where
     Response.receiveXML
       ( \s h x ->
           CopySnapshotResponse'
-            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "snapshotId")
+            Prelude.<*> (x Data..@? "snapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -413,33 +414,33 @@ instance Prelude.NFData CopySnapshot where
       `Prelude.seq` Prelude.rnf sourceRegion
       `Prelude.seq` Prelude.rnf sourceSnapshotId
 
-instance Core.ToHeaders CopySnapshot where
+instance Data.ToHeaders CopySnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CopySnapshot where
+instance Data.ToPath CopySnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopySnapshot where
+instance Data.ToQuery CopySnapshot where
   toQuery CopySnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CopySnapshot" :: Prelude.ByteString),
+          Data.=: ("CopySnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "DestinationOutpostArn"
-          Core.=: destinationOutpostArn,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "Encrypted" Core.=: encrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: destinationOutpostArn,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "Encrypted" Data.=: encrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DestinationRegion" Core.=: destinationRegion,
-        "PresignedUrl" Core.=: presignedUrl,
-        "SourceRegion" Core.=: sourceRegion,
-        "SourceSnapshotId" Core.=: sourceSnapshotId
+        "DestinationRegion" Data.=: destinationRegion,
+        "PresignedUrl" Data.=: presignedUrl,
+        "SourceRegion" Data.=: sourceRegion,
+        "SourceSnapshotId" Data.=: sourceSnapshotId
       ]
 
 -- | /See:/ 'newCopySnapshotResponse' smart constructor.

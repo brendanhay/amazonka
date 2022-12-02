@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SnapshotRecycleBinInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSnapshotRecycleBinInfo' smart constructor.
 data SnapshotRecycleBinInfo = SnapshotRecycleBinInfo'
   { -- | The date and time when the snaphsot entered the Recycle Bin.
-    recycleBinEnterTime :: Prelude.Maybe Core.ISO8601,
+    recycleBinEnterTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The description for the snapshot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the snapshot is to be permanently deleted from
     -- the Recycle Bin.
-    recycleBinExitTime :: Prelude.Maybe Core.ISO8601,
+    recycleBinExitTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the volume from which the snapshot was created.
     volumeId :: Prelude.Maybe Prelude.Text
   }
@@ -74,7 +75,7 @@ newSnapshotRecycleBinInfo =
 
 -- | The date and time when the snaphsot entered the Recycle Bin.
 snapshotRecycleBinInfo_recycleBinEnterTime :: Lens.Lens' SnapshotRecycleBinInfo (Prelude.Maybe Prelude.UTCTime)
-snapshotRecycleBinInfo_recycleBinEnterTime = Lens.lens (\SnapshotRecycleBinInfo' {recycleBinEnterTime} -> recycleBinEnterTime) (\s@SnapshotRecycleBinInfo' {} a -> s {recycleBinEnterTime = a} :: SnapshotRecycleBinInfo) Prelude.. Lens.mapping Core._Time
+snapshotRecycleBinInfo_recycleBinEnterTime = Lens.lens (\SnapshotRecycleBinInfo' {recycleBinEnterTime} -> recycleBinEnterTime) (\s@SnapshotRecycleBinInfo' {} a -> s {recycleBinEnterTime = a} :: SnapshotRecycleBinInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the snapshot.
 snapshotRecycleBinInfo_snapshotId :: Lens.Lens' SnapshotRecycleBinInfo (Prelude.Maybe Prelude.Text)
@@ -87,20 +88,20 @@ snapshotRecycleBinInfo_description = Lens.lens (\SnapshotRecycleBinInfo' {descri
 -- | The date and time when the snapshot is to be permanently deleted from
 -- the Recycle Bin.
 snapshotRecycleBinInfo_recycleBinExitTime :: Lens.Lens' SnapshotRecycleBinInfo (Prelude.Maybe Prelude.UTCTime)
-snapshotRecycleBinInfo_recycleBinExitTime = Lens.lens (\SnapshotRecycleBinInfo' {recycleBinExitTime} -> recycleBinExitTime) (\s@SnapshotRecycleBinInfo' {} a -> s {recycleBinExitTime = a} :: SnapshotRecycleBinInfo) Prelude.. Lens.mapping Core._Time
+snapshotRecycleBinInfo_recycleBinExitTime = Lens.lens (\SnapshotRecycleBinInfo' {recycleBinExitTime} -> recycleBinExitTime) (\s@SnapshotRecycleBinInfo' {} a -> s {recycleBinExitTime = a} :: SnapshotRecycleBinInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the volume from which the snapshot was created.
 snapshotRecycleBinInfo_volumeId :: Lens.Lens' SnapshotRecycleBinInfo (Prelude.Maybe Prelude.Text)
 snapshotRecycleBinInfo_volumeId = Lens.lens (\SnapshotRecycleBinInfo' {volumeId} -> volumeId) (\s@SnapshotRecycleBinInfo' {} a -> s {volumeId = a} :: SnapshotRecycleBinInfo)
 
-instance Core.FromXML SnapshotRecycleBinInfo where
+instance Data.FromXML SnapshotRecycleBinInfo where
   parseXML x =
     SnapshotRecycleBinInfo'
-      Prelude.<$> (x Core..@? "recycleBinEnterTime")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "recycleBinExitTime")
-      Prelude.<*> (x Core..@? "volumeId")
+      Prelude.<$> (x Data..@? "recycleBinEnterTime")
+      Prelude.<*> (x Data..@? "snapshotId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "recycleBinExitTime")
+      Prelude.<*> (x Data..@? "volumeId")
 
 instance Prelude.Hashable SnapshotRecycleBinInfo where
   hashWithSalt _salt SnapshotRecycleBinInfo' {..} =

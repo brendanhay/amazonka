@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PurchaseRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -76,9 +77,9 @@ instance Prelude.NFData PurchaseRequest where
     Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf purchaseToken
 
-instance Core.ToQuery PurchaseRequest where
+instance Data.ToQuery PurchaseRequest where
   toQuery PurchaseRequest' {..} =
     Prelude.mconcat
-      [ "InstanceCount" Core.=: instanceCount,
-        "PurchaseToken" Core.=: purchaseToken
+      [ "InstanceCount" Data.=: instanceCount,
+        "PurchaseToken" Data.=: purchaseToken
       ]

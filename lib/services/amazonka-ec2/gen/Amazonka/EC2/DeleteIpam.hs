@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,7 +175,7 @@ instance Core.AWSRequest DeleteIpam where
     Response.receiveXML
       ( \s h x ->
           DeleteIpamResponse'
-            Prelude.<$> (x Core..@? "ipam")
+            Prelude.<$> (x Data..@? "ipam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,22 +191,22 @@ instance Prelude.NFData DeleteIpam where
       `Prelude.seq` Prelude.rnf cascade
       `Prelude.seq` Prelude.rnf ipamId
 
-instance Core.ToHeaders DeleteIpam where
+instance Data.ToHeaders DeleteIpam where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteIpam where
+instance Data.ToPath DeleteIpam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIpam where
+instance Data.ToQuery DeleteIpam where
   toQuery DeleteIpam' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteIpam" :: Prelude.ByteString),
+          Data.=: ("DeleteIpam" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Cascade" Core.=: cascade,
-        "IpamId" Core.=: ipamId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Cascade" Data.=: cascade,
+        "IpamId" Data.=: ipamId
       ]
 
 -- | /See:/ 'newDeleteIpamResponse' smart constructor.

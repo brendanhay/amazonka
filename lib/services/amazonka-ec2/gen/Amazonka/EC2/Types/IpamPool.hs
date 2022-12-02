@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamPool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AddressFamily
 import Amazonka.EC2.Types.IpamPoolAwsService
@@ -393,36 +394,36 @@ ipamPool_ipamRegion = Lens.lens (\IpamPool' {ipamRegion} -> ipamRegion) (\s@Ipam
 ipamPool_autoImport :: Lens.Lens' IpamPool (Prelude.Maybe Prelude.Bool)
 ipamPool_autoImport = Lens.lens (\IpamPool' {autoImport} -> autoImport) (\s@IpamPool' {} a -> s {autoImport = a} :: IpamPool)
 
-instance Core.FromXML IpamPool where
+instance Data.FromXML IpamPool where
   parseXML x =
     IpamPool'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ipamScopeArn")
-      Prelude.<*> (x Core..@? "addressFamily")
-      Prelude.<*> (x Core..@? "ipamScopeType")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "allocationMaxNetmaskLength")
-      Prelude.<*> (x Core..@? "publiclyAdvertisable")
-      Prelude.<*> (x Core..@? "ipamArn")
-      Prelude.<*> (x Core..@? "locale")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "sourceIpamPoolId")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> ( x Core..@? "allocationResourceTagSet"
+      Prelude.<*> (x Data..@? "ipamScopeArn")
+      Prelude.<*> (x Data..@? "addressFamily")
+      Prelude.<*> (x Data..@? "ipamScopeType")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "allocationMaxNetmaskLength")
+      Prelude.<*> (x Data..@? "publiclyAdvertisable")
+      Prelude.<*> (x Data..@? "ipamArn")
+      Prelude.<*> (x Data..@? "locale")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "sourceIpamPoolId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> ( x Data..@? "allocationResourceTagSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "allocationMinNetmaskLength")
-      Prelude.<*> (x Core..@? "stateMessage")
-      Prelude.<*> (x Core..@? "ipamPoolArn")
-      Prelude.<*> (x Core..@? "poolDepth")
-      Prelude.<*> (x Core..@? "ipamPoolId")
-      Prelude.<*> (x Core..@? "allocationDefaultNetmaskLength")
-      Prelude.<*> (x Core..@? "awsService")
-      Prelude.<*> (x Core..@? "ipamRegion")
-      Prelude.<*> (x Core..@? "autoImport")
+      Prelude.<*> (x Data..@? "allocationMinNetmaskLength")
+      Prelude.<*> (x Data..@? "stateMessage")
+      Prelude.<*> (x Data..@? "ipamPoolArn")
+      Prelude.<*> (x Data..@? "poolDepth")
+      Prelude.<*> (x Data..@? "ipamPoolId")
+      Prelude.<*> (x Data..@? "allocationDefaultNetmaskLength")
+      Prelude.<*> (x Data..@? "awsService")
+      Prelude.<*> (x Data..@? "ipamRegion")
+      Prelude.<*> (x Data..@? "autoImport")
 
 instance Prelude.Hashable IpamPool where
   hashWithSalt _salt IpamPool' {..} =

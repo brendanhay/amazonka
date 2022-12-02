@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest ModifyReservedInstances where
     Response.receiveXML
       ( \s h x ->
           ModifyReservedInstancesResponse'
-            Prelude.<$> (x Core..@? "reservedInstancesModificationId")
+            Prelude.<$> (x Data..@? "reservedInstancesModificationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,24 +141,24 @@ instance Prelude.NFData ModifyReservedInstances where
       `Prelude.seq` Prelude.rnf reservedInstancesIds
       `Prelude.seq` Prelude.rnf targetConfigurations
 
-instance Core.ToHeaders ModifyReservedInstances where
+instance Data.ToHeaders ModifyReservedInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyReservedInstances where
+instance Data.ToPath ModifyReservedInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyReservedInstances where
+instance Data.ToQuery ModifyReservedInstances where
   toQuery ModifyReservedInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyReservedInstances" :: Prelude.ByteString),
+          Data.=: ("ModifyReservedInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        Core.toQueryList
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        Data.toQueryList
           "ReservedInstancesId"
           reservedInstancesIds,
-        Core.toQueryList
+        Data.toQueryList
           "ReservedInstancesConfigurationSetItemType"
           targetConfigurations
       ]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.UserBucket where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,7 +73,7 @@ instance Prelude.NFData UserBucket where
     Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf s3Key
 
-instance Core.ToQuery UserBucket where
+instance Data.ToQuery UserBucket where
   toQuery UserBucket' {..} =
     Prelude.mconcat
-      ["S3Bucket" Core.=: s3Bucket, "S3Key" Core.=: s3Key]
+      ["S3Bucket" Data.=: s3Bucket, "S3Key" Data.=: s3Key]

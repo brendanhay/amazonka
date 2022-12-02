@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayPeeringAttachmentOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DynamicRoutingValue
 import qualified Amazonka.Prelude as Prelude
@@ -59,12 +60,12 @@ transitGatewayPeeringAttachmentOptions_dynamicRouting :: Lens.Lens' TransitGatew
 transitGatewayPeeringAttachmentOptions_dynamicRouting = Lens.lens (\TransitGatewayPeeringAttachmentOptions' {dynamicRouting} -> dynamicRouting) (\s@TransitGatewayPeeringAttachmentOptions' {} a -> s {dynamicRouting = a} :: TransitGatewayPeeringAttachmentOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayPeeringAttachmentOptions
   where
   parseXML x =
     TransitGatewayPeeringAttachmentOptions'
-      Prelude.<$> (x Core..@? "dynamicRouting")
+      Prelude.<$> (x Data..@? "dynamicRouting")
 
 instance
   Prelude.Hashable

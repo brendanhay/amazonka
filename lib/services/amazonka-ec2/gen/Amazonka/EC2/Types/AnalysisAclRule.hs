@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AnalysisAclRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PortRange
 import qualified Amazonka.Prelude as Prelude
@@ -99,15 +100,15 @@ analysisAclRule_ruleAction = Lens.lens (\AnalysisAclRule' {ruleAction} -> ruleAc
 analysisAclRule_protocol :: Lens.Lens' AnalysisAclRule (Prelude.Maybe Prelude.Text)
 analysisAclRule_protocol = Lens.lens (\AnalysisAclRule' {protocol} -> protocol) (\s@AnalysisAclRule' {} a -> s {protocol = a} :: AnalysisAclRule)
 
-instance Core.FromXML AnalysisAclRule where
+instance Data.FromXML AnalysisAclRule where
   parseXML x =
     AnalysisAclRule'
-      Prelude.<$> (x Core..@? "egress")
-      Prelude.<*> (x Core..@? "portRange")
-      Prelude.<*> (x Core..@? "cidr")
-      Prelude.<*> (x Core..@? "ruleNumber")
-      Prelude.<*> (x Core..@? "ruleAction")
-      Prelude.<*> (x Core..@? "protocol")
+      Prelude.<$> (x Data..@? "egress")
+      Prelude.<*> (x Data..@? "portRange")
+      Prelude.<*> (x Data..@? "cidr")
+      Prelude.<*> (x Data..@? "ruleNumber")
+      Prelude.<*> (x Data..@? "ruleAction")
+      Prelude.<*> (x Data..@? "protocol")
 
 instance Prelude.Hashable AnalysisAclRule where
   hashWithSalt _salt AnalysisAclRule' {..} =

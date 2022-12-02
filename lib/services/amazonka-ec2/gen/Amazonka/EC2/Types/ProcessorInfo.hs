@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ProcessorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ArchitectureType
 import qualified Amazonka.Prelude as Prelude
@@ -64,13 +65,13 @@ processorInfo_sustainedClockSpeedInGhz = Lens.lens (\ProcessorInfo' {sustainedCl
 processorInfo_supportedArchitectures :: Lens.Lens' ProcessorInfo (Prelude.Maybe [ArchitectureType])
 processorInfo_supportedArchitectures = Lens.lens (\ProcessorInfo' {supportedArchitectures} -> supportedArchitectures) (\s@ProcessorInfo' {} a -> s {supportedArchitectures = a} :: ProcessorInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ProcessorInfo where
+instance Data.FromXML ProcessorInfo where
   parseXML x =
     ProcessorInfo'
-      Prelude.<$> (x Core..@? "sustainedClockSpeedInGhz")
-      Prelude.<*> ( x Core..@? "supportedArchitectures"
+      Prelude.<$> (x Data..@? "sustainedClockSpeedInGhz")
+      Prelude.<*> ( x Data..@? "supportedArchitectures"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ProcessorInfo where

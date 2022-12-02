@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,7 +126,7 @@ instance Core.AWSRequest CreateLocalGatewayRouteTable where
     Response.receiveXML
       ( \s h x ->
           CreateLocalGatewayRouteTableResponse'
-            Prelude.<$> (x Core..@? "localGatewayRouteTable")
+            Prelude.<$> (x Data..@? "localGatewayRouteTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,28 +147,28 @@ instance Prelude.NFData CreateLocalGatewayRouteTable where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf localGatewayId
 
-instance Core.ToHeaders CreateLocalGatewayRouteTable where
+instance Data.ToHeaders CreateLocalGatewayRouteTable where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLocalGatewayRouteTable where
+instance Data.ToPath CreateLocalGatewayRouteTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocalGatewayRouteTable where
+instance Data.ToQuery CreateLocalGatewayRouteTable where
   toQuery CreateLocalGatewayRouteTable' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateLocalGatewayRouteTable" ::
+          Data.=: ( "CreateLocalGatewayRouteTable" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Mode" Core.=: mode,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Mode" Data.=: mode,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "LocalGatewayId" Core.=: localGatewayId
+        "LocalGatewayId" Data.=: localGatewayId
       ]
 
 -- | /See:/ 'newCreateLocalGatewayRouteTableResponse' smart constructor.

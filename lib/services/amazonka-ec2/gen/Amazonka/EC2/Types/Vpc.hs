@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Vpc where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.Tenancy
@@ -154,27 +155,27 @@ vpc_state = Lens.lens (\Vpc' {state} -> state) (\s@Vpc' {} a -> s {state = a} ::
 vpc_vpcId :: Lens.Lens' Vpc Prelude.Text
 vpc_vpcId = Lens.lens (\Vpc' {vpcId} -> vpcId) (\s@Vpc' {} a -> s {vpcId = a} :: Vpc)
 
-instance Core.FromXML Vpc where
+instance Data.FromXML Vpc where
   parseXML x =
     Vpc'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> ( x Core..@? "ipv6CidrBlockAssociationSet"
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> ( x Data..@? "ipv6CidrBlockAssociationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "isDefault")
-      Prelude.<*> ( x Core..@? "cidrBlockAssociationSet"
+      Prelude.<*> (x Data..@? "isDefault")
+      Prelude.<*> ( x Data..@? "cidrBlockAssociationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@ "cidrBlock")
-      Prelude.<*> (x Core..@ "dhcpOptionsId")
-      Prelude.<*> (x Core..@ "instanceTenancy")
-      Prelude.<*> (x Core..@ "state")
-      Prelude.<*> (x Core..@ "vpcId")
+      Prelude.<*> (x Data..@ "cidrBlock")
+      Prelude.<*> (x Data..@ "dhcpOptionsId")
+      Prelude.<*> (x Data..@ "instanceTenancy")
+      Prelude.<*> (x Data..@ "state")
+      Prelude.<*> (x Data..@ "vpcId")
 
 instance Prelude.Hashable Vpc where
   hashWithSalt _salt Vpc' {..} =

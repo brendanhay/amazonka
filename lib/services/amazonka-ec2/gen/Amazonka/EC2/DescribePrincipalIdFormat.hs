@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -199,9 +200,9 @@ instance Core.AWSRequest DescribePrincipalIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribePrincipalIdFormatResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "principalSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "principalSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -220,24 +221,24 @@ instance Prelude.NFData DescribePrincipalIdFormat where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resources
 
-instance Core.ToHeaders DescribePrincipalIdFormat where
+instance Data.ToHeaders DescribePrincipalIdFormat where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePrincipalIdFormat where
+instance Data.ToPath DescribePrincipalIdFormat where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePrincipalIdFormat where
+instance Data.ToQuery DescribePrincipalIdFormat where
   toQuery DescribePrincipalIdFormat' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePrincipalIdFormat" :: Prelude.ByteString),
+          Data.=: ("DescribePrincipalIdFormat" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          (Core.toQueryList "Resource" Prelude.<$> resources)
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          (Data.toQueryList "Resource" Prelude.<$> resources)
       ]
 
 -- | /See:/ 'newDescribePrincipalIdFormatResponse' smart constructor.

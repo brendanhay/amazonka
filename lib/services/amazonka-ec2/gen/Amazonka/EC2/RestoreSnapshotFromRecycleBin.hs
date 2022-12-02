@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,16 +120,16 @@ instance
     Response.receiveXML
       ( \s h x ->
           RestoreSnapshotFromRecycleBinResponse'
-            Prelude.<$> (x Core..@? "progress")
-            Prelude.<*> (x Core..@? "outpostArn")
-            Prelude.<*> (x Core..@? "ownerId")
-            Prelude.<*> (x Core..@? "snapshotId")
-            Prelude.<*> (x Core..@? "status")
-            Prelude.<*> (x Core..@? "volumeSize")
-            Prelude.<*> (x Core..@? "description")
-            Prelude.<*> (x Core..@? "encrypted")
-            Prelude.<*> (x Core..@? "volumeId")
-            Prelude.<*> (x Core..@? "startTime")
+            Prelude.<$> (x Data..@? "progress")
+            Prelude.<*> (x Data..@? "outpostArn")
+            Prelude.<*> (x Data..@? "ownerId")
+            Prelude.<*> (x Data..@? "snapshotId")
+            Prelude.<*> (x Data..@? "status")
+            Prelude.<*> (x Data..@? "volumeSize")
+            Prelude.<*> (x Data..@? "description")
+            Prelude.<*> (x Data..@? "encrypted")
+            Prelude.<*> (x Data..@? "volumeId")
+            Prelude.<*> (x Data..@? "startTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,23 +146,23 @@ instance Prelude.NFData RestoreSnapshotFromRecycleBin where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders RestoreSnapshotFromRecycleBin where
+instance Data.ToHeaders RestoreSnapshotFromRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreSnapshotFromRecycleBin where
+instance Data.ToPath RestoreSnapshotFromRecycleBin where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreSnapshotFromRecycleBin where
+instance Data.ToQuery RestoreSnapshotFromRecycleBin where
   toQuery RestoreSnapshotFromRecycleBin' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RestoreSnapshotFromRecycleBin" ::
+          Data.=: ( "RestoreSnapshotFromRecycleBin" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "SnapshotId" Core.=: snapshotId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "SnapshotId" Data.=: snapshotId
       ]
 
 -- | /See:/ 'newRestoreSnapshotFromRecycleBinResponse' smart constructor.
@@ -188,7 +189,7 @@ data RestoreSnapshotFromRecycleBinResponse = RestoreSnapshotFromRecycleBinRespon
     -- | The ID of the volume that was used to create the snapshot.
     volumeId :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the snapshot was initiated.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -287,7 +288,7 @@ restoreSnapshotFromRecycleBinResponse_volumeId = Lens.lens (\RestoreSnapshotFrom
 
 -- | The time stamp when the snapshot was initiated.
 restoreSnapshotFromRecycleBinResponse_startTime :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.UTCTime)
-restoreSnapshotFromRecycleBinResponse_startTime = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {startTime} -> startTime) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {startTime = a} :: RestoreSnapshotFromRecycleBinResponse) Prelude.. Lens.mapping Core._Time
+restoreSnapshotFromRecycleBinResponse_startTime = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {startTime} -> startTime) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {startTime = a} :: RestoreSnapshotFromRecycleBinResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 restoreSnapshotFromRecycleBinResponse_httpStatus :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse Prelude.Int

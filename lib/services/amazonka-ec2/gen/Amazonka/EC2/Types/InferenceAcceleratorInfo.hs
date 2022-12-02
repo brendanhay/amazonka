@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InferenceAcceleratorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InferenceDeviceInfo
 import qualified Amazonka.Prelude as Prelude
@@ -55,11 +56,11 @@ newInferenceAcceleratorInfo =
 inferenceAcceleratorInfo_accelerators :: Lens.Lens' InferenceAcceleratorInfo (Prelude.Maybe [InferenceDeviceInfo])
 inferenceAcceleratorInfo_accelerators = Lens.lens (\InferenceAcceleratorInfo' {accelerators} -> accelerators) (\s@InferenceAcceleratorInfo' {} a -> s {accelerators = a} :: InferenceAcceleratorInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML InferenceAcceleratorInfo where
+instance Data.FromXML InferenceAcceleratorInfo where
   parseXML x =
     InferenceAcceleratorInfo'
-      Prelude.<$> ( x Core..@? "accelerators" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "accelerators" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable InferenceAcceleratorInfo where

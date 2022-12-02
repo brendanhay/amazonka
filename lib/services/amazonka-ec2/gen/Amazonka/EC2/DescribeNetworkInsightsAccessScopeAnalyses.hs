@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -62,14 +63,14 @@ data DescribeNetworkInsightsAccessScopeAnalyses = DescribeNetworkInsightsAccessS
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the results based on the start time. The analysis must have
     -- started on or before this time.
-    analysisStartTimeEnd :: Prelude.Maybe Core.ISO8601,
+    analysisStartTimeEnd :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the Network Access Scope.
     networkInsightsAccessScopeId :: Prelude.Maybe Prelude.Text,
     -- | There are no supported filters.
     filters :: Prelude.Maybe [Filter],
     -- | Filters the results based on the start time. The analysis must have
     -- started on or after this time.
-    analysisStartTimeBegin :: Prelude.Maybe Core.ISO8601,
+    analysisStartTimeBegin :: Prelude.Maybe Data.ISO8601,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -140,7 +141,7 @@ describeNetworkInsightsAccessScopeAnalyses_nextToken = Lens.lens (\DescribeNetwo
 -- | Filters the results based on the start time. The analysis must have
 -- started on or before this time.
 describeNetworkInsightsAccessScopeAnalyses_analysisStartTimeEnd :: Lens.Lens' DescribeNetworkInsightsAccessScopeAnalyses (Prelude.Maybe Prelude.UTCTime)
-describeNetworkInsightsAccessScopeAnalyses_analysisStartTimeEnd = Lens.lens (\DescribeNetworkInsightsAccessScopeAnalyses' {analysisStartTimeEnd} -> analysisStartTimeEnd) (\s@DescribeNetworkInsightsAccessScopeAnalyses' {} a -> s {analysisStartTimeEnd = a} :: DescribeNetworkInsightsAccessScopeAnalyses) Prelude.. Lens.mapping Core._Time
+describeNetworkInsightsAccessScopeAnalyses_analysisStartTimeEnd = Lens.lens (\DescribeNetworkInsightsAccessScopeAnalyses' {analysisStartTimeEnd} -> analysisStartTimeEnd) (\s@DescribeNetworkInsightsAccessScopeAnalyses' {} a -> s {analysisStartTimeEnd = a} :: DescribeNetworkInsightsAccessScopeAnalyses) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Network Access Scope.
 describeNetworkInsightsAccessScopeAnalyses_networkInsightsAccessScopeId :: Lens.Lens' DescribeNetworkInsightsAccessScopeAnalyses (Prelude.Maybe Prelude.Text)
@@ -153,7 +154,7 @@ describeNetworkInsightsAccessScopeAnalyses_filters = Lens.lens (\DescribeNetwork
 -- | Filters the results based on the start time. The analysis must have
 -- started on or after this time.
 describeNetworkInsightsAccessScopeAnalyses_analysisStartTimeBegin :: Lens.Lens' DescribeNetworkInsightsAccessScopeAnalyses (Prelude.Maybe Prelude.UTCTime)
-describeNetworkInsightsAccessScopeAnalyses_analysisStartTimeBegin = Lens.lens (\DescribeNetworkInsightsAccessScopeAnalyses' {analysisStartTimeBegin} -> analysisStartTimeBegin) (\s@DescribeNetworkInsightsAccessScopeAnalyses' {} a -> s {analysisStartTimeBegin = a} :: DescribeNetworkInsightsAccessScopeAnalyses) Prelude.. Lens.mapping Core._Time
+describeNetworkInsightsAccessScopeAnalyses_analysisStartTimeBegin = Lens.lens (\DescribeNetworkInsightsAccessScopeAnalyses' {analysisStartTimeBegin} -> analysisStartTimeBegin) (\s@DescribeNetworkInsightsAccessScopeAnalyses' {} a -> s {analysisStartTimeBegin = a} :: DescribeNetworkInsightsAccessScopeAnalyses) Prelude.. Lens.mapping Data._Time
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -211,10 +212,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInsightsAccessScopeAnalysesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "networkInsightsAccessScopeAnalysisSet"
+            Prelude.<$> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "networkInsightsAccessScopeAnalysisSet"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -250,42 +251,42 @@ instance
       `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeNetworkInsightsAccessScopeAnalyses
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeNetworkInsightsAccessScopeAnalyses
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeNetworkInsightsAccessScopeAnalyses
   where
   toQuery
     DescribeNetworkInsightsAccessScopeAnalyses' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "DescribeNetworkInsightsAccessScopeAnalyses" ::
+            Data.=: ( "DescribeNetworkInsightsAccessScopeAnalyses" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "NextToken" Core.=: nextToken,
-          "AnalysisStartTimeEnd" Core.=: analysisStartTimeEnd,
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "NextToken" Data.=: nextToken,
+          "AnalysisStartTimeEnd" Data.=: analysisStartTimeEnd,
           "NetworkInsightsAccessScopeId"
-            Core.=: networkInsightsAccessScopeId,
-          Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
+            Data.=: networkInsightsAccessScopeId,
+          Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
           "AnalysisStartTimeBegin"
-            Core.=: analysisStartTimeBegin,
-          "DryRun" Core.=: dryRun,
-          "MaxResults" Core.=: maxResults,
-          Core.toQuery
-            ( Core.toQueryList
+            Data.=: analysisStartTimeBegin,
+          "DryRun" Data.=: dryRun,
+          "MaxResults" Data.=: maxResults,
+          Data.toQuery
+            ( Data.toQueryList
                 "NetworkInsightsAccessScopeAnalysisId"
                 Prelude.<$> networkInsightsAccessScopeAnalysisIds
             )

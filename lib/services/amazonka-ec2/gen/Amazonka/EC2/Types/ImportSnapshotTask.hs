@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImportSnapshotTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SnapshotTaskDetail
 import Amazonka.EC2.Types.Tag
@@ -82,15 +83,15 @@ importSnapshotTask_description = Lens.lens (\ImportSnapshotTask' {description} -
 importSnapshotTask_snapshotTaskDetail :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe SnapshotTaskDetail)
 importSnapshotTask_snapshotTaskDetail = Lens.lens (\ImportSnapshotTask' {snapshotTaskDetail} -> snapshotTaskDetail) (\s@ImportSnapshotTask' {} a -> s {snapshotTaskDetail = a} :: ImportSnapshotTask)
 
-instance Core.FromXML ImportSnapshotTask where
+instance Data.FromXML ImportSnapshotTask where
   parseXML x =
     ImportSnapshotTask'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "importTaskId")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "snapshotTaskDetail")
+      Prelude.<*> (x Data..@? "importTaskId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "snapshotTaskDetail")
 
 instance Prelude.Hashable ImportSnapshotTask where
   hashWithSalt _salt ImportSnapshotTask' {..} =

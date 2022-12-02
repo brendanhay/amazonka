@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstances where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import Amazonka.EC2.Types.InstanceType
@@ -49,7 +50,7 @@ data ReservedInstances = ReservedInstances'
     -- | The tenancy of the instance.
     instanceTenancy :: Prelude.Maybe Tenancy,
     -- | The date and time the Reserved Instance started.
-    start :: Prelude.Maybe Core.ISO8601,
+    start :: Prelude.Maybe Data.ISO8601,
     -- | The state of the Reserved Instance purchase.
     state :: Prelude.Maybe ReservedInstanceState,
     -- | The Reserved Instance offering type.
@@ -65,7 +66,7 @@ data ReservedInstances = ReservedInstances'
     -- @USD@.
     currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The time when the Reserved Instance expires.
-    end :: Prelude.Maybe Core.ISO8601,
+    end :: Prelude.Maybe Data.ISO8601,
     -- | The scope of the Reserved Instance.
     scope :: Prelude.Maybe Scope,
     -- | The number of reservations purchased.
@@ -170,7 +171,7 @@ reservedInstances_instanceTenancy = Lens.lens (\ReservedInstances' {instanceTena
 
 -- | The date and time the Reserved Instance started.
 reservedInstances_start :: Lens.Lens' ReservedInstances (Prelude.Maybe Prelude.UTCTime)
-reservedInstances_start = Lens.lens (\ReservedInstances' {start} -> start) (\s@ReservedInstances' {} a -> s {start = a} :: ReservedInstances) Prelude.. Lens.mapping Core._Time
+reservedInstances_start = Lens.lens (\ReservedInstances' {start} -> start) (\s@ReservedInstances' {} a -> s {start = a} :: ReservedInstances) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the Reserved Instance purchase.
 reservedInstances_state :: Lens.Lens' ReservedInstances (Prelude.Maybe ReservedInstanceState)
@@ -200,7 +201,7 @@ reservedInstances_currencyCode = Lens.lens (\ReservedInstances' {currencyCode} -
 
 -- | The time when the Reserved Instance expires.
 reservedInstances_end :: Lens.Lens' ReservedInstances (Prelude.Maybe Prelude.UTCTime)
-reservedInstances_end = Lens.lens (\ReservedInstances' {end} -> end) (\s@ReservedInstances' {} a -> s {end = a} :: ReservedInstances) Prelude.. Lens.mapping Core._Time
+reservedInstances_end = Lens.lens (\ReservedInstances' {end} -> end) (\s@ReservedInstances' {} a -> s {end = a} :: ReservedInstances) Prelude.. Lens.mapping Data._Time
 
 -- | The scope of the Reserved Instance.
 reservedInstances_scope :: Lens.Lens' ReservedInstances (Prelude.Maybe Scope)
@@ -222,32 +223,32 @@ reservedInstances_fixedPrice = Lens.lens (\ReservedInstances' {fixedPrice} -> fi
 reservedInstances_usagePrice :: Lens.Lens' ReservedInstances (Prelude.Maybe Prelude.Double)
 reservedInstances_usagePrice = Lens.lens (\ReservedInstances' {usagePrice} -> usagePrice) (\s@ReservedInstances' {} a -> s {usagePrice = a} :: ReservedInstances)
 
-instance Core.FromXML ReservedInstances where
+instance Data.FromXML ReservedInstances where
   parseXML x =
     ReservedInstances'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "offeringClass")
-      Prelude.<*> (x Core..@? "reservedInstancesId")
-      Prelude.<*> ( x Core..@? "recurringCharges"
+      Prelude.<*> (x Data..@? "offeringClass")
+      Prelude.<*> (x Data..@? "reservedInstancesId")
+      Prelude.<*> ( x Data..@? "recurringCharges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "instanceTenancy")
-      Prelude.<*> (x Core..@? "start")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "offeringType")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "duration")
-      Prelude.<*> (x Core..@? "currencyCode")
-      Prelude.<*> (x Core..@? "end")
-      Prelude.<*> (x Core..@? "scope")
-      Prelude.<*> (x Core..@? "instanceCount")
-      Prelude.<*> (x Core..@? "productDescription")
-      Prelude.<*> (x Core..@? "fixedPrice")
-      Prelude.<*> (x Core..@? "usagePrice")
+      Prelude.<*> (x Data..@? "instanceTenancy")
+      Prelude.<*> (x Data..@? "start")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "offeringType")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "duration")
+      Prelude.<*> (x Data..@? "currencyCode")
+      Prelude.<*> (x Data..@? "end")
+      Prelude.<*> (x Data..@? "scope")
+      Prelude.<*> (x Data..@? "instanceCount")
+      Prelude.<*> (x Data..@? "productDescription")
+      Prelude.<*> (x Data..@? "fixedPrice")
+      Prelude.<*> (x Data..@? "usagePrice")
 
 instance Prelude.Hashable ReservedInstances where
   hashWithSalt _salt ReservedInstances' {..} =

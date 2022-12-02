@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,10 +158,10 @@ instance Core.AWSRequest RestoreSnapshotTier where
     Response.receiveXML
       ( \s h x ->
           RestoreSnapshotTierResponse'
-            Prelude.<$> (x Core..@? "restoreStartTime")
-            Prelude.<*> (x Core..@? "snapshotId")
-            Prelude.<*> (x Core..@? "restoreDuration")
-            Prelude.<*> (x Core..@? "isPermanentRestore")
+            Prelude.<$> (x Data..@? "restoreStartTime")
+            Prelude.<*> (x Data..@? "snapshotId")
+            Prelude.<*> (x Data..@? "restoreDuration")
+            Prelude.<*> (x Data..@? "isPermanentRestore")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,29 +179,29 @@ instance Prelude.NFData RestoreSnapshotTier where
       `Prelude.seq` Prelude.rnf permanentRestore
       `Prelude.seq` Prelude.rnf snapshotId
 
-instance Core.ToHeaders RestoreSnapshotTier where
+instance Data.ToHeaders RestoreSnapshotTier where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreSnapshotTier where
+instance Data.ToPath RestoreSnapshotTier where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreSnapshotTier where
+instance Data.ToQuery RestoreSnapshotTier where
   toQuery RestoreSnapshotTier' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RestoreSnapshotTier" :: Prelude.ByteString),
+          Data.=: ("RestoreSnapshotTier" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "TemporaryRestoreDays" Core.=: temporaryRestoreDays,
-        "DryRun" Core.=: dryRun,
-        "PermanentRestore" Core.=: permanentRestore,
-        "SnapshotId" Core.=: snapshotId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "TemporaryRestoreDays" Data.=: temporaryRestoreDays,
+        "DryRun" Data.=: dryRun,
+        "PermanentRestore" Data.=: permanentRestore,
+        "SnapshotId" Data.=: snapshotId
       ]
 
 -- | /See:/ 'newRestoreSnapshotTierResponse' smart constructor.
 data RestoreSnapshotTierResponse = RestoreSnapshotTierResponse'
   { -- | The date and time when the snapshot restore process started.
-    restoreStartTime :: Prelude.Maybe Core.ISO8601,
+    restoreStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | For temporary restores only. The number of days for which the archived
@@ -249,7 +250,7 @@ newRestoreSnapshotTierResponse pHttpStatus_ =
 
 -- | The date and time when the snapshot restore process started.
 restoreSnapshotTierResponse_restoreStartTime :: Lens.Lens' RestoreSnapshotTierResponse (Prelude.Maybe Prelude.UTCTime)
-restoreSnapshotTierResponse_restoreStartTime = Lens.lens (\RestoreSnapshotTierResponse' {restoreStartTime} -> restoreStartTime) (\s@RestoreSnapshotTierResponse' {} a -> s {restoreStartTime = a} :: RestoreSnapshotTierResponse) Prelude.. Lens.mapping Core._Time
+restoreSnapshotTierResponse_restoreStartTime = Lens.lens (\RestoreSnapshotTierResponse' {restoreStartTime} -> restoreStartTime) (\s@RestoreSnapshotTierResponse' {} a -> s {restoreStartTime = a} :: RestoreSnapshotTierResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the snapshot.
 restoreSnapshotTierResponse_snapshotId :: Lens.Lens' RestoreSnapshotTierResponse (Prelude.Maybe Prelude.Text)

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterfacePermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InterfacePermissionType
 import Amazonka.EC2.Types.NetworkInterfacePermissionState
@@ -101,15 +102,15 @@ networkInterfacePermission_permissionState = Lens.lens (\NetworkInterfacePermiss
 networkInterfacePermission_awsService :: Lens.Lens' NetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 networkInterfacePermission_awsService = Lens.lens (\NetworkInterfacePermission' {awsService} -> awsService) (\s@NetworkInterfacePermission' {} a -> s {awsService = a} :: NetworkInterfacePermission)
 
-instance Core.FromXML NetworkInterfacePermission where
+instance Data.FromXML NetworkInterfacePermission where
   parseXML x =
     NetworkInterfacePermission'
-      Prelude.<$> (x Core..@? "awsAccountId")
-      Prelude.<*> (x Core..@? "networkInterfacePermissionId")
-      Prelude.<*> (x Core..@? "permission")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "permissionState")
-      Prelude.<*> (x Core..@? "awsService")
+      Prelude.<$> (x Data..@? "awsAccountId")
+      Prelude.<*> (x Data..@? "networkInterfacePermissionId")
+      Prelude.<*> (x Data..@? "permission")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "permissionState")
+      Prelude.<*> (x Data..@? "awsService")
 
 instance Prelude.Hashable NetworkInterfacePermission where
   hashWithSalt _salt NetworkInterfacePermission' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PrivateDnsNameConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsNameState
 import qualified Amazonka.Prelude as Prelude
@@ -97,13 +98,13 @@ privateDnsNameConfiguration_state = Lens.lens (\PrivateDnsNameConfiguration' {st
 privateDnsNameConfiguration_value :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
 privateDnsNameConfiguration_value = Lens.lens (\PrivateDnsNameConfiguration' {value} -> value) (\s@PrivateDnsNameConfiguration' {} a -> s {value = a} :: PrivateDnsNameConfiguration)
 
-instance Core.FromXML PrivateDnsNameConfiguration where
+instance Data.FromXML PrivateDnsNameConfiguration where
   parseXML x =
     PrivateDnsNameConfiguration'
-      Prelude.<$> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "value")
+      Prelude.<$> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "value")
 
 instance Prelude.Hashable PrivateDnsNameConfiguration where
   hashWithSalt _salt PrivateDnsNameConfiguration' {..} =

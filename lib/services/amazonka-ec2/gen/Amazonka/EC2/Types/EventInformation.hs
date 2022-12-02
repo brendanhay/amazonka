@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EventInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -332,12 +333,12 @@ eventInformation_eventSubType = Lens.lens (\EventInformation' {eventSubType} -> 
 eventInformation_eventDescription :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
 eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescription} -> eventDescription) (\s@EventInformation' {} a -> s {eventDescription = a} :: EventInformation)
 
-instance Core.FromXML EventInformation where
+instance Data.FromXML EventInformation where
   parseXML x =
     EventInformation'
-      Prelude.<$> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "eventSubType")
-      Prelude.<*> (x Core..@? "eventDescription")
+      Prelude.<$> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "eventSubType")
+      Prelude.<*> (x Data..@? "eventDescription")
 
 instance Prelude.Hashable EventInformation where
   hashWithSalt _salt EventInformation' {..} =

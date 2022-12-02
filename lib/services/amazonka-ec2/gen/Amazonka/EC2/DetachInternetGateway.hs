@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,22 +126,22 @@ instance Prelude.NFData DetachInternetGateway where
       `Prelude.seq` Prelude.rnf internetGatewayId
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders DetachInternetGateway where
+instance Data.ToHeaders DetachInternetGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetachInternetGateway where
+instance Data.ToPath DetachInternetGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetachInternetGateway where
+instance Data.ToQuery DetachInternetGateway where
   toQuery DetachInternetGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachInternetGateway" :: Prelude.ByteString),
+          Data.=: ("DetachInternetGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InternetGatewayId" Core.=: internetGatewayId,
-        "VpcId" Core.=: vpcId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "InternetGatewayId" Data.=: internetGatewayId,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newDetachInternetGatewayResponse' smart constructor.

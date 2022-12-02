@@ -88,6 +88,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -332,9 +333,9 @@ instance Core.AWSRequest DescribeVolumeStatus where
     Response.receiveXML
       ( \s h x ->
           DescribeVolumeStatusResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "volumeStatusSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "volumeStatusSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -355,26 +356,26 @@ instance Prelude.NFData DescribeVolumeStatus where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeVolumeStatus where
+instance Data.ToHeaders DescribeVolumeStatus where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVolumeStatus where
+instance Data.ToPath DescribeVolumeStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVolumeStatus where
+instance Data.ToQuery DescribeVolumeStatus where
   toQuery DescribeVolumeStatus' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVolumeStatus" :: Prelude.ByteString),
+          Data.=: ("DescribeVolumeStatus" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "VolumeId" Prelude.<$> volumeIds),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeVolumeStatusResponse' smart constructor.

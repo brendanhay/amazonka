@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance Core.AWSRequest ProvisionPublicIpv4PoolCidr where
     Response.receiveXML
       ( \s h x ->
           ProvisionPublicIpv4PoolCidrResponse'
-            Prelude.<$> (x Core..@? "poolAddressRange")
-            Prelude.<*> (x Core..@? "poolId")
+            Prelude.<$> (x Data..@? "poolAddressRange")
+            Prelude.<*> (x Data..@? "poolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,25 +160,25 @@ instance Prelude.NFData ProvisionPublicIpv4PoolCidr where
       `Prelude.seq` Prelude.rnf poolId
       `Prelude.seq` Prelude.rnf netmaskLength
 
-instance Core.ToHeaders ProvisionPublicIpv4PoolCidr where
+instance Data.ToHeaders ProvisionPublicIpv4PoolCidr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ProvisionPublicIpv4PoolCidr where
+instance Data.ToPath ProvisionPublicIpv4PoolCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ProvisionPublicIpv4PoolCidr where
+instance Data.ToQuery ProvisionPublicIpv4PoolCidr where
   toQuery ProvisionPublicIpv4PoolCidr' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ProvisionPublicIpv4PoolCidr" ::
+          Data.=: ( "ProvisionPublicIpv4PoolCidr" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "IpamPoolId" Core.=: ipamPoolId,
-        "PoolId" Core.=: poolId,
-        "NetmaskLength" Core.=: netmaskLength
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "IpamPoolId" Data.=: ipamPoolId,
+        "PoolId" Data.=: poolId,
+        "NetmaskLength" Data.=: netmaskLength
       ]
 
 -- | /See:/ 'newProvisionPublicIpv4PoolCidrResponse' smart constructor.

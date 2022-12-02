@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest ModifyIpamScope where
     Response.receiveXML
       ( \s h x ->
           ModifyIpamScopeResponse'
-            Prelude.<$> (x Core..@? "ipamScope")
+            Prelude.<$> (x Data..@? "ipamScope")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,22 +131,22 @@ instance Prelude.NFData ModifyIpamScope where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf ipamScopeId
 
-instance Core.ToHeaders ModifyIpamScope where
+instance Data.ToHeaders ModifyIpamScope where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyIpamScope where
+instance Data.ToPath ModifyIpamScope where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyIpamScope where
+instance Data.ToQuery ModifyIpamScope where
   toQuery ModifyIpamScope' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyIpamScope" :: Prelude.ByteString),
+          Data.=: ("ModifyIpamScope" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "IpamScopeId" Core.=: ipamScopeId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "IpamScopeId" Data.=: ipamScopeId
       ]
 
 -- | /See:/ 'newModifyIpamScopeResponse' smart constructor.

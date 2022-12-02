@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newClientData' smart constructor.
 data ClientData = ClientData'
   { -- | The time that the disk upload ends.
-    uploadEnd :: Prelude.Maybe Core.ISO8601,
+    uploadEnd :: Prelude.Maybe Data.ISO8601,
     -- | The time that the disk upload starts.
-    uploadStart :: Prelude.Maybe Core.ISO8601,
+    uploadStart :: Prelude.Maybe Data.ISO8601,
     -- | The size of the uploaded disk image, in GiB.
     uploadSize :: Prelude.Maybe Prelude.Double,
     -- | A user-defined comment about the disk upload.
@@ -66,11 +67,11 @@ newClientData =
 
 -- | The time that the disk upload ends.
 clientData_uploadEnd :: Lens.Lens' ClientData (Prelude.Maybe Prelude.UTCTime)
-clientData_uploadEnd = Lens.lens (\ClientData' {uploadEnd} -> uploadEnd) (\s@ClientData' {} a -> s {uploadEnd = a} :: ClientData) Prelude.. Lens.mapping Core._Time
+clientData_uploadEnd = Lens.lens (\ClientData' {uploadEnd} -> uploadEnd) (\s@ClientData' {} a -> s {uploadEnd = a} :: ClientData) Prelude.. Lens.mapping Data._Time
 
 -- | The time that the disk upload starts.
 clientData_uploadStart :: Lens.Lens' ClientData (Prelude.Maybe Prelude.UTCTime)
-clientData_uploadStart = Lens.lens (\ClientData' {uploadStart} -> uploadStart) (\s@ClientData' {} a -> s {uploadStart = a} :: ClientData) Prelude.. Lens.mapping Core._Time
+clientData_uploadStart = Lens.lens (\ClientData' {uploadStart} -> uploadStart) (\s@ClientData' {} a -> s {uploadStart = a} :: ClientData) Prelude.. Lens.mapping Data._Time
 
 -- | The size of the uploaded disk image, in GiB.
 clientData_uploadSize :: Lens.Lens' ClientData (Prelude.Maybe Prelude.Double)
@@ -94,11 +95,11 @@ instance Prelude.NFData ClientData where
       `Prelude.seq` Prelude.rnf uploadSize
       `Prelude.seq` Prelude.rnf comment
 
-instance Core.ToQuery ClientData where
+instance Data.ToQuery ClientData where
   toQuery ClientData' {..} =
     Prelude.mconcat
-      [ "UploadEnd" Core.=: uploadEnd,
-        "UploadStart" Core.=: uploadStart,
-        "UploadSize" Core.=: uploadSize,
-        "Comment" Core.=: comment
+      [ "UploadEnd" Data.=: uploadEnd,
+        "UploadStart" Data.=: uploadStart,
+        "UploadSize" Data.=: uploadSize,
+        "Comment" Data.=: comment
       ]

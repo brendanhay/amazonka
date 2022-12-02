@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AddedPrincipal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PrincipalType
 import qualified Amazonka.Prelude as Prelude
@@ -81,13 +82,13 @@ addedPrincipal_principalType = Lens.lens (\AddedPrincipal' {principalType} -> pr
 addedPrincipal_serviceId :: Lens.Lens' AddedPrincipal (Prelude.Maybe Prelude.Text)
 addedPrincipal_serviceId = Lens.lens (\AddedPrincipal' {serviceId} -> serviceId) (\s@AddedPrincipal' {} a -> s {serviceId = a} :: AddedPrincipal)
 
-instance Core.FromXML AddedPrincipal where
+instance Data.FromXML AddedPrincipal where
   parseXML x =
     AddedPrincipal'
-      Prelude.<$> (x Core..@? "principal")
-      Prelude.<*> (x Core..@? "servicePermissionId")
-      Prelude.<*> (x Core..@? "principalType")
-      Prelude.<*> (x Core..@? "serviceId")
+      Prelude.<$> (x Data..@? "principal")
+      Prelude.<*> (x Data..@? "servicePermissionId")
+      Prelude.<*> (x Data..@? "principalType")
+      Prelude.<*> (x Data..@? "serviceId")
 
 instance Prelude.Hashable AddedPrincipal where
   hashWithSalt _salt AddedPrincipal' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservationFleetInstanceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationInstancePlatform
 import Amazonka.EC2.Types.InstanceType
@@ -209,16 +210,16 @@ instance
       `Prelude.seq` Prelude.rnf availabilityZoneId
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ReservationFleetInstanceSpecification
   where
   toQuery ReservationFleetInstanceSpecification' {..} =
     Prelude.mconcat
-      [ "EbsOptimized" Core.=: ebsOptimized,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "InstanceType" Core.=: instanceType,
-        "InstancePlatform" Core.=: instancePlatform,
-        "Priority" Core.=: priority,
-        "Weight" Core.=: weight,
-        "AvailabilityZoneId" Core.=: availabilityZoneId
+      [ "EbsOptimized" Data.=: ebsOptimized,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "InstanceType" Data.=: instanceType,
+        "InstancePlatform" Data.=: instancePlatform,
+        "Priority" Data.=: priority,
+        "Weight" Data.=: weight,
+        "AvailabilityZoneId" Data.=: availabilityZoneId
       ]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpcEndpointConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsEntry
 import Amazonka.EC2.Types.IpAddressType
@@ -42,7 +43,7 @@ data VpcEndpointConnection = VpcEndpointConnection'
     -- | The ID of the VPC endpoint.
     vpcEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the VPC endpoint was created.
-    creationTimestamp :: Prelude.Maybe Core.ISO8601,
+    creationTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The DNS entries for the VPC endpoint.
     dnsEntries :: Prelude.Maybe [DnsEntry],
     -- | The Amazon Resource Names (ARNs) of the network load balancers for the
@@ -126,7 +127,7 @@ vpcEndpointConnection_vpcEndpointId = Lens.lens (\VpcEndpointConnection' {vpcEnd
 
 -- | The date and time that the VPC endpoint was created.
 vpcEndpointConnection_creationTimestamp :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.UTCTime)
-vpcEndpointConnection_creationTimestamp = Lens.lens (\VpcEndpointConnection' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpointConnection' {} a -> s {creationTimestamp = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Core._Time
+vpcEndpointConnection_creationTimestamp = Lens.lens (\VpcEndpointConnection' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpointConnection' {} a -> s {creationTimestamp = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Data._Time
 
 -- | The DNS entries for the VPC endpoint.
 vpcEndpointConnection_dnsEntries :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe [DnsEntry])
@@ -153,30 +154,30 @@ vpcEndpointConnection_serviceId = Lens.lens (\VpcEndpointConnection' {serviceId}
 vpcEndpointConnection_vpcEndpointConnectionId :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.Text)
 vpcEndpointConnection_vpcEndpointConnectionId = Lens.lens (\VpcEndpointConnection' {vpcEndpointConnectionId} -> vpcEndpointConnectionId) (\s@VpcEndpointConnection' {} a -> s {vpcEndpointConnectionId = a} :: VpcEndpointConnection)
 
-instance Core.FromXML VpcEndpointConnection where
+instance Data.FromXML VpcEndpointConnection where
   parseXML x =
     VpcEndpointConnection'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "gatewayLoadBalancerArnSet"
+      Prelude.<*> ( x Data..@? "gatewayLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcEndpointOwner")
-      Prelude.<*> (x Core..@? "vpcEndpointId")
-      Prelude.<*> (x Core..@? "creationTimestamp")
-      Prelude.<*> ( x Core..@? "dnsEntrySet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "vpcEndpointOwner")
+      Prelude.<*> (x Data..@? "vpcEndpointId")
+      Prelude.<*> (x Data..@? "creationTimestamp")
+      Prelude.<*> ( x Data..@? "dnsEntrySet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "networkLoadBalancerArnSet"
+      Prelude.<*> ( x Data..@? "networkLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ipAddressType")
-      Prelude.<*> (x Core..@? "vpcEndpointState")
-      Prelude.<*> (x Core..@? "serviceId")
-      Prelude.<*> (x Core..@? "vpcEndpointConnectionId")
+      Prelude.<*> (x Data..@? "ipAddressType")
+      Prelude.<*> (x Data..@? "vpcEndpointState")
+      Prelude.<*> (x Data..@? "serviceId")
+      Prelude.<*> (x Data..@? "vpcEndpointConnectionId")
 
 instance Prelude.Hashable VpcEndpointConnection where
   hashWithSalt _salt VpcEndpointConnection' {..} =

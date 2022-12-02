@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,9 +167,9 @@ instance Core.AWSRequest DescribeAddressesAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressesAttributeResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "addressSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "addressSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -189,27 +190,27 @@ instance Prelude.NFData DescribeAddressesAttribute where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeAddressesAttribute where
+instance Data.ToHeaders DescribeAddressesAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAddressesAttribute where
+instance Data.ToPath DescribeAddressesAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAddressesAttribute where
+instance Data.ToQuery DescribeAddressesAttribute where
   toQuery DescribeAddressesAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAddressesAttribute" :: Prelude.ByteString),
+          Data.=: ("DescribeAddressesAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "AllocationId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "AllocationId"
               Prelude.<$> allocationIds
           ),
-        "NextToken" Core.=: nextToken,
-        "Attribute" Core.=: attribute,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        "NextToken" Data.=: nextToken,
+        "Attribute" Data.=: attribute,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeAddressesAttributeResponse' smart constructor.

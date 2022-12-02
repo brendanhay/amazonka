@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LocalGatewayVirtualInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -134,20 +135,20 @@ localGatewayVirtualInterface_peerAddress = Lens.lens (\LocalGatewayVirtualInterf
 localGatewayVirtualInterface_localAddress :: Lens.Lens' LocalGatewayVirtualInterface (Prelude.Maybe Prelude.Text)
 localGatewayVirtualInterface_localAddress = Lens.lens (\LocalGatewayVirtualInterface' {localAddress} -> localAddress) (\s@LocalGatewayVirtualInterface' {} a -> s {localAddress = a} :: LocalGatewayVirtualInterface)
 
-instance Core.FromXML LocalGatewayVirtualInterface where
+instance Data.FromXML LocalGatewayVirtualInterface where
   parseXML x =
     LocalGatewayVirtualInterface'
-      Prelude.<$> (x Core..@? "localBgpAsn")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "localBgpAsn")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "localGatewayId")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "peerBgpAsn")
-      Prelude.<*> (x Core..@? "vlan")
-      Prelude.<*> (x Core..@? "localGatewayVirtualInterfaceId")
-      Prelude.<*> (x Core..@? "peerAddress")
-      Prelude.<*> (x Core..@? "localAddress")
+      Prelude.<*> (x Data..@? "localGatewayId")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "peerBgpAsn")
+      Prelude.<*> (x Data..@? "vlan")
+      Prelude.<*> (x Data..@? "localGatewayVirtualInterfaceId")
+      Prelude.<*> (x Data..@? "peerAddress")
+      Prelude.<*> (x Data..@? "localAddress")
 
 instance
   Prelude.Hashable

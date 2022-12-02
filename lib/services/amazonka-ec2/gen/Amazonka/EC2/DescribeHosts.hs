@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -227,9 +228,9 @@ instance Core.AWSRequest DescribeHosts where
     Response.receiveXML
       ( \s h x ->
           DescribeHostsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "hostSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "hostSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -248,25 +249,25 @@ instance Prelude.NFData DescribeHosts where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeHosts where
+instance Data.ToHeaders DescribeHosts where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeHosts where
+instance Data.ToPath DescribeHosts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHosts where
+instance Data.ToQuery DescribeHosts where
   toQuery DescribeHosts' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeHosts" :: Prelude.ByteString),
+          Data.=: ("DescribeHosts" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "HostId" Prelude.<$> hostIds),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filter'),
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "HostId" Prelude.<$> hostIds),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filter'),
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeHostsResponse' smart constructor.

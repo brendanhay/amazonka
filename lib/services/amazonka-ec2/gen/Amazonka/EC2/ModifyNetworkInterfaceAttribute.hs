@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,32 +207,32 @@ instance
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyNetworkInterfaceAttribute
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyNetworkInterfaceAttribute where
+instance Data.ToPath ModifyNetworkInterfaceAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyNetworkInterfaceAttribute where
+instance Data.ToQuery ModifyNetworkInterfaceAttribute where
   toQuery ModifyNetworkInterfaceAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyNetworkInterfaceAttribute" ::
+          Data.=: ( "ModifyNetworkInterfaceAttribute" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Attachment" Core.=: attachment,
-        "SourceDestCheck" Core.=: sourceDestCheck,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Attachment" Data.=: attachment,
+        "SourceDestCheck" Data.=: sourceDestCheck,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> groups
           ),
-        "NetworkInterfaceId" Core.=: networkInterfaceId
+        "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newModifyNetworkInterfaceAttributeResponse' smart constructor.

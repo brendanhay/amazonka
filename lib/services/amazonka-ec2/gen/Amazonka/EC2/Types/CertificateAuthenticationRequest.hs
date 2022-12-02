@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CertificateAuthenticationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,11 +79,11 @@ instance
     Prelude.rnf clientRootCertificateChainArn
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CertificateAuthenticationRequest
   where
   toQuery CertificateAuthenticationRequest' {..} =
     Prelude.mconcat
       [ "ClientRootCertificateChainArn"
-          Core.=: clientRootCertificateChainArn
+          Data.=: clientRootCertificateChainArn
       ]

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,9 +95,9 @@ instance Core.AWSRequest DisassociateVpcCidrBlock where
     Response.receiveXML
       ( \s h x ->
           DisassociateVpcCidrBlockResponse'
-            Prelude.<$> (x Core..@? "cidrBlockAssociation")
-            Prelude.<*> (x Core..@? "ipv6CidrBlockAssociation")
-            Prelude.<*> (x Core..@? "vpcId")
+            Prelude.<$> (x Data..@? "cidrBlockAssociation")
+            Prelude.<*> (x Data..@? "ipv6CidrBlockAssociation")
+            Prelude.<*> (x Data..@? "vpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,20 +109,20 @@ instance Prelude.NFData DisassociateVpcCidrBlock where
   rnf DisassociateVpcCidrBlock' {..} =
     Prelude.rnf associationId
 
-instance Core.ToHeaders DisassociateVpcCidrBlock where
+instance Data.ToHeaders DisassociateVpcCidrBlock where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisassociateVpcCidrBlock where
+instance Data.ToPath DisassociateVpcCidrBlock where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisassociateVpcCidrBlock where
+instance Data.ToQuery DisassociateVpcCidrBlock where
   toQuery DisassociateVpcCidrBlock' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DisassociateVpcCidrBlock" :: Prelude.ByteString),
+          Data.=: ("DisassociateVpcCidrBlock" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AssociationId" Core.=: associationId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AssociationId" Data.=: associationId
       ]
 
 -- | /See:/ 'newDisassociateVpcCidrBlockResponse' smart constructor.

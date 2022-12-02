@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CancelCapacityReservationFleetError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,13 +65,13 @@ cancelCapacityReservationFleetError_code :: Lens.Lens' CancelCapacityReservation
 cancelCapacityReservationFleetError_code = Lens.lens (\CancelCapacityReservationFleetError' {code} -> code) (\s@CancelCapacityReservationFleetError' {} a -> s {code = a} :: CancelCapacityReservationFleetError)
 
 instance
-  Core.FromXML
+  Data.FromXML
     CancelCapacityReservationFleetError
   where
   parseXML x =
     CancelCapacityReservationFleetError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance
   Prelude.Hashable

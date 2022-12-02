@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.MemoryGiBPerVCpu where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,10 +69,10 @@ memoryGiBPerVCpu_max = Lens.lens (\MemoryGiBPerVCpu' {max} -> max) (\s@MemoryGiB
 memoryGiBPerVCpu_min :: Lens.Lens' MemoryGiBPerVCpu (Prelude.Maybe Prelude.Double)
 memoryGiBPerVCpu_min = Lens.lens (\MemoryGiBPerVCpu' {min} -> min) (\s@MemoryGiBPerVCpu' {} a -> s {min = a} :: MemoryGiBPerVCpu)
 
-instance Core.FromXML MemoryGiBPerVCpu where
+instance Data.FromXML MemoryGiBPerVCpu where
   parseXML x =
     MemoryGiBPerVCpu'
-      Prelude.<$> (x Core..@? "max") Prelude.<*> (x Core..@? "min")
+      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable MemoryGiBPerVCpu where
   hashWithSalt _salt MemoryGiBPerVCpu' {..} =
@@ -82,7 +83,7 @@ instance Prelude.NFData MemoryGiBPerVCpu where
   rnf MemoryGiBPerVCpu' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery MemoryGiBPerVCpu where
+instance Data.ToQuery MemoryGiBPerVCpu where
   toQuery MemoryGiBPerVCpu' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

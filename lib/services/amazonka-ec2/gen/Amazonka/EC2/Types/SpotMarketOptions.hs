@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotMarketOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceInterruptionBehavior
 import Amazonka.EC2.Types.SpotInstanceType
@@ -58,7 +59,7 @@ data SpotMarketOptions = SpotMarketOptions'
     --
     -- -   For a one-time request, @ValidUntil@ is not supported. The request
     --     remains active until all instances launch or you cancel the request.
-    validUntil :: Prelude.Maybe Core.ISO8601
+    validUntil :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -147,7 +148,7 @@ spotMarketOptions_spotInstanceType = Lens.lens (\SpotMarketOptions' {spotInstanc
 -- -   For a one-time request, @ValidUntil@ is not supported. The request
 --     remains active until all instances launch or you cancel the request.
 spotMarketOptions_validUntil :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.UTCTime)
-spotMarketOptions_validUntil = Lens.lens (\SpotMarketOptions' {validUntil} -> validUntil) (\s@SpotMarketOptions' {} a -> s {validUntil = a} :: SpotMarketOptions) Prelude.. Lens.mapping Core._Time
+spotMarketOptions_validUntil = Lens.lens (\SpotMarketOptions' {validUntil} -> validUntil) (\s@SpotMarketOptions' {} a -> s {validUntil = a} :: SpotMarketOptions) Prelude.. Lens.mapping Data._Time
 
 instance Prelude.Hashable SpotMarketOptions where
   hashWithSalt _salt SpotMarketOptions' {..} =
@@ -165,13 +166,13 @@ instance Prelude.NFData SpotMarketOptions where
       `Prelude.seq` Prelude.rnf spotInstanceType
       `Prelude.seq` Prelude.rnf validUntil
 
-instance Core.ToQuery SpotMarketOptions where
+instance Data.ToQuery SpotMarketOptions where
   toQuery SpotMarketOptions' {..} =
     Prelude.mconcat
-      [ "BlockDurationMinutes" Core.=: blockDurationMinutes,
-        "MaxPrice" Core.=: maxPrice,
+      [ "BlockDurationMinutes" Data.=: blockDurationMinutes,
+        "MaxPrice" Data.=: maxPrice,
         "InstanceInterruptionBehavior"
-          Core.=: instanceInterruptionBehavior,
-        "SpotInstanceType" Core.=: spotInstanceType,
-        "ValidUntil" Core.=: validUntil
+          Data.=: instanceInterruptionBehavior,
+        "SpotInstanceType" Data.=: spotInstanceType,
+        "ValidUntil" Data.=: validUntil
       ]

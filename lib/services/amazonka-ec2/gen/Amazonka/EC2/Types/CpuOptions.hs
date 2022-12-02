@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CpuOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ cpuOptions_coreCount = Lens.lens (\CpuOptions' {coreCount} -> coreCount) (\s@Cpu
 cpuOptions_threadsPerCore :: Lens.Lens' CpuOptions (Prelude.Maybe Prelude.Int)
 cpuOptions_threadsPerCore = Lens.lens (\CpuOptions' {threadsPerCore} -> threadsPerCore) (\s@CpuOptions' {} a -> s {threadsPerCore = a} :: CpuOptions)
 
-instance Core.FromXML CpuOptions where
+instance Data.FromXML CpuOptions where
   parseXML x =
     CpuOptions'
-      Prelude.<$> (x Core..@? "coreCount")
-      Prelude.<*> (x Core..@? "threadsPerCore")
+      Prelude.<$> (x Data..@? "coreCount")
+      Prelude.<*> (x Data..@? "threadsPerCore")
 
 instance Prelude.Hashable CpuOptions where
   hashWithSalt _salt CpuOptions' {..} =

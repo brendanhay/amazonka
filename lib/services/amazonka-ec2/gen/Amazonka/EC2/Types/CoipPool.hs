@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CoipPool where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -90,18 +91,18 @@ coipPool_poolCidrs = Lens.lens (\CoipPool' {poolCidrs} -> poolCidrs) (\s@CoipPoo
 coipPool_poolId :: Lens.Lens' CoipPool (Prelude.Maybe Prelude.Text)
 coipPool_poolId = Lens.lens (\CoipPool' {poolId} -> poolId) (\s@CoipPool' {} a -> s {poolId = a} :: CoipPool)
 
-instance Core.FromXML CoipPool where
+instance Data.FromXML CoipPool where
   parseXML x =
     CoipPool'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "poolArn")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableId")
-      Prelude.<*> ( x Core..@? "poolCidrSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "poolArn")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableId")
+      Prelude.<*> ( x Data..@? "poolCidrSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "poolId")
+      Prelude.<*> (x Data..@? "poolId")
 
 instance Prelude.Hashable CoipPool where
   hashWithSalt _salt CoipPool' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeStatusEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,11 +36,11 @@ data VolumeStatusEvent = VolumeStatusEvent'
     -- | The ID of the instance associated with the event.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The earliest start time of the event.
-    notBefore :: Prelude.Maybe Core.ISO8601,
+    notBefore :: Prelude.Maybe Data.ISO8601,
     -- | The ID of this event.
     eventId :: Prelude.Maybe Prelude.Text,
     -- | The latest end time of the event.
-    notAfter :: Prelude.Maybe Core.ISO8601
+    notAfter :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,7 +89,7 @@ volumeStatusEvent_instanceId = Lens.lens (\VolumeStatusEvent' {instanceId} -> in
 
 -- | The earliest start time of the event.
 volumeStatusEvent_notBefore :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.UTCTime)
-volumeStatusEvent_notBefore = Lens.lens (\VolumeStatusEvent' {notBefore} -> notBefore) (\s@VolumeStatusEvent' {} a -> s {notBefore = a} :: VolumeStatusEvent) Prelude.. Lens.mapping Core._Time
+volumeStatusEvent_notBefore = Lens.lens (\VolumeStatusEvent' {notBefore} -> notBefore) (\s@VolumeStatusEvent' {} a -> s {notBefore = a} :: VolumeStatusEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of this event.
 volumeStatusEvent_eventId :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.Text)
@@ -96,17 +97,17 @@ volumeStatusEvent_eventId = Lens.lens (\VolumeStatusEvent' {eventId} -> eventId)
 
 -- | The latest end time of the event.
 volumeStatusEvent_notAfter :: Lens.Lens' VolumeStatusEvent (Prelude.Maybe Prelude.UTCTime)
-volumeStatusEvent_notAfter = Lens.lens (\VolumeStatusEvent' {notAfter} -> notAfter) (\s@VolumeStatusEvent' {} a -> s {notAfter = a} :: VolumeStatusEvent) Prelude.. Lens.mapping Core._Time
+volumeStatusEvent_notAfter = Lens.lens (\VolumeStatusEvent' {notAfter} -> notAfter) (\s@VolumeStatusEvent' {} a -> s {notAfter = a} :: VolumeStatusEvent) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML VolumeStatusEvent where
+instance Data.FromXML VolumeStatusEvent where
   parseXML x =
     VolumeStatusEvent'
-      Prelude.<$> (x Core..@? "eventType")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "notBefore")
-      Prelude.<*> (x Core..@? "eventId")
-      Prelude.<*> (x Core..@? "notAfter")
+      Prelude.<$> (x Data..@? "eventType")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "notBefore")
+      Prelude.<*> (x Data..@? "eventId")
+      Prelude.<*> (x Data..@? "notAfter")
 
 instance Prelude.Hashable VolumeStatusEvent where
   hashWithSalt _salt VolumeStatusEvent' {..} =

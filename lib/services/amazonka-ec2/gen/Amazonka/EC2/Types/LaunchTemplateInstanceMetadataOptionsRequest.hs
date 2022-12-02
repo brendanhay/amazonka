@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateHttpTokensState
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
@@ -215,16 +216,16 @@ instance
       `Prelude.seq` Prelude.rnf httpProtocolIpv6
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplateInstanceMetadataOptionsRequest
   where
   toQuery
     LaunchTemplateInstanceMetadataOptionsRequest' {..} =
       Prelude.mconcat
         [ "HttpPutResponseHopLimit"
-            Core.=: httpPutResponseHopLimit,
-          "HttpTokens" Core.=: httpTokens,
-          "HttpEndpoint" Core.=: httpEndpoint,
-          "InstanceMetadataTags" Core.=: instanceMetadataTags,
-          "HttpProtocolIpv6" Core.=: httpProtocolIpv6
+            Data.=: httpPutResponseHopLimit,
+          "HttpTokens" Data.=: httpTokens,
+          "HttpEndpoint" Data.=: httpEndpoint,
+          "InstanceMetadataTags" Data.=: instanceMetadataTags,
+          "HttpProtocolIpv6" Data.=: httpProtocolIpv6
         ]

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,7 +148,7 @@ instance Core.AWSRequest CreateStoreImageTask where
     Response.receiveXML
       ( \s h x ->
           CreateStoreImageTaskResponse'
-            Prelude.<$> (x Core..@? "objectKey")
+            Prelude.<$> (x Data..@? "objectKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,26 +166,26 @@ instance Prelude.NFData CreateStoreImageTask where
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToHeaders CreateStoreImageTask where
+instance Data.ToHeaders CreateStoreImageTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateStoreImageTask where
+instance Data.ToPath CreateStoreImageTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateStoreImageTask where
+instance Data.ToQuery CreateStoreImageTask where
   toQuery CreateStoreImageTask' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateStoreImageTask" :: Prelude.ByteString),
+          Data.=: ("CreateStoreImageTask" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "S3ObjectTag"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "S3ObjectTag"
               Prelude.<$> s3ObjectTags
           ),
-        "ImageId" Core.=: imageId,
-        "Bucket" Core.=: bucket
+        "ImageId" Data.=: imageId,
+        "Bucket" Data.=: bucket
       ]
 
 -- | /See:/ 'newCreateStoreImageTaskResponse' smart constructor.

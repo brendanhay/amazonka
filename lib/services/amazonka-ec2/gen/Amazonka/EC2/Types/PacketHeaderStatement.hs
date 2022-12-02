@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PacketHeaderStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Protocol
 import qualified Amazonka.Prelude as Prelude
@@ -109,34 +110,34 @@ packetHeaderStatement_sourcePorts = Lens.lens (\PacketHeaderStatement' {sourcePo
 packetHeaderStatement_sourcePrefixLists :: Lens.Lens' PacketHeaderStatement (Prelude.Maybe [Prelude.Text])
 packetHeaderStatement_sourcePrefixLists = Lens.lens (\PacketHeaderStatement' {sourcePrefixLists} -> sourcePrefixLists) (\s@PacketHeaderStatement' {} a -> s {sourcePrefixLists = a} :: PacketHeaderStatement) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML PacketHeaderStatement where
+instance Data.FromXML PacketHeaderStatement where
   parseXML x =
     PacketHeaderStatement'
-      Prelude.<$> ( x Core..@? "destinationPortSet"
+      Prelude.<$> ( x Data..@? "destinationPortSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "destinationPrefixListSet"
+      Prelude.<*> ( x Data..@? "destinationPrefixListSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "protocolSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "protocolSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "destinationAddressSet"
+      Prelude.<*> ( x Data..@? "destinationAddressSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "sourceAddressSet"
+      Prelude.<*> ( x Data..@? "sourceAddressSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "sourcePortSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "sourcePortSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "sourcePrefixListSet"
+      Prelude.<*> ( x Data..@? "sourcePrefixListSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable PacketHeaderStatement where

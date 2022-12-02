@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,11 +83,11 @@ ipRange_description = Lens.lens (\IpRange' {description} -> description) (\s@IpR
 ipRange_cidrIp :: Lens.Lens' IpRange Prelude.Text
 ipRange_cidrIp = Lens.lens (\IpRange' {cidrIp} -> cidrIp) (\s@IpRange' {} a -> s {cidrIp = a} :: IpRange)
 
-instance Core.FromXML IpRange where
+instance Data.FromXML IpRange where
   parseXML x =
     IpRange'
-      Prelude.<$> (x Core..@? "description")
-      Prelude.<*> (x Core..@ "cidrIp")
+      Prelude.<$> (x Data..@? "description")
+      Prelude.<*> (x Data..@ "cidrIp")
 
 instance Prelude.Hashable IpRange where
   hashWithSalt _salt IpRange' {..} =
@@ -98,9 +99,9 @@ instance Prelude.NFData IpRange where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf cidrIp
 
-instance Core.ToQuery IpRange where
+instance Data.ToQuery IpRange where
   toQuery IpRange' {..} =
     Prelude.mconcat
-      [ "Description" Core.=: description,
-        "CidrIp" Core.=: cidrIp
+      [ "Description" Data.=: description,
+        "CidrIp" Data.=: cidrIp
       ]

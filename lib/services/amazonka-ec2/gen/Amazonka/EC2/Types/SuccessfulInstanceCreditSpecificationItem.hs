@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SuccessfulInstanceCreditSpecificationItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,12 +57,12 @@ successfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' SuccessfulIns
 successfulInstanceCreditSpecificationItem_instanceId = Lens.lens (\SuccessfulInstanceCreditSpecificationItem' {instanceId} -> instanceId) (\s@SuccessfulInstanceCreditSpecificationItem' {} a -> s {instanceId = a} :: SuccessfulInstanceCreditSpecificationItem)
 
 instance
-  Core.FromXML
+  Data.FromXML
     SuccessfulInstanceCreditSpecificationItem
   where
   parseXML x =
     SuccessfulInstanceCreditSpecificationItem'
-      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<$> (x Data..@? "instanceId")
 
 instance
   Prelude.Hashable

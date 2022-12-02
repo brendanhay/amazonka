@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,7 +151,7 @@ instance Core.AWSRequest StartNetworkInsightsAnalysis where
     Response.receiveXML
       ( \s h x ->
           StartNetworkInsightsAnalysisResponse'
-            Prelude.<$> (x Core..@? "networkInsightsAnalysis")
+            Prelude.<$> (x Data..@? "networkInsightsAnalysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,33 +174,33 @@ instance Prelude.NFData StartNetworkInsightsAnalysis where
       `Prelude.seq` Prelude.rnf networkInsightsPathId
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders StartNetworkInsightsAnalysis where
+instance Data.ToHeaders StartNetworkInsightsAnalysis where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StartNetworkInsightsAnalysis where
+instance Data.ToPath StartNetworkInsightsAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartNetworkInsightsAnalysis where
+instance Data.ToQuery StartNetworkInsightsAnalysis where
   toQuery StartNetworkInsightsAnalysis' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "StartNetworkInsightsAnalysis" ::
+          Data.=: ( "StartNetworkInsightsAnalysis" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "FilterInArn"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "FilterInArn"
               Prelude.<$> filterInArns
           ),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "NetworkInsightsPathId"
-          Core.=: networkInsightsPathId,
-        "ClientToken" Core.=: clientToken
+          Data.=: networkInsightsPathId,
+        "ClientToken" Data.=: clientToken
       ]
 
 -- | /See:/ 'newStartNetworkInsightsAnalysisResponse' smart constructor.

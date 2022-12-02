@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,8 +106,8 @@ instance Core.AWSRequest UnmonitorInstances where
     Response.receiveXML
       ( \s h x ->
           UnmonitorInstancesResponse'
-            Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -121,21 +122,21 @@ instance Prelude.NFData UnmonitorInstances where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToHeaders UnmonitorInstances where
+instance Data.ToHeaders UnmonitorInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UnmonitorInstances where
+instance Data.ToPath UnmonitorInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UnmonitorInstances where
+instance Data.ToQuery UnmonitorInstances where
   toQuery UnmonitorInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UnmonitorInstances" :: Prelude.ByteString),
+          Data.=: ("UnmonitorInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList "InstanceId" instanceIds
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList "InstanceId" instanceIds
       ]
 
 -- | /See:/ 'newUnmonitorInstancesResponse' smart constructor.

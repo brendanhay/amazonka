@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -198,7 +199,7 @@ instance Core.AWSRequest ProvisionByoipCidr where
     Response.receiveXML
       ( \s h x ->
           ProvisionByoipCidrResponse'
-            Prelude.<$> (x Core..@? "byoipCidr")
+            Prelude.<$> (x Data..@? "byoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,30 +223,30 @@ instance Prelude.NFData ProvisionByoipCidr where
       `Prelude.seq` Prelude.rnf cidrAuthorizationContext
       `Prelude.seq` Prelude.rnf cidr
 
-instance Core.ToHeaders ProvisionByoipCidr where
+instance Data.ToHeaders ProvisionByoipCidr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ProvisionByoipCidr where
+instance Data.ToPath ProvisionByoipCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ProvisionByoipCidr where
+instance Data.ToQuery ProvisionByoipCidr where
   toQuery ProvisionByoipCidr' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ProvisionByoipCidr" :: Prelude.ByteString),
+          Data.=: ("ProvisionByoipCidr" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "PubliclyAdvertisable" Core.=: publiclyAdvertisable,
-        Core.toQuery
-          ( Core.toQueryList "PoolTagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "PubliclyAdvertisable" Data.=: publiclyAdvertisable,
+        Data.toQuery
+          ( Data.toQueryList "PoolTagSpecification"
               Prelude.<$> poolTagSpecifications
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "MultiRegion" Core.=: multiRegion,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "MultiRegion" Data.=: multiRegion,
         "CidrAuthorizationContext"
-          Core.=: cidrAuthorizationContext,
-        "Cidr" Core.=: cidr
+          Data.=: cidrAuthorizationContext,
+        "Cidr" Data.=: cidr
       ]
 
 -- | /See:/ 'newProvisionByoipCidrResponse' smart constructor.

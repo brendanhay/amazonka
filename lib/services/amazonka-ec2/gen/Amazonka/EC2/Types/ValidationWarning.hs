@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ValidationWarning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ValidationError
 import qualified Amazonka.Prelude as Prelude
@@ -54,11 +55,11 @@ newValidationWarning =
 validationWarning_errors :: Lens.Lens' ValidationWarning (Prelude.Maybe [ValidationError])
 validationWarning_errors = Lens.lens (\ValidationWarning' {errors} -> errors) (\s@ValidationWarning' {} a -> s {errors = a} :: ValidationWarning) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ValidationWarning where
+instance Data.FromXML ValidationWarning where
   parseXML x =
     ValidationWarning'
-      Prelude.<$> ( x Core..@? "errorSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ValidationWarning where

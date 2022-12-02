@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeStatusAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,13 +81,13 @@ volumeStatusAction_description = Lens.lens (\VolumeStatusAction' {description} -
 volumeStatusAction_eventId :: Lens.Lens' VolumeStatusAction (Prelude.Maybe Prelude.Text)
 volumeStatusAction_eventId = Lens.lens (\VolumeStatusAction' {eventId} -> eventId) (\s@VolumeStatusAction' {} a -> s {eventId = a} :: VolumeStatusAction)
 
-instance Core.FromXML VolumeStatusAction where
+instance Data.FromXML VolumeStatusAction where
   parseXML x =
     VolumeStatusAction'
-      Prelude.<$> (x Core..@? "eventType")
-      Prelude.<*> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "eventId")
+      Prelude.<$> (x Data..@? "eventType")
+      Prelude.<*> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "eventId")
 
 instance Prelude.Hashable VolumeStatusAction where
   hashWithSalt _salt VolumeStatusAction' {..} =

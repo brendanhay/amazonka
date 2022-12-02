@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,21 +111,21 @@ instance Prelude.NFData DeleteVpc where
   rnf DeleteVpc' {..} =
     Prelude.rnf dryRun `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders DeleteVpc where
+instance Data.ToHeaders DeleteVpc where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVpc where
+instance Data.ToPath DeleteVpc where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVpc where
+instance Data.ToQuery DeleteVpc where
   toQuery DeleteVpc' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVpc" :: Prelude.ByteString),
+          Data.=: ("DeleteVpc" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "VpcId" Core.=: vpcId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newDeleteVpcResponse' smart constructor.

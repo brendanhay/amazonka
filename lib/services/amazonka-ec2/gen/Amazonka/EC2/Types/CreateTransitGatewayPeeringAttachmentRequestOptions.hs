@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CreateTransitGatewayPeeringAttachmentRequestOptions wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DynamicRoutingValue
 import qualified Amazonka.Prelude as Prelude
@@ -74,10 +75,10 @@ instance
       Prelude.rnf dynamicRouting
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayPeeringAttachmentRequestOptions
   where
   toQuery
     CreateTransitGatewayPeeringAttachmentRequestOptions' {..} =
       Prelude.mconcat
-        ["DynamicRouting" Core.=: dynamicRouting]
+        ["DynamicRouting" Data.=: dynamicRouting]

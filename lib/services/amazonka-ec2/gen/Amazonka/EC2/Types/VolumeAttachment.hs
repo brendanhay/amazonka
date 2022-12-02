@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VolumeAttachmentState
 import qualified Amazonka.Prelude as Prelude
@@ -38,7 +39,7 @@ data VolumeAttachment = VolumeAttachment'
     -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the attachment initiated.
-    attachTime :: Prelude.Maybe Core.ISO8601,
+    attachTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the volume.
     volumeId :: Prelude.Maybe Prelude.Text
   }
@@ -94,21 +95,21 @@ volumeAttachment_instanceId = Lens.lens (\VolumeAttachment' {instanceId} -> inst
 
 -- | The time stamp when the attachment initiated.
 volumeAttachment_attachTime :: Lens.Lens' VolumeAttachment (Prelude.Maybe Prelude.UTCTime)
-volumeAttachment_attachTime = Lens.lens (\VolumeAttachment' {attachTime} -> attachTime) (\s@VolumeAttachment' {} a -> s {attachTime = a} :: VolumeAttachment) Prelude.. Lens.mapping Core._Time
+volumeAttachment_attachTime = Lens.lens (\VolumeAttachment' {attachTime} -> attachTime) (\s@VolumeAttachment' {} a -> s {attachTime = a} :: VolumeAttachment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the volume.
 volumeAttachment_volumeId :: Lens.Lens' VolumeAttachment (Prelude.Maybe Prelude.Text)
 volumeAttachment_volumeId = Lens.lens (\VolumeAttachment' {volumeId} -> volumeId) (\s@VolumeAttachment' {} a -> s {volumeId = a} :: VolumeAttachment)
 
-instance Core.FromXML VolumeAttachment where
+instance Data.FromXML VolumeAttachment where
   parseXML x =
     VolumeAttachment'
-      Prelude.<$> (x Core..@? "deleteOnTermination")
-      Prelude.<*> (x Core..@? "device")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "attachTime")
-      Prelude.<*> (x Core..@? "volumeId")
+      Prelude.<$> (x Data..@? "deleteOnTermination")
+      Prelude.<*> (x Data..@? "device")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "attachTime")
+      Prelude.<*> (x Data..@? "volumeId")
 
 instance Prelude.Hashable VolumeAttachment where
   hashWithSalt _salt VolumeAttachment' {..} =

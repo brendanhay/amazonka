@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteTransitGatewayRouteTableAnnouncementResponse'
-            Prelude.<$> (x Core..@? "transitGatewayRouteTableAnnouncement")
+            Prelude.<$> (x Data..@? "transitGatewayRouteTableAnnouncement")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,33 +136,33 @@ instance
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableAnnouncementId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteTransitGatewayRouteTableAnnouncement
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteTransitGatewayRouteTableAnnouncement
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteTransitGatewayRouteTableAnnouncement
   where
   toQuery
     DeleteTransitGatewayRouteTableAnnouncement' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "DeleteTransitGatewayRouteTableAnnouncement" ::
+            Data.=: ( "DeleteTransitGatewayRouteTableAnnouncement" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun,
           "TransitGatewayRouteTableAnnouncementId"
-            Core.=: transitGatewayRouteTableAnnouncementId
+            Data.=: transitGatewayRouteTableAnnouncementId
         ]
 
 -- | /See:/ 'newDeleteTransitGatewayRouteTableAnnouncementResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TargetGroupsConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TargetGroup
 import qualified Amazonka.Prelude as Prelude
@@ -53,11 +54,11 @@ newTargetGroupsConfig =
 targetGroupsConfig_targetGroups :: Lens.Lens' TargetGroupsConfig (Prelude.Maybe (Prelude.NonEmpty TargetGroup))
 targetGroupsConfig_targetGroups = Lens.lens (\TargetGroupsConfig' {targetGroups} -> targetGroups) (\s@TargetGroupsConfig' {} a -> s {targetGroups = a} :: TargetGroupsConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML TargetGroupsConfig where
+instance Data.FromXML TargetGroupsConfig where
   parseXML x =
     TargetGroupsConfig'
-      Prelude.<$> ( x Core..@? "targetGroups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList1 "item")
+      Prelude.<$> ( x Data..@? "targetGroups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList1 "item")
                   )
 
 instance Prelude.Hashable TargetGroupsConfig where
@@ -68,11 +69,11 @@ instance Prelude.NFData TargetGroupsConfig where
   rnf TargetGroupsConfig' {..} =
     Prelude.rnf targetGroups
 
-instance Core.ToQuery TargetGroupsConfig where
+instance Data.ToQuery TargetGroupsConfig where
   toQuery TargetGroupsConfig' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "TargetGroups"
+      [ Data.toQuery
+          ( Data.toQueryList "TargetGroups"
               Prelude.<$> targetGroups
           )
       ]

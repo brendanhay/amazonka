@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PacketHeaderStatementRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Protocol
 import qualified Amazonka.Prelude as Prelude
@@ -132,33 +133,33 @@ instance Prelude.NFData PacketHeaderStatementRequest where
       `Prelude.seq` Prelude.rnf sourcePorts
       `Prelude.seq` Prelude.rnf sourcePrefixLists
 
-instance Core.ToQuery PacketHeaderStatementRequest where
+instance Data.ToQuery PacketHeaderStatementRequest where
   toQuery PacketHeaderStatementRequest' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "DestinationPort"
+      [ Data.toQuery
+          ( Data.toQueryList "DestinationPort"
               Prelude.<$> destinationPorts
           ),
-        Core.toQuery
-          ( Core.toQueryList "DestinationPrefixList"
+        Data.toQuery
+          ( Data.toQueryList "DestinationPrefixList"
               Prelude.<$> destinationPrefixLists
           ),
-        Core.toQuery
-          (Core.toQueryList "Protocol" Prelude.<$> protocols),
-        Core.toQuery
-          ( Core.toQueryList "DestinationAddress"
+        Data.toQuery
+          (Data.toQueryList "Protocol" Prelude.<$> protocols),
+        Data.toQuery
+          ( Data.toQueryList "DestinationAddress"
               Prelude.<$> destinationAddresses
           ),
-        Core.toQuery
-          ( Core.toQueryList "SourceAddress"
+        Data.toQuery
+          ( Data.toQueryList "SourceAddress"
               Prelude.<$> sourceAddresses
           ),
-        Core.toQuery
-          ( Core.toQueryList "SourcePort"
+        Data.toQuery
+          ( Data.toQueryList "SourcePort"
               Prelude.<$> sourcePorts
           ),
-        Core.toQuery
-          ( Core.toQueryList "SourcePrefixList"
+        Data.toQuery
+          ( Data.toQueryList "SourcePrefixList"
               Prelude.<$> sourcePrefixLists
           )
       ]

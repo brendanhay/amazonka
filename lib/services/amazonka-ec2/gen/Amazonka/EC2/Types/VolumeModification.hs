@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeModification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VolumeModificationState
 import Amazonka.EC2.Types.VolumeType
@@ -43,7 +44,7 @@ data VolumeModification = VolumeModification'
     -- | The original setting for Amazon EBS Multi-Attach.
     originalMultiAttachEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The modification completion or failure time.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The original IOPS rate of the volume.
     originalIops :: Prelude.Maybe Prelude.Int,
     -- | The current modification state. The modification state is null for
@@ -62,7 +63,7 @@ data VolumeModification = VolumeModification'
     -- | The target EBS volume type of the volume.
     targetVolumeType :: Prelude.Maybe VolumeType,
     -- | The modification start time.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The original size of the volume, in GiB.
     originalSize :: Prelude.Maybe Prelude.Int
   }
@@ -152,7 +153,7 @@ volumeModification_originalMultiAttachEnabled = Lens.lens (\VolumeModification' 
 
 -- | The modification completion or failure time.
 volumeModification_endTime :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.UTCTime)
-volumeModification_endTime = Lens.lens (\VolumeModification' {endTime} -> endTime) (\s@VolumeModification' {} a -> s {endTime = a} :: VolumeModification) Prelude.. Lens.mapping Core._Time
+volumeModification_endTime = Lens.lens (\VolumeModification' {endTime} -> endTime) (\s@VolumeModification' {} a -> s {endTime = a} :: VolumeModification) Prelude.. Lens.mapping Data._Time
 
 -- | The original IOPS rate of the volume.
 volumeModification_originalIops :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
@@ -189,31 +190,31 @@ volumeModification_targetVolumeType = Lens.lens (\VolumeModification' {targetVol
 
 -- | The modification start time.
 volumeModification_startTime :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.UTCTime)
-volumeModification_startTime = Lens.lens (\VolumeModification' {startTime} -> startTime) (\s@VolumeModification' {} a -> s {startTime = a} :: VolumeModification) Prelude.. Lens.mapping Core._Time
+volumeModification_startTime = Lens.lens (\VolumeModification' {startTime} -> startTime) (\s@VolumeModification' {} a -> s {startTime = a} :: VolumeModification) Prelude.. Lens.mapping Data._Time
 
 -- | The original size of the volume, in GiB.
 volumeModification_originalSize :: Lens.Lens' VolumeModification (Prelude.Maybe Prelude.Int)
 volumeModification_originalSize = Lens.lens (\VolumeModification' {originalSize} -> originalSize) (\s@VolumeModification' {} a -> s {originalSize = a} :: VolumeModification)
 
-instance Core.FromXML VolumeModification where
+instance Data.FromXML VolumeModification where
   parseXML x =
     VolumeModification'
-      Prelude.<$> (x Core..@? "progress")
-      Prelude.<*> (x Core..@? "targetThroughput")
-      Prelude.<*> (x Core..@? "targetSize")
-      Prelude.<*> (x Core..@? "originalVolumeType")
-      Prelude.<*> (x Core..@? "originalMultiAttachEnabled")
-      Prelude.<*> (x Core..@? "endTime")
-      Prelude.<*> (x Core..@? "originalIops")
-      Prelude.<*> (x Core..@? "modificationState")
-      Prelude.<*> (x Core..@? "originalThroughput")
-      Prelude.<*> (x Core..@? "volumeId")
-      Prelude.<*> (x Core..@? "targetMultiAttachEnabled")
-      Prelude.<*> (x Core..@? "targetIops")
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "targetVolumeType")
-      Prelude.<*> (x Core..@? "startTime")
-      Prelude.<*> (x Core..@? "originalSize")
+      Prelude.<$> (x Data..@? "progress")
+      Prelude.<*> (x Data..@? "targetThroughput")
+      Prelude.<*> (x Data..@? "targetSize")
+      Prelude.<*> (x Data..@? "originalVolumeType")
+      Prelude.<*> (x Data..@? "originalMultiAttachEnabled")
+      Prelude.<*> (x Data..@? "endTime")
+      Prelude.<*> (x Data..@? "originalIops")
+      Prelude.<*> (x Data..@? "modificationState")
+      Prelude.<*> (x Data..@? "originalThroughput")
+      Prelude.<*> (x Data..@? "volumeId")
+      Prelude.<*> (x Data..@? "targetMultiAttachEnabled")
+      Prelude.<*> (x Data..@? "targetIops")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "targetVolumeType")
+      Prelude.<*> (x Data..@? "startTime")
+      Prelude.<*> (x Data..@? "originalSize")
 
 instance Prelude.Hashable VolumeModification where
   hashWithSalt _salt VolumeModification' {..} =

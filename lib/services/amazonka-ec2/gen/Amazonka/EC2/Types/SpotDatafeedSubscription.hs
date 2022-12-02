@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotDatafeedSubscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DatafeedSubscriptionState
 import Amazonka.EC2.Types.SpotInstanceStateFault
@@ -95,14 +96,14 @@ spotDatafeedSubscription_fault = Lens.lens (\SpotDatafeedSubscription' {fault} -
 spotDatafeedSubscription_prefix :: Lens.Lens' SpotDatafeedSubscription (Prelude.Maybe Prelude.Text)
 spotDatafeedSubscription_prefix = Lens.lens (\SpotDatafeedSubscription' {prefix} -> prefix) (\s@SpotDatafeedSubscription' {} a -> s {prefix = a} :: SpotDatafeedSubscription)
 
-instance Core.FromXML SpotDatafeedSubscription where
+instance Data.FromXML SpotDatafeedSubscription where
   parseXML x =
     SpotDatafeedSubscription'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "bucket")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "fault")
-      Prelude.<*> (x Core..@? "prefix")
+      Prelude.<$> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "bucket")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "fault")
+      Prelude.<*> (x Data..@? "prefix")
 
 instance Prelude.Hashable SpotDatafeedSubscription where
   hashWithSalt _salt SpotDatafeedSubscription' {..} =

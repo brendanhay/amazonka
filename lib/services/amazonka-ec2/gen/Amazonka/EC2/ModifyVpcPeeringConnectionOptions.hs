@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,8 +164,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyVpcPeeringConnectionOptionsResponse'
-            Prelude.<$> (x Core..@? "requesterPeeringConnectionOptions")
-              Prelude.<*> (x Core..@? "accepterPeeringConnectionOptions")
+            Prelude.<$> (x Data..@? "requesterPeeringConnectionOptions")
+              Prelude.<*> (x Data..@? "accepterPeeringConnectionOptions")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,36 +193,36 @@ instance
       `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyVpcPeeringConnectionOptions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifyVpcPeeringConnectionOptions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyVpcPeeringConnectionOptions
   where
   toQuery ModifyVpcPeeringConnectionOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyVpcPeeringConnectionOptions" ::
+          Data.=: ( "ModifyVpcPeeringConnectionOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "RequesterPeeringConnectionOptions"
-          Core.=: requesterPeeringConnectionOptions,
-        "DryRun" Core.=: dryRun,
+          Data.=: requesterPeeringConnectionOptions,
+        "DryRun" Data.=: dryRun,
         "AccepterPeeringConnectionOptions"
-          Core.=: accepterPeeringConnectionOptions,
+          Data.=: accepterPeeringConnectionOptions,
         "VpcPeeringConnectionId"
-          Core.=: vpcPeeringConnectionId
+          Data.=: vpcPeeringConnectionId
       ]
 
 -- | /See:/ 'newModifyVpcPeeringConnectionOptionsResponse' smart constructor.

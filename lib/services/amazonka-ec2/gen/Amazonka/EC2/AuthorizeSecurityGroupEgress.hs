@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -216,11 +217,11 @@ instance Core.AWSRequest AuthorizeSecurityGroupEgress where
     Response.receiveXML
       ( \s h x ->
           AuthorizeSecurityGroupEgressResponse'
-            Prelude.<$> ( x Core..@? "securityGroupRuleSet"
+            Prelude.<$> ( x Data..@? "securityGroupRuleSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "return")
+            Prelude.<*> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -254,39 +255,39 @@ instance Prelude.NFData AuthorizeSecurityGroupEgress where
       `Prelude.seq` Prelude.rnf fromPort
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders AuthorizeSecurityGroupEgress where
+instance Data.ToHeaders AuthorizeSecurityGroupEgress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AuthorizeSecurityGroupEgress where
+instance Data.ToPath AuthorizeSecurityGroupEgress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AuthorizeSecurityGroupEgress where
+instance Data.ToQuery AuthorizeSecurityGroupEgress where
   toQuery AuthorizeSecurityGroupEgress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "AuthorizeSecurityGroupEgress" ::
+          Data.=: ( "AuthorizeSecurityGroupEgress" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "SourceSecurityGroupName"
-          Core.=: sourceSecurityGroupName,
-        "ToPort" Core.=: toPort,
-        Core.toQuery
-          ( Core.toQueryList "IpPermissions"
+          Data.=: sourceSecurityGroupName,
+        "ToPort" Data.=: toPort,
+        Data.toQuery
+          ( Data.toQueryList "IpPermissions"
               Prelude.<$> ipPermissions
           ),
-        "IpProtocol" Core.=: ipProtocol,
-        "DryRun" Core.=: dryRun,
-        "CidrIp" Core.=: cidrIp,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        "IpProtocol" Data.=: ipProtocol,
+        "DryRun" Data.=: dryRun,
+        "CidrIp" Data.=: cidrIp,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "SourceSecurityGroupOwnerId"
-          Core.=: sourceSecurityGroupOwnerId,
-        "FromPort" Core.=: fromPort,
-        "GroupId" Core.=: groupId
+          Data.=: sourceSecurityGroupOwnerId,
+        "FromPort" Data.=: fromPort,
+        "GroupId" Data.=: groupId
       ]
 
 -- | /See:/ 'newAuthorizeSecurityGroupEgressResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ExportToS3TaskSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ContainerFormat
 import Amazonka.EC2.Types.DiskImageFormat
@@ -118,11 +119,11 @@ instance Prelude.NFData ExportToS3TaskSpecification where
       `Prelude.seq` Prelude.rnf containerFormat
       `Prelude.seq` Prelude.rnf s3Prefix
 
-instance Core.ToQuery ExportToS3TaskSpecification where
+instance Data.ToQuery ExportToS3TaskSpecification where
   toQuery ExportToS3TaskSpecification' {..} =
     Prelude.mconcat
-      [ "S3Bucket" Core.=: s3Bucket,
-        "DiskImageFormat" Core.=: diskImageFormat,
-        "ContainerFormat" Core.=: containerFormat,
-        "S3Prefix" Core.=: s3Prefix
+      [ "S3Bucket" Data.=: s3Bucket,
+        "DiskImageFormat" Data.=: diskImageFormat,
+        "ContainerFormat" Data.=: containerFormat,
+        "S3Prefix" Data.=: s3Prefix
       ]

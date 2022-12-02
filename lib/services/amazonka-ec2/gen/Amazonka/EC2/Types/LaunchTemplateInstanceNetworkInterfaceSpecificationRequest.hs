@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationReq
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceIpv6AddressRequest
 import Amazonka.EC2.Types.Ipv4PrefixSpecificationRequest
@@ -377,47 +378,47 @@ instance
         `Prelude.seq` Prelude.rnf deviceIndex
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
   where
   toQuery
     LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' {..} =
       Prelude.mconcat
-        [ "Ipv4PrefixCount" Core.=: ipv4PrefixCount,
-          "InterfaceType" Core.=: interfaceType,
-          "NetworkCardIndex" Core.=: networkCardIndex,
+        [ "Ipv4PrefixCount" Data.=: ipv4PrefixCount,
+          "InterfaceType" Data.=: interfaceType,
+          "NetworkCardIndex" Data.=: networkCardIndex,
           "AssociatePublicIpAddress"
-            Core.=: associatePublicIpAddress,
-          "DeleteOnTermination" Core.=: deleteOnTermination,
-          Core.toQuery
-            ( Core.toQueryList "PrivateIpAddresses"
+            Data.=: associatePublicIpAddress,
+          "DeleteOnTermination" Data.=: deleteOnTermination,
+          Data.toQuery
+            ( Data.toQueryList "PrivateIpAddresses"
                 Prelude.<$> privateIpAddresses
             ),
-          "SubnetId" Core.=: subnetId,
-          "Description" Core.=: description,
+          "SubnetId" Data.=: subnetId,
+          "Description" Data.=: description,
           "AssociateCarrierIpAddress"
-            Core.=: associateCarrierIpAddress,
-          "NetworkInterfaceId" Core.=: networkInterfaceId,
-          "Ipv6AddressCount" Core.=: ipv6AddressCount,
-          Core.toQuery
-            ( Core.toQueryList "Ipv4Prefix"
+            Data.=: associateCarrierIpAddress,
+          "NetworkInterfaceId" Data.=: networkInterfaceId,
+          "Ipv6AddressCount" Data.=: ipv6AddressCount,
+          Data.toQuery
+            ( Data.toQueryList "Ipv4Prefix"
                 Prelude.<$> ipv4Prefixes
             ),
-          "PrivateIpAddress" Core.=: privateIpAddress,
-          "Ipv6PrefixCount" Core.=: ipv6PrefixCount,
+          "PrivateIpAddress" Data.=: privateIpAddress,
+          "Ipv6PrefixCount" Data.=: ipv6PrefixCount,
           "SecondaryPrivateIpAddressCount"
-            Core.=: secondaryPrivateIpAddressCount,
-          Core.toQuery
-            ( Core.toQueryList "Ipv6Prefix"
+            Data.=: secondaryPrivateIpAddressCount,
+          Data.toQuery
+            ( Data.toQueryList "Ipv6Prefix"
                 Prelude.<$> ipv6Prefixes
             ),
-          Core.toQuery
-            ( Core.toQueryList "SecurityGroupId"
+          Data.toQuery
+            ( Data.toQueryList "SecurityGroupId"
                 Prelude.<$> groups
             ),
-          Core.toQuery
-            ( Core.toQueryList "Ipv6Addresses"
+          Data.toQuery
+            ( Data.toQueryList "Ipv6Addresses"
                 Prelude.<$> ipv6Addresses
             ),
-          "DeviceIndex" Core.=: deviceIndex
+          "DeviceIndex" Data.=: deviceIndex
         ]

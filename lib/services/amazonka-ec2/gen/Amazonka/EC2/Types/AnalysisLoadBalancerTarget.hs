@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AnalysisLoadBalancerTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AnalysisComponent
 import qualified Amazonka.Prelude as Prelude
@@ -81,13 +82,13 @@ analysisLoadBalancerTarget_address = Lens.lens (\AnalysisLoadBalancerTarget' {ad
 analysisLoadBalancerTarget_instance :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe AnalysisComponent)
 analysisLoadBalancerTarget_instance = Lens.lens (\AnalysisLoadBalancerTarget' {instance'} -> instance') (\s@AnalysisLoadBalancerTarget' {} a -> s {instance' = a} :: AnalysisLoadBalancerTarget)
 
-instance Core.FromXML AnalysisLoadBalancerTarget where
+instance Data.FromXML AnalysisLoadBalancerTarget where
   parseXML x =
     AnalysisLoadBalancerTarget'
-      Prelude.<$> (x Core..@? "port")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "address")
-      Prelude.<*> (x Core..@? "instance")
+      Prelude.<$> (x Data..@? "port")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "address")
+      Prelude.<*> (x Data..@? "instance")
 
 instance Prelude.Hashable AnalysisLoadBalancerTarget where
   hashWithSalt _salt AnalysisLoadBalancerTarget' {..} =

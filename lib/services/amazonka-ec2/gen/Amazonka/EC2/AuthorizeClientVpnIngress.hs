@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,7 +184,7 @@ instance Core.AWSRequest AuthorizeClientVpnIngress where
     Response.receiveXML
       ( \s h x ->
           AuthorizeClientVpnIngressResponse'
-            Prelude.<$> (x Core..@? "status")
+            Prelude.<$> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,26 +208,26 @@ instance Prelude.NFData AuthorizeClientVpnIngress where
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
       `Prelude.seq` Prelude.rnf targetNetworkCidr
 
-instance Core.ToHeaders AuthorizeClientVpnIngress where
+instance Data.ToHeaders AuthorizeClientVpnIngress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AuthorizeClientVpnIngress where
+instance Data.ToPath AuthorizeClientVpnIngress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AuthorizeClientVpnIngress where
+instance Data.ToQuery AuthorizeClientVpnIngress where
   toQuery AuthorizeClientVpnIngress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AuthorizeClientVpnIngress" :: Prelude.ByteString),
+          Data.=: ("AuthorizeClientVpnIngress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "AuthorizeAllGroups" Core.=: authorizeAllGroups,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "AccessGroupId" Core.=: accessGroupId,
-        "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
-        "TargetNetworkCidr" Core.=: targetNetworkCidr
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "AuthorizeAllGroups" Data.=: authorizeAllGroups,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "AccessGroupId" Data.=: accessGroupId,
+        "ClientVpnEndpointId" Data.=: clientVpnEndpointId,
+        "TargetNetworkCidr" Data.=: targetNetworkCidr
       ]
 
 -- | /See:/ 'newAuthorizeClientVpnIngressResponse' smart constructor.

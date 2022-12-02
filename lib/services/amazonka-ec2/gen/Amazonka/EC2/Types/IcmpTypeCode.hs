@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IcmpTypeCode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,10 +66,10 @@ icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode
 icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
 icmpTypeCode_code = Lens.lens (\IcmpTypeCode' {code} -> code) (\s@IcmpTypeCode' {} a -> s {code = a} :: IcmpTypeCode)
 
-instance Core.FromXML IcmpTypeCode where
+instance Data.FromXML IcmpTypeCode where
   parseXML x =
     IcmpTypeCode'
-      Prelude.<$> (x Core..@? "type") Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "type") Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable IcmpTypeCode where
   hashWithSalt _salt IcmpTypeCode' {..} =
@@ -79,7 +80,7 @@ instance Prelude.NFData IcmpTypeCode where
   rnf IcmpTypeCode' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf code
 
-instance Core.ToQuery IcmpTypeCode where
+instance Data.ToQuery IcmpTypeCode where
   toQuery IcmpTypeCode' {..} =
     Prelude.mconcat
-      ["Type" Core.=: type', "Code" Core.=: code]
+      ["Type" Data.=: type', "Code" Data.=: code]

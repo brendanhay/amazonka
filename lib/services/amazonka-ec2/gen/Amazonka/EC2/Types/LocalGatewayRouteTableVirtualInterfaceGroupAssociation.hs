@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -133,23 +134,23 @@ localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableArn
 localGatewayRouteTableVirtualInterfaceGroupAssociation_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTableVirtualInterfaceGroupAssociation' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation
   where
   parseXML x =
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-        Prelude.<*> (x Core..@? "localGatewayId")
-        Prelude.<*> (x Core..@? "ownerId")
-        Prelude.<*> (x Core..@? "localGatewayRouteTableId")
-        Prelude.<*> (x Core..@? "state")
-        Prelude.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
+        Prelude.<*> (x Data..@? "localGatewayId")
+        Prelude.<*> (x Data..@? "ownerId")
+        Prelude.<*> (x Data..@? "localGatewayRouteTableId")
+        Prelude.<*> (x Data..@? "state")
+        Prelude.<*> (x Data..@? "localGatewayVirtualInterfaceGroupId")
         Prelude.<*> ( x
-                        Core..@? "localGatewayRouteTableVirtualInterfaceGroupAssociationId"
+                        Data..@? "localGatewayRouteTableVirtualInterfaceGroupAssociationId"
                     )
-        Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
+        Prelude.<*> (x Data..@? "localGatewayRouteTableArn")
 
 instance
   Prelude.Hashable

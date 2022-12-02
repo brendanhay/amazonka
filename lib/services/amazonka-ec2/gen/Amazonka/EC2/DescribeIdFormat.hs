@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,8 +132,8 @@ instance Core.AWSRequest DescribeIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribeIdFormatResponse'
-            Prelude.<$> ( x Core..@? "statusSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -144,20 +145,20 @@ instance Prelude.Hashable DescribeIdFormat where
 instance Prelude.NFData DescribeIdFormat where
   rnf DescribeIdFormat' {..} = Prelude.rnf resource
 
-instance Core.ToHeaders DescribeIdFormat where
+instance Data.ToHeaders DescribeIdFormat where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeIdFormat where
+instance Data.ToPath DescribeIdFormat where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIdFormat where
+instance Data.ToQuery DescribeIdFormat where
   toQuery DescribeIdFormat' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeIdFormat" :: Prelude.ByteString),
+          Data.=: ("DescribeIdFormat" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Resource" Core.=: resource
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Resource" Data.=: resource
       ]
 
 -- | /See:/ 'newDescribeIdFormatResponse' smart constructor.

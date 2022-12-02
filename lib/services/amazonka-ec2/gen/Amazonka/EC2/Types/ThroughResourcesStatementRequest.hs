@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ThroughResourcesStatementRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResourceStatementRequest
 import qualified Amazonka.Prelude as Prelude
@@ -72,9 +73,9 @@ instance
     Prelude.rnf resourceStatement
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ThroughResourcesStatementRequest
   where
   toQuery ThroughResourcesStatementRequest' {..} =
     Prelude.mconcat
-      ["ResourceStatement" Core.=: resourceStatement]
+      ["ResourceStatement" Data.=: resourceStatement]

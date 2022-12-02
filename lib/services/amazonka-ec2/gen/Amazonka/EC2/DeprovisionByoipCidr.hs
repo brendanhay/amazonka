@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest DeprovisionByoipCidr where
     Response.receiveXML
       ( \s h x ->
           DeprovisionByoipCidrResponse'
-            Prelude.<$> (x Core..@? "byoipCidr")
+            Prelude.<$> (x Data..@? "byoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,21 +127,21 @@ instance Prelude.NFData DeprovisionByoipCidr where
   rnf DeprovisionByoipCidr' {..} =
     Prelude.rnf dryRun `Prelude.seq` Prelude.rnf cidr
 
-instance Core.ToHeaders DeprovisionByoipCidr where
+instance Data.ToHeaders DeprovisionByoipCidr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeprovisionByoipCidr where
+instance Data.ToPath DeprovisionByoipCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeprovisionByoipCidr where
+instance Data.ToQuery DeprovisionByoipCidr where
   toQuery DeprovisionByoipCidr' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeprovisionByoipCidr" :: Prelude.ByteString),
+          Data.=: ("DeprovisionByoipCidr" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Cidr" Core.=: cidr
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Cidr" Data.=: cidr
       ]
 
 -- | /See:/ 'newDeprovisionByoipCidrResponse' smart constructor.

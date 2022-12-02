@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImportInstanceVolumeDetailItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DiskImageDescription
 import Amazonka.EC2.Types.DiskImageVolumeDescription
@@ -110,16 +111,16 @@ importInstanceVolumeDetailItem_image = Lens.lens (\ImportInstanceVolumeDetailIte
 importInstanceVolumeDetailItem_statusMessage :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
 importInstanceVolumeDetailItem_statusMessage = Lens.lens (\ImportInstanceVolumeDetailItem' {statusMessage} -> statusMessage) (\s@ImportInstanceVolumeDetailItem' {} a -> s {statusMessage = a} :: ImportInstanceVolumeDetailItem)
 
-instance Core.FromXML ImportInstanceVolumeDetailItem where
+instance Data.FromXML ImportInstanceVolumeDetailItem where
   parseXML x =
     ImportInstanceVolumeDetailItem'
-      Prelude.<$> (x Core..@? "bytesConverted")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "volume")
-      Prelude.<*> (x Core..@? "image")
-      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<$> (x Data..@? "bytesConverted")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "volume")
+      Prelude.<*> (x Data..@? "image")
+      Prelude.<*> (x Data..@? "statusMessage")
 
 instance
   Prelude.Hashable

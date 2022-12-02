@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,7 +127,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           AcceptReservedInstancesExchangeQuoteResponse'
-            Prelude.<$> (x Core..@? "exchangeId")
+            Prelude.<$> (x Data..@? "exchangeId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,35 +152,35 @@ instance
       `Prelude.seq` Prelude.rnf reservedInstanceIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AcceptReservedInstancesExchangeQuote
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     AcceptReservedInstancesExchangeQuote
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AcceptReservedInstancesExchangeQuote
   where
   toQuery AcceptReservedInstancesExchangeQuote' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "AcceptReservedInstancesExchangeQuote" ::
+          Data.=: ( "AcceptReservedInstancesExchangeQuote" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TargetConfiguration"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TargetConfiguration"
               Prelude.<$> targetConfigurations
           ),
-        Core.toQueryList
+        Data.toQueryList
           "ReservedInstanceId"
           reservedInstanceIds
       ]

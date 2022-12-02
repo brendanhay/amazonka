@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotPrice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceType
 import Amazonka.EC2.Types.RIProductDescription
@@ -38,7 +39,7 @@ import qualified Amazonka.Prelude as Prelude
 data SpotPrice = SpotPrice'
   { -- | The date and time the request was created, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    timestamp :: Prelude.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Data.ISO8601,
     -- | The Availability Zone.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The instance type.
@@ -94,7 +95,7 @@ newSpotPrice =
 -- | The date and time the request was created, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 spotPrice_timestamp :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.UTCTime)
-spotPrice_timestamp = Lens.lens (\SpotPrice' {timestamp} -> timestamp) (\s@SpotPrice' {} a -> s {timestamp = a} :: SpotPrice) Prelude.. Lens.mapping Core._Time
+spotPrice_timestamp = Lens.lens (\SpotPrice' {timestamp} -> timestamp) (\s@SpotPrice' {} a -> s {timestamp = a} :: SpotPrice) Prelude.. Lens.mapping Data._Time
 
 -- | The Availability Zone.
 spotPrice_availabilityZone :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.Text)
@@ -118,14 +119,14 @@ spotPrice_productDescription = Lens.lens (\SpotPrice' {productDescription} -> pr
 spotPrice_spotPrice :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.Text)
 spotPrice_spotPrice = Lens.lens (\SpotPrice' {spotPrice} -> spotPrice) (\s@SpotPrice' {} a -> s {spotPrice = a} :: SpotPrice)
 
-instance Core.FromXML SpotPrice where
+instance Data.FromXML SpotPrice where
   parseXML x =
     SpotPrice'
-      Prelude.<$> (x Core..@? "timestamp")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "productDescription")
-      Prelude.<*> (x Core..@? "spotPrice")
+      Prelude.<$> (x Data..@? "timestamp")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "productDescription")
+      Prelude.<*> (x Data..@? "spotPrice")
 
 instance Prelude.Hashable SpotPrice where
   hashWithSalt _salt SpotPrice' {..} =

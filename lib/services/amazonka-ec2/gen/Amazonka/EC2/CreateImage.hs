@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -270,7 +271,7 @@ instance Core.AWSRequest CreateImage where
     Response.receiveXML
       ( \s h x ->
           CreateImageResponse'
-            Prelude.<$> (x Core..@? "imageId")
+            Prelude.<$> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -294,32 +295,32 @@ instance Prelude.NFData CreateImage where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateImage where
+instance Data.ToHeaders CreateImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateImage where
+instance Data.ToPath CreateImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateImage where
+instance Data.ToQuery CreateImage where
   toQuery CreateImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateImage" :: Prelude.ByteString),
+          Data.=: ("CreateImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "NoReboot" Core.=: noReboot,
-        "InstanceId" Core.=: instanceId,
-        "Name" Core.=: name
+        "NoReboot" Data.=: noReboot,
+        "InstanceId" Data.=: instanceId,
+        "Name" Data.=: name
       ]
 
 -- | /See:/ 'newCreateImageResponse' smart constructor.

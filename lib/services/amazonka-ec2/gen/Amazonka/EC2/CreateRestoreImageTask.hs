@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,7 +175,7 @@ instance Core.AWSRequest CreateRestoreImageTask where
     Response.receiveXML
       ( \s h x ->
           CreateRestoreImageTaskResponse'
-            Prelude.<$> (x Core..@? "imageId")
+            Prelude.<$> (x Data..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,27 +195,27 @@ instance Prelude.NFData CreateRestoreImageTask where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf objectKey
 
-instance Core.ToHeaders CreateRestoreImageTask where
+instance Data.ToHeaders CreateRestoreImageTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateRestoreImageTask where
+instance Data.ToPath CreateRestoreImageTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRestoreImageTask where
+instance Data.ToQuery CreateRestoreImageTask where
   toQuery CreateRestoreImageTask' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateRestoreImageTask" :: Prelude.ByteString),
+          Data.=: ("CreateRestoreImageTask" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Name" Core.=: name,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Name" Data.=: name,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Bucket" Core.=: bucket,
-        "ObjectKey" Core.=: objectKey
+        "Bucket" Data.=: bucket,
+        "ObjectKey" Data.=: objectKey
       ]
 
 -- | /See:/ 'newCreateRestoreImageTaskResponse' smart constructor.

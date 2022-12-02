@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateLocalGatewayRouteTableVpcAssociationResponse'
-            Prelude.<$> (x Core..@? "localGatewayRouteTableVpcAssociation")
+            Prelude.<$> (x Data..@? "localGatewayRouteTableVpcAssociation")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,38 +164,38 @@ instance
       `Prelude.seq` Prelude.rnf vpcId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateLocalGatewayRouteTableVpcAssociation
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateLocalGatewayRouteTableVpcAssociation
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateLocalGatewayRouteTableVpcAssociation
   where
   toQuery
     CreateLocalGatewayRouteTableVpcAssociation' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "CreateLocalGatewayRouteTableVpcAssociation" ::
+            Data.=: ( "CreateLocalGatewayRouteTableVpcAssociation" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
-          Core.toQuery
-            ( Core.toQueryList "TagSpecification"
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun,
+          Data.toQuery
+            ( Data.toQueryList "TagSpecification"
                 Prelude.<$> tagSpecifications
             ),
           "LocalGatewayRouteTableId"
-            Core.=: localGatewayRouteTableId,
-          "VpcId" Core.=: vpcId
+            Data.=: localGatewayRouteTableId,
+          "VpcId" Data.=: vpcId
         ]
 
 -- | /See:/ 'newCreateLocalGatewayRouteTableVpcAssociationResponse' smart constructor.

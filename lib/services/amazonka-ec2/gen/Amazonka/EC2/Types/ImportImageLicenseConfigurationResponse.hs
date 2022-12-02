@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImportImageLicenseConfigurationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ importImageLicenseConfigurationResponse_licenseConfigurationArn :: Lens.Lens' Im
 importImageLicenseConfigurationResponse_licenseConfigurationArn = Lens.lens (\ImportImageLicenseConfigurationResponse' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@ImportImageLicenseConfigurationResponse' {} a -> s {licenseConfigurationArn = a} :: ImportImageLicenseConfigurationResponse)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ImportImageLicenseConfigurationResponse
   where
   parseXML x =
     ImportImageLicenseConfigurationResponse'
-      Prelude.<$> (x Core..@? "licenseConfigurationArn")
+      Prelude.<$> (x Data..@? "licenseConfigurationArn")
 
 instance
   Prelude.Hashable

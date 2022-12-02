@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AddPrefixListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -80,9 +81,9 @@ instance Prelude.NFData AddPrefixListEntry where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf cidr
 
-instance Core.ToQuery AddPrefixListEntry where
+instance Data.ToQuery AddPrefixListEntry where
   toQuery AddPrefixListEntry' {..} =
     Prelude.mconcat
-      [ "Description" Core.=: description,
-        "Cidr" Core.=: cidr
+      [ "Description" Data.=: description,
+        "Cidr" Data.=: cidr
       ]

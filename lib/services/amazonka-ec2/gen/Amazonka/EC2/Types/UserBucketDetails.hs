@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.UserBucketDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ userBucketDetails_s3Bucket = Lens.lens (\UserBucketDetails' {s3Bucket} -> s3Buck
 userBucketDetails_s3Key :: Lens.Lens' UserBucketDetails (Prelude.Maybe Prelude.Text)
 userBucketDetails_s3Key = Lens.lens (\UserBucketDetails' {s3Key} -> s3Key) (\s@UserBucketDetails' {} a -> s {s3Key = a} :: UserBucketDetails)
 
-instance Core.FromXML UserBucketDetails where
+instance Data.FromXML UserBucketDetails where
   parseXML x =
     UserBucketDetails'
-      Prelude.<$> (x Core..@? "s3Bucket")
-      Prelude.<*> (x Core..@? "s3Key")
+      Prelude.<$> (x Data..@? "s3Bucket")
+      Prelude.<*> (x Data..@? "s3Key")
 
 instance Prelude.Hashable UserBucketDetails where
   hashWithSalt _salt UserBucketDetails' {..} =

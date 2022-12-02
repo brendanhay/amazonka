@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyDefaultCreditSpecificationResponse'
-            Prelude.<$> (x Core..@? "instanceFamilyCreditSpecification")
+            Prelude.<$> (x Data..@? "instanceFamilyCreditSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,29 +171,29 @@ instance
       `Prelude.seq` Prelude.rnf cpuCredits
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyDefaultCreditSpecification
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyDefaultCreditSpecification where
+instance Data.ToPath ModifyDefaultCreditSpecification where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyDefaultCreditSpecification
   where
   toQuery ModifyDefaultCreditSpecification' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyDefaultCreditSpecification" ::
+          Data.=: ( "ModifyDefaultCreditSpecification" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InstanceFamily" Core.=: instanceFamily,
-        "CpuCredits" Core.=: cpuCredits
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "InstanceFamily" Data.=: instanceFamily,
+        "CpuCredits" Data.=: cpuCredits
       ]
 
 -- | /See:/ 'newModifyDefaultCreditSpecificationResponse' smart constructor.

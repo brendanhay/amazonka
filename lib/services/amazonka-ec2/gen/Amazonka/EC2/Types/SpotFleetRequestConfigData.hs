@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotFleetRequestConfigData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AllocationStrategy
 import Amazonka.EC2.Types.ExcessCapacityTerminationPolicy
@@ -118,7 +119,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- | The start date and time of the request, in UTC format
     -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). By default, Amazon EC2 starts
     -- fulfilling the request immediately.
-    validFrom :: Prelude.Maybe Core.ISO8601,
+    validFrom :: Prelude.Maybe Data.ISO8601,
     -- | Indicates whether Spot Fleet should replace unhealthy instances.
     replaceUnhealthyInstances :: Prelude.Maybe Prelude.Bool,
     -- | The launch template and overrides. If you specify
@@ -179,7 +180,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). After the end date and time, no new
     -- Spot Instance requests are placed or able to fulfill the request. If no
     -- value is specified, the Spot Fleet request remains until you cancel it.
-    validUntil :: Prelude.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Data.ISO8601,
     -- | The key-value pair for tagging the Spot Fleet request on creation. The
     -- value for @ResourceType@ must be @spot-fleet-request@, otherwise the
     -- Spot Fleet request fails. To tag instances at launch, specify the tags
@@ -563,7 +564,7 @@ spotFleetRequestConfigData_launchSpecifications = Lens.lens (\SpotFleetRequestCo
 -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). By default, Amazon EC2 starts
 -- fulfilling the request immediately.
 spotFleetRequestConfigData_validFrom :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.UTCTime)
-spotFleetRequestConfigData_validFrom = Lens.lens (\SpotFleetRequestConfigData' {validFrom} -> validFrom) (\s@SpotFleetRequestConfigData' {} a -> s {validFrom = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Core._Time
+spotFleetRequestConfigData_validFrom = Lens.lens (\SpotFleetRequestConfigData' {validFrom} -> validFrom) (\s@SpotFleetRequestConfigData' {} a -> s {validFrom = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether Spot Fleet should replace unhealthy instances.
 spotFleetRequestConfigData_replaceUnhealthyInstances :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Bool)
@@ -640,7 +641,7 @@ spotFleetRequestConfigData_onDemandTargetCapacity = Lens.lens (\SpotFleetRequest
 -- Spot Instance requests are placed or able to fulfill the request. If no
 -- value is specified, the Spot Fleet request remains until you cancel it.
 spotFleetRequestConfigData_validUntil :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.UTCTime)
-spotFleetRequestConfigData_validUntil = Lens.lens (\SpotFleetRequestConfigData' {validUntil} -> validUntil) (\s@SpotFleetRequestConfigData' {} a -> s {validUntil = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Core._Time
+spotFleetRequestConfigData_validUntil = Lens.lens (\SpotFleetRequestConfigData' {validUntil} -> validUntil) (\s@SpotFleetRequestConfigData' {} a -> s {validUntil = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Data._Time
 
 -- | The key-value pair for tagging the Spot Fleet request on creation. The
 -- value for @ResourceType@ must be @spot-fleet-request@, otherwise the
@@ -696,44 +697,44 @@ spotFleetRequestConfigData_iamFleetRole = Lens.lens (\SpotFleetRequestConfigData
 spotFleetRequestConfigData_targetCapacity :: Lens.Lens' SpotFleetRequestConfigData Prelude.Int
 spotFleetRequestConfigData_targetCapacity = Lens.lens (\SpotFleetRequestConfigData' {targetCapacity} -> targetCapacity) (\s@SpotFleetRequestConfigData' {} a -> s {targetCapacity = a} :: SpotFleetRequestConfigData)
 
-instance Core.FromXML SpotFleetRequestConfigData where
+instance Data.FromXML SpotFleetRequestConfigData where
   parseXML x =
     SpotFleetRequestConfigData'
-      Prelude.<$> (x Core..@? "excessCapacityTerminationPolicy")
-      Prelude.<*> (x Core..@? "clientToken")
-      Prelude.<*> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "onDemandFulfilledCapacity")
-      Prelude.<*> (x Core..@? "spotMaintenanceStrategies")
-      Prelude.<*> (x Core..@? "onDemandAllocationStrategy")
-      Prelude.<*> (x Core..@? "instancePoolsToUseCount")
-      Prelude.<*> (x Core..@? "onDemandMaxTotalPrice")
-      Prelude.<*> (x Core..@? "context")
-      Prelude.<*> (x Core..@? "loadBalancersConfig")
-      Prelude.<*> (x Core..@? "fulfilledCapacity")
-      Prelude.<*> ( x Core..@? "launchSpecifications"
+      Prelude.<$> (x Data..@? "excessCapacityTerminationPolicy")
+      Prelude.<*> (x Data..@? "clientToken")
+      Prelude.<*> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "onDemandFulfilledCapacity")
+      Prelude.<*> (x Data..@? "spotMaintenanceStrategies")
+      Prelude.<*> (x Data..@? "onDemandAllocationStrategy")
+      Prelude.<*> (x Data..@? "instancePoolsToUseCount")
+      Prelude.<*> (x Data..@? "onDemandMaxTotalPrice")
+      Prelude.<*> (x Data..@? "context")
+      Prelude.<*> (x Data..@? "loadBalancersConfig")
+      Prelude.<*> (x Data..@? "fulfilledCapacity")
+      Prelude.<*> ( x Data..@? "launchSpecifications"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "validFrom")
-      Prelude.<*> (x Core..@? "replaceUnhealthyInstances")
-      Prelude.<*> ( x Core..@? "launchTemplateConfigs"
+      Prelude.<*> (x Data..@? "validFrom")
+      Prelude.<*> (x Data..@? "replaceUnhealthyInstances")
+      Prelude.<*> ( x Data..@? "launchTemplateConfigs"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "targetCapacityUnitType")
-      Prelude.<*> (x Core..@? "instanceInterruptionBehavior")
-      Prelude.<*> (x Core..@? "allocationStrategy")
-      Prelude.<*> (x Core..@? "terminateInstancesWithExpiration")
-      Prelude.<*> (x Core..@? "onDemandTargetCapacity")
-      Prelude.<*> (x Core..@? "validUntil")
-      Prelude.<*> ( x Core..@? "TagSpecification"
+      Prelude.<*> (x Data..@? "targetCapacityUnitType")
+      Prelude.<*> (x Data..@? "instanceInterruptionBehavior")
+      Prelude.<*> (x Data..@? "allocationStrategy")
+      Prelude.<*> (x Data..@? "terminateInstancesWithExpiration")
+      Prelude.<*> (x Data..@? "onDemandTargetCapacity")
+      Prelude.<*> (x Data..@? "validUntil")
+      Prelude.<*> ( x Data..@? "TagSpecification"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "spotMaxTotalPrice")
-      Prelude.<*> (x Core..@? "spotPrice")
-      Prelude.<*> (x Core..@ "iamFleetRole")
-      Prelude.<*> (x Core..@ "targetCapacity")
+      Prelude.<*> (x Data..@? "spotMaxTotalPrice")
+      Prelude.<*> (x Data..@? "spotPrice")
+      Prelude.<*> (x Data..@ "iamFleetRole")
+      Prelude.<*> (x Data..@ "targetCapacity")
 
 instance Prelude.Hashable SpotFleetRequestConfigData where
   hashWithSalt _salt SpotFleetRequestConfigData' {..} =
@@ -801,53 +802,53 @@ instance Prelude.NFData SpotFleetRequestConfigData where
       `Prelude.seq` Prelude.rnf
         targetCapacity
 
-instance Core.ToQuery SpotFleetRequestConfigData where
+instance Data.ToQuery SpotFleetRequestConfigData where
   toQuery SpotFleetRequestConfigData' {..} =
     Prelude.mconcat
       [ "ExcessCapacityTerminationPolicy"
-          Core.=: excessCapacityTerminationPolicy,
-        "ClientToken" Core.=: clientToken,
-        "Type" Core.=: type',
+          Data.=: excessCapacityTerminationPolicy,
+        "ClientToken" Data.=: clientToken,
+        "Type" Data.=: type',
         "OnDemandFulfilledCapacity"
-          Core.=: onDemandFulfilledCapacity,
+          Data.=: onDemandFulfilledCapacity,
         "SpotMaintenanceStrategies"
-          Core.=: spotMaintenanceStrategies,
+          Data.=: spotMaintenanceStrategies,
         "OnDemandAllocationStrategy"
-          Core.=: onDemandAllocationStrategy,
+          Data.=: onDemandAllocationStrategy,
         "InstancePoolsToUseCount"
-          Core.=: instancePoolsToUseCount,
+          Data.=: instancePoolsToUseCount,
         "OnDemandMaxTotalPrice"
-          Core.=: onDemandMaxTotalPrice,
-        "Context" Core.=: context,
-        "LoadBalancersConfig" Core.=: loadBalancersConfig,
-        "FulfilledCapacity" Core.=: fulfilledCapacity,
-        Core.toQuery
-          ( Core.toQueryList "LaunchSpecifications"
+          Data.=: onDemandMaxTotalPrice,
+        "Context" Data.=: context,
+        "LoadBalancersConfig" Data.=: loadBalancersConfig,
+        "FulfilledCapacity" Data.=: fulfilledCapacity,
+        Data.toQuery
+          ( Data.toQueryList "LaunchSpecifications"
               Prelude.<$> launchSpecifications
           ),
-        "ValidFrom" Core.=: validFrom,
+        "ValidFrom" Data.=: validFrom,
         "ReplaceUnhealthyInstances"
-          Core.=: replaceUnhealthyInstances,
-        Core.toQuery
-          ( Core.toQueryList "LaunchTemplateConfigs"
+          Data.=: replaceUnhealthyInstances,
+        Data.toQuery
+          ( Data.toQueryList "LaunchTemplateConfigs"
               Prelude.<$> launchTemplateConfigs
           ),
         "TargetCapacityUnitType"
-          Core.=: targetCapacityUnitType,
+          Data.=: targetCapacityUnitType,
         "InstanceInterruptionBehavior"
-          Core.=: instanceInterruptionBehavior,
-        "AllocationStrategy" Core.=: allocationStrategy,
+          Data.=: instanceInterruptionBehavior,
+        "AllocationStrategy" Data.=: allocationStrategy,
         "TerminateInstancesWithExpiration"
-          Core.=: terminateInstancesWithExpiration,
+          Data.=: terminateInstancesWithExpiration,
         "OnDemandTargetCapacity"
-          Core.=: onDemandTargetCapacity,
-        "ValidUntil" Core.=: validUntil,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: onDemandTargetCapacity,
+        "ValidUntil" Data.=: validUntil,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "SpotMaxTotalPrice" Core.=: spotMaxTotalPrice,
-        "SpotPrice" Core.=: spotPrice,
-        "IamFleetRole" Core.=: iamFleetRole,
-        "TargetCapacity" Core.=: targetCapacity
+        "SpotMaxTotalPrice" Data.=: spotMaxTotalPrice,
+        "SpotPrice" Data.=: spotPrice,
+        "IamFleetRole" Data.=: iamFleetRole,
+        "TargetCapacity" Data.=: targetCapacity
       ]

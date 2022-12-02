@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceIpv6Prefix where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newInstanceIpv6Prefix =
 instanceIpv6Prefix_ipv6Prefix :: Lens.Lens' InstanceIpv6Prefix (Prelude.Maybe Prelude.Text)
 instanceIpv6Prefix_ipv6Prefix = Lens.lens (\InstanceIpv6Prefix' {ipv6Prefix} -> ipv6Prefix) (\s@InstanceIpv6Prefix' {} a -> s {ipv6Prefix = a} :: InstanceIpv6Prefix)
 
-instance Core.FromXML InstanceIpv6Prefix where
+instance Data.FromXML InstanceIpv6Prefix where
   parseXML x =
     InstanceIpv6Prefix'
-      Prelude.<$> (x Core..@? "ipv6Prefix")
+      Prelude.<$> (x Data..@? "ipv6Prefix")
 
 instance Prelude.Hashable InstanceIpv6Prefix where
   hashWithSalt _salt InstanceIpv6Prefix' {..} =

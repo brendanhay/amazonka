@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -252,9 +253,9 @@ instance Core.AWSRequest DescribeVpcEndpoints where
     Response.receiveXML
       ( \s h x ->
           DescribeVpcEndpointsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "vpcEndpointSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "vpcEndpointSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -275,28 +276,28 @@ instance Prelude.NFData DescribeVpcEndpoints where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeVpcEndpoints where
+instance Data.ToHeaders DescribeVpcEndpoints where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVpcEndpoints where
+instance Data.ToPath DescribeVpcEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpcEndpoints where
+instance Data.ToQuery DescribeVpcEndpoints where
   toQuery DescribeVpcEndpoints' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVpcEndpoints" :: Prelude.ByteString),
+          Data.=: ("DescribeVpcEndpoints" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          ( Core.toQueryList "VpcEndpointId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          ( Data.toQueryList "VpcEndpointId"
               Prelude.<$> vpcEndpointIds
           ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | Contains the output of DescribeVpcEndpoints.

@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,8 +174,8 @@ instance Core.AWSRequest CreateFpgaImage where
     Response.receiveXML
       ( \s h x ->
           CreateFpgaImageResponse'
-            Prelude.<$> (x Core..@? "fpgaImageGlobalId")
-            Prelude.<*> (x Core..@? "fpgaImageId")
+            Prelude.<$> (x Data..@? "fpgaImageGlobalId")
+            Prelude.<*> (x Data..@? "fpgaImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,29 +199,29 @@ instance Prelude.NFData CreateFpgaImage where
       `Prelude.seq` Prelude.rnf logsStorageLocation
       `Prelude.seq` Prelude.rnf inputStorageLocation
 
-instance Core.ToHeaders CreateFpgaImage where
+instance Data.ToHeaders CreateFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateFpgaImage where
+instance Data.ToPath CreateFpgaImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFpgaImage where
+instance Data.ToQuery CreateFpgaImage where
   toQuery CreateFpgaImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateFpgaImage" :: Prelude.ByteString),
+          Data.=: ("CreateFpgaImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "Name" Core.=: name,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "Name" Data.=: name,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "LogsStorageLocation" Core.=: logsStorageLocation,
-        "InputStorageLocation" Core.=: inputStorageLocation
+        "LogsStorageLocation" Data.=: logsStorageLocation,
+        "InputStorageLocation" Data.=: inputStorageLocation
       ]
 
 -- | /See:/ 'newCreateFpgaImageResponse' smart constructor.

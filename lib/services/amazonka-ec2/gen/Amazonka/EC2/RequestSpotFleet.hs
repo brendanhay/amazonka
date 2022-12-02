@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest RequestSpotFleet where
     Response.receiveXML
       ( \s h x ->
           RequestSpotFleetResponse'
-            Prelude.<$> (x Core..@? "spotFleetRequestId")
+            Prelude.<$> (x Data..@? "spotFleetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,22 +155,22 @@ instance Prelude.NFData RequestSpotFleet where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf spotFleetRequestConfig
 
-instance Core.ToHeaders RequestSpotFleet where
+instance Data.ToHeaders RequestSpotFleet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RequestSpotFleet where
+instance Data.ToPath RequestSpotFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RequestSpotFleet where
+instance Data.ToQuery RequestSpotFleet where
   toQuery RequestSpotFleet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RequestSpotFleet" :: Prelude.ByteString),
+          Data.=: ("RequestSpotFleet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         "SpotFleetRequestConfig"
-          Core.=: spotFleetRequestConfig
+          Data.=: spotFleetRequestConfig
       ]
 
 -- | Contains the output of RequestSpotFleet.

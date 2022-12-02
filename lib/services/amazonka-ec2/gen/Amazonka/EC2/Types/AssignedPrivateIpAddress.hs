@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AssignedPrivateIpAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newAssignedPrivateIpAddress =
 assignedPrivateIpAddress_privateIpAddress :: Lens.Lens' AssignedPrivateIpAddress (Prelude.Maybe Prelude.Text)
 assignedPrivateIpAddress_privateIpAddress = Lens.lens (\AssignedPrivateIpAddress' {privateIpAddress} -> privateIpAddress) (\s@AssignedPrivateIpAddress' {} a -> s {privateIpAddress = a} :: AssignedPrivateIpAddress)
 
-instance Core.FromXML AssignedPrivateIpAddress where
+instance Data.FromXML AssignedPrivateIpAddress where
   parseXML x =
     AssignedPrivateIpAddress'
-      Prelude.<$> (x Core..@? "privateIpAddress")
+      Prelude.<$> (x Data..@? "privateIpAddress")
 
 instance Prelude.Hashable AssignedPrivateIpAddress where
   hashWithSalt _salt AssignedPrivateIpAddress' {..} =

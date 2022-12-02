@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RequestIpamResourceTag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,7 +78,7 @@ instance Prelude.NFData RequestIpamResourceTag where
   rnf RequestIpamResourceTag' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery RequestIpamResourceTag where
+instance Data.ToQuery RequestIpamResourceTag where
   toQuery RequestIpamResourceTag' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Key" Data.=: key, "Value" Data.=: value]

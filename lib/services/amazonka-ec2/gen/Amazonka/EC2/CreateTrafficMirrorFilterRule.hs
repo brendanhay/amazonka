@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -256,8 +257,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateTrafficMirrorFilterRuleResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "trafficMirrorFilterRule")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "trafficMirrorFilterRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -294,34 +295,34 @@ instance Prelude.NFData CreateTrafficMirrorFilterRule where
       `Prelude.seq` Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf sourceCidrBlock
 
-instance Core.ToHeaders CreateTrafficMirrorFilterRule where
+instance Data.ToHeaders CreateTrafficMirrorFilterRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTrafficMirrorFilterRule where
+instance Data.ToPath CreateTrafficMirrorFilterRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrafficMirrorFilterRule where
+instance Data.ToQuery CreateTrafficMirrorFilterRule where
   toQuery CreateTrafficMirrorFilterRule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateTrafficMirrorFilterRule" ::
+          Data.=: ( "CreateTrafficMirrorFilterRule" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "DestinationPortRange" Core.=: destinationPortRange,
-        "Protocol" Core.=: protocol,
-        "SourcePortRange" Core.=: sourcePortRange,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "DestinationPortRange" Data.=: destinationPortRange,
+        "Protocol" Data.=: protocol,
+        "SourcePortRange" Data.=: sourcePortRange,
         "TrafficMirrorFilterId"
-          Core.=: trafficMirrorFilterId,
-        "TrafficDirection" Core.=: trafficDirection,
-        "RuleNumber" Core.=: ruleNumber,
-        "RuleAction" Core.=: ruleAction,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
-        "SourceCidrBlock" Core.=: sourceCidrBlock
+          Data.=: trafficMirrorFilterId,
+        "TrafficDirection" Data.=: trafficDirection,
+        "RuleNumber" Data.=: ruleNumber,
+        "RuleAction" Data.=: ruleAction,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
+        "SourceCidrBlock" Data.=: sourceCidrBlock
       ]
 
 -- | /See:/ 'newCreateTrafficMirrorFilterRuleResponse' smart constructor.

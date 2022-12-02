@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -510,8 +511,8 @@ instance Core.AWSRequest DescribeImages where
     Response.receiveXML
       ( \s h x ->
           DescribeImagesResponse'
-            Prelude.<$> ( x Core..@? "imagesSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "imagesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -534,29 +535,29 @@ instance Prelude.NFData DescribeImages where
       `Prelude.seq` Prelude.rnf includeDeprecated
       `Prelude.seq` Prelude.rnf executableUsers
 
-instance Core.ToHeaders DescribeImages where
+instance Data.ToHeaders DescribeImages where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeImages where
+instance Data.ToPath DescribeImages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeImages where
+instance Data.ToQuery DescribeImages where
   toQuery DescribeImages' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeImages" :: Prelude.ByteString),
+          Data.=: ("DescribeImages" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "ImageId" Prelude.<$> imageIds),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          (Core.toQueryList "Owner" Prelude.<$> owners),
-        "DryRun" Core.=: dryRun,
-        "IncludeDeprecated" Core.=: includeDeprecated,
-        Core.toQuery
-          ( Core.toQueryList "ExecutableBy"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          (Data.toQueryList "ImageId" Prelude.<$> imageIds),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          (Data.toQueryList "Owner" Prelude.<$> owners),
+        "DryRun" Data.=: dryRun,
+        "IncludeDeprecated" Data.=: includeDeprecated,
+        Data.toQuery
+          ( Data.toQueryList "ExecutableBy"
               Prelude.<$> executableUsers
           )
       ]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CloudWatchLogOptionsSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,12 +109,12 @@ instance
       `Prelude.seq` Prelude.rnf logOutputFormat
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CloudWatchLogOptionsSpecification
   where
   toQuery CloudWatchLogOptionsSpecification' {..} =
     Prelude.mconcat
-      [ "LogGroupArn" Core.=: logGroupArn,
-        "LogEnabled" Core.=: logEnabled,
-        "LogOutputFormat" Core.=: logOutputFormat
+      [ "LogGroupArn" Data.=: logGroupArn,
+        "LogEnabled" Data.=: logEnabled,
+        "LogOutputFormat" Data.=: logOutputFormat
       ]

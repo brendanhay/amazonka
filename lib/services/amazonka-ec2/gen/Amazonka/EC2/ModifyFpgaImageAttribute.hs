@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,7 +198,7 @@ instance Core.AWSRequest ModifyFpgaImageAttribute where
     Response.receiveXML
       ( \s h x ->
           ModifyFpgaImageAttributeResponse'
-            Prelude.<$> (x Core..@? "fpgaImageAttribute")
+            Prelude.<$> (x Data..@? "fpgaImageAttribute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,36 +228,36 @@ instance Prelude.NFData ModifyFpgaImageAttribute where
       `Prelude.seq` Prelude.rnf userIds
       `Prelude.seq` Prelude.rnf fpgaImageId
 
-instance Core.ToHeaders ModifyFpgaImageAttribute where
+instance Data.ToHeaders ModifyFpgaImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyFpgaImageAttribute where
+instance Data.ToPath ModifyFpgaImageAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyFpgaImageAttribute where
+instance Data.ToQuery ModifyFpgaImageAttribute where
   toQuery ModifyFpgaImageAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyFpgaImageAttribute" :: Prelude.ByteString),
+          Data.=: ("ModifyFpgaImageAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Name" Core.=: name,
-        "OperationType" Core.=: operationType,
-        "Attribute" Core.=: attribute,
-        Core.toQuery
-          ( Core.toQueryList "ProductCode"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Name" Data.=: name,
+        "OperationType" Data.=: operationType,
+        "Attribute" Data.=: attribute,
+        Data.toQuery
+          ( Data.toQueryList "ProductCode"
               Prelude.<$> productCodes
           ),
-        Core.toQuery
-          ( Core.toQueryList "UserGroup"
+        Data.toQuery
+          ( Data.toQueryList "UserGroup"
               Prelude.<$> userGroups
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "LoadPermission" Core.=: loadPermission,
-        Core.toQuery
-          (Core.toQueryList "UserId" Prelude.<$> userIds),
-        "FpgaImageId" Core.=: fpgaImageId
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "LoadPermission" Data.=: loadPermission,
+        Data.toQuery
+          (Data.toQueryList "UserId" Prelude.<$> userIds),
+        "FpgaImageId" Data.=: fpgaImageId
       ]
 
 -- | /See:/ 'newModifyFpgaImageAttributeResponse' smart constructor.

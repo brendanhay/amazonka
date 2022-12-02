@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AccountAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AccountAttributeValue
 import qualified Amazonka.Prelude as Prelude
@@ -64,14 +65,14 @@ accountAttribute_attributeValues = Lens.lens (\AccountAttribute' {attributeValue
 accountAttribute_attributeName :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Text)
 accountAttribute_attributeName = Lens.lens (\AccountAttribute' {attributeName} -> attributeName) (\s@AccountAttribute' {} a -> s {attributeName = a} :: AccountAttribute)
 
-instance Core.FromXML AccountAttribute where
+instance Data.FromXML AccountAttribute where
   parseXML x =
     AccountAttribute'
-      Prelude.<$> ( x Core..@? "attributeValueSet"
+      Prelude.<$> ( x Data..@? "attributeValueSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "attributeName")
+      Prelude.<*> (x Data..@? "attributeName")
 
 instance Prelude.Hashable AccountAttribute where
   hashWithSalt _salt AccountAttribute' {..} =

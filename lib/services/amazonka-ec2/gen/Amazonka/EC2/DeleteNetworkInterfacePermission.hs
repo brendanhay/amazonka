@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteNetworkInterfacePermissionResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,30 +154,30 @@ instance
       `Prelude.seq` Prelude.rnf networkInterfacePermissionId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteNetworkInterfacePermission
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteNetworkInterfacePermission where
+instance Data.ToPath DeleteNetworkInterfacePermission where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteNetworkInterfacePermission
   where
   toQuery DeleteNetworkInterfacePermission' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteNetworkInterfacePermission" ::
+          Data.=: ( "DeleteNetworkInterfacePermission" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Force" Core.=: force,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Force" Data.=: force,
         "NetworkInterfacePermissionId"
-          Core.=: networkInterfacePermissionId
+          Data.=: networkInterfacePermissionId
       ]
 
 -- | Contains the output for DeleteNetworkInterfacePermission.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FpgaImageAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LoadPermission
 import Amazonka.EC2.Types.ProductCode
@@ -91,18 +92,18 @@ fpgaImageAttribute_description = Lens.lens (\FpgaImageAttribute' {description} -
 fpgaImageAttribute_fpgaImageId :: Lens.Lens' FpgaImageAttribute (Prelude.Maybe Prelude.Text)
 fpgaImageAttribute_fpgaImageId = Lens.lens (\FpgaImageAttribute' {fpgaImageId} -> fpgaImageId) (\s@FpgaImageAttribute' {} a -> s {fpgaImageId = a} :: FpgaImageAttribute)
 
-instance Core.FromXML FpgaImageAttribute where
+instance Data.FromXML FpgaImageAttribute where
   parseXML x =
     FpgaImageAttribute'
-      Prelude.<$> (x Core..@? "name")
-      Prelude.<*> ( x Core..@? "loadPermissions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "name")
+      Prelude.<*> ( x Data..@? "loadPermissions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "fpgaImageId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "fpgaImageId")
 
 instance Prelude.Hashable FpgaImageAttribute where
   hashWithSalt _salt FpgaImageAttribute' {..} =

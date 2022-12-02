@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CreateVolumePermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PermissionGroup
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ createVolumePermission_userId = Lens.lens (\CreateVolumePermission' {userId} -> 
 createVolumePermission_group :: Lens.Lens' CreateVolumePermission (Prelude.Maybe PermissionGroup)
 createVolumePermission_group = Lens.lens (\CreateVolumePermission' {group'} -> group') (\s@CreateVolumePermission' {} a -> s {group' = a} :: CreateVolumePermission)
 
-instance Core.FromXML CreateVolumePermission where
+instance Data.FromXML CreateVolumePermission where
   parseXML x =
     CreateVolumePermission'
-      Prelude.<$> (x Core..@? "userId")
-      Prelude.<*> (x Core..@? "group")
+      Prelude.<$> (x Data..@? "userId")
+      Prelude.<*> (x Data..@? "group")
 
 instance Prelude.Hashable CreateVolumePermission where
   hashWithSalt _salt CreateVolumePermission' {..} =
@@ -79,7 +80,7 @@ instance Prelude.NFData CreateVolumePermission where
   rnf CreateVolumePermission' {..} =
     Prelude.rnf userId `Prelude.seq` Prelude.rnf group'
 
-instance Core.ToQuery CreateVolumePermission where
+instance Data.ToQuery CreateVolumePermission where
   toQuery CreateVolumePermission' {..} =
     Prelude.mconcat
-      ["UserId" Core.=: userId, "Group" Core.=: group']
+      ["UserId" Data.=: userId, "Group" Data.=: group']

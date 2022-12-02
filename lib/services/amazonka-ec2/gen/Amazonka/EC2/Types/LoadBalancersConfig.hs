@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LoadBalancersConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClassicLoadBalancersConfig
 import Amazonka.EC2.Types.TargetGroupsConfig
@@ -66,11 +67,11 @@ loadBalancersConfig_targetGroupsConfig = Lens.lens (\LoadBalancersConfig' {targe
 loadBalancersConfig_classicLoadBalancersConfig :: Lens.Lens' LoadBalancersConfig (Prelude.Maybe ClassicLoadBalancersConfig)
 loadBalancersConfig_classicLoadBalancersConfig = Lens.lens (\LoadBalancersConfig' {classicLoadBalancersConfig} -> classicLoadBalancersConfig) (\s@LoadBalancersConfig' {} a -> s {classicLoadBalancersConfig = a} :: LoadBalancersConfig)
 
-instance Core.FromXML LoadBalancersConfig where
+instance Data.FromXML LoadBalancersConfig where
   parseXML x =
     LoadBalancersConfig'
-      Prelude.<$> (x Core..@? "targetGroupsConfig")
-      Prelude.<*> (x Core..@? "classicLoadBalancersConfig")
+      Prelude.<$> (x Data..@? "targetGroupsConfig")
+      Prelude.<*> (x Data..@? "classicLoadBalancersConfig")
 
 instance Prelude.Hashable LoadBalancersConfig where
   hashWithSalt _salt LoadBalancersConfig' {..} =
@@ -82,10 +83,10 @@ instance Prelude.NFData LoadBalancersConfig where
     Prelude.rnf targetGroupsConfig
       `Prelude.seq` Prelude.rnf classicLoadBalancersConfig
 
-instance Core.ToQuery LoadBalancersConfig where
+instance Data.ToQuery LoadBalancersConfig where
   toQuery LoadBalancersConfig' {..} =
     Prelude.mconcat
-      [ "TargetGroupsConfig" Core.=: targetGroupsConfig,
+      [ "TargetGroupsConfig" Data.=: targetGroupsConfig,
         "ClassicLoadBalancersConfig"
-          Core.=: classicLoadBalancersConfig
+          Data.=: classicLoadBalancersConfig
       ]

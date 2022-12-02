@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientVpnEndpointAttributeStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientVpnEndpointAttributeStatusCode
 import qualified Amazonka.Prelude as Prelude
@@ -65,13 +66,13 @@ clientVpnEndpointAttributeStatus_code :: Lens.Lens' ClientVpnEndpointAttributeSt
 clientVpnEndpointAttributeStatus_code = Lens.lens (\ClientVpnEndpointAttributeStatus' {code} -> code) (\s@ClientVpnEndpointAttributeStatus' {} a -> s {code = a} :: ClientVpnEndpointAttributeStatus)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ClientVpnEndpointAttributeStatus
   where
   parseXML x =
     ClientVpnEndpointAttributeStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance
   Prelude.Hashable

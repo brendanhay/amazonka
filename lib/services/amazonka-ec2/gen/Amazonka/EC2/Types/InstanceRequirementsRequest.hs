@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceRequirementsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AcceleratorCountRequest
 import Amazonka.EC2.Types.AcceleratorManufacturer
@@ -982,60 +983,60 @@ instance Prelude.NFData InstanceRequirementsRequest where
       `Prelude.seq` Prelude.rnf vCpuCount
       `Prelude.seq` Prelude.rnf memoryMiB
 
-instance Core.ToQuery InstanceRequirementsRequest where
+instance Data.ToQuery InstanceRequirementsRequest where
   toQuery InstanceRequirementsRequest' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "InstanceGeneration"
+      [ Data.toQuery
+          ( Data.toQueryList "InstanceGeneration"
               Prelude.<$> instanceGenerations
           ),
         "BaselineEbsBandwidthMbps"
-          Core.=: baselineEbsBandwidthMbps,
-        "BareMetal" Core.=: bareMetal,
+          Data.=: baselineEbsBandwidthMbps,
+        "BareMetal" Data.=: bareMetal,
         "SpotMaxPricePercentageOverLowestPrice"
-          Core.=: spotMaxPricePercentageOverLowestPrice,
-        Core.toQuery
-          ( Core.toQueryList "AcceleratorType"
+          Data.=: spotMaxPricePercentageOverLowestPrice,
+        Data.toQuery
+          ( Data.toQueryList "AcceleratorType"
               Prelude.<$> acceleratorTypes
           ),
-        "TotalLocalStorageGB" Core.=: totalLocalStorageGB,
-        Core.toQuery
-          ( Core.toQueryList "LocalStorageType"
+        "TotalLocalStorageGB" Data.=: totalLocalStorageGB,
+        Data.toQuery
+          ( Data.toQueryList "LocalStorageType"
               Prelude.<$> localStorageTypes
           ),
         "OnDemandMaxPricePercentageOverLowestPrice"
-          Core.=: onDemandMaxPricePercentageOverLowestPrice,
-        Core.toQuery
-          ( Core.toQueryList "AllowedInstanceType"
+          Data.=: onDemandMaxPricePercentageOverLowestPrice,
+        Data.toQuery
+          ( Data.toQueryList "AllowedInstanceType"
               Prelude.<$> allowedInstanceTypes
           ),
-        Core.toQuery
-          ( Core.toQueryList "AcceleratorName"
+        Data.toQuery
+          ( Data.toQueryList "AcceleratorName"
               Prelude.<$> acceleratorNames
           ),
-        "NetworkBandwidthGbps" Core.=: networkBandwidthGbps,
-        Core.toQuery
-          ( Core.toQueryList "AcceleratorManufacturer"
+        "NetworkBandwidthGbps" Data.=: networkBandwidthGbps,
+        Data.toQuery
+          ( Data.toQueryList "AcceleratorManufacturer"
               Prelude.<$> acceleratorManufacturers
           ),
-        Core.toQuery
-          ( Core.toQueryList "ExcludedInstanceType"
+        Data.toQuery
+          ( Data.toQueryList "ExcludedInstanceType"
               Prelude.<$> excludedInstanceTypes
           ),
         "NetworkInterfaceCount"
-          Core.=: networkInterfaceCount,
+          Data.=: networkInterfaceCount,
         "RequireHibernateSupport"
-          Core.=: requireHibernateSupport,
+          Data.=: requireHibernateSupport,
         "AcceleratorTotalMemoryMiB"
-          Core.=: acceleratorTotalMemoryMiB,
-        "AcceleratorCount" Core.=: acceleratorCount,
-        "BurstablePerformance" Core.=: burstablePerformance,
-        Core.toQuery
-          ( Core.toQueryList "CpuManufacturer"
+          Data.=: acceleratorTotalMemoryMiB,
+        "AcceleratorCount" Data.=: acceleratorCount,
+        "BurstablePerformance" Data.=: burstablePerformance,
+        Data.toQuery
+          ( Data.toQueryList "CpuManufacturer"
               Prelude.<$> cpuManufacturers
           ),
-        "MemoryGiBPerVCpu" Core.=: memoryGiBPerVCpu,
-        "LocalStorage" Core.=: localStorage,
-        "VCpuCount" Core.=: vCpuCount,
-        "MemoryMiB" Core.=: memoryMiB
+        "MemoryGiBPerVCpu" Data.=: memoryGiBPerVCpu,
+        "LocalStorage" Data.=: localStorage,
+        "VCpuCount" Data.=: vCpuCount,
+        "MemoryMiB" Data.=: memoryMiB
       ]

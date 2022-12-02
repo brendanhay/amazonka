@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservationValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,12 +75,12 @@ reservationValue_remainingTotalValue = Lens.lens (\ReservationValue' {remainingT
 reservationValue_remainingUpfrontValue :: Lens.Lens' ReservationValue (Prelude.Maybe Prelude.Text)
 reservationValue_remainingUpfrontValue = Lens.lens (\ReservationValue' {remainingUpfrontValue} -> remainingUpfrontValue) (\s@ReservationValue' {} a -> s {remainingUpfrontValue = a} :: ReservationValue)
 
-instance Core.FromXML ReservationValue where
+instance Data.FromXML ReservationValue where
   parseXML x =
     ReservationValue'
-      Prelude.<$> (x Core..@? "hourlyPrice")
-      Prelude.<*> (x Core..@? "remainingTotalValue")
-      Prelude.<*> (x Core..@? "remainingUpfrontValue")
+      Prelude.<$> (x Data..@? "hourlyPrice")
+      Prelude.<*> (x Data..@? "remainingTotalValue")
+      Prelude.<*> (x Data..@? "remainingUpfrontValue")
 
 instance Prelude.Hashable ReservationValue where
   hashWithSalt _salt ReservationValue' {..} =

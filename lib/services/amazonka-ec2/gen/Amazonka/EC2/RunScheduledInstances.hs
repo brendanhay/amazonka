@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,8 +168,8 @@ instance Core.AWSRequest RunScheduledInstances where
     Response.receiveXML
       ( \s h x ->
           RunScheduledInstancesResponse'
-            Prelude.<$> ( x Core..@? "instanceIdSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "instanceIdSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -189,24 +190,24 @@ instance Prelude.NFData RunScheduledInstances where
       `Prelude.seq` Prelude.rnf launchSpecification
       `Prelude.seq` Prelude.rnf scheduledInstanceId
 
-instance Core.ToHeaders RunScheduledInstances where
+instance Data.ToHeaders RunScheduledInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RunScheduledInstances where
+instance Data.ToPath RunScheduledInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RunScheduledInstances where
+instance Data.ToQuery RunScheduledInstances where
   toQuery RunScheduledInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RunScheduledInstances" :: Prelude.ByteString),
+          Data.=: ("RunScheduledInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "DryRun" Core.=: dryRun,
-        "InstanceCount" Core.=: instanceCount,
-        "LaunchSpecification" Core.=: launchSpecification,
-        "ScheduledInstanceId" Core.=: scheduledInstanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "DryRun" Data.=: dryRun,
+        "InstanceCount" Data.=: instanceCount,
+        "LaunchSpecification" Data.=: launchSpecification,
+        "ScheduledInstanceId" Data.=: scheduledInstanceId
       ]
 
 -- | Contains the output of RunScheduledInstances.

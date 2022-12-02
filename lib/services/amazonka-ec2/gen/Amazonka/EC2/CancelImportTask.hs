@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,9 +115,9 @@ instance Core.AWSRequest CancelImportTask where
     Response.receiveXML
       ( \s h x ->
           CancelImportTaskResponse'
-            Prelude.<$> (x Core..@? "previousState")
-            Prelude.<*> (x Core..@? "state")
-            Prelude.<*> (x Core..@? "importTaskId")
+            Prelude.<$> (x Data..@? "previousState")
+            Prelude.<*> (x Data..@? "state")
+            Prelude.<*> (x Data..@? "importTaskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,22 +133,22 @@ instance Prelude.NFData CancelImportTask where
       `Prelude.seq` Prelude.rnf importTaskId
       `Prelude.seq` Prelude.rnf dryRun
 
-instance Core.ToHeaders CancelImportTask where
+instance Data.ToHeaders CancelImportTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelImportTask where
+instance Data.ToPath CancelImportTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelImportTask where
+instance Data.ToQuery CancelImportTask where
   toQuery CancelImportTask' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CancelImportTask" :: Prelude.ByteString),
+          Data.=: ("CancelImportTask" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "CancelReason" Core.=: cancelReason,
-        "ImportTaskId" Core.=: importTaskId,
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "CancelReason" Data.=: cancelReason,
+        "ImportTaskId" Data.=: importTaskId,
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newCancelImportTaskResponse' smart constructor.

@@ -87,6 +87,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -516,7 +517,7 @@ instance Core.AWSRequest CreateVolume where
   request overrides =
     Request.postQuery (overrides defaultService)
   response =
-    Response.receiveXML (\s h x -> Core.parseXML x)
+    Response.receiveXML (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateVolume where
   hashWithSalt _salt CreateVolume' {..} =
@@ -550,33 +551,33 @@ instance Prelude.NFData CreateVolume where
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf availabilityZone
 
-instance Core.ToHeaders CreateVolume where
+instance Data.ToHeaders CreateVolume where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateVolume where
+instance Data.ToPath CreateVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVolume where
+instance Data.ToQuery CreateVolume where
   toQuery CreateVolume' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVolume" :: Prelude.ByteString),
+          Data.=: ("CreateVolume" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "OutpostArn" Core.=: outpostArn,
-        "SnapshotId" Core.=: snapshotId,
-        "Size" Core.=: size,
-        "VolumeType" Core.=: volumeType,
-        "DryRun" Core.=: dryRun,
-        "Encrypted" Core.=: encrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "Throughput" Core.=: throughput,
-        "MultiAttachEnabled" Core.=: multiAttachEnabled,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "OutpostArn" Data.=: outpostArn,
+        "SnapshotId" Data.=: snapshotId,
+        "Size" Data.=: size,
+        "VolumeType" Data.=: volumeType,
+        "DryRun" Data.=: dryRun,
+        "Encrypted" Data.=: encrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "Throughput" Data.=: throughput,
+        "MultiAttachEnabled" Data.=: multiAttachEnabled,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Iops" Core.=: iops,
-        "AvailabilityZone" Core.=: availabilityZone
+        "Iops" Data.=: iops,
+        "AvailabilityZone" Data.=: availabilityZone
       ]

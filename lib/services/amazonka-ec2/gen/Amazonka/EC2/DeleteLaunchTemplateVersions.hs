@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,14 +148,14 @@ instance Core.AWSRequest DeleteLaunchTemplateVersions where
       ( \s h x ->
           DeleteLaunchTemplateVersionsResponse'
             Prelude.<$> ( x
-                            Core..@? "unsuccessfullyDeletedLaunchTemplateVersionSet"
+                            Data..@? "unsuccessfullyDeletedLaunchTemplateVersionSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> ( x
-                            Core..@? "successfullyDeletedLaunchTemplateVersionSet"
+                            Data..@? "successfullyDeletedLaunchTemplateVersionSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -176,25 +177,25 @@ instance Prelude.NFData DeleteLaunchTemplateVersions where
       `Prelude.seq` Prelude.rnf launchTemplateName
       `Prelude.seq` Prelude.rnf versions
 
-instance Core.ToHeaders DeleteLaunchTemplateVersions where
+instance Data.ToHeaders DeleteLaunchTemplateVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteLaunchTemplateVersions where
+instance Data.ToPath DeleteLaunchTemplateVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLaunchTemplateVersions where
+instance Data.ToQuery DeleteLaunchTemplateVersions where
   toQuery DeleteLaunchTemplateVersions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DeleteLaunchTemplateVersions" ::
+          Data.=: ( "DeleteLaunchTemplateVersions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "LaunchTemplateId" Core.=: launchTemplateId,
-        "LaunchTemplateName" Core.=: launchTemplateName,
-        Core.toQueryList "LaunchTemplateVersion" versions
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "LaunchTemplateId" Data.=: launchTemplateId,
+        "LaunchTemplateName" Data.=: launchTemplateName,
+        Data.toQueryList "LaunchTemplateVersion" versions
       ]
 
 -- | /See:/ 'newDeleteLaunchTemplateVersionsResponse' smart constructor.

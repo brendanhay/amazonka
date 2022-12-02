@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkCardInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,12 +73,12 @@ networkCardInfo_networkPerformance = Lens.lens (\NetworkCardInfo' {networkPerfor
 networkCardInfo_maximumNetworkInterfaces :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
 networkCardInfo_maximumNetworkInterfaces = Lens.lens (\NetworkCardInfo' {maximumNetworkInterfaces} -> maximumNetworkInterfaces) (\s@NetworkCardInfo' {} a -> s {maximumNetworkInterfaces = a} :: NetworkCardInfo)
 
-instance Core.FromXML NetworkCardInfo where
+instance Data.FromXML NetworkCardInfo where
   parseXML x =
     NetworkCardInfo'
-      Prelude.<$> (x Core..@? "networkCardIndex")
-      Prelude.<*> (x Core..@? "networkPerformance")
-      Prelude.<*> (x Core..@? "maximumNetworkInterfaces")
+      Prelude.<$> (x Data..@? "networkCardIndex")
+      Prelude.<*> (x Data..@? "networkPerformance")
+      Prelude.<*> (x Data..@? "maximumNetworkInterfaces")
 
 instance Prelude.Hashable NetworkCardInfo where
   hashWithSalt _salt NetworkCardInfo' {..} =

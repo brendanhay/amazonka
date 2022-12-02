@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkBandwidthGbpsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -86,7 +87,7 @@ instance Prelude.NFData NetworkBandwidthGbpsRequest where
   rnf NetworkBandwidthGbpsRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery NetworkBandwidthGbpsRequest where
+instance Data.ToQuery NetworkBandwidthGbpsRequest where
   toQuery NetworkBandwidthGbpsRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.MovingAddressStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.MoveStatus
 import qualified Amazonka.Prelude as Prelude
@@ -71,11 +72,11 @@ movingAddressStatus_moveStatus = Lens.lens (\MovingAddressStatus' {moveStatus} -
 movingAddressStatus_publicIp :: Lens.Lens' MovingAddressStatus (Prelude.Maybe Prelude.Text)
 movingAddressStatus_publicIp = Lens.lens (\MovingAddressStatus' {publicIp} -> publicIp) (\s@MovingAddressStatus' {} a -> s {publicIp = a} :: MovingAddressStatus)
 
-instance Core.FromXML MovingAddressStatus where
+instance Data.FromXML MovingAddressStatus where
   parseXML x =
     MovingAddressStatus'
-      Prelude.<$> (x Core..@? "moveStatus")
-      Prelude.<*> (x Core..@? "publicIp")
+      Prelude.<$> (x Data..@? "moveStatus")
+      Prelude.<*> (x Data..@? "publicIp")
 
 instance Prelude.Hashable MovingAddressStatus where
   hashWithSalt _salt MovingAddressStatus' {..} =

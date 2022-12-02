@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest CreateInstanceExportTask where
     Response.receiveXML
       ( \s h x ->
           CreateInstanceExportTaskResponse'
-            Prelude.<$> (x Core..@? "exportTask")
+            Prelude.<$> (x Data..@? "exportTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,27 +162,27 @@ instance Prelude.NFData CreateInstanceExportTask where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf targetEnvironment
 
-instance Core.ToHeaders CreateInstanceExportTask where
+instance Data.ToHeaders CreateInstanceExportTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateInstanceExportTask where
+instance Data.ToPath CreateInstanceExportTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateInstanceExportTask where
+instance Data.ToQuery CreateInstanceExportTask where
   toQuery CreateInstanceExportTask' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateInstanceExportTask" :: Prelude.ByteString),
+          Data.=: ("CreateInstanceExportTask" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Description" Core.=: description,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "ExportToS3" Core.=: exportToS3Task,
-        "InstanceId" Core.=: instanceId,
-        "TargetEnvironment" Core.=: targetEnvironment
+        "ExportToS3" Data.=: exportToS3Task,
+        "InstanceId" Data.=: instanceId,
+        "TargetEnvironment" Data.=: targetEnvironment
       ]
 
 -- | /See:/ 'newCreateInstanceExportTaskResponse' smart constructor.

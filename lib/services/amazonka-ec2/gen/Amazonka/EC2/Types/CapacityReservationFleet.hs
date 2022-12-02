@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservationFleet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationFleetState
 import Amazonka.EC2.Types.FleetCapacityReservation
@@ -38,7 +39,7 @@ data CapacityReservationFleet = CapacityReservationFleet'
     -- | The ID of the Capacity Reservation Fleet.
     capacityReservationFleetId :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the Capacity Reservation Fleet expires.
-    endDate :: Prelude.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the Capacity Reservation Fleet.
     capacityReservationFleetArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the Capacity Reservation Fleet. Possible states include:
@@ -94,7 +95,7 @@ data CapacityReservationFleet = CapacityReservationFleet'
     -- | Information about the instance types for which to reserve the capacity.
     instanceTypeSpecifications :: Prelude.Maybe [FleetCapacityReservation],
     -- | The date and time at which the Capacity Reservation Fleet was created.
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | Indicates the type of instance launches that the Capacity Reservation
     -- Fleet accepts. All Capacity Reservations in the Fleet inherit this
     -- instance matching criteria.
@@ -233,7 +234,7 @@ capacityReservationFleet_capacityReservationFleetId = Lens.lens (\CapacityReserv
 
 -- | The date and time at which the Capacity Reservation Fleet expires.
 capacityReservationFleet_endDate :: Lens.Lens' CapacityReservationFleet (Prelude.Maybe Prelude.UTCTime)
-capacityReservationFleet_endDate = Lens.lens (\CapacityReservationFleet' {endDate} -> endDate) (\s@CapacityReservationFleet' {} a -> s {endDate = a} :: CapacityReservationFleet) Prelude.. Lens.mapping Core._Time
+capacityReservationFleet_endDate = Lens.lens (\CapacityReservationFleet' {endDate} -> endDate) (\s@CapacityReservationFleet' {} a -> s {endDate = a} :: CapacityReservationFleet) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the Capacity Reservation Fleet.
 capacityReservationFleet_capacityReservationFleetArn :: Lens.Lens' CapacityReservationFleet (Prelude.Maybe Prelude.Text)
@@ -303,7 +304,7 @@ capacityReservationFleet_instanceTypeSpecifications = Lens.lens (\CapacityReserv
 
 -- | The date and time at which the Capacity Reservation Fleet was created.
 capacityReservationFleet_createTime :: Lens.Lens' CapacityReservationFleet (Prelude.Maybe Prelude.UTCTime)
-capacityReservationFleet_createTime = Lens.lens (\CapacityReservationFleet' {createTime} -> createTime) (\s@CapacityReservationFleet' {} a -> s {createTime = a} :: CapacityReservationFleet) Prelude.. Lens.mapping Core._Time
+capacityReservationFleet_createTime = Lens.lens (\CapacityReservationFleet' {createTime} -> createTime) (\s@CapacityReservationFleet' {} a -> s {createTime = a} :: CapacityReservationFleet) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the type of instance launches that the Capacity Reservation
 -- Fleet accepts. All Capacity Reservations in the Fleet inherit this
@@ -328,26 +329,26 @@ capacityReservationFleet_instanceMatchCriteria = Lens.lens (\CapacityReservation
 capacityReservationFleet_tenancy :: Lens.Lens' CapacityReservationFleet (Prelude.Maybe FleetCapacityReservationTenancy)
 capacityReservationFleet_tenancy = Lens.lens (\CapacityReservationFleet' {tenancy} -> tenancy) (\s@CapacityReservationFleet' {} a -> s {tenancy = a} :: CapacityReservationFleet)
 
-instance Core.FromXML CapacityReservationFleet where
+instance Data.FromXML CapacityReservationFleet where
   parseXML x =
     CapacityReservationFleet'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "capacityReservationFleetId")
-      Prelude.<*> (x Core..@? "endDate")
-      Prelude.<*> (x Core..@? "capacityReservationFleetArn")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "totalFulfilledCapacity")
-      Prelude.<*> (x Core..@? "totalTargetCapacity")
-      Prelude.<*> (x Core..@? "allocationStrategy")
-      Prelude.<*> ( x Core..@? "instanceTypeSpecificationSet"
+      Prelude.<*> (x Data..@? "capacityReservationFleetId")
+      Prelude.<*> (x Data..@? "endDate")
+      Prelude.<*> (x Data..@? "capacityReservationFleetArn")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "totalFulfilledCapacity")
+      Prelude.<*> (x Data..@? "totalTargetCapacity")
+      Prelude.<*> (x Data..@? "allocationStrategy")
+      Prelude.<*> ( x Data..@? "instanceTypeSpecificationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "createTime")
-      Prelude.<*> (x Core..@? "instanceMatchCriteria")
-      Prelude.<*> (x Core..@? "tenancy")
+      Prelude.<*> (x Data..@? "createTime")
+      Prelude.<*> (x Data..@? "instanceMatchCriteria")
+      Prelude.<*> (x Data..@? "tenancy")
 
 instance Prelude.Hashable CapacityReservationFleet where
   hashWithSalt _salt CapacityReservationFleet' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotFleetRequestConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ActivityStatus
 import Amazonka.EC2.Types.BatchState
@@ -48,7 +49,7 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
     -- | The ID of the Spot Fleet request.
     spotFleetRequestId :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time of the request.
-    createTime :: Prelude.Maybe Core.ISO8601
+    createTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,19 +116,19 @@ spotFleetRequestConfig_spotFleetRequestId = Lens.lens (\SpotFleetRequestConfig' 
 
 -- | The creation date and time of the request.
 spotFleetRequestConfig_createTime :: Lens.Lens' SpotFleetRequestConfig (Prelude.Maybe Prelude.UTCTime)
-spotFleetRequestConfig_createTime = Lens.lens (\SpotFleetRequestConfig' {createTime} -> createTime) (\s@SpotFleetRequestConfig' {} a -> s {createTime = a} :: SpotFleetRequestConfig) Prelude.. Lens.mapping Core._Time
+spotFleetRequestConfig_createTime = Lens.lens (\SpotFleetRequestConfig' {createTime} -> createTime) (\s@SpotFleetRequestConfig' {} a -> s {createTime = a} :: SpotFleetRequestConfig) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML SpotFleetRequestConfig where
+instance Data.FromXML SpotFleetRequestConfig where
   parseXML x =
     SpotFleetRequestConfig'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "spotFleetRequestState")
-      Prelude.<*> (x Core..@? "activityStatus")
-      Prelude.<*> (x Core..@? "spotFleetRequestConfig")
-      Prelude.<*> (x Core..@? "spotFleetRequestId")
-      Prelude.<*> (x Core..@? "createTime")
+      Prelude.<*> (x Data..@? "spotFleetRequestState")
+      Prelude.<*> (x Data..@? "activityStatus")
+      Prelude.<*> (x Data..@? "spotFleetRequestConfig")
+      Prelude.<*> (x Data..@? "spotFleetRequestId")
+      Prelude.<*> (x Data..@? "createTime")
 
 instance Prelude.Hashable SpotFleetRequestConfig where
   hashWithSalt _salt SpotFleetRequestConfig' {..} =

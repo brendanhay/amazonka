@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -70,7 +71,7 @@ data ModifyCapacityReservationFleet = ModifyCapacityReservationFleet'
     --
     -- You can\'t specify __EndDate__ and __RemoveEndDate__ in the same
     -- request.
-    endDate :: Prelude.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Data.ISO8601,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -169,7 +170,7 @@ newModifyCapacityReservationFleet
 -- You can\'t specify __EndDate__ and __RemoveEndDate__ in the same
 -- request.
 modifyCapacityReservationFleet_endDate :: Lens.Lens' ModifyCapacityReservationFleet (Prelude.Maybe Prelude.UTCTime)
-modifyCapacityReservationFleet_endDate = Lens.lens (\ModifyCapacityReservationFleet' {endDate} -> endDate) (\s@ModifyCapacityReservationFleet' {} a -> s {endDate = a} :: ModifyCapacityReservationFleet) Prelude.. Lens.mapping Core._Time
+modifyCapacityReservationFleet_endDate = Lens.lens (\ModifyCapacityReservationFleet' {endDate} -> endDate) (\s@ModifyCapacityReservationFleet' {} a -> s {endDate = a} :: ModifyCapacityReservationFleet) Prelude.. Lens.mapping Data._Time
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -216,7 +217,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyCapacityReservationFleetResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,29 +246,29 @@ instance
       `Prelude.seq` Prelude.rnf capacityReservationFleetId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyCapacityReservationFleet
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyCapacityReservationFleet where
+instance Data.ToPath ModifyCapacityReservationFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyCapacityReservationFleet where
+instance Data.ToQuery ModifyCapacityReservationFleet where
   toQuery ModifyCapacityReservationFleet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyCapacityReservationFleet" ::
+          Data.=: ( "ModifyCapacityReservationFleet" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "EndDate" Core.=: endDate,
-        "DryRun" Core.=: dryRun,
-        "TotalTargetCapacity" Core.=: totalTargetCapacity,
-        "RemoveEndDate" Core.=: removeEndDate,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "EndDate" Data.=: endDate,
+        "DryRun" Data.=: dryRun,
+        "TotalTargetCapacity" Data.=: totalTargetCapacity,
+        "RemoveEndDate" Data.=: removeEndDate,
         "CapacityReservationFleetId"
-          Core.=: capacityReservationFleetId
+          Data.=: capacityReservationFleetId
       ]
 
 -- | /See:/ 'newModifyCapacityReservationFleetResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -270,10 +271,10 @@ instance Core.AWSRequest DescribeTransitGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewaysResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "transitGatewaySet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "transitGatewaySet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -294,28 +295,28 @@ instance Prelude.NFData DescribeTransitGateways where
       `Prelude.seq` Prelude.rnf transitGatewayIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeTransitGateways where
+instance Data.ToHeaders DescribeTransitGateways where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTransitGateways where
+instance Data.ToPath DescribeTransitGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTransitGateways where
+instance Data.ToQuery DescribeTransitGateways where
   toQuery DescribeTransitGateways' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTransitGateways" :: Prelude.ByteString),
+          Data.=: ("DescribeTransitGateways" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TransitGatewayIds"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TransitGatewayIds"
               Prelude.<$> transitGatewayIds
           ),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeTransitGatewaysResponse' smart constructor.

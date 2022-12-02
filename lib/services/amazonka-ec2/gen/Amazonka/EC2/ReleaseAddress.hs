@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -182,23 +183,23 @@ instance Prelude.NFData ReleaseAddress where
       `Prelude.seq` Prelude.rnf publicIp
       `Prelude.seq` Prelude.rnf dryRun
 
-instance Core.ToHeaders ReleaseAddress where
+instance Data.ToHeaders ReleaseAddress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReleaseAddress where
+instance Data.ToPath ReleaseAddress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReleaseAddress where
+instance Data.ToQuery ReleaseAddress where
   toQuery ReleaseAddress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ReleaseAddress" :: Prelude.ByteString),
+          Data.=: ("ReleaseAddress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AllocationId" Core.=: allocationId,
-        "NetworkBorderGroup" Core.=: networkBorderGroup,
-        "PublicIp" Core.=: publicIp,
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AllocationId" Data.=: allocationId,
+        "NetworkBorderGroup" Data.=: networkBorderGroup,
+        "PublicIp" Data.=: publicIp,
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newReleaseAddressResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -220,9 +221,9 @@ instance Core.AWSRequest DescribeNatGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeNatGatewaysResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "natGatewaySet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "natGatewaySet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -243,28 +244,28 @@ instance Prelude.NFData DescribeNatGateways where
       `Prelude.seq` Prelude.rnf natGatewayIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeNatGateways where
+instance Data.ToHeaders DescribeNatGateways where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeNatGateways where
+instance Data.ToPath DescribeNatGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeNatGateways where
+instance Data.ToQuery DescribeNatGateways where
   toQuery DescribeNatGateways' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeNatGateways" :: Prelude.ByteString),
+          Data.=: ("DescribeNatGateways" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filter'),
-        Core.toQuery
-          ( Core.toQueryList "NatGatewayId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filter'),
+        Data.toQuery
+          ( Data.toQueryList "NatGatewayId"
               Prelude.<$> natGatewayIds
           ),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeNatGatewaysResponse' smart constructor.

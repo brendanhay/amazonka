@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SnapshotState
 import Amazonka.EC2.Types.StorageTier
@@ -53,7 +54,7 @@ data Snapshot = Snapshot'
     -- | Only for archived snapshots that are temporarily restored. Indicates the
     -- date and time when a temporarily restored snapshot will be automatically
     -- re-archived.
-    restoreExpiryTime :: Prelude.Maybe Core.ISO8601,
+    restoreExpiryTime :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
     -- key that was used to protect the volume encryption key for the parent
     -- volume.
@@ -83,7 +84,7 @@ data Snapshot = Snapshot'
     -- | The description for the snapshot.
     description :: Prelude.Text,
     -- | The time stamp when the snapshot was initiated.
-    startTime :: Core.ISO8601,
+    startTime :: Data.ISO8601,
     -- | The progress of the snapshot, as a percentage.
     progress :: Prelude.Text,
     -- | The snapshot state.
@@ -203,7 +204,7 @@ newSnapshot
         volumeId = pVolumeId_,
         volumeSize = pVolumeSize_,
         description = pDescription_,
-        startTime = Core._Time Lens.# pStartTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         progress = pProgress_,
         state = pState_,
         encrypted = pEncrypted_
@@ -240,7 +241,7 @@ snapshot_dataEncryptionKeyId = Lens.lens (\Snapshot' {dataEncryptionKeyId} -> da
 -- date and time when a temporarily restored snapshot will be automatically
 -- re-archived.
 snapshot_restoreExpiryTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_restoreExpiryTime = Lens.lens (\Snapshot' {restoreExpiryTime} -> restoreExpiryTime) (\s@Snapshot' {} a -> s {restoreExpiryTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_restoreExpiryTime = Lens.lens (\Snapshot' {restoreExpiryTime} -> restoreExpiryTime) (\s@Snapshot' {} a -> s {restoreExpiryTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
 -- key that was used to protect the volume encryption key for the parent
@@ -288,7 +289,7 @@ snapshot_description = Lens.lens (\Snapshot' {description} -> description) (\s@S
 
 -- | The time stamp when the snapshot was initiated.
 snapshot_startTime :: Lens.Lens' Snapshot Prelude.UTCTime
-snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Prelude.. Core._Time
+snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Prelude.. Data._Time
 
 -- | The progress of the snapshot, as a percentage.
 snapshot_progress :: Lens.Lens' Snapshot Prelude.Text
@@ -302,28 +303,28 @@ snapshot_state = Lens.lens (\Snapshot' {state} -> state) (\s@Snapshot' {} a -> s
 snapshot_encrypted :: Lens.Lens' Snapshot Prelude.Bool
 snapshot_encrypted = Lens.lens (\Snapshot' {encrypted} -> encrypted) (\s@Snapshot' {} a -> s {encrypted = a} :: Snapshot)
 
-instance Core.FromXML Snapshot where
+instance Data.FromXML Snapshot where
   parseXML x =
     Snapshot'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerAlias")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "dataEncryptionKeyId")
-      Prelude.<*> (x Core..@? "restoreExpiryTime")
-      Prelude.<*> (x Core..@? "kmsKeyId")
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "storageTier")
-      Prelude.<*> (x Core..@ "snapshotId")
-      Prelude.<*> (x Core..@ "ownerId")
-      Prelude.<*> (x Core..@ "volumeId")
-      Prelude.<*> (x Core..@ "volumeSize")
-      Prelude.<*> (x Core..@ "description")
-      Prelude.<*> (x Core..@ "startTime")
-      Prelude.<*> (x Core..@ "progress")
-      Prelude.<*> (x Core..@ "status")
-      Prelude.<*> (x Core..@ "encrypted")
+      Prelude.<*> (x Data..@? "ownerAlias")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "dataEncryptionKeyId")
+      Prelude.<*> (x Data..@? "restoreExpiryTime")
+      Prelude.<*> (x Data..@? "kmsKeyId")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "storageTier")
+      Prelude.<*> (x Data..@ "snapshotId")
+      Prelude.<*> (x Data..@ "ownerId")
+      Prelude.<*> (x Data..@ "volumeId")
+      Prelude.<*> (x Data..@ "volumeSize")
+      Prelude.<*> (x Data..@ "description")
+      Prelude.<*> (x Data..@ "startTime")
+      Prelude.<*> (x Data..@ "progress")
+      Prelude.<*> (x Data..@ "status")
+      Prelude.<*> (x Data..@ "encrypted")
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =

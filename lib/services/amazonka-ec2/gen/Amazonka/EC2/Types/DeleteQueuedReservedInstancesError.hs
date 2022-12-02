@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DeleteQueuedReservedInstancesError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DeleteQueuedReservedInstancesErrorCode
 import qualified Amazonka.Prelude as Prelude
@@ -66,13 +67,13 @@ deleteQueuedReservedInstancesError_code :: Lens.Lens' DeleteQueuedReservedInstan
 deleteQueuedReservedInstancesError_code = Lens.lens (\DeleteQueuedReservedInstancesError' {code} -> code) (\s@DeleteQueuedReservedInstancesError' {} a -> s {code = a} :: DeleteQueuedReservedInstancesError)
 
 instance
-  Core.FromXML
+  Data.FromXML
     DeleteQueuedReservedInstancesError
   where
   parseXML x =
     DeleteQueuedReservedInstancesError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance
   Prelude.Hashable

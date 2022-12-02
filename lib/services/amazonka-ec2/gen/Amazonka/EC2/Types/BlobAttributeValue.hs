@@ -21,12 +21,13 @@ module Amazonka.EC2.Types.BlobAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newBlobAttributeValue' smart constructor.
 data BlobAttributeValue = BlobAttributeValue'
-  { value :: Prelude.Maybe Core.Base64
+  { value :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,7 +55,7 @@ newBlobAttributeValue =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 blobAttributeValue_value :: Lens.Lens' BlobAttributeValue (Prelude.Maybe Prelude.ByteString)
-blobAttributeValue_value = Lens.lens (\BlobAttributeValue' {value} -> value) (\s@BlobAttributeValue' {} a -> s {value = a} :: BlobAttributeValue) Prelude.. Lens.mapping Core._Base64
+blobAttributeValue_value = Lens.lens (\BlobAttributeValue' {value} -> value) (\s@BlobAttributeValue' {} a -> s {value = a} :: BlobAttributeValue) Prelude.. Lens.mapping Data._Base64
 
 instance Prelude.Hashable BlobAttributeValue where
   hashWithSalt _salt BlobAttributeValue' {..} =
@@ -63,6 +64,6 @@ instance Prelude.Hashable BlobAttributeValue where
 instance Prelude.NFData BlobAttributeValue where
   rnf BlobAttributeValue' {..} = Prelude.rnf value
 
-instance Core.ToQuery BlobAttributeValue where
+instance Data.ToQuery BlobAttributeValue where
   toQuery BlobAttributeValue' {..} =
-    Prelude.mconcat ["Value" Core.=: value]
+    Prelude.mconcat ["Value" Data.=: value]

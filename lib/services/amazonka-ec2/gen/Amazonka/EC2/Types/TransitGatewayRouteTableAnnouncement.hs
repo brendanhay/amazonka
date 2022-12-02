@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayRouteTableAnnouncement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayRouteTableAnnouncementDirection
@@ -48,7 +49,7 @@ data TransitGatewayRouteTableAnnouncement = TransitGatewayRouteTableAnnouncement
     announcementDirection :: Prelude.Maybe TransitGatewayRouteTableAnnouncementDirection,
     -- | The timestamp when the transit gateway route table announcement was
     -- created.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the transit gateway route table announcement.
     transitGatewayRouteTableAnnouncementId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway route table.
@@ -143,7 +144,7 @@ transitGatewayRouteTableAnnouncement_announcementDirection = Lens.lens (\Transit
 -- | The timestamp when the transit gateway route table announcement was
 -- created.
 transitGatewayRouteTableAnnouncement_creationTime :: Lens.Lens' TransitGatewayRouteTableAnnouncement (Prelude.Maybe Prelude.UTCTime)
-transitGatewayRouteTableAnnouncement_creationTime = Lens.lens (\TransitGatewayRouteTableAnnouncement' {creationTime} -> creationTime) (\s@TransitGatewayRouteTableAnnouncement' {} a -> s {creationTime = a} :: TransitGatewayRouteTableAnnouncement) Prelude.. Lens.mapping Core._Time
+transitGatewayRouteTableAnnouncement_creationTime = Lens.lens (\TransitGatewayRouteTableAnnouncement' {creationTime} -> creationTime) (\s@TransitGatewayRouteTableAnnouncement' {} a -> s {creationTime = a} :: TransitGatewayRouteTableAnnouncement) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the transit gateway route table announcement.
 transitGatewayRouteTableAnnouncement_transitGatewayRouteTableAnnouncementId :: Lens.Lens' TransitGatewayRouteTableAnnouncement (Prelude.Maybe Prelude.Text)
@@ -158,24 +159,24 @@ transitGatewayRouteTableAnnouncement_peeringAttachmentId :: Lens.Lens' TransitGa
 transitGatewayRouteTableAnnouncement_peeringAttachmentId = Lens.lens (\TransitGatewayRouteTableAnnouncement' {peeringAttachmentId} -> peeringAttachmentId) (\s@TransitGatewayRouteTableAnnouncement' {} a -> s {peeringAttachmentId = a} :: TransitGatewayRouteTableAnnouncement)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayRouteTableAnnouncement
   where
   parseXML x =
     TransitGatewayRouteTableAnnouncement'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "peerCoreNetworkId")
-      Prelude.<*> (x Core..@? "coreNetworkId")
-      Prelude.<*> (x Core..@? "peerTransitGatewayId")
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "announcementDirection")
-      Prelude.<*> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "transitGatewayRouteTableAnnouncementId")
-      Prelude.<*> (x Core..@? "transitGatewayRouteTableId")
-      Prelude.<*> (x Core..@? "peeringAttachmentId")
+      Prelude.<*> (x Data..@? "peerCoreNetworkId")
+      Prelude.<*> (x Data..@? "coreNetworkId")
+      Prelude.<*> (x Data..@? "peerTransitGatewayId")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "announcementDirection")
+      Prelude.<*> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "transitGatewayRouteTableAnnouncementId")
+      Prelude.<*> (x Data..@? "transitGatewayRouteTableId")
+      Prelude.<*> (x Data..@? "peeringAttachmentId")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DhcpConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AttributeValue
 import qualified Amazonka.Prelude as Prelude
@@ -63,12 +64,12 @@ dhcpConfiguration_key = Lens.lens (\DhcpConfiguration' {key} -> key) (\s@DhcpCon
 dhcpConfiguration_values :: Lens.Lens' DhcpConfiguration (Prelude.Maybe [AttributeValue])
 dhcpConfiguration_values = Lens.lens (\DhcpConfiguration' {values} -> values) (\s@DhcpConfiguration' {} a -> s {values = a} :: DhcpConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML DhcpConfiguration where
+instance Data.FromXML DhcpConfiguration where
   parseXML x =
     DhcpConfiguration'
-      Prelude.<$> (x Core..@? "key")
-      Prelude.<*> ( x Core..@? "valueSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "key")
+      Prelude.<*> ( x Data..@? "valueSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable DhcpConfiguration where

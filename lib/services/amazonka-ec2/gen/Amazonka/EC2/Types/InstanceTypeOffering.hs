@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceTypeOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceType
 import Amazonka.EC2.Types.LocationType
@@ -85,12 +86,12 @@ instanceTypeOffering_instanceType = Lens.lens (\InstanceTypeOffering' {instanceT
 instanceTypeOffering_locationType :: Lens.Lens' InstanceTypeOffering (Prelude.Maybe LocationType)
 instanceTypeOffering_locationType = Lens.lens (\InstanceTypeOffering' {locationType} -> locationType) (\s@InstanceTypeOffering' {} a -> s {locationType = a} :: InstanceTypeOffering)
 
-instance Core.FromXML InstanceTypeOffering where
+instance Data.FromXML InstanceTypeOffering where
   parseXML x =
     InstanceTypeOffering'
-      Prelude.<$> (x Core..@? "location")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "locationType")
+      Prelude.<$> (x Data..@? "location")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "locationType")
 
 instance Prelude.Hashable InstanceTypeOffering where
   hashWithSalt _salt InstanceTypeOffering' {..} =

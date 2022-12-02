@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance Core.AWSRequest AttachNetworkInterface where
     Response.receiveXML
       ( \s h x ->
           AttachNetworkInterfaceResponse'
-            Prelude.<$> (x Core..@? "networkCardIndex")
-            Prelude.<*> (x Core..@? "attachmentId")
+            Prelude.<$> (x Data..@? "networkCardIndex")
+            Prelude.<*> (x Data..@? "attachmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,24 +173,24 @@ instance Prelude.NFData AttachNetworkInterface where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
-instance Core.ToHeaders AttachNetworkInterface where
+instance Data.ToHeaders AttachNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AttachNetworkInterface where
+instance Data.ToPath AttachNetworkInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachNetworkInterface where
+instance Data.ToQuery AttachNetworkInterface where
   toQuery AttachNetworkInterface' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AttachNetworkInterface" :: Prelude.ByteString),
+          Data.=: ("AttachNetworkInterface" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NetworkCardIndex" Core.=: networkCardIndex,
-        "DryRun" Core.=: dryRun,
-        "DeviceIndex" Core.=: deviceIndex,
-        "InstanceId" Core.=: instanceId,
-        "NetworkInterfaceId" Core.=: networkInterfaceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NetworkCardIndex" Data.=: networkCardIndex,
+        "DryRun" Data.=: dryRun,
+        "DeviceIndex" Data.=: deviceIndex,
+        "InstanceId" Data.=: instanceId,
+        "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | Contains the output of AttachNetworkInterface.

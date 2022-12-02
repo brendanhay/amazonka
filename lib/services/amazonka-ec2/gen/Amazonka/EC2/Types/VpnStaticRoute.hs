@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnStaticRoute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VpnState
 import Amazonka.EC2.Types.VpnStaticRouteSource
@@ -76,12 +77,12 @@ vpnStaticRoute_destinationCidrBlock = Lens.lens (\VpnStaticRoute' {destinationCi
 vpnStaticRoute_source :: Lens.Lens' VpnStaticRoute (Prelude.Maybe VpnStaticRouteSource)
 vpnStaticRoute_source = Lens.lens (\VpnStaticRoute' {source} -> source) (\s@VpnStaticRoute' {} a -> s {source = a} :: VpnStaticRoute)
 
-instance Core.FromXML VpnStaticRoute where
+instance Data.FromXML VpnStaticRoute where
   parseXML x =
     VpnStaticRoute'
-      Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "destinationCidrBlock")
-      Prelude.<*> (x Core..@? "source")
+      Prelude.<$> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "destinationCidrBlock")
+      Prelude.<*> (x Data..@? "source")
 
 instance Prelude.Hashable VpnStaticRoute where
   hashWithSalt _salt VpnStaticRoute' {..} =

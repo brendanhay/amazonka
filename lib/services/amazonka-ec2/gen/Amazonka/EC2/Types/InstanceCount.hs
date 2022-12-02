@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ListingState
 import qualified Amazonka.Prelude as Prelude
@@ -66,11 +67,11 @@ instanceCount_state = Lens.lens (\InstanceCount' {state} -> state) (\s@InstanceC
 instanceCount_instanceCount :: Lens.Lens' InstanceCount (Prelude.Maybe Prelude.Int)
 instanceCount_instanceCount = Lens.lens (\InstanceCount' {instanceCount} -> instanceCount) (\s@InstanceCount' {} a -> s {instanceCount = a} :: InstanceCount)
 
-instance Core.FromXML InstanceCount where
+instance Data.FromXML InstanceCount where
   parseXML x =
     InstanceCount'
-      Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "instanceCount")
+      Prelude.<$> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "instanceCount")
 
 instance Prelude.Hashable InstanceCount where
   hashWithSalt _salt InstanceCount' {..} =

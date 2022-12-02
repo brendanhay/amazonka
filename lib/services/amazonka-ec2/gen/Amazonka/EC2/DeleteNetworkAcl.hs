@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,21 +111,21 @@ instance Prelude.NFData DeleteNetworkAcl where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf networkAclId
 
-instance Core.ToHeaders DeleteNetworkAcl where
+instance Data.ToHeaders DeleteNetworkAcl where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteNetworkAcl where
+instance Data.ToPath DeleteNetworkAcl where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteNetworkAcl where
+instance Data.ToQuery DeleteNetworkAcl where
   toQuery DeleteNetworkAcl' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteNetworkAcl" :: Prelude.ByteString),
+          Data.=: ("DeleteNetworkAcl" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "NetworkAclId" Core.=: networkAclId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "NetworkAclId" Data.=: networkAclId
       ]
 
 -- | /See:/ 'newDeleteNetworkAclResponse' smart constructor.

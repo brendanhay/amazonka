@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DescribeFleetError
 import Amazonka.EC2.Types.DescribeFleetsInstances
@@ -91,7 +92,7 @@ data FleetData = FleetData'
     -- | The start date and time of the request, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling
     -- the request immediately.
-    validFrom :: Prelude.Maybe Core.ISO8601,
+    validFrom :: Prelude.Maybe Data.ISO8601,
     -- | Indicates whether EC2 Fleet should replace unhealthy Spot Instances.
     -- Supported only for fleets of type @maintain@. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks EC2 Fleet health checks>
@@ -113,9 +114,9 @@ data FleetData = FleetData'
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new instance
     -- requests are placed or able to fulfill the request. The default end date
     -- is 7 days from the current date.
-    validUntil :: Prelude.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Data.ISO8601,
     -- | The creation date and time of the EC2 Fleet.
-    createTime :: Prelude.Maybe Core.ISO8601
+    createTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -307,7 +308,7 @@ fleetData_fulfilledCapacity = Lens.lens (\FleetData' {fulfilledCapacity} -> fulf
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling
 -- the request immediately.
 fleetData_validFrom :: Lens.Lens' FleetData (Prelude.Maybe Prelude.UTCTime)
-fleetData_validFrom = Lens.lens (\FleetData' {validFrom} -> validFrom) (\s@FleetData' {} a -> s {validFrom = a} :: FleetData) Prelude.. Lens.mapping Core._Time
+fleetData_validFrom = Lens.lens (\FleetData' {validFrom} -> validFrom) (\s@FleetData' {} a -> s {validFrom = a} :: FleetData) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether EC2 Fleet should replace unhealthy Spot Instances.
 -- Supported only for fleets of type @maintain@. For more information, see
@@ -343,46 +344,46 @@ fleetData_terminateInstancesWithExpiration = Lens.lens (\FleetData' {terminateIn
 -- requests are placed or able to fulfill the request. The default end date
 -- is 7 days from the current date.
 fleetData_validUntil :: Lens.Lens' FleetData (Prelude.Maybe Prelude.UTCTime)
-fleetData_validUntil = Lens.lens (\FleetData' {validUntil} -> validUntil) (\s@FleetData' {} a -> s {validUntil = a} :: FleetData) Prelude.. Lens.mapping Core._Time
+fleetData_validUntil = Lens.lens (\FleetData' {validUntil} -> validUntil) (\s@FleetData' {} a -> s {validUntil = a} :: FleetData) Prelude.. Lens.mapping Data._Time
 
 -- | The creation date and time of the EC2 Fleet.
 fleetData_createTime :: Lens.Lens' FleetData (Prelude.Maybe Prelude.UTCTime)
-fleetData_createTime = Lens.lens (\FleetData' {createTime} -> createTime) (\s@FleetData' {} a -> s {createTime = a} :: FleetData) Prelude.. Lens.mapping Core._Time
+fleetData_createTime = Lens.lens (\FleetData' {createTime} -> createTime) (\s@FleetData' {} a -> s {createTime = a} :: FleetData) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML FleetData where
+instance Data.FromXML FleetData where
   parseXML x =
     FleetData'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "fleetInstanceSet"
+      Prelude.<*> ( x Data..@? "fleetInstanceSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "excessCapacityTerminationPolicy")
-      Prelude.<*> (x Core..@? "fleetId")
-      Prelude.<*> (x Core..@? "clientToken")
-      Prelude.<*> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "fulfilledOnDemandCapacity")
-      Prelude.<*> (x Core..@? "targetCapacitySpecification")
-      Prelude.<*> (x Core..@? "activityStatus")
-      Prelude.<*> (x Core..@? "onDemandOptions")
-      Prelude.<*> (x Core..@? "context")
-      Prelude.<*> (x Core..@? "fulfilledCapacity")
-      Prelude.<*> (x Core..@? "validFrom")
-      Prelude.<*> (x Core..@? "replaceUnhealthyInstances")
-      Prelude.<*> ( x Core..@? "launchTemplateConfigs"
+      Prelude.<*> (x Data..@? "excessCapacityTerminationPolicy")
+      Prelude.<*> (x Data..@? "fleetId")
+      Prelude.<*> (x Data..@? "clientToken")
+      Prelude.<*> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "fulfilledOnDemandCapacity")
+      Prelude.<*> (x Data..@? "targetCapacitySpecification")
+      Prelude.<*> (x Data..@? "activityStatus")
+      Prelude.<*> (x Data..@? "onDemandOptions")
+      Prelude.<*> (x Data..@? "context")
+      Prelude.<*> (x Data..@? "fulfilledCapacity")
+      Prelude.<*> (x Data..@? "validFrom")
+      Prelude.<*> (x Data..@? "replaceUnhealthyInstances")
+      Prelude.<*> ( x Data..@? "launchTemplateConfigs"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "errorSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "fleetState")
-      Prelude.<*> (x Core..@? "spotOptions")
-      Prelude.<*> (x Core..@? "terminateInstancesWithExpiration")
-      Prelude.<*> (x Core..@? "validUntil")
-      Prelude.<*> (x Core..@? "createTime")
+      Prelude.<*> (x Data..@? "fleetState")
+      Prelude.<*> (x Data..@? "spotOptions")
+      Prelude.<*> (x Data..@? "terminateInstancesWithExpiration")
+      Prelude.<*> (x Data..@? "validUntil")
+      Prelude.<*> (x Data..@? "createTime")
 
 instance Prelude.Hashable FleetData where
   hashWithSalt _salt FleetData' {..} =

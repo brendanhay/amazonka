@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,7 +131,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeregisterTransitGatewayMulticastGroupMembersResponse'
-            Prelude.<$> (x Core..@? "deregisteredMulticastGroupMembers")
+            Prelude.<$> (x Data..@? "deregisteredMulticastGroupMembers")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,36 +159,36 @@ instance
         `Prelude.seq` Prelude.rnf networkInterfaceIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeregisterTransitGatewayMulticastGroupMembers
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeregisterTransitGatewayMulticastGroupMembers
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeregisterTransitGatewayMulticastGroupMembers
   where
   toQuery
     DeregisterTransitGatewayMulticastGroupMembers' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "DeregisterTransitGatewayMulticastGroupMembers" ::
+            Data.=: ( "DeregisterTransitGatewayMulticastGroupMembers" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "GroupIpAddress" Core.=: groupIpAddress,
-          "DryRun" Core.=: dryRun,
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "GroupIpAddress" Data.=: groupIpAddress,
+          "DryRun" Data.=: dryRun,
           "TransitGatewayMulticastDomainId"
-            Core.=: transitGatewayMulticastDomainId,
-          Core.toQuery
-            ( Core.toQueryList "NetworkInterfaceIds"
+            Data.=: transitGatewayMulticastDomainId,
+          Data.toQuery
+            ( Data.toQueryList "NetworkInterfaceIds"
                 Prelude.<$> networkInterfaceIds
             )
         ]

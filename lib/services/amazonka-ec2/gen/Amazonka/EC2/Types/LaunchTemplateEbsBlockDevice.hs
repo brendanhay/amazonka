@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateEbsBlockDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VolumeType
 import qualified Amazonka.Prelude as Prelude
@@ -121,17 +122,17 @@ launchTemplateEbsBlockDevice_throughput = Lens.lens (\LaunchTemplateEbsBlockDevi
 launchTemplateEbsBlockDevice_iops :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe Prelude.Int)
 launchTemplateEbsBlockDevice_iops = Lens.lens (\LaunchTemplateEbsBlockDevice' {iops} -> iops) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {iops = a} :: LaunchTemplateEbsBlockDevice)
 
-instance Core.FromXML LaunchTemplateEbsBlockDevice where
+instance Data.FromXML LaunchTemplateEbsBlockDevice where
   parseXML x =
     LaunchTemplateEbsBlockDevice'
-      Prelude.<$> (x Core..@? "deleteOnTermination")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "volumeType")
-      Prelude.<*> (x Core..@? "volumeSize")
-      Prelude.<*> (x Core..@? "encrypted")
-      Prelude.<*> (x Core..@? "kmsKeyId")
-      Prelude.<*> (x Core..@? "throughput")
-      Prelude.<*> (x Core..@? "iops")
+      Prelude.<$> (x Data..@? "deleteOnTermination")
+      Prelude.<*> (x Data..@? "snapshotId")
+      Prelude.<*> (x Data..@? "volumeType")
+      Prelude.<*> (x Data..@? "volumeSize")
+      Prelude.<*> (x Data..@? "encrypted")
+      Prelude.<*> (x Data..@? "kmsKeyId")
+      Prelude.<*> (x Data..@? "throughput")
+      Prelude.<*> (x Data..@? "iops")
 
 instance
   Prelude.Hashable

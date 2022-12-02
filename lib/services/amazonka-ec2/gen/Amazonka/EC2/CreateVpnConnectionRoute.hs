@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,21 +116,21 @@ instance Prelude.NFData CreateVpnConnectionRoute where
     Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf vpnConnectionId
 
-instance Core.ToHeaders CreateVpnConnectionRoute where
+instance Data.ToHeaders CreateVpnConnectionRoute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateVpnConnectionRoute where
+instance Data.ToPath CreateVpnConnectionRoute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpnConnectionRoute where
+instance Data.ToQuery CreateVpnConnectionRoute where
   toQuery CreateVpnConnectionRoute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVpnConnectionRoute" :: Prelude.ByteString),
+          Data.=: ("CreateVpnConnectionRoute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
-        "VpnConnectionId" Core.=: vpnConnectionId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
+        "VpnConnectionId" Data.=: vpnConnectionId
       ]
 
 -- | /See:/ 'newCreateVpnConnectionRouteResponse' smart constructor.

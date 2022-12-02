@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeStatusInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VolumeStatusDetails
 import Amazonka.EC2.Types.VolumeStatusInfoStatus
@@ -64,12 +65,12 @@ volumeStatusInfo_status = Lens.lens (\VolumeStatusInfo' {status} -> status) (\s@
 volumeStatusInfo_details :: Lens.Lens' VolumeStatusInfo (Prelude.Maybe [VolumeStatusDetails])
 volumeStatusInfo_details = Lens.lens (\VolumeStatusInfo' {details} -> details) (\s@VolumeStatusInfo' {} a -> s {details = a} :: VolumeStatusInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML VolumeStatusInfo where
+instance Data.FromXML VolumeStatusInfo where
   parseXML x =
     VolumeStatusInfo'
-      Prelude.<$> (x Core..@? "status")
-      Prelude.<*> ( x Core..@? "details" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "status")
+      Prelude.<*> ( x Data..@? "details" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable VolumeStatusInfo where

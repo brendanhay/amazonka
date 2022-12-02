@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TunnelOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IKEVersionsListValue
 import Amazonka.EC2.Types.Phase1DHGroupNumbersListValue
@@ -269,49 +270,49 @@ tunnelOption_outsideIpAddress = Lens.lens (\TunnelOption' {outsideIpAddress} -> 
 tunnelOption_replayWindowSize :: Lens.Lens' TunnelOption (Prelude.Maybe Prelude.Int)
 tunnelOption_replayWindowSize = Lens.lens (\TunnelOption' {replayWindowSize} -> replayWindowSize) (\s@TunnelOption' {} a -> s {replayWindowSize = a} :: TunnelOption)
 
-instance Core.FromXML TunnelOption where
+instance Data.FromXML TunnelOption where
   parseXML x =
     TunnelOption'
-      Prelude.<$> (x Core..@? "tunnelInsideIpv6Cidr")
-      Prelude.<*> (x Core..@? "phase1LifetimeSeconds")
-      Prelude.<*> (x Core..@? "phase2LifetimeSeconds")
-      Prelude.<*> ( x Core..@? "phase2EncryptionAlgorithmSet"
+      Prelude.<$> (x Data..@? "tunnelInsideIpv6Cidr")
+      Prelude.<*> (x Data..@? "phase1LifetimeSeconds")
+      Prelude.<*> (x Data..@? "phase2LifetimeSeconds")
+      Prelude.<*> ( x Data..@? "phase2EncryptionAlgorithmSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "phase1DHGroupNumberSet"
+      Prelude.<*> ( x Data..@? "phase1DHGroupNumberSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "phase1IntegrityAlgorithmSet"
+      Prelude.<*> ( x Data..@? "phase1IntegrityAlgorithmSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "dpdTimeoutSeconds")
-      Prelude.<*> ( x Core..@? "ikeVersionSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "dpdTimeoutSeconds")
+      Prelude.<*> ( x Data..@? "ikeVersionSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "preSharedKey")
-      Prelude.<*> (x Core..@? "dpdTimeoutAction")
-      Prelude.<*> (x Core..@? "logOptions")
-      Prelude.<*> ( x Core..@? "phase2DHGroupNumberSet"
+      Prelude.<*> (x Data..@? "preSharedKey")
+      Prelude.<*> (x Data..@? "dpdTimeoutAction")
+      Prelude.<*> (x Data..@? "logOptions")
+      Prelude.<*> ( x Data..@? "phase2DHGroupNumberSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "rekeyFuzzPercentage")
-      Prelude.<*> (x Core..@? "startupAction")
-      Prelude.<*> (x Core..@? "rekeyMarginTimeSeconds")
-      Prelude.<*> ( x Core..@? "phase2IntegrityAlgorithmSet"
+      Prelude.<*> (x Data..@? "rekeyFuzzPercentage")
+      Prelude.<*> (x Data..@? "startupAction")
+      Prelude.<*> (x Data..@? "rekeyMarginTimeSeconds")
+      Prelude.<*> ( x Data..@? "phase2IntegrityAlgorithmSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "phase1EncryptionAlgorithmSet"
+      Prelude.<*> ( x Data..@? "phase1EncryptionAlgorithmSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "tunnelInsideCidr")
-      Prelude.<*> (x Core..@? "outsideIpAddress")
-      Prelude.<*> (x Core..@? "replayWindowSize")
+      Prelude.<*> (x Data..@? "tunnelInsideCidr")
+      Prelude.<*> (x Data..@? "outsideIpAddress")
+      Prelude.<*> (x Data..@? "replayWindowSize")
 
 instance Prelude.Hashable TunnelOption where
   hashWithSalt _salt TunnelOption' {..} =

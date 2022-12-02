@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -287,10 +288,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeVpcPeeringConnectionsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "vpcPeeringConnectionSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "vpcPeeringConnectionSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -314,28 +315,28 @@ instance Prelude.NFData DescribeVpcPeeringConnections where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf vpcPeeringConnectionIds
 
-instance Core.ToHeaders DescribeVpcPeeringConnections where
+instance Data.ToHeaders DescribeVpcPeeringConnections where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVpcPeeringConnections where
+instance Data.ToPath DescribeVpcPeeringConnections where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpcPeeringConnections where
+instance Data.ToQuery DescribeVpcPeeringConnections where
   toQuery DescribeVpcPeeringConnections' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeVpcPeeringConnections" ::
+          Data.=: ( "DescribeVpcPeeringConnections" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "VpcPeeringConnectionId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "VpcPeeringConnectionId"
               Prelude.<$> vpcPeeringConnectionIds
           )
       ]

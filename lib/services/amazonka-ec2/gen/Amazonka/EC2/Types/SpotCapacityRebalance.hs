@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotCapacityRebalance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ReplacementStrategy
 import qualified Amazonka.Prelude as Prelude
@@ -134,11 +135,11 @@ spotCapacityRebalance_terminationDelay = Lens.lens (\SpotCapacityRebalance' {ter
 spotCapacityRebalance_replacementStrategy :: Lens.Lens' SpotCapacityRebalance (Prelude.Maybe ReplacementStrategy)
 spotCapacityRebalance_replacementStrategy = Lens.lens (\SpotCapacityRebalance' {replacementStrategy} -> replacementStrategy) (\s@SpotCapacityRebalance' {} a -> s {replacementStrategy = a} :: SpotCapacityRebalance)
 
-instance Core.FromXML SpotCapacityRebalance where
+instance Data.FromXML SpotCapacityRebalance where
   parseXML x =
     SpotCapacityRebalance'
-      Prelude.<$> (x Core..@? "terminationDelay")
-      Prelude.<*> (x Core..@? "replacementStrategy")
+      Prelude.<$> (x Data..@? "terminationDelay")
+      Prelude.<*> (x Data..@? "replacementStrategy")
 
 instance Prelude.Hashable SpotCapacityRebalance where
   hashWithSalt _salt SpotCapacityRebalance' {..} =
@@ -150,9 +151,9 @@ instance Prelude.NFData SpotCapacityRebalance where
     Prelude.rnf terminationDelay
       `Prelude.seq` Prelude.rnf replacementStrategy
 
-instance Core.ToQuery SpotCapacityRebalance where
+instance Data.ToQuery SpotCapacityRebalance where
   toQuery SpotCapacityRebalance' {..} =
     Prelude.mconcat
-      [ "TerminationDelay" Core.=: terminationDelay,
-        "ReplacementStrategy" Core.=: replacementStrategy
+      [ "TerminationDelay" Data.=: terminationDelay,
+        "ReplacementStrategy" Data.=: replacementStrategy
       ]

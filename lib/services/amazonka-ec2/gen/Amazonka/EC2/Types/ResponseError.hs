@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ResponseError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateErrorCode
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ responseError_message = Lens.lens (\ResponseError' {message} -> message) (\s@Res
 responseError_code :: Lens.Lens' ResponseError (Prelude.Maybe LaunchTemplateErrorCode)
 responseError_code = Lens.lens (\ResponseError' {code} -> code) (\s@ResponseError' {} a -> s {code = a} :: ResponseError)
 
-instance Core.FromXML ResponseError where
+instance Data.FromXML ResponseError where
   parseXML x =
     ResponseError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable ResponseError where
   hashWithSalt _salt ResponseError' {..} =

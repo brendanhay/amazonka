@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DisassociateClientVpnTargetNetworkResponse'
-            Prelude.<$> (x Core..@? "status")
-              Prelude.<*> (x Core..@? "associationId")
+            Prelude.<$> (x Data..@? "status")
+              Prelude.<*> (x Data..@? "associationId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,32 +164,32 @@ instance
       `Prelude.seq` Prelude.rnf associationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateClientVpnTargetNetwork
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateClientVpnTargetNetwork
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateClientVpnTargetNetwork
   where
   toQuery DisassociateClientVpnTargetNetwork' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DisassociateClientVpnTargetNetwork" ::
+          Data.=: ( "DisassociateClientVpnTargetNetwork" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
-        "AssociationId" Core.=: associationId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "ClientVpnEndpointId" Data.=: clientVpnEndpointId,
+        "AssociationId" Data.=: associationId
       ]
 
 -- | /See:/ 'newDisassociateClientVpnTargetNetworkResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateInstanceMarketOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateSpotMarketOptionsRequest
 import Amazonka.EC2.Types.MarketType
@@ -84,12 +85,12 @@ instance
       `Prelude.seq` Prelude.rnf spotOptions
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplateInstanceMarketOptionsRequest
   where
   toQuery
     LaunchTemplateInstanceMarketOptionsRequest' {..} =
       Prelude.mconcat
-        [ "MarketType" Core.=: marketType,
-          "SpotOptions" Core.=: spotOptions
+        [ "MarketType" Data.=: marketType,
+          "SpotOptions" Data.=: spotOptions
         ]

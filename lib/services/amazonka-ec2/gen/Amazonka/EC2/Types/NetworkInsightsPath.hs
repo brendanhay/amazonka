@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInsightsPath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Protocol
 import Amazonka.EC2.Types.Tag
@@ -47,7 +48,7 @@ data NetworkInsightsPath = NetworkInsightsPath'
     -- | The Amazon Web Services resource that is the source of the path.
     source :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the path was created.
-    createdDate :: Prelude.Maybe Core.ISO8601,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | The protocol.
     protocol :: Prelude.Maybe Protocol,
     -- | The ID of the path.
@@ -132,7 +133,7 @@ networkInsightsPath_source = Lens.lens (\NetworkInsightsPath' {source} -> source
 
 -- | The time stamp when the path was created.
 networkInsightsPath_createdDate :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.UTCTime)
-networkInsightsPath_createdDate = Lens.lens (\NetworkInsightsPath' {createdDate} -> createdDate) (\s@NetworkInsightsPath' {} a -> s {createdDate = a} :: NetworkInsightsPath) Prelude.. Lens.mapping Core._Time
+networkInsightsPath_createdDate = Lens.lens (\NetworkInsightsPath' {createdDate} -> createdDate) (\s@NetworkInsightsPath' {} a -> s {createdDate = a} :: NetworkInsightsPath) Prelude.. Lens.mapping Data._Time
 
 -- | The protocol.
 networkInsightsPath_protocol :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Protocol)
@@ -142,21 +143,21 @@ networkInsightsPath_protocol = Lens.lens (\NetworkInsightsPath' {protocol} -> pr
 networkInsightsPath_networkInsightsPathId :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_networkInsightsPathId = Lens.lens (\NetworkInsightsPath' {networkInsightsPathId} -> networkInsightsPathId) (\s@NetworkInsightsPath' {} a -> s {networkInsightsPathId = a} :: NetworkInsightsPath)
 
-instance Core.FromXML NetworkInsightsPath where
+instance Data.FromXML NetworkInsightsPath where
   parseXML x =
     NetworkInsightsPath'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "destination")
-      Prelude.<*> (x Core..@? "destinationIp")
-      Prelude.<*> (x Core..@? "sourceIp")
-      Prelude.<*> (x Core..@? "destinationPort")
-      Prelude.<*> (x Core..@? "networkInsightsPathArn")
-      Prelude.<*> (x Core..@? "source")
-      Prelude.<*> (x Core..@? "createdDate")
-      Prelude.<*> (x Core..@? "protocol")
-      Prelude.<*> (x Core..@? "networkInsightsPathId")
+      Prelude.<*> (x Data..@? "destination")
+      Prelude.<*> (x Data..@? "destinationIp")
+      Prelude.<*> (x Data..@? "sourceIp")
+      Prelude.<*> (x Data..@? "destinationPort")
+      Prelude.<*> (x Data..@? "networkInsightsPathArn")
+      Prelude.<*> (x Data..@? "source")
+      Prelude.<*> (x Data..@? "createdDate")
+      Prelude.<*> (x Data..@? "protocol")
+      Prelude.<*> (x Data..@? "networkInsightsPathId")
 
 instance Prelude.Hashable NetworkInsightsPath where
   hashWithSalt _salt NetworkInsightsPath' {..} =

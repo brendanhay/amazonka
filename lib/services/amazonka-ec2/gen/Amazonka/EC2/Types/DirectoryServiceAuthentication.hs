@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DirectoryServiceAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,10 +55,10 @@ newDirectoryServiceAuthentication =
 directoryServiceAuthentication_directoryId :: Lens.Lens' DirectoryServiceAuthentication (Prelude.Maybe Prelude.Text)
 directoryServiceAuthentication_directoryId = Lens.lens (\DirectoryServiceAuthentication' {directoryId} -> directoryId) (\s@DirectoryServiceAuthentication' {} a -> s {directoryId = a} :: DirectoryServiceAuthentication)
 
-instance Core.FromXML DirectoryServiceAuthentication where
+instance Data.FromXML DirectoryServiceAuthentication where
   parseXML x =
     DirectoryServiceAuthentication'
-      Prelude.<$> (x Core..@? "directoryId")
+      Prelude.<$> (x Data..@? "directoryId")
 
 instance
   Prelude.Hashable

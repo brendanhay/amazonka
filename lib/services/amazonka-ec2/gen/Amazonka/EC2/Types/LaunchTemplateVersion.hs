@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResponseLaunchTemplateData
 import qualified Amazonka.Prelude as Prelude
@@ -40,7 +41,7 @@ data LaunchTemplateVersion = LaunchTemplateVersion'
     -- | The version number.
     versionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The time the version was created.
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | The principal that created the version.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template.
@@ -108,7 +109,7 @@ launchTemplateVersion_versionNumber = Lens.lens (\LaunchTemplateVersion' {versio
 
 -- | The time the version was created.
 launchTemplateVersion_createTime :: Lens.Lens' LaunchTemplateVersion (Prelude.Maybe Prelude.UTCTime)
-launchTemplateVersion_createTime = Lens.lens (\LaunchTemplateVersion' {createTime} -> createTime) (\s@LaunchTemplateVersion' {} a -> s {createTime = a} :: LaunchTemplateVersion) Prelude.. Lens.mapping Core._Time
+launchTemplateVersion_createTime = Lens.lens (\LaunchTemplateVersion' {createTime} -> createTime) (\s@LaunchTemplateVersion' {} a -> s {createTime = a} :: LaunchTemplateVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The principal that created the version.
 launchTemplateVersion_createdBy :: Lens.Lens' LaunchTemplateVersion (Prelude.Maybe Prelude.Text)
@@ -118,17 +119,17 @@ launchTemplateVersion_createdBy = Lens.lens (\LaunchTemplateVersion' {createdBy}
 launchTemplateVersion_launchTemplateName :: Lens.Lens' LaunchTemplateVersion (Prelude.Maybe Prelude.Text)
 launchTemplateVersion_launchTemplateName = Lens.lens (\LaunchTemplateVersion' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateVersion' {} a -> s {launchTemplateName = a} :: LaunchTemplateVersion)
 
-instance Core.FromXML LaunchTemplateVersion where
+instance Data.FromXML LaunchTemplateVersion where
   parseXML x =
     LaunchTemplateVersion'
-      Prelude.<$> (x Core..@? "launchTemplateData")
-      Prelude.<*> (x Core..@? "defaultVersion")
-      Prelude.<*> (x Core..@? "launchTemplateId")
-      Prelude.<*> (x Core..@? "versionDescription")
-      Prelude.<*> (x Core..@? "versionNumber")
-      Prelude.<*> (x Core..@? "createTime")
-      Prelude.<*> (x Core..@? "createdBy")
-      Prelude.<*> (x Core..@? "launchTemplateName")
+      Prelude.<$> (x Data..@? "launchTemplateData")
+      Prelude.<*> (x Data..@? "defaultVersion")
+      Prelude.<*> (x Data..@? "launchTemplateId")
+      Prelude.<*> (x Data..@? "versionDescription")
+      Prelude.<*> (x Data..@? "versionNumber")
+      Prelude.<*> (x Data..@? "createTime")
+      Prelude.<*> (x Data..@? "createdBy")
+      Prelude.<*> (x Data..@? "launchTemplateName")
 
 instance Prelude.Hashable LaunchTemplateVersion where
   hashWithSalt _salt LaunchTemplateVersion' {..} =

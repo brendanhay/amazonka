@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.StateReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -185,11 +186,11 @@ stateReason_message = Lens.lens (\StateReason' {message} -> message) (\s@StateRe
 stateReason_code :: Lens.Lens' StateReason (Prelude.Maybe Prelude.Text)
 stateReason_code = Lens.lens (\StateReason' {code} -> code) (\s@StateReason' {} a -> s {code = a} :: StateReason)
 
-instance Core.FromXML StateReason where
+instance Data.FromXML StateReason where
   parseXML x =
     StateReason'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable StateReason where
   hashWithSalt _salt StateReason' {..} =

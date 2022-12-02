@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.HistoryRecordEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.EventInformation
 import Amazonka.EC2.Types.FleetEventType
@@ -36,7 +37,7 @@ data HistoryRecordEntry = HistoryRecordEntry'
     eventInformation :: Prelude.Maybe EventInformation,
     -- | The date and time of the event, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    timestamp :: Prelude.Maybe Core.ISO8601
+    timestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,14 +75,14 @@ historyRecordEntry_eventInformation = Lens.lens (\HistoryRecordEntry' {eventInfo
 -- | The date and time of the event, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 historyRecordEntry_timestamp :: Lens.Lens' HistoryRecordEntry (Prelude.Maybe Prelude.UTCTime)
-historyRecordEntry_timestamp = Lens.lens (\HistoryRecordEntry' {timestamp} -> timestamp) (\s@HistoryRecordEntry' {} a -> s {timestamp = a} :: HistoryRecordEntry) Prelude.. Lens.mapping Core._Time
+historyRecordEntry_timestamp = Lens.lens (\HistoryRecordEntry' {timestamp} -> timestamp) (\s@HistoryRecordEntry' {} a -> s {timestamp = a} :: HistoryRecordEntry) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML HistoryRecordEntry where
+instance Data.FromXML HistoryRecordEntry where
   parseXML x =
     HistoryRecordEntry'
-      Prelude.<$> (x Core..@? "eventType")
-      Prelude.<*> (x Core..@? "eventInformation")
-      Prelude.<*> (x Core..@? "timestamp")
+      Prelude.<$> (x Data..@? "eventType")
+      Prelude.<*> (x Data..@? "eventInformation")
+      Prelude.<*> (x Data..@? "timestamp")
 
 instance Prelude.Hashable HistoryRecordEntry where
   hashWithSalt _salt HistoryRecordEntry' {..} =

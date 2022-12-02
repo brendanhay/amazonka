@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayMulticastDomainOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AutoAcceptSharedAssociationsValue
 import Amazonka.EC2.Types.Igmpv2SupportValue
@@ -86,14 +87,14 @@ transitGatewayMulticastDomainOptions_autoAcceptSharedAssociations :: Lens.Lens' 
 transitGatewayMulticastDomainOptions_autoAcceptSharedAssociations = Lens.lens (\TransitGatewayMulticastDomainOptions' {autoAcceptSharedAssociations} -> autoAcceptSharedAssociations) (\s@TransitGatewayMulticastDomainOptions' {} a -> s {autoAcceptSharedAssociations = a} :: TransitGatewayMulticastDomainOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayMulticastDomainOptions
   where
   parseXML x =
     TransitGatewayMulticastDomainOptions'
-      Prelude.<$> (x Core..@? "staticSourcesSupport")
-      Prelude.<*> (x Core..@? "igmpv2Support")
-      Prelude.<*> (x Core..@? "autoAcceptSharedAssociations")
+      Prelude.<$> (x Data..@? "staticSourcesSupport")
+      Prelude.<*> (x Data..@? "igmpv2Support")
+      Prelude.<*> (x Data..@? "autoAcceptSharedAssociations")
 
 instance
   Prelude.Hashable

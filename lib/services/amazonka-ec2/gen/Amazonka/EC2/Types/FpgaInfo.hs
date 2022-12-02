@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FpgaInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FpgaDeviceInfo
 import qualified Amazonka.Prelude as Prelude
@@ -63,12 +64,12 @@ fpgaInfo_totalFpgaMemoryInMiB = Lens.lens (\FpgaInfo' {totalFpgaMemoryInMiB} -> 
 fpgaInfo_fpgas :: Lens.Lens' FpgaInfo (Prelude.Maybe [FpgaDeviceInfo])
 fpgaInfo_fpgas = Lens.lens (\FpgaInfo' {fpgas} -> fpgas) (\s@FpgaInfo' {} a -> s {fpgas = a} :: FpgaInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML FpgaInfo where
+instance Data.FromXML FpgaInfo where
   parseXML x =
     FpgaInfo'
-      Prelude.<$> (x Core..@? "totalFpgaMemoryInMiB")
-      Prelude.<*> ( x Core..@? "fpgas" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "totalFpgaMemoryInMiB")
+      Prelude.<*> ( x Data..@? "fpgas" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable FpgaInfo where

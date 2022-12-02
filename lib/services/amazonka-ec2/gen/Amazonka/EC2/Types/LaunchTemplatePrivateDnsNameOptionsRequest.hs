@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplatePrivateDnsNameOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.HostnameType
 import qualified Amazonka.Prelude as Prelude
@@ -114,15 +115,15 @@ instance
       `Prelude.seq` Prelude.rnf hostnameType
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplatePrivateDnsNameOptionsRequest
   where
   toQuery
     LaunchTemplatePrivateDnsNameOptionsRequest' {..} =
       Prelude.mconcat
         [ "EnableResourceNameDnsARecord"
-            Core.=: enableResourceNameDnsARecord,
+            Data.=: enableResourceNameDnsARecord,
           "EnableResourceNameDnsAAAARecord"
-            Core.=: enableResourceNameDnsAAAARecord,
-          "HostnameType" Core.=: hostnameType
+            Data.=: enableResourceNameDnsAAAARecord,
+          "HostnameType" Data.=: hostnameType
         ]

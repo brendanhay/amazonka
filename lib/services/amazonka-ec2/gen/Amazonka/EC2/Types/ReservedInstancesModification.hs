@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstancesModification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ReservedInstancesId
 import Amazonka.EC2.Types.ReservedInstancesModificationResult
@@ -39,11 +40,11 @@ data ReservedInstancesModification = ReservedInstancesModification'
     -- | The status of the Reserved Instances modification request.
     status :: Prelude.Maybe Prelude.Text,
     -- | The time when the modification request was last updated.
-    updateDate :: Prelude.Maybe Core.ISO8601,
+    updateDate :: Prelude.Maybe Data.ISO8601,
     -- | The time for the modification to become effective.
-    effectiveDate :: Prelude.Maybe Core.ISO8601,
+    effectiveDate :: Prelude.Maybe Data.ISO8601,
     -- | The time when the modification request was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
+    createDate :: Prelude.Maybe Data.ISO8601,
     -- | Contains target configurations along with their corresponding new
     -- Reserved Instance IDs.
     modificationResults :: Prelude.Maybe [ReservedInstancesModificationResult],
@@ -115,15 +116,15 @@ reservedInstancesModification_status = Lens.lens (\ReservedInstancesModification
 
 -- | The time when the modification request was last updated.
 reservedInstancesModification_updateDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
-reservedInstancesModification_updateDate = Lens.lens (\ReservedInstancesModification' {updateDate} -> updateDate) (\s@ReservedInstancesModification' {} a -> s {updateDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
+reservedInstancesModification_updateDate = Lens.lens (\ReservedInstancesModification' {updateDate} -> updateDate) (\s@ReservedInstancesModification' {} a -> s {updateDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Data._Time
 
 -- | The time for the modification to become effective.
 reservedInstancesModification_effectiveDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
-reservedInstancesModification_effectiveDate = Lens.lens (\ReservedInstancesModification' {effectiveDate} -> effectiveDate) (\s@ReservedInstancesModification' {} a -> s {effectiveDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
+reservedInstancesModification_effectiveDate = Lens.lens (\ReservedInstancesModification' {effectiveDate} -> effectiveDate) (\s@ReservedInstancesModification' {} a -> s {effectiveDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the modification request was created.
 reservedInstancesModification_createDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
-reservedInstancesModification_createDate = Lens.lens (\ReservedInstancesModification' {createDate} -> createDate) (\s@ReservedInstancesModification' {} a -> s {createDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
+reservedInstancesModification_createDate = Lens.lens (\ReservedInstancesModification' {createDate} -> createDate) (\s@ReservedInstancesModification' {} a -> s {createDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Data._Time
 
 -- | Contains target configurations along with their corresponding new
 -- Reserved Instance IDs.
@@ -138,24 +139,24 @@ reservedInstancesModification_statusMessage = Lens.lens (\ReservedInstancesModif
 reservedInstancesModification_reservedInstancesModificationId :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.Text)
 reservedInstancesModification_reservedInstancesModificationId = Lens.lens (\ReservedInstancesModification' {reservedInstancesModificationId} -> reservedInstancesModificationId) (\s@ReservedInstancesModification' {} a -> s {reservedInstancesModificationId = a} :: ReservedInstancesModification)
 
-instance Core.FromXML ReservedInstancesModification where
+instance Data.FromXML ReservedInstancesModification where
   parseXML x =
     ReservedInstancesModification'
-      Prelude.<$> (x Core..@? "clientToken")
-      Prelude.<*> ( x Core..@? "reservedInstancesSet"
+      Prelude.<$> (x Data..@? "clientToken")
+      Prelude.<*> ( x Data..@? "reservedInstancesSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "updateDate")
-      Prelude.<*> (x Core..@? "effectiveDate")
-      Prelude.<*> (x Core..@? "createDate")
-      Prelude.<*> ( x Core..@? "modificationResultSet"
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "updateDate")
+      Prelude.<*> (x Data..@? "effectiveDate")
+      Prelude.<*> (x Data..@? "createDate")
+      Prelude.<*> ( x Data..@? "modificationResultSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "reservedInstancesModificationId")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "reservedInstancesModificationId")
 
 instance
   Prelude.Hashable

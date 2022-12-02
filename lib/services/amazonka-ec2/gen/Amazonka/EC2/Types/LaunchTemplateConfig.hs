@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetLaunchTemplateSpecification
 import Amazonka.EC2.Types.LaunchTemplateOverrides
@@ -68,12 +69,12 @@ launchTemplateConfig_launchTemplateSpecification = Lens.lens (\LaunchTemplateCon
 launchTemplateConfig_overrides :: Lens.Lens' LaunchTemplateConfig (Prelude.Maybe [LaunchTemplateOverrides])
 launchTemplateConfig_overrides = Lens.lens (\LaunchTemplateConfig' {overrides} -> overrides) (\s@LaunchTemplateConfig' {} a -> s {overrides = a} :: LaunchTemplateConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML LaunchTemplateConfig where
+instance Data.FromXML LaunchTemplateConfig where
   parseXML x =
     LaunchTemplateConfig'
-      Prelude.<$> (x Core..@? "launchTemplateSpecification")
-      Prelude.<*> ( x Core..@? "overrides" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "launchTemplateSpecification")
+      Prelude.<*> ( x Data..@? "overrides" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable LaunchTemplateConfig where
@@ -87,11 +88,11 @@ instance Prelude.NFData LaunchTemplateConfig where
     Prelude.rnf launchTemplateSpecification
       `Prelude.seq` Prelude.rnf overrides
 
-instance Core.ToQuery LaunchTemplateConfig where
+instance Data.ToQuery LaunchTemplateConfig where
   toQuery LaunchTemplateConfig' {..} =
     Prelude.mconcat
       [ "LaunchTemplateSpecification"
-          Core.=: launchTemplateSpecification,
-        Core.toQuery
-          (Core.toQueryList "Overrides" Prelude.<$> overrides)
+          Data.=: launchTemplateSpecification,
+        Data.toQuery
+          (Data.toQueryList "Overrides" Prelude.<$> overrides)
       ]

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,9 +176,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayPolicyTableAssociationsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "associations" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "associations" Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -207,36 +208,36 @@ instance
       `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetTransitGatewayPolicyTableAssociations
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetTransitGatewayPolicyTableAssociations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetTransitGatewayPolicyTableAssociations
   where
   toQuery GetTransitGatewayPolicyTableAssociations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetTransitGatewayPolicyTableAssociations" ::
+          Data.=: ( "GetTransitGatewayPolicyTableAssociations" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
         "TransitGatewayPolicyTableId"
-          Core.=: transitGatewayPolicyTableId
+          Data.=: transitGatewayPolicyTableId
       ]
 
 -- | /See:/ 'newGetTransitGatewayPolicyTableAssociationsResponse' smart constructor.

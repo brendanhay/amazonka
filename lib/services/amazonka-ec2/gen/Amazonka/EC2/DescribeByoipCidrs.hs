@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -149,9 +150,9 @@ instance Core.AWSRequest DescribeByoipCidrs where
     Response.receiveXML
       ( \s h x ->
           DescribeByoipCidrsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "byoipCidrSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "byoipCidrSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -168,22 +169,22 @@ instance Prelude.NFData DescribeByoipCidrs where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeByoipCidrs where
+instance Data.ToHeaders DescribeByoipCidrs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeByoipCidrs where
+instance Data.ToPath DescribeByoipCidrs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeByoipCidrs where
+instance Data.ToQuery DescribeByoipCidrs where
   toQuery DescribeByoipCidrs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeByoipCidrs" :: Prelude.ByteString),
+          Data.=: ("DescribeByoipCidrs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeByoipCidrsResponse' smart constructor.

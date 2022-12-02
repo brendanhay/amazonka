@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest ReleaseIpamPoolAllocation where
     Response.receiveXML
       ( \s h x ->
           ReleaseIpamPoolAllocationResponse'
-            Prelude.<$> (x Core..@? "success")
+            Prelude.<$> (x Data..@? "success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,23 +160,23 @@ instance Prelude.NFData ReleaseIpamPoolAllocation where
       `Prelude.seq` Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf ipamPoolAllocationId
 
-instance Core.ToHeaders ReleaseIpamPoolAllocation where
+instance Data.ToHeaders ReleaseIpamPoolAllocation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReleaseIpamPoolAllocation where
+instance Data.ToPath ReleaseIpamPoolAllocation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReleaseIpamPoolAllocation where
+instance Data.ToQuery ReleaseIpamPoolAllocation where
   toQuery ReleaseIpamPoolAllocation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ReleaseIpamPoolAllocation" :: Prelude.ByteString),
+          Data.=: ("ReleaseIpamPoolAllocation" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "IpamPoolId" Core.=: ipamPoolId,
-        "Cidr" Core.=: cidr,
-        "IpamPoolAllocationId" Core.=: ipamPoolAllocationId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "IpamPoolId" Data.=: ipamPoolId,
+        "Cidr" Data.=: cidr,
+        "IpamPoolAllocationId" Data.=: ipamPoolAllocationId
       ]
 
 -- | /See:/ 'newReleaseIpamPoolAllocationResponse' smart constructor.

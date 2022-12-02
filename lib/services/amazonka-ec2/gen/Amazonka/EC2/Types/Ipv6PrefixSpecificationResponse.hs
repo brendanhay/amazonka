@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Ipv6PrefixSpecificationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,10 +56,10 @@ newIpv6PrefixSpecificationResponse =
 ipv6PrefixSpecificationResponse_ipv6Prefix :: Lens.Lens' Ipv6PrefixSpecificationResponse (Prelude.Maybe Prelude.Text)
 ipv6PrefixSpecificationResponse_ipv6Prefix = Lens.lens (\Ipv6PrefixSpecificationResponse' {ipv6Prefix} -> ipv6Prefix) (\s@Ipv6PrefixSpecificationResponse' {} a -> s {ipv6Prefix = a} :: Ipv6PrefixSpecificationResponse)
 
-instance Core.FromXML Ipv6PrefixSpecificationResponse where
+instance Data.FromXML Ipv6PrefixSpecificationResponse where
   parseXML x =
     Ipv6PrefixSpecificationResponse'
-      Prelude.<$> (x Core..@? "ipv6Prefix")
+      Prelude.<$> (x Data..@? "ipv6Prefix")
 
 instance
   Prelude.Hashable

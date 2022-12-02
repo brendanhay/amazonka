@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,7 +186,7 @@ instance Core.AWSRequest ModifySpotFleetRequest where
     Response.receiveXML
       ( \s h x ->
           ModifySpotFleetRequestResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,30 +209,30 @@ instance Prelude.NFData ModifySpotFleetRequest where
       `Prelude.seq` Prelude.rnf onDemandTargetCapacity
       `Prelude.seq` Prelude.rnf spotFleetRequestId
 
-instance Core.ToHeaders ModifySpotFleetRequest where
+instance Data.ToHeaders ModifySpotFleetRequest where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifySpotFleetRequest where
+instance Data.ToPath ModifySpotFleetRequest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifySpotFleetRequest where
+instance Data.ToQuery ModifySpotFleetRequest where
   toQuery ModifySpotFleetRequest' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySpotFleetRequest" :: Prelude.ByteString),
+          Data.=: ("ModifySpotFleetRequest" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ExcessCapacityTerminationPolicy"
-          Core.=: excessCapacityTerminationPolicy,
-        "TargetCapacity" Core.=: targetCapacity,
-        "Context" Core.=: context,
-        Core.toQuery
-          ( Core.toQueryList "LaunchTemplateConfig"
+          Data.=: excessCapacityTerminationPolicy,
+        "TargetCapacity" Data.=: targetCapacity,
+        "Context" Data.=: context,
+        Data.toQuery
+          ( Data.toQueryList "LaunchTemplateConfig"
               Prelude.<$> launchTemplateConfigs
           ),
         "OnDemandTargetCapacity"
-          Core.=: onDemandTargetCapacity,
-        "SpotFleetRequestId" Core.=: spotFleetRequestId
+          Data.=: onDemandTargetCapacity,
+        "SpotFleetRequestId" Data.=: spotFleetRequestId
       ]
 
 -- | Contains the output of ModifySpotFleetRequest.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInsightsAnalysis where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AlternatePathHint
 import Amazonka.EC2.Types.AnalysisStatus
@@ -49,7 +50,7 @@ data NetworkInsightsAnalysis = NetworkInsightsAnalysis'
     -- | The ID of the network insights analysis.
     networkInsightsAnalysisId :: Prelude.Maybe Prelude.Text,
     -- | The time the analysis started.
-    startDate :: Prelude.Maybe Core.ISO8601,
+    startDate :: Prelude.Maybe Data.ISO8601,
     -- | The explanations. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html Reachability Analyzer explanation codes>.
     explanations :: Prelude.Maybe [Explanation],
@@ -155,7 +156,7 @@ networkInsightsAnalysis_networkInsightsAnalysisId = Lens.lens (\NetworkInsightsA
 
 -- | The time the analysis started.
 networkInsightsAnalysis_startDate :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe Prelude.UTCTime)
-networkInsightsAnalysis_startDate = Lens.lens (\NetworkInsightsAnalysis' {startDate} -> startDate) (\s@NetworkInsightsAnalysis' {} a -> s {startDate = a} :: NetworkInsightsAnalysis) Prelude.. Lens.mapping Core._Time
+networkInsightsAnalysis_startDate = Lens.lens (\NetworkInsightsAnalysis' {startDate} -> startDate) (\s@NetworkInsightsAnalysis' {} a -> s {startDate = a} :: NetworkInsightsAnalysis) Prelude.. Lens.mapping Data._Time
 
 -- | The explanations. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html Reachability Analyzer explanation codes>.
@@ -182,38 +183,38 @@ networkInsightsAnalysis_statusMessage = Lens.lens (\NetworkInsightsAnalysis' {st
 networkInsightsAnalysis_networkInsightsPathId :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe Prelude.Text)
 networkInsightsAnalysis_networkInsightsPathId = Lens.lens (\NetworkInsightsAnalysis' {networkInsightsPathId} -> networkInsightsPathId) (\s@NetworkInsightsAnalysis' {} a -> s {networkInsightsPathId = a} :: NetworkInsightsAnalysis)
 
-instance Core.FromXML NetworkInsightsAnalysis where
+instance Data.FromXML NetworkInsightsAnalysis where
   parseXML x =
     NetworkInsightsAnalysis'
-      Prelude.<$> ( x Core..@? "filterInArnSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "filterInArnSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkPathFound")
-      Prelude.<*> ( x Core..@? "forwardPathComponentSet"
+      Prelude.<*> (x Data..@? "networkPathFound")
+      Prelude.<*> ( x Data..@? "forwardPathComponentSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "warningMessage")
-      Prelude.<*> (x Core..@? "networkInsightsAnalysisId")
-      Prelude.<*> (x Core..@? "startDate")
-      Prelude.<*> ( x Core..@? "explanationSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "warningMessage")
+      Prelude.<*> (x Data..@? "networkInsightsAnalysisId")
+      Prelude.<*> (x Data..@? "startDate")
+      Prelude.<*> ( x Data..@? "explanationSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "alternatePathHintSet"
+      Prelude.<*> ( x Data..@? "alternatePathHintSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "returnPathComponentSet"
+      Prelude.<*> ( x Data..@? "returnPathComponentSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkInsightsAnalysisArn")
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "networkInsightsPathId")
+      Prelude.<*> (x Data..@? "networkInsightsAnalysisArn")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "networkInsightsPathId")
 
 instance Prelude.Hashable NetworkInsightsAnalysis where
   hashWithSalt _salt NetworkInsightsAnalysis' {..} =

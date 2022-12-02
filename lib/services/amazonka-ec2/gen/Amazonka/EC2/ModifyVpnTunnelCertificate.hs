@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance Core.AWSRequest ModifyVpnTunnelCertificate where
     Response.receiveXML
       ( \s h x ->
           ModifyVpnTunnelCertificateResponse'
-            Prelude.<$> (x Core..@? "vpnConnection")
+            Prelude.<$> (x Data..@? "vpnConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,23 +137,23 @@ instance Prelude.NFData ModifyVpnTunnelCertificate where
       `Prelude.seq` Prelude.rnf vpnConnectionId
       `Prelude.seq` Prelude.rnf vpnTunnelOutsideIpAddress
 
-instance Core.ToHeaders ModifyVpnTunnelCertificate where
+instance Data.ToHeaders ModifyVpnTunnelCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyVpnTunnelCertificate where
+instance Data.ToPath ModifyVpnTunnelCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyVpnTunnelCertificate where
+instance Data.ToQuery ModifyVpnTunnelCertificate where
   toQuery ModifyVpnTunnelCertificate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVpnTunnelCertificate" :: Prelude.ByteString),
+          Data.=: ("ModifyVpnTunnelCertificate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "VpnConnectionId" Core.=: vpnConnectionId,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "VpnConnectionId" Data.=: vpnConnectionId,
         "VpnTunnelOutsideIpAddress"
-          Core.=: vpnTunnelOutsideIpAddress
+          Data.=: vpnTunnelOutsideIpAddress
       ]
 
 -- | /See:/ 'newModifyVpnTunnelCertificateResponse' smart constructor.

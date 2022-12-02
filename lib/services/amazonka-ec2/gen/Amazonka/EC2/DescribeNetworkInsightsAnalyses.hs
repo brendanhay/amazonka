@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -73,9 +74,9 @@ data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The time when the network insights analyses started.
-    analysisStartTime :: Prelude.Maybe Core.ISO8601,
+    analysisStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The time when the network insights analyses ended.
-    analysisEndTime :: Prelude.Maybe Core.ISO8601,
+    analysisEndTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the network insights analyses. You must specify either
     -- analysis IDs or a path ID.
     networkInsightsAnalysisIds :: Prelude.Maybe [Prelude.Text],
@@ -160,11 +161,11 @@ describeNetworkInsightsAnalyses_dryRun = Lens.lens (\DescribeNetworkInsightsAnal
 
 -- | The time when the network insights analyses started.
 describeNetworkInsightsAnalyses_analysisStartTime :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.UTCTime)
-describeNetworkInsightsAnalyses_analysisStartTime = Lens.lens (\DescribeNetworkInsightsAnalyses' {analysisStartTime} -> analysisStartTime) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {analysisStartTime = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Core._Time
+describeNetworkInsightsAnalyses_analysisStartTime = Lens.lens (\DescribeNetworkInsightsAnalyses' {analysisStartTime} -> analysisStartTime) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {analysisStartTime = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Data._Time
 
 -- | The time when the network insights analyses ended.
 describeNetworkInsightsAnalyses_analysisEndTime :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.UTCTime)
-describeNetworkInsightsAnalyses_analysisEndTime = Lens.lens (\DescribeNetworkInsightsAnalyses' {analysisEndTime} -> analysisEndTime) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {analysisEndTime = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Core._Time
+describeNetworkInsightsAnalyses_analysisEndTime = Lens.lens (\DescribeNetworkInsightsAnalyses' {analysisEndTime} -> analysisEndTime) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {analysisEndTime = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the network insights analyses. You must specify either
 -- analysis IDs or a path ID.
@@ -219,10 +220,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInsightsAnalysesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "networkInsightsAnalysisSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "networkInsightsAnalysisSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -258,36 +259,36 @@ instance
       `Prelude.seq` Prelude.rnf networkInsightsPathId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeNetworkInsightsAnalyses
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeNetworkInsightsAnalyses where
+instance Data.ToPath DescribeNetworkInsightsAnalyses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeNetworkInsightsAnalyses where
+instance Data.ToQuery DescribeNetworkInsightsAnalyses where
   toQuery DescribeNetworkInsightsAnalyses' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeNetworkInsightsAnalyses" ::
+          Data.=: ( "DescribeNetworkInsightsAnalyses" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "AnalysisStartTime" Core.=: analysisStartTime,
-        "AnalysisEndTime" Core.=: analysisEndTime,
-        Core.toQuery
-          ( Core.toQueryList "NetworkInsightsAnalysisId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "AnalysisStartTime" Data.=: analysisStartTime,
+        "AnalysisEndTime" Data.=: analysisEndTime,
+        Data.toQuery
+          ( Data.toQueryList "NetworkInsightsAnalysisId"
               Prelude.<$> networkInsightsAnalysisIds
           ),
-        "MaxResults" Core.=: maxResults,
+        "MaxResults" Data.=: maxResults,
         "NetworkInsightsPathId"
-          Core.=: networkInsightsPathId
+          Data.=: networkInsightsPathId
       ]
 
 -- | /See:/ 'newDescribeNetworkInsightsAnalysesResponse' smart constructor.

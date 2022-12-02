@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeSpotDatafeedSubscriptionResponse'
-            Prelude.<$> (x Core..@? "spotDatafeedSubscription")
+            Prelude.<$> (x Data..@? "spotDatafeedSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,27 +122,27 @@ instance
     Prelude.rnf dryRun
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeSpotDatafeedSubscription
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSpotDatafeedSubscription where
+instance Data.ToPath DescribeSpotDatafeedSubscription where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeSpotDatafeedSubscription
   where
   toQuery DescribeSpotDatafeedSubscription' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeSpotDatafeedSubscription" ::
+          Data.=: ( "DescribeSpotDatafeedSubscription" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | Contains the output of DescribeSpotDatafeedSubscription.

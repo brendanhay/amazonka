@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,14 +172,14 @@ instance Core.AWSRequest AssignIpv6Addresses where
     Response.receiveXML
       ( \s h x ->
           AssignIpv6AddressesResponse'
-            Prelude.<$> ( x Core..@? "assignedIpv6PrefixSet"
+            Prelude.<$> ( x Data..@? "assignedIpv6PrefixSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "networkInterfaceId")
-            Prelude.<*> ( x Core..@? "assignedIpv6Addresses"
+            Prelude.<*> (x Data..@? "networkInterfaceId")
+            Prelude.<*> ( x Data..@? "assignedIpv6Addresses"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -199,30 +200,30 @@ instance Prelude.NFData AssignIpv6Addresses where
       `Prelude.seq` Prelude.rnf ipv6Addresses
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
-instance Core.ToHeaders AssignIpv6Addresses where
+instance Data.ToHeaders AssignIpv6Addresses where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssignIpv6Addresses where
+instance Data.ToPath AssignIpv6Addresses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssignIpv6Addresses where
+instance Data.ToQuery AssignIpv6Addresses where
   toQuery AssignIpv6Addresses' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssignIpv6Addresses" :: Prelude.ByteString),
+          Data.=: ("AssignIpv6Addresses" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Ipv6AddressCount" Core.=: ipv6AddressCount,
-        "Ipv6PrefixCount" Core.=: ipv6PrefixCount,
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Prefix"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Ipv6AddressCount" Data.=: ipv6AddressCount,
+        "Ipv6PrefixCount" Data.=: ipv6PrefixCount,
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Prefix"
               Prelude.<$> ipv6Prefixes
           ),
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Addresses"
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Addresses"
               Prelude.<$> ipv6Addresses
           ),
-        "NetworkInterfaceId" Core.=: networkInterfaceId
+        "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newAssignIpv6AddressesResponse' smart constructor.

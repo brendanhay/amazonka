@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PriceSchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import qualified Amazonka.Prelude as Prelude
@@ -114,13 +115,13 @@ priceSchedule_price = Lens.lens (\PriceSchedule' {price} -> price) (\s@PriceSche
 priceSchedule_term :: Lens.Lens' PriceSchedule (Prelude.Maybe Prelude.Integer)
 priceSchedule_term = Lens.lens (\PriceSchedule' {term} -> term) (\s@PriceSchedule' {} a -> s {term = a} :: PriceSchedule)
 
-instance Core.FromXML PriceSchedule where
+instance Data.FromXML PriceSchedule where
   parseXML x =
     PriceSchedule'
-      Prelude.<$> (x Core..@? "active")
-      Prelude.<*> (x Core..@? "currencyCode")
-      Prelude.<*> (x Core..@? "price")
-      Prelude.<*> (x Core..@? "term")
+      Prelude.<$> (x Data..@? "active")
+      Prelude.<*> (x Data..@? "currencyCode")
+      Prelude.<*> (x Data..@? "price")
+      Prelude.<*> (x Data..@? "term")
 
 instance Prelude.Hashable PriceSchedule where
   hashWithSalt _salt PriceSchedule' {..} =

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,11 +116,11 @@ instance Core.AWSRequest DisableFastSnapshotRestores where
     Response.receiveXML
       ( \s h x ->
           DisableFastSnapshotRestoresResponse'
-            Prelude.<$> ( x Core..@? "unsuccessful" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "successful" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<*> ( x Data..@? "successful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -136,26 +137,26 @@ instance Prelude.NFData DisableFastSnapshotRestores where
       `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf sourceSnapshotIds
 
-instance Core.ToHeaders DisableFastSnapshotRestores where
+instance Data.ToHeaders DisableFastSnapshotRestores where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisableFastSnapshotRestores where
+instance Data.ToPath DisableFastSnapshotRestores where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableFastSnapshotRestores where
+instance Data.ToQuery DisableFastSnapshotRestores where
   toQuery DisableFastSnapshotRestores' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DisableFastSnapshotRestores" ::
+          Data.=: ( "DisableFastSnapshotRestores" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList
           "AvailabilityZone"
           availabilityZones,
-        Core.toQueryList
+        Data.toQueryList
           "SourceSnapshotId"
           sourceSnapshotIds
       ]

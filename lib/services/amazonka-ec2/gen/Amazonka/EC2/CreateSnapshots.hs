@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -213,8 +214,8 @@ instance Core.AWSRequest CreateSnapshots where
     Response.receiveXML
       ( \s h x ->
           CreateSnapshotsResponse'
-            Prelude.<$> ( x Core..@? "snapshotSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "snapshotSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -237,29 +238,29 @@ instance Prelude.NFData CreateSnapshots where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf instanceSpecification
 
-instance Core.ToHeaders CreateSnapshots where
+instance Data.ToHeaders CreateSnapshots where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSnapshots where
+instance Data.ToPath CreateSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSnapshots where
+instance Data.ToQuery CreateSnapshots where
   toQuery CreateSnapshots' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSnapshots" :: Prelude.ByteString),
+          Data.=: ("CreateSnapshots" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "CopyTagsFromSource" Core.=: copyTagsFromSource,
-        "OutpostArn" Core.=: outpostArn,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "CopyTagsFromSource" Data.=: copyTagsFromSource,
+        "OutpostArn" Data.=: outpostArn,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "InstanceSpecification"
-          Core.=: instanceSpecification
+          Data.=: instanceSpecification
       ]
 
 -- | /See:/ 'newCreateSnapshotsResponse' smart constructor.

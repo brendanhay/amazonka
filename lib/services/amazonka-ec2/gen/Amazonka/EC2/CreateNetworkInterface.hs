@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -405,8 +406,8 @@ instance Core.AWSRequest CreateNetworkInterface where
     Response.receiveXML
       ( \s h x ->
           CreateNetworkInterfaceResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "networkInterface")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "networkInterface")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -448,54 +449,54 @@ instance Prelude.NFData CreateNetworkInterface where
       `Prelude.seq` Prelude.rnf ipv6Addresses
       `Prelude.seq` Prelude.rnf subnetId
 
-instance Core.ToHeaders CreateNetworkInterface where
+instance Data.ToHeaders CreateNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateNetworkInterface where
+instance Data.ToPath CreateNetworkInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNetworkInterface where
+instance Data.ToQuery CreateNetworkInterface where
   toQuery CreateNetworkInterface' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateNetworkInterface" :: Prelude.ByteString),
+          Data.=: ("CreateNetworkInterface" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Ipv4PrefixCount" Core.=: ipv4PrefixCount,
-        "InterfaceType" Core.=: interfaceType,
-        "ClientToken" Core.=: clientToken,
-        Core.toQuery
-          ( Core.toQueryList "PrivateIpAddresses"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Ipv4PrefixCount" Data.=: ipv4PrefixCount,
+        "InterfaceType" Data.=: interfaceType,
+        "ClientToken" Data.=: clientToken,
+        Data.toQuery
+          ( Data.toQueryList "PrivateIpAddresses"
               Prelude.<$> privateIpAddresses
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "Ipv6AddressCount" Core.=: ipv6AddressCount,
-        Core.toQuery
-          ( Core.toQueryList "Ipv4Prefix"
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "Ipv6AddressCount" Data.=: ipv6AddressCount,
+        Data.toQuery
+          ( Data.toQueryList "Ipv4Prefix"
               Prelude.<$> ipv4Prefixes
           ),
-        "PrivateIpAddress" Core.=: privateIpAddress,
-        "Ipv6PrefixCount" Core.=: ipv6PrefixCount,
+        "PrivateIpAddress" Data.=: privateIpAddress,
+        "Ipv6PrefixCount" Data.=: ipv6PrefixCount,
         "SecondaryPrivateIpAddressCount"
-          Core.=: secondaryPrivateIpAddressCount,
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Prefix"
+          Data.=: secondaryPrivateIpAddressCount,
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Prefix"
               Prelude.<$> ipv6Prefixes
           ),
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> groups
           ),
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Addresses"
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Addresses"
               Prelude.<$> ipv6Addresses
           ),
-        "SubnetId" Core.=: subnetId
+        "SubnetId" Data.=: subnetId
       ]
 
 -- | /See:/ 'newCreateNetworkInterfaceResponse' smart constructor.

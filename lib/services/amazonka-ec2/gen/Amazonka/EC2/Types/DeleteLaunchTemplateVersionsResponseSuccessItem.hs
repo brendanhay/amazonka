@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DeleteLaunchTemplateVersionsResponseSuccessItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,14 +76,14 @@ deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateName :: Lens.Lens'
 deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateName = Lens.lens (\DeleteLaunchTemplateVersionsResponseSuccessItem' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplateVersionsResponseSuccessItem' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
 
 instance
-  Core.FromXML
+  Data.FromXML
     DeleteLaunchTemplateVersionsResponseSuccessItem
   where
   parseXML x =
     DeleteLaunchTemplateVersionsResponseSuccessItem'
-      Prelude.<$> (x Core..@? "launchTemplateId")
-        Prelude.<*> (x Core..@? "versionNumber")
-        Prelude.<*> (x Core..@? "launchTemplateName")
+      Prelude.<$> (x Data..@? "launchTemplateId")
+        Prelude.<*> (x Data..@? "versionNumber")
+        Prelude.<*> (x Data..@? "launchTemplateName")
 
 instance
   Prelude.Hashable

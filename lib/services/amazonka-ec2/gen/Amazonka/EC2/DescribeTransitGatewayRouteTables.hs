@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -221,10 +222,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewayRouteTablesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "transitGatewayRouteTables"
+            Prelude.<$> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "transitGatewayRouteTables"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -254,36 +255,36 @@ instance
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeTransitGatewayRouteTables
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeTransitGatewayRouteTables
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeTransitGatewayRouteTables
   where
   toQuery DescribeTransitGatewayRouteTables' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeTransitGatewayRouteTables" ::
+          Data.=: ( "DescribeTransitGatewayRouteTables" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "TransitGatewayRouteTableIds"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "TransitGatewayRouteTableIds"
               Prelude.<$> transitGatewayRouteTableIds
           )
       ]

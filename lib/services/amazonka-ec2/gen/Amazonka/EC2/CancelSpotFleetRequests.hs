@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,13 +129,13 @@ instance Core.AWSRequest CancelSpotFleetRequests where
     Response.receiveXML
       ( \s h x ->
           CancelSpotFleetRequestsResponse'
-            Prelude.<$> ( x Core..@? "successfulFleetRequestSet"
+            Prelude.<$> ( x Data..@? "successfulFleetRequestSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "unsuccessfulFleetRequestSet"
+            Prelude.<*> ( x Data..@? "unsuccessfulFleetRequestSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -151,24 +152,24 @@ instance Prelude.NFData CancelSpotFleetRequests where
       `Prelude.seq` Prelude.rnf spotFleetRequestIds
       `Prelude.seq` Prelude.rnf terminateInstances
 
-instance Core.ToHeaders CancelSpotFleetRequests where
+instance Data.ToHeaders CancelSpotFleetRequests where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelSpotFleetRequests where
+instance Data.ToPath CancelSpotFleetRequests where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelSpotFleetRequests where
+instance Data.ToQuery CancelSpotFleetRequests where
   toQuery CancelSpotFleetRequests' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CancelSpotFleetRequests" :: Prelude.ByteString),
+          Data.=: ("CancelSpotFleetRequests" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList
           "SpotFleetRequestId"
           spotFleetRequestIds,
-        "TerminateInstances" Core.=: terminateInstances
+        "TerminateInstances" Data.=: terminateInstances
       ]
 
 -- | Contains the output of CancelSpotFleetRequests.

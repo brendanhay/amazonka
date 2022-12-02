@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TotalLocalStorageGBRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,7 +78,7 @@ instance Prelude.NFData TotalLocalStorageGBRequest where
   rnf TotalLocalStorageGBRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery TotalLocalStorageGBRequest where
+instance Data.ToQuery TotalLocalStorageGBRequest where
   toQuery TotalLocalStorageGBRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

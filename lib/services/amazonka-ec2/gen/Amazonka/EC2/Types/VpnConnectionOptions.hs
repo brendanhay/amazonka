@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnConnectionOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TunnelInsideIpVersion
 import Amazonka.EC2.Types.TunnelOption
@@ -162,21 +163,21 @@ vpnConnectionOptions_enableAcceleration = Lens.lens (\VpnConnectionOptions' {ena
 vpnConnectionOptions_localIpv6NetworkCidr :: Lens.Lens' VpnConnectionOptions (Prelude.Maybe Prelude.Text)
 vpnConnectionOptions_localIpv6NetworkCidr = Lens.lens (\VpnConnectionOptions' {localIpv6NetworkCidr} -> localIpv6NetworkCidr) (\s@VpnConnectionOptions' {} a -> s {localIpv6NetworkCidr = a} :: VpnConnectionOptions)
 
-instance Core.FromXML VpnConnectionOptions where
+instance Data.FromXML VpnConnectionOptions where
   parseXML x =
     VpnConnectionOptions'
-      Prelude.<$> (x Core..@? "outsideIpAddressType")
-      Prelude.<*> (x Core..@? "remoteIpv6NetworkCidr")
-      Prelude.<*> (x Core..@? "localIpv4NetworkCidr")
-      Prelude.<*> ( x Core..@? "tunnelOptionSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "outsideIpAddressType")
+      Prelude.<*> (x Data..@? "remoteIpv6NetworkCidr")
+      Prelude.<*> (x Data..@? "localIpv4NetworkCidr")
+      Prelude.<*> ( x Data..@? "tunnelOptionSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "staticRoutesOnly")
-      Prelude.<*> (x Core..@? "remoteIpv4NetworkCidr")
-      Prelude.<*> (x Core..@? "tunnelInsideIpVersion")
-      Prelude.<*> (x Core..@? "transportTransitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "enableAcceleration")
-      Prelude.<*> (x Core..@? "localIpv6NetworkCidr")
+      Prelude.<*> (x Data..@? "staticRoutesOnly")
+      Prelude.<*> (x Data..@? "remoteIpv4NetworkCidr")
+      Prelude.<*> (x Data..@? "tunnelInsideIpVersion")
+      Prelude.<*> (x Data..@? "transportTransitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "enableAcceleration")
+      Prelude.<*> (x Data..@? "localIpv6NetworkCidr")
 
 instance Prelude.Hashable VpnConnectionOptions where
   hashWithSalt _salt VpnConnectionOptions' {..} =

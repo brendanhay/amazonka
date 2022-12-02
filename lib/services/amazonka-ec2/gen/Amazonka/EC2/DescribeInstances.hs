@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -1036,9 +1037,9 @@ instance Core.AWSRequest DescribeInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeInstancesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "reservationSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "reservationSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -1059,26 +1060,26 @@ instance Prelude.NFData DescribeInstances where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToHeaders DescribeInstances where
+instance Data.ToHeaders DescribeInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInstances where
+instance Data.ToPath DescribeInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInstances where
+instance Data.ToQuery DescribeInstances where
   toQuery DescribeInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInstances" :: Prelude.ByteString),
+          Data.=: ("DescribeInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "InstanceId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "InstanceId"
               Prelude.<$> instanceIds
           )
       ]

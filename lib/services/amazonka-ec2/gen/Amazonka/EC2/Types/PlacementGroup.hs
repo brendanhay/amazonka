@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PlacementGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PlacementGroupState
 import Amazonka.EC2.Types.PlacementStrategy
@@ -126,19 +127,19 @@ placementGroup_groupArn = Lens.lens (\PlacementGroup' {groupArn} -> groupArn) (\
 placementGroup_groupId :: Lens.Lens' PlacementGroup (Prelude.Maybe Prelude.Text)
 placementGroup_groupId = Lens.lens (\PlacementGroup' {groupId} -> groupId) (\s@PlacementGroup' {} a -> s {groupId = a} :: PlacementGroup)
 
-instance Core.FromXML PlacementGroup where
+instance Data.FromXML PlacementGroup where
   parseXML x =
     PlacementGroup'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "partitionCount")
-      Prelude.<*> (x Core..@? "spreadLevel")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "groupName")
-      Prelude.<*> (x Core..@? "strategy")
-      Prelude.<*> (x Core..@? "groupArn")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<*> (x Data..@? "partitionCount")
+      Prelude.<*> (x Data..@? "spreadLevel")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> (x Data..@? "strategy")
+      Prelude.<*> (x Data..@? "groupArn")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable PlacementGroup where
   hashWithSalt _salt PlacementGroup' {..} =

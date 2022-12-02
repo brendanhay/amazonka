@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -300,8 +301,8 @@ instance Core.AWSRequest CreateVpcEndpoint where
     Response.receiveXML
       ( \s h x ->
           CreateVpcEndpointResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "vpcEndpoint")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "vpcEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -337,42 +338,42 @@ instance Prelude.NFData CreateVpcEndpoint where
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders CreateVpcEndpoint where
+instance Data.ToHeaders CreateVpcEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateVpcEndpoint where
+instance Data.ToPath CreateVpcEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpcEndpoint where
+instance Data.ToQuery CreateVpcEndpoint where
   toQuery CreateVpcEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVpcEndpoint" :: Prelude.ByteString),
+          Data.=: ("CreateVpcEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "PrivateDnsEnabled" Core.=: privateDnsEnabled,
-        "ClientToken" Core.=: clientToken,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "PrivateDnsEnabled" Data.=: privateDnsEnabled,
+        "ClientToken" Data.=: clientToken,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
-        "VpcEndpointType" Core.=: vpcEndpointType,
-        Core.toQuery
-          ( Core.toQueryList "RouteTableId"
+        "VpcEndpointType" Data.=: vpcEndpointType,
+        Data.toQuery
+          ( Data.toQueryList "RouteTableId"
               Prelude.<$> routeTableIds
           ),
-        "DryRun" Core.=: dryRun,
-        "PolicyDocument" Core.=: policyDocument,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        "DryRun" Data.=: dryRun,
+        "PolicyDocument" Data.=: policyDocument,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DnsOptions" Core.=: dnsOptions,
-        "IpAddressType" Core.=: ipAddressType,
-        Core.toQuery
-          (Core.toQueryList "SubnetId" Prelude.<$> subnetIds),
-        "VpcId" Core.=: vpcId,
-        "ServiceName" Core.=: serviceName
+        "DnsOptions" Data.=: dnsOptions,
+        "IpAddressType" Data.=: ipAddressType,
+        Data.toQuery
+          (Data.toQueryList "SubnetId" Prelude.<$> subnetIds),
+        "VpcId" Data.=: vpcId,
+        "ServiceName" Data.=: serviceName
       ]
 
 -- | Contains the output of CreateVpcEndpoint.

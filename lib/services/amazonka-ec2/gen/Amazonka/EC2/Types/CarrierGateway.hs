@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CarrierGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CarrierGatewayState
 import Amazonka.EC2.Types.Tag
@@ -91,16 +92,16 @@ carrierGateway_state = Lens.lens (\CarrierGateway' {state} -> state) (\s@Carrier
 carrierGateway_vpcId :: Lens.Lens' CarrierGateway (Prelude.Maybe Prelude.Text)
 carrierGateway_vpcId = Lens.lens (\CarrierGateway' {vpcId} -> vpcId) (\s@CarrierGateway' {} a -> s {vpcId = a} :: CarrierGateway)
 
-instance Core.FromXML CarrierGateway where
+instance Data.FromXML CarrierGateway where
   parseXML x =
     CarrierGateway'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "carrierGatewayId")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Data..@? "carrierGatewayId")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable CarrierGateway where
   hashWithSalt _salt CarrierGateway' {..} =

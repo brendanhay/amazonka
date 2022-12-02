@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RequestSpotLaunchSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BlockDeviceMapping
 import Amazonka.EC2.Types.IamInstanceProfileSpecification
@@ -298,35 +299,35 @@ instance
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf networkInterfaces
 
-instance Core.ToQuery RequestSpotLaunchSpecification where
+instance Data.ToQuery RequestSpotLaunchSpecification where
   toQuery RequestSpotLaunchSpecification' {..} =
     Prelude.mconcat
-      [ "EbsOptimized" Core.=: ebsOptimized,
-        "IamInstanceProfile" Core.=: iamInstanceProfile,
-        "Placement" Core.=: placement,
-        "UserData" Core.=: userData,
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
+      [ "EbsOptimized" Data.=: ebsOptimized,
+        "IamInstanceProfile" Data.=: iamInstanceProfile,
+        "Placement" Data.=: placement,
+        "UserData" Data.=: userData,
+        Data.toQuery
+          ( Data.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
-        "AddressingType" Core.=: addressingType,
-        "Monitoring" Core.=: monitoring,
-        "SubnetId" Core.=: subnetId,
-        "InstanceType" Core.=: instanceType,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroup"
+        "AddressingType" Data.=: addressingType,
+        "Monitoring" Data.=: monitoring,
+        "SubnetId" Data.=: subnetId,
+        "InstanceType" Data.=: instanceType,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroup"
               Prelude.<$> securityGroups
           ),
-        "RamdiskId" Core.=: ramdiskId,
-        "KeyName" Core.=: keyName,
-        "KernelId" Core.=: kernelId,
-        "ImageId" Core.=: imageId,
-        Core.toQuery
-          ( Core.toQueryList "NetworkInterface"
+        "RamdiskId" Data.=: ramdiskId,
+        "KeyName" Data.=: keyName,
+        "KernelId" Data.=: kernelId,
+        "ImageId" Data.=: imageId,
+        Data.toQuery
+          ( Data.toQueryList "NetworkInterface"
               Prelude.<$> networkInterfaces
           )
       ]

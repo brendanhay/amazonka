@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LoadPermissionModifications where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LoadPermissionRequest
 import qualified Amazonka.Prelude as Prelude
@@ -74,11 +75,11 @@ instance Prelude.NFData LoadPermissionModifications where
   rnf LoadPermissionModifications' {..} =
     Prelude.rnf remove `Prelude.seq` Prelude.rnf add
 
-instance Core.ToQuery LoadPermissionModifications where
+instance Data.ToQuery LoadPermissionModifications where
   toQuery LoadPermissionModifications' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          (Core.toQueryList "Remove" Prelude.<$> remove),
-        Core.toQuery
-          (Core.toQueryList "Add" Prelude.<$> add)
+      [ Data.toQuery
+          (Data.toQueryList "Remove" Prelude.<$> remove),
+        Data.toQuery
+          (Data.toQueryList "Add" Prelude.<$> add)
       ]

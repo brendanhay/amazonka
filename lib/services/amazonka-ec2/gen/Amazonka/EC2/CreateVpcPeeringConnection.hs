@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -181,7 +182,7 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
     Response.receiveXML
       ( \s h x ->
           CreateVpcPeeringConnectionResponse'
-            Prelude.<$> (x Core..@? "vpcPeeringConnection")
+            Prelude.<$> (x Data..@? "vpcPeeringConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,28 +204,28 @@ instance Prelude.NFData CreateVpcPeeringConnection where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf peerRegion
 
-instance Core.ToHeaders CreateVpcPeeringConnection where
+instance Data.ToHeaders CreateVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateVpcPeeringConnection where
+instance Data.ToPath CreateVpcPeeringConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpcPeeringConnection where
+instance Data.ToQuery CreateVpcPeeringConnection where
   toQuery CreateVpcPeeringConnection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVpcPeeringConnection" :: Prelude.ByteString),
+          Data.=: ("CreateVpcPeeringConnection" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "PeerOwnerId" Core.=: peerOwnerId,
-        "DryRun" Core.=: dryRun,
-        "PeerVpcId" Core.=: peerVpcId,
-        "VpcId" Core.=: vpcId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "PeerOwnerId" Data.=: peerOwnerId,
+        "DryRun" Data.=: dryRun,
+        "PeerVpcId" Data.=: peerVpcId,
+        "VpcId" Data.=: vpcId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "PeerRegion" Core.=: peerRegion
+        "PeerRegion" Data.=: peerRegion
       ]
 
 -- | /See:/ 'newCreateVpcPeeringConnectionResponse' smart constructor.

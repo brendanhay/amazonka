@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ThroughResourcesStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResourceStatement
 import qualified Amazonka.Prelude as Prelude
@@ -55,10 +56,10 @@ newThroughResourcesStatement =
 throughResourcesStatement_resourceStatement :: Lens.Lens' ThroughResourcesStatement (Prelude.Maybe ResourceStatement)
 throughResourcesStatement_resourceStatement = Lens.lens (\ThroughResourcesStatement' {resourceStatement} -> resourceStatement) (\s@ThroughResourcesStatement' {} a -> s {resourceStatement = a} :: ThroughResourcesStatement)
 
-instance Core.FromXML ThroughResourcesStatement where
+instance Data.FromXML ThroughResourcesStatement where
   parseXML x =
     ThroughResourcesStatement'
-      Prelude.<$> (x Core..@? "resourceStatement")
+      Prelude.<$> (x Data..@? "resourceStatement")
 
 instance Prelude.Hashable ThroughResourcesStatement where
   hashWithSalt _salt ThroughResourcesStatement' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservationGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,11 +65,11 @@ capacityReservationGroup_ownerId = Lens.lens (\CapacityReservationGroup' {ownerI
 capacityReservationGroup_groupArn :: Lens.Lens' CapacityReservationGroup (Prelude.Maybe Prelude.Text)
 capacityReservationGroup_groupArn = Lens.lens (\CapacityReservationGroup' {groupArn} -> groupArn) (\s@CapacityReservationGroup' {} a -> s {groupArn = a} :: CapacityReservationGroup)
 
-instance Core.FromXML CapacityReservationGroup where
+instance Data.FromXML CapacityReservationGroup where
   parseXML x =
     CapacityReservationGroup'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "groupArn")
+      Prelude.<$> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "groupArn")
 
 instance Prelude.Hashable CapacityReservationGroup where
   hashWithSalt _salt CapacityReservationGroup' {..} =

@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,9 +131,9 @@ instance Core.AWSRequest DescribeAccountAttributes where
     Response.receiveXML
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> ( x Core..@? "accountAttributeSet"
+            Prelude.<$> ( x Data..@? "accountAttributeSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -147,24 +148,24 @@ instance Prelude.NFData DescribeAccountAttributes where
     Prelude.rnf attributeNames
       `Prelude.seq` Prelude.rnf dryRun
 
-instance Core.ToHeaders DescribeAccountAttributes where
+instance Data.ToHeaders DescribeAccountAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAccountAttributes where
+instance Data.ToPath DescribeAccountAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccountAttributes where
+instance Data.ToQuery DescribeAccountAttributes where
   toQuery DescribeAccountAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAccountAttributes" :: Prelude.ByteString),
+          Data.=: ("DescribeAccountAttributes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "AttributeName"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "AttributeName"
               Prelude.<$> attributeNames
           ),
-        "DryRun" Core.=: dryRun
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeAccountAttributesResponse' smart constructor.

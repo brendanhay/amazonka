@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.UserData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,6 +64,6 @@ instance Prelude.Hashable UserData where
 instance Prelude.NFData UserData where
   rnf UserData' {..} = Prelude.rnf data'
 
-instance Core.ToQuery UserData where
+instance Data.ToQuery UserData where
   toQuery UserData' {..} =
-    Prelude.mconcat ["Data" Core.=: data']
+    Prelude.mconcat ["Data" Data.=: data']

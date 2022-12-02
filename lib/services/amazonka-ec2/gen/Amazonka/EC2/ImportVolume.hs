@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,7 +151,7 @@ instance Core.AWSRequest ImportVolume where
     Response.receiveXML
       ( \s h x ->
           ImportVolumeResponse'
-            Prelude.<$> (x Core..@? "conversionTask")
+            Prelude.<$> (x Data..@? "conversionTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,24 +171,24 @@ instance Prelude.NFData ImportVolume where
       `Prelude.seq` Prelude.rnf image
       `Prelude.seq` Prelude.rnf volume
 
-instance Core.ToHeaders ImportVolume where
+instance Data.ToHeaders ImportVolume where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ImportVolume where
+instance Data.ToPath ImportVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportVolume where
+instance Data.ToQuery ImportVolume where
   toQuery ImportVolume' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ImportVolume" :: Prelude.ByteString),
+          Data.=: ("ImportVolume" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "Image" Core.=: image,
-        "Volume" Core.=: volume
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "Image" Data.=: image,
+        "Volume" Data.=: volume
       ]
 
 -- | /See:/ 'newImportVolumeResponse' smart constructor.

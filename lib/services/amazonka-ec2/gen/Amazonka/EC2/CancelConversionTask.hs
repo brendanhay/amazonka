@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,22 +129,22 @@ instance Prelude.NFData CancelConversionTask where
       `Prelude.seq` Prelude.rnf reasonMessage
       `Prelude.seq` Prelude.rnf conversionTaskId
 
-instance Core.ToHeaders CancelConversionTask where
+instance Data.ToHeaders CancelConversionTask where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelConversionTask where
+instance Data.ToPath CancelConversionTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelConversionTask where
+instance Data.ToQuery CancelConversionTask where
   toQuery CancelConversionTask' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CancelConversionTask" :: Prelude.ByteString),
+          Data.=: ("CancelConversionTask" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "ReasonMessage" Core.=: reasonMessage,
-        "ConversionTaskId" Core.=: conversionTaskId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "ReasonMessage" Data.=: reasonMessage,
+        "ConversionTaskId" Data.=: conversionTaskId
       ]
 
 -- | /See:/ 'newCancelConversionTaskResponse' smart constructor.

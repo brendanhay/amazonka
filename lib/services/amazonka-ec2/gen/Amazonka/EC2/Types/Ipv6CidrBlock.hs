@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Ipv6CidrBlock where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newIpv6CidrBlock =
 ipv6CidrBlock_ipv6CidrBlock :: Lens.Lens' Ipv6CidrBlock (Prelude.Maybe Prelude.Text)
 ipv6CidrBlock_ipv6CidrBlock = Lens.lens (\Ipv6CidrBlock' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@Ipv6CidrBlock' {} a -> s {ipv6CidrBlock = a} :: Ipv6CidrBlock)
 
-instance Core.FromXML Ipv6CidrBlock where
+instance Data.FromXML Ipv6CidrBlock where
   parseXML x =
     Ipv6CidrBlock'
-      Prelude.<$> (x Core..@? "ipv6CidrBlock")
+      Prelude.<$> (x Data..@? "ipv6CidrBlock")
 
 instance Prelude.Hashable Ipv6CidrBlock where
   hashWithSalt _salt Ipv6CidrBlock' {..} =

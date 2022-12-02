@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ExportTaskS3LocationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,9 +76,9 @@ instance Prelude.NFData ExportTaskS3LocationRequest where
     Prelude.rnf s3Prefix
       `Prelude.seq` Prelude.rnf s3Bucket
 
-instance Core.ToQuery ExportTaskS3LocationRequest where
+instance Data.ToQuery ExportTaskS3LocationRequest where
   toQuery ExportTaskS3LocationRequest' {..} =
     Prelude.mconcat
-      [ "S3Prefix" Core.=: s3Prefix,
-        "S3Bucket" Core.=: s3Bucket
+      [ "S3Prefix" Data.=: s3Prefix,
+        "S3Bucket" Data.=: s3Bucket
       ]

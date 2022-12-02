@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest DeletePublicIpv4Pool where
     Response.receiveXML
       ( \s h x ->
           DeletePublicIpv4PoolResponse'
-            Prelude.<$> (x Core..@? "returnValue")
+            Prelude.<$> (x Data..@? "returnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,21 +121,21 @@ instance Prelude.NFData DeletePublicIpv4Pool where
   rnf DeletePublicIpv4Pool' {..} =
     Prelude.rnf dryRun `Prelude.seq` Prelude.rnf poolId
 
-instance Core.ToHeaders DeletePublicIpv4Pool where
+instance Data.ToHeaders DeletePublicIpv4Pool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeletePublicIpv4Pool where
+instance Data.ToPath DeletePublicIpv4Pool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeletePublicIpv4Pool where
+instance Data.ToQuery DeletePublicIpv4Pool where
   toQuery DeletePublicIpv4Pool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeletePublicIpv4Pool" :: Prelude.ByteString),
+          Data.=: ("DeletePublicIpv4Pool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "PoolId" Core.=: poolId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "PoolId" Data.=: poolId
       ]
 
 -- | /See:/ 'newDeletePublicIpv4PoolResponse' smart constructor.

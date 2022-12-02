@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,14 +110,14 @@ instance Core.AWSRequest UnassignIpv6Addresses where
     Response.receiveXML
       ( \s h x ->
           UnassignIpv6AddressesResponse'
-            Prelude.<$> ( x Core..@? "unassignedIpv6Addresses"
+            Prelude.<$> ( x Data..@? "unassignedIpv6Addresses"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "networkInterfaceId")
-            Prelude.<*> ( x Core..@? "unassignedIpv6PrefixSet"
+            Prelude.<*> (x Data..@? "networkInterfaceId")
+            Prelude.<*> ( x Data..@? "unassignedIpv6PrefixSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -133,28 +134,28 @@ instance Prelude.NFData UnassignIpv6Addresses where
       `Prelude.seq` Prelude.rnf ipv6Addresses
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
-instance Core.ToHeaders UnassignIpv6Addresses where
+instance Data.ToHeaders UnassignIpv6Addresses where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UnassignIpv6Addresses where
+instance Data.ToPath UnassignIpv6Addresses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UnassignIpv6Addresses where
+instance Data.ToQuery UnassignIpv6Addresses where
   toQuery UnassignIpv6Addresses' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UnassignIpv6Addresses" :: Prelude.ByteString),
+          Data.=: ("UnassignIpv6Addresses" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Prefix"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Prefix"
               Prelude.<$> ipv6Prefixes
           ),
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Addresses"
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Addresses"
               Prelude.<$> ipv6Addresses
           ),
-        "NetworkInterfaceId" Core.=: networkInterfaceId
+        "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newUnassignIpv6AddressesResponse' smart constructor.

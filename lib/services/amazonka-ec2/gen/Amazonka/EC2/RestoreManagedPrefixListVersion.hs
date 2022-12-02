@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           RestoreManagedPrefixListVersionResponse'
-            Prelude.<$> (x Core..@? "prefixList")
+            Prelude.<$> (x Data..@? "prefixList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,27 +164,27 @@ instance
       `Prelude.seq` Prelude.rnf currentVersion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RestoreManagedPrefixListVersion
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreManagedPrefixListVersion where
+instance Data.ToPath RestoreManagedPrefixListVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreManagedPrefixListVersion where
+instance Data.ToQuery RestoreManagedPrefixListVersion where
   toQuery RestoreManagedPrefixListVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RestoreManagedPrefixListVersion" ::
+          Data.=: ( "RestoreManagedPrefixListVersion" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "PrefixListId" Core.=: prefixListId,
-        "PreviousVersion" Core.=: previousVersion,
-        "CurrentVersion" Core.=: currentVersion
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "PrefixListId" Data.=: prefixListId,
+        "PreviousVersion" Data.=: previousVersion,
+        "CurrentVersion" Data.=: currentVersion
       ]
 
 -- | /See:/ 'newRestoreManagedPrefixListVersionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ByoipCidr where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ByoipCidrState
 import qualified Amazonka.Prelude as Prelude
@@ -86,13 +87,13 @@ byoipCidr_description = Lens.lens (\ByoipCidr' {description} -> description) (\s
 byoipCidr_statusMessage :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
 byoipCidr_statusMessage = Lens.lens (\ByoipCidr' {statusMessage} -> statusMessage) (\s@ByoipCidr' {} a -> s {statusMessage = a} :: ByoipCidr)
 
-instance Core.FromXML ByoipCidr where
+instance Data.FromXML ByoipCidr where
   parseXML x =
     ByoipCidr'
-      Prelude.<$> (x Core..@? "cidr")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<$> (x Data..@? "cidr")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "statusMessage")
 
 instance Prelude.Hashable ByoipCidr where
   hashWithSalt _salt ByoipCidr' {..} =

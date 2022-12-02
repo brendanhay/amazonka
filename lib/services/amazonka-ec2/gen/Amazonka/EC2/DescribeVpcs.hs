@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -305,9 +306,9 @@ instance Core.AWSRequest DescribeVpcs where
     Response.receiveXML
       ( \s h x ->
           DescribeVpcsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "vpcSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "vpcSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -328,26 +329,26 @@ instance Prelude.NFData DescribeVpcs where
       `Prelude.seq` Prelude.rnf vpcIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeVpcs where
+instance Data.ToHeaders DescribeVpcs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVpcs where
+instance Data.ToPath DescribeVpcs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpcs where
+instance Data.ToQuery DescribeVpcs where
   toQuery DescribeVpcs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVpcs" :: Prelude.ByteString),
+          Data.=: ("DescribeVpcs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "VpcId" Prelude.<$> vpcIds),
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "VpcId" Prelude.<$> vpcIds),
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeVpcsResponse' smart constructor.

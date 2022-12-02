@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AnalysisSecurityGroupRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PortRange
 import qualified Amazonka.Prelude as Prelude
@@ -112,15 +113,15 @@ analysisSecurityGroupRule_protocol = Lens.lens (\AnalysisSecurityGroupRule' {pro
 analysisSecurityGroupRule_direction :: Lens.Lens' AnalysisSecurityGroupRule (Prelude.Maybe Prelude.Text)
 analysisSecurityGroupRule_direction = Lens.lens (\AnalysisSecurityGroupRule' {direction} -> direction) (\s@AnalysisSecurityGroupRule' {} a -> s {direction = a} :: AnalysisSecurityGroupRule)
 
-instance Core.FromXML AnalysisSecurityGroupRule where
+instance Data.FromXML AnalysisSecurityGroupRule where
   parseXML x =
     AnalysisSecurityGroupRule'
-      Prelude.<$> (x Core..@? "portRange")
-      Prelude.<*> (x Core..@? "cidr")
-      Prelude.<*> (x Core..@? "prefixListId")
-      Prelude.<*> (x Core..@? "securityGroupId")
-      Prelude.<*> (x Core..@? "protocol")
-      Prelude.<*> (x Core..@? "direction")
+      Prelude.<$> (x Data..@? "portRange")
+      Prelude.<*> (x Data..@? "cidr")
+      Prelude.<*> (x Data..@? "prefixListId")
+      Prelude.<*> (x Data..@? "securityGroupId")
+      Prelude.<*> (x Data..@? "protocol")
+      Prelude.<*> (x Data..@? "direction")
 
 instance Prelude.Hashable AnalysisSecurityGroupRule where
   hashWithSalt _salt AnalysisSecurityGroupRule' {..} =

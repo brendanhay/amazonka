@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InferenceDeviceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,12 +72,12 @@ inferenceDeviceInfo_count = Lens.lens (\InferenceDeviceInfo' {count} -> count) (
 inferenceDeviceInfo_manufacturer :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Text)
 inferenceDeviceInfo_manufacturer = Lens.lens (\InferenceDeviceInfo' {manufacturer} -> manufacturer) (\s@InferenceDeviceInfo' {} a -> s {manufacturer = a} :: InferenceDeviceInfo)
 
-instance Core.FromXML InferenceDeviceInfo where
+instance Data.FromXML InferenceDeviceInfo where
   parseXML x =
     InferenceDeviceInfo'
-      Prelude.<$> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "count")
-      Prelude.<*> (x Core..@? "manufacturer")
+      Prelude.<$> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "count")
+      Prelude.<*> (x Data..@? "manufacturer")
 
 instance Prelude.Hashable InferenceDeviceInfo where
   hashWithSalt _salt InferenceDeviceInfo' {..} =

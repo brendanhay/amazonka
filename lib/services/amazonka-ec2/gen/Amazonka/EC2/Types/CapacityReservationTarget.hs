@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservationTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,11 +78,11 @@ instance Prelude.NFData CapacityReservationTarget where
     Prelude.rnf capacityReservationId
       `Prelude.seq` Prelude.rnf capacityReservationResourceGroupArn
 
-instance Core.ToQuery CapacityReservationTarget where
+instance Data.ToQuery CapacityReservationTarget where
   toQuery CapacityReservationTarget' {..} =
     Prelude.mconcat
       [ "CapacityReservationId"
-          Core.=: capacityReservationId,
+          Data.=: capacityReservationId,
         "CapacityReservationResourceGroupArn"
-          Core.=: capacityReservationResourceGroupArn
+          Data.=: capacityReservationResourceGroupArn
       ]

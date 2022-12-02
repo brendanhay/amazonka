@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DisableIpamOrganizationAdminAccountResponse'
-            Prelude.<$> (x Core..@? "success")
+            Prelude.<$> (x Data..@? "success")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,32 +139,32 @@ instance
       `Prelude.seq` Prelude.rnf delegatedAdminAccountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisableIpamOrganizationAdminAccount
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisableIpamOrganizationAdminAccount
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisableIpamOrganizationAdminAccount
   where
   toQuery DisableIpamOrganizationAdminAccount' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DisableIpamOrganizationAdminAccount" ::
+          Data.=: ( "DisableIpamOrganizationAdminAccount" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         "DelegatedAdminAccountId"
-          Core.=: delegatedAdminAccountId
+          Data.=: delegatedAdminAccountId
       ]
 
 -- | /See:/ 'newDisableIpamOrganizationAdminAccountResponse' smart constructor.

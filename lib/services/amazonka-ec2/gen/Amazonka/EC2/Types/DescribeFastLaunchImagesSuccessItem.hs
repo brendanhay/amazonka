@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DescribeFastLaunchImagesSuccessItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FastLaunchLaunchTemplateSpecificationResponse
 import Amazonka.EC2.Types.FastLaunchResourceType
@@ -44,7 +45,7 @@ data DescribeFastLaunchImagesSuccessItem = DescribeFastLaunchImagesSuccessItem'
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse,
     -- | The time that faster launching for the Windows AMI changed to the
     -- current state.
-    stateTransitionTime :: Prelude.Maybe Core.ISO8601,
+    stateTransitionTime :: Prelude.Maybe Data.ISO8601,
     -- | The current state of faster launching for the specified Windows AMI.
     state :: Prelude.Maybe FastLaunchStateCode,
     -- | The reason that faster launching for the Windows AMI changed to the
@@ -127,7 +128,7 @@ describeFastLaunchImagesSuccessItem_launchTemplate = Lens.lens (\DescribeFastLau
 -- | The time that faster launching for the Windows AMI changed to the
 -- current state.
 describeFastLaunchImagesSuccessItem_stateTransitionTime :: Lens.Lens' DescribeFastLaunchImagesSuccessItem (Prelude.Maybe Prelude.UTCTime)
-describeFastLaunchImagesSuccessItem_stateTransitionTime = Lens.lens (\DescribeFastLaunchImagesSuccessItem' {stateTransitionTime} -> stateTransitionTime) (\s@DescribeFastLaunchImagesSuccessItem' {} a -> s {stateTransitionTime = a} :: DescribeFastLaunchImagesSuccessItem) Prelude.. Lens.mapping Core._Time
+describeFastLaunchImagesSuccessItem_stateTransitionTime = Lens.lens (\DescribeFastLaunchImagesSuccessItem' {stateTransitionTime} -> stateTransitionTime) (\s@DescribeFastLaunchImagesSuccessItem' {} a -> s {stateTransitionTime = a} :: DescribeFastLaunchImagesSuccessItem) Prelude.. Lens.mapping Data._Time
 
 -- | The current state of faster launching for the specified Windows AMI.
 describeFastLaunchImagesSuccessItem_state :: Lens.Lens' DescribeFastLaunchImagesSuccessItem (Prelude.Maybe FastLaunchStateCode)
@@ -153,20 +154,20 @@ describeFastLaunchImagesSuccessItem_imageId :: Lens.Lens' DescribeFastLaunchImag
 describeFastLaunchImagesSuccessItem_imageId = Lens.lens (\DescribeFastLaunchImagesSuccessItem' {imageId} -> imageId) (\s@DescribeFastLaunchImagesSuccessItem' {} a -> s {imageId = a} :: DescribeFastLaunchImagesSuccessItem)
 
 instance
-  Core.FromXML
+  Data.FromXML
     DescribeFastLaunchImagesSuccessItem
   where
   parseXML x =
     DescribeFastLaunchImagesSuccessItem'
-      Prelude.<$> (x Core..@? "resourceType")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "launchTemplate")
-      Prelude.<*> (x Core..@? "stateTransitionTime")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "stateTransitionReason")
-      Prelude.<*> (x Core..@? "snapshotConfiguration")
-      Prelude.<*> (x Core..@? "maxParallelLaunches")
-      Prelude.<*> (x Core..@? "imageId")
+      Prelude.<$> (x Data..@? "resourceType")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "launchTemplate")
+      Prelude.<*> (x Data..@? "stateTransitionTime")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "stateTransitionReason")
+      Prelude.<*> (x Data..@? "snapshotConfiguration")
+      Prelude.<*> (x Data..@? "maxParallelLaunches")
+      Prelude.<*> (x Data..@? "imageId")
 
 instance
   Prelude.Hashable

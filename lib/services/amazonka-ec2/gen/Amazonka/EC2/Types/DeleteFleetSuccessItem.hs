@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DeleteFleetSuccessItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetStateCode
 import qualified Amazonka.Prelude as Prelude
@@ -72,12 +73,12 @@ deleteFleetSuccessItem_currentFleetState = Lens.lens (\DeleteFleetSuccessItem' {
 deleteFleetSuccessItem_previousFleetState :: Lens.Lens' DeleteFleetSuccessItem (Prelude.Maybe FleetStateCode)
 deleteFleetSuccessItem_previousFleetState = Lens.lens (\DeleteFleetSuccessItem' {previousFleetState} -> previousFleetState) (\s@DeleteFleetSuccessItem' {} a -> s {previousFleetState = a} :: DeleteFleetSuccessItem)
 
-instance Core.FromXML DeleteFleetSuccessItem where
+instance Data.FromXML DeleteFleetSuccessItem where
   parseXML x =
     DeleteFleetSuccessItem'
-      Prelude.<$> (x Core..@? "fleetId")
-      Prelude.<*> (x Core..@? "currentFleetState")
-      Prelude.<*> (x Core..@? "previousFleetState")
+      Prelude.<$> (x Data..@? "fleetId")
+      Prelude.<*> (x Data..@? "currentFleetState")
+      Prelude.<*> (x Data..@? "previousFleetState")
 
 instance Prelude.Hashable DeleteFleetSuccessItem where
   hashWithSalt _salt DeleteFleetSuccessItem' {..} =

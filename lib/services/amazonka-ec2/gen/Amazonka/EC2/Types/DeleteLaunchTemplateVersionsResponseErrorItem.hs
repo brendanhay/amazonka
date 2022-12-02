@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DeleteLaunchTemplateVersionsResponseErrorItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResponseError
 import qualified Amazonka.Prelude as Prelude
@@ -86,15 +87,15 @@ deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateName :: Lens.Lens' D
 deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateName = Lens.lens (\DeleteLaunchTemplateVersionsResponseErrorItem' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplateVersionsResponseErrorItem' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
 
 instance
-  Core.FromXML
+  Data.FromXML
     DeleteLaunchTemplateVersionsResponseErrorItem
   where
   parseXML x =
     DeleteLaunchTemplateVersionsResponseErrorItem'
-      Prelude.<$> (x Core..@? "responseError")
-        Prelude.<*> (x Core..@? "launchTemplateId")
-        Prelude.<*> (x Core..@? "versionNumber")
-        Prelude.<*> (x Core..@? "launchTemplateName")
+      Prelude.<$> (x Data..@? "responseError")
+        Prelude.<*> (x Data..@? "launchTemplateId")
+        Prelude.<*> (x Data..@? "versionNumber")
+        Prelude.<*> (x Data..@? "launchTemplateName")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PrefixList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,14 +72,14 @@ prefixList_cidrs = Lens.lens (\PrefixList' {cidrs} -> cidrs) (\s@PrefixList' {} 
 prefixList_prefixListName :: Lens.Lens' PrefixList (Prelude.Maybe Prelude.Text)
 prefixList_prefixListName = Lens.lens (\PrefixList' {prefixListName} -> prefixListName) (\s@PrefixList' {} a -> s {prefixListName = a} :: PrefixList)
 
-instance Core.FromXML PrefixList where
+instance Data.FromXML PrefixList where
   parseXML x =
     PrefixList'
-      Prelude.<$> (x Core..@? "prefixListId")
-      Prelude.<*> ( x Core..@? "cidrSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "prefixListId")
+      Prelude.<*> ( x Data..@? "cidrSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "prefixListName")
+      Prelude.<*> (x Data..@? "prefixListName")
 
 instance Prelude.Hashable PrefixList where
   hashWithSalt _salt PrefixList' {..} =

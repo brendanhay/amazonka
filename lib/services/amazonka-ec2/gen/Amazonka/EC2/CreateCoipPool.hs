@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest CreateCoipPool where
     Response.receiveXML
       ( \s h x ->
           CreateCoipPoolResponse'
-            Prelude.<$> (x Core..@? "coipPool")
+            Prelude.<$> (x Data..@? "coipPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,26 +132,26 @@ instance Prelude.NFData CreateCoipPool where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
 
-instance Core.ToHeaders CreateCoipPool where
+instance Data.ToHeaders CreateCoipPool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCoipPool where
+instance Data.ToPath CreateCoipPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCoipPool where
+instance Data.ToQuery CreateCoipPool where
   toQuery CreateCoipPool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCoipPool" :: Prelude.ByteString),
+          Data.=: ("CreateCoipPool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "LocalGatewayRouteTableId"
-          Core.=: localGatewayRouteTableId
+          Data.=: localGatewayRouteTableId
       ]
 
 -- | /See:/ 'newCreateCoipPoolResponse' smart constructor.

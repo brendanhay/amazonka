@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstancesEbs where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -174,13 +175,13 @@ instance Prelude.NFData ScheduledInstancesEbs where
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf iops
 
-instance Core.ToQuery ScheduledInstancesEbs where
+instance Data.ToQuery ScheduledInstancesEbs where
   toQuery ScheduledInstancesEbs' {..} =
     Prelude.mconcat
-      [ "DeleteOnTermination" Core.=: deleteOnTermination,
-        "SnapshotId" Core.=: snapshotId,
-        "VolumeType" Core.=: volumeType,
-        "VolumeSize" Core.=: volumeSize,
-        "Encrypted" Core.=: encrypted,
-        "Iops" Core.=: iops
+      [ "DeleteOnTermination" Data.=: deleteOnTermination,
+        "SnapshotId" Data.=: snapshotId,
+        "VolumeType" Data.=: volumeType,
+        "VolumeSize" Data.=: volumeSize,
+        "Encrypted" Data.=: encrypted,
+        "Iops" Data.=: iops
       ]

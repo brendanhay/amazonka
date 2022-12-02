@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance Core.AWSRequest RestoreAddressToClassic where
     Response.receiveXML
       ( \s h x ->
           RestoreAddressToClassicResponse'
-            Prelude.<$> (x Core..@? "status")
-            Prelude.<*> (x Core..@? "publicIp")
+            Prelude.<$> (x Data..@? "status")
+            Prelude.<*> (x Data..@? "publicIp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,21 +129,21 @@ instance Prelude.NFData RestoreAddressToClassic where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf publicIp
 
-instance Core.ToHeaders RestoreAddressToClassic where
+instance Data.ToHeaders RestoreAddressToClassic where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreAddressToClassic where
+instance Data.ToPath RestoreAddressToClassic where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreAddressToClassic where
+instance Data.ToQuery RestoreAddressToClassic where
   toQuery RestoreAddressToClassic' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RestoreAddressToClassic" :: Prelude.ByteString),
+          Data.=: ("RestoreAddressToClassic" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "PublicIp" Core.=: publicIp
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "PublicIp" Data.=: publicIp
       ]
 
 -- | /See:/ 'newRestoreAddressToClassicResponse' smart constructor.

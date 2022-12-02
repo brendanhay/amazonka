@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceEventWindowTimeRangeRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.WeekDay
 import qualified Amazonka.Prelude as Prelude
@@ -106,13 +107,13 @@ instance
       `Prelude.seq` Prelude.rnf startHour
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     InstanceEventWindowTimeRangeRequest
   where
   toQuery InstanceEventWindowTimeRangeRequest' {..} =
     Prelude.mconcat
-      [ "EndHour" Core.=: endHour,
-        "EndWeekDay" Core.=: endWeekDay,
-        "StartWeekDay" Core.=: startWeekDay,
-        "StartHour" Core.=: startHour
+      [ "EndHour" Data.=: endHour,
+        "EndWeekDay" Data.=: endWeekDay,
+        "StartWeekDay" Data.=: startWeekDay,
+        "StartHour" Data.=: startHour
       ]

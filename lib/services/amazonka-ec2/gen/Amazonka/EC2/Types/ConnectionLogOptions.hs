@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ConnectionLogOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -91,10 +92,10 @@ instance Prelude.NFData ConnectionLogOptions where
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf cloudwatchLogStream
 
-instance Core.ToQuery ConnectionLogOptions where
+instance Data.ToQuery ConnectionLogOptions where
   toQuery ConnectionLogOptions' {..} =
     Prelude.mconcat
-      [ "CloudwatchLogGroup" Core.=: cloudwatchLogGroup,
-        "Enabled" Core.=: enabled,
-        "CloudwatchLogStream" Core.=: cloudwatchLogStream
+      [ "CloudwatchLogGroup" Data.=: cloudwatchLogGroup,
+        "Enabled" Data.=: enabled,
+        "CloudwatchLogStream" Data.=: cloudwatchLogStream
       ]

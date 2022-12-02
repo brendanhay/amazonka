@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ExportClientVpnClientConfigurationResponse'
-            Prelude.<$> (x Core..@? "clientConfiguration")
+            Prelude.<$> (x Data..@? "clientConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,31 +137,31 @@ instance
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ExportClientVpnClientConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ExportClientVpnClientConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ExportClientVpnClientConfiguration
   where
   toQuery ExportClientVpnClientConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ExportClientVpnClientConfiguration" ::
+          Data.=: ( "ExportClientVpnClientConfiguration" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "ClientVpnEndpointId" Core.=: clientVpnEndpointId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "ClientVpnEndpointId" Data.=: clientVpnEndpointId
       ]
 
 -- | /See:/ 'newExportClientVpnClientConfigurationResponse' smart constructor.

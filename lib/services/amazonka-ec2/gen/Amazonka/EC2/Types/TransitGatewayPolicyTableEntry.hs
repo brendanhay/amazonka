@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayPolicyTableEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TransitGatewayPolicyRule
 import qualified Amazonka.Prelude as Prelude
@@ -73,12 +74,12 @@ transitGatewayPolicyTableEntry_policyRule = Lens.lens (\TransitGatewayPolicyTabl
 transitGatewayPolicyTableEntry_targetRouteTableId :: Lens.Lens' TransitGatewayPolicyTableEntry (Prelude.Maybe Prelude.Text)
 transitGatewayPolicyTableEntry_targetRouteTableId = Lens.lens (\TransitGatewayPolicyTableEntry' {targetRouteTableId} -> targetRouteTableId) (\s@TransitGatewayPolicyTableEntry' {} a -> s {targetRouteTableId = a} :: TransitGatewayPolicyTableEntry)
 
-instance Core.FromXML TransitGatewayPolicyTableEntry where
+instance Data.FromXML TransitGatewayPolicyTableEntry where
   parseXML x =
     TransitGatewayPolicyTableEntry'
-      Prelude.<$> (x Core..@? "policyRuleNumber")
-      Prelude.<*> (x Core..@? "policyRule")
-      Prelude.<*> (x Core..@? "targetRouteTableId")
+      Prelude.<$> (x Data..@? "policyRuleNumber")
+      Prelude.<*> (x Data..@? "policyRule")
+      Prelude.<*> (x Data..@? "targetRouteTableId")
 
 instance
   Prelude.Hashable

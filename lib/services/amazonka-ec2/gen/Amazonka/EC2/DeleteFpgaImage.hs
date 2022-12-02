@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,7 +105,7 @@ instance Core.AWSRequest DeleteFpgaImage where
     Response.receiveXML
       ( \s h x ->
           DeleteFpgaImageResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,21 +119,21 @@ instance Prelude.NFData DeleteFpgaImage where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf fpgaImageId
 
-instance Core.ToHeaders DeleteFpgaImage where
+instance Data.ToHeaders DeleteFpgaImage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteFpgaImage where
+instance Data.ToPath DeleteFpgaImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteFpgaImage where
+instance Data.ToQuery DeleteFpgaImage where
   toQuery DeleteFpgaImage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteFpgaImage" :: Prelude.ByteString),
+          Data.=: ("DeleteFpgaImage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "FpgaImageId" Core.=: fpgaImageId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "FpgaImageId" Data.=: fpgaImageId
       ]
 
 -- | /See:/ 'newDeleteFpgaImageResponse' smart constructor.

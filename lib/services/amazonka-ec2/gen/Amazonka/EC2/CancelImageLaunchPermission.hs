@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest CancelImageLaunchPermission where
     Response.receiveXML
       ( \s h x ->
           CancelImageLaunchPermissionResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,23 +123,23 @@ instance Prelude.NFData CancelImageLaunchPermission where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders CancelImageLaunchPermission where
+instance Data.ToHeaders CancelImageLaunchPermission where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CancelImageLaunchPermission where
+instance Data.ToPath CancelImageLaunchPermission where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelImageLaunchPermission where
+instance Data.ToQuery CancelImageLaunchPermission where
   toQuery CancelImageLaunchPermission' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CancelImageLaunchPermission" ::
+          Data.=: ( "CancelImageLaunchPermission" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "ImageId" Core.=: imageId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "ImageId" Data.=: imageId
       ]
 
 -- | /See:/ 'newCancelImageLaunchPermissionResponse' smart constructor.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest DisableSerialConsoleAccess where
     Response.receiveXML
       ( \s h x ->
           DisableSerialConsoleAccessResponse'
-            Prelude.<$> (x Core..@? "serialConsoleAccessEnabled")
+            Prelude.<$> (x Data..@? "serialConsoleAccessEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,20 +110,20 @@ instance Prelude.NFData DisableSerialConsoleAccess where
   rnf DisableSerialConsoleAccess' {..} =
     Prelude.rnf dryRun
 
-instance Core.ToHeaders DisableSerialConsoleAccess where
+instance Data.ToHeaders DisableSerialConsoleAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisableSerialConsoleAccess where
+instance Data.ToPath DisableSerialConsoleAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableSerialConsoleAccess where
+instance Data.ToQuery DisableSerialConsoleAccess where
   toQuery DisableSerialConsoleAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableSerialConsoleAccess" :: Prelude.ByteString),
+          Data.=: ("DisableSerialConsoleAccess" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newDisableSerialConsoleAccessResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GatewayAssociationState
 import Amazonka.EC2.Types.GatewayType
@@ -219,30 +220,30 @@ vpnConnection_state = Lens.lens (\VpnConnection' {state} -> state) (\s@VpnConnec
 vpnConnection_type :: Lens.Lens' VpnConnection GatewayType
 vpnConnection_type = Lens.lens (\VpnConnection' {type'} -> type') (\s@VpnConnection' {} a -> s {type' = a} :: VpnConnection)
 
-instance Core.FromXML VpnConnection where
+instance Data.FromXML VpnConnection where
   parseXML x =
     VpnConnection'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "customerGatewayConfiguration")
-      Prelude.<*> (x Core..@? "gatewayAssociationState")
-      Prelude.<*> (x Core..@? "coreNetworkAttachmentArn")
-      Prelude.<*> (x Core..@? "options")
-      Prelude.<*> (x Core..@? "coreNetworkArn")
-      Prelude.<*> (x Core..@? "vpnGatewayId")
-      Prelude.<*> (x Core..@? "category")
-      Prelude.<*> ( x Core..@? "vgwTelemetry" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "customerGatewayConfiguration")
+      Prelude.<*> (x Data..@? "gatewayAssociationState")
+      Prelude.<*> (x Data..@? "coreNetworkAttachmentArn")
+      Prelude.<*> (x Data..@? "options")
+      Prelude.<*> (x Data..@? "coreNetworkArn")
+      Prelude.<*> (x Data..@? "vpnGatewayId")
+      Prelude.<*> (x Data..@? "category")
+      Prelude.<*> ( x Data..@? "vgwTelemetry" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "routes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "routes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@ "vpnConnectionId")
-      Prelude.<*> (x Core..@ "customerGatewayId")
-      Prelude.<*> (x Core..@ "state")
-      Prelude.<*> (x Core..@ "type")
+      Prelude.<*> (x Data..@ "vpnConnectionId")
+      Prelude.<*> (x Data..@ "customerGatewayId")
+      Prelude.<*> (x Data..@ "state")
+      Prelude.<*> (x Data..@ "type")
 
 instance Prelude.Hashable VpnConnection where
   hashWithSalt _salt VpnConnection' {..} =

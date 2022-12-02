@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientLoginBannerOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -96,9 +97,9 @@ instance Prelude.NFData ClientLoginBannerOptions where
     Prelude.rnf bannerText
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToQuery ClientLoginBannerOptions where
+instance Data.ToQuery ClientLoginBannerOptions where
   toQuery ClientLoginBannerOptions' {..} =
     Prelude.mconcat
-      [ "BannerText" Core.=: bannerText,
-        "Enabled" Core.=: enabled
+      [ "BannerText" Data.=: bannerText,
+        "Enabled" Data.=: enabled
       ]

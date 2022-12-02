@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInsightsAccessScope where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -36,9 +37,9 @@ data NetworkInsightsAccessScope = NetworkInsightsAccessScope'
     -- | The Amazon Resource Name (ARN) of the Network Access Scope.
     networkInsightsAccessScopeArn :: Prelude.Maybe Prelude.Text,
     -- | The last updated date.
-    updatedDate :: Prelude.Maybe Core.ISO8601,
+    updatedDate :: Prelude.Maybe Data.ISO8601,
     -- | The creation date.
-    createdDate :: Prelude.Maybe Core.ISO8601
+    createdDate :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,22 +85,22 @@ networkInsightsAccessScope_networkInsightsAccessScopeArn = Lens.lens (\NetworkIn
 
 -- | The last updated date.
 networkInsightsAccessScope_updatedDate :: Lens.Lens' NetworkInsightsAccessScope (Prelude.Maybe Prelude.UTCTime)
-networkInsightsAccessScope_updatedDate = Lens.lens (\NetworkInsightsAccessScope' {updatedDate} -> updatedDate) (\s@NetworkInsightsAccessScope' {} a -> s {updatedDate = a} :: NetworkInsightsAccessScope) Prelude.. Lens.mapping Core._Time
+networkInsightsAccessScope_updatedDate = Lens.lens (\NetworkInsightsAccessScope' {updatedDate} -> updatedDate) (\s@NetworkInsightsAccessScope' {} a -> s {updatedDate = a} :: NetworkInsightsAccessScope) Prelude.. Lens.mapping Data._Time
 
 -- | The creation date.
 networkInsightsAccessScope_createdDate :: Lens.Lens' NetworkInsightsAccessScope (Prelude.Maybe Prelude.UTCTime)
-networkInsightsAccessScope_createdDate = Lens.lens (\NetworkInsightsAccessScope' {createdDate} -> createdDate) (\s@NetworkInsightsAccessScope' {} a -> s {createdDate = a} :: NetworkInsightsAccessScope) Prelude.. Lens.mapping Core._Time
+networkInsightsAccessScope_createdDate = Lens.lens (\NetworkInsightsAccessScope' {createdDate} -> createdDate) (\s@NetworkInsightsAccessScope' {} a -> s {createdDate = a} :: NetworkInsightsAccessScope) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML NetworkInsightsAccessScope where
+instance Data.FromXML NetworkInsightsAccessScope where
   parseXML x =
     NetworkInsightsAccessScope'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkInsightsAccessScopeId")
-      Prelude.<*> (x Core..@? "networkInsightsAccessScopeArn")
-      Prelude.<*> (x Core..@? "updatedDate")
-      Prelude.<*> (x Core..@? "createdDate")
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeId")
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeArn")
+      Prelude.<*> (x Data..@? "updatedDate")
+      Prelude.<*> (x Data..@? "createdDate")
 
 instance Prelude.Hashable NetworkInsightsAccessScope where
   hashWithSalt _salt NetworkInsightsAccessScope' {..} =

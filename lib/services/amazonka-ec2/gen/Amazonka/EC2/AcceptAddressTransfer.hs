@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance Core.AWSRequest AcceptAddressTransfer where
     Response.receiveXML
       ( \s h x ->
           AcceptAddressTransferResponse'
-            Prelude.<$> (x Core..@? "addressTransfer")
+            Prelude.<$> (x Data..@? "addressTransfer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,25 +145,25 @@ instance Prelude.NFData AcceptAddressTransfer where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf address
 
-instance Core.ToHeaders AcceptAddressTransfer where
+instance Data.ToHeaders AcceptAddressTransfer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AcceptAddressTransfer where
+instance Data.ToPath AcceptAddressTransfer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AcceptAddressTransfer where
+instance Data.ToQuery AcceptAddressTransfer where
   toQuery AcceptAddressTransfer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AcceptAddressTransfer" :: Prelude.ByteString),
+          Data.=: ("AcceptAddressTransfer" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Address" Core.=: address
+        "Address" Data.=: address
       ]
 
 -- | /See:/ 'newAcceptAddressTransferResponse' smart constructor.

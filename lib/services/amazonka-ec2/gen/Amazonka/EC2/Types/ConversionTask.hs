@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ConversionTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ConversionTaskState
 import Amazonka.EC2.Types.ImportInstanceTaskDetails
@@ -120,18 +121,18 @@ conversionTask_statusMessage = Lens.lens (\ConversionTask' {statusMessage} -> st
 conversionTask_importVolume :: Lens.Lens' ConversionTask (Prelude.Maybe ImportVolumeTaskDetails)
 conversionTask_importVolume = Lens.lens (\ConversionTask' {importVolume} -> importVolume) (\s@ConversionTask' {} a -> s {importVolume = a} :: ConversionTask)
 
-instance Core.FromXML ConversionTask where
+instance Data.FromXML ConversionTask where
   parseXML x =
     ConversionTask'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "importInstance")
-      Prelude.<*> (x Core..@? "conversionTaskId")
-      Prelude.<*> (x Core..@? "expirationTime")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "importVolume")
+      Prelude.<*> (x Data..@? "importInstance")
+      Prelude.<*> (x Data..@? "conversionTaskId")
+      Prelude.<*> (x Data..@? "expirationTime")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "importVolume")
 
 instance Prelude.Hashable ConversionTask where
   hashWithSalt _salt ConversionTask' {..} =

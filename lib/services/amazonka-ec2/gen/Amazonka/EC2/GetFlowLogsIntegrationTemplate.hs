@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -153,7 +154,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetFlowLogsIntegrationTemplateResponse'
-            Prelude.<$> (x Core..@? "result")
+            Prelude.<$> (x Data..@? "result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,28 +181,28 @@ instance
       `Prelude.seq` Prelude.rnf integrateServices
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetFlowLogsIntegrationTemplate
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetFlowLogsIntegrationTemplate where
+instance Data.ToPath GetFlowLogsIntegrationTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFlowLogsIntegrationTemplate where
+instance Data.ToQuery GetFlowLogsIntegrationTemplate where
   toQuery GetFlowLogsIntegrationTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetFlowLogsIntegrationTemplate" ::
+          Data.=: ( "GetFlowLogsIntegrationTemplate" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "FlowLogId" Core.=: flowLogId,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "FlowLogId" Data.=: flowLogId,
         "ConfigDeliveryS3DestinationArn"
-          Core.=: configDeliveryS3DestinationArn,
-        "IntegrateService" Core.=: integrateServices
+          Data.=: configDeliveryS3DestinationArn,
+        "IntegrateService" Data.=: integrateServices
       ]
 
 -- | /See:/ 'newGetFlowLogsIntegrationTemplateResponse' smart constructor.

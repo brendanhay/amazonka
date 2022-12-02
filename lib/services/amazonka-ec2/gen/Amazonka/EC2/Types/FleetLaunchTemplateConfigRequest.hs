@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FleetLaunchTemplateConfigRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetLaunchTemplateOverridesRequest
 import Amazonka.EC2.Types.FleetLaunchTemplateSpecificationRequest
@@ -100,13 +101,13 @@ instance
       `Prelude.seq` Prelude.rnf overrides
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     FleetLaunchTemplateConfigRequest
   where
   toQuery FleetLaunchTemplateConfigRequest' {..} =
     Prelude.mconcat
       [ "LaunchTemplateSpecification"
-          Core.=: launchTemplateSpecification,
-        Core.toQuery
-          (Core.toQueryList "Overrides" Prelude.<$> overrides)
+          Data.=: launchTemplateSpecification,
+        Data.toQuery
+          (Data.toQueryList "Overrides" Prelude.<$> overrides)
       ]

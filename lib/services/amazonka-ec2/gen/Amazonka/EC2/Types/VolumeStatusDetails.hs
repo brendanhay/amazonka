@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeStatusDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VolumeStatusName
 import qualified Amazonka.Prelude as Prelude
@@ -63,10 +64,10 @@ volumeStatusDetails_name = Lens.lens (\VolumeStatusDetails' {name} -> name) (\s@
 volumeStatusDetails_status :: Lens.Lens' VolumeStatusDetails (Prelude.Maybe Prelude.Text)
 volumeStatusDetails_status = Lens.lens (\VolumeStatusDetails' {status} -> status) (\s@VolumeStatusDetails' {} a -> s {status = a} :: VolumeStatusDetails)
 
-instance Core.FromXML VolumeStatusDetails where
+instance Data.FromXML VolumeStatusDetails where
   parseXML x =
     VolumeStatusDetails'
-      Prelude.<$> (x Core..@? "name") Prelude.<*> (x Core..@? "status")
+      Prelude.<$> (x Data..@? "name") Prelude.<*> (x Data..@? "status")
 
 instance Prelude.Hashable VolumeStatusDetails where
   hashWithSalt _salt VolumeStatusDetails' {..} =

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,9 +176,9 @@ instance Core.AWSRequest ListImagesInRecycleBin where
     Response.receiveXML
       ( \s h x ->
           ListImagesInRecycleBinResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "imageSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "imageSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -196,24 +197,24 @@ instance Prelude.NFData ListImagesInRecycleBin where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListImagesInRecycleBin where
+instance Data.ToHeaders ListImagesInRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListImagesInRecycleBin where
+instance Data.ToPath ListImagesInRecycleBin where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListImagesInRecycleBin where
+instance Data.ToQuery ListImagesInRecycleBin where
   toQuery ListImagesInRecycleBin' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListImagesInRecycleBin" :: Prelude.ByteString),
+          Data.=: ("ListImagesInRecycleBin" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "ImageId" Prelude.<$> imageIds),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "ImageId" Prelude.<$> imageIds),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListImagesInRecycleBinResponse' smart constructor.

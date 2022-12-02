@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientVpnEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AssociatedTargetNetwork
 import Amazonka.EC2.Types.ClientConnectResponseOptions
@@ -308,45 +309,45 @@ clientVpnEndpoint_vpnPort = Lens.lens (\ClientVpnEndpoint' {vpnPort} -> vpnPort)
 clientVpnEndpoint_vpnProtocol :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe VpnProtocol)
 clientVpnEndpoint_vpnProtocol = Lens.lens (\ClientVpnEndpoint' {vpnProtocol} -> vpnProtocol) (\s@ClientVpnEndpoint' {} a -> s {vpnProtocol = a} :: ClientVpnEndpoint)
 
-instance Core.FromXML ClientVpnEndpoint where
+instance Data.FromXML ClientVpnEndpoint where
   parseXML x =
     ClientVpnEndpoint'
-      Prelude.<$> (x Core..@? "deletionTime")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "deletionTime")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "authenticationOptions"
+      Prelude.<*> ( x Data..@? "authenticationOptions"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "serverCertificateArn")
-      Prelude.<*> (x Core..@? "transportProtocol")
-      Prelude.<*> (x Core..@? "sessionTimeoutHours")
-      Prelude.<*> ( x Core..@? "securityGroupIdSet"
+      Prelude.<*> (x Data..@? "serverCertificateArn")
+      Prelude.<*> (x Data..@? "transportProtocol")
+      Prelude.<*> (x Data..@? "sessionTimeoutHours")
+      Prelude.<*> ( x Data..@? "securityGroupIdSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "dnsServer" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "dnsServer" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "connectionLogOptions")
-      Prelude.<*> (x Core..@? "clientCidrBlock")
-      Prelude.<*> (x Core..@? "selfServicePortalUrl")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "clientLoginBannerOptions")
-      Prelude.<*> (x Core..@? "clientVpnEndpointId")
-      Prelude.<*> (x Core..@? "clientConnectOptions")
-      Prelude.<*> (x Core..@? "splitTunnel")
-      Prelude.<*> ( x Core..@? "associatedTargetNetwork"
+      Prelude.<*> (x Data..@? "connectionLogOptions")
+      Prelude.<*> (x Data..@? "clientCidrBlock")
+      Prelude.<*> (x Data..@? "selfServicePortalUrl")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "clientLoginBannerOptions")
+      Prelude.<*> (x Data..@? "clientVpnEndpointId")
+      Prelude.<*> (x Data..@? "clientConnectOptions")
+      Prelude.<*> (x Data..@? "splitTunnel")
+      Prelude.<*> ( x Data..@? "associatedTargetNetwork"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "dnsName")
-      Prelude.<*> (x Core..@? "vpnPort")
-      Prelude.<*> (x Core..@? "vpnProtocol")
+      Prelude.<*> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "dnsName")
+      Prelude.<*> (x Data..@? "vpnPort")
+      Prelude.<*> (x Data..@? "vpnProtocol")
 
 instance Prelude.Hashable ClientVpnEndpoint where
   hashWithSalt _salt ClientVpnEndpoint' {..} =

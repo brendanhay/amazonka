@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -193,9 +194,9 @@ instance Core.AWSRequest DescribeIpv6Pools where
     Response.receiveXML
       ( \s h x ->
           DescribeIpv6PoolsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "ipv6PoolSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "ipv6PoolSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -216,26 +217,26 @@ instance Prelude.NFData DescribeIpv6Pools where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeIpv6Pools where
+instance Data.ToHeaders DescribeIpv6Pools where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeIpv6Pools where
+instance Data.ToPath DescribeIpv6Pools where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIpv6Pools where
+instance Data.ToQuery DescribeIpv6Pools where
   toQuery DescribeIpv6Pools' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeIpv6Pools" :: Prelude.ByteString),
+          Data.=: ("DescribeIpv6Pools" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "PoolId" Prelude.<$> poolIds),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "PoolId" Prelude.<$> poolIds),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeIpv6PoolsResponse' smart constructor.

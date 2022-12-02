@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SnapshotInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SnapshotState
 import Amazonka.EC2.Types.Tag
@@ -56,7 +57,7 @@ data SnapshotInfo = SnapshotInfo'
     volumeId :: Prelude.Maybe Prelude.Text,
     -- | Time this snapshot was started. This is the same for all snapshots
     -- initiated by the same request.
-    startTime :: Prelude.Maybe Core.ISO8601
+    startTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -158,24 +159,24 @@ snapshotInfo_volumeId = Lens.lens (\SnapshotInfo' {volumeId} -> volumeId) (\s@Sn
 -- | Time this snapshot was started. This is the same for all snapshots
 -- initiated by the same request.
 snapshotInfo_startTime :: Lens.Lens' SnapshotInfo (Prelude.Maybe Prelude.UTCTime)
-snapshotInfo_startTime = Lens.lens (\SnapshotInfo' {startTime} -> startTime) (\s@SnapshotInfo' {} a -> s {startTime = a} :: SnapshotInfo) Prelude.. Lens.mapping Core._Time
+snapshotInfo_startTime = Lens.lens (\SnapshotInfo' {startTime} -> startTime) (\s@SnapshotInfo' {} a -> s {startTime = a} :: SnapshotInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML SnapshotInfo where
+instance Data.FromXML SnapshotInfo where
   parseXML x =
     SnapshotInfo'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "progress")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "volumeSize")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "encrypted")
-      Prelude.<*> (x Core..@? "volumeId")
-      Prelude.<*> (x Core..@? "startTime")
+      Prelude.<*> (x Data..@? "progress")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "snapshotId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "volumeSize")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "encrypted")
+      Prelude.<*> (x Data..@? "volumeId")
+      Prelude.<*> (x Data..@? "startTime")
 
 instance Prelude.Hashable SnapshotInfo where
   hashWithSalt _salt SnapshotInfo' {..} =

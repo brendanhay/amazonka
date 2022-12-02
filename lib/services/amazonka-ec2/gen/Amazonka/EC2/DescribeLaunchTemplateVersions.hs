@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -387,10 +388,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeLaunchTemplateVersionsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "launchTemplateVersionSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "launchTemplateVersionSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -428,36 +429,36 @@ instance
       `Prelude.seq` Prelude.rnf launchTemplateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeLaunchTemplateVersions
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLaunchTemplateVersions where
+instance Data.ToPath DescribeLaunchTemplateVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLaunchTemplateVersions where
+instance Data.ToQuery DescribeLaunchTemplateVersions where
   toQuery DescribeLaunchTemplateVersions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeLaunchTemplateVersions" ::
+          Data.=: ( "DescribeLaunchTemplateVersions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MinVersion" Core.=: minVersion,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "LaunchTemplateId" Core.=: launchTemplateId,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "LaunchTemplateVersion"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MinVersion" Data.=: minVersion,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "LaunchTemplateId" Data.=: launchTemplateId,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "LaunchTemplateVersion"
               Prelude.<$> versions
           ),
-        "MaxVersion" Core.=: maxVersion,
-        "LaunchTemplateName" Core.=: launchTemplateName
+        "MaxVersion" Data.=: maxVersion,
+        "LaunchTemplateName" Data.=: launchTemplateName
       ]
 
 -- | /See:/ 'newDescribeLaunchTemplateVersionsResponse' smart constructor.

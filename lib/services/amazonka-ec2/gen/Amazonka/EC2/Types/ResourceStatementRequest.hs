@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ResourceStatementRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,13 +74,13 @@ instance Prelude.NFData ResourceStatementRequest where
     Prelude.rnf resourceTypes
       `Prelude.seq` Prelude.rnf resources
 
-instance Core.ToQuery ResourceStatementRequest where
+instance Data.ToQuery ResourceStatementRequest where
   toQuery ResourceStatementRequest' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "ResourceType"
+      [ Data.toQuery
+          ( Data.toQueryList "ResourceType"
               Prelude.<$> resourceTypes
           ),
-        Core.toQuery
-          (Core.toQueryList "Resource" Prelude.<$> resources)
+        Data.toQuery
+          (Data.toQueryList "Resource" Prelude.<$> resources)
       ]

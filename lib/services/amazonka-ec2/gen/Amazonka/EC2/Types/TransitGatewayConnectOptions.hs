@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayConnectOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ProtocolValue
 import qualified Amazonka.Prelude as Prelude
@@ -55,10 +56,10 @@ newTransitGatewayConnectOptions =
 transitGatewayConnectOptions_protocol :: Lens.Lens' TransitGatewayConnectOptions (Prelude.Maybe ProtocolValue)
 transitGatewayConnectOptions_protocol = Lens.lens (\TransitGatewayConnectOptions' {protocol} -> protocol) (\s@TransitGatewayConnectOptions' {} a -> s {protocol = a} :: TransitGatewayConnectOptions)
 
-instance Core.FromXML TransitGatewayConnectOptions where
+instance Data.FromXML TransitGatewayConnectOptions where
   parseXML x =
     TransitGatewayConnectOptions'
-      Prelude.<$> (x Core..@? "protocol")
+      Prelude.<$> (x Data..@? "protocol")
 
 instance
   Prelude.Hashable

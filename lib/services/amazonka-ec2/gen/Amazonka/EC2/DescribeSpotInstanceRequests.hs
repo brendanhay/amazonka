@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -536,10 +537,10 @@ instance Core.AWSRequest DescribeSpotInstanceRequests where
     Response.receiveXML
       ( \s h x ->
           DescribeSpotInstanceRequestsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "spotInstanceRequestSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "spotInstanceRequestSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -563,28 +564,28 @@ instance Prelude.NFData DescribeSpotInstanceRequests where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf spotInstanceRequestIds
 
-instance Core.ToHeaders DescribeSpotInstanceRequests where
+instance Data.ToHeaders DescribeSpotInstanceRequests where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSpotInstanceRequests where
+instance Data.ToPath DescribeSpotInstanceRequests where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSpotInstanceRequests where
+instance Data.ToQuery DescribeSpotInstanceRequests where
   toQuery DescribeSpotInstanceRequests' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeSpotInstanceRequests" ::
+          Data.=: ( "DescribeSpotInstanceRequests" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "SpotInstanceRequestId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "SpotInstanceRequestId"
               Prelude.<$> spotInstanceRequestIds
           )
       ]

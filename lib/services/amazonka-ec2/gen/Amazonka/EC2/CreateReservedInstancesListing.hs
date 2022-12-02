@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,9 +175,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateReservedInstancesListingResponse'
-            Prelude.<$> ( x Core..@? "reservedInstancesListingsSet"
+            Prelude.<$> ( x Data..@? "reservedInstancesListingsSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -204,27 +205,27 @@ instance
       `Prelude.seq` Prelude.rnf reservedInstancesId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateReservedInstancesListing
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateReservedInstancesListing where
+instance Data.ToPath CreateReservedInstancesListing where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateReservedInstancesListing where
+instance Data.ToQuery CreateReservedInstancesListing where
   toQuery CreateReservedInstancesListing' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateReservedInstancesListing" ::
+          Data.=: ( "CreateReservedInstancesListing" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "InstanceCount" Core.=: instanceCount,
-        Core.toQueryList "PriceSchedules" priceSchedules,
-        "ReservedInstancesId" Core.=: reservedInstancesId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "InstanceCount" Data.=: instanceCount,
+        Data.toQueryList "PriceSchedules" priceSchedules,
+        "ReservedInstancesId" Data.=: reservedInstancesId
       ]
 
 -- | Contains the output of CreateReservedInstancesListing.

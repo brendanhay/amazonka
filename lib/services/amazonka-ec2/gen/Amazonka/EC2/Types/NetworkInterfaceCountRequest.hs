@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterfaceCountRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,7 +82,7 @@ instance Prelude.NFData NetworkInterfaceCountRequest where
   rnf NetworkInterfaceCountRequest' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery NetworkInterfaceCountRequest where
+instance Data.ToQuery NetworkInterfaceCountRequest where
   toQuery NetworkInterfaceCountRequest' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

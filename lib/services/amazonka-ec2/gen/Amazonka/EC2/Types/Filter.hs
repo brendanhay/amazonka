@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,10 +83,10 @@ instance Prelude.NFData Filter where
   rnf Filter' {..} =
     Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
-instance Core.ToQuery Filter where
+instance Data.ToQuery Filter where
   toQuery Filter' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          (Core.toQueryList "Value" Prelude.<$> values),
-        "Name" Core.=: name
+      [ Data.toQuery
+          (Data.toQueryList "Value" Prelude.<$> values),
+        "Name" Data.=: name
       ]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Ipam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamOperatingRegion
 import Amazonka.EC2.Types.IpamState
@@ -194,25 +195,25 @@ ipam_publicDefaultScopeId = Lens.lens (\Ipam' {publicDefaultScopeId} -> publicDe
 ipam_ipamRegion :: Lens.Lens' Ipam (Prelude.Maybe Prelude.Text)
 ipam_ipamRegion = Lens.lens (\Ipam' {ipamRegion} -> ipamRegion) (\s@Ipam' {} a -> s {ipamRegion = a} :: Ipam)
 
-instance Core.FromXML Ipam where
+instance Data.FromXML Ipam where
   parseXML x =
     Ipam'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "ipamArn")
-      Prelude.<*> (x Core..@? "scopeCount")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> ( x Core..@? "operatingRegionSet"
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "ipamArn")
+      Prelude.<*> (x Data..@? "scopeCount")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> ( x Data..@? "operatingRegionSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "privateDefaultScopeId")
-      Prelude.<*> (x Core..@? "ipamId")
-      Prelude.<*> (x Core..@? "publicDefaultScopeId")
-      Prelude.<*> (x Core..@? "ipamRegion")
+      Prelude.<*> (x Data..@? "privateDefaultScopeId")
+      Prelude.<*> (x Data..@? "ipamId")
+      Prelude.<*> (x Data..@? "publicDefaultScopeId")
+      Prelude.<*> (x Data..@? "ipamRegion")
 
 instance Prelude.Hashable Ipam where
   hashWithSalt _salt Ipam' {..} =

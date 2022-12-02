@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance Core.AWSRequest RevokeClientVpnIngress where
     Response.receiveXML
       ( \s h x ->
           RevokeClientVpnIngressResponse'
-            Prelude.<$> (x Core..@? "status")
+            Prelude.<$> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,24 +166,24 @@ instance Prelude.NFData RevokeClientVpnIngress where
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
       `Prelude.seq` Prelude.rnf targetNetworkCidr
 
-instance Core.ToHeaders RevokeClientVpnIngress where
+instance Data.ToHeaders RevokeClientVpnIngress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RevokeClientVpnIngress where
+instance Data.ToPath RevokeClientVpnIngress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RevokeClientVpnIngress where
+instance Data.ToQuery RevokeClientVpnIngress where
   toQuery RevokeClientVpnIngress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RevokeClientVpnIngress" :: Prelude.ByteString),
+          Data.=: ("RevokeClientVpnIngress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "RevokeAllGroups" Core.=: revokeAllGroups,
-        "DryRun" Core.=: dryRun,
-        "AccessGroupId" Core.=: accessGroupId,
-        "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
-        "TargetNetworkCidr" Core.=: targetNetworkCidr
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "RevokeAllGroups" Data.=: revokeAllGroups,
+        "DryRun" Data.=: dryRun,
+        "AccessGroupId" Data.=: accessGroupId,
+        "ClientVpnEndpointId" Data.=: clientVpnEndpointId,
+        "TargetNetworkCidr" Data.=: targetNetworkCidr
       ]
 
 -- | /See:/ 'newRevokeClientVpnIngressResponse' smart constructor.

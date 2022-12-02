@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -261,29 +262,29 @@ instance Prelude.NFData ReplaceNetworkAclEntry where
       `Prelude.seq` Prelude.rnf ruleAction
       `Prelude.seq` Prelude.rnf ruleNumber
 
-instance Core.ToHeaders ReplaceNetworkAclEntry where
+instance Data.ToHeaders ReplaceNetworkAclEntry where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReplaceNetworkAclEntry where
+instance Data.ToPath ReplaceNetworkAclEntry where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReplaceNetworkAclEntry where
+instance Data.ToQuery ReplaceNetworkAclEntry where
   toQuery ReplaceNetworkAclEntry' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ReplaceNetworkAclEntry" :: Prelude.ByteString),
+          Data.=: ("ReplaceNetworkAclEntry" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Icmp" Core.=: icmpTypeCode,
-        "PortRange" Core.=: portRange,
-        "DryRun" Core.=: dryRun,
-        "CidrBlock" Core.=: cidrBlock,
-        "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
-        "Egress" Core.=: egress,
-        "NetworkAclId" Core.=: networkAclId,
-        "Protocol" Core.=: protocol,
-        "RuleAction" Core.=: ruleAction,
-        "RuleNumber" Core.=: ruleNumber
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Icmp" Data.=: icmpTypeCode,
+        "PortRange" Data.=: portRange,
+        "DryRun" Data.=: dryRun,
+        "CidrBlock" Data.=: cidrBlock,
+        "Ipv6CidrBlock" Data.=: ipv6CidrBlock,
+        "Egress" Data.=: egress,
+        "NetworkAclId" Data.=: networkAclId,
+        "Protocol" Data.=: protocol,
+        "RuleAction" Data.=: ruleAction,
+        "RuleNumber" Data.=: ruleNumber
       ]
 
 -- | /See:/ 'newReplaceNetworkAclEntryResponse' smart constructor.

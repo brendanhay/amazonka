@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnConnectionOptionsSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TunnelInsideIpVersion
 import Amazonka.EC2.Types.VpnTunnelOptionsSpecification
@@ -251,26 +252,26 @@ instance
       `Prelude.seq` Prelude.rnf localIpv6NetworkCidr
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     VpnConnectionOptionsSpecification
   where
   toQuery VpnConnectionOptionsSpecification' {..} =
     Prelude.mconcat
-      [ "OutsideIpAddressType" Core.=: outsideIpAddressType,
+      [ "OutsideIpAddressType" Data.=: outsideIpAddressType,
         "RemoteIpv6NetworkCidr"
-          Core.=: remoteIpv6NetworkCidr,
-        "LocalIpv4NetworkCidr" Core.=: localIpv4NetworkCidr,
-        Core.toQuery
-          ( Core.toQueryList "TunnelOptions"
+          Data.=: remoteIpv6NetworkCidr,
+        "LocalIpv4NetworkCidr" Data.=: localIpv4NetworkCidr,
+        Data.toQuery
+          ( Data.toQueryList "TunnelOptions"
               Prelude.<$> tunnelOptions
           ),
-        "StaticRoutesOnly" Core.=: staticRoutesOnly,
+        "StaticRoutesOnly" Data.=: staticRoutesOnly,
         "RemoteIpv4NetworkCidr"
-          Core.=: remoteIpv4NetworkCidr,
+          Data.=: remoteIpv4NetworkCidr,
         "TunnelInsideIpVersion"
-          Core.=: tunnelInsideIpVersion,
+          Data.=: tunnelInsideIpVersion,
         "TransportTransitGatewayAttachmentId"
-          Core.=: transportTransitGatewayAttachmentId,
-        "EnableAcceleration" Core.=: enableAcceleration,
-        "LocalIpv6NetworkCidr" Core.=: localIpv6NetworkCidr
+          Data.=: transportTransitGatewayAttachmentId,
+        "EnableAcceleration" Data.=: enableAcceleration,
+        "LocalIpv6NetworkCidr" Data.=: localIpv6NetworkCidr
       ]

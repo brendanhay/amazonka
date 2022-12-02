@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.HostProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -95,14 +96,14 @@ hostProperties_totalVCpus = Lens.lens (\HostProperties' {totalVCpus} -> totalVCp
 hostProperties_instanceFamily :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Text)
 hostProperties_instanceFamily = Lens.lens (\HostProperties' {instanceFamily} -> instanceFamily) (\s@HostProperties' {} a -> s {instanceFamily = a} :: HostProperties)
 
-instance Core.FromXML HostProperties where
+instance Data.FromXML HostProperties where
   parseXML x =
     HostProperties'
-      Prelude.<$> (x Core..@? "cores")
-      Prelude.<*> (x Core..@? "sockets")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "totalVCpus")
-      Prelude.<*> (x Core..@? "instanceFamily")
+      Prelude.<$> (x Data..@? "cores")
+      Prelude.<*> (x Data..@? "sockets")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "totalVCpus")
+      Prelude.<*> (x Data..@? "instanceFamily")
 
 instance Prelude.Hashable HostProperties where
   hashWithSalt _salt HostProperties' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInsightsAccessScopeAnalysis where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AnalysisStatus
 import Amazonka.EC2.Types.FindingsFound
@@ -40,13 +41,13 @@ data NetworkInsightsAccessScopeAnalysis = NetworkInsightsAccessScopeAnalysis'
     -- | The number of network interfaces analyzed.
     analyzedEniCount :: Prelude.Maybe Prelude.Int,
     -- | The analysis end date.
-    endDate :: Prelude.Maybe Core.ISO8601,
+    endDate :: Prelude.Maybe Data.ISO8601,
     -- | The status.
     status :: Prelude.Maybe AnalysisStatus,
     -- | The warning message.
     warningMessage :: Prelude.Maybe Prelude.Text,
     -- | The analysis start date.
-    startDate :: Prelude.Maybe Core.ISO8601,
+    startDate :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the Network Access Scope analysis.
     networkInsightsAccessScopeAnalysisArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether there are findings.
@@ -124,7 +125,7 @@ networkInsightsAccessScopeAnalysis_analyzedEniCount = Lens.lens (\NetworkInsight
 
 -- | The analysis end date.
 networkInsightsAccessScopeAnalysis_endDate :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.UTCTime)
-networkInsightsAccessScopeAnalysis_endDate = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {endDate} -> endDate) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {endDate = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Core._Time
+networkInsightsAccessScopeAnalysis_endDate = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {endDate} -> endDate) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {endDate = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Data._Time
 
 -- | The status.
 networkInsightsAccessScopeAnalysis_status :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe AnalysisStatus)
@@ -136,7 +137,7 @@ networkInsightsAccessScopeAnalysis_warningMessage = Lens.lens (\NetworkInsightsA
 
 -- | The analysis start date.
 networkInsightsAccessScopeAnalysis_startDate :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.UTCTime)
-networkInsightsAccessScopeAnalysis_startDate = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {startDate} -> startDate) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {startDate = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Core._Time
+networkInsightsAccessScopeAnalysis_startDate = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {startDate} -> startDate) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {startDate = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the Network Access Scope analysis.
 networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisArn :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
@@ -151,24 +152,24 @@ networkInsightsAccessScopeAnalysis_statusMessage :: Lens.Lens' NetworkInsightsAc
 networkInsightsAccessScopeAnalysis_statusMessage = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {statusMessage} -> statusMessage) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {statusMessage = a} :: NetworkInsightsAccessScopeAnalysis)
 
 instance
-  Core.FromXML
+  Data.FromXML
     NetworkInsightsAccessScopeAnalysis
   where
   parseXML x =
     NetworkInsightsAccessScopeAnalysis'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkInsightsAccessScopeAnalysisId")
-      Prelude.<*> (x Core..@? "networkInsightsAccessScopeId")
-      Prelude.<*> (x Core..@? "analyzedEniCount")
-      Prelude.<*> (x Core..@? "endDate")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "warningMessage")
-      Prelude.<*> (x Core..@? "startDate")
-      Prelude.<*> (x Core..@? "networkInsightsAccessScopeAnalysisArn")
-      Prelude.<*> (x Core..@? "findingsFound")
-      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisId")
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeId")
+      Prelude.<*> (x Data..@? "analyzedEniCount")
+      Prelude.<*> (x Data..@? "endDate")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "warningMessage")
+      Prelude.<*> (x Data..@? "startDate")
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisArn")
+      Prelude.<*> (x Data..@? "findingsFound")
+      Prelude.<*> (x Data..@? "statusMessage")
 
 instance
   Prelude.Hashable

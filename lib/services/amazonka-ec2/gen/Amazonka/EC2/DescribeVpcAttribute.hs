@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,10 +121,10 @@ instance Core.AWSRequest DescribeVpcAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeVpcAttributeResponse'
-            Prelude.<$> (x Core..@? "enableDnsSupport")
-            Prelude.<*> (x Core..@? "enableDnsHostnames")
-            Prelude.<*> (x Core..@? "vpcId")
-            Prelude.<*> (x Core..@? "enableNetworkAddressUsageMetrics")
+            Prelude.<$> (x Data..@? "enableDnsSupport")
+            Prelude.<*> (x Data..@? "enableDnsHostnames")
+            Prelude.<*> (x Data..@? "vpcId")
+            Prelude.<*> (x Data..@? "enableNetworkAddressUsageMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,22 +140,22 @@ instance Prelude.NFData DescribeVpcAttribute where
       `Prelude.seq` Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders DescribeVpcAttribute where
+instance Data.ToHeaders DescribeVpcAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVpcAttribute where
+instance Data.ToPath DescribeVpcAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVpcAttribute where
+instance Data.ToQuery DescribeVpcAttribute where
   toQuery DescribeVpcAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVpcAttribute" :: Prelude.ByteString),
+          Data.=: ("DescribeVpcAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Attribute" Core.=: attribute,
-        "VpcId" Core.=: vpcId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Attribute" Data.=: attribute,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newDescribeVpcAttributeResponse' smart constructor.

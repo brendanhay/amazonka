@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EbsInstanceBlockDeviceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,11 +84,11 @@ instance
       `Prelude.seq` Prelude.rnf volumeId
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     EbsInstanceBlockDeviceSpecification
   where
   toQuery EbsInstanceBlockDeviceSpecification' {..} =
     Prelude.mconcat
-      [ "DeleteOnTermination" Core.=: deleteOnTermination,
-        "VolumeId" Core.=: volumeId
+      [ "DeleteOnTermination" Data.=: deleteOnTermination,
+        "VolumeId" Data.=: volumeId
       ]

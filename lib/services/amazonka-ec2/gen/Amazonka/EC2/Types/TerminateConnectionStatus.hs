@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TerminateConnectionStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ClientVpnConnectionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -73,12 +74,12 @@ terminateConnectionStatus_connectionId = Lens.lens (\TerminateConnectionStatus' 
 terminateConnectionStatus_currentStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
 terminateConnectionStatus_currentStatus = Lens.lens (\TerminateConnectionStatus' {currentStatus} -> currentStatus) (\s@TerminateConnectionStatus' {} a -> s {currentStatus = a} :: TerminateConnectionStatus)
 
-instance Core.FromXML TerminateConnectionStatus where
+instance Data.FromXML TerminateConnectionStatus where
   parseXML x =
     TerminateConnectionStatus'
-      Prelude.<$> (x Core..@? "previousStatus")
-      Prelude.<*> (x Core..@? "connectionId")
-      Prelude.<*> (x Core..@? "currentStatus")
+      Prelude.<$> (x Data..@? "previousStatus")
+      Prelude.<*> (x Data..@? "connectionId")
+      Prelude.<*> (x Data..@? "currentStatus")
 
 instance Prelude.Hashable TerminateConnectionStatus where
   hashWithSalt _salt TerminateConnectionStatus' {..} =

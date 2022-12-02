@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayRouteTableRoute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -120,16 +121,16 @@ transitGatewayRouteTableRoute_attachmentId = Lens.lens (\TransitGatewayRouteTabl
 transitGatewayRouteTableRoute_routeOrigin :: Lens.Lens' TransitGatewayRouteTableRoute (Prelude.Maybe Prelude.Text)
 transitGatewayRouteTableRoute_routeOrigin = Lens.lens (\TransitGatewayRouteTableRoute' {routeOrigin} -> routeOrigin) (\s@TransitGatewayRouteTableRoute' {} a -> s {routeOrigin = a} :: TransitGatewayRouteTableRoute)
 
-instance Core.FromXML TransitGatewayRouteTableRoute where
+instance Data.FromXML TransitGatewayRouteTableRoute where
   parseXML x =
     TransitGatewayRouteTableRoute'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> (x Core..@? "resourceType")
-      Prelude.<*> (x Core..@? "destinationCidr")
-      Prelude.<*> (x Core..@? "prefixListId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "attachmentId")
-      Prelude.<*> (x Core..@? "routeOrigin")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> (x Data..@? "resourceType")
+      Prelude.<*> (x Data..@? "destinationCidr")
+      Prelude.<*> (x Data..@? "prefixListId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "attachmentId")
+      Prelude.<*> (x Data..@? "routeOrigin")
 
 instance
   Prelude.Hashable

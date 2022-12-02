@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterfacePrivateIpAddress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.NetworkInterfaceAssociation
 import qualified Amazonka.Prelude as Prelude
@@ -89,15 +90,15 @@ networkInterfacePrivateIpAddress_privateDnsName :: Lens.Lens' NetworkInterfacePr
 networkInterfacePrivateIpAddress_privateDnsName = Lens.lens (\NetworkInterfacePrivateIpAddress' {privateDnsName} -> privateDnsName) (\s@NetworkInterfacePrivateIpAddress' {} a -> s {privateDnsName = a} :: NetworkInterfacePrivateIpAddress)
 
 instance
-  Core.FromXML
+  Data.FromXML
     NetworkInterfacePrivateIpAddress
   where
   parseXML x =
     NetworkInterfacePrivateIpAddress'
-      Prelude.<$> (x Core..@? "association")
-      Prelude.<*> (x Core..@? "primary")
-      Prelude.<*> (x Core..@? "privateIpAddress")
-      Prelude.<*> (x Core..@? "privateDnsName")
+      Prelude.<$> (x Data..@? "association")
+      Prelude.<*> (x Data..@? "primary")
+      Prelude.<*> (x Data..@? "privateIpAddress")
+      Prelude.<*> (x Data..@? "privateDnsName")
 
 instance
   Prelude.Hashable

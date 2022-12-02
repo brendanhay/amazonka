@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance Core.AWSRequest ModifyTransitGateway where
     Response.receiveXML
       ( \s h x ->
           ModifyTransitGatewayResponse'
-            Prelude.<$> (x Core..@? "transitGateway")
+            Prelude.<$> (x Data..@? "transitGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,23 +147,23 @@ instance Prelude.NFData ModifyTransitGateway where
       `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf transitGatewayId
 
-instance Core.ToHeaders ModifyTransitGateway where
+instance Data.ToHeaders ModifyTransitGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyTransitGateway where
+instance Data.ToPath ModifyTransitGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyTransitGateway where
+instance Data.ToQuery ModifyTransitGateway where
   toQuery ModifyTransitGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyTransitGateway" :: Prelude.ByteString),
+          Data.=: ("ModifyTransitGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "Options" Core.=: options,
-        "TransitGatewayId" Core.=: transitGatewayId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "Options" Data.=: options,
+        "TransitGatewayId" Data.=: transitGatewayId
       ]
 
 -- | /See:/ 'newModifyTransitGatewayResponse' smart constructor.

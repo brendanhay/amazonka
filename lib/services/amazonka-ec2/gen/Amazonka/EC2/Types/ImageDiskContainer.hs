@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImageDiskContainer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.UserBucket
 import qualified Amazonka.Prelude as Prelude
@@ -126,13 +127,13 @@ instance Prelude.NFData ImageDiskContainer where
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToQuery ImageDiskContainer where
+instance Data.ToQuery ImageDiskContainer where
   toQuery ImageDiskContainer' {..} =
     Prelude.mconcat
-      [ "Format" Core.=: format,
-        "UserBucket" Core.=: userBucket,
-        "DeviceName" Core.=: deviceName,
-        "SnapshotId" Core.=: snapshotId,
-        "Url" Core.=: url,
-        "Description" Core.=: description
+      [ "Format" Data.=: format,
+        "UserBucket" Data.=: userBucket,
+        "DeviceName" Data.=: deviceName,
+        "SnapshotId" Data.=: snapshotId,
+        "Url" Data.=: url,
+        "Description" Data.=: description
       ]

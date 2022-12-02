@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AssociatedRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,13 +94,13 @@ associatedRole_associatedRoleArn = Lens.lens (\AssociatedRole' {associatedRoleAr
 associatedRole_certificateS3BucketName :: Lens.Lens' AssociatedRole (Prelude.Maybe Prelude.Text)
 associatedRole_certificateS3BucketName = Lens.lens (\AssociatedRole' {certificateS3BucketName} -> certificateS3BucketName) (\s@AssociatedRole' {} a -> s {certificateS3BucketName = a} :: AssociatedRole)
 
-instance Core.FromXML AssociatedRole where
+instance Data.FromXML AssociatedRole where
   parseXML x =
     AssociatedRole'
-      Prelude.<$> (x Core..@? "certificateS3ObjectKey")
-      Prelude.<*> (x Core..@? "encryptionKmsKeyId")
-      Prelude.<*> (x Core..@? "associatedRoleArn")
-      Prelude.<*> (x Core..@? "certificateS3BucketName")
+      Prelude.<$> (x Data..@? "certificateS3ObjectKey")
+      Prelude.<*> (x Data..@? "encryptionKmsKeyId")
+      Prelude.<*> (x Data..@? "associatedRoleArn")
+      Prelude.<*> (x Data..@? "certificateS3BucketName")
 
 instance Prelude.Hashable AssociatedRole where
   hashWithSalt _salt AssociatedRole' {..} =

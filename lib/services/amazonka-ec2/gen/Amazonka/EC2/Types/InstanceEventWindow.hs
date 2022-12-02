@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceEventWindow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceEventWindowAssociationTarget
 import Amazonka.EC2.Types.InstanceEventWindowState
@@ -111,20 +112,20 @@ instanceEventWindow_cronExpression = Lens.lens (\InstanceEventWindow' {cronExpre
 instanceEventWindow_instanceEventWindowId :: Lens.Lens' InstanceEventWindow (Prelude.Maybe Prelude.Text)
 instanceEventWindow_instanceEventWindowId = Lens.lens (\InstanceEventWindow' {instanceEventWindowId} -> instanceEventWindowId) (\s@InstanceEventWindow' {} a -> s {instanceEventWindowId = a} :: InstanceEventWindow)
 
-instance Core.FromXML InstanceEventWindow where
+instance Data.FromXML InstanceEventWindow where
   parseXML x =
     InstanceEventWindow'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "associationTarget")
-      Prelude.<*> ( x Core..@? "timeRangeSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "associationTarget")
+      Prelude.<*> ( x Data..@? "timeRangeSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "cronExpression")
-      Prelude.<*> (x Core..@? "instanceEventWindowId")
+      Prelude.<*> (x Data..@? "cronExpression")
+      Prelude.<*> (x Data..@? "instanceEventWindowId")
 
 instance Prelude.Hashable InstanceEventWindow where
   hashWithSalt _salt InstanceEventWindow' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AddIpamOperatingRegion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,6 +70,6 @@ instance Prelude.NFData AddIpamOperatingRegion where
   rnf AddIpamOperatingRegion' {..} =
     Prelude.rnf regionName
 
-instance Core.ToQuery AddIpamOperatingRegion where
+instance Data.ToQuery AddIpamOperatingRegion where
   toQuery AddIpamOperatingRegion' {..} =
-    Prelude.mconcat ["RegionName" Core.=: regionName]
+    Prelude.mconcat ["RegionName" Data.=: regionName]

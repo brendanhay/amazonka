@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CpuOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,9 +80,9 @@ instance Prelude.NFData CpuOptionsRequest where
     Prelude.rnf coreCount
       `Prelude.seq` Prelude.rnf threadsPerCore
 
-instance Core.ToQuery CpuOptionsRequest where
+instance Data.ToQuery CpuOptionsRequest where
   toQuery CpuOptionsRequest' {..} =
     Prelude.mconcat
-      [ "CoreCount" Core.=: coreCount,
-        "ThreadsPerCore" Core.=: threadsPerCore
+      [ "CoreCount" Data.=: coreCount,
+        "ThreadsPerCore" Data.=: threadsPerCore
       ]

@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,21 +111,21 @@ instance Prelude.NFData EnableVolumeIO where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders EnableVolumeIO where
+instance Data.ToHeaders EnableVolumeIO where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath EnableVolumeIO where
+instance Data.ToPath EnableVolumeIO where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EnableVolumeIO where
+instance Data.ToQuery EnableVolumeIO where
   toQuery EnableVolumeIO' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("EnableVolumeIO" :: Prelude.ByteString),
+          Data.=: ("EnableVolumeIO" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "VolumeId" Core.=: volumeId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "VolumeId" Data.=: volumeId
       ]
 
 -- | /See:/ 'newEnableVolumeIOResponse' smart constructor.

@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -215,7 +216,7 @@ instance Core.AWSRequest ModifyInstancePlacement where
     Response.receiveXML
       ( \s h x ->
           ModifyInstancePlacementResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -241,27 +242,27 @@ instance Prelude.NFData ModifyInstancePlacement where
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ModifyInstancePlacement where
+instance Data.ToHeaders ModifyInstancePlacement where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyInstancePlacement where
+instance Data.ToPath ModifyInstancePlacement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyInstancePlacement where
+instance Data.ToQuery ModifyInstancePlacement where
   toQuery ModifyInstancePlacement' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyInstancePlacement" :: Prelude.ByteString),
+          Data.=: ("ModifyInstancePlacement" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "PartitionNumber" Core.=: partitionNumber,
-        "HostResourceGroupArn" Core.=: hostResourceGroupArn,
-        "HostId" Core.=: hostId,
-        "GroupName" Core.=: groupName,
-        "Affinity" Core.=: affinity,
-        "Tenancy" Core.=: tenancy,
-        "GroupId" Core.=: groupId,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "PartitionNumber" Data.=: partitionNumber,
+        "HostResourceGroupArn" Data.=: hostResourceGroupArn,
+        "HostId" Data.=: hostId,
+        "GroupName" Data.=: groupName,
+        "Affinity" Data.=: affinity,
+        "Tenancy" Data.=: tenancy,
+        "GroupId" Data.=: groupId,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newModifyInstancePlacementResponse' smart constructor.

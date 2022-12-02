@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EfaInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newEfaInfo =
 efaInfo_maximumEfaInterfaces :: Lens.Lens' EfaInfo (Prelude.Maybe Prelude.Int)
 efaInfo_maximumEfaInterfaces = Lens.lens (\EfaInfo' {maximumEfaInterfaces} -> maximumEfaInterfaces) (\s@EfaInfo' {} a -> s {maximumEfaInterfaces = a} :: EfaInfo)
 
-instance Core.FromXML EfaInfo where
+instance Data.FromXML EfaInfo where
   parseXML x =
     EfaInfo'
-      Prelude.<$> (x Core..@? "maximumEfaInterfaces")
+      Prelude.<$> (x Data..@? "maximumEfaInterfaces")
 
 instance Prelude.Hashable EfaInfo where
   hashWithSalt _salt EfaInfo' {..} =

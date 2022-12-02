@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayPolicyTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayPolicyTableState
@@ -39,7 +40,7 @@ data TransitGatewayPolicyTable = TransitGatewayPolicyTable'
     -- | The state of the transit gateway policy table
     state :: Prelude.Maybe TransitGatewayPolicyTableState,
     -- | The timestamp when the transit gateway policy table was created.
-    creationTime :: Prelude.Maybe Core.ISO8601
+    creationTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,18 +90,18 @@ transitGatewayPolicyTable_state = Lens.lens (\TransitGatewayPolicyTable' {state}
 
 -- | The timestamp when the transit gateway policy table was created.
 transitGatewayPolicyTable_creationTime :: Lens.Lens' TransitGatewayPolicyTable (Prelude.Maybe Prelude.UTCTime)
-transitGatewayPolicyTable_creationTime = Lens.lens (\TransitGatewayPolicyTable' {creationTime} -> creationTime) (\s@TransitGatewayPolicyTable' {} a -> s {creationTime = a} :: TransitGatewayPolicyTable) Prelude.. Lens.mapping Core._Time
+transitGatewayPolicyTable_creationTime = Lens.lens (\TransitGatewayPolicyTable' {creationTime} -> creationTime) (\s@TransitGatewayPolicyTable' {} a -> s {creationTime = a} :: TransitGatewayPolicyTable) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML TransitGatewayPolicyTable where
+instance Data.FromXML TransitGatewayPolicyTable where
   parseXML x =
     TransitGatewayPolicyTable'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "transitGatewayPolicyTableId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "transitGatewayPolicyTableId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "creationTime")
 
 instance Prelude.Hashable TransitGatewayPolicyTable where
   hashWithSalt _salt TransitGatewayPolicyTable' {..} =

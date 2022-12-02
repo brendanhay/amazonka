@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayAttachmentBgpConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BgpStatus
 import qualified Amazonka.Prelude as Prelude
@@ -93,16 +94,16 @@ transitGatewayAttachmentBgpConfiguration_bgpStatus :: Lens.Lens' TransitGatewayA
 transitGatewayAttachmentBgpConfiguration_bgpStatus = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {bgpStatus} -> bgpStatus) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {bgpStatus = a} :: TransitGatewayAttachmentBgpConfiguration)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayAttachmentBgpConfiguration
   where
   parseXML x =
     TransitGatewayAttachmentBgpConfiguration'
-      Prelude.<$> (x Core..@? "transitGatewayAsn")
-        Prelude.<*> (x Core..@? "transitGatewayAddress")
-        Prelude.<*> (x Core..@? "peerAsn")
-        Prelude.<*> (x Core..@? "peerAddress")
-        Prelude.<*> (x Core..@? "bgpStatus")
+      Prelude.<$> (x Data..@? "transitGatewayAsn")
+        Prelude.<*> (x Data..@? "transitGatewayAddress")
+        Prelude.<*> (x Data..@? "peerAsn")
+        Prelude.<*> (x Data..@? "peerAddress")
+        Prelude.<*> (x Data..@? "bgpStatus")
 
 instance
   Prelude.Hashable

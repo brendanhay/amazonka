@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Phase1IntegrityAlgorithmsListValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,12 +56,12 @@ phase1IntegrityAlgorithmsListValue_value :: Lens.Lens' Phase1IntegrityAlgorithms
 phase1IntegrityAlgorithmsListValue_value = Lens.lens (\Phase1IntegrityAlgorithmsListValue' {value} -> value) (\s@Phase1IntegrityAlgorithmsListValue' {} a -> s {value = a} :: Phase1IntegrityAlgorithmsListValue)
 
 instance
-  Core.FromXML
+  Data.FromXML
     Phase1IntegrityAlgorithmsListValue
   where
   parseXML x =
     Phase1IntegrityAlgorithmsListValue'
-      Prelude.<$> (x Core..@? "value")
+      Prelude.<$> (x Data..@? "value")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AnalysisComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,12 +72,12 @@ analysisComponent_arn = Lens.lens (\AnalysisComponent' {arn} -> arn) (\s@Analysi
 analysisComponent_id :: Lens.Lens' AnalysisComponent (Prelude.Maybe Prelude.Text)
 analysisComponent_id = Lens.lens (\AnalysisComponent' {id} -> id) (\s@AnalysisComponent' {} a -> s {id = a} :: AnalysisComponent)
 
-instance Core.FromXML AnalysisComponent where
+instance Data.FromXML AnalysisComponent where
   parseXML x =
     AnalysisComponent'
-      Prelude.<$> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "arn")
-      Prelude.<*> (x Core..@? "id")
+      Prelude.<$> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "arn")
+      Prelude.<*> (x Data..@? "id")
 
 instance Prelude.Hashable AnalysisComponent where
   hashWithSalt _salt AnalysisComponent' {..} =

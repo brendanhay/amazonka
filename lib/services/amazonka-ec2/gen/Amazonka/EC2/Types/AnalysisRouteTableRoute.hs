@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AnalysisRouteTableRoute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -186,20 +187,20 @@ analysisRouteTableRoute_gatewayId = Lens.lens (\AnalysisRouteTableRoute' {gatewa
 analysisRouteTableRoute_origin :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_origin = Lens.lens (\AnalysisRouteTableRoute' {origin} -> origin) (\s@AnalysisRouteTableRoute' {} a -> s {origin = a} :: AnalysisRouteTableRoute)
 
-instance Core.FromXML AnalysisRouteTableRoute where
+instance Data.FromXML AnalysisRouteTableRoute where
   parseXML x =
     AnalysisRouteTableRoute'
-      Prelude.<$> (x Core..@? "destinationPrefixListId")
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "destinationCidr")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "natGatewayId")
-      Prelude.<*> (x Core..@? "vpcPeeringConnectionId")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "egressOnlyInternetGatewayId")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "gatewayId")
-      Prelude.<*> (x Core..@? "origin")
+      Prelude.<$> (x Data..@? "destinationPrefixListId")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "destinationCidr")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "natGatewayId")
+      Prelude.<*> (x Data..@? "vpcPeeringConnectionId")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "egressOnlyInternetGatewayId")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "gatewayId")
+      Prelude.<*> (x Data..@? "origin")
 
 instance Prelude.Hashable AnalysisRouteTableRoute where
   hashWithSalt _salt AnalysisRouteTableRoute' {..} =

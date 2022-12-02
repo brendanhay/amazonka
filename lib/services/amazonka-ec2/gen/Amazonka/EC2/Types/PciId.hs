@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PciId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,13 +82,13 @@ pciId_subsystemId = Lens.lens (\PciId' {subsystemId} -> subsystemId) (\s@PciId' 
 pciId_vendorId :: Lens.Lens' PciId (Prelude.Maybe Prelude.Text)
 pciId_vendorId = Lens.lens (\PciId' {vendorId} -> vendorId) (\s@PciId' {} a -> s {vendorId = a} :: PciId)
 
-instance Core.FromXML PciId where
+instance Data.FromXML PciId where
   parseXML x =
     PciId'
-      Prelude.<$> (x Core..@? "DeviceId")
-      Prelude.<*> (x Core..@? "SubsystemVendorId")
-      Prelude.<*> (x Core..@? "SubsystemId")
-      Prelude.<*> (x Core..@? "VendorId")
+      Prelude.<$> (x Data..@? "DeviceId")
+      Prelude.<*> (x Data..@? "SubsystemVendorId")
+      Prelude.<*> (x Data..@? "SubsystemId")
+      Prelude.<*> (x Data..@? "VendorId")
 
 instance Prelude.Hashable PciId where
   hashWithSalt _salt PciId' {..} =

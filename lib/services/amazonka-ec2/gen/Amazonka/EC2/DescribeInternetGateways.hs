@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -233,10 +234,10 @@ instance Core.AWSRequest DescribeInternetGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeInternetGatewaysResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "internetGatewaySet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "internetGatewaySet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -257,26 +258,26 @@ instance Prelude.NFData DescribeInternetGateways where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf internetGatewayIds
 
-instance Core.ToHeaders DescribeInternetGateways where
+instance Data.ToHeaders DescribeInternetGateways where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeInternetGateways where
+instance Data.ToPath DescribeInternetGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInternetGateways where
+instance Data.ToQuery DescribeInternetGateways where
   toQuery DescribeInternetGateways' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeInternetGateways" :: Prelude.ByteString),
+          Data.=: ("DescribeInternetGateways" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        Core.toQuery
-          ( Core.toQueryList "InternetGatewayId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        Data.toQuery
+          ( Data.toQueryList "InternetGatewayId"
               Prelude.<$> internetGatewayIds
           )
       ]

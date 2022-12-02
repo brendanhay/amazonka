@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ instance Core.AWSRequest DeleteClientVpnRoute where
     Response.receiveXML
       ( \s h x ->
           DeleteClientVpnRouteResponse'
-            Prelude.<$> (x Core..@? "status")
+            Prelude.<$> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,23 +152,23 @@ instance Prelude.NFData DeleteClientVpnRoute where
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
       `Prelude.seq` Prelude.rnf destinationCidrBlock
 
-instance Core.ToHeaders DeleteClientVpnRoute where
+instance Data.ToHeaders DeleteClientVpnRoute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteClientVpnRoute where
+instance Data.ToPath DeleteClientVpnRoute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteClientVpnRoute where
+instance Data.ToQuery DeleteClientVpnRoute where
   toQuery DeleteClientVpnRoute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteClientVpnRoute" :: Prelude.ByteString),
+          Data.=: ("DeleteClientVpnRoute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "TargetVpcSubnetId" Core.=: targetVpcSubnetId,
-        "DryRun" Core.=: dryRun,
-        "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "TargetVpcSubnetId" Data.=: targetVpcSubnetId,
+        "DryRun" Data.=: dryRun,
+        "ClientVpnEndpointId" Data.=: clientVpnEndpointId,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock
       ]
 
 -- | /See:/ 'newDeleteClientVpnRouteResponse' smart constructor.

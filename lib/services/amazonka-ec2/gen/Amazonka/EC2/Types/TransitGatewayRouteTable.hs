@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayRouteTable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayRouteTableState
@@ -43,7 +44,7 @@ data TransitGatewayRouteTable = TransitGatewayRouteTable'
     -- transit gateway.
     defaultPropagationRouteTable :: Prelude.Maybe Prelude.Bool,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the transit gateway route table.
     transitGatewayRouteTableId :: Prelude.Maybe Prelude.Text
   }
@@ -109,24 +110,24 @@ transitGatewayRouteTable_defaultPropagationRouteTable = Lens.lens (\TransitGatew
 
 -- | The creation time.
 transitGatewayRouteTable_creationTime :: Lens.Lens' TransitGatewayRouteTable (Prelude.Maybe Prelude.UTCTime)
-transitGatewayRouteTable_creationTime = Lens.lens (\TransitGatewayRouteTable' {creationTime} -> creationTime) (\s@TransitGatewayRouteTable' {} a -> s {creationTime = a} :: TransitGatewayRouteTable) Prelude.. Lens.mapping Core._Time
+transitGatewayRouteTable_creationTime = Lens.lens (\TransitGatewayRouteTable' {creationTime} -> creationTime) (\s@TransitGatewayRouteTable' {} a -> s {creationTime = a} :: TransitGatewayRouteTable) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the transit gateway route table.
 transitGatewayRouteTable_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayRouteTable (Prelude.Maybe Prelude.Text)
 transitGatewayRouteTable_transitGatewayRouteTableId = Lens.lens (\TransitGatewayRouteTable' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayRouteTable' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayRouteTable)
 
-instance Core.FromXML TransitGatewayRouteTable where
+instance Data.FromXML TransitGatewayRouteTable where
   parseXML x =
     TransitGatewayRouteTable'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "defaultAssociationRouteTable")
-      Prelude.<*> (x Core..@? "defaultPropagationRouteTable")
-      Prelude.<*> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "transitGatewayRouteTableId")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "defaultAssociationRouteTable")
+      Prelude.<*> (x Data..@? "defaultPropagationRouteTable")
+      Prelude.<*> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "transitGatewayRouteTableId")
 
 instance Prelude.Hashable TransitGatewayRouteTable where
   hashWithSalt _salt TransitGatewayRouteTable' {..} =

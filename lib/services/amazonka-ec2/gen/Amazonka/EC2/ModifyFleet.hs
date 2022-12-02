@@ -76,6 +76,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,7 +180,7 @@ instance Core.AWSRequest ModifyFleet where
     Response.receiveXML
       ( \s h x ->
           ModifyFleetResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,30 +203,30 @@ instance Prelude.NFData ModifyFleet where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf fleetId
 
-instance Core.ToHeaders ModifyFleet where
+instance Data.ToHeaders ModifyFleet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyFleet where
+instance Data.ToPath ModifyFleet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyFleet where
+instance Data.ToQuery ModifyFleet where
   toQuery ModifyFleet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyFleet" :: Prelude.ByteString),
+          Data.=: ("ModifyFleet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ExcessCapacityTerminationPolicy"
-          Core.=: excessCapacityTerminationPolicy,
+          Data.=: excessCapacityTerminationPolicy,
         "TargetCapacitySpecification"
-          Core.=: targetCapacitySpecification,
-        "Context" Core.=: context,
-        Core.toQuery
-          ( Core.toQueryList "LaunchTemplateConfig"
+          Data.=: targetCapacitySpecification,
+        "Context" Data.=: context,
+        Data.toQuery
+          ( Data.toQueryList "LaunchTemplateConfig"
               Prelude.<$> launchTemplateConfigs
           ),
-        "DryRun" Core.=: dryRun,
-        "FleetId" Core.=: fleetId
+        "DryRun" Data.=: dryRun,
+        "FleetId" Data.=: fleetId
       ]
 
 -- | /See:/ 'newModifyFleetResponse' smart constructor.

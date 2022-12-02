@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayConnect where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayAttachmentState
@@ -42,7 +43,7 @@ data TransitGatewayConnect = TransitGatewayConnect'
     -- | The Connect attachment options.
     options :: Prelude.Maybe TransitGatewayConnectOptions,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the attachment from which the Connect attachment was created.
     transportTransitGatewayAttachmentId :: Prelude.Maybe Prelude.Text
   }
@@ -105,24 +106,24 @@ transitGatewayConnect_options = Lens.lens (\TransitGatewayConnect' {options} -> 
 
 -- | The creation time.
 transitGatewayConnect_creationTime :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe Prelude.UTCTime)
-transitGatewayConnect_creationTime = Lens.lens (\TransitGatewayConnect' {creationTime} -> creationTime) (\s@TransitGatewayConnect' {} a -> s {creationTime = a} :: TransitGatewayConnect) Prelude.. Lens.mapping Core._Time
+transitGatewayConnect_creationTime = Lens.lens (\TransitGatewayConnect' {creationTime} -> creationTime) (\s@TransitGatewayConnect' {} a -> s {creationTime = a} :: TransitGatewayConnect) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the attachment from which the Connect attachment was created.
 transitGatewayConnect_transportTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayConnect (Prelude.Maybe Prelude.Text)
 transitGatewayConnect_transportTransitGatewayAttachmentId = Lens.lens (\TransitGatewayConnect' {transportTransitGatewayAttachmentId} -> transportTransitGatewayAttachmentId) (\s@TransitGatewayConnect' {} a -> s {transportTransitGatewayAttachmentId = a} :: TransitGatewayConnect)
 
-instance Core.FromXML TransitGatewayConnect where
+instance Data.FromXML TransitGatewayConnect where
   parseXML x =
     TransitGatewayConnect'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "options")
-      Prelude.<*> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "transportTransitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "options")
+      Prelude.<*> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "transportTransitGatewayAttachmentId")
 
 instance Prelude.Hashable TransitGatewayConnect where
   hashWithSalt _salt TransitGatewayConnect' {..} =

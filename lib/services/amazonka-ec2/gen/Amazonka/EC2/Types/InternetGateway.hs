@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InternetGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InternetGatewayAttachment
 import Amazonka.EC2.Types.Tag
@@ -87,17 +88,17 @@ internetGateway_attachments = Lens.lens (\InternetGateway' {attachments} -> atta
 internetGateway_internetGatewayId :: Lens.Lens' InternetGateway Prelude.Text
 internetGateway_internetGatewayId = Lens.lens (\InternetGateway' {internetGatewayId} -> internetGatewayId) (\s@InternetGateway' {} a -> s {internetGatewayId = a} :: InternetGateway)
 
-instance Core.FromXML InternetGateway where
+instance Data.FromXML InternetGateway where
   parseXML x =
     InternetGateway'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> ( x Core..@? "attachmentSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> ( x Data..@? "attachmentSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@ "internetGatewayId")
+      Prelude.<*> (x Data..@ "internetGatewayId")
 
 instance Prelude.Hashable InternetGateway where
   hashWithSalt _salt InternetGateway' {..} =

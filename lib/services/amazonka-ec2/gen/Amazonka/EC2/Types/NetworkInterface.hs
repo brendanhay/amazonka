@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.GroupIdentifier
 import Amazonka.EC2.Types.Ipv4PrefixSpecification
@@ -315,49 +316,49 @@ networkInterface_ipv6Addresses = Lens.lens (\NetworkInterface' {ipv6Addresses} -
 networkInterface_requesterId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_requesterId = Lens.lens (\NetworkInterface' {requesterId} -> requesterId) (\s@NetworkInterface' {} a -> s {requesterId = a} :: NetworkInterface)
 
-instance Core.FromXML NetworkInterface where
+instance Data.FromXML NetworkInterface where
   parseXML x =
     NetworkInterface'
-      Prelude.<$> (x Core..@? "interfaceType")
-      Prelude.<*> (x Core..@? "attachment")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "ipv6Native")
-      Prelude.<*> (x Core..@? "sourceDestCheck")
-      Prelude.<*> ( x Core..@? "privateIpAddressesSet"
+      Prelude.<$> (x Data..@? "interfaceType")
+      Prelude.<*> (x Data..@? "attachment")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "ipv6Native")
+      Prelude.<*> (x Data..@? "sourceDestCheck")
+      Prelude.<*> ( x Data..@? "privateIpAddressesSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "requesterManaged")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "association")
-      Prelude.<*> (x Core..@? "ipv6Address")
-      Prelude.<*> (x Core..@? "macAddress")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "denyAllIgwTraffic")
-      Prelude.<*> ( x Core..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "requesterManaged")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "association")
+      Prelude.<*> (x Data..@? "ipv6Address")
+      Prelude.<*> (x Data..@? "macAddress")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "denyAllIgwTraffic")
+      Prelude.<*> ( x Data..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "privateIpAddress")
-      Prelude.<*> (x Core..@? "privateDnsName")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "privateIpAddress")
+      Prelude.<*> (x Data..@? "privateDnsName")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ipv6AddressesSet"
+      Prelude.<*> ( x Data..@? "ipv6AddressesSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "requesterId")
+      Prelude.<*> (x Data..@? "requesterId")
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =

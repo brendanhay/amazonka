@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplatePlacement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tenancy
 import qualified Amazonka.Prelude as Prelude
@@ -136,18 +137,18 @@ launchTemplatePlacement_tenancy = Lens.lens (\LaunchTemplatePlacement' {tenancy}
 launchTemplatePlacement_groupId :: Lens.Lens' LaunchTemplatePlacement (Prelude.Maybe Prelude.Text)
 launchTemplatePlacement_groupId = Lens.lens (\LaunchTemplatePlacement' {groupId} -> groupId) (\s@LaunchTemplatePlacement' {} a -> s {groupId = a} :: LaunchTemplatePlacement)
 
-instance Core.FromXML LaunchTemplatePlacement where
+instance Data.FromXML LaunchTemplatePlacement where
   parseXML x =
     LaunchTemplatePlacement'
-      Prelude.<$> (x Core..@? "spreadDomain")
-      Prelude.<*> (x Core..@? "partitionNumber")
-      Prelude.<*> (x Core..@? "hostResourceGroupArn")
-      Prelude.<*> (x Core..@? "hostId")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "groupName")
-      Prelude.<*> (x Core..@? "affinity")
-      Prelude.<*> (x Core..@? "tenancy")
-      Prelude.<*> (x Core..@? "groupId")
+      Prelude.<$> (x Data..@? "spreadDomain")
+      Prelude.<*> (x Data..@? "partitionNumber")
+      Prelude.<*> (x Data..@? "hostResourceGroupArn")
+      Prelude.<*> (x Data..@? "hostId")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> (x Data..@? "affinity")
+      Prelude.<*> (x Data..@? "tenancy")
+      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable LaunchTemplatePlacement where
   hashWithSalt _salt LaunchTemplatePlacement' {..} =

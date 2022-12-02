@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DiskImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DiskImageDetail
 import Amazonka.EC2.Types.VolumeDetail
@@ -85,10 +86,10 @@ instance Prelude.NFData DiskImage where
       `Prelude.seq` Prelude.rnf volume
       `Prelude.seq` Prelude.rnf image
 
-instance Core.ToQuery DiskImage where
+instance Data.ToQuery DiskImage where
   toQuery DiskImage' {..} =
     Prelude.mconcat
-      [ "Description" Core.=: description,
-        "Volume" Core.=: volume,
-        "Image" Core.=: image
+      [ "Description" Data.=: description,
+        "Volume" Data.=: volume,
+        "Image" Data.=: image
       ]

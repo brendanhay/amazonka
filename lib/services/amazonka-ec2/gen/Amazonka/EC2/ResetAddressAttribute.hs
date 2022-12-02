@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,7 +118,7 @@ instance Core.AWSRequest ResetAddressAttribute where
     Response.receiveXML
       ( \s h x ->
           ResetAddressAttributeResponse'
-            Prelude.<$> (x Core..@? "address")
+            Prelude.<$> (x Data..@? "address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,22 +134,22 @@ instance Prelude.NFData ResetAddressAttribute where
       `Prelude.seq` Prelude.rnf allocationId
       `Prelude.seq` Prelude.rnf attribute
 
-instance Core.ToHeaders ResetAddressAttribute where
+instance Data.ToHeaders ResetAddressAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetAddressAttribute where
+instance Data.ToPath ResetAddressAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetAddressAttribute where
+instance Data.ToQuery ResetAddressAttribute where
   toQuery ResetAddressAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetAddressAttribute" :: Prelude.ByteString),
+          Data.=: ("ResetAddressAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "AllocationId" Core.=: allocationId,
-        "Attribute" Core.=: attribute
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "AllocationId" Data.=: allocationId,
+        "Attribute" Data.=: attribute
       ]
 
 -- | /See:/ 'newResetAddressAttributeResponse' smart constructor.

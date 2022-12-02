@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeStatusItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VolumeStatusAction
 import Amazonka.EC2.Types.VolumeStatusAttachmentStatus
@@ -111,22 +112,22 @@ volumeStatusItem_volumeId = Lens.lens (\VolumeStatusItem' {volumeId} -> volumeId
 volumeStatusItem_actions :: Lens.Lens' VolumeStatusItem (Prelude.Maybe [VolumeStatusAction])
 volumeStatusItem_actions = Lens.lens (\VolumeStatusItem' {actions} -> actions) (\s@VolumeStatusItem' {} a -> s {actions = a} :: VolumeStatusItem) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML VolumeStatusItem where
+instance Data.FromXML VolumeStatusItem where
   parseXML x =
     VolumeStatusItem'
-      Prelude.<$> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "volumeStatus")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> ( x Core..@? "attachmentStatuses"
+      Prelude.<$> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "volumeStatus")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> ( x Data..@? "attachmentStatuses"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "eventsSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "eventsSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "volumeId")
-      Prelude.<*> ( x Core..@? "actionsSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "volumeId")
+      Prelude.<*> ( x Data..@? "actionsSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable VolumeStatusItem where

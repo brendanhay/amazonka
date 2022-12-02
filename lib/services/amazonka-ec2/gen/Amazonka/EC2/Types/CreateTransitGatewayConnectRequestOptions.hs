@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CreateTransitGatewayConnectRequestOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ProtocolValue
 import qualified Amazonka.Prelude as Prelude
@@ -75,9 +76,9 @@ instance
     Prelude.rnf protocol
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayConnectRequestOptions
   where
   toQuery
     CreateTransitGatewayConnectRequestOptions' {..} =
-      Prelude.mconcat ["Protocol" Core.=: protocol]
+      Prelude.mconcat ["Protocol" Data.=: protocol]

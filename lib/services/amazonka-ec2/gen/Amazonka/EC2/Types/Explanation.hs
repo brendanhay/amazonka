@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Explanation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AnalysisAclRule
 import Amazonka.EC2.Types.AnalysisComponent
@@ -525,77 +526,77 @@ explanation_component = Lens.lens (\Explanation' {component} -> component) (\s@E
 explanation_securityGroupRule :: Lens.Lens' Explanation (Prelude.Maybe AnalysisSecurityGroupRule)
 explanation_securityGroupRule = Lens.lens (\Explanation' {securityGroupRule} -> securityGroupRule) (\s@Explanation' {} a -> s {securityGroupRule = a} :: Explanation)
 
-instance Core.FromXML Explanation where
+instance Data.FromXML Explanation where
   parseXML x =
     Explanation'
-      Prelude.<$> (x Core..@? "destination")
-      Prelude.<*> (x Core..@? "port")
-      Prelude.<*> (x Core..@? "vpnConnection")
-      Prelude.<*> (x Core..@? "loadBalancerListenerPort")
-      Prelude.<*> (x Core..@? "transitGatewayAttachment")
-      Prelude.<*> (x Core..@? "componentAccount")
-      Prelude.<*> (x Core..@? "missingComponent")
-      Prelude.<*> (x Core..@? "routeTableRoute")
-      Prelude.<*> (x Core..@? "subnetRouteTable")
-      Prelude.<*> (x Core..@? "vpc")
-      Prelude.<*> (x Core..@? "natGateway")
-      Prelude.<*> (x Core..@? "classicLoadBalancerListener")
-      Prelude.<*> (x Core..@? "loadBalancerTargetGroup")
-      Prelude.<*> (x Core..@? "securityGroup")
-      Prelude.<*> (x Core..@? "acl")
-      Prelude.<*> (x Core..@? "routeTable")
-      Prelude.<*> (x Core..@? "internetGateway")
-      Prelude.<*> (x Core..@? "attachedTo")
-      Prelude.<*> ( x Core..@? "availabilityZoneSet"
+      Prelude.<$> (x Data..@? "destination")
+      Prelude.<*> (x Data..@? "port")
+      Prelude.<*> (x Data..@? "vpnConnection")
+      Prelude.<*> (x Data..@? "loadBalancerListenerPort")
+      Prelude.<*> (x Data..@? "transitGatewayAttachment")
+      Prelude.<*> (x Data..@? "componentAccount")
+      Prelude.<*> (x Data..@? "missingComponent")
+      Prelude.<*> (x Data..@? "routeTableRoute")
+      Prelude.<*> (x Data..@? "subnetRouteTable")
+      Prelude.<*> (x Data..@? "vpc")
+      Prelude.<*> (x Data..@? "natGateway")
+      Prelude.<*> (x Data..@? "classicLoadBalancerListener")
+      Prelude.<*> (x Data..@? "loadBalancerTargetGroup")
+      Prelude.<*> (x Data..@? "securityGroup")
+      Prelude.<*> (x Data..@? "acl")
+      Prelude.<*> (x Data..@? "routeTable")
+      Prelude.<*> (x Data..@? "internetGateway")
+      Prelude.<*> (x Data..@? "attachedTo")
+      Prelude.<*> ( x Data..@? "availabilityZoneSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "cidrSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "cidrSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "loadBalancerTarget")
-      Prelude.<*> (x Core..@? "customerGateway")
-      Prelude.<*> (x Core..@? "vpnGateway")
-      Prelude.<*> ( x Core..@? "protocolSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "loadBalancerTarget")
+      Prelude.<*> (x Data..@? "customerGateway")
+      Prelude.<*> (x Data..@? "vpnGateway")
+      Prelude.<*> ( x Data..@? "protocolSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "componentRegion")
-      Prelude.<*> (x Core..@? "loadBalancerArn")
-      Prelude.<*> (x Core..@? "sourceVpc")
-      Prelude.<*> (x Core..@? "ingressRouteTable")
-      Prelude.<*> (x Core..@? "aclRule")
-      Prelude.<*> (x Core..@? "vpcPeeringConnection")
-      Prelude.<*> (x Core..@? "address")
-      Prelude.<*> (x Core..@? "loadBalancerTargetPort")
-      Prelude.<*> ( x Core..@? "securityGroupSet"
+      Prelude.<*> (x Data..@? "componentRegion")
+      Prelude.<*> (x Data..@? "loadBalancerArn")
+      Prelude.<*> (x Data..@? "sourceVpc")
+      Prelude.<*> (x Data..@? "ingressRouteTable")
+      Prelude.<*> (x Data..@? "aclRule")
+      Prelude.<*> (x Data..@? "vpcPeeringConnection")
+      Prelude.<*> (x Data..@? "address")
+      Prelude.<*> (x Data..@? "loadBalancerTargetPort")
+      Prelude.<*> ( x Data..@? "securityGroupSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "transitGateway")
-      Prelude.<*> (x Core..@? "destinationVpc")
-      Prelude.<*> ( x Core..@? "addressSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "transitGateway")
+      Prelude.<*> (x Data..@? "destinationVpc")
+      Prelude.<*> ( x Data..@? "addressSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "prefixList")
-      Prelude.<*> (x Core..@? "elasticLoadBalancerListener")
-      Prelude.<*> (x Core..@? "subnet")
-      Prelude.<*> (x Core..@? "packetField")
-      Prelude.<*> (x Core..@? "explanationCode")
-      Prelude.<*> (x Core..@? "networkInterface")
-      Prelude.<*> (x Core..@? "direction")
-      Prelude.<*> (x Core..@? "transitGatewayRouteTableRoute")
-      Prelude.<*> ( x Core..@? "loadBalancerTargetGroupSet"
+      Prelude.<*> (x Data..@? "prefixList")
+      Prelude.<*> (x Data..@? "elasticLoadBalancerListener")
+      Prelude.<*> (x Data..@? "subnet")
+      Prelude.<*> (x Data..@? "packetField")
+      Prelude.<*> (x Data..@? "explanationCode")
+      Prelude.<*> (x Data..@? "networkInterface")
+      Prelude.<*> (x Data..@? "direction")
+      Prelude.<*> (x Data..@? "transitGatewayRouteTableRoute")
+      Prelude.<*> ( x Data..@? "loadBalancerTargetGroupSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "portRangeSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "portRangeSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcEndpoint")
-      Prelude.<*> (x Core..@? "transitGatewayRouteTable")
-      Prelude.<*> (x Core..@? "component")
-      Prelude.<*> (x Core..@? "securityGroupRule")
+      Prelude.<*> (x Data..@? "vpcEndpoint")
+      Prelude.<*> (x Data..@? "transitGatewayRouteTable")
+      Prelude.<*> (x Data..@? "component")
+      Prelude.<*> (x Data..@? "securityGroupRule")
 
 instance Prelude.Hashable Explanation where
   hashWithSalt _salt Explanation' {..} =

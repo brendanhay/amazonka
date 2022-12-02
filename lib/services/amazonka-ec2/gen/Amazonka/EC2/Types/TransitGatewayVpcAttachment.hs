@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayVpcAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayAttachmentState
@@ -45,7 +46,7 @@ data TransitGatewayVpcAttachment = TransitGatewayVpcAttachment'
     -- | The VPC attachment options.
     options :: Prelude.Maybe TransitGatewayVpcAttachmentOptions,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.ISO8601,
+    creationTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the subnets.
@@ -122,7 +123,7 @@ transitGatewayVpcAttachment_options = Lens.lens (\TransitGatewayVpcAttachment' {
 
 -- | The creation time.
 transitGatewayVpcAttachment_creationTime :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.UTCTime)
-transitGatewayVpcAttachment_creationTime = Lens.lens (\TransitGatewayVpcAttachment' {creationTime} -> creationTime) (\s@TransitGatewayVpcAttachment' {} a -> s {creationTime = a} :: TransitGatewayVpcAttachment) Prelude.. Lens.mapping Core._Time
+transitGatewayVpcAttachment_creationTime = Lens.lens (\TransitGatewayVpcAttachment' {creationTime} -> creationTime) (\s@TransitGatewayVpcAttachment' {} a -> s {creationTime = a} :: TransitGatewayVpcAttachment) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the VPC.
 transitGatewayVpcAttachment_vpcId :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe Prelude.Text)
@@ -132,21 +133,21 @@ transitGatewayVpcAttachment_vpcId = Lens.lens (\TransitGatewayVpcAttachment' {vp
 transitGatewayVpcAttachment_subnetIds :: Lens.Lens' TransitGatewayVpcAttachment (Prelude.Maybe [Prelude.Text])
 transitGatewayVpcAttachment_subnetIds = Lens.lens (\TransitGatewayVpcAttachment' {subnetIds} -> subnetIds) (\s@TransitGatewayVpcAttachment' {} a -> s {subnetIds = a} :: TransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML TransitGatewayVpcAttachment where
+instance Data.FromXML TransitGatewayVpcAttachment where
   parseXML x =
     TransitGatewayVpcAttachment'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "vpcOwnerId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "options")
-      Prelude.<*> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> ( x Core..@? "subnetIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "vpcOwnerId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "options")
+      Prelude.<*> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> ( x Data..@? "subnetIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable TransitGatewayVpcAttachment where

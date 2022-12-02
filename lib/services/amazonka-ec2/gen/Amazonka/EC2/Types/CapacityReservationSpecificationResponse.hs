@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservationSpecificationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationPreference
 import Amazonka.EC2.Types.CapacityReservationTargetResponse
@@ -101,13 +102,13 @@ capacityReservationSpecificationResponse_capacityReservationTarget :: Lens.Lens'
 capacityReservationSpecificationResponse_capacityReservationTarget = Lens.lens (\CapacityReservationSpecificationResponse' {capacityReservationTarget} -> capacityReservationTarget) (\s@CapacityReservationSpecificationResponse' {} a -> s {capacityReservationTarget = a} :: CapacityReservationSpecificationResponse)
 
 instance
-  Core.FromXML
+  Data.FromXML
     CapacityReservationSpecificationResponse
   where
   parseXML x =
     CapacityReservationSpecificationResponse'
-      Prelude.<$> (x Core..@? "capacityReservationPreference")
-        Prelude.<*> (x Core..@? "capacityReservationTarget")
+      Prelude.<$> (x Data..@? "capacityReservationPreference")
+        Prelude.<*> (x Data..@? "capacityReservationTarget")
 
 instance
   Prelude.Hashable

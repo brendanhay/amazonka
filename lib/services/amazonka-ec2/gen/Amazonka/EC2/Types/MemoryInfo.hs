@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.MemoryInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,9 +52,9 @@ newMemoryInfo =
 memoryInfo_sizeInMiB :: Lens.Lens' MemoryInfo (Prelude.Maybe Prelude.Integer)
 memoryInfo_sizeInMiB = Lens.lens (\MemoryInfo' {sizeInMiB} -> sizeInMiB) (\s@MemoryInfo' {} a -> s {sizeInMiB = a} :: MemoryInfo)
 
-instance Core.FromXML MemoryInfo where
+instance Data.FromXML MemoryInfo where
   parseXML x =
-    MemoryInfo' Prelude.<$> (x Core..@? "sizeInMiB")
+    MemoryInfo' Prelude.<$> (x Data..@? "sizeInMiB")
 
 instance Prelude.Hashable MemoryInfo where
   hashWithSalt _salt MemoryInfo' {..} =

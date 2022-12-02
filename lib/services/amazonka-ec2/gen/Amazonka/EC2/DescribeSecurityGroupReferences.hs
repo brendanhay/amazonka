@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,9 +109,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeSecurityGroupReferencesResponse'
-            Prelude.<$> ( x Core..@? "securityGroupReferenceSet"
+            Prelude.<$> ( x Data..@? "securityGroupReferenceSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -134,25 +135,25 @@ instance
       `Prelude.seq` Prelude.rnf groupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeSecurityGroupReferences
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSecurityGroupReferences where
+instance Data.ToPath DescribeSecurityGroupReferences where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSecurityGroupReferences where
+instance Data.ToQuery DescribeSecurityGroupReferences where
   toQuery DescribeSecurityGroupReferences' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeSecurityGroupReferences" ::
+          Data.=: ( "DescribeSecurityGroupReferences" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList "GroupId" groupId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList "GroupId" groupId
       ]
 
 -- | /See:/ 'newDescribeSecurityGroupReferencesResponse' smart constructor.

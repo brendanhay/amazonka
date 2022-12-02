@@ -68,6 +68,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ data RequestSpotInstances = RequestSpotInstances'
     -- The specified start date and time cannot be equal to the current date
     -- and time. You must specify a start date and time that occurs after the
     -- current date and time.
-    validFrom :: Prelude.Maybe Core.ISO8601,
+    validFrom :: Prelude.Maybe Data.ISO8601,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -143,7 +144,7 @@ data RequestSpotInstances = RequestSpotInstances'
     --     instances launch, the request is canceled, or the @ValidUntil@ date
     --     and time is reached. By default, the request is valid for 7 days
     --     from the date the request was created.
-    validUntil :: Prelude.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Data.ISO8601,
     -- | The instance launch group. Launch groups are Spot Instances that launch
     -- together and terminate together.
     --
@@ -334,7 +335,7 @@ requestSpotInstances_availabilityZoneGroup = Lens.lens (\RequestSpotInstances' {
 -- and time. You must specify a start date and time that occurs after the
 -- current date and time.
 requestSpotInstances_validFrom :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.UTCTime)
-requestSpotInstances_validFrom = Lens.lens (\RequestSpotInstances' {validFrom} -> validFrom) (\s@RequestSpotInstances' {} a -> s {validFrom = a} :: RequestSpotInstances) Prelude.. Lens.mapping Core._Time
+requestSpotInstances_validFrom = Lens.lens (\RequestSpotInstances' {validFrom} -> validFrom) (\s@RequestSpotInstances' {} a -> s {validFrom = a} :: RequestSpotInstances) Prelude.. Lens.mapping Data._Time
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -366,7 +367,7 @@ requestSpotInstances_instanceCount = Lens.lens (\RequestSpotInstances' {instance
 --     and time is reached. By default, the request is valid for 7 days
 --     from the date the request was created.
 requestSpotInstances_validUntil :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.UTCTime)
-requestSpotInstances_validUntil = Lens.lens (\RequestSpotInstances' {validUntil} -> validUntil) (\s@RequestSpotInstances' {} a -> s {validUntil = a} :: RequestSpotInstances) Prelude.. Lens.mapping Core._Time
+requestSpotInstances_validUntil = Lens.lens (\RequestSpotInstances' {validUntil} -> validUntil) (\s@RequestSpotInstances' {} a -> s {validUntil = a} :: RequestSpotInstances) Prelude.. Lens.mapping Data._Time
 
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
@@ -407,9 +408,9 @@ instance Core.AWSRequest RequestSpotInstances where
     Response.receiveXML
       ( \s h x ->
           RequestSpotInstancesResponse'
-            Prelude.<$> ( x Core..@? "spotInstanceRequestSet"
+            Prelude.<$> ( x Data..@? "spotInstanceRequestSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -446,37 +447,37 @@ instance Prelude.NFData RequestSpotInstances where
       `Prelude.seq` Prelude.rnf launchSpecification
       `Prelude.seq` Prelude.rnf spotPrice
 
-instance Core.ToHeaders RequestSpotInstances where
+instance Data.ToHeaders RequestSpotInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RequestSpotInstances where
+instance Data.ToPath RequestSpotInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RequestSpotInstances where
+instance Data.ToQuery RequestSpotInstances where
   toQuery RequestSpotInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RequestSpotInstances" :: Prelude.ByteString),
+          Data.=: ("RequestSpotInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "Type" Core.=: type',
-        "BlockDurationMinutes" Core.=: blockDurationMinutes,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "Type" Data.=: type',
+        "BlockDurationMinutes" Data.=: blockDurationMinutes,
         "AvailabilityZoneGroup"
-          Core.=: availabilityZoneGroup,
-        "ValidFrom" Core.=: validFrom,
-        "DryRun" Core.=: dryRun,
+          Data.=: availabilityZoneGroup,
+        "ValidFrom" Data.=: validFrom,
+        "DryRun" Data.=: dryRun,
         "InstanceInterruptionBehavior"
-          Core.=: instanceInterruptionBehavior,
-        "InstanceCount" Core.=: instanceCount,
-        "ValidUntil" Core.=: validUntil,
-        "LaunchGroup" Core.=: launchGroup,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: instanceInterruptionBehavior,
+        "InstanceCount" Data.=: instanceCount,
+        "ValidUntil" Data.=: validUntil,
+        "LaunchGroup" Data.=: launchGroup,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "LaunchSpecification" Core.=: launchSpecification,
-        "SpotPrice" Core.=: spotPrice
+        "LaunchSpecification" Data.=: launchSpecification,
+        "SpotPrice" Data.=: spotPrice
       ]
 
 -- | Contains the output of RequestSpotInstances.

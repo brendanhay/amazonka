@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CapacityReservationFleetCancellationState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CapacityReservationFleetState
 import qualified Amazonka.Prelude as Prelude
@@ -79,14 +80,14 @@ capacityReservationFleetCancellationState_previousFleetState :: Lens.Lens' Capac
 capacityReservationFleetCancellationState_previousFleetState = Lens.lens (\CapacityReservationFleetCancellationState' {previousFleetState} -> previousFleetState) (\s@CapacityReservationFleetCancellationState' {} a -> s {previousFleetState = a} :: CapacityReservationFleetCancellationState)
 
 instance
-  Core.FromXML
+  Data.FromXML
     CapacityReservationFleetCancellationState
   where
   parseXML x =
     CapacityReservationFleetCancellationState'
-      Prelude.<$> (x Core..@? "capacityReservationFleetId")
-        Prelude.<*> (x Core..@? "currentFleetState")
-        Prelude.<*> (x Core..@? "previousFleetState")
+      Prelude.<$> (x Data..@? "capacityReservationFleetId")
+        Prelude.<*> (x Data..@? "currentFleetState")
+        Prelude.<*> (x Data..@? "previousFleetState")
 
 instance
   Prelude.Hashable

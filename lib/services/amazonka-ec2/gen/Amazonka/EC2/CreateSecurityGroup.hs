@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -211,11 +212,11 @@ instance Core.AWSRequest CreateSecurityGroup where
     Response.receiveXML
       ( \s h x ->
           CreateSecurityGroupResponse'
-            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "groupId")
+            Prelude.<*> (x Data..@ "groupId")
       )
 
 instance Prelude.Hashable CreateSecurityGroup where
@@ -234,27 +235,27 @@ instance Prelude.NFData CreateSecurityGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf groupName
 
-instance Core.ToHeaders CreateSecurityGroup where
+instance Data.ToHeaders CreateSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSecurityGroup where
+instance Data.ToPath CreateSecurityGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSecurityGroup where
+instance Data.ToQuery CreateSecurityGroup where
   toQuery CreateSecurityGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSecurityGroup" :: Prelude.ByteString),
+          Data.=: ("CreateSecurityGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "VpcId" Core.=: vpcId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "VpcId" Data.=: vpcId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "GroupDescription" Core.=: description,
-        "GroupName" Core.=: groupName
+        "GroupDescription" Data.=: description,
+        "GroupName" Data.=: groupName
       ]
 
 -- | /See:/ 'newCreateSecurityGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TrafficMirrorPortRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,11 +69,11 @@ trafficMirrorPortRange_toPort = Lens.lens (\TrafficMirrorPortRange' {toPort} -> 
 trafficMirrorPortRange_fromPort :: Lens.Lens' TrafficMirrorPortRange (Prelude.Maybe Prelude.Int)
 trafficMirrorPortRange_fromPort = Lens.lens (\TrafficMirrorPortRange' {fromPort} -> fromPort) (\s@TrafficMirrorPortRange' {} a -> s {fromPort = a} :: TrafficMirrorPortRange)
 
-instance Core.FromXML TrafficMirrorPortRange where
+instance Data.FromXML TrafficMirrorPortRange where
   parseXML x =
     TrafficMirrorPortRange'
-      Prelude.<$> (x Core..@? "toPort")
-      Prelude.<*> (x Core..@? "fromPort")
+      Prelude.<$> (x Data..@? "toPort")
+      Prelude.<*> (x Data..@? "fromPort")
 
 instance Prelude.Hashable TrafficMirrorPortRange where
   hashWithSalt _salt TrafficMirrorPortRange' {..} =

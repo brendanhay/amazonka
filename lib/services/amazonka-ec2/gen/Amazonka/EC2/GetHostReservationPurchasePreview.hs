@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,11 +108,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetHostReservationPurchasePreviewResponse'
-            Prelude.<$> (x Core..@? "totalHourlyPrice")
-              Prelude.<*> (x Core..@? "totalUpfrontPrice")
-              Prelude.<*> (x Core..@? "currencyCode")
-              Prelude.<*> ( x Core..@? "purchase" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "totalHourlyPrice")
+              Prelude.<*> (x Data..@? "totalUpfrontPrice")
+              Prelude.<*> (x Data..@? "currencyCode")
+              Prelude.<*> ( x Data..@? "purchase" Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -135,31 +136,31 @@ instance
       `Prelude.seq` Prelude.rnf offeringId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetHostReservationPurchasePreview
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetHostReservationPurchasePreview
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetHostReservationPurchasePreview
   where
   toQuery GetHostReservationPurchasePreview' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetHostReservationPurchasePreview" ::
+          Data.=: ( "GetHostReservationPurchasePreview" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQueryList "HostIdSet" hostIdSet,
-        "OfferingId" Core.=: offeringId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQueryList "HostIdSet" hostIdSet,
+        "OfferingId" Data.=: offeringId
       ]
 
 -- | /See:/ 'newGetHostReservationPurchasePreviewResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClassicLoadBalancer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newClassicLoadBalancer =
 classicLoadBalancer_name :: Lens.Lens' ClassicLoadBalancer (Prelude.Maybe Prelude.Text)
 classicLoadBalancer_name = Lens.lens (\ClassicLoadBalancer' {name} -> name) (\s@ClassicLoadBalancer' {} a -> s {name = a} :: ClassicLoadBalancer)
 
-instance Core.FromXML ClassicLoadBalancer where
+instance Data.FromXML ClassicLoadBalancer where
   parseXML x =
     ClassicLoadBalancer'
-      Prelude.<$> (x Core..@? "name")
+      Prelude.<$> (x Data..@? "name")
 
 instance Prelude.Hashable ClassicLoadBalancer where
   hashWithSalt _salt ClassicLoadBalancer' {..} =
@@ -63,6 +64,6 @@ instance Prelude.Hashable ClassicLoadBalancer where
 instance Prelude.NFData ClassicLoadBalancer where
   rnf ClassicLoadBalancer' {..} = Prelude.rnf name
 
-instance Core.ToQuery ClassicLoadBalancer where
+instance Data.ToQuery ClassicLoadBalancer where
   toQuery ClassicLoadBalancer' {..} =
-    Prelude.mconcat ["Name" Core.=: name]
+    Prelude.mconcat ["Name" Data.=: name]

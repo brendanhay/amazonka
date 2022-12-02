@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FpgaDeviceInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FpgaDeviceMemoryInfo
 import qualified Amazonka.Prelude as Prelude
@@ -81,13 +82,13 @@ fpgaDeviceInfo_count = Lens.lens (\FpgaDeviceInfo' {count} -> count) (\s@FpgaDev
 fpgaDeviceInfo_manufacturer :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Text)
 fpgaDeviceInfo_manufacturer = Lens.lens (\FpgaDeviceInfo' {manufacturer} -> manufacturer) (\s@FpgaDeviceInfo' {} a -> s {manufacturer = a} :: FpgaDeviceInfo)
 
-instance Core.FromXML FpgaDeviceInfo where
+instance Data.FromXML FpgaDeviceInfo where
   parseXML x =
     FpgaDeviceInfo'
-      Prelude.<$> (x Core..@? "memoryInfo")
-      Prelude.<*> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "count")
-      Prelude.<*> (x Core..@? "manufacturer")
+      Prelude.<$> (x Data..@? "memoryInfo")
+      Prelude.<*> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "count")
+      Prelude.<*> (x Data..@? "manufacturer")
 
 instance Prelude.Hashable FpgaDeviceInfo where
   hashWithSalt _salt FpgaDeviceInfo' {..} =

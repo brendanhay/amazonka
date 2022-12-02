@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Ipv4PrefixSpecificationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,10 +56,10 @@ newIpv4PrefixSpecificationResponse =
 ipv4PrefixSpecificationResponse_ipv4Prefix :: Lens.Lens' Ipv4PrefixSpecificationResponse (Prelude.Maybe Prelude.Text)
 ipv4PrefixSpecificationResponse_ipv4Prefix = Lens.lens (\Ipv4PrefixSpecificationResponse' {ipv4Prefix} -> ipv4Prefix) (\s@Ipv4PrefixSpecificationResponse' {} a -> s {ipv4Prefix = a} :: Ipv4PrefixSpecificationResponse)
 
-instance Core.FromXML Ipv4PrefixSpecificationResponse where
+instance Data.FromXML Ipv4PrefixSpecificationResponse where
   parseXML x =
     Ipv4PrefixSpecificationResponse'
-      Prelude.<$> (x Core..@? "ipv4Prefix")
+      Prelude.<$> (x Data..@? "ipv4Prefix")
 
 instance
   Prelude.Hashable

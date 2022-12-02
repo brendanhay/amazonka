@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceBlockDeviceMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.EbsInstanceBlockDevice
 import qualified Amazonka.Prelude as Prelude
@@ -66,11 +67,11 @@ instanceBlockDeviceMapping_ebs = Lens.lens (\InstanceBlockDeviceMapping' {ebs} -
 instanceBlockDeviceMapping_deviceName :: Lens.Lens' InstanceBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 instanceBlockDeviceMapping_deviceName = Lens.lens (\InstanceBlockDeviceMapping' {deviceName} -> deviceName) (\s@InstanceBlockDeviceMapping' {} a -> s {deviceName = a} :: InstanceBlockDeviceMapping)
 
-instance Core.FromXML InstanceBlockDeviceMapping where
+instance Data.FromXML InstanceBlockDeviceMapping where
   parseXML x =
     InstanceBlockDeviceMapping'
-      Prelude.<$> (x Core..@? "ebs")
-      Prelude.<*> (x Core..@? "deviceName")
+      Prelude.<$> (x Data..@? "ebs")
+      Prelude.<*> (x Data..@? "deviceName")
 
 instance Prelude.Hashable InstanceBlockDeviceMapping where
   hashWithSalt _salt InstanceBlockDeviceMapping' {..} =

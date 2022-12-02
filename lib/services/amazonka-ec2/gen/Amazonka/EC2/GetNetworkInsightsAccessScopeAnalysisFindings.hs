@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,13 +141,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetNetworkInsightsAccessScopeAnalysisFindingsResponse'
-            Prelude.<$> (x Core..@? "networkInsightsAccessScopeAnalysisId")
-              Prelude.<*> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "analysisFindingSet"
+            Prelude.<$> (x Data..@? "networkInsightsAccessScopeAnalysisId")
+              Prelude.<*> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "analysisFindingSet"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
-              Prelude.<*> (x Core..@? "analysisStatus")
+              Prelude.<*> (x Data..@? "analysisStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,35 +175,35 @@ instance
         `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetNetworkInsightsAccessScopeAnalysisFindings
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetNetworkInsightsAccessScopeAnalysisFindings
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetNetworkInsightsAccessScopeAnalysisFindings
   where
   toQuery
     GetNetworkInsightsAccessScopeAnalysisFindings' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "GetNetworkInsightsAccessScopeAnalysisFindings" ::
+            Data.=: ( "GetNetworkInsightsAccessScopeAnalysisFindings" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "NextToken" Core.=: nextToken,
-          "DryRun" Core.=: dryRun,
-          "MaxResults" Core.=: maxResults,
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "NextToken" Data.=: nextToken,
+          "DryRun" Data.=: dryRun,
+          "MaxResults" Data.=: maxResults,
           "NetworkInsightsAccessScopeAnalysisId"
-            Core.=: networkInsightsAccessScopeAnalysisId
+            Data.=: networkInsightsAccessScopeAnalysisId
         ]
 
 -- | /See:/ 'newGetNetworkInsightsAccessScopeAnalysisFindingsResponse' smart constructor.

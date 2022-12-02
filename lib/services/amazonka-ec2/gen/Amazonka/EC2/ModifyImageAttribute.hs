@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -269,44 +270,44 @@ instance Prelude.NFData ModifyImageAttribute where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToHeaders ModifyImageAttribute where
+instance Data.ToHeaders ModifyImageAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyImageAttribute where
+instance Data.ToPath ModifyImageAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyImageAttribute where
+instance Data.ToQuery ModifyImageAttribute where
   toQuery ModifyImageAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyImageAttribute" :: Prelude.ByteString),
+          Data.=: ("ModifyImageAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "LaunchPermission" Core.=: launchPermission,
-        "OperationType" Core.=: operationType,
-        "Attribute" Core.=: attribute,
-        Core.toQuery
-          ( Core.toQueryList "ProductCode"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "LaunchPermission" Data.=: launchPermission,
+        "OperationType" Data.=: operationType,
+        "Attribute" Data.=: attribute,
+        Data.toQuery
+          ( Data.toQueryList "ProductCode"
               Prelude.<$> productCodes
           ),
-        Core.toQuery
-          ( Core.toQueryList "UserGroup"
+        Data.toQuery
+          ( Data.toQueryList "UserGroup"
               Prelude.<$> userGroups
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "OrganizationArn"
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "OrganizationArn"
               Prelude.<$> organizationArns
           ),
-        Core.toQuery
-          (Core.toQueryList "UserId" Prelude.<$> userIds),
-        Core.toQuery
-          ( Core.toQueryList "OrganizationalUnitArn"
+        Data.toQuery
+          (Data.toQueryList "UserId" Prelude.<$> userIds),
+        Data.toQuery
+          ( Data.toQueryList "OrganizationalUnitArn"
               Prelude.<$> organizationalUnitArns
           ),
-        "Value" Core.=: value,
-        "ImageId" Core.=: imageId
+        "Value" Data.=: value,
+        "ImageId" Data.=: imageId
       ]
 
 -- | /See:/ 'newModifyImageAttributeResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PathComponent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AdditionalDetail
 import Amazonka.EC2.Types.AnalysisAclRule
@@ -205,31 +206,31 @@ pathComponent_component = Lens.lens (\PathComponent' {component} -> component) (
 pathComponent_securityGroupRule :: Lens.Lens' PathComponent (Prelude.Maybe AnalysisSecurityGroupRule)
 pathComponent_securityGroupRule = Lens.lens (\PathComponent' {securityGroupRule} -> securityGroupRule) (\s@PathComponent' {} a -> s {securityGroupRule = a} :: PathComponent)
 
-instance Core.FromXML PathComponent where
+instance Data.FromXML PathComponent where
   parseXML x =
     PathComponent'
-      Prelude.<$> (x Core..@? "routeTableRoute")
-      Prelude.<*> (x Core..@? "vpc")
-      Prelude.<*> ( x Core..@? "additionalDetailSet"
+      Prelude.<$> (x Data..@? "routeTableRoute")
+      Prelude.<*> (x Data..@? "vpc")
+      Prelude.<*> ( x Data..@? "additionalDetailSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "outboundHeader")
-      Prelude.<*> (x Core..@? "attachedTo")
-      Prelude.<*> (x Core..@? "sourceVpc")
-      Prelude.<*> (x Core..@? "aclRule")
-      Prelude.<*> ( x Core..@? "explanationSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "outboundHeader")
+      Prelude.<*> (x Data..@? "attachedTo")
+      Prelude.<*> (x Data..@? "sourceVpc")
+      Prelude.<*> (x Data..@? "aclRule")
+      Prelude.<*> ( x Data..@? "explanationSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "transitGateway")
-      Prelude.<*> (x Core..@? "sequenceNumber")
-      Prelude.<*> (x Core..@? "destinationVpc")
-      Prelude.<*> (x Core..@? "elasticLoadBalancerListener")
-      Prelude.<*> (x Core..@? "subnet")
-      Prelude.<*> (x Core..@? "inboundHeader")
-      Prelude.<*> (x Core..@? "transitGatewayRouteTableRoute")
-      Prelude.<*> (x Core..@? "component")
-      Prelude.<*> (x Core..@? "securityGroupRule")
+      Prelude.<*> (x Data..@? "transitGateway")
+      Prelude.<*> (x Data..@? "sequenceNumber")
+      Prelude.<*> (x Data..@? "destinationVpc")
+      Prelude.<*> (x Data..@? "elasticLoadBalancerListener")
+      Prelude.<*> (x Data..@? "subnet")
+      Prelude.<*> (x Data..@? "inboundHeader")
+      Prelude.<*> (x Data..@? "transitGatewayRouteTableRoute")
+      Prelude.<*> (x Data..@? "component")
+      Prelude.<*> (x Data..@? "securityGroupRule")
 
 instance Prelude.Hashable PathComponent where
   hashWithSalt _salt PathComponent' {..} =

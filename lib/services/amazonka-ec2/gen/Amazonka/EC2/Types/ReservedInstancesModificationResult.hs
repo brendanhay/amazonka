@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstancesModificationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ReservedInstancesConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -74,13 +75,13 @@ reservedInstancesModificationResult_targetConfiguration :: Lens.Lens' ReservedIn
 reservedInstancesModificationResult_targetConfiguration = Lens.lens (\ReservedInstancesModificationResult' {targetConfiguration} -> targetConfiguration) (\s@ReservedInstancesModificationResult' {} a -> s {targetConfiguration = a} :: ReservedInstancesModificationResult)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ReservedInstancesModificationResult
   where
   parseXML x =
     ReservedInstancesModificationResult'
-      Prelude.<$> (x Core..@? "reservedInstancesId")
-      Prelude.<*> (x Core..@? "targetConfiguration")
+      Prelude.<$> (x Data..@? "reservedInstancesId")
+      Prelude.<*> (x Data..@? "targetConfiguration")
 
 instance
   Prelude.Hashable

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,7 +169,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayVpcAttachmentResponse'
-            Prelude.<$> (x Core..@? "transitGatewayVpcAttachment")
+            Prelude.<$> (x Data..@? "transitGatewayVpcAttachment")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,38 +200,38 @@ instance
       `Prelude.seq` Prelude.rnf subnetIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateTransitGatewayVpcAttachment
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateTransitGatewayVpcAttachment
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayVpcAttachment
   where
   toQuery CreateTransitGatewayVpcAttachment' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateTransitGatewayVpcAttachment" ::
+          Data.=: ( "CreateTransitGatewayVpcAttachment" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Options" Core.=: options,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecifications"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Options" Data.=: options,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecifications"
               Prelude.<$> tagSpecifications
           ),
-        "TransitGatewayId" Core.=: transitGatewayId,
-        "VpcId" Core.=: vpcId,
-        Core.toQueryList "SubnetIds" subnetIds
+        "TransitGatewayId" Data.=: transitGatewayId,
+        "VpcId" Data.=: vpcId,
+        Data.toQueryList "SubnetIds" subnetIds
       ]
 
 -- | /See:/ 'newCreateTransitGatewayVpcAttachmentResponse' smart constructor.

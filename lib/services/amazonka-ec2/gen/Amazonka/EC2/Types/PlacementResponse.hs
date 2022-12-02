@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PlacementResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newPlacementResponse =
 placementResponse_groupName :: Lens.Lens' PlacementResponse (Prelude.Maybe Prelude.Text)
 placementResponse_groupName = Lens.lens (\PlacementResponse' {groupName} -> groupName) (\s@PlacementResponse' {} a -> s {groupName = a} :: PlacementResponse)
 
-instance Core.FromXML PlacementResponse where
+instance Data.FromXML PlacementResponse where
   parseXML x =
     PlacementResponse'
-      Prelude.<$> (x Core..@? "groupName")
+      Prelude.<$> (x Data..@? "groupName")
 
 instance Prelude.Hashable PlacementResponse where
   hashWithSalt _salt PlacementResponse' {..} =

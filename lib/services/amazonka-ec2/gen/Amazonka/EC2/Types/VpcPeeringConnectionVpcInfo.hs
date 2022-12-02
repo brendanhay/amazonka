@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpcPeeringConnectionVpcInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CidrBlock
 import Amazonka.EC2.Types.Ipv6CidrBlock
@@ -114,21 +115,21 @@ vpcPeeringConnectionVpcInfo_cidrBlock = Lens.lens (\VpcPeeringConnectionVpcInfo'
 vpcPeeringConnectionVpcInfo_vpcId :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe Prelude.Text)
 vpcPeeringConnectionVpcInfo_vpcId = Lens.lens (\VpcPeeringConnectionVpcInfo' {vpcId} -> vpcId) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {vpcId = a} :: VpcPeeringConnectionVpcInfo)
 
-instance Core.FromXML VpcPeeringConnectionVpcInfo where
+instance Data.FromXML VpcPeeringConnectionVpcInfo where
   parseXML x =
     VpcPeeringConnectionVpcInfo'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> ( x Core..@? "ipv6CidrBlockSet"
+      Prelude.<$> (x Data..@? "ownerId")
+      Prelude.<*> ( x Data..@? "ipv6CidrBlockSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "peeringOptions")
-      Prelude.<*> (x Core..@? "region")
-      Prelude.<*> ( x Core..@? "cidrBlockSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "peeringOptions")
+      Prelude.<*> (x Data..@? "region")
+      Prelude.<*> ( x Data..@? "cidrBlockSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "cidrBlock")
-      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Data..@? "cidrBlock")
+      Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable VpcPeeringConnectionVpcInfo where
   hashWithSalt _salt VpcPeeringConnectionVpcInfo' {..} =

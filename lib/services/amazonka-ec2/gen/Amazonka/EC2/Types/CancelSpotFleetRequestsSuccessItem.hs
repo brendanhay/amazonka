@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CancelSpotFleetRequestsSuccessItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BatchState
 import qualified Amazonka.Prelude as Prelude
@@ -75,14 +76,14 @@ cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState :: Lens.Lens' C
 cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState = Lens.lens (\CancelSpotFleetRequestsSuccessItem' {previousSpotFleetRequestState} -> previousSpotFleetRequestState) (\s@CancelSpotFleetRequestsSuccessItem' {} a -> s {previousSpotFleetRequestState = a} :: CancelSpotFleetRequestsSuccessItem)
 
 instance
-  Core.FromXML
+  Data.FromXML
     CancelSpotFleetRequestsSuccessItem
   where
   parseXML x =
     CancelSpotFleetRequestsSuccessItem'
-      Prelude.<$> (x Core..@? "currentSpotFleetRequestState")
-      Prelude.<*> (x Core..@? "spotFleetRequestId")
-      Prelude.<*> (x Core..@? "previousSpotFleetRequestState")
+      Prelude.<$> (x Data..@? "currentSpotFleetRequestState")
+      Prelude.<*> (x Data..@? "spotFleetRequestId")
+      Prelude.<*> (x Data..@? "previousSpotFleetRequestState")
 
 instance
   Prelude.Hashable

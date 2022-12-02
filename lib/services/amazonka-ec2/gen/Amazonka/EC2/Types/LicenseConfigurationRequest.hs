@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LicenseConfigurationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,9 +64,9 @@ instance Prelude.NFData LicenseConfigurationRequest where
   rnf LicenseConfigurationRequest' {..} =
     Prelude.rnf licenseConfigurationArn
 
-instance Core.ToQuery LicenseConfigurationRequest where
+instance Data.ToQuery LicenseConfigurationRequest where
   toQuery LicenseConfigurationRequest' {..} =
     Prelude.mconcat
       [ "LicenseConfigurationArn"
-          Core.=: licenseConfigurationArn
+          Data.=: licenseConfigurationArn
       ]

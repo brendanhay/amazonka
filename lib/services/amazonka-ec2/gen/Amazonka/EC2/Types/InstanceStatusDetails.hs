@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceStatusDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.StatusName
 import Amazonka.EC2.Types.StatusType
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceStatusDetails = InstanceStatusDetails'
   { -- | The time when a status check failed. For an instance that was launched
     -- and impaired, this is the time when the instance was launched.
-    impairedSince :: Prelude.Maybe Core.ISO8601,
+    impairedSince :: Prelude.Maybe Data.ISO8601,
     -- | The type of instance status.
     name :: Prelude.Maybe StatusName,
     -- | The status.
@@ -67,7 +68,7 @@ newInstanceStatusDetails =
 -- | The time when a status check failed. For an instance that was launched
 -- and impaired, this is the time when the instance was launched.
 instanceStatusDetails_impairedSince :: Lens.Lens' InstanceStatusDetails (Prelude.Maybe Prelude.UTCTime)
-instanceStatusDetails_impairedSince = Lens.lens (\InstanceStatusDetails' {impairedSince} -> impairedSince) (\s@InstanceStatusDetails' {} a -> s {impairedSince = a} :: InstanceStatusDetails) Prelude.. Lens.mapping Core._Time
+instanceStatusDetails_impairedSince = Lens.lens (\InstanceStatusDetails' {impairedSince} -> impairedSince) (\s@InstanceStatusDetails' {} a -> s {impairedSince = a} :: InstanceStatusDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The type of instance status.
 instanceStatusDetails_name :: Lens.Lens' InstanceStatusDetails (Prelude.Maybe StatusName)
@@ -77,12 +78,12 @@ instanceStatusDetails_name = Lens.lens (\InstanceStatusDetails' {name} -> name) 
 instanceStatusDetails_status :: Lens.Lens' InstanceStatusDetails (Prelude.Maybe StatusType)
 instanceStatusDetails_status = Lens.lens (\InstanceStatusDetails' {status} -> status) (\s@InstanceStatusDetails' {} a -> s {status = a} :: InstanceStatusDetails)
 
-instance Core.FromXML InstanceStatusDetails where
+instance Data.FromXML InstanceStatusDetails where
   parseXML x =
     InstanceStatusDetails'
-      Prelude.<$> (x Core..@? "impairedSince")
-      Prelude.<*> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "status")
+      Prelude.<$> (x Data..@? "impairedSince")
+      Prelude.<*> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "status")
 
 instance Prelude.Hashable InstanceStatusDetails where
   hashWithSalt _salt InstanceStatusDetails' {..} =

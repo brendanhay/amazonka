@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,8 +175,8 @@ instance Core.AWSRequest CreateTrafficMirrorTarget where
     Response.receiveXML
       ( \s h x ->
           CreateTrafficMirrorTargetResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-            Prelude.<*> (x Core..@? "trafficMirrorTarget")
+            Prelude.<$> (x Data..@? "clientToken")
+            Prelude.<*> (x Data..@? "trafficMirrorTarget")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,29 +200,29 @@ instance Prelude.NFData CreateTrafficMirrorTarget where
       `Prelude.seq` Prelude.rnf gatewayLoadBalancerEndpointId
       `Prelude.seq` Prelude.rnf tagSpecifications
 
-instance Core.ToHeaders CreateTrafficMirrorTarget where
+instance Data.ToHeaders CreateTrafficMirrorTarget where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTrafficMirrorTarget where
+instance Data.ToPath CreateTrafficMirrorTarget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrafficMirrorTarget where
+instance Data.ToQuery CreateTrafficMirrorTarget where
   toQuery CreateTrafficMirrorTarget' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTrafficMirrorTarget" :: Prelude.ByteString),
+          Data.=: ("CreateTrafficMirrorTarget" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
         "NetworkLoadBalancerArn"
-          Core.=: networkLoadBalancerArn,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
+          Data.=: networkLoadBalancerArn,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
         "GatewayLoadBalancerEndpointId"
-          Core.=: gatewayLoadBalancerEndpointId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: gatewayLoadBalancerEndpointId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           )
       ]

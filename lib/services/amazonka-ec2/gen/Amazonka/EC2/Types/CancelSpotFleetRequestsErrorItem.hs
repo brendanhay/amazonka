@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CancelSpotFleetRequestsErrorItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CancelSpotFleetRequestsError
 import qualified Amazonka.Prelude as Prelude
@@ -65,13 +66,13 @@ cancelSpotFleetRequestsErrorItem_error :: Lens.Lens' CancelSpotFleetRequestsErro
 cancelSpotFleetRequestsErrorItem_error = Lens.lens (\CancelSpotFleetRequestsErrorItem' {error} -> error) (\s@CancelSpotFleetRequestsErrorItem' {} a -> s {error = a} :: CancelSpotFleetRequestsErrorItem)
 
 instance
-  Core.FromXML
+  Data.FromXML
     CancelSpotFleetRequestsErrorItem
   where
   parseXML x =
     CancelSpotFleetRequestsErrorItem'
-      Prelude.<$> (x Core..@? "spotFleetRequestId")
-      Prelude.<*> (x Core..@? "error")
+      Prelude.<$> (x Data..@? "spotFleetRequestId")
+      Prelude.<*> (x Data..@? "error")
 
 instance
   Prelude.Hashable

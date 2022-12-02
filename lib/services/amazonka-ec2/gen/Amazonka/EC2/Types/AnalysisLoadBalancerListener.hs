@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AnalysisLoadBalancerListener where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ analysisLoadBalancerListener_instancePort = Lens.lens (\AnalysisLoadBalancerList
 analysisLoadBalancerListener_loadBalancerPort :: Lens.Lens' AnalysisLoadBalancerListener (Prelude.Maybe Prelude.Natural)
 analysisLoadBalancerListener_loadBalancerPort = Lens.lens (\AnalysisLoadBalancerListener' {loadBalancerPort} -> loadBalancerPort) (\s@AnalysisLoadBalancerListener' {} a -> s {loadBalancerPort = a} :: AnalysisLoadBalancerListener)
 
-instance Core.FromXML AnalysisLoadBalancerListener where
+instance Data.FromXML AnalysisLoadBalancerListener where
   parseXML x =
     AnalysisLoadBalancerListener'
-      Prelude.<$> (x Core..@? "instancePort")
-      Prelude.<*> (x Core..@? "loadBalancerPort")
+      Prelude.<$> (x Data..@? "instancePort")
+      Prelude.<*> (x Data..@? "loadBalancerPort")
 
 instance
   Prelude.Hashable

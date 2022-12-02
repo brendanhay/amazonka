@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SecurityGroupRuleRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -183,15 +184,15 @@ instance Prelude.NFData SecurityGroupRuleRequest where
       `Prelude.seq` Prelude.rnf referencedGroupId
       `Prelude.seq` Prelude.rnf fromPort
 
-instance Core.ToQuery SecurityGroupRuleRequest where
+instance Data.ToQuery SecurityGroupRuleRequest where
   toQuery SecurityGroupRuleRequest' {..} =
     Prelude.mconcat
-      [ "ToPort" Core.=: toPort,
-        "IpProtocol" Core.=: ipProtocol,
-        "CidrIpv6" Core.=: cidrIpv6,
-        "PrefixListId" Core.=: prefixListId,
-        "CidrIpv4" Core.=: cidrIpv4,
-        "Description" Core.=: description,
-        "ReferencedGroupId" Core.=: referencedGroupId,
-        "FromPort" Core.=: fromPort
+      [ "ToPort" Data.=: toPort,
+        "IpProtocol" Data.=: ipProtocol,
+        "CidrIpv6" Data.=: cidrIpv6,
+        "PrefixListId" Data.=: prefixListId,
+        "CidrIpv4" Data.=: cidrIpv4,
+        "Description" Data.=: description,
+        "ReferencedGroupId" Data.=: referencedGroupId,
+        "FromPort" Data.=: fromPort
       ]

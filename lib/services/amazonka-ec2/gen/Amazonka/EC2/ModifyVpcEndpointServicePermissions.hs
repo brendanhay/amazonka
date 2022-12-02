@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,10 +147,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointServicePermissionsResponse'
-            Prelude.<$> (x Core..@? "return")
-              Prelude.<*> ( x Core..@? "addedPrincipalSet"
+            Prelude.<$> (x Data..@? "return")
+              Prelude.<*> ( x Data..@? "addedPrincipalSet"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -177,39 +178,39 @@ instance
       `Prelude.seq` Prelude.rnf serviceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyVpcEndpointServicePermissions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifyVpcEndpointServicePermissions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyVpcEndpointServicePermissions
   where
   toQuery ModifyVpcEndpointServicePermissions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyVpcEndpointServicePermissions" ::
+          Data.=: ( "ModifyVpcEndpointServicePermissions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "AddAllowedPrincipals"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "AddAllowedPrincipals"
               Prelude.<$> addAllowedPrincipals
           ),
-        Core.toQuery
-          ( Core.toQueryList "RemoveAllowedPrincipals"
+        Data.toQuery
+          ( Data.toQueryList "RemoveAllowedPrincipals"
               Prelude.<$> removeAllowedPrincipals
           ),
-        "ServiceId" Core.=: serviceId
+        "ServiceId" Data.=: serviceId
       ]
 
 -- | /See:/ 'newModifyVpcEndpointServicePermissionsResponse' smart constructor.

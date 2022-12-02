@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.MemoryMiB where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,10 +69,10 @@ memoryMiB_max = Lens.lens (\MemoryMiB' {max} -> max) (\s@MemoryMiB' {} a -> s {m
 memoryMiB_min :: Lens.Lens' MemoryMiB (Prelude.Maybe Prelude.Int)
 memoryMiB_min = Lens.lens (\MemoryMiB' {min} -> min) (\s@MemoryMiB' {} a -> s {min = a} :: MemoryMiB)
 
-instance Core.FromXML MemoryMiB where
+instance Data.FromXML MemoryMiB where
   parseXML x =
     MemoryMiB'
-      Prelude.<$> (x Core..@? "max") Prelude.<*> (x Core..@? "min")
+      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable MemoryMiB where
   hashWithSalt _salt MemoryMiB' {..} =
@@ -82,7 +83,7 @@ instance Prelude.NFData MemoryMiB where
   rnf MemoryMiB' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery MemoryMiB where
+instance Data.ToQuery MemoryMiB where
   toQuery MemoryMiB' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

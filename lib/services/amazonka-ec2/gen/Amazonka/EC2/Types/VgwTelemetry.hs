@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VgwTelemetry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TelemetryStatus
 import qualified Amazonka.Prelude as Prelude
@@ -34,7 +35,7 @@ data VgwTelemetry = VgwTelemetry'
     -- | The status of the VPN tunnel.
     status :: Prelude.Maybe TelemetryStatus,
     -- | The date and time of the last change in status.
-    lastStatusChange :: Prelude.Maybe Core.ISO8601,
+    lastStatusChange :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | If an error occurs, a description of the error.
@@ -87,7 +88,7 @@ vgwTelemetry_status = Lens.lens (\VgwTelemetry' {status} -> status) (\s@VgwTelem
 
 -- | The date and time of the last change in status.
 vgwTelemetry_lastStatusChange :: Lens.Lens' VgwTelemetry (Prelude.Maybe Prelude.UTCTime)
-vgwTelemetry_lastStatusChange = Lens.lens (\VgwTelemetry' {lastStatusChange} -> lastStatusChange) (\s@VgwTelemetry' {} a -> s {lastStatusChange = a} :: VgwTelemetry) Prelude.. Lens.mapping Core._Time
+vgwTelemetry_lastStatusChange = Lens.lens (\VgwTelemetry' {lastStatusChange} -> lastStatusChange) (\s@VgwTelemetry' {} a -> s {lastStatusChange = a} :: VgwTelemetry) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
 vgwTelemetry_certificateArn :: Lens.Lens' VgwTelemetry (Prelude.Maybe Prelude.Text)
@@ -102,15 +103,15 @@ vgwTelemetry_statusMessage = Lens.lens (\VgwTelemetry' {statusMessage} -> status
 vgwTelemetry_outsideIpAddress :: Lens.Lens' VgwTelemetry (Prelude.Maybe Prelude.Text)
 vgwTelemetry_outsideIpAddress = Lens.lens (\VgwTelemetry' {outsideIpAddress} -> outsideIpAddress) (\s@VgwTelemetry' {} a -> s {outsideIpAddress = a} :: VgwTelemetry)
 
-instance Core.FromXML VgwTelemetry where
+instance Data.FromXML VgwTelemetry where
   parseXML x =
     VgwTelemetry'
-      Prelude.<$> (x Core..@? "acceptedRouteCount")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "lastStatusChange")
-      Prelude.<*> (x Core..@? "certificateArn")
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "outsideIpAddress")
+      Prelude.<$> (x Data..@? "acceptedRouteCount")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "lastStatusChange")
+      Prelude.<*> (x Data..@? "certificateArn")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "outsideIpAddress")
 
 instance Prelude.Hashable VgwTelemetry where
   hashWithSalt _salt VgwTelemetry' {..} =

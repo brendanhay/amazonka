@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -476,42 +477,42 @@ instance Prelude.NFData ModifyInstanceAttribute where
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders ModifyInstanceAttribute where
+instance Data.ToHeaders ModifyInstanceAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyInstanceAttribute where
+instance Data.ToPath ModifyInstanceAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyInstanceAttribute where
+instance Data.ToQuery ModifyInstanceAttribute where
   toQuery ModifyInstanceAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyInstanceAttribute" :: Prelude.ByteString),
+          Data.=: ("ModifyInstanceAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "EbsOptimized" Core.=: ebsOptimized,
-        "SriovNetSupport" Core.=: sriovNetSupport,
-        "UserData" Core.=: userData,
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "EbsOptimized" Data.=: ebsOptimized,
+        "SriovNetSupport" Data.=: sriovNetSupport,
+        "UserData" Data.=: userData,
+        Data.toQuery
+          ( Data.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        "SourceDestCheck" Core.=: sourceDestCheck,
-        "Kernel" Core.=: kernel,
+        "SourceDestCheck" Data.=: sourceDestCheck,
+        "Kernel" Data.=: kernel,
         "InstanceInitiatedShutdownBehavior"
-          Core.=: instanceInitiatedShutdownBehavior,
-        "Attribute" Core.=: attribute,
-        "DryRun" Core.=: dryRun,
-        "InstanceType" Core.=: instanceType,
-        "Ramdisk" Core.=: ramdisk,
+          Data.=: instanceInitiatedShutdownBehavior,
+        "Attribute" Data.=: attribute,
+        "DryRun" Data.=: dryRun,
+        "InstanceType" Data.=: instanceType,
+        "Ramdisk" Data.=: ramdisk,
         "DisableApiTermination"
-          Core.=: disableApiTermination,
-        Core.toQuery
-          (Core.toQueryList "GroupId" Prelude.<$> groups),
-        "DisableApiStop" Core.=: disableApiStop,
-        "EnaSupport" Core.=: enaSupport,
-        "Value" Core.=: value,
-        "InstanceId" Core.=: instanceId
+          Data.=: disableApiTermination,
+        Data.toQuery
+          (Data.toQueryList "GroupId" Prelude.<$> groups),
+        "DisableApiStop" Data.=: disableApiStop,
+        "EnaSupport" Data.=: enaSupport,
+        "Value" Data.=: value,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newModifyInstanceAttributeResponse' smart constructor.

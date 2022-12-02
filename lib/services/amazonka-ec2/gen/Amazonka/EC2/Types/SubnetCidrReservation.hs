@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SubnetCidrReservation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SubnetCidrReservationType
 import Amazonka.EC2.Types.Tag
@@ -109,18 +110,18 @@ subnetCidrReservation_subnetCidrReservationId = Lens.lens (\SubnetCidrReservatio
 subnetCidrReservation_description :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
 subnetCidrReservation_description = Lens.lens (\SubnetCidrReservation' {description} -> description) (\s@SubnetCidrReservation' {} a -> s {description = a} :: SubnetCidrReservation)
 
-instance Core.FromXML SubnetCidrReservation where
+instance Data.FromXML SubnetCidrReservation where
   parseXML x =
     SubnetCidrReservation'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "cidr")
-      Prelude.<*> (x Core..@? "reservationType")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "subnetCidrReservationId")
-      Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "cidr")
+      Prelude.<*> (x Data..@? "reservationType")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "subnetCidrReservationId")
+      Prelude.<*> (x Data..@? "description")
 
 instance Prelude.Hashable SubnetCidrReservation where
   hashWithSalt _salt SubnetCidrReservation' {..} =

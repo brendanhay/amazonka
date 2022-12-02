@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceIpv6Address where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,10 +52,10 @@ newInstanceIpv6Address =
 instanceIpv6Address_ipv6Address :: Lens.Lens' InstanceIpv6Address (Prelude.Maybe Prelude.Text)
 instanceIpv6Address_ipv6Address = Lens.lens (\InstanceIpv6Address' {ipv6Address} -> ipv6Address) (\s@InstanceIpv6Address' {} a -> s {ipv6Address = a} :: InstanceIpv6Address)
 
-instance Core.FromXML InstanceIpv6Address where
+instance Data.FromXML InstanceIpv6Address where
   parseXML x =
     InstanceIpv6Address'
-      Prelude.<$> (x Core..@? "ipv6Address")
+      Prelude.<$> (x Data..@? "ipv6Address")
 
 instance Prelude.Hashable InstanceIpv6Address where
   hashWithSalt _salt InstanceIpv6Address' {..} =
@@ -64,6 +65,6 @@ instance Prelude.NFData InstanceIpv6Address where
   rnf InstanceIpv6Address' {..} =
     Prelude.rnf ipv6Address
 
-instance Core.ToQuery InstanceIpv6Address where
+instance Data.ToQuery InstanceIpv6Address where
   toQuery InstanceIpv6Address' {..} =
-    Prelude.mconcat ["Ipv6Address" Core.=: ipv6Address]
+    Prelude.mconcat ["Ipv6Address" Data.=: ipv6Address]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DnsOptionsSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DnsRecordIpType
 import qualified Amazonka.Prelude as Prelude
@@ -63,7 +64,7 @@ instance Prelude.NFData DnsOptionsSpecification where
   rnf DnsOptionsSpecification' {..} =
     Prelude.rnf dnsRecordIpType
 
-instance Core.ToQuery DnsOptionsSpecification where
+instance Data.ToQuery DnsOptionsSpecification where
   toQuery DnsOptionsSpecification' {..} =
     Prelude.mconcat
-      ["DnsRecordIpType" Core.=: dnsRecordIpType]
+      ["DnsRecordIpType" Data.=: dnsRecordIpType]

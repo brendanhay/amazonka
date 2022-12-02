@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceRequirementsWithMetadataRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ArchitectureType
 import Amazonka.EC2.Types.InstanceRequirementsRequest
@@ -109,18 +110,18 @@ instance
       `Prelude.seq` Prelude.rnf virtualizationTypes
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     InstanceRequirementsWithMetadataRequest
   where
   toQuery InstanceRequirementsWithMetadataRequest' {..} =
     Prelude.mconcat
-      [ "InstanceRequirements" Core.=: instanceRequirements,
-        Core.toQuery
-          ( Core.toQueryList "ArchitectureType"
+      [ "InstanceRequirements" Data.=: instanceRequirements,
+        Data.toQuery
+          ( Data.toQueryList "ArchitectureType"
               Prelude.<$> architectureTypes
           ),
-        Core.toQuery
-          ( Core.toQueryList "VirtualizationType"
+        Data.toQuery
+          ( Data.toQueryList "VirtualizationType"
               Prelude.<$> virtualizationTypes
           )
       ]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.UnsuccessfulItemError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,11 +65,11 @@ unsuccessfulItemError_message = Lens.lens (\UnsuccessfulItemError' {message} -> 
 unsuccessfulItemError_code :: Lens.Lens' UnsuccessfulItemError (Prelude.Maybe Prelude.Text)
 unsuccessfulItemError_code = Lens.lens (\UnsuccessfulItemError' {code} -> code) (\s@UnsuccessfulItemError' {} a -> s {code = a} :: UnsuccessfulItemError)
 
-instance Core.FromXML UnsuccessfulItemError where
+instance Data.FromXML UnsuccessfulItemError where
   parseXML x =
     UnsuccessfulItemError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable UnsuccessfulItemError where
   hashWithSalt _salt UnsuccessfulItemError' {..} =

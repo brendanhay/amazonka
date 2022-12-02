@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,22 +170,22 @@ instance Prelude.NFData DetachNetworkInterface where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf attachmentId
 
-instance Core.ToHeaders DetachNetworkInterface where
+instance Data.ToHeaders DetachNetworkInterface where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetachNetworkInterface where
+instance Data.ToPath DetachNetworkInterface where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetachNetworkInterface where
+instance Data.ToQuery DetachNetworkInterface where
   toQuery DetachNetworkInterface' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachNetworkInterface" :: Prelude.ByteString),
+          Data.=: ("DetachNetworkInterface" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Force" Core.=: force,
-        "AttachmentId" Core.=: attachmentId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Force" Data.=: force,
+        "AttachmentId" Data.=: attachmentId
       ]
 
 -- | /See:/ 'newDetachNetworkInterfaceResponse' smart constructor.

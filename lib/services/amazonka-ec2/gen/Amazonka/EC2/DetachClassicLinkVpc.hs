@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest DetachClassicLinkVpc where
     Response.receiveXML
       ( \s h x ->
           DetachClassicLinkVpcResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,22 +141,22 @@ instance Prelude.NFData DetachClassicLinkVpc where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders DetachClassicLinkVpc where
+instance Data.ToHeaders DetachClassicLinkVpc where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetachClassicLinkVpc where
+instance Data.ToPath DetachClassicLinkVpc where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetachClassicLinkVpc where
+instance Data.ToQuery DetachClassicLinkVpc where
   toQuery DetachClassicLinkVpc' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachClassicLinkVpc" :: Prelude.ByteString),
+          Data.=: ("DetachClassicLinkVpc" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InstanceId" Core.=: instanceId,
-        "VpcId" Core.=: vpcId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "InstanceId" Data.=: instanceId,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newDetachClassicLinkVpcResponse' smart constructor.

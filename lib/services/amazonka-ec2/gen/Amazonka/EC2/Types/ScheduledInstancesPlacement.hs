@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstancesPlacement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,9 +74,9 @@ instance Prelude.NFData ScheduledInstancesPlacement where
     Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf groupName
 
-instance Core.ToQuery ScheduledInstancesPlacement where
+instance Data.ToQuery ScheduledInstancesPlacement where
   toQuery ScheduledInstancesPlacement' {..} =
     Prelude.mconcat
-      [ "AvailabilityZone" Core.=: availabilityZone,
-        "GroupName" Core.=: groupName
+      [ "AvailabilityZone" Data.=: availabilityZone,
+        "GroupName" Data.=: groupName
       ]

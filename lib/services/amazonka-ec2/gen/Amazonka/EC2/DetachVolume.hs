@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest DetachVolume where
   request overrides =
     Request.postQuery (overrides defaultService)
   response =
-    Response.receiveXML (\s h x -> Core.parseXML x)
+    Response.receiveXML (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable DetachVolume where
   hashWithSalt _salt DetachVolume' {..} =
@@ -187,22 +188,22 @@ instance Prelude.NFData DetachVolume where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders DetachVolume where
+instance Data.ToHeaders DetachVolume where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DetachVolume where
+instance Data.ToPath DetachVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DetachVolume where
+instance Data.ToQuery DetachVolume where
   toQuery DetachVolume' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DetachVolume" :: Prelude.ByteString),
+          Data.=: ("DetachVolume" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Device" Core.=: device,
-        "DryRun" Core.=: dryRun,
-        "InstanceId" Core.=: instanceId,
-        "Force" Core.=: force,
-        "VolumeId" Core.=: volumeId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Device" Data.=: device,
+        "DryRun" Data.=: dryRun,
+        "InstanceId" Data.=: instanceId,
+        "Force" Data.=: force,
+        "VolumeId" Data.=: volumeId
       ]

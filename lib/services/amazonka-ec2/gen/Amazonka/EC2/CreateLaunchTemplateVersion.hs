@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
     -- not both.
     launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The information for the launch template.
-    launchTemplateData :: Core.Sensitive RequestLaunchTemplateData
+    launchTemplateData :: Data.Sensitive RequestLaunchTemplateData
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -154,7 +155,7 @@ newCreateLaunchTemplateVersion pLaunchTemplateData_ =
       versionDescription = Prelude.Nothing,
       launchTemplateName = Prelude.Nothing,
       launchTemplateData =
-        Core._Sensitive Lens.# pLaunchTemplateData_
+        Data._Sensitive Lens.# pLaunchTemplateData_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -200,7 +201,7 @@ createLaunchTemplateVersion_launchTemplateName = Lens.lens (\CreateLaunchTemplat
 
 -- | The information for the launch template.
 createLaunchTemplateVersion_launchTemplateData :: Lens.Lens' CreateLaunchTemplateVersion RequestLaunchTemplateData
-createLaunchTemplateVersion_launchTemplateData = Lens.lens (\CreateLaunchTemplateVersion' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplateVersion' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplateVersion) Prelude.. Core._Sensitive
+createLaunchTemplateVersion_launchTemplateData = Lens.lens (\CreateLaunchTemplateVersion' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplateVersion' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplateVersion) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateLaunchTemplateVersion where
   type
@@ -212,8 +213,8 @@ instance Core.AWSRequest CreateLaunchTemplateVersion where
     Response.receiveXML
       ( \s h x ->
           CreateLaunchTemplateVersionResponse'
-            Prelude.<$> (x Core..@? "launchTemplateVersion")
-            Prelude.<*> (x Core..@? "warning")
+            Prelude.<$> (x Data..@? "launchTemplateVersion")
+            Prelude.<*> (x Data..@? "warning")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -237,28 +238,28 @@ instance Prelude.NFData CreateLaunchTemplateVersion where
       `Prelude.seq` Prelude.rnf launchTemplateName
       `Prelude.seq` Prelude.rnf launchTemplateData
 
-instance Core.ToHeaders CreateLaunchTemplateVersion where
+instance Data.ToHeaders CreateLaunchTemplateVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLaunchTemplateVersion where
+instance Data.ToPath CreateLaunchTemplateVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLaunchTemplateVersion where
+instance Data.ToQuery CreateLaunchTemplateVersion where
   toQuery CreateLaunchTemplateVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateLaunchTemplateVersion" ::
+          Data.=: ( "CreateLaunchTemplateVersion" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "SourceVersion" Core.=: sourceVersion,
-        "DryRun" Core.=: dryRun,
-        "LaunchTemplateId" Core.=: launchTemplateId,
-        "VersionDescription" Core.=: versionDescription,
-        "LaunchTemplateName" Core.=: launchTemplateName,
-        "LaunchTemplateData" Core.=: launchTemplateData
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "SourceVersion" Data.=: sourceVersion,
+        "DryRun" Data.=: dryRun,
+        "LaunchTemplateId" Data.=: launchTemplateId,
+        "VersionDescription" Data.=: versionDescription,
+        "LaunchTemplateName" Data.=: launchTemplateName,
+        "LaunchTemplateData" Data.=: launchTemplateData
       ]
 
 -- | /See:/ 'newCreateLaunchTemplateVersionResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ElasticGpuAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -88,13 +89,13 @@ elasticGpuAssociation_elasticGpuAssociationTime = Lens.lens (\ElasticGpuAssociat
 elasticGpuAssociation_elasticGpuAssociationId :: Lens.Lens' ElasticGpuAssociation (Prelude.Maybe Prelude.Text)
 elasticGpuAssociation_elasticGpuAssociationId = Lens.lens (\ElasticGpuAssociation' {elasticGpuAssociationId} -> elasticGpuAssociationId) (\s@ElasticGpuAssociation' {} a -> s {elasticGpuAssociationId = a} :: ElasticGpuAssociation)
 
-instance Core.FromXML ElasticGpuAssociation where
+instance Data.FromXML ElasticGpuAssociation where
   parseXML x =
     ElasticGpuAssociation'
-      Prelude.<$> (x Core..@? "elasticGpuAssociationState")
-      Prelude.<*> (x Core..@? "elasticGpuId")
-      Prelude.<*> (x Core..@? "elasticGpuAssociationTime")
-      Prelude.<*> (x Core..@? "elasticGpuAssociationId")
+      Prelude.<$> (x Data..@? "elasticGpuAssociationState")
+      Prelude.<*> (x Data..@? "elasticGpuId")
+      Prelude.<*> (x Data..@? "elasticGpuAssociationTime")
+      Prelude.<*> (x Data..@? "elasticGpuAssociationId")
 
 instance Prelude.Hashable ElasticGpuAssociation where
   hashWithSalt _salt ElasticGpuAssociation' {..} =

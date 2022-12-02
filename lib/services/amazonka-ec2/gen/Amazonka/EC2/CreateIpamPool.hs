@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -377,7 +378,7 @@ instance Core.AWSRequest CreateIpamPool where
     Response.receiveXML
       ( \s h x ->
           CreateIpamPoolResponse'
-            Prelude.<$> (x Core..@? "ipamPool")
+            Prelude.<$> (x Data..@? "ipamPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -417,43 +418,43 @@ instance Prelude.NFData CreateIpamPool where
       `Prelude.seq` Prelude.rnf ipamScopeId
       `Prelude.seq` Prelude.rnf addressFamily
 
-instance Core.ToHeaders CreateIpamPool where
+instance Data.ToHeaders CreateIpamPool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateIpamPool where
+instance Data.ToPath CreateIpamPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateIpamPool where
+instance Data.ToQuery CreateIpamPool where
   toQuery CreateIpamPool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateIpamPool" :: Prelude.ByteString),
+          Data.=: ("CreateIpamPool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
         "AllocationMaxNetmaskLength"
-          Core.=: allocationMaxNetmaskLength,
-        "PubliclyAdvertisable" Core.=: publiclyAdvertisable,
-        "Locale" Core.=: locale,
-        "SourceIpamPoolId" Core.=: sourceIpamPoolId,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "AllocationResourceTag"
+          Data.=: allocationMaxNetmaskLength,
+        "PubliclyAdvertisable" Data.=: publiclyAdvertisable,
+        "Locale" Data.=: locale,
+        "SourceIpamPoolId" Data.=: sourceIpamPoolId,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "AllocationResourceTag"
               Prelude.<$> allocationResourceTags
           ),
         "AllocationMinNetmaskLength"
-          Core.=: allocationMinNetmaskLength,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: allocationMinNetmaskLength,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "AllocationDefaultNetmaskLength"
-          Core.=: allocationDefaultNetmaskLength,
-        "AwsService" Core.=: awsService,
-        "AutoImport" Core.=: autoImport,
-        "IpamScopeId" Core.=: ipamScopeId,
-        "AddressFamily" Core.=: addressFamily
+          Data.=: allocationDefaultNetmaskLength,
+        "AwsService" Data.=: awsService,
+        "AutoImport" Data.=: autoImport,
+        "IpamScopeId" Data.=: ipamScopeId,
+        "AddressFamily" Data.=: addressFamily
       ]
 
 -- | /See:/ 'newCreateIpamPoolResponse' smart constructor.

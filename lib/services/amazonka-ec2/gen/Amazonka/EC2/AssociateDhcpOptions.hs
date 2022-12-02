@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,22 +139,22 @@ instance Prelude.NFData AssociateDhcpOptions where
       `Prelude.seq` Prelude.rnf dhcpOptionsId
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders AssociateDhcpOptions where
+instance Data.ToHeaders AssociateDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssociateDhcpOptions where
+instance Data.ToPath AssociateDhcpOptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateDhcpOptions where
+instance Data.ToQuery AssociateDhcpOptions where
   toQuery AssociateDhcpOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssociateDhcpOptions" :: Prelude.ByteString),
+          Data.=: ("AssociateDhcpOptions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "DhcpOptionsId" Core.=: dhcpOptionsId,
-        "VpcId" Core.=: vpcId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "DhcpOptionsId" Data.=: dhcpOptionsId,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newAssociateDhcpOptionsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.StorageLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,7 +72,7 @@ instance Prelude.NFData StorageLocation where
   rnf StorageLocation' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToQuery StorageLocation where
+instance Data.ToQuery StorageLocation where
   toQuery StorageLocation' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Bucket" Core.=: bucket]
+      ["Key" Data.=: key, "Bucket" Data.=: bucket]

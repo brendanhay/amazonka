@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AllowedPrincipal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PrincipalType
 import Amazonka.EC2.Types.Tag
@@ -91,16 +92,16 @@ allowedPrincipal_principalType = Lens.lens (\AllowedPrincipal' {principalType} -
 allowedPrincipal_serviceId :: Lens.Lens' AllowedPrincipal (Prelude.Maybe Prelude.Text)
 allowedPrincipal_serviceId = Lens.lens (\AllowedPrincipal' {serviceId} -> serviceId) (\s@AllowedPrincipal' {} a -> s {serviceId = a} :: AllowedPrincipal)
 
-instance Core.FromXML AllowedPrincipal where
+instance Data.FromXML AllowedPrincipal where
   parseXML x =
     AllowedPrincipal'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "principal")
-      Prelude.<*> (x Core..@? "servicePermissionId")
-      Prelude.<*> (x Core..@? "principalType")
-      Prelude.<*> (x Core..@? "serviceId")
+      Prelude.<*> (x Data..@? "principal")
+      Prelude.<*> (x Data..@? "servicePermissionId")
+      Prelude.<*> (x Data..@? "principalType")
+      Prelude.<*> (x Data..@? "serviceId")
 
 instance Prelude.Hashable AllowedPrincipal where
   hashWithSalt _salt AllowedPrincipal' {..} =

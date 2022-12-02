@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -338,9 +339,9 @@ instance Core.AWSRequest DescribeNetworkAcls where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkAclsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "networkAclSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "networkAclSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -361,28 +362,28 @@ instance Prelude.NFData DescribeNetworkAcls where
       `Prelude.seq` Prelude.rnf networkAclIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeNetworkAcls where
+instance Data.ToHeaders DescribeNetworkAcls where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeNetworkAcls where
+instance Data.ToPath DescribeNetworkAcls where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeNetworkAcls where
+instance Data.ToQuery DescribeNetworkAcls where
   toQuery DescribeNetworkAcls' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeNetworkAcls" :: Prelude.ByteString),
+          Data.=: ("DescribeNetworkAcls" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "NetworkAclId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "NetworkAclId"
               Prelude.<$> networkAclIds
           ),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeNetworkAclsResponse' smart constructor.

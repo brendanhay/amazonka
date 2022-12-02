@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,21 +130,21 @@ instance Prelude.NFData SendDiagnosticInterrupt where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders SendDiagnosticInterrupt where
+instance Data.ToHeaders SendDiagnosticInterrupt where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SendDiagnosticInterrupt where
+instance Data.ToPath SendDiagnosticInterrupt where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendDiagnosticInterrupt where
+instance Data.ToQuery SendDiagnosticInterrupt where
   toQuery SendDiagnosticInterrupt' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SendDiagnosticInterrupt" :: Prelude.ByteString),
+          Data.=: ("SendDiagnosticInterrupt" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newSendDiagnosticInterruptResponse' smart constructor.

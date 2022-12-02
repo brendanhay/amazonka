@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplatePrivateDnsNameOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.HostnameType
 import qualified Amazonka.Prelude as Prelude
@@ -81,14 +82,14 @@ launchTemplatePrivateDnsNameOptions_hostnameType :: Lens.Lens' LaunchTemplatePri
 launchTemplatePrivateDnsNameOptions_hostnameType = Lens.lens (\LaunchTemplatePrivateDnsNameOptions' {hostnameType} -> hostnameType) (\s@LaunchTemplatePrivateDnsNameOptions' {} a -> s {hostnameType = a} :: LaunchTemplatePrivateDnsNameOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplatePrivateDnsNameOptions
   where
   parseXML x =
     LaunchTemplatePrivateDnsNameOptions'
-      Prelude.<$> (x Core..@? "enableResourceNameDnsARecord")
-      Prelude.<*> (x Core..@? "enableResourceNameDnsAAAARecord")
-      Prelude.<*> (x Core..@? "hostnameType")
+      Prelude.<$> (x Data..@? "enableResourceNameDnsARecord")
+      Prelude.<*> (x Data..@? "enableResourceNameDnsAAAARecord")
+      Prelude.<*> (x Data..@? "hostnameType")
 
 instance
   Prelude.Hashable

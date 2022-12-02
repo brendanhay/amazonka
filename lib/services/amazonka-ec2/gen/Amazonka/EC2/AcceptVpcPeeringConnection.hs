@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest AcceptVpcPeeringConnection where
     Response.receiveXML
       ( \s h x ->
           AcceptVpcPeeringConnectionResponse'
-            Prelude.<$> (x Core..@? "vpcPeeringConnection")
+            Prelude.<$> (x Data..@? "vpcPeeringConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,22 +127,22 @@ instance Prelude.NFData AcceptVpcPeeringConnection where
     Prelude.rnf vpcPeeringConnectionId
       `Prelude.seq` Prelude.rnf dryRun
 
-instance Core.ToHeaders AcceptVpcPeeringConnection where
+instance Data.ToHeaders AcceptVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AcceptVpcPeeringConnection where
+instance Data.ToPath AcceptVpcPeeringConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AcceptVpcPeeringConnection where
+instance Data.ToQuery AcceptVpcPeeringConnection where
   toQuery AcceptVpcPeeringConnection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AcceptVpcPeeringConnection" :: Prelude.ByteString),
+          Data.=: ("AcceptVpcPeeringConnection" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "VpcPeeringConnectionId"
-          Core.=: vpcPeeringConnectionId,
-        "DryRun" Core.=: dryRun
+          Data.=: vpcPeeringConnectionId,
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newAcceptVpcPeeringConnectionResponse' smart constructor.

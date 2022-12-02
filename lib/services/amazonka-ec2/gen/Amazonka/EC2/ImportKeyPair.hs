@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -75,7 +76,7 @@ data ImportKeyPair = ImportKeyPair'
     keyName :: Prelude.Text,
     -- | The public key. For API calls, the text must be base64-encoded. For
     -- command line tools, base64 encoding is performed for you.
-    publicKeyMaterial :: Core.Base64
+    publicKeyMaterial :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,7 +115,7 @@ newImportKeyPair pKeyName_ pPublicKeyMaterial_ =
       tagSpecifications = Prelude.Nothing,
       keyName = pKeyName_,
       publicKeyMaterial =
-        Core._Base64 Lens.# pPublicKeyMaterial_
+        Data._Base64 Lens.# pPublicKeyMaterial_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -139,7 +140,7 @@ importKeyPair_keyName = Lens.lens (\ImportKeyPair' {keyName} -> keyName) (\s@Imp
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importKeyPair_publicKeyMaterial :: Lens.Lens' ImportKeyPair Prelude.ByteString
-importKeyPair_publicKeyMaterial = Lens.lens (\ImportKeyPair' {publicKeyMaterial} -> publicKeyMaterial) (\s@ImportKeyPair' {} a -> s {publicKeyMaterial = a} :: ImportKeyPair) Prelude.. Core._Base64
+importKeyPair_publicKeyMaterial = Lens.lens (\ImportKeyPair' {publicKeyMaterial} -> publicKeyMaterial) (\s@ImportKeyPair' {} a -> s {publicKeyMaterial = a} :: ImportKeyPair) Prelude.. Data._Base64
 
 instance Core.AWSRequest ImportKeyPair where
   type
@@ -151,12 +152,12 @@ instance Core.AWSRequest ImportKeyPair where
     Response.receiveXML
       ( \s h x ->
           ImportKeyPairResponse'
-            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "keyFingerprint")
-            Prelude.<*> (x Core..@? "keyName")
-            Prelude.<*> (x Core..@? "keyPairId")
+            Prelude.<*> (x Data..@? "keyFingerprint")
+            Prelude.<*> (x Data..@? "keyName")
+            Prelude.<*> (x Data..@? "keyPairId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,26 +175,26 @@ instance Prelude.NFData ImportKeyPair where
       `Prelude.seq` Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf publicKeyMaterial
 
-instance Core.ToHeaders ImportKeyPair where
+instance Data.ToHeaders ImportKeyPair where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ImportKeyPair where
+instance Data.ToPath ImportKeyPair where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportKeyPair where
+instance Data.ToQuery ImportKeyPair where
   toQuery ImportKeyPair' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ImportKeyPair" :: Prelude.ByteString),
+          Data.=: ("ImportKeyPair" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "KeyName" Core.=: keyName,
-        "PublicKeyMaterial" Core.=: publicKeyMaterial
+        "KeyName" Data.=: keyName,
+        "PublicKeyMaterial" Data.=: publicKeyMaterial
       ]
 
 -- | /See:/ 'newImportKeyPairResponse' smart constructor.

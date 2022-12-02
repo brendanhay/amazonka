@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -226,9 +227,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeHostReservationOfferingsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "offeringSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "offeringSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -260,33 +261,33 @@ instance
       `Prelude.seq` Prelude.rnf offeringId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeHostReservationOfferings
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeHostReservationOfferings where
+instance Data.ToPath DescribeHostReservationOfferings where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeHostReservationOfferings
   where
   toQuery DescribeHostReservationOfferings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeHostReservationOfferings" ::
+          Data.=: ( "DescribeHostReservationOfferings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "MaxDuration" Core.=: maxDuration,
-        "NextToken" Core.=: nextToken,
-        "MinDuration" Core.=: minDuration,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filter'),
-        "MaxResults" Core.=: maxResults,
-        "OfferingId" Core.=: offeringId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "MaxDuration" Data.=: maxDuration,
+        "NextToken" Data.=: nextToken,
+        "MinDuration" Data.=: minDuration,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filter'),
+        "MaxResults" Data.=: maxResults,
+        "OfferingId" Data.=: offeringId
       ]
 
 -- | /See:/ 'newDescribeHostReservationOfferingsResponse' smart constructor.

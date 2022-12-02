@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -231,7 +232,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyTrafficMirrorFilterRuleResponse'
-            Prelude.<$> (x Core..@? "trafficMirrorFilterRule")
+            Prelude.<$> (x Data..@? "trafficMirrorFilterRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,37 +269,37 @@ instance Prelude.NFData ModifyTrafficMirrorFilterRule where
       `Prelude.seq` Prelude.rnf sourcePortRange
       `Prelude.seq` Prelude.rnf trafficMirrorFilterRuleId
 
-instance Core.ToHeaders ModifyTrafficMirrorFilterRule where
+instance Data.ToHeaders ModifyTrafficMirrorFilterRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyTrafficMirrorFilterRule where
+instance Data.ToPath ModifyTrafficMirrorFilterRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyTrafficMirrorFilterRule where
+instance Data.ToQuery ModifyTrafficMirrorFilterRule where
   toQuery ModifyTrafficMirrorFilterRule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyTrafficMirrorFilterRule" ::
+          Data.=: ( "ModifyTrafficMirrorFilterRule" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "RuleNumber" Core.=: ruleNumber,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "TrafficDirection" Core.=: trafficDirection,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
-        "DestinationPortRange" Core.=: destinationPortRange,
-        Core.toQuery
-          ( Core.toQueryList "RemoveField"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "RuleNumber" Data.=: ruleNumber,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "TrafficDirection" Data.=: trafficDirection,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
+        "DestinationPortRange" Data.=: destinationPortRange,
+        Data.toQuery
+          ( Data.toQueryList "RemoveField"
               Prelude.<$> removeFields
           ),
-        "RuleAction" Core.=: ruleAction,
-        "SourceCidrBlock" Core.=: sourceCidrBlock,
-        "Protocol" Core.=: protocol,
-        "SourcePortRange" Core.=: sourcePortRange,
+        "RuleAction" Data.=: ruleAction,
+        "SourceCidrBlock" Data.=: sourceCidrBlock,
+        "Protocol" Data.=: protocol,
+        "SourcePortRange" Data.=: sourcePortRange,
         "TrafficMirrorFilterRuleId"
-          Core.=: trafficMirrorFilterRuleId
+          Data.=: trafficMirrorFilterRuleId
       ]
 
 -- | /See:/ 'newModifyTrafficMirrorFilterRuleResponse' smart constructor.

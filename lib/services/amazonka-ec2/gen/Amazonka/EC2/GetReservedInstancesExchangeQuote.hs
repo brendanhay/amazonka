@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,21 +134,21 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetReservedInstancesExchangeQuoteResponse'
-            Prelude.<$> ( x Core..@? "targetConfigurationValueSet"
+            Prelude.<$> ( x Data..@? "targetConfigurationValueSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Core..@? "reservedInstanceValueRollup")
-              Prelude.<*> (x Core..@? "validationFailureReason")
-              Prelude.<*> (x Core..@? "outputReservedInstancesWillExpireAt")
-              Prelude.<*> (x Core..@? "currencyCode")
-              Prelude.<*> (x Core..@? "paymentDue")
-              Prelude.<*> (x Core..@? "targetConfigurationValueRollup")
-              Prelude.<*> ( x Core..@? "reservedInstanceValueSet"
+              Prelude.<*> (x Data..@? "reservedInstanceValueRollup")
+              Prelude.<*> (x Data..@? "validationFailureReason")
+              Prelude.<*> (x Data..@? "outputReservedInstancesWillExpireAt")
+              Prelude.<*> (x Data..@? "currencyCode")
+              Prelude.<*> (x Data..@? "paymentDue")
+              Prelude.<*> (x Data..@? "targetConfigurationValueRollup")
+              Prelude.<*> ( x Data..@? "reservedInstanceValueSet"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
-              Prelude.<*> (x Core..@? "isValidExchange")
+              Prelude.<*> (x Data..@? "isValidExchange")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,35 +173,35 @@ instance
       `Prelude.seq` Prelude.rnf reservedInstanceIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetReservedInstancesExchangeQuote
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetReservedInstancesExchangeQuote
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetReservedInstancesExchangeQuote
   where
   toQuery GetReservedInstancesExchangeQuote' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetReservedInstancesExchangeQuote" ::
+          Data.=: ( "GetReservedInstancesExchangeQuote" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TargetConfiguration"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TargetConfiguration"
               Prelude.<$> targetConfigurations
           ),
-        Core.toQueryList
+        Data.toQueryList
           "ReservedInstanceId"
           reservedInstanceIds
       ]
@@ -216,7 +217,7 @@ data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuo
     -- | Describes the reason why the exchange cannot be completed.
     validationFailureReason :: Prelude.Maybe Prelude.Text,
     -- | The new end date of the reservation term.
-    outputReservedInstancesWillExpireAt :: Prelude.Maybe Core.ISO8601,
+    outputReservedInstancesWillExpireAt :: Prelude.Maybe Data.ISO8601,
     -- | The currency of the transaction.
     currencyCode :: Prelude.Maybe Prelude.Text,
     -- | The total true upfront charge for the exchange.
@@ -301,7 +302,7 @@ getReservedInstancesExchangeQuoteResponse_validationFailureReason = Lens.lens (\
 
 -- | The new end date of the reservation term.
 getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Prelude.Maybe Prelude.UTCTime)
-getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt = Lens.lens (\GetReservedInstancesExchangeQuoteResponse' {outputReservedInstancesWillExpireAt} -> outputReservedInstancesWillExpireAt) (\s@GetReservedInstancesExchangeQuoteResponse' {} a -> s {outputReservedInstancesWillExpireAt = a} :: GetReservedInstancesExchangeQuoteResponse) Prelude.. Lens.mapping Core._Time
+getReservedInstancesExchangeQuoteResponse_outputReservedInstancesWillExpireAt = Lens.lens (\GetReservedInstancesExchangeQuoteResponse' {outputReservedInstancesWillExpireAt} -> outputReservedInstancesWillExpireAt) (\s@GetReservedInstancesExchangeQuoteResponse' {} a -> s {outputReservedInstancesWillExpireAt = a} :: GetReservedInstancesExchangeQuoteResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The currency of the transaction.
 getReservedInstancesExchangeQuoteResponse_currencyCode :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Prelude.Maybe Prelude.Text)

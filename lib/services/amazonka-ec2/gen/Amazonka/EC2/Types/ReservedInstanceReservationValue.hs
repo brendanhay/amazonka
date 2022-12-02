@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstanceReservationValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ReservationValue
 import qualified Amazonka.Prelude as Prelude
@@ -68,13 +69,13 @@ reservedInstanceReservationValue_reservationValue :: Lens.Lens' ReservedInstance
 reservedInstanceReservationValue_reservationValue = Lens.lens (\ReservedInstanceReservationValue' {reservationValue} -> reservationValue) (\s@ReservedInstanceReservationValue' {} a -> s {reservationValue = a} :: ReservedInstanceReservationValue)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ReservedInstanceReservationValue
   where
   parseXML x =
     ReservedInstanceReservationValue'
-      Prelude.<$> (x Core..@? "reservedInstanceId")
-      Prelude.<*> (x Core..@? "reservationValue")
+      Prelude.<$> (x Data..@? "reservedInstanceId")
+      Prelude.<*> (x Data..@? "reservationValue")
 
 instance
   Prelude.Hashable

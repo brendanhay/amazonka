@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -256,7 +257,7 @@ instance Core.AWSRequest ModifyIpamPool where
     Response.receiveXML
       ( \s h x ->
           ModifyIpamPoolResponse'
-            Prelude.<$> (x Core..@? "ipamPool")
+            Prelude.<$> (x Data..@? "ipamPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -287,39 +288,39 @@ instance Prelude.NFData ModifyIpamPool where
       `Prelude.seq` Prelude.rnf autoImport
       `Prelude.seq` Prelude.rnf ipamPoolId
 
-instance Core.ToHeaders ModifyIpamPool where
+instance Data.ToHeaders ModifyIpamPool where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyIpamPool where
+instance Data.ToPath ModifyIpamPool where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyIpamPool where
+instance Data.ToQuery ModifyIpamPool where
   toQuery ModifyIpamPool' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyIpamPool" :: Prelude.ByteString),
+          Data.=: ("ModifyIpamPool" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "AddAllocationResourceTag"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "AddAllocationResourceTag"
               Prelude.<$> addAllocationResourceTags
           ),
         "ClearAllocationDefaultNetmaskLength"
-          Core.=: clearAllocationDefaultNetmaskLength,
-        Core.toQuery
-          ( Core.toQueryList "RemoveAllocationResourceTag"
+          Data.=: clearAllocationDefaultNetmaskLength,
+        Data.toQuery
+          ( Data.toQueryList "RemoveAllocationResourceTag"
               Prelude.<$> removeAllocationResourceTags
           ),
         "AllocationMaxNetmaskLength"
-          Core.=: allocationMaxNetmaskLength,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
+          Data.=: allocationMaxNetmaskLength,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
         "AllocationMinNetmaskLength"
-          Core.=: allocationMinNetmaskLength,
+          Data.=: allocationMinNetmaskLength,
         "AllocationDefaultNetmaskLength"
-          Core.=: allocationDefaultNetmaskLength,
-        "AutoImport" Core.=: autoImport,
-        "IpamPoolId" Core.=: ipamPoolId
+          Data.=: allocationDefaultNetmaskLength,
+        "AutoImport" Data.=: autoImport,
+        "IpamPoolId" Data.=: ipamPoolId
       ]
 
 -- | /See:/ 'newModifyIpamPoolResponse' smart constructor.

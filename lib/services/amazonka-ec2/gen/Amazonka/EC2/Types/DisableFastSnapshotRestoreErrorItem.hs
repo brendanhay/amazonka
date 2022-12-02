@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DisableFastSnapshotRestoreErrorItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DisableFastSnapshotRestoreStateErrorItem
 import qualified Amazonka.Prelude as Prelude
@@ -67,15 +68,15 @@ disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens'
 disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: DisableFastSnapshotRestoreErrorItem) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     DisableFastSnapshotRestoreErrorItem
   where
   parseXML x =
     DisableFastSnapshotRestoreErrorItem'
-      Prelude.<$> (x Core..@? "snapshotId")
-      Prelude.<*> ( x Core..@? "fastSnapshotRestoreStateErrorSet"
+      Prelude.<$> (x Data..@? "snapshotId")
+      Prelude.<*> ( x Data..@? "fastSnapshotRestoreStateErrorSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance

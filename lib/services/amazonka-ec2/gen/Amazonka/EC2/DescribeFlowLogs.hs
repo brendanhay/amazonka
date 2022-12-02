@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -245,9 +246,9 @@ instance Core.AWSRequest DescribeFlowLogs where
     Response.receiveXML
       ( \s h x ->
           DescribeFlowLogsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "flowLogSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "flowLogSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -268,28 +269,28 @@ instance Prelude.NFData DescribeFlowLogs where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeFlowLogs where
+instance Data.ToHeaders DescribeFlowLogs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeFlowLogs where
+instance Data.ToPath DescribeFlowLogs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFlowLogs where
+instance Data.ToQuery DescribeFlowLogs where
   toQuery DescribeFlowLogs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeFlowLogs" :: Prelude.ByteString),
+          Data.=: ("DescribeFlowLogs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          ( Core.toQueryList "FlowLogId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          ( Data.toQueryList "FlowLogId"
               Prelude.<$> flowLogIds
           ),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filter'),
-        "MaxResults" Core.=: maxResults
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filter'),
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeFlowLogsResponse' smart constructor.

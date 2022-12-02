@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EnableFastSnapshotRestoreSuccessItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FastSnapshotRestoreStateCode
 import qualified Amazonka.Prelude as Prelude
@@ -33,14 +34,14 @@ data EnableFastSnapshotRestoreSuccessItem = EnableFastSnapshotRestoreSuccessItem
     -- on the snapshot. This is intended for future use.
     ownerAlias :: Prelude.Maybe Prelude.Text,
     -- | The time at which fast snapshot restores entered the @enabled@ state.
-    enabledTime :: Prelude.Maybe Core.ISO8601,
+    enabledTime :: Prelude.Maybe Data.ISO8601,
     -- | The time at which fast snapshot restores entered the @disabled@ state.
-    disabledTime :: Prelude.Maybe Core.ISO8601,
+    disabledTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the Amazon Web Services account that enabled fast snapshot
     -- restores on the snapshot.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The time at which fast snapshot restores entered the @enabling@ state.
-    enablingTime :: Prelude.Maybe Core.ISO8601,
+    enablingTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The state of fast snapshot restores.
@@ -56,9 +57,9 @@ data EnableFastSnapshotRestoreSuccessItem = EnableFastSnapshotRestoreSuccessItem
     --     successfully transitioned to @optimizing@, @enabled@, or @disabled@.
     stateTransitionReason :: Prelude.Maybe Prelude.Text,
     -- | The time at which fast snapshot restores entered the @optimizing@ state.
-    optimizingTime :: Prelude.Maybe Core.ISO8601,
+    optimizingTime :: Prelude.Maybe Data.ISO8601,
     -- | The time at which fast snapshot restores entered the @disabling@ state.
-    disablingTime :: Prelude.Maybe Core.ISO8601
+    disablingTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,11 +126,11 @@ enableFastSnapshotRestoreSuccessItem_ownerAlias = Lens.lens (\EnableFastSnapshot
 
 -- | The time at which fast snapshot restores entered the @enabled@ state.
 enableFastSnapshotRestoreSuccessItem_enabledTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.UTCTime)
-enableFastSnapshotRestoreSuccessItem_enabledTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {enabledTime} -> enabledTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {enabledTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Core._Time
+enableFastSnapshotRestoreSuccessItem_enabledTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {enabledTime} -> enabledTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {enabledTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which fast snapshot restores entered the @disabled@ state.
 enableFastSnapshotRestoreSuccessItem_disabledTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.UTCTime)
-enableFastSnapshotRestoreSuccessItem_disabledTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {disabledTime} -> disabledTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {disabledTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Core._Time
+enableFastSnapshotRestoreSuccessItem_disabledTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {disabledTime} -> disabledTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {disabledTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Amazon Web Services account that enabled fast snapshot
 -- restores on the snapshot.
@@ -138,7 +139,7 @@ enableFastSnapshotRestoreSuccessItem_ownerId = Lens.lens (\EnableFastSnapshotRes
 
 -- | The time at which fast snapshot restores entered the @enabling@ state.
 enableFastSnapshotRestoreSuccessItem_enablingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.UTCTime)
-enableFastSnapshotRestoreSuccessItem_enablingTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {enablingTime} -> enablingTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {enablingTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Core._Time
+enableFastSnapshotRestoreSuccessItem_enablingTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {enablingTime} -> enablingTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {enablingTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the snapshot.
 enableFastSnapshotRestoreSuccessItem_snapshotId :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.Text)
@@ -164,29 +165,29 @@ enableFastSnapshotRestoreSuccessItem_stateTransitionReason = Lens.lens (\EnableF
 
 -- | The time at which fast snapshot restores entered the @optimizing@ state.
 enableFastSnapshotRestoreSuccessItem_optimizingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.UTCTime)
-enableFastSnapshotRestoreSuccessItem_optimizingTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {optimizingTime} -> optimizingTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {optimizingTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Core._Time
+enableFastSnapshotRestoreSuccessItem_optimizingTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {optimizingTime} -> optimizingTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {optimizingTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which fast snapshot restores entered the @disabling@ state.
 enableFastSnapshotRestoreSuccessItem_disablingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Prelude.Maybe Prelude.UTCTime)
-enableFastSnapshotRestoreSuccessItem_disablingTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {disablingTime} -> disablingTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {disablingTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Core._Time
+enableFastSnapshotRestoreSuccessItem_disablingTime = Lens.lens (\EnableFastSnapshotRestoreSuccessItem' {disablingTime} -> disablingTime) (\s@EnableFastSnapshotRestoreSuccessItem' {} a -> s {disablingTime = a} :: EnableFastSnapshotRestoreSuccessItem) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromXML
+  Data.FromXML
     EnableFastSnapshotRestoreSuccessItem
   where
   parseXML x =
     EnableFastSnapshotRestoreSuccessItem'
-      Prelude.<$> (x Core..@? "ownerAlias")
-      Prelude.<*> (x Core..@? "enabledTime")
-      Prelude.<*> (x Core..@? "disabledTime")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "enablingTime")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "stateTransitionReason")
-      Prelude.<*> (x Core..@? "optimizingTime")
-      Prelude.<*> (x Core..@? "disablingTime")
+      Prelude.<$> (x Data..@? "ownerAlias")
+      Prelude.<*> (x Data..@? "enabledTime")
+      Prelude.<*> (x Data..@? "disabledTime")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "enablingTime")
+      Prelude.<*> (x Data..@? "snapshotId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "stateTransitionReason")
+      Prelude.<*> (x Data..@? "optimizingTime")
+      Prelude.<*> (x Data..@? "disablingTime")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DhcpOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DhcpConfiguration
 import Amazonka.EC2.Types.Tag
@@ -85,18 +86,18 @@ dhcpOptions_dhcpConfigurations = Lens.lens (\DhcpOptions' {dhcpConfigurations} -
 dhcpOptions_dhcpOptionsId :: Lens.Lens' DhcpOptions (Prelude.Maybe Prelude.Text)
 dhcpOptions_dhcpOptionsId = Lens.lens (\DhcpOptions' {dhcpOptionsId} -> dhcpOptionsId) (\s@DhcpOptions' {} a -> s {dhcpOptionsId = a} :: DhcpOptions)
 
-instance Core.FromXML DhcpOptions where
+instance Data.FromXML DhcpOptions where
   parseXML x =
     DhcpOptions'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> ( x Core..@? "dhcpConfigurationSet"
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> ( x Data..@? "dhcpConfigurationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "dhcpOptionsId")
+      Prelude.<*> (x Data..@? "dhcpOptionsId")
 
 instance Prelude.Hashable DhcpOptions where
   hashWithSalt _salt DhcpOptions' {..} =

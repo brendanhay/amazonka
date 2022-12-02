@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.TransitGatewayAssociationState
 import Amazonka.EC2.Types.TransitGatewayAttachmentResourceType
@@ -96,14 +97,14 @@ transitGatewayAssociation_transitGatewayAttachmentId = Lens.lens (\TransitGatewa
 transitGatewayAssociation_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayAssociation (Prelude.Maybe Prelude.Text)
 transitGatewayAssociation_transitGatewayRouteTableId = Lens.lens (\TransitGatewayAssociation' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayAssociation' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayAssociation)
 
-instance Core.FromXML TransitGatewayAssociation where
+instance Data.FromXML TransitGatewayAssociation where
   parseXML x =
     TransitGatewayAssociation'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> (x Core..@? "resourceType")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Core..@? "transitGatewayRouteTableId")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> (x Data..@? "resourceType")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "transitGatewayRouteTableId")
 
 instance Prelude.Hashable TransitGatewayAssociation where
   hashWithSalt _salt TransitGatewayAssociation' {..} =

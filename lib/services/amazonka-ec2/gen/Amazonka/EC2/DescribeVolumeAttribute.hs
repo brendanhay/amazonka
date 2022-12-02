@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,11 +124,11 @@ instance Core.AWSRequest DescribeVolumeAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeVolumeAttributeResponse'
-            Prelude.<$> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "volumeId")
-            Prelude.<*> (x Core..@? "autoEnableIO")
+            Prelude.<*> (x Data..@? "volumeId")
+            Prelude.<*> (x Data..@? "autoEnableIO")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,22 +144,22 @@ instance Prelude.NFData DescribeVolumeAttribute where
       `Prelude.seq` Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders DescribeVolumeAttribute where
+instance Data.ToHeaders DescribeVolumeAttribute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeVolumeAttribute where
+instance Data.ToPath DescribeVolumeAttribute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeVolumeAttribute where
+instance Data.ToQuery DescribeVolumeAttribute where
   toQuery DescribeVolumeAttribute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeVolumeAttribute" :: Prelude.ByteString),
+          Data.=: ("DescribeVolumeAttribute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Attribute" Core.=: attribute,
-        "VolumeId" Core.=: volumeId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Attribute" Data.=: attribute,
+        "VolumeId" Data.=: volumeId
       ]
 
 -- | /See:/ 'newDescribeVolumeAttributeResponse' smart constructor.

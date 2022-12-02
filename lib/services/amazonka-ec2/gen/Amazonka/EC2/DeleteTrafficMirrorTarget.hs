@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,7 +109,7 @@ instance Core.AWSRequest DeleteTrafficMirrorTarget where
     Response.receiveXML
       ( \s h x ->
           DeleteTrafficMirrorTargetResponse'
-            Prelude.<$> (x Core..@? "trafficMirrorTargetId")
+            Prelude.<$> (x Data..@? "trafficMirrorTargetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,22 +123,22 @@ instance Prelude.NFData DeleteTrafficMirrorTarget where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf trafficMirrorTargetId
 
-instance Core.ToHeaders DeleteTrafficMirrorTarget where
+instance Data.ToHeaders DeleteTrafficMirrorTarget where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteTrafficMirrorTarget where
+instance Data.ToPath DeleteTrafficMirrorTarget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTrafficMirrorTarget where
+instance Data.ToQuery DeleteTrafficMirrorTarget where
   toQuery DeleteTrafficMirrorTarget' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTrafficMirrorTarget" :: Prelude.ByteString),
+          Data.=: ("DeleteTrafficMirrorTarget" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         "TrafficMirrorTargetId"
-          Core.=: trafficMirrorTargetId
+          Data.=: trafficMirrorTargetId
       ]
 
 -- | /See:/ 'newDeleteTrafficMirrorTargetResponse' smart constructor.

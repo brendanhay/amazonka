@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,7 +140,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayRouteTableAnnouncementResponse'
-            Prelude.<$> (x Core..@? "transitGatewayRouteTableAnnouncement")
+            Prelude.<$> (x Data..@? "transitGatewayRouteTableAnnouncement")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,38 +167,38 @@ instance
       `Prelude.seq` Prelude.rnf peeringAttachmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateTransitGatewayRouteTableAnnouncement
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateTransitGatewayRouteTableAnnouncement
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayRouteTableAnnouncement
   where
   toQuery
     CreateTransitGatewayRouteTableAnnouncement' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "CreateTransitGatewayRouteTableAnnouncement" ::
+            Data.=: ( "CreateTransitGatewayRouteTableAnnouncement" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
-          Core.toQuery
-            ( Core.toQueryList "TagSpecification"
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun,
+          Data.toQuery
+            ( Data.toQueryList "TagSpecification"
                 Prelude.<$> tagSpecifications
             ),
           "TransitGatewayRouteTableId"
-            Core.=: transitGatewayRouteTableId,
-          "PeeringAttachmentId" Core.=: peeringAttachmentId
+            Data.=: transitGatewayRouteTableId,
+          "PeeringAttachmentId" Data.=: peeringAttachmentId
         ]
 
 -- | /See:/ 'newCreateTransitGatewayRouteTableAnnouncementResponse' smart constructor.

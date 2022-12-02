@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImportImageTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.BootModeValues
 import Amazonka.EC2.Types.ImportImageLicenseConfigurationResponse
@@ -222,34 +223,34 @@ importImageTask_architecture = Lens.lens (\ImportImageTask' {architecture} -> ar
 importImageTask_imageId :: Lens.Lens' ImportImageTask (Prelude.Maybe Prelude.Text)
 importImageTask_imageId = Lens.lens (\ImportImageTask' {imageId} -> imageId) (\s@ImportImageTask' {} a -> s {imageId = a} :: ImportImageTask)
 
-instance Core.FromXML ImportImageTask where
+instance Data.FromXML ImportImageTask where
   parseXML x =
     ImportImageTask'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "hypervisor")
-      Prelude.<*> (x Core..@? "progress")
-      Prelude.<*> (x Core..@? "licenseType")
-      Prelude.<*> (x Core..@? "importTaskId")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "usageOperation")
-      Prelude.<*> (x Core..@? "encrypted")
-      Prelude.<*> (x Core..@? "kmsKeyId")
-      Prelude.<*> (x Core..@? "bootMode")
-      Prelude.<*> ( x Core..@? "licenseSpecifications"
+      Prelude.<*> (x Data..@? "hypervisor")
+      Prelude.<*> (x Data..@? "progress")
+      Prelude.<*> (x Data..@? "licenseType")
+      Prelude.<*> (x Data..@? "importTaskId")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "platform")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "usageOperation")
+      Prelude.<*> (x Data..@? "encrypted")
+      Prelude.<*> (x Data..@? "kmsKeyId")
+      Prelude.<*> (x Data..@? "bootMode")
+      Prelude.<*> ( x Data..@? "licenseSpecifications"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "snapshotDetailSet"
+      Prelude.<*> ( x Data..@? "snapshotDetailSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "architecture")
-      Prelude.<*> (x Core..@? "imageId")
+      Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "architecture")
+      Prelude.<*> (x Data..@? "imageId")
 
 instance Prelude.Hashable ImportImageTask where
   hashWithSalt _salt ImportImageTask' {..} =

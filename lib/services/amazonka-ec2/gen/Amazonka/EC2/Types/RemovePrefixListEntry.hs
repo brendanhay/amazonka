@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RemovePrefixListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,6 +61,6 @@ instance Prelude.Hashable RemovePrefixListEntry where
 instance Prelude.NFData RemovePrefixListEntry where
   rnf RemovePrefixListEntry' {..} = Prelude.rnf cidr
 
-instance Core.ToQuery RemovePrefixListEntry where
+instance Data.ToQuery RemovePrefixListEntry where
   toQuery RemovePrefixListEntry' {..} =
-    Prelude.mconcat ["Cidr" Core.=: cidr]
+    Prelude.mconcat ["Cidr" Data.=: cidr]

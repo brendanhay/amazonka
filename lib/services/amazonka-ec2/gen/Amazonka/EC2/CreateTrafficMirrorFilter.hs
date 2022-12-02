@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,8 +141,8 @@ instance Core.AWSRequest CreateTrafficMirrorFilter where
     Response.receiveXML
       ( \s h x ->
           CreateTrafficMirrorFilterResponse'
-            Prelude.<$> (x Core..@? "trafficMirrorFilter")
-            Prelude.<*> (x Core..@? "clientToken")
+            Prelude.<$> (x Data..@? "trafficMirrorFilter")
+            Prelude.<*> (x Data..@? "clientToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,24 +160,24 @@ instance Prelude.NFData CreateTrafficMirrorFilter where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf tagSpecifications
 
-instance Core.ToHeaders CreateTrafficMirrorFilter where
+instance Data.ToHeaders CreateTrafficMirrorFilter where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTrafficMirrorFilter where
+instance Data.ToPath CreateTrafficMirrorFilter where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrafficMirrorFilter where
+instance Data.ToQuery CreateTrafficMirrorFilter where
   toQuery CreateTrafficMirrorFilter' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTrafficMirrorFilter" :: Prelude.ByteString),
+          Data.=: ("CreateTrafficMirrorFilter" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           )
       ]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceIpv6Address
 import Amazonka.EC2.Types.Ipv4PrefixSpecificationResponse
@@ -275,42 +276,42 @@ launchTemplateInstanceNetworkInterfaceSpecification_deviceIndex :: Lens.Lens' La
 launchTemplateInstanceNetworkInterfaceSpecification_deviceIndex = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {deviceIndex} -> deviceIndex) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {deviceIndex = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateInstanceNetworkInterfaceSpecification
   where
   parseXML x =
     LaunchTemplateInstanceNetworkInterfaceSpecification'
-      Prelude.<$> (x Core..@? "ipv4PrefixCount")
-        Prelude.<*> (x Core..@? "interfaceType")
-        Prelude.<*> (x Core..@? "networkCardIndex")
-        Prelude.<*> (x Core..@? "associatePublicIpAddress")
-        Prelude.<*> (x Core..@? "deleteOnTermination")
-        Prelude.<*> ( x Core..@? "privateIpAddressesSet"
+      Prelude.<$> (x Data..@? "ipv4PrefixCount")
+        Prelude.<*> (x Data..@? "interfaceType")
+        Prelude.<*> (x Data..@? "networkCardIndex")
+        Prelude.<*> (x Data..@? "associatePublicIpAddress")
+        Prelude.<*> (x Data..@? "deleteOnTermination")
+        Prelude.<*> ( x Data..@? "privateIpAddressesSet"
                         Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Core.parseXMLList "item")
+                        Prelude.>>= Core.may (Data.parseXMLList "item")
                     )
-        Prelude.<*> (x Core..@? "subnetId")
-        Prelude.<*> (x Core..@? "description")
-        Prelude.<*> (x Core..@? "associateCarrierIpAddress")
-        Prelude.<*> (x Core..@? "networkInterfaceId")
-        Prelude.<*> (x Core..@? "ipv6AddressCount")
-        Prelude.<*> ( x Core..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Core.parseXMLList "item")
+        Prelude.<*> (x Data..@? "subnetId")
+        Prelude.<*> (x Data..@? "description")
+        Prelude.<*> (x Data..@? "associateCarrierIpAddress")
+        Prelude.<*> (x Data..@? "networkInterfaceId")
+        Prelude.<*> (x Data..@? "ipv6AddressCount")
+        Prelude.<*> ( x Data..@? "ipv4PrefixSet" Core..!@ Prelude.mempty
+                        Prelude.>>= Core.may (Data.parseXMLList "item")
                     )
-        Prelude.<*> (x Core..@? "privateIpAddress")
-        Prelude.<*> (x Core..@? "ipv6PrefixCount")
-        Prelude.<*> (x Core..@? "secondaryPrivateIpAddressCount")
-        Prelude.<*> ( x Core..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Core.parseXMLList "item")
+        Prelude.<*> (x Data..@? "privateIpAddress")
+        Prelude.<*> (x Data..@? "ipv6PrefixCount")
+        Prelude.<*> (x Data..@? "secondaryPrivateIpAddressCount")
+        Prelude.<*> ( x Data..@? "ipv6PrefixSet" Core..!@ Prelude.mempty
+                        Prelude.>>= Core.may (Data.parseXMLList "item")
                     )
-        Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Core.parseXMLList "groupId")
+        Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                        Prelude.>>= Core.may (Data.parseXMLList "groupId")
                     )
-        Prelude.<*> ( x Core..@? "ipv6AddressesSet"
+        Prelude.<*> ( x Data..@? "ipv6AddressesSet"
                         Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Core.parseXMLList "item")
+                        Prelude.>>= Core.may (Data.parseXMLList "item")
                     )
-        Prelude.<*> (x Core..@? "deviceIndex")
+        Prelude.<*> (x Data..@? "deviceIndex")
 
 instance
   Prelude.Hashable

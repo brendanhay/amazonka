@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EbsInstanceBlockDevice where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AttachmentStatus
 import qualified Amazonka.Prelude as Prelude
@@ -35,7 +36,7 @@ data EbsInstanceBlockDevice = EbsInstanceBlockDevice'
     -- | The attachment state.
     status :: Prelude.Maybe AttachmentStatus,
     -- | The time stamp when the attachment initiated.
-    attachTime :: Prelude.Maybe Core.ISO8601,
+    attachTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the EBS volume.
     volumeId :: Prelude.Maybe Prelude.Text
   }
@@ -77,19 +78,19 @@ ebsInstanceBlockDevice_status = Lens.lens (\EbsInstanceBlockDevice' {status} -> 
 
 -- | The time stamp when the attachment initiated.
 ebsInstanceBlockDevice_attachTime :: Lens.Lens' EbsInstanceBlockDevice (Prelude.Maybe Prelude.UTCTime)
-ebsInstanceBlockDevice_attachTime = Lens.lens (\EbsInstanceBlockDevice' {attachTime} -> attachTime) (\s@EbsInstanceBlockDevice' {} a -> s {attachTime = a} :: EbsInstanceBlockDevice) Prelude.. Lens.mapping Core._Time
+ebsInstanceBlockDevice_attachTime = Lens.lens (\EbsInstanceBlockDevice' {attachTime} -> attachTime) (\s@EbsInstanceBlockDevice' {} a -> s {attachTime = a} :: EbsInstanceBlockDevice) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the EBS volume.
 ebsInstanceBlockDevice_volumeId :: Lens.Lens' EbsInstanceBlockDevice (Prelude.Maybe Prelude.Text)
 ebsInstanceBlockDevice_volumeId = Lens.lens (\EbsInstanceBlockDevice' {volumeId} -> volumeId) (\s@EbsInstanceBlockDevice' {} a -> s {volumeId = a} :: EbsInstanceBlockDevice)
 
-instance Core.FromXML EbsInstanceBlockDevice where
+instance Data.FromXML EbsInstanceBlockDevice where
   parseXML x =
     EbsInstanceBlockDevice'
-      Prelude.<$> (x Core..@? "deleteOnTermination")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "attachTime")
-      Prelude.<*> (x Core..@? "volumeId")
+      Prelude.<$> (x Data..@? "deleteOnTermination")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "attachTime")
+      Prelude.<*> (x Data..@? "volumeId")
 
 instance Prelude.Hashable EbsInstanceBlockDevice where
   hashWithSalt _salt EbsInstanceBlockDevice' {..} =

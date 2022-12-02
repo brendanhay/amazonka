@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,7 +145,7 @@ instance Core.AWSRequest ReplaceTransitGatewayRoute where
     Response.receiveXML
       ( \s h x ->
           ReplaceTransitGatewayRouteResponse'
-            Prelude.<$> (x Core..@? "route")
+            Prelude.<$> (x Data..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,26 +166,26 @@ instance Prelude.NFData ReplaceTransitGatewayRoute where
       `Prelude.seq` Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
 
-instance Core.ToHeaders ReplaceTransitGatewayRoute where
+instance Data.ToHeaders ReplaceTransitGatewayRoute where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReplaceTransitGatewayRoute where
+instance Data.ToPath ReplaceTransitGatewayRoute where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReplaceTransitGatewayRoute where
+instance Data.ToQuery ReplaceTransitGatewayRoute where
   toQuery ReplaceTransitGatewayRoute' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ReplaceTransitGatewayRoute" :: Prelude.ByteString),
+          Data.=: ("ReplaceTransitGatewayRoute" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "TransitGatewayAttachmentId"
-          Core.=: transitGatewayAttachmentId,
-        "DryRun" Core.=: dryRun,
-        "Blackhole" Core.=: blackhole,
-        "DestinationCidrBlock" Core.=: destinationCidrBlock,
+          Data.=: transitGatewayAttachmentId,
+        "DryRun" Data.=: dryRun,
+        "Blackhole" Data.=: blackhole,
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
         "TransitGatewayRouteTableId"
-          Core.=: transitGatewayRouteTableId
+          Data.=: transitGatewayRouteTableId
       ]
 
 -- | /See:/ 'newReplaceTransitGatewayRouteResponse' smart constructor.

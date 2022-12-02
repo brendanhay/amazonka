@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,9 +158,9 @@ instance Core.AWSRequest ListSnapshotsInRecycleBin where
     Response.receiveXML
       ( \s h x ->
           ListSnapshotsInRecycleBinResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "snapshotSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "snapshotSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -178,26 +179,26 @@ instance Prelude.NFData ListSnapshotsInRecycleBin where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListSnapshotsInRecycleBin where
+instance Data.ToHeaders ListSnapshotsInRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSnapshotsInRecycleBin where
+instance Data.ToPath ListSnapshotsInRecycleBin where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSnapshotsInRecycleBin where
+instance Data.ToQuery ListSnapshotsInRecycleBin where
   toQuery ListSnapshotsInRecycleBin' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListSnapshotsInRecycleBin" :: Prelude.ByteString),
+          Data.=: ("ListSnapshotsInRecycleBin" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          ( Core.toQueryList "SnapshotId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          ( Data.toQueryList "SnapshotId"
               Prelude.<$> snapshotIds
           ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSnapshotsInRecycleBinResponse' smart constructor.

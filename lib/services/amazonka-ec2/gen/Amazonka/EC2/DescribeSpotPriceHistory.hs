@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
     -- | The date and time, up to the current date, from which to stop retrieving
     -- the price history data, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -114,7 +115,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
     -- | The date and time, up to the past 90 days, from which to start
     -- retrieving the price history data, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    startTime :: Prelude.Maybe Core.ISO8601
+    startTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -231,7 +232,7 @@ describeSpotPriceHistory_availabilityZone = Lens.lens (\DescribeSpotPriceHistory
 -- the price history data, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 describeSpotPriceHistory_endTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
-describeSpotPriceHistory_endTime = Lens.lens (\DescribeSpotPriceHistory' {endTime} -> endTime) (\s@DescribeSpotPriceHistory' {} a -> s {endTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Core._Time
+describeSpotPriceHistory_endTime = Lens.lens (\DescribeSpotPriceHistory' {endTime} -> endTime) (\s@DescribeSpotPriceHistory' {} a -> s {endTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Data._Time
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -251,7 +252,7 @@ describeSpotPriceHistory_maxResults = Lens.lens (\DescribeSpotPriceHistory' {max
 -- retrieving the price history data, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 describeSpotPriceHistory_startTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
-describeSpotPriceHistory_startTime = Lens.lens (\DescribeSpotPriceHistory' {startTime} -> startTime) (\s@DescribeSpotPriceHistory' {} a -> s {startTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Core._Time
+describeSpotPriceHistory_startTime = Lens.lens (\DescribeSpotPriceHistory' {startTime} -> startTime) (\s@DescribeSpotPriceHistory' {} a -> s {startTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager DescribeSpotPriceHistory where
   page rq rs
@@ -285,10 +286,10 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
     Response.receiveXML
       ( \s h x ->
           DescribeSpotPriceHistoryResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "spotPriceHistorySet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "spotPriceHistorySet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -317,35 +318,35 @@ instance Prelude.NFData DescribeSpotPriceHistory where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders DescribeSpotPriceHistory where
+instance Data.ToHeaders DescribeSpotPriceHistory where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSpotPriceHistory where
+instance Data.ToPath DescribeSpotPriceHistory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSpotPriceHistory where
+instance Data.ToQuery DescribeSpotPriceHistory where
   toQuery DescribeSpotPriceHistory' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSpotPriceHistory" :: Prelude.ByteString),
+          Data.=: ("DescribeSpotPriceHistory" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          ( Core.toQueryList "InstanceType"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          ( Data.toQueryList "InstanceType"
               Prelude.<$> instanceTypes
           ),
-        Core.toQuery
-          ( Core.toQueryList "ProductDescription"
+        Data.toQuery
+          ( Data.toQueryList "ProductDescription"
               Prelude.<$> productDescriptions
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "AvailabilityZone" Core.=: availabilityZone,
-        "EndTime" Core.=: endTime,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "StartTime" Core.=: startTime
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "AvailabilityZone" Data.=: availabilityZone,
+        "EndTime" Data.=: endTime,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "StartTime" Data.=: startTime
       ]
 
 -- | Contains the output of DescribeSpotPriceHistory.

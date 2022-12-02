@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,7 +184,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayPeeringAttachmentResponse'
-            Prelude.<$> (x Core..@? "transitGatewayPeeringAttachment")
+            Prelude.<$> (x Data..@? "transitGatewayPeeringAttachment")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,39 +217,39 @@ instance
       `Prelude.seq` Prelude.rnf peerRegion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateTransitGatewayPeeringAttachment
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateTransitGatewayPeeringAttachment
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayPeeringAttachment
   where
   toQuery CreateTransitGatewayPeeringAttachment' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateTransitGatewayPeeringAttachment" ::
+          Data.=: ( "CreateTransitGatewayPeeringAttachment" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Options" Core.=: options,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Options" Data.=: options,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "TransitGatewayId" Core.=: transitGatewayId,
-        "PeerTransitGatewayId" Core.=: peerTransitGatewayId,
-        "PeerAccountId" Core.=: peerAccountId,
-        "PeerRegion" Core.=: peerRegion
+        "TransitGatewayId" Data.=: transitGatewayId,
+        "PeerTransitGatewayId" Data.=: peerTransitGatewayId,
+        "PeerAccountId" Data.=: peerAccountId,
+        "PeerRegion" Data.=: peerRegion
       ]
 
 -- | /See:/ 'newCreateTransitGatewayPeeringAttachmentResponse' smart constructor.

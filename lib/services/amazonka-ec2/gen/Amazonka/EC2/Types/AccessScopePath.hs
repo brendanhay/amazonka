@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AccessScopePath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PathStatement
 import Amazonka.EC2.Types.ThroughResourcesStatement
@@ -73,14 +74,14 @@ accessScopePath_source = Lens.lens (\AccessScopePath' {source} -> source) (\s@Ac
 accessScopePath_throughResources :: Lens.Lens' AccessScopePath (Prelude.Maybe [ThroughResourcesStatement])
 accessScopePath_throughResources = Lens.lens (\AccessScopePath' {throughResources} -> throughResources) (\s@AccessScopePath' {} a -> s {throughResources = a} :: AccessScopePath) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML AccessScopePath where
+instance Data.FromXML AccessScopePath where
   parseXML x =
     AccessScopePath'
-      Prelude.<$> (x Core..@? "destination")
-      Prelude.<*> (x Core..@? "source")
-      Prelude.<*> ( x Core..@? "throughResourceSet"
+      Prelude.<$> (x Data..@? "destination")
+      Prelude.<*> (x Data..@? "source")
+      Prelude.<*> ( x Data..@? "throughResourceSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable AccessScopePath where

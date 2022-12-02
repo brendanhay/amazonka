@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ElasticGpus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ElasticGpuHealth
 import Amazonka.EC2.Types.ElasticGpuState
@@ -116,18 +117,18 @@ elasticGpus_elasticGpuId = Lens.lens (\ElasticGpus' {elasticGpuId} -> elasticGpu
 elasticGpus_elasticGpuType :: Lens.Lens' ElasticGpus (Prelude.Maybe Prelude.Text)
 elasticGpus_elasticGpuType = Lens.lens (\ElasticGpus' {elasticGpuType} -> elasticGpuType) (\s@ElasticGpus' {} a -> s {elasticGpuType = a} :: ElasticGpus)
 
-instance Core.FromXML ElasticGpus where
+instance Data.FromXML ElasticGpus where
   parseXML x =
     ElasticGpus'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "elasticGpuHealth")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "elasticGpuState")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "elasticGpuId")
-      Prelude.<*> (x Core..@? "elasticGpuType")
+      Prelude.<*> (x Data..@? "elasticGpuHealth")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "elasticGpuState")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "elasticGpuId")
+      Prelude.<*> (x Data..@? "elasticGpuType")
 
 instance Prelude.Hashable ElasticGpus where
   hashWithSalt _salt ElasticGpus' {..} =

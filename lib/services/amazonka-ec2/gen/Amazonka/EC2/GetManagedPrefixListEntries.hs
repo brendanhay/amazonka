@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,9 +170,9 @@ instance Core.AWSRequest GetManagedPrefixListEntries where
     Response.receiveXML
       ( \s h x ->
           GetManagedPrefixListEntriesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "entrySet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "entrySet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -192,26 +193,26 @@ instance Prelude.NFData GetManagedPrefixListEntries where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf prefixListId
 
-instance Core.ToHeaders GetManagedPrefixListEntries where
+instance Data.ToHeaders GetManagedPrefixListEntries where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetManagedPrefixListEntries where
+instance Data.ToPath GetManagedPrefixListEntries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetManagedPrefixListEntries where
+instance Data.ToQuery GetManagedPrefixListEntries where
   toQuery GetManagedPrefixListEntries' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetManagedPrefixListEntries" ::
+          Data.=: ( "GetManagedPrefixListEntries" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "TargetVersion" Core.=: targetVersion,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "PrefixListId" Core.=: prefixListId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "TargetVersion" Data.=: targetVersion,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "PrefixListId" Data.=: prefixListId
       ]
 
 -- | /See:/ 'newGetManagedPrefixListEntriesResponse' smart constructor.

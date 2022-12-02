@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpcPeeringConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.VpcPeeringConnectionStateReason
@@ -37,7 +38,7 @@ data VpcPeeringConnection = VpcPeeringConnection'
     -- returned when describing an active VPC peering connection.
     requesterVpcInfo :: Prelude.Maybe VpcPeeringConnectionVpcInfo,
     -- | The time that an unaccepted VPC peering connection will expire.
-    expirationTime :: Prelude.Maybe Core.ISO8601,
+    expirationTime :: Prelude.Maybe Data.ISO8601,
     -- | Information about the accepter VPC. CIDR block information is only
     -- returned when describing an active VPC peering connection.
     accepterVpcInfo :: Prelude.Maybe VpcPeeringConnectionVpcInfo,
@@ -92,7 +93,7 @@ vpcPeeringConnection_requesterVpcInfo = Lens.lens (\VpcPeeringConnection' {reque
 
 -- | The time that an unaccepted VPC peering connection will expire.
 vpcPeeringConnection_expirationTime :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.UTCTime)
-vpcPeeringConnection_expirationTime = Lens.lens (\VpcPeeringConnection' {expirationTime} -> expirationTime) (\s@VpcPeeringConnection' {} a -> s {expirationTime = a} :: VpcPeeringConnection) Prelude.. Lens.mapping Core._Time
+vpcPeeringConnection_expirationTime = Lens.lens (\VpcPeeringConnection' {expirationTime} -> expirationTime) (\s@VpcPeeringConnection' {} a -> s {expirationTime = a} :: VpcPeeringConnection) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the accepter VPC. CIDR block information is only
 -- returned when describing an active VPC peering connection.
@@ -107,17 +108,17 @@ vpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\VpcPeeringConnection' 
 vpcPeeringConnection_status :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe VpcPeeringConnectionStateReason)
 vpcPeeringConnection_status = Lens.lens (\VpcPeeringConnection' {status} -> status) (\s@VpcPeeringConnection' {} a -> s {status = a} :: VpcPeeringConnection)
 
-instance Core.FromXML VpcPeeringConnection where
+instance Data.FromXML VpcPeeringConnection where
   parseXML x =
     VpcPeeringConnection'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "requesterVpcInfo")
-      Prelude.<*> (x Core..@? "expirationTime")
-      Prelude.<*> (x Core..@? "accepterVpcInfo")
-      Prelude.<*> (x Core..@? "vpcPeeringConnectionId")
-      Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Data..@? "requesterVpcInfo")
+      Prelude.<*> (x Data..@? "expirationTime")
+      Prelude.<*> (x Data..@? "accepterVpcInfo")
+      Prelude.<*> (x Data..@? "vpcPeeringConnectionId")
+      Prelude.<*> (x Data..@? "status")
 
 instance Prelude.Hashable VpcPeeringConnection where
   hashWithSalt _salt VpcPeeringConnection' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CidrBlock where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,9 +52,9 @@ newCidrBlock =
 cidrBlock_cidrBlock :: Lens.Lens' CidrBlock (Prelude.Maybe Prelude.Text)
 cidrBlock_cidrBlock = Lens.lens (\CidrBlock' {cidrBlock} -> cidrBlock) (\s@CidrBlock' {} a -> s {cidrBlock = a} :: CidrBlock)
 
-instance Core.FromXML CidrBlock where
+instance Data.FromXML CidrBlock where
   parseXML x =
-    CidrBlock' Prelude.<$> (x Core..@? "cidrBlock")
+    CidrBlock' Prelude.<$> (x Data..@? "cidrBlock")
 
 instance Prelude.Hashable CidrBlock where
   hashWithSalt _salt CidrBlock' {..} =

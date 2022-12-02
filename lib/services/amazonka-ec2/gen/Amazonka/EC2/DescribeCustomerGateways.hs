@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,9 +198,9 @@ instance Core.AWSRequest DescribeCustomerGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeCustomerGatewaysResponse'
-            Prelude.<$> ( x Core..@? "customerGatewaySet"
+            Prelude.<$> ( x Data..@? "customerGatewaySet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -216,24 +217,24 @@ instance Prelude.NFData DescribeCustomerGateways where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf customerGatewayIds
 
-instance Core.ToHeaders DescribeCustomerGateways where
+instance Data.ToHeaders DescribeCustomerGateways where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeCustomerGateways where
+instance Data.ToPath DescribeCustomerGateways where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeCustomerGateways where
+instance Data.ToQuery DescribeCustomerGateways where
   toQuery DescribeCustomerGateways' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeCustomerGateways" :: Prelude.ByteString),
+          Data.=: ("DescribeCustomerGateways" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "CustomerGatewayId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "CustomerGatewayId"
               Prelude.<$> customerGatewayIds
           )
       ]

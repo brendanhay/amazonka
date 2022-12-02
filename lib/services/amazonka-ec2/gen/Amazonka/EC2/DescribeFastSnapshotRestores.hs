@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,10 +185,10 @@ instance Core.AWSRequest DescribeFastSnapshotRestores where
     Response.receiveXML
       ( \s h x ->
           DescribeFastSnapshotRestoresResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "fastSnapshotRestoreSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "fastSnapshotRestoreSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -209,26 +210,26 @@ instance Prelude.NFData DescribeFastSnapshotRestores where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeFastSnapshotRestores where
+instance Data.ToHeaders DescribeFastSnapshotRestores where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeFastSnapshotRestores where
+instance Data.ToPath DescribeFastSnapshotRestores where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFastSnapshotRestores where
+instance Data.ToQuery DescribeFastSnapshotRestores where
   toQuery DescribeFastSnapshotRestores' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeFastSnapshotRestores" ::
+          Data.=: ( "DescribeFastSnapshotRestores" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeFastSnapshotRestoresResponse' smart constructor.

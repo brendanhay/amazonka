@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,10 +164,10 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
     Response.receiveXML
       ( \s h x ->
           DescribeStaleSecurityGroupsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "staleSecurityGroupSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "staleSecurityGroupSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -185,25 +186,25 @@ instance Prelude.NFData DescribeStaleSecurityGroups where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf vpcId
 
-instance Core.ToHeaders DescribeStaleSecurityGroups where
+instance Data.ToHeaders DescribeStaleSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeStaleSecurityGroups where
+instance Data.ToPath DescribeStaleSecurityGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeStaleSecurityGroups where
+instance Data.ToQuery DescribeStaleSecurityGroups where
   toQuery DescribeStaleSecurityGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeStaleSecurityGroups" ::
+          Data.=: ( "DescribeStaleSecurityGroups" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "VpcId" Core.=: vpcId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newDescribeStaleSecurityGroupsResponse' smart constructor.

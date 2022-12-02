@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,8 +197,8 @@ instance Core.AWSRequest DescribeKeyPairs where
     Response.receiveXML
       ( \s h x ->
           DescribeKeyPairsResponse'
-            Prelude.<$> ( x Core..@? "keySet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "keySet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -218,29 +219,29 @@ instance Prelude.NFData DescribeKeyPairs where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf keyNames
 
-instance Core.ToHeaders DescribeKeyPairs where
+instance Data.ToHeaders DescribeKeyPairs where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeKeyPairs where
+instance Data.ToPath DescribeKeyPairs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeKeyPairs where
+instance Data.ToQuery DescribeKeyPairs where
   toQuery DescribeKeyPairs' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeKeyPairs" :: Prelude.ByteString),
+          Data.=: ("DescribeKeyPairs" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "KeyPairId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "KeyPairId"
               Prelude.<$> keyPairIds
           ),
-        "IncludePublicKey" Core.=: includePublicKey,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "KeyName" Prelude.<$> keyNames)
+        "IncludePublicKey" Data.=: includePublicKey,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "KeyName" Prelude.<$> keyNames)
       ]
 
 -- | /See:/ 'newDescribeKeyPairsResponse' smart constructor.

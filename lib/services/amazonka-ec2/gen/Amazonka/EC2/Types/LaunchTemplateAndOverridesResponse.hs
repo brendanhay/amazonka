@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateAndOverridesResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FleetLaunchTemplateOverrides
 import Amazonka.EC2.Types.FleetLaunchTemplateSpecification
@@ -69,13 +70,13 @@ launchTemplateAndOverridesResponse_overrides :: Lens.Lens' LaunchTemplateAndOver
 launchTemplateAndOverridesResponse_overrides = Lens.lens (\LaunchTemplateAndOverridesResponse' {overrides} -> overrides) (\s@LaunchTemplateAndOverridesResponse' {} a -> s {overrides = a} :: LaunchTemplateAndOverridesResponse)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateAndOverridesResponse
   where
   parseXML x =
     LaunchTemplateAndOverridesResponse'
-      Prelude.<$> (x Core..@? "launchTemplateSpecification")
-      Prelude.<*> (x Core..@? "overrides")
+      Prelude.<$> (x Data..@? "launchTemplateSpecification")
+      Prelude.<*> (x Data..@? "overrides")
 
 instance
   Prelude.Hashable

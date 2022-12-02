@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateTagSpecificationRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ResourceType
 import Amazonka.EC2.Types.Tag
@@ -109,12 +110,12 @@ instance
       `Prelude.seq` Prelude.rnf resourceType
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplateTagSpecificationRequest
   where
   toQuery LaunchTemplateTagSpecificationRequest' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          (Core.toQueryList "Tag" Prelude.<$> tags),
-        "ResourceType" Core.=: resourceType
+      [ Data.toQuery
+          (Data.toQueryList "Tag" Prelude.<$> tags),
+        "ResourceType" Data.=: resourceType
       ]

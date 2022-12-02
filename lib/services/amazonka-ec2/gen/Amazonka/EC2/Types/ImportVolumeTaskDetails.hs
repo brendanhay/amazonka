@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImportVolumeTaskDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DiskImageDescription
 import Amazonka.EC2.Types.DiskImageVolumeDescription
@@ -92,14 +93,14 @@ importVolumeTaskDetails_volume = Lens.lens (\ImportVolumeTaskDetails' {volume} -
 importVolumeTaskDetails_image :: Lens.Lens' ImportVolumeTaskDetails (Prelude.Maybe DiskImageDescription)
 importVolumeTaskDetails_image = Lens.lens (\ImportVolumeTaskDetails' {image} -> image) (\s@ImportVolumeTaskDetails' {} a -> s {image = a} :: ImportVolumeTaskDetails)
 
-instance Core.FromXML ImportVolumeTaskDetails where
+instance Data.FromXML ImportVolumeTaskDetails where
   parseXML x =
     ImportVolumeTaskDetails'
-      Prelude.<$> (x Core..@? "bytesConverted")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "volume")
-      Prelude.<*> (x Core..@? "image")
+      Prelude.<$> (x Data..@? "bytesConverted")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "volume")
+      Prelude.<*> (x Data..@? "image")
 
 instance Prelude.Hashable ImportVolumeTaskDetails where
   hashWithSalt _salt ImportVolumeTaskDetails' {..} =

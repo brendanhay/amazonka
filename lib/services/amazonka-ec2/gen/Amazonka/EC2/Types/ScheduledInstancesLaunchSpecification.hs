@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstancesLaunchSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ScheduledInstancesBlockDeviceMapping
 import Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile
@@ -244,32 +245,32 @@ instance
       `Prelude.seq` Prelude.rnf imageId
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ScheduledInstancesLaunchSpecification
   where
   toQuery ScheduledInstancesLaunchSpecification' {..} =
     Prelude.mconcat
-      [ "EbsOptimized" Core.=: ebsOptimized,
-        "IamInstanceProfile" Core.=: iamInstanceProfile,
-        "Placement" Core.=: placement,
-        "UserData" Core.=: userData,
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
+      [ "EbsOptimized" Data.=: ebsOptimized,
+        "IamInstanceProfile" Data.=: iamInstanceProfile,
+        "Placement" Data.=: placement,
+        "UserData" Data.=: userData,
+        Data.toQuery
+          ( Data.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
-        "Monitoring" Core.=: monitoring,
-        "SubnetId" Core.=: subnetId,
-        "InstanceType" Core.=: instanceType,
-        "RamdiskId" Core.=: ramdiskId,
-        "KeyName" Core.=: keyName,
-        "KernelId" Core.=: kernelId,
-        Core.toQuery
-          ( Core.toQueryList "NetworkInterface"
+        "Monitoring" Data.=: monitoring,
+        "SubnetId" Data.=: subnetId,
+        "InstanceType" Data.=: instanceType,
+        "RamdiskId" Data.=: ramdiskId,
+        "KeyName" Data.=: keyName,
+        "KernelId" Data.=: kernelId,
+        Data.toQuery
+          ( Data.toQueryList "NetworkInterface"
               Prelude.<$> networkInterfaces
           ),
-        "ImageId" Core.=: imageId
+        "ImageId" Data.=: imageId
       ]

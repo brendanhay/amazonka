@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LastError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ lastError_message = Lens.lens (\LastError' {message} -> message) (\s@LastError' 
 lastError_code :: Lens.Lens' LastError (Prelude.Maybe Prelude.Text)
 lastError_code = Lens.lens (\LastError' {code} -> code) (\s@LastError' {} a -> s {code = a} :: LastError)
 
-instance Core.FromXML LastError where
+instance Data.FromXML LastError where
   parseXML x =
     LastError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable LastError where
   hashWithSalt _salt LastError' {..} =

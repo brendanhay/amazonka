@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PrivateDnsNameOptionsResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.HostnameType
 import qualified Amazonka.Prelude as Prelude
@@ -80,12 +81,12 @@ privateDnsNameOptionsResponse_enableResourceNameDnsAAAARecord = Lens.lens (\Priv
 privateDnsNameOptionsResponse_hostnameType :: Lens.Lens' PrivateDnsNameOptionsResponse (Prelude.Maybe HostnameType)
 privateDnsNameOptionsResponse_hostnameType = Lens.lens (\PrivateDnsNameOptionsResponse' {hostnameType} -> hostnameType) (\s@PrivateDnsNameOptionsResponse' {} a -> s {hostnameType = a} :: PrivateDnsNameOptionsResponse)
 
-instance Core.FromXML PrivateDnsNameOptionsResponse where
+instance Data.FromXML PrivateDnsNameOptionsResponse where
   parseXML x =
     PrivateDnsNameOptionsResponse'
-      Prelude.<$> (x Core..@? "enableResourceNameDnsARecord")
-      Prelude.<*> (x Core..@? "enableResourceNameDnsAAAARecord")
-      Prelude.<*> (x Core..@? "hostnameType")
+      Prelude.<$> (x Data..@? "enableResourceNameDnsARecord")
+      Prelude.<*> (x Data..@? "enableResourceNameDnsAAAARecord")
+      Prelude.<*> (x Data..@? "hostnameType")
 
 instance
   Prelude.Hashable

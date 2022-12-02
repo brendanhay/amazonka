@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DisableVpcClassicLinkDnsSupportResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,24 +121,24 @@ instance
     Prelude.rnf vpcId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisableVpcClassicLinkDnsSupport
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisableVpcClassicLinkDnsSupport where
+instance Data.ToPath DisableVpcClassicLinkDnsSupport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableVpcClassicLinkDnsSupport where
+instance Data.ToQuery DisableVpcClassicLinkDnsSupport where
   toQuery DisableVpcClassicLinkDnsSupport' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DisableVpcClassicLinkDnsSupport" ::
+          Data.=: ( "DisableVpcClassicLinkDnsSupport" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "VpcId" Core.=: vpcId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "VpcId" Data.=: vpcId
       ]
 
 -- | /See:/ 'newDisableVpcClassicLinkDnsSupportResponse' smart constructor.

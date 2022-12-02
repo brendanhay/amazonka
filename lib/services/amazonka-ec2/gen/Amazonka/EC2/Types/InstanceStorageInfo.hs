@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceStorageInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DiskInfo
 import Amazonka.EC2.Types.EphemeralNvmeSupport
@@ -85,15 +86,15 @@ instanceStorageInfo_nvmeSupport = Lens.lens (\InstanceStorageInfo' {nvmeSupport}
 instanceStorageInfo_encryptionSupport :: Lens.Lens' InstanceStorageInfo (Prelude.Maybe InstanceStorageEncryptionSupport)
 instanceStorageInfo_encryptionSupport = Lens.lens (\InstanceStorageInfo' {encryptionSupport} -> encryptionSupport) (\s@InstanceStorageInfo' {} a -> s {encryptionSupport = a} :: InstanceStorageInfo)
 
-instance Core.FromXML InstanceStorageInfo where
+instance Data.FromXML InstanceStorageInfo where
   parseXML x =
     InstanceStorageInfo'
-      Prelude.<$> (x Core..@? "totalSizeInGB")
-      Prelude.<*> ( x Core..@? "disks" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "totalSizeInGB")
+      Prelude.<*> ( x Data..@? "disks" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "nvmeSupport")
-      Prelude.<*> (x Core..@? "encryptionSupport")
+      Prelude.<*> (x Data..@? "nvmeSupport")
+      Prelude.<*> (x Data..@? "encryptionSupport")
 
 instance Prelude.Hashable InstanceStorageInfo where
   hashWithSalt _salt InstanceStorageInfo' {..} =

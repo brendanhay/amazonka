@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           ExportClientVpnClientCertificateRevocationListResponse'
-            Prelude.<$> (x Core..@? "certificateRevocationList")
-              Prelude.<*> (x Core..@? "status")
+            Prelude.<$> (x Data..@? "certificateRevocationList")
+              Prelude.<*> (x Data..@? "status")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,32 +139,32 @@ instance
         `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ExportClientVpnClientCertificateRevocationList
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ExportClientVpnClientCertificateRevocationList
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ExportClientVpnClientCertificateRevocationList
   where
   toQuery
     ExportClientVpnClientCertificateRevocationList' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "ExportClientVpnClientCertificateRevocationList" ::
+            Data.=: ( "ExportClientVpnClientCertificateRevocationList" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
-          "ClientVpnEndpointId" Core.=: clientVpnEndpointId
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun,
+          "ClientVpnEndpointId" Data.=: clientVpnEndpointId
         ]
 
 -- | /See:/ 'newExportClientVpnClientCertificateRevocationListResponse' smart constructor.

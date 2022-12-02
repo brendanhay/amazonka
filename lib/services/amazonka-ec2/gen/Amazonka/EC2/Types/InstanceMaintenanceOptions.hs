@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceMaintenanceOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceAutoRecoveryState
 import qualified Amazonka.Prelude as Prelude
@@ -58,10 +59,10 @@ newInstanceMaintenanceOptions =
 instanceMaintenanceOptions_autoRecovery :: Lens.Lens' InstanceMaintenanceOptions (Prelude.Maybe InstanceAutoRecoveryState)
 instanceMaintenanceOptions_autoRecovery = Lens.lens (\InstanceMaintenanceOptions' {autoRecovery} -> autoRecovery) (\s@InstanceMaintenanceOptions' {} a -> s {autoRecovery = a} :: InstanceMaintenanceOptions)
 
-instance Core.FromXML InstanceMaintenanceOptions where
+instance Data.FromXML InstanceMaintenanceOptions where
   parseXML x =
     InstanceMaintenanceOptions'
-      Prelude.<$> (x Core..@? "autoRecovery")
+      Prelude.<$> (x Data..@? "autoRecovery")
 
 instance Prelude.Hashable InstanceMaintenanceOptions where
   hashWithSalt _salt InstanceMaintenanceOptions' {..} =

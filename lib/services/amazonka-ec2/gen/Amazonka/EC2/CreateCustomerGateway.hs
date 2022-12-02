@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,7 +207,7 @@ instance Core.AWSRequest CreateCustomerGateway where
     Response.receiveXML
       ( \s h x ->
           CreateCustomerGatewayResponse'
-            Prelude.<$> (x Core..@? "customerGateway")
+            Prelude.<$> (x Data..@? "customerGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,30 +233,30 @@ instance Prelude.NFData CreateCustomerGateway where
       `Prelude.seq` Prelude.rnf bgpAsn
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateCustomerGateway where
+instance Data.ToHeaders CreateCustomerGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCustomerGateway where
+instance Data.ToPath CreateCustomerGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCustomerGateway where
+instance Data.ToQuery CreateCustomerGateway where
   toQuery CreateCustomerGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCustomerGateway" :: Prelude.ByteString),
+          Data.=: ("CreateCustomerGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DeviceName" Core.=: deviceName,
-        "PublicIp" Core.=: publicIp,
-        "DryRun" Core.=: dryRun,
-        "CertificateArn" Core.=: certificateArn,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DeviceName" Data.=: deviceName,
+        "PublicIp" Data.=: publicIp,
+        "DryRun" Data.=: dryRun,
+        "CertificateArn" Data.=: certificateArn,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "IpAddress" Core.=: ipAddress,
-        "BgpAsn" Core.=: bgpAsn,
-        "Type" Core.=: type'
+        "IpAddress" Data.=: ipAddress,
+        "BgpAsn" Data.=: bgpAsn,
+        "Type" Data.=: type'
       ]
 
 -- | Contains the output of CreateCustomerGateway.

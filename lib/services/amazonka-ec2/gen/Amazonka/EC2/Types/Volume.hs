@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Volume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.VolumeAttachment
@@ -56,7 +57,7 @@ data Volume = Volume'
     -- | The Availability Zone for the volume.
     availabilityZone :: Prelude.Text,
     -- | The time stamp when volume creation was initiated.
-    createTime :: Core.ISO8601,
+    createTime :: Data.ISO8601,
     -- | Indicates whether the volume is encrypted.
     encrypted :: Prelude.Bool,
     -- | The size of the volume, in GiBs.
@@ -153,7 +154,7 @@ newVolume
         multiAttachEnabled = Prelude.Nothing,
         iops = Prelude.Nothing,
         availabilityZone = pAvailabilityZone_,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         encrypted = pEncrypted_,
         size = pSize_,
         snapshotId = pSnapshotId_,
@@ -205,7 +206,7 @@ volume_availabilityZone = Lens.lens (\Volume' {availabilityZone} -> availability
 
 -- | The time stamp when volume creation was initiated.
 volume_createTime :: Lens.Lens' Volume Prelude.UTCTime
-volume_createTime = Lens.lens (\Volume' {createTime} -> createTime) (\s@Volume' {} a -> s {createTime = a} :: Volume) Prelude.. Core._Time
+volume_createTime = Lens.lens (\Volume' {createTime} -> createTime) (\s@Volume' {} a -> s {createTime = a} :: Volume) Prelude.. Data._Time
 
 -- | Indicates whether the volume is encrypted.
 volume_encrypted :: Lens.Lens' Volume Prelude.Bool
@@ -231,29 +232,29 @@ volume_volumeId = Lens.lens (\Volume' {volumeId} -> volumeId) (\s@Volume' {} a -
 volume_volumeType :: Lens.Lens' Volume VolumeType
 volume_volumeType = Lens.lens (\Volume' {volumeType} -> volumeType) (\s@Volume' {} a -> s {volumeType = a} :: Volume)
 
-instance Core.FromXML Volume where
+instance Data.FromXML Volume where
   parseXML x =
     Volume'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> ( x Core..@? "attachmentSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> ( x Data..@? "attachmentSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "kmsKeyId")
-      Prelude.<*> (x Core..@? "fastRestored")
-      Prelude.<*> (x Core..@? "throughput")
-      Prelude.<*> (x Core..@? "multiAttachEnabled")
-      Prelude.<*> (x Core..@? "iops")
-      Prelude.<*> (x Core..@ "availabilityZone")
-      Prelude.<*> (x Core..@ "createTime")
-      Prelude.<*> (x Core..@ "encrypted")
-      Prelude.<*> (x Core..@ "size")
-      Prelude.<*> (x Core..@ "snapshotId")
-      Prelude.<*> (x Core..@ "status")
-      Prelude.<*> (x Core..@ "volumeId")
-      Prelude.<*> (x Core..@ "volumeType")
+      Prelude.<*> (x Data..@? "kmsKeyId")
+      Prelude.<*> (x Data..@? "fastRestored")
+      Prelude.<*> (x Data..@? "throughput")
+      Prelude.<*> (x Data..@? "multiAttachEnabled")
+      Prelude.<*> (x Data..@? "iops")
+      Prelude.<*> (x Data..@ "availabilityZone")
+      Prelude.<*> (x Data..@ "createTime")
+      Prelude.<*> (x Data..@ "encrypted")
+      Prelude.<*> (x Data..@ "size")
+      Prelude.<*> (x Data..@ "snapshotId")
+      Prelude.<*> (x Data..@ "status")
+      Prelude.<*> (x Data..@ "volumeId")
+      Prelude.<*> (x Data..@ "volumeType")
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =

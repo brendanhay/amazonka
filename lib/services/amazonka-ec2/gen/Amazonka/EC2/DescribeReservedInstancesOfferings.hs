@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -483,10 +484,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesOfferingsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-              Prelude.<*> ( x Core..@? "reservedInstancesOfferingsSet"
+            Prelude.<$> (x Data..@? "nextToken")
+              Prelude.<*> ( x Data..@? "reservedInstancesOfferingsSet"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                              Prelude.>>= Core.may (Data.parseXMLList "item")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -536,48 +537,48 @@ instance
       `Prelude.seq` Prelude.rnf includeMarketplace
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeReservedInstancesOfferings
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeReservedInstancesOfferings
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeReservedInstancesOfferings
   where
   toQuery DescribeReservedInstancesOfferings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeReservedInstancesOfferings" ::
+          Data.=: ( "DescribeReservedInstancesOfferings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "OfferingClass" Core.=: offeringClass,
-        "MaxDuration" Core.=: maxDuration,
-        "NextToken" Core.=: nextToken,
-        "MinDuration" Core.=: minDuration,
-        "InstanceTenancy" Core.=: instanceTenancy,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          ( Core.toQueryList "ReservedInstancesOfferingId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "OfferingClass" Data.=: offeringClass,
+        "MaxDuration" Data.=: maxDuration,
+        "NextToken" Data.=: nextToken,
+        "MinDuration" Data.=: minDuration,
+        "InstanceTenancy" Data.=: instanceTenancy,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          ( Data.toQueryList "ReservedInstancesOfferingId"
               Prelude.<$> reservedInstancesOfferingIds
           ),
-        "OfferingType" Core.=: offeringType,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "DryRun" Core.=: dryRun,
-        "InstanceType" Core.=: instanceType,
-        "MaxResults" Core.=: maxResults,
-        "ProductDescription" Core.=: productDescription,
-        "MaxInstanceCount" Core.=: maxInstanceCount,
-        "IncludeMarketplace" Core.=: includeMarketplace
+        "OfferingType" Data.=: offeringType,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "DryRun" Data.=: dryRun,
+        "InstanceType" Data.=: instanceType,
+        "MaxResults" Data.=: maxResults,
+        "ProductDescription" Data.=: productDescription,
+        "MaxInstanceCount" Data.=: maxInstanceCount,
+        "IncludeMarketplace" Data.=: includeMarketplace
       ]
 
 -- | Contains the output of DescribeReservedInstancesOfferings.

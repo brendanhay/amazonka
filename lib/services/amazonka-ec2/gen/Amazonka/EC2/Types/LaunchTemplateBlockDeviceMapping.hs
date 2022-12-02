@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateBlockDeviceMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchTemplateEbsBlockDevice
 import qualified Amazonka.Prelude as Prelude
@@ -86,15 +87,15 @@ launchTemplateBlockDeviceMapping_virtualName :: Lens.Lens' LaunchTemplateBlockDe
 launchTemplateBlockDeviceMapping_virtualName = Lens.lens (\LaunchTemplateBlockDeviceMapping' {virtualName} -> virtualName) (\s@LaunchTemplateBlockDeviceMapping' {} a -> s {virtualName = a} :: LaunchTemplateBlockDeviceMapping)
 
 instance
-  Core.FromXML
+  Data.FromXML
     LaunchTemplateBlockDeviceMapping
   where
   parseXML x =
     LaunchTemplateBlockDeviceMapping'
-      Prelude.<$> (x Core..@? "ebs")
-      Prelude.<*> (x Core..@? "deviceName")
-      Prelude.<*> (x Core..@? "noDevice")
-      Prelude.<*> (x Core..@? "virtualName")
+      Prelude.<$> (x Data..@? "ebs")
+      Prelude.<*> (x Data..@? "deviceName")
+      Prelude.<*> (x Data..@? "noDevice")
+      Prelude.<*> (x Data..@? "virtualName")
 
 instance
   Prelude.Hashable

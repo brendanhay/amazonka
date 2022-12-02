@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayRequestOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AutoAcceptSharedAttachmentsValue
 import Amazonka.EC2.Types.DefaultRouteTableAssociationValue
@@ -174,21 +175,21 @@ instance Prelude.NFData TransitGatewayRequestOptions where
       `Prelude.seq` Prelude.rnf defaultRouteTablePropagation
       `Prelude.seq` Prelude.rnf transitGatewayCidrBlocks
 
-instance Core.ToQuery TransitGatewayRequestOptions where
+instance Data.ToQuery TransitGatewayRequestOptions where
   toQuery TransitGatewayRequestOptions' {..} =
     Prelude.mconcat
-      [ "DnsSupport" Core.=: dnsSupport,
+      [ "DnsSupport" Data.=: dnsSupport,
         "DefaultRouteTableAssociation"
-          Core.=: defaultRouteTableAssociation,
+          Data.=: defaultRouteTableAssociation,
         "AutoAcceptSharedAttachments"
-          Core.=: autoAcceptSharedAttachments,
-        "MulticastSupport" Core.=: multicastSupport,
-        "AmazonSideAsn" Core.=: amazonSideAsn,
-        "VpnEcmpSupport" Core.=: vpnEcmpSupport,
+          Data.=: autoAcceptSharedAttachments,
+        "MulticastSupport" Data.=: multicastSupport,
+        "AmazonSideAsn" Data.=: amazonSideAsn,
+        "VpnEcmpSupport" Data.=: vpnEcmpSupport,
         "DefaultRouteTablePropagation"
-          Core.=: defaultRouteTablePropagation,
-        Core.toQuery
-          ( Core.toQueryList "TransitGatewayCidrBlocks"
+          Data.=: defaultRouteTablePropagation,
+        Data.toQuery
+          ( Data.toQueryList "TransitGatewayCidrBlocks"
               Prelude.<$> transitGatewayCidrBlocks
           )
       ]

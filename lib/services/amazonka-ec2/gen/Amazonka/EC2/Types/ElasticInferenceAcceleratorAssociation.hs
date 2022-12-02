@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ElasticInferenceAcceleratorAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data ElasticInferenceAcceleratorAssociation = ElasticInferenceAcceleratorAssocia
     elasticInferenceAcceleratorAssociationId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the elastic inference accelerator is associated with
     -- an instance.
-    elasticInferenceAcceleratorAssociationTime :: Prelude.Maybe Core.ISO8601
+    elasticInferenceAcceleratorAssociationTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,23 +87,23 @@ elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationId 
 -- | The time at which the elastic inference accelerator is associated with
 -- an instance.
 elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationTime :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Prelude.Maybe Prelude.UTCTime)
-elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationTime = Lens.lens (\ElasticInferenceAcceleratorAssociation' {elasticInferenceAcceleratorAssociationTime} -> elasticInferenceAcceleratorAssociationTime) (\s@ElasticInferenceAcceleratorAssociation' {} a -> s {elasticInferenceAcceleratorAssociationTime = a} :: ElasticInferenceAcceleratorAssociation) Prelude.. Lens.mapping Core._Time
+elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationTime = Lens.lens (\ElasticInferenceAcceleratorAssociation' {elasticInferenceAcceleratorAssociationTime} -> elasticInferenceAcceleratorAssociationTime) (\s@ElasticInferenceAcceleratorAssociation' {} a -> s {elasticInferenceAcceleratorAssociationTime = a} :: ElasticInferenceAcceleratorAssociation) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromXML
+  Data.FromXML
     ElasticInferenceAcceleratorAssociation
   where
   parseXML x =
     ElasticInferenceAcceleratorAssociation'
-      Prelude.<$> (x Core..@? "elasticInferenceAcceleratorArn")
+      Prelude.<$> (x Data..@? "elasticInferenceAcceleratorArn")
       Prelude.<*> ( x
-                      Core..@? "elasticInferenceAcceleratorAssociationState"
+                      Data..@? "elasticInferenceAcceleratorAssociationState"
                   )
       Prelude.<*> ( x
-                      Core..@? "elasticInferenceAcceleratorAssociationId"
+                      Data..@? "elasticInferenceAcceleratorAssociationId"
                   )
       Prelude.<*> ( x
-                      Core..@? "elasticInferenceAcceleratorAssociationTime"
+                      Data..@? "elasticInferenceAcceleratorAssociationTime"
                   )
 
 instance

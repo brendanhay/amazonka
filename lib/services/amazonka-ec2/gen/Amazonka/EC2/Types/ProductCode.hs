@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ProductCode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ProductCodeValues
 import qualified Amazonka.Prelude as Prelude
@@ -63,11 +64,11 @@ productCode_productCodeType = Lens.lens (\ProductCode' {productCodeType} -> prod
 productCode_productCodeId :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
 productCode_productCodeId = Lens.lens (\ProductCode' {productCodeId} -> productCodeId) (\s@ProductCode' {} a -> s {productCodeId = a} :: ProductCode)
 
-instance Core.FromXML ProductCode where
+instance Data.FromXML ProductCode where
   parseXML x =
     ProductCode'
-      Prelude.<$> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "productCode")
+      Prelude.<$> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "productCode")
 
 instance Prelude.Hashable ProductCode where
   hashWithSalt _salt ProductCode' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IamInstanceProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,10 +63,10 @@ iamInstanceProfile_arn = Lens.lens (\IamInstanceProfile' {arn} -> arn) (\s@IamIn
 iamInstanceProfile_id :: Lens.Lens' IamInstanceProfile (Prelude.Maybe Prelude.Text)
 iamInstanceProfile_id = Lens.lens (\IamInstanceProfile' {id} -> id) (\s@IamInstanceProfile' {} a -> s {id = a} :: IamInstanceProfile)
 
-instance Core.FromXML IamInstanceProfile where
+instance Data.FromXML IamInstanceProfile where
   parseXML x =
     IamInstanceProfile'
-      Prelude.<$> (x Core..@? "arn") Prelude.<*> (x Core..@? "id")
+      Prelude.<$> (x Data..@? "arn") Prelude.<*> (x Data..@? "id")
 
 instance Prelude.Hashable IamInstanceProfile where
   hashWithSalt _salt IamInstanceProfile' {..} =

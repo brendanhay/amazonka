@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotInstanceStateFault where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,11 +63,11 @@ spotInstanceStateFault_message = Lens.lens (\SpotInstanceStateFault' {message} -
 spotInstanceStateFault_code :: Lens.Lens' SpotInstanceStateFault (Prelude.Maybe Prelude.Text)
 spotInstanceStateFault_code = Lens.lens (\SpotInstanceStateFault' {code} -> code) (\s@SpotInstanceStateFault' {} a -> s {code = a} :: SpotInstanceStateFault)
 
-instance Core.FromXML SpotInstanceStateFault where
+instance Data.FromXML SpotInstanceStateFault where
   parseXML x =
     SpotInstanceStateFault'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable SpotInstanceStateFault where
   hashWithSalt _salt SpotInstanceStateFault' {..} =

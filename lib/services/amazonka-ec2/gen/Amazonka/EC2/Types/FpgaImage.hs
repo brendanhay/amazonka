@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.FpgaImage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.FpgaImageState
 import Amazonka.EC2.Types.PciId
@@ -57,9 +58,9 @@ data FpgaImage = FpgaImage'
     -- | Indicates whether data retention support is enabled for the AFI.
     dataRetentionSupport :: Prelude.Maybe Prelude.Bool,
     -- | The time of the most recent update to the AFI.
-    updateTime :: Prelude.Maybe Core.ISO8601,
+    updateTime :: Prelude.Maybe Data.ISO8601,
     -- | The date and time the AFI was created.
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | Information about the PCI bus.
     pciId :: Prelude.Maybe PciId,
     -- | Indicates whether the AFI is public.
@@ -175,11 +176,11 @@ fpgaImage_dataRetentionSupport = Lens.lens (\FpgaImage' {dataRetentionSupport} -
 
 -- | The time of the most recent update to the AFI.
 fpgaImage_updateTime :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.UTCTime)
-fpgaImage_updateTime = Lens.lens (\FpgaImage' {updateTime} -> updateTime) (\s@FpgaImage' {} a -> s {updateTime = a} :: FpgaImage) Prelude.. Lens.mapping Core._Time
+fpgaImage_updateTime = Lens.lens (\FpgaImage' {updateTime} -> updateTime) (\s@FpgaImage' {} a -> s {updateTime = a} :: FpgaImage) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time the AFI was created.
 fpgaImage_createTime :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.UTCTime)
-fpgaImage_createTime = Lens.lens (\FpgaImage' {createTime} -> createTime) (\s@FpgaImage' {} a -> s {createTime = a} :: FpgaImage) Prelude.. Lens.mapping Core._Time
+fpgaImage_createTime = Lens.lens (\FpgaImage' {createTime} -> createTime) (\s@FpgaImage' {} a -> s {createTime = a} :: FpgaImage) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the PCI bus.
 fpgaImage_pciId :: Lens.Lens' FpgaImage (Prelude.Maybe PciId)
@@ -189,28 +190,28 @@ fpgaImage_pciId = Lens.lens (\FpgaImage' {pciId} -> pciId) (\s@FpgaImage' {} a -
 fpgaImage_public :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Bool)
 fpgaImage_public = Lens.lens (\FpgaImage' {public} -> public) (\s@FpgaImage' {} a -> s {public = a} :: FpgaImage)
 
-instance Core.FromXML FpgaImage where
+instance Data.FromXML FpgaImage where
   parseXML x =
     FpgaImage'
-      Prelude.<$> ( x Core..@? "tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerAlias")
-      Prelude.<*> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "shellVersion")
-      Prelude.<*> (x Core..@? "fpgaImageGlobalId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "ownerAlias")
+      Prelude.<*> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "shellVersion")
+      Prelude.<*> (x Data..@? "fpgaImageGlobalId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "fpgaImageId")
-      Prelude.<*> (x Core..@? "dataRetentionSupport")
-      Prelude.<*> (x Core..@? "updateTime")
-      Prelude.<*> (x Core..@? "createTime")
-      Prelude.<*> (x Core..@? "pciId")
-      Prelude.<*> (x Core..@? "public")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "fpgaImageId")
+      Prelude.<*> (x Data..@? "dataRetentionSupport")
+      Prelude.<*> (x Data..@? "updateTime")
+      Prelude.<*> (x Data..@? "createTime")
+      Prelude.<*> (x Data..@? "pciId")
+      Prelude.<*> (x Data..@? "public")
 
 instance Prelude.Hashable FpgaImage where
   hashWithSalt _salt FpgaImage' {..} =

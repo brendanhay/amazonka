@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ResponseLaunchTemplateData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CreditSpecification
 import Amazonka.EC2.Types.ElasticGpuSpecificationResponse
@@ -404,63 +405,63 @@ responseLaunchTemplateData_enclaveOptions = Lens.lens (\ResponseLaunchTemplateDa
 responseLaunchTemplateData_metadataOptions :: Lens.Lens' ResponseLaunchTemplateData (Prelude.Maybe LaunchTemplateInstanceMetadataOptions)
 responseLaunchTemplateData_metadataOptions = Lens.lens (\ResponseLaunchTemplateData' {metadataOptions} -> metadataOptions) (\s@ResponseLaunchTemplateData' {} a -> s {metadataOptions = a} :: ResponseLaunchTemplateData)
 
-instance Core.FromXML ResponseLaunchTemplateData where
+instance Data.FromXML ResponseLaunchTemplateData where
   parseXML x =
     ResponseLaunchTemplateData'
-      Prelude.<$> (x Core..@? "ebsOptimized")
-      Prelude.<*> (x Core..@? "hibernationOptions")
-      Prelude.<*> (x Core..@? "iamInstanceProfile")
-      Prelude.<*> ( x Core..@? "elasticInferenceAcceleratorSet"
+      Prelude.<$> (x Data..@? "ebsOptimized")
+      Prelude.<*> (x Data..@? "hibernationOptions")
+      Prelude.<*> (x Data..@? "iamInstanceProfile")
+      Prelude.<*> ( x Data..@? "elasticInferenceAcceleratorSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "placement")
-      Prelude.<*> (x Core..@? "userData")
-      Prelude.<*> (x Core..@? "instanceRequirements")
-      Prelude.<*> (x Core..@? "creditSpecification")
-      Prelude.<*> ( x Core..@? "blockDeviceMappingSet"
+      Prelude.<*> (x Data..@? "placement")
+      Prelude.<*> (x Data..@? "userData")
+      Prelude.<*> (x Data..@? "instanceRequirements")
+      Prelude.<*> (x Data..@? "creditSpecification")
+      Prelude.<*> ( x Data..@? "blockDeviceMappingSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "securityGroupIdSet"
+      Prelude.<*> ( x Data..@? "securityGroupIdSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "instanceInitiatedShutdownBehavior")
-      Prelude.<*> (x Core..@? "monitoring")
-      Prelude.<*> (x Core..@? "instanceMarketOptions")
-      Prelude.<*> (x Core..@? "capacityReservationSpecification")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> ( x Core..@? "securityGroupSet"
+      Prelude.<*> (x Data..@? "instanceInitiatedShutdownBehavior")
+      Prelude.<*> (x Data..@? "monitoring")
+      Prelude.<*> (x Data..@? "instanceMarketOptions")
+      Prelude.<*> (x Data..@? "capacityReservationSpecification")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> ( x Data..@? "securityGroupSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "elasticGpuSpecificationSet"
+      Prelude.<*> ( x Data..@? "elasticGpuSpecificationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ramDiskId")
-      Prelude.<*> (x Core..@? "maintenanceOptions")
-      Prelude.<*> (x Core..@? "privateDnsNameOptions")
-      Prelude.<*> (x Core..@? "keyName")
-      Prelude.<*> ( x Core..@? "licenseSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "ramDiskId")
+      Prelude.<*> (x Data..@? "maintenanceOptions")
+      Prelude.<*> (x Data..@? "privateDnsNameOptions")
+      Prelude.<*> (x Data..@? "keyName")
+      Prelude.<*> ( x Data..@? "licenseSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "kernelId")
-      Prelude.<*> (x Core..@? "disableApiTermination")
-      Prelude.<*> ( x Core..@? "tagSpecificationSet"
+      Prelude.<*> (x Data..@? "kernelId")
+      Prelude.<*> (x Data..@? "disableApiTermination")
+      Prelude.<*> ( x Data..@? "tagSpecificationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "cpuOptions")
-      Prelude.<*> (x Core..@? "disableApiStop")
-      Prelude.<*> (x Core..@? "imageId")
-      Prelude.<*> ( x Core..@? "networkInterfaceSet"
+      Prelude.<*> (x Data..@? "cpuOptions")
+      Prelude.<*> (x Data..@? "disableApiStop")
+      Prelude.<*> (x Data..@? "imageId")
+      Prelude.<*> ( x Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "enclaveOptions")
-      Prelude.<*> (x Core..@? "metadataOptions")
+      Prelude.<*> (x Data..@? "enclaveOptions")
+      Prelude.<*> (x Data..@? "metadataOptions")
 
 instance Prelude.Hashable ResponseLaunchTemplateData where
   hashWithSalt _salt ResponseLaunchTemplateData' {..} =

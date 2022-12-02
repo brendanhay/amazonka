@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientLoginBannerResponseOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,13 +79,13 @@ clientLoginBannerResponseOptions_enabled :: Lens.Lens' ClientLoginBannerResponse
 clientLoginBannerResponseOptions_enabled = Lens.lens (\ClientLoginBannerResponseOptions' {enabled} -> enabled) (\s@ClientLoginBannerResponseOptions' {} a -> s {enabled = a} :: ClientLoginBannerResponseOptions)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ClientLoginBannerResponseOptions
   where
   parseXML x =
     ClientLoginBannerResponseOptions'
-      Prelude.<$> (x Core..@? "bannerText")
-      Prelude.<*> (x Core..@? "enabled")
+      Prelude.<$> (x Data..@? "bannerText")
+      Prelude.<*> (x Data..@? "enabled")
 
 instance
   Prelude.Hashable

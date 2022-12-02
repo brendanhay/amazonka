@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceCreditSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,11 +71,11 @@ instanceCreditSpecification_instanceId = Lens.lens (\InstanceCreditSpecification
 instanceCreditSpecification_cpuCredits :: Lens.Lens' InstanceCreditSpecification (Prelude.Maybe Prelude.Text)
 instanceCreditSpecification_cpuCredits = Lens.lens (\InstanceCreditSpecification' {cpuCredits} -> cpuCredits) (\s@InstanceCreditSpecification' {} a -> s {cpuCredits = a} :: InstanceCreditSpecification)
 
-instance Core.FromXML InstanceCreditSpecification where
+instance Data.FromXML InstanceCreditSpecification where
   parseXML x =
     InstanceCreditSpecification'
-      Prelude.<$> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "cpuCredits")
+      Prelude.<$> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "cpuCredits")
 
 instance Prelude.Hashable InstanceCreditSpecification where
   hashWithSalt _salt InstanceCreditSpecification' {..} =

@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -310,7 +311,7 @@ instance Core.AWSRequest ModifyVolume where
     Response.receiveXML
       ( \s h x ->
           ModifyVolumeResponse'
-            Prelude.<$> (x Core..@? "volumeModification")
+            Prelude.<$> (x Data..@? "volumeModification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -334,26 +335,26 @@ instance Prelude.NFData ModifyVolume where
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf volumeId
 
-instance Core.ToHeaders ModifyVolume where
+instance Data.ToHeaders ModifyVolume where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyVolume where
+instance Data.ToPath ModifyVolume where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyVolume where
+instance Data.ToQuery ModifyVolume where
   toQuery ModifyVolume' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyVolume" :: Prelude.ByteString),
+          Data.=: ("ModifyVolume" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Size" Core.=: size,
-        "VolumeType" Core.=: volumeType,
-        "DryRun" Core.=: dryRun,
-        "Throughput" Core.=: throughput,
-        "MultiAttachEnabled" Core.=: multiAttachEnabled,
-        "Iops" Core.=: iops,
-        "VolumeId" Core.=: volumeId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Size" Data.=: size,
+        "VolumeType" Data.=: volumeType,
+        "DryRun" Data.=: dryRun,
+        "Throughput" Data.=: throughput,
+        "MultiAttachEnabled" Data.=: multiAttachEnabled,
+        "Iops" Data.=: iops,
+        "VolumeId" Data.=: volumeId
       ]
 
 -- | /See:/ 'newModifyVolumeResponse' smart constructor.

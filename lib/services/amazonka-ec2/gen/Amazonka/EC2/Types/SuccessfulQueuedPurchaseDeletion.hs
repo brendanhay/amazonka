@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SuccessfulQueuedPurchaseDeletion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,12 +57,12 @@ successfulQueuedPurchaseDeletion_reservedInstancesId :: Lens.Lens' SuccessfulQue
 successfulQueuedPurchaseDeletion_reservedInstancesId = Lens.lens (\SuccessfulQueuedPurchaseDeletion' {reservedInstancesId} -> reservedInstancesId) (\s@SuccessfulQueuedPurchaseDeletion' {} a -> s {reservedInstancesId = a} :: SuccessfulQueuedPurchaseDeletion)
 
 instance
-  Core.FromXML
+  Data.FromXML
     SuccessfulQueuedPurchaseDeletion
   where
   parseXML x =
     SuccessfulQueuedPurchaseDeletion'
-      Prelude.<$> (x Core..@? "reservedInstancesId")
+      Prelude.<$> (x Data..@? "reservedInstancesId")
 
 instance
   Prelude.Hashable

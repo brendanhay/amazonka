@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ArchitectureValues
 import Amazonka.EC2.Types.BootModeValues
@@ -87,7 +88,7 @@ data Instance = Instance'
     -- | The Elastic GPU associated with the instance.
     elasticGpuAssociations :: Prelude.Maybe [ElasticGpuAssociation],
     -- | The time that the usage operation was last updated.
-    usageOperationUpdateTime :: Prelude.Maybe Core.ISO8601,
+    usageOperationUpdateTime :: Prelude.Maybe Data.ISO8601,
     -- | The product codes attached to this instance, if applicable.
     productCodes :: Prelude.Maybe [ProductCode],
     -- | Information about the Capacity Reservation targeting option.
@@ -188,7 +189,7 @@ data Instance = Instance'
     -- | The instance type.
     instanceType :: InstanceType,
     -- | The time the instance was launched.
-    launchTime :: Core.ISO8601,
+    launchTime :: Data.ISO8601,
     -- | The location where the instance launched, if applicable.
     placement :: Placement,
     -- | The monitoring for the instance.
@@ -453,7 +454,7 @@ newInstance
         imageId = pImageId_,
         amiLaunchIndex = pAmiLaunchIndex_,
         instanceType = pInstanceType_,
-        launchTime = Core._Time Lens.# pLaunchTime_,
+        launchTime = Data._Time Lens.# pLaunchTime_,
         placement = pPlacement_,
         monitoring = pMonitoring_,
         architecture = pArchitecture_,
@@ -519,7 +520,7 @@ instance_elasticGpuAssociations = Lens.lens (\Instance' {elasticGpuAssociations}
 
 -- | The time that the usage operation was last updated.
 instance_usageOperationUpdateTime :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
-instance_usageOperationUpdateTime = Lens.lens (\Instance' {usageOperationUpdateTime} -> usageOperationUpdateTime) (\s@Instance' {} a -> s {usageOperationUpdateTime = a} :: Instance) Prelude.. Lens.mapping Core._Time
+instance_usageOperationUpdateTime = Lens.lens (\Instance' {usageOperationUpdateTime} -> usageOperationUpdateTime) (\s@Instance' {} a -> s {usageOperationUpdateTime = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
 -- | The product codes attached to this instance, if applicable.
 instance_productCodes :: Lens.Lens' Instance (Prelude.Maybe [ProductCode])
@@ -692,7 +693,7 @@ instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\
 
 -- | The time the instance was launched.
 instance_launchTime :: Lens.Lens' Instance Prelude.UTCTime
-instance_launchTime = Lens.lens (\Instance' {launchTime} -> launchTime) (\s@Instance' {} a -> s {launchTime = a} :: Instance) Prelude.. Core._Time
+instance_launchTime = Lens.lens (\Instance' {launchTime} -> launchTime) (\s@Instance' {} a -> s {launchTime = a} :: Instance) Prelude.. Data._Time
 
 -- | The location where the instance launched, if applicable.
 instance_placement :: Lens.Lens' Instance Placement
@@ -724,86 +725,86 @@ instance_hypervisor = Lens.lens (\Instance' {hypervisor} -> hypervisor) (\s@Inst
 instance_state :: Lens.Lens' Instance InstanceState
 instance_state = Lens.lens (\Instance' {state} -> state) (\s@Instance' {} a -> s {state = a} :: Instance)
 
-instance Core.FromXML Instance where
+instance Data.FromXML Instance where
   parseXML x =
     Instance'
-      Prelude.<$> (x Core..@? "ebsOptimized")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "ebsOptimized")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "hibernationOptions")
-      Prelude.<*> (x Core..@? "iamInstanceProfile")
-      Prelude.<*> (x Core..@? "spotInstanceRequestId")
-      Prelude.<*> (x Core..@? "clientToken")
-      Prelude.<*> (x Core..@? "sriovNetSupport")
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> ( x Core..@? "blockDeviceMapping"
+      Prelude.<*> (x Data..@? "hibernationOptions")
+      Prelude.<*> (x Data..@? "iamInstanceProfile")
+      Prelude.<*> (x Data..@? "spotInstanceRequestId")
+      Prelude.<*> (x Data..@? "clientToken")
+      Prelude.<*> (x Data..@? "sriovNetSupport")
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> ( x Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "sourceDestCheck")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> ( x Core..@? "elasticGpuAssociationSet"
+      Prelude.<*> (x Data..@? "sourceDestCheck")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> ( x Data..@? "elasticGpuAssociationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "usageOperationUpdateTime")
-      Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "usageOperationUpdateTime")
+      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "capacityReservationSpecification")
-      Prelude.<*> (x Core..@? "capacityReservationId")
-      Prelude.<*> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "reason")
-      Prelude.<*> (x Core..@? "instanceLifecycle")
-      Prelude.<*> (x Core..@? "ipv6Address")
+      Prelude.<*> (x Data..@? "capacityReservationSpecification")
+      Prelude.<*> (x Data..@? "capacityReservationId")
+      Prelude.<*> (x Data..@? "platform")
+      Prelude.<*> (x Data..@? "reason")
+      Prelude.<*> (x Data..@? "instanceLifecycle")
+      Prelude.<*> (x Data..@? "ipv6Address")
       Prelude.<*> ( x
-                      Core..@? "elasticInferenceAcceleratorAssociationSet"
+                      Data..@? "elasticInferenceAcceleratorAssociationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "usageOperation")
-      Prelude.<*> (x Core..@? "ipAddress")
-      Prelude.<*> (x Core..@? "dnsName")
-      Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "usageOperation")
+      Prelude.<*> (x Data..@? "ipAddress")
+      Prelude.<*> (x Data..@? "dnsName")
+      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "tpmSupport")
-      Prelude.<*> (x Core..@? "ramdiskId")
-      Prelude.<*> (x Core..@? "privateIpAddress")
-      Prelude.<*> (x Core..@? "maintenanceOptions")
-      Prelude.<*> (x Core..@? "privateDnsNameOptions")
-      Prelude.<*> (x Core..@? "platformDetails")
-      Prelude.<*> (x Core..@? "bootMode")
-      Prelude.<*> (x Core..@? "keyName")
-      Prelude.<*> (x Core..@? "privateDnsName")
-      Prelude.<*> (x Core..@? "kernelId")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "cpuOptions")
-      Prelude.<*> (x Core..@? "stateReason")
-      Prelude.<*> (x Core..@? "enaSupport")
-      Prelude.<*> (x Core..@? "rootDeviceName")
-      Prelude.<*> ( x Core..@? "networkInterfaceSet"
+      Prelude.<*> (x Data..@? "tpmSupport")
+      Prelude.<*> (x Data..@? "ramdiskId")
+      Prelude.<*> (x Data..@? "privateIpAddress")
+      Prelude.<*> (x Data..@? "maintenanceOptions")
+      Prelude.<*> (x Data..@? "privateDnsNameOptions")
+      Prelude.<*> (x Data..@? "platformDetails")
+      Prelude.<*> (x Data..@? "bootMode")
+      Prelude.<*> (x Data..@? "keyName")
+      Prelude.<*> (x Data..@? "privateDnsName")
+      Prelude.<*> (x Data..@? "kernelId")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@? "cpuOptions")
+      Prelude.<*> (x Data..@? "stateReason")
+      Prelude.<*> (x Data..@? "enaSupport")
+      Prelude.<*> (x Data..@? "rootDeviceName")
+      Prelude.<*> ( x Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "enclaveOptions")
-      Prelude.<*> ( x Core..@? "licenseSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> (x Data..@? "enclaveOptions")
+      Prelude.<*> ( x Data..@? "licenseSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "metadataOptions")
-      Prelude.<*> (x Core..@ "instanceId")
-      Prelude.<*> (x Core..@ "imageId")
-      Prelude.<*> (x Core..@ "amiLaunchIndex")
-      Prelude.<*> (x Core..@ "instanceType")
-      Prelude.<*> (x Core..@ "launchTime")
-      Prelude.<*> (x Core..@ "placement")
-      Prelude.<*> (x Core..@ "monitoring")
-      Prelude.<*> (x Core..@ "architecture")
-      Prelude.<*> (x Core..@ "rootDeviceType")
-      Prelude.<*> (x Core..@ "virtualizationType")
-      Prelude.<*> (x Core..@ "hypervisor")
-      Prelude.<*> (x Core..@ "instanceState")
+      Prelude.<*> (x Data..@? "metadataOptions")
+      Prelude.<*> (x Data..@ "instanceId")
+      Prelude.<*> (x Data..@ "imageId")
+      Prelude.<*> (x Data..@ "amiLaunchIndex")
+      Prelude.<*> (x Data..@ "instanceType")
+      Prelude.<*> (x Data..@ "launchTime")
+      Prelude.<*> (x Data..@ "placement")
+      Prelude.<*> (x Data..@ "monitoring")
+      Prelude.<*> (x Data..@ "architecture")
+      Prelude.<*> (x Data..@ "rootDeviceType")
+      Prelude.<*> (x Data..@ "virtualizationType")
+      Prelude.<*> (x Data..@ "hypervisor")
+      Prelude.<*> (x Data..@ "instanceState")
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =

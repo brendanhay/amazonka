@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AddressTransfer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AddressTransferStatus
 import qualified Amazonka.Prelude as Prelude
@@ -37,9 +38,9 @@ data AddressTransfer = AddressTransfer'
     -- source account starts the transfer, the transfer account has seven hours
     -- to allocate the Elastic IP address to complete the transfer, or the
     -- Elastic IP address will return to its original owner.
-    transferOfferExpirationTimestamp :: Prelude.Maybe Core.ISO8601,
+    transferOfferExpirationTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The timestamp when the Elastic IP address transfer was accepted.
-    transferOfferAcceptedTimestamp :: Prelude.Maybe Core.ISO8601,
+    transferOfferAcceptedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the account that you want to transfer the Elastic IP address
     -- to.
     transferAccountId :: Prelude.Maybe Prelude.Text,
@@ -94,11 +95,11 @@ addressTransfer_allocationId = Lens.lens (\AddressTransfer' {allocationId} -> al
 -- to allocate the Elastic IP address to complete the transfer, or the
 -- Elastic IP address will return to its original owner.
 addressTransfer_transferOfferExpirationTimestamp :: Lens.Lens' AddressTransfer (Prelude.Maybe Prelude.UTCTime)
-addressTransfer_transferOfferExpirationTimestamp = Lens.lens (\AddressTransfer' {transferOfferExpirationTimestamp} -> transferOfferExpirationTimestamp) (\s@AddressTransfer' {} a -> s {transferOfferExpirationTimestamp = a} :: AddressTransfer) Prelude.. Lens.mapping Core._Time
+addressTransfer_transferOfferExpirationTimestamp = Lens.lens (\AddressTransfer' {transferOfferExpirationTimestamp} -> transferOfferExpirationTimestamp) (\s@AddressTransfer' {} a -> s {transferOfferExpirationTimestamp = a} :: AddressTransfer) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp when the Elastic IP address transfer was accepted.
 addressTransfer_transferOfferAcceptedTimestamp :: Lens.Lens' AddressTransfer (Prelude.Maybe Prelude.UTCTime)
-addressTransfer_transferOfferAcceptedTimestamp = Lens.lens (\AddressTransfer' {transferOfferAcceptedTimestamp} -> transferOfferAcceptedTimestamp) (\s@AddressTransfer' {} a -> s {transferOfferAcceptedTimestamp = a} :: AddressTransfer) Prelude.. Lens.mapping Core._Time
+addressTransfer_transferOfferAcceptedTimestamp = Lens.lens (\AddressTransfer' {transferOfferAcceptedTimestamp} -> transferOfferAcceptedTimestamp) (\s@AddressTransfer' {} a -> s {transferOfferAcceptedTimestamp = a} :: AddressTransfer) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the account that you want to transfer the Elastic IP address
 -- to.
@@ -113,15 +114,15 @@ addressTransfer_publicIp = Lens.lens (\AddressTransfer' {publicIp} -> publicIp) 
 addressTransfer_addressTransferStatus :: Lens.Lens' AddressTransfer (Prelude.Maybe AddressTransferStatus)
 addressTransfer_addressTransferStatus = Lens.lens (\AddressTransfer' {addressTransferStatus} -> addressTransferStatus) (\s@AddressTransfer' {} a -> s {addressTransferStatus = a} :: AddressTransfer)
 
-instance Core.FromXML AddressTransfer where
+instance Data.FromXML AddressTransfer where
   parseXML x =
     AddressTransfer'
-      Prelude.<$> (x Core..@? "allocationId")
-      Prelude.<*> (x Core..@? "transferOfferExpirationTimestamp")
-      Prelude.<*> (x Core..@? "transferOfferAcceptedTimestamp")
-      Prelude.<*> (x Core..@? "transferAccountId")
-      Prelude.<*> (x Core..@? "publicIp")
-      Prelude.<*> (x Core..@? "addressTransferStatus")
+      Prelude.<$> (x Data..@? "allocationId")
+      Prelude.<*> (x Data..@? "transferOfferExpirationTimestamp")
+      Prelude.<*> (x Data..@? "transferOfferAcceptedTimestamp")
+      Prelude.<*> (x Data..@? "transferAccountId")
+      Prelude.<*> (x Data..@? "publicIp")
+      Prelude.<*> (x Data..@? "addressTransferStatus")
 
 instance Prelude.Hashable AddressTransfer where
   hashWithSalt _salt AddressTransfer' {..} =

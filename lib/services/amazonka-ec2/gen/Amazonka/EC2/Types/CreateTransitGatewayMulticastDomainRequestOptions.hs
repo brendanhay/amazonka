@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.CreateTransitGatewayMulticastDomainRequestOptions wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AutoAcceptSharedAssociationsValue
 import Amazonka.EC2.Types.Igmpv2SupportValue
@@ -111,14 +112,14 @@ instance
         `Prelude.seq` Prelude.rnf autoAcceptSharedAssociations
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateTransitGatewayMulticastDomainRequestOptions
   where
   toQuery
     CreateTransitGatewayMulticastDomainRequestOptions' {..} =
       Prelude.mconcat
-        [ "StaticSourcesSupport" Core.=: staticSourcesSupport,
-          "Igmpv2Support" Core.=: igmpv2Support,
+        [ "StaticSourcesSupport" Data.=: staticSourcesSupport,
+          "Igmpv2Support" Data.=: igmpv2Support,
           "AutoAcceptSharedAssociations"
-            Core.=: autoAcceptSharedAssociations
+            Data.=: autoAcceptSharedAssociations
         ]

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.StaleIpPermission where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.UserIdGroupPair
 import qualified Amazonka.Prelude as Prelude
@@ -111,21 +112,21 @@ staleIpPermission_userIdGroupPairs = Lens.lens (\StaleIpPermission' {userIdGroup
 staleIpPermission_fromPort :: Lens.Lens' StaleIpPermission (Prelude.Maybe Prelude.Int)
 staleIpPermission_fromPort = Lens.lens (\StaleIpPermission' {fromPort} -> fromPort) (\s@StaleIpPermission' {} a -> s {fromPort = a} :: StaleIpPermission)
 
-instance Core.FromXML StaleIpPermission where
+instance Data.FromXML StaleIpPermission where
   parseXML x =
     StaleIpPermission'
-      Prelude.<$> (x Core..@? "toPort")
-      Prelude.<*> (x Core..@? "ipProtocol")
-      Prelude.<*> ( x Core..@? "prefixListIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "toPort")
+      Prelude.<*> (x Data..@? "ipProtocol")
+      Prelude.<*> ( x Data..@? "prefixListIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ipRanges" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "ipRanges" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "groups" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "groups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "fromPort")
+      Prelude.<*> (x Data..@? "fromPort")
 
 instance Prelude.Hashable StaleIpPermission where
   hashWithSalt _salt StaleIpPermission' {..} =

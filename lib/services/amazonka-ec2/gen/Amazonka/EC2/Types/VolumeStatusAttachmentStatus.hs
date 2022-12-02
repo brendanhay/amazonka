@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VolumeStatusAttachmentStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ volumeStatusAttachmentStatus_ioPerformance = Lens.lens (\VolumeStatusAttachmentS
 volumeStatusAttachmentStatus_instanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Prelude.Maybe Prelude.Text)
 volumeStatusAttachmentStatus_instanceId = Lens.lens (\VolumeStatusAttachmentStatus' {instanceId} -> instanceId) (\s@VolumeStatusAttachmentStatus' {} a -> s {instanceId = a} :: VolumeStatusAttachmentStatus)
 
-instance Core.FromXML VolumeStatusAttachmentStatus where
+instance Data.FromXML VolumeStatusAttachmentStatus where
   parseXML x =
     VolumeStatusAttachmentStatus'
-      Prelude.<$> (x Core..@? "ioPerformance")
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<$> (x Data..@? "ioPerformance")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance
   Prelude.Hashable

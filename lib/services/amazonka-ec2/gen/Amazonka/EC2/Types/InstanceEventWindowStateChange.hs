@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceEventWindowStateChange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceEventWindowState
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ instanceEventWindowStateChange_state = Lens.lens (\InstanceEventWindowStateChang
 instanceEventWindowStateChange_instanceEventWindowId :: Lens.Lens' InstanceEventWindowStateChange (Prelude.Maybe Prelude.Text)
 instanceEventWindowStateChange_instanceEventWindowId = Lens.lens (\InstanceEventWindowStateChange' {instanceEventWindowId} -> instanceEventWindowId) (\s@InstanceEventWindowStateChange' {} a -> s {instanceEventWindowId = a} :: InstanceEventWindowStateChange)
 
-instance Core.FromXML InstanceEventWindowStateChange where
+instance Data.FromXML InstanceEventWindowStateChange where
   parseXML x =
     InstanceEventWindowStateChange'
-      Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "instanceEventWindowId")
+      Prelude.<$> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "instanceEventWindowId")
 
 instance
   Prelude.Hashable

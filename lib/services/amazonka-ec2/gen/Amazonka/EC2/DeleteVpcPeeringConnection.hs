@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,7 +112,7 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
     Response.receiveXML
       ( \s h x ->
           DeleteVpcPeeringConnectionResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,22 +126,22 @@ instance Prelude.NFData DeleteVpcPeeringConnection where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
-instance Core.ToHeaders DeleteVpcPeeringConnection where
+instance Data.ToHeaders DeleteVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVpcPeeringConnection where
+instance Data.ToPath DeleteVpcPeeringConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVpcPeeringConnection where
+instance Data.ToQuery DeleteVpcPeeringConnection where
   toQuery DeleteVpcPeeringConnection' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVpcPeeringConnection" :: Prelude.ByteString),
+          Data.=: ("DeleteVpcPeeringConnection" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         "VpcPeeringConnectionId"
-          Core.=: vpcPeeringConnectionId
+          Data.=: vpcPeeringConnectionId
       ]
 
 -- | /See:/ 'newDeleteVpcPeeringConnectionResponse' smart constructor.

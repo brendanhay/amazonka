@@ -18,6 +18,7 @@ module Amazonka.EC2.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.DescribeBundleTasks
 import Amazonka.EC2.DescribeConversionTasks
 import Amazonka.EC2.DescribeCustomerGateways
@@ -65,7 +66,7 @@ newInstanceStopped =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -82,7 +83,7 @@ newInstanceStopped =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "terminated"
@@ -99,7 +100,7 @@ newInstanceStopped =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -122,7 +123,7 @@ newExportTaskCompleted =
                     )
                 )
                 Prelude.. exportTask_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -149,7 +150,7 @@ newSpotInstanceRequestFulfilled =
                 Prelude.. Lens._Just
                 Prelude.. spotInstanceStatus_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "request-canceled-and-instance-running"
@@ -164,7 +165,7 @@ newSpotInstanceRequestFulfilled =
                 Prelude.. Lens._Just
                 Prelude.. spotInstanceStatus_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "schedule-expired"
@@ -179,7 +180,7 @@ newSpotInstanceRequestFulfilled =
                 Prelude.. Lens._Just
                 Prelude.. spotInstanceStatus_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "canceled-before-fulfillment"
@@ -194,7 +195,7 @@ newSpotInstanceRequestFulfilled =
                 Prelude.. Lens._Just
                 Prelude.. spotInstanceStatus_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "bad-parameters"
@@ -209,7 +210,7 @@ newSpotInstanceRequestFulfilled =
                 Prelude.. Lens._Just
                 Prelude.. spotInstanceStatus_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "system-error"
@@ -224,7 +225,7 @@ newSpotInstanceRequestFulfilled =
                 Prelude.. Lens._Just
                 Prelude.. spotInstanceStatus_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "InvalidSpotInstanceRequestID.NotFound"
@@ -300,7 +301,7 @@ newExportTaskCancelled =
                     )
                 )
                 Prelude.. exportTask_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -325,7 +326,7 @@ newInstanceStatusOk =
                 Prelude.. instanceStatus_instanceStatus
                 Prelude.. Lens._Just
                 Prelude.. instanceStatusSummary_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "InvalidInstanceID.NotFound"
@@ -351,7 +352,7 @@ newBundleTaskComplete =
                     )
                 )
                 Prelude.. bundleTask_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -363,7 +364,7 @@ newBundleTaskComplete =
                     )
                 )
                 Prelude.. bundleTask_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -399,7 +400,7 @@ newImageAvailable =
                     (describeImagesResponse_images Prelude.. Lens._Just)
                 )
                 Prelude.. image_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deregistered"
@@ -409,7 +410,7 @@ newImageAvailable =
                     (describeImagesResponse_images Prelude.. Lens._Just)
                 )
                 Prelude.. image_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -432,7 +433,7 @@ newVolumeDeleted =
                     )
                 )
                 Prelude.. volume_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "InvalidVolume.NotFound"
@@ -463,7 +464,7 @@ newInstanceRunning =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "shutting-down"
@@ -480,7 +481,7 @@ newInstanceRunning =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "terminated"
@@ -497,7 +498,7 @@ newInstanceRunning =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -514,7 +515,7 @@ newInstanceRunning =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "InvalidInstanceID.NotFound"
@@ -540,7 +541,7 @@ newVolumeAvailable =
                     )
                 )
                 Prelude.. volume_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -552,7 +553,7 @@ newVolumeAvailable =
                     )
                 )
                 Prelude.. volume_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -575,7 +576,7 @@ newSubnetAvailable =
                     )
                 )
                 Prelude.. subnet_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -598,7 +599,7 @@ newVpnConnectionDeleted =
                     )
                 )
                 Prelude.. vpnConnection_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -610,7 +611,7 @@ newVpnConnectionDeleted =
                     )
                 )
                 Prelude.. vpnConnection_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -633,7 +634,7 @@ newCustomerGatewayAvailable =
                     )
                 )
                 Prelude.. customerGateway_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -645,7 +646,7 @@ newCustomerGatewayAvailable =
                     )
                 )
                 Prelude.. customerGateway_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -657,7 +658,7 @@ newCustomerGatewayAvailable =
                     )
                 )
                 Prelude.. customerGateway_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -680,7 +681,7 @@ newVolumeInUse =
                     )
                 )
                 Prelude.. volume_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -692,7 +693,7 @@ newVolumeInUse =
                     )
                 )
                 Prelude.. volume_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -734,7 +735,7 @@ newSystemStatusOk =
                 Prelude.. instanceStatus_systemStatus
                 Prelude.. Lens._Just
                 Prelude.. instanceStatusSummary_status
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -758,7 +759,7 @@ newNatGatewayDeleted =
                 )
                 Prelude.. natGateway_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "NatGatewayNotFound"
@@ -784,7 +785,7 @@ newVpnConnectionAvailable =
                     )
                 )
                 Prelude.. vpnConnection_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -796,7 +797,7 @@ newVpnConnectionAvailable =
                     )
                 )
                 Prelude.. vpnConnection_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -808,7 +809,7 @@ newVpnConnectionAvailable =
                     )
                 )
                 Prelude.. vpnConnection_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -872,7 +873,7 @@ newNetworkInterfaceAvailable =
                 )
                 Prelude.. networkInterface_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "InvalidNetworkInterfaceID.NotFound"
@@ -899,7 +900,7 @@ newConversionTaskCompleted =
                 )
                 Prelude.. conversionTask_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "cancelled"
@@ -912,7 +913,7 @@ newConversionTaskCompleted =
                 )
                 Prelude.. conversionTask_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "cancelling"
@@ -925,7 +926,7 @@ newConversionTaskCompleted =
                 )
                 Prelude.. conversionTask_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -952,7 +953,7 @@ newVpcPeeringConnectionDeleted =
                 Prelude.. Lens._Just
                 Prelude.. vpcPeeringConnectionStateReason_code
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "InvalidVpcPeeringConnectionID.NotFound"
@@ -983,7 +984,7 @@ newInstanceTerminated =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "pending"
@@ -1000,7 +1001,7 @@ newInstanceTerminated =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "stopping"
@@ -1017,7 +1018,7 @@ newInstanceTerminated =
                   )
                 Prelude.. instance_state
                 Prelude.. instanceState_name
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -1040,7 +1041,7 @@ newSnapshotCompleted =
                     )
                 )
                 Prelude.. snapshot_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "error"
@@ -1052,7 +1053,7 @@ newSnapshotCompleted =
                     )
                 )
                 Prelude.. snapshot_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -1076,7 +1077,7 @@ newNatGatewayAvailable =
                 )
                 Prelude.. natGateway_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -1089,7 +1090,7 @@ newNatGatewayAvailable =
                 )
                 Prelude.. natGateway_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -1102,7 +1103,7 @@ newNatGatewayAvailable =
                 )
                 Prelude.. natGateway_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -1115,7 +1116,7 @@ newNatGatewayAvailable =
                 )
                 Prelude.. natGateway_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "NatGatewayNotFound"
@@ -1157,7 +1158,7 @@ newConversionTaskCancelled =
                 )
                 Prelude.. conversionTask_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -1181,7 +1182,7 @@ newConversionTaskDeleted =
                 )
                 Prelude.. conversionTask_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -1227,7 +1228,7 @@ newVpcAvailable =
                     (describeVpcsResponse_vpcs Prelude.. Lens._Just)
                 )
                 Prelude.. vpc_state
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

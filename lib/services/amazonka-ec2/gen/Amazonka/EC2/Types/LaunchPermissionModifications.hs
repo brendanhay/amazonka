@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchPermissionModifications where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LaunchPermission
 import qualified Amazonka.Prelude as Prelude
@@ -82,11 +83,11 @@ instance Prelude.NFData LaunchPermissionModifications where
   rnf LaunchPermissionModifications' {..} =
     Prelude.rnf remove `Prelude.seq` Prelude.rnf add
 
-instance Core.ToQuery LaunchPermissionModifications where
+instance Data.ToQuery LaunchPermissionModifications where
   toQuery LaunchPermissionModifications' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          (Core.toQueryList "Remove" Prelude.<$> remove),
-        Core.toQuery
-          (Core.toQueryList "Add" Prelude.<$> add)
+      [ Data.toQuery
+          (Data.toQueryList "Remove" Prelude.<$> remove),
+        Data.toQuery
+          (Data.toQueryList "Add" Prelude.<$> add)
       ]

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -203,10 +204,10 @@ instance Core.AWSRequest DescribeHostReservations where
     Response.receiveXML
       ( \s h x ->
           DescribeHostReservationsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "hostReservationSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "hostReservationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -225,27 +226,27 @@ instance Prelude.NFData DescribeHostReservations where
       `Prelude.seq` Prelude.rnf hostReservationIdSet
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeHostReservations where
+instance Data.ToHeaders DescribeHostReservations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeHostReservations where
+instance Data.ToPath DescribeHostReservations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHostReservations where
+instance Data.ToQuery DescribeHostReservations where
   toQuery DescribeHostReservations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeHostReservations" :: Prelude.ByteString),
+          Data.=: ("DescribeHostReservations" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filter'),
-        Core.toQuery
-          ( Core.toQueryList "HostReservationIdSet"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filter'),
+        Data.toQuery
+          ( Data.toQueryList "HostReservationIdSet"
               Prelude.<$> hostReservationIdSet
           ),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeHostReservationsResponse' smart constructor.

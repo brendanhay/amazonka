@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,7 +149,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateNetworkInterfacePermissionResponse'
-            Prelude.<$> (x Core..@? "interfacePermission")
+            Prelude.<$> (x Data..@? "interfacePermission")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,31 +178,31 @@ instance
       `Prelude.seq` Prelude.rnf permission
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateNetworkInterfacePermission
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateNetworkInterfacePermission where
+instance Data.ToPath CreateNetworkInterfacePermission where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateNetworkInterfacePermission
   where
   toQuery CreateNetworkInterfacePermission' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateNetworkInterfacePermission" ::
+          Data.=: ( "CreateNetworkInterfacePermission" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AwsAccountId" Core.=: awsAccountId,
-        "DryRun" Core.=: dryRun,
-        "AwsService" Core.=: awsService,
-        "NetworkInterfaceId" Core.=: networkInterfaceId,
-        "Permission" Core.=: permission
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AwsAccountId" Data.=: awsAccountId,
+        "DryRun" Data.=: dryRun,
+        "AwsService" Data.=: awsService,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
+        "Permission" Data.=: permission
       ]
 
 -- | Contains the output of CreateNetworkInterfacePermission.

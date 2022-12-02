@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Route where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.RouteOrigin
 import Amazonka.EC2.Types.RouteState
@@ -223,25 +224,25 @@ route_origin = Lens.lens (\Route' {origin} -> origin) (\s@Route' {} a -> s {orig
 route_instanceOwnerId :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
 route_instanceOwnerId = Lens.lens (\Route' {instanceOwnerId} -> instanceOwnerId) (\s@Route' {} a -> s {instanceOwnerId = a} :: Route)
 
-instance Core.FromXML Route where
+instance Data.FromXML Route where
   parseXML x =
     Route'
-      Prelude.<$> (x Core..@? "localGatewayId")
-      Prelude.<*> (x Core..@? "destinationPrefixListId")
-      Prelude.<*> (x Core..@? "carrierGatewayId")
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "natGatewayId")
-      Prelude.<*> (x Core..@? "vpcPeeringConnectionId")
-      Prelude.<*> (x Core..@? "destinationCidrBlock")
-      Prelude.<*> (x Core..@? "coreNetworkArn")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "egressOnlyInternetGatewayId")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "gatewayId")
-      Prelude.<*> (x Core..@? "destinationIpv6CidrBlock")
-      Prelude.<*> (x Core..@? "origin")
-      Prelude.<*> (x Core..@? "instanceOwnerId")
+      Prelude.<$> (x Data..@? "localGatewayId")
+      Prelude.<*> (x Data..@? "destinationPrefixListId")
+      Prelude.<*> (x Data..@? "carrierGatewayId")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "natGatewayId")
+      Prelude.<*> (x Data..@? "vpcPeeringConnectionId")
+      Prelude.<*> (x Data..@? "destinationCidrBlock")
+      Prelude.<*> (x Data..@? "coreNetworkArn")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "egressOnlyInternetGatewayId")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "gatewayId")
+      Prelude.<*> (x Data..@? "destinationIpv6CidrBlock")
+      Prelude.<*> (x Data..@? "origin")
+      Prelude.<*> (x Data..@? "instanceOwnerId")
 
 instance Prelude.Hashable Route where
   hashWithSalt _salt Route' {..} =

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AssociationStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AssociationStatusCode
 import qualified Amazonka.Prelude as Prelude
@@ -66,11 +67,11 @@ associationStatus_message = Lens.lens (\AssociationStatus' {message} -> message)
 associationStatus_code :: Lens.Lens' AssociationStatus (Prelude.Maybe AssociationStatusCode)
 associationStatus_code = Lens.lens (\AssociationStatus' {code} -> code) (\s@AssociationStatus' {} a -> s {code = a} :: AssociationStatus)
 
-instance Core.FromXML AssociationStatus where
+instance Data.FromXML AssociationStatus where
   parseXML x =
     AssociationStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance Prelude.Hashable AssociationStatus where
   hashWithSalt _salt AssociationStatus' {..} =

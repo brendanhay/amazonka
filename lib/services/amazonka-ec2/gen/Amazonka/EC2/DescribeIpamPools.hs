@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,9 +164,9 @@ instance Core.AWSRequest DescribeIpamPools where
     Response.receiveXML
       ( \s h x ->
           DescribeIpamPoolsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "ipamPoolSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "ipamPoolSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -186,28 +187,28 @@ instance Prelude.NFData DescribeIpamPools where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeIpamPools where
+instance Data.ToHeaders DescribeIpamPools where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeIpamPools where
+instance Data.ToPath DescribeIpamPools where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeIpamPools where
+instance Data.ToQuery DescribeIpamPools where
   toQuery DescribeIpamPools' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeIpamPools" :: Prelude.ByteString),
+          Data.=: ("DescribeIpamPools" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "IpamPoolId"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "IpamPoolId"
               Prelude.<$> ipamPoolIds
           ),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeIpamPoolsResponse' smart constructor.

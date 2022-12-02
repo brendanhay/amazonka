@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateHibernationOptionsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,8 +83,8 @@ instance
     Prelude.rnf configured
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplateHibernationOptionsRequest
   where
   toQuery LaunchTemplateHibernationOptionsRequest' {..} =
-    Prelude.mconcat ["Configured" Core.=: configured]
+    Prelude.mconcat ["Configured" Data.=: configured]

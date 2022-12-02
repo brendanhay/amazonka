@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,12 +177,12 @@ instance Core.AWSRequest GetCoipPoolUsage where
     Response.receiveXML
       ( \s h x ->
           GetCoipPoolUsageResponse'
-            Prelude.<$> ( x Core..@? "coipAddressUsageSet"
+            Prelude.<$> ( x Data..@? "coipAddressUsageSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "localGatewayRouteTableId")
-            Prelude.<*> (x Core..@? "coipPoolId")
+            Prelude.<*> (x Data..@? "localGatewayRouteTableId")
+            Prelude.<*> (x Data..@? "coipPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,25 +202,25 @@ instance Prelude.NFData GetCoipPoolUsage where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf poolId
 
-instance Core.ToHeaders GetCoipPoolUsage where
+instance Data.ToHeaders GetCoipPoolUsage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetCoipPoolUsage where
+instance Data.ToPath GetCoipPoolUsage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCoipPoolUsage where
+instance Data.ToQuery GetCoipPoolUsage where
   toQuery GetCoipPoolUsage' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetCoipPoolUsage" :: Prelude.ByteString),
+          Data.=: ("GetCoipPoolUsage" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "PoolId" Core.=: poolId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "PoolId" Data.=: poolId
       ]
 
 -- | /See:/ 'newGetCoipPoolUsageResponse' smart constructor.

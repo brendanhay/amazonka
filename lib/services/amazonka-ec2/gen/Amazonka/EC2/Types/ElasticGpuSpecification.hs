@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ElasticGpuSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,6 +73,6 @@ instance Prelude.Hashable ElasticGpuSpecification where
 instance Prelude.NFData ElasticGpuSpecification where
   rnf ElasticGpuSpecification' {..} = Prelude.rnf type'
 
-instance Core.ToQuery ElasticGpuSpecification where
+instance Data.ToQuery ElasticGpuSpecification where
   toQuery ElasticGpuSpecification' {..} =
-    Prelude.mconcat ["Type" Core.=: type']
+    Prelude.mconcat ["Type" Data.=: type']

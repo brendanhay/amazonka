@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayConnectPeerConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ProtocolValue
 import Amazonka.EC2.Types.TransitGatewayAttachmentBgpConfiguration
@@ -93,22 +94,22 @@ transitGatewayConnectPeerConfiguration_protocol :: Lens.Lens' TransitGatewayConn
 transitGatewayConnectPeerConfiguration_protocol = Lens.lens (\TransitGatewayConnectPeerConfiguration' {protocol} -> protocol) (\s@TransitGatewayConnectPeerConfiguration' {} a -> s {protocol = a} :: TransitGatewayConnectPeerConfiguration)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayConnectPeerConfiguration
   where
   parseXML x =
     TransitGatewayConnectPeerConfiguration'
-      Prelude.<$> (x Core..@? "transitGatewayAddress")
-      Prelude.<*> ( x Core..@? "bgpConfigurations"
+      Prelude.<$> (x Data..@? "transitGatewayAddress")
+      Prelude.<*> ( x Data..@? "bgpConfigurations"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "insideCidrBlocks"
+      Prelude.<*> ( x Data..@? "insideCidrBlocks"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "peerAddress")
-      Prelude.<*> (x Core..@? "protocol")
+      Prelude.<*> (x Data..@? "peerAddress")
+      Prelude.<*> (x Data..@? "protocol")
 
 instance
   Prelude.Hashable

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +121,8 @@ instance Core.AWSRequest ConfirmProductInstance where
     Response.receiveXML
       ( \s h x ->
           ConfirmProductInstanceResponse'
-            Prelude.<$> (x Core..@? "ownerId")
-            Prelude.<*> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "ownerId")
+            Prelude.<*> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,22 +138,22 @@ instance Prelude.NFData ConfirmProductInstance where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf productCode
 
-instance Core.ToHeaders ConfirmProductInstance where
+instance Data.ToHeaders ConfirmProductInstance where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ConfirmProductInstance where
+instance Data.ToPath ConfirmProductInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ConfirmProductInstance where
+instance Data.ToQuery ConfirmProductInstance where
   toQuery ConfirmProductInstance' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ConfirmProductInstance" :: Prelude.ByteString),
+          Data.=: ("ConfirmProductInstance" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InstanceId" Core.=: instanceId,
-        "ProductCode" Core.=: productCode
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "InstanceId" Data.=: instanceId,
+        "ProductCode" Data.=: productCode
       ]
 
 -- | /See:/ 'newConfirmProductInstanceResponse' smart constructor.

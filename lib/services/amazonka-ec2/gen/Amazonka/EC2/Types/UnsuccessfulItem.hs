@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.UnsuccessfulItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.UnsuccessfulItemError
 import qualified Amazonka.Prelude as Prelude
@@ -64,11 +65,11 @@ unsuccessfulItem_resourceId = Lens.lens (\UnsuccessfulItem' {resourceId} -> reso
 unsuccessfulItem_error :: Lens.Lens' UnsuccessfulItem (Prelude.Maybe UnsuccessfulItemError)
 unsuccessfulItem_error = Lens.lens (\UnsuccessfulItem' {error} -> error) (\s@UnsuccessfulItem' {} a -> s {error = a} :: UnsuccessfulItem)
 
-instance Core.FromXML UnsuccessfulItem where
+instance Data.FromXML UnsuccessfulItem where
   parseXML x =
     UnsuccessfulItem'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> (x Core..@? "error")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> (x Data..@? "error")
 
 instance Prelude.Hashable UnsuccessfulItem where
   hashWithSalt _salt UnsuccessfulItem' {..} =

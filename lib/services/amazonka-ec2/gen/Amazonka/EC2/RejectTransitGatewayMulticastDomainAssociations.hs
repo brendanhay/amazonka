@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           RejectTransitGatewayMulticastDomainAssociationsResponse'
-            Prelude.<$> (x Core..@? "associations")
+            Prelude.<$> (x Data..@? "associations")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,37 +163,37 @@ instance
         `Prelude.seq` Prelude.rnf subnetIds
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RejectTransitGatewayMulticastDomainAssociations
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     RejectTransitGatewayMulticastDomainAssociations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     RejectTransitGatewayMulticastDomainAssociations
   where
   toQuery
     RejectTransitGatewayMulticastDomainAssociations' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "RejectTransitGatewayMulticastDomainAssociations" ::
+            Data.=: ( "RejectTransitGatewayMulticastDomainAssociations" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
           "TransitGatewayAttachmentId"
-            Core.=: transitGatewayAttachmentId,
-          "DryRun" Core.=: dryRun,
+            Data.=: transitGatewayAttachmentId,
+          "DryRun" Data.=: dryRun,
           "TransitGatewayMulticastDomainId"
-            Core.=: transitGatewayMulticastDomainId,
-          Core.toQuery
-            (Core.toQueryList "SubnetIds" Prelude.<$> subnetIds)
+            Data.=: transitGatewayMulticastDomainId,
+          Data.toQuery
+            (Data.toQueryList "SubnetIds" Prelude.<$> subnetIds)
         ]
 
 -- | /See:/ 'newRejectTransitGatewayMulticastDomainAssociationsResponse' smart constructor.

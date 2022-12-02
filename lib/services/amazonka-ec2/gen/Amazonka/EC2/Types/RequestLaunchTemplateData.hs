@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RequestLaunchTemplateData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CreditSpecificationRequest
 import Amazonka.EC2.Types.ElasticGpuSpecification
@@ -737,67 +738,67 @@ instance Prelude.NFData RequestLaunchTemplateData where
       `Prelude.seq` Prelude.rnf
         metadataOptions
 
-instance Core.ToQuery RequestLaunchTemplateData where
+instance Data.ToQuery RequestLaunchTemplateData where
   toQuery RequestLaunchTemplateData' {..} =
     Prelude.mconcat
-      [ "EbsOptimized" Core.=: ebsOptimized,
-        "HibernationOptions" Core.=: hibernationOptions,
-        "IamInstanceProfile" Core.=: iamInstanceProfile,
-        Core.toQuery
-          ( Core.toQueryList "ElasticInferenceAccelerator"
+      [ "EbsOptimized" Data.=: ebsOptimized,
+        "HibernationOptions" Data.=: hibernationOptions,
+        "IamInstanceProfile" Data.=: iamInstanceProfile,
+        Data.toQuery
+          ( Data.toQueryList "ElasticInferenceAccelerator"
               Prelude.<$> elasticInferenceAccelerators
           ),
-        "Placement" Core.=: placement,
-        "UserData" Core.=: userData,
-        "InstanceRequirements" Core.=: instanceRequirements,
-        "CreditSpecification" Core.=: creditSpecification,
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
+        "Placement" Data.=: placement,
+        "UserData" Data.=: userData,
+        "InstanceRequirements" Data.=: instanceRequirements,
+        "CreditSpecification" Data.=: creditSpecification,
+        Data.toQuery
+          ( Data.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
         "InstanceInitiatedShutdownBehavior"
-          Core.=: instanceInitiatedShutdownBehavior,
-        "Monitoring" Core.=: monitoring,
+          Data.=: instanceInitiatedShutdownBehavior,
+        "Monitoring" Data.=: monitoring,
         "InstanceMarketOptions"
-          Core.=: instanceMarketOptions,
+          Data.=: instanceMarketOptions,
         "CapacityReservationSpecification"
-          Core.=: capacityReservationSpecification,
-        "InstanceType" Core.=: instanceType,
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroup"
+          Data.=: capacityReservationSpecification,
+        "InstanceType" Data.=: instanceType,
+        Data.toQuery
+          ( Data.toQueryList "SecurityGroup"
               Prelude.<$> securityGroups
           ),
-        Core.toQuery
-          ( Core.toQueryList "ElasticGpuSpecification"
+        Data.toQuery
+          ( Data.toQueryList "ElasticGpuSpecification"
               Prelude.<$> elasticGpuSpecifications
           ),
-        "RamDiskId" Core.=: ramDiskId,
-        "MaintenanceOptions" Core.=: maintenanceOptions,
+        "RamDiskId" Data.=: ramDiskId,
+        "MaintenanceOptions" Data.=: maintenanceOptions,
         "PrivateDnsNameOptions"
-          Core.=: privateDnsNameOptions,
-        "KeyName" Core.=: keyName,
-        Core.toQuery
-          ( Core.toQueryList "LicenseSpecification"
+          Data.=: privateDnsNameOptions,
+        "KeyName" Data.=: keyName,
+        Data.toQuery
+          ( Data.toQueryList "LicenseSpecification"
               Prelude.<$> licenseSpecifications
           ),
-        "KernelId" Core.=: kernelId,
+        "KernelId" Data.=: kernelId,
         "DisableApiTermination"
-          Core.=: disableApiTermination,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: disableApiTermination,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "CpuOptions" Core.=: cpuOptions,
-        "DisableApiStop" Core.=: disableApiStop,
-        "ImageId" Core.=: imageId,
-        Core.toQuery
-          ( Core.toQueryList "NetworkInterface"
+        "CpuOptions" Data.=: cpuOptions,
+        "DisableApiStop" Data.=: disableApiStop,
+        "ImageId" Data.=: imageId,
+        Data.toQuery
+          ( Data.toQueryList "NetworkInterface"
               Prelude.<$> networkInterfaces
           ),
-        "EnclaveOptions" Core.=: enclaveOptions,
-        "MetadataOptions" Core.=: metadataOptions
+        "EnclaveOptions" Data.=: enclaveOptions,
+        "MetadataOptions" Data.=: metadataOptions
       ]

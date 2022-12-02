@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,7 +118,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           StartVpcEndpointServicePrivateDnsVerificationResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,32 +142,32 @@ instance
         `Prelude.seq` Prelude.rnf serviceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     StartVpcEndpointServicePrivateDnsVerification
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     StartVpcEndpointServicePrivateDnsVerification
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     StartVpcEndpointServicePrivateDnsVerification
   where
   toQuery
     StartVpcEndpointServicePrivateDnsVerification' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "StartVpcEndpointServicePrivateDnsVerification" ::
+            Data.=: ( "StartVpcEndpointServicePrivateDnsVerification" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
-          "ServiceId" Core.=: serviceId
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun,
+          "ServiceId" Data.=: serviceId
         ]
 
 -- | /See:/ 'newStartVpcEndpointServicePrivateDnsVerificationResponse' smart constructor.

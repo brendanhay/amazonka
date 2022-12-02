@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest ModifySecurityGroupRules where
     Response.receiveXML
       ( \s h x ->
           ModifySecurityGroupRulesResponse'
-            Prelude.<$> (x Core..@? "return")
+            Prelude.<$> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,22 +131,22 @@ instance Prelude.NFData ModifySecurityGroupRules where
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf securityGroupRules
 
-instance Core.ToHeaders ModifySecurityGroupRules where
+instance Data.ToHeaders ModifySecurityGroupRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifySecurityGroupRules where
+instance Data.ToPath ModifySecurityGroupRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifySecurityGroupRules where
+instance Data.ToQuery ModifySecurityGroupRules where
   toQuery ModifySecurityGroupRules' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifySecurityGroupRules" :: Prelude.ByteString),
+          Data.=: ("ModifySecurityGroupRules" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "GroupId" Core.=: groupId,
-        Core.toQueryList
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "GroupId" Data.=: groupId,
+        Data.toQueryList
           "SecurityGroupRule"
           securityGroupRules
       ]

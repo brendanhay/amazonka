@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGateway where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TransitGatewayOptions
@@ -46,7 +47,7 @@ data TransitGateway = TransitGateway'
     -- | The transit gateway options.
     options :: Prelude.Maybe TransitGatewayOptions,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Core.ISO8601
+    creationTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,21 +118,21 @@ transitGateway_options = Lens.lens (\TransitGateway' {options} -> options) (\s@T
 
 -- | The creation time.
 transitGateway_creationTime :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.UTCTime)
-transitGateway_creationTime = Lens.lens (\TransitGateway' {creationTime} -> creationTime) (\s@TransitGateway' {} a -> s {creationTime = a} :: TransitGateway) Prelude.. Lens.mapping Core._Time
+transitGateway_creationTime = Lens.lens (\TransitGateway' {creationTime} -> creationTime) (\s@TransitGateway' {} a -> s {creationTime = a} :: TransitGateway) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML TransitGateway where
+instance Data.FromXML TransitGateway where
   parseXML x =
     TransitGateway'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "transitGatewayId")
-      Prelude.<*> (x Core..@? "transitGatewayArn")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "options")
-      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "transitGatewayId")
+      Prelude.<*> (x Data..@? "transitGatewayArn")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "options")
+      Prelude.<*> (x Data..@? "creationTime")
 
 instance Prelude.Hashable TransitGateway where
   hashWithSalt _salt TransitGateway' {..} =

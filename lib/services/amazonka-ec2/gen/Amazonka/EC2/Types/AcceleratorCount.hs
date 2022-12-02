@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AcceleratorCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,10 +70,10 @@ acceleratorCount_max = Lens.lens (\AcceleratorCount' {max} -> max) (\s@Accelerat
 acceleratorCount_min :: Lens.Lens' AcceleratorCount (Prelude.Maybe Prelude.Int)
 acceleratorCount_min = Lens.lens (\AcceleratorCount' {min} -> min) (\s@AcceleratorCount' {} a -> s {min = a} :: AcceleratorCount)
 
-instance Core.FromXML AcceleratorCount where
+instance Data.FromXML AcceleratorCount where
   parseXML x =
     AcceleratorCount'
-      Prelude.<$> (x Core..@? "max") Prelude.<*> (x Core..@? "min")
+      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable AcceleratorCount where
   hashWithSalt _salt AcceleratorCount' {..} =
@@ -83,7 +84,7 @@ instance Prelude.NFData AcceleratorCount where
   rnf AcceleratorCount' {..} =
     Prelude.rnf max `Prelude.seq` Prelude.rnf min
 
-instance Core.ToQuery AcceleratorCount where
+instance Data.ToQuery AcceleratorCount where
   toQuery AcceleratorCount' {..} =
     Prelude.mconcat
-      ["Max" Core.=: max, "Min" Core.=: min]
+      ["Max" Data.=: max, "Min" Data.=: min]

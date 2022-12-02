@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.IpamPoolAllocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpamPoolAllocationResourceType
 import qualified Amazonka.Prelude as Prelude
@@ -118,16 +119,16 @@ ipamPoolAllocation_resourceRegion = Lens.lens (\IpamPoolAllocation' {resourceReg
 ipamPoolAllocation_ipamPoolAllocationId :: Lens.Lens' IpamPoolAllocation (Prelude.Maybe Prelude.Text)
 ipamPoolAllocation_ipamPoolAllocationId = Lens.lens (\IpamPoolAllocation' {ipamPoolAllocationId} -> ipamPoolAllocationId) (\s@IpamPoolAllocation' {} a -> s {ipamPoolAllocationId = a} :: IpamPoolAllocation)
 
-instance Core.FromXML IpamPoolAllocation where
+instance Data.FromXML IpamPoolAllocation where
   parseXML x =
     IpamPoolAllocation'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> (x Core..@? "resourceType")
-      Prelude.<*> (x Core..@? "cidr")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "resourceOwner")
-      Prelude.<*> (x Core..@? "resourceRegion")
-      Prelude.<*> (x Core..@? "ipamPoolAllocationId")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> (x Data..@? "resourceType")
+      Prelude.<*> (x Data..@? "cidr")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "resourceOwner")
+      Prelude.<*> (x Data..@? "resourceRegion")
+      Prelude.<*> (x Data..@? "ipamPoolAllocationId")
 
 instance Prelude.Hashable IpamPoolAllocation where
   hashWithSalt _salt IpamPoolAllocation' {..} =

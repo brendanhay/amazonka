@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ClientVpnAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CertificateAuthentication
 import Amazonka.EC2.Types.ClientVpnAuthenticationType
@@ -87,13 +88,13 @@ clientVpnAuthentication_mutualAuthentication = Lens.lens (\ClientVpnAuthenticati
 clientVpnAuthentication_activeDirectory :: Lens.Lens' ClientVpnAuthentication (Prelude.Maybe DirectoryServiceAuthentication)
 clientVpnAuthentication_activeDirectory = Lens.lens (\ClientVpnAuthentication' {activeDirectory} -> activeDirectory) (\s@ClientVpnAuthentication' {} a -> s {activeDirectory = a} :: ClientVpnAuthentication)
 
-instance Core.FromXML ClientVpnAuthentication where
+instance Data.FromXML ClientVpnAuthentication where
   parseXML x =
     ClientVpnAuthentication'
-      Prelude.<$> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "federatedAuthentication")
-      Prelude.<*> (x Core..@? "mutualAuthentication")
-      Prelude.<*> (x Core..@? "activeDirectory")
+      Prelude.<$> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "federatedAuthentication")
+      Prelude.<*> (x Data..@? "mutualAuthentication")
+      Prelude.<*> (x Data..@? "activeDirectory")
 
 instance Prelude.Hashable ClientVpnAuthentication where
   hashWithSalt _salt ClientVpnAuthentication' {..} =

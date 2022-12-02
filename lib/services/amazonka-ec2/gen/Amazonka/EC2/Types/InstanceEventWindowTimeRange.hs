@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceEventWindowTimeRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.WeekDay
 import qualified Amazonka.Prelude as Prelude
@@ -83,13 +84,13 @@ instanceEventWindowTimeRange_startWeekDay = Lens.lens (\InstanceEventWindowTimeR
 instanceEventWindowTimeRange_startHour :: Lens.Lens' InstanceEventWindowTimeRange (Prelude.Maybe Prelude.Natural)
 instanceEventWindowTimeRange_startHour = Lens.lens (\InstanceEventWindowTimeRange' {startHour} -> startHour) (\s@InstanceEventWindowTimeRange' {} a -> s {startHour = a} :: InstanceEventWindowTimeRange)
 
-instance Core.FromXML InstanceEventWindowTimeRange where
+instance Data.FromXML InstanceEventWindowTimeRange where
   parseXML x =
     InstanceEventWindowTimeRange'
-      Prelude.<$> (x Core..@? "endHour")
-      Prelude.<*> (x Core..@? "endWeekDay")
-      Prelude.<*> (x Core..@? "startWeekDay")
-      Prelude.<*> (x Core..@? "startHour")
+      Prelude.<$> (x Data..@? "endHour")
+      Prelude.<*> (x Data..@? "endWeekDay")
+      Prelude.<*> (x Data..@? "startWeekDay")
+      Prelude.<*> (x Data..@? "startHour")
 
 instance
   Prelude.Hashable

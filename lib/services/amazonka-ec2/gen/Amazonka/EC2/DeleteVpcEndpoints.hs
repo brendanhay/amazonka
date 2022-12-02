@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -125,8 +126,8 @@ instance Core.AWSRequest DeleteVpcEndpoints where
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointsResponse'
-            Prelude.<$> ( x Core..@? "unsuccessful" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -141,21 +142,21 @@ instance Prelude.NFData DeleteVpcEndpoints where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf vpcEndpointIds
 
-instance Core.ToHeaders DeleteVpcEndpoints where
+instance Data.ToHeaders DeleteVpcEndpoints where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteVpcEndpoints where
+instance Data.ToPath DeleteVpcEndpoints where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVpcEndpoints where
+instance Data.ToQuery DeleteVpcEndpoints where
   toQuery DeleteVpcEndpoints' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteVpcEndpoints" :: Prelude.ByteString),
+          Data.=: ("DeleteVpcEndpoints" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList "VpcEndpointId" vpcEndpointIds
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList "VpcEndpointId" vpcEndpointIds
       ]
 
 -- | Contains the output of DeleteVpcEndpoints.

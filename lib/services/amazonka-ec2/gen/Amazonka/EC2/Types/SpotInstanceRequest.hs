@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotInstanceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceInterruptionBehavior
 import Amazonka.EC2.Types.LaunchSpecification
@@ -60,7 +61,7 @@ data SpotInstanceRequest = SpotInstanceRequest'
     -- | The start date of the request, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The request becomes active at this
     -- date and time.
-    validFrom :: Prelude.Maybe Core.ISO8601,
+    validFrom :: Prelude.Maybe Data.ISO8601,
     -- | The behavior when a Spot Instance is interrupted.
     instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
     -- | The instance ID, if an instance has been launched to fulfill the Spot
@@ -81,10 +82,10 @@ data SpotInstanceRequest = SpotInstanceRequest'
     --     instances launch, the request is canceled, or the @validUntil@ date
     --     and time is reached. By default, the request is valid for 7 days
     --     from the date the request was created.
-    validUntil :: Prelude.Maybe Core.ISO8601,
+    validUntil :: Prelude.Maybe Data.ISO8601,
     -- | The date and time when the Spot Instance request was created, in UTC
     -- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    createTime :: Prelude.Maybe Core.ISO8601,
+    createTime :: Prelude.Maybe Data.ISO8601,
     -- | The instance launch group. Launch groups are Spot Instances that launch
     -- together and terminate together.
     launchGroup :: Prelude.Maybe Prelude.Text,
@@ -240,7 +241,7 @@ spotInstanceRequest_status = Lens.lens (\SpotInstanceRequest' {status} -> status
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The request becomes active at this
 -- date and time.
 spotInstanceRequest_validFrom :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.UTCTime)
-spotInstanceRequest_validFrom = Lens.lens (\SpotInstanceRequest' {validFrom} -> validFrom) (\s@SpotInstanceRequest' {} a -> s {validFrom = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Core._Time
+spotInstanceRequest_validFrom = Lens.lens (\SpotInstanceRequest' {validFrom} -> validFrom) (\s@SpotInstanceRequest' {} a -> s {validFrom = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The behavior when a Spot Instance is interrupted.
 spotInstanceRequest_instanceInterruptionBehavior :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe InstanceInterruptionBehavior)
@@ -271,12 +272,12 @@ spotInstanceRequest_productDescription = Lens.lens (\SpotInstanceRequest' {produ
 --     and time is reached. By default, the request is valid for 7 days
 --     from the date the request was created.
 spotInstanceRequest_validUntil :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.UTCTime)
-spotInstanceRequest_validUntil = Lens.lens (\SpotInstanceRequest' {validUntil} -> validUntil) (\s@SpotInstanceRequest' {} a -> s {validUntil = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Core._Time
+spotInstanceRequest_validUntil = Lens.lens (\SpotInstanceRequest' {validUntil} -> validUntil) (\s@SpotInstanceRequest' {} a -> s {validUntil = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the Spot Instance request was created, in UTC
 -- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 spotInstanceRequest_createTime :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.UTCTime)
-spotInstanceRequest_createTime = Lens.lens (\SpotInstanceRequest' {createTime} -> createTime) (\s@SpotInstanceRequest' {} a -> s {createTime = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Core._Time
+spotInstanceRequest_createTime = Lens.lens (\SpotInstanceRequest' {createTime} -> createTime) (\s@SpotInstanceRequest' {} a -> s {createTime = a} :: SpotInstanceRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
@@ -301,30 +302,30 @@ spotInstanceRequest_actualBlockHourlyPrice = Lens.lens (\SpotInstanceRequest' {a
 spotInstanceRequest_spotPrice :: Lens.Lens' SpotInstanceRequest (Prelude.Maybe Prelude.Text)
 spotInstanceRequest_spotPrice = Lens.lens (\SpotInstanceRequest' {spotPrice} -> spotPrice) (\s@SpotInstanceRequest' {} a -> s {spotPrice = a} :: SpotInstanceRequest)
 
-instance Core.FromXML SpotInstanceRequest where
+instance Data.FromXML SpotInstanceRequest where
   parseXML x =
     SpotInstanceRequest'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "spotInstanceRequestId")
-      Prelude.<*> (x Core..@? "launchedAvailabilityZone")
-      Prelude.<*> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "blockDurationMinutes")
-      Prelude.<*> (x Core..@? "availabilityZoneGroup")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "validFrom")
-      Prelude.<*> (x Core..@? "instanceInterruptionBehavior")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "fault")
-      Prelude.<*> (x Core..@? "productDescription")
-      Prelude.<*> (x Core..@? "validUntil")
-      Prelude.<*> (x Core..@? "createTime")
-      Prelude.<*> (x Core..@? "launchGroup")
-      Prelude.<*> (x Core..@? "launchSpecification")
-      Prelude.<*> (x Core..@? "actualBlockHourlyPrice")
-      Prelude.<*> (x Core..@? "spotPrice")
+      Prelude.<*> (x Data..@? "spotInstanceRequestId")
+      Prelude.<*> (x Data..@? "launchedAvailabilityZone")
+      Prelude.<*> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "blockDurationMinutes")
+      Prelude.<*> (x Data..@? "availabilityZoneGroup")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "validFrom")
+      Prelude.<*> (x Data..@? "instanceInterruptionBehavior")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "fault")
+      Prelude.<*> (x Data..@? "productDescription")
+      Prelude.<*> (x Data..@? "validUntil")
+      Prelude.<*> (x Data..@? "createTime")
+      Prelude.<*> (x Data..@? "launchGroup")
+      Prelude.<*> (x Data..@? "launchSpecification")
+      Prelude.<*> (x Data..@? "actualBlockHourlyPrice")
+      Prelude.<*> (x Data..@? "spotPrice")
 
 instance Prelude.Hashable SpotInstanceRequest where
   hashWithSalt _salt SpotInstanceRequest' {..} =

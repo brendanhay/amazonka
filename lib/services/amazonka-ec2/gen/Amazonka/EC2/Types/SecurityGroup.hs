@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IpPermission
 import Amazonka.EC2.Types.Tag
@@ -130,24 +131,24 @@ securityGroup_groupName = Lens.lens (\SecurityGroup' {groupName} -> groupName) (
 securityGroup_description :: Lens.Lens' SecurityGroup Prelude.Text
 securityGroup_description = Lens.lens (\SecurityGroup' {description} -> description) (\s@SecurityGroup' {} a -> s {description = a} :: SecurityGroup)
 
-instance Core.FromXML SecurityGroup where
+instance Data.FromXML SecurityGroup where
   parseXML x =
     SecurityGroup'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ipPermissionsEgress"
+      Prelude.<*> ( x Data..@? "ipPermissionsEgress"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "ipPermissions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<*> ( x Data..@? "ipPermissions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@ "ownerId")
-      Prelude.<*> (x Core..@ "groupId")
-      Prelude.<*> (x Core..@ "groupName")
-      Prelude.<*> (x Core..@ "groupDescription")
+      Prelude.<*> (x Data..@? "vpcId")
+      Prelude.<*> (x Data..@ "ownerId")
+      Prelude.<*> (x Data..@ "groupId")
+      Prelude.<*> (x Data..@ "groupName")
+      Prelude.<*> (x Data..@ "groupDescription")
 
 instance Prelude.Hashable SecurityGroup where
   hashWithSalt _salt SecurityGroup' {..} =

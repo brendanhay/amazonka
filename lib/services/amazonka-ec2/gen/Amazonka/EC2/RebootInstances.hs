@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,21 +118,21 @@ instance Prelude.NFData RebootInstances where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceIds
 
-instance Core.ToHeaders RebootInstances where
+instance Data.ToHeaders RebootInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RebootInstances where
+instance Data.ToPath RebootInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RebootInstances where
+instance Data.ToQuery RebootInstances where
   toQuery RebootInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RebootInstances" :: Prelude.ByteString),
+          Data.=: ("RebootInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        Core.toQueryList "InstanceId" instanceIds
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQueryList "InstanceId" instanceIds
       ]
 
 -- | /See:/ 'newRebootInstancesResponse' smart constructor.

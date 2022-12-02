@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstanceRecurrenceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -140,18 +141,18 @@ instance
       `Prelude.seq` Prelude.rnf occurrenceUnit
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ScheduledInstanceRecurrenceRequest
   where
   toQuery ScheduledInstanceRecurrenceRequest' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "OccurrenceDay"
+      [ Data.toQuery
+          ( Data.toQueryList "OccurrenceDay"
               Prelude.<$> occurrenceDays
           ),
-        "Interval" Core.=: interval,
-        "Frequency" Core.=: frequency,
+        "Interval" Data.=: interval,
+        "Frequency" Data.=: frequency,
         "OccurrenceRelativeToEnd"
-          Core.=: occurrenceRelativeToEnd,
-        "OccurrenceUnit" Core.=: occurrenceUnit
+          Data.=: occurrenceRelativeToEnd,
+        "OccurrenceUnit" Data.=: occurrenceUnit
       ]

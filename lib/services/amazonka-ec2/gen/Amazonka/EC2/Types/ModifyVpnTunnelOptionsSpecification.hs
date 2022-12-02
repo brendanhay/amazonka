@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ModifyVpnTunnelOptionsSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.IKEVersionsRequestListValue
 import Amazonka.EC2.Types.Phase1DHGroupNumbersRequestListValue
@@ -561,52 +562,52 @@ instance
       `Prelude.seq` Prelude.rnf replayWindowSize
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyVpnTunnelOptionsSpecification
   where
   toQuery ModifyVpnTunnelOptionsSpecification' {..} =
     Prelude.mconcat
-      [ "TunnelInsideIpv6Cidr" Core.=: tunnelInsideIpv6Cidr,
+      [ "TunnelInsideIpv6Cidr" Data.=: tunnelInsideIpv6Cidr,
         "Phase1LifetimeSeconds"
-          Core.=: phase1LifetimeSeconds,
+          Data.=: phase1LifetimeSeconds,
         "Phase2LifetimeSeconds"
-          Core.=: phase2LifetimeSeconds,
-        Core.toQuery
-          ( Core.toQueryList "Phase2EncryptionAlgorithm"
+          Data.=: phase2LifetimeSeconds,
+        Data.toQuery
+          ( Data.toQueryList "Phase2EncryptionAlgorithm"
               Prelude.<$> phase2EncryptionAlgorithms
           ),
-        Core.toQuery
-          ( Core.toQueryList "Phase1DHGroupNumber"
+        Data.toQuery
+          ( Data.toQueryList "Phase1DHGroupNumber"
               Prelude.<$> phase1DHGroupNumbers
           ),
-        Core.toQuery
-          ( Core.toQueryList "Phase1IntegrityAlgorithm"
+        Data.toQuery
+          ( Data.toQueryList "Phase1IntegrityAlgorithm"
               Prelude.<$> phase1IntegrityAlgorithms
           ),
-        "DPDTimeoutSeconds" Core.=: dPDTimeoutSeconds,
-        Core.toQuery
-          ( Core.toQueryList "IKEVersion"
+        "DPDTimeoutSeconds" Data.=: dPDTimeoutSeconds,
+        Data.toQuery
+          ( Data.toQueryList "IKEVersion"
               Prelude.<$> iKEVersions
           ),
-        "PreSharedKey" Core.=: preSharedKey,
-        "DPDTimeoutAction" Core.=: dPDTimeoutAction,
-        "LogOptions" Core.=: logOptions,
-        Core.toQuery
-          ( Core.toQueryList "Phase2DHGroupNumber"
+        "PreSharedKey" Data.=: preSharedKey,
+        "DPDTimeoutAction" Data.=: dPDTimeoutAction,
+        "LogOptions" Data.=: logOptions,
+        Data.toQuery
+          ( Data.toQueryList "Phase2DHGroupNumber"
               Prelude.<$> phase2DHGroupNumbers
           ),
-        "RekeyFuzzPercentage" Core.=: rekeyFuzzPercentage,
-        "StartupAction" Core.=: startupAction,
+        "RekeyFuzzPercentage" Data.=: rekeyFuzzPercentage,
+        "StartupAction" Data.=: startupAction,
         "RekeyMarginTimeSeconds"
-          Core.=: rekeyMarginTimeSeconds,
-        Core.toQuery
-          ( Core.toQueryList "Phase2IntegrityAlgorithm"
+          Data.=: rekeyMarginTimeSeconds,
+        Data.toQuery
+          ( Data.toQueryList "Phase2IntegrityAlgorithm"
               Prelude.<$> phase2IntegrityAlgorithms
           ),
-        Core.toQuery
-          ( Core.toQueryList "Phase1EncryptionAlgorithm"
+        Data.toQuery
+          ( Data.toQueryList "Phase1EncryptionAlgorithm"
               Prelude.<$> phase1EncryptionAlgorithms
           ),
-        "TunnelInsideCidr" Core.=: tunnelInsideCidr,
-        "ReplayWindowSize" Core.=: replayWindowSize
+        "TunnelInsideCidr" Data.=: tunnelInsideCidr,
+        "ReplayWindowSize" Data.=: replayWindowSize
       ]

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest ReplaceRouteTableAssociation where
     Response.receiveXML
       ( \s h x ->
           ReplaceRouteTableAssociationResponse'
-            Prelude.<$> (x Core..@? "newAssociationId")
-            Prelude.<*> (x Core..@? "associationState")
+            Prelude.<$> (x Data..@? "newAssociationId")
+            Prelude.<*> (x Data..@? "associationState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,24 +150,24 @@ instance Prelude.NFData ReplaceRouteTableAssociation where
       `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf routeTableId
 
-instance Core.ToHeaders ReplaceRouteTableAssociation where
+instance Data.ToHeaders ReplaceRouteTableAssociation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ReplaceRouteTableAssociation where
+instance Data.ToPath ReplaceRouteTableAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReplaceRouteTableAssociation where
+instance Data.ToQuery ReplaceRouteTableAssociation where
   toQuery ReplaceRouteTableAssociation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ReplaceRouteTableAssociation" ::
+          Data.=: ( "ReplaceRouteTableAssociation" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "AssociationId" Core.=: associationId,
-        "RouteTableId" Core.=: routeTableId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "AssociationId" Data.=: associationId,
+        "RouteTableId" Data.=: routeTableId
       ]
 
 -- | /See:/ 'newReplaceRouteTableAssociationResponse' smart constructor.

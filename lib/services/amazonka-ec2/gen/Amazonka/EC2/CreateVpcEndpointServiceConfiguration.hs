@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -209,8 +210,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateVpcEndpointServiceConfigurationResponse'
-            Prelude.<$> (x Core..@? "clientToken")
-              Prelude.<*> (x Core..@? "serviceConfiguration")
+            Prelude.<$> (x Data..@? "clientToken")
+              Prelude.<*> (x Data..@? "serviceConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,47 +246,47 @@ instance
       `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateVpcEndpointServiceConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateVpcEndpointServiceConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateVpcEndpointServiceConfiguration
   where
   toQuery CreateVpcEndpointServiceConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateVpcEndpointServiceConfiguration" ::
+          Data.=: ( "CreateVpcEndpointServiceConfiguration" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Core.=: clientToken,
-        Core.toQuery
-          ( Core.toQueryList "GatewayLoadBalancerArn"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Data.=: clientToken,
+        Data.toQuery
+          ( Data.toQueryList "GatewayLoadBalancerArn"
               Prelude.<$> gatewayLoadBalancerArns
           ),
-        "AcceptanceRequired" Core.=: acceptanceRequired,
-        Core.toQuery
-          ( Core.toQueryList "SupportedIpAddressType"
+        "AcceptanceRequired" Data.=: acceptanceRequired,
+        Data.toQuery
+          ( Data.toQueryList "SupportedIpAddressType"
               Prelude.<$> supportedIpAddressTypes
           ),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "NetworkLoadBalancerArn"
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "NetworkLoadBalancerArn"
               Prelude.<$> networkLoadBalancerArns
           ),
-        "PrivateDnsName" Core.=: privateDnsName,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+        "PrivateDnsName" Data.=: privateDnsName,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           )
       ]

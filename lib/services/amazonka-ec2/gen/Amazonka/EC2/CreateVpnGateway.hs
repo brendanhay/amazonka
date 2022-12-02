@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,7 +159,7 @@ instance Core.AWSRequest CreateVpnGateway where
     Response.receiveXML
       ( \s h x ->
           CreateVpnGatewayResponse'
-            Prelude.<$> (x Core..@? "vpnGateway")
+            Prelude.<$> (x Data..@? "vpnGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,27 +179,27 @@ instance Prelude.NFData CreateVpnGateway where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateVpnGateway where
+instance Data.ToHeaders CreateVpnGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateVpnGateway where
+instance Data.ToPath CreateVpnGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateVpnGateway where
+instance Data.ToQuery CreateVpnGateway where
   toQuery CreateVpnGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateVpnGateway" :: Prelude.ByteString),
+          Data.=: ("CreateVpnGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AvailabilityZone" Core.=: availabilityZone,
-        "DryRun" Core.=: dryRun,
-        "AmazonSideAsn" Core.=: amazonSideAsn,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AvailabilityZone" Data.=: availabilityZone,
+        "DryRun" Data.=: dryRun,
+        "AmazonSideAsn" Data.=: amazonSideAsn,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Type" Core.=: type'
+        "Type" Data.=: type'
       ]
 
 -- | Contains the output of CreateVpnGateway.

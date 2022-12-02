@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PublicIpv4PoolRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,13 +82,13 @@ publicIpv4PoolRange_availableAddressCount = Lens.lens (\PublicIpv4PoolRange' {av
 publicIpv4PoolRange_addressCount :: Lens.Lens' PublicIpv4PoolRange (Prelude.Maybe Prelude.Int)
 publicIpv4PoolRange_addressCount = Lens.lens (\PublicIpv4PoolRange' {addressCount} -> addressCount) (\s@PublicIpv4PoolRange' {} a -> s {addressCount = a} :: PublicIpv4PoolRange)
 
-instance Core.FromXML PublicIpv4PoolRange where
+instance Data.FromXML PublicIpv4PoolRange where
   parseXML x =
     PublicIpv4PoolRange'
-      Prelude.<$> (x Core..@? "firstAddress")
-      Prelude.<*> (x Core..@? "lastAddress")
-      Prelude.<*> (x Core..@? "availableAddressCount")
-      Prelude.<*> (x Core..@? "addressCount")
+      Prelude.<$> (x Data..@? "firstAddress")
+      Prelude.<*> (x Data..@? "lastAddress")
+      Prelude.<*> (x Data..@? "availableAddressCount")
+      Prelude.<*> (x Data..@? "addressCount")
 
 instance Prelude.Hashable PublicIpv4PoolRange where
   hashWithSalt _salt PublicIpv4PoolRange' {..} =

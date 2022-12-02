@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TrafficMirrorTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TrafficMirrorTargetType
@@ -118,19 +119,19 @@ trafficMirrorTarget_networkInterfaceId = Lens.lens (\TrafficMirrorTarget' {netwo
 trafficMirrorTarget_gatewayLoadBalancerEndpointId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_gatewayLoadBalancerEndpointId = Lens.lens (\TrafficMirrorTarget' {gatewayLoadBalancerEndpointId} -> gatewayLoadBalancerEndpointId) (\s@TrafficMirrorTarget' {} a -> s {gatewayLoadBalancerEndpointId = a} :: TrafficMirrorTarget)
 
-instance Core.FromXML TrafficMirrorTarget where
+instance Data.FromXML TrafficMirrorTarget where
   parseXML x =
     TrafficMirrorTarget'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "networkLoadBalancerArn")
-      Prelude.<*> (x Core..@? "trafficMirrorTargetId")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "gatewayLoadBalancerEndpointId")
+      Prelude.<*> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "networkLoadBalancerArn")
+      Prelude.<*> (x Data..@? "trafficMirrorTargetId")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "gatewayLoadBalancerEndpointId")
 
 instance Prelude.Hashable TrafficMirrorTarget where
   hashWithSalt _salt TrafficMirrorTarget' {..} =

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest CreateWebLoginToken where
     Response.receiveJSON
       ( \s h x ->
           CreateWebLoginTokenResponse'
-            Prelude.<$> (x Core..?> "WebServerHostname")
-            Prelude.<*> (x Core..?> "WebToken")
+            Prelude.<$> (x Data..?> "WebServerHostname")
+            Prelude.<*> (x Data..?> "WebToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,25 +101,25 @@ instance Prelude.Hashable CreateWebLoginToken where
 instance Prelude.NFData CreateWebLoginToken where
   rnf CreateWebLoginToken' {..} = Prelude.rnf name
 
-instance Core.ToHeaders CreateWebLoginToken where
+instance Data.ToHeaders CreateWebLoginToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWebLoginToken where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON CreateWebLoginToken where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath CreateWebLoginToken where
+instance Data.ToPath CreateWebLoginToken where
   toPath CreateWebLoginToken' {..} =
-    Prelude.mconcat ["/webtoken/", Core.toBS name]
+    Prelude.mconcat ["/webtoken/", Data.toBS name]
 
-instance Core.ToQuery CreateWebLoginToken where
+instance Data.ToQuery CreateWebLoginToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWebLoginTokenResponse' smart constructor.
@@ -126,7 +127,7 @@ data CreateWebLoginTokenResponse = CreateWebLoginTokenResponse'
   { -- | The Airflow web server hostname for the environment.
     webServerHostname :: Prelude.Maybe Prelude.Text,
     -- | An Airflow web server login token.
-    webToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    webToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,7 +164,7 @@ createWebLoginTokenResponse_webServerHostname = Lens.lens (\CreateWebLoginTokenR
 
 -- | An Airflow web server login token.
 createWebLoginTokenResponse_webToken :: Lens.Lens' CreateWebLoginTokenResponse (Prelude.Maybe Prelude.Text)
-createWebLoginTokenResponse_webToken = Lens.lens (\CreateWebLoginTokenResponse' {webToken} -> webToken) (\s@CreateWebLoginTokenResponse' {} a -> s {webToken = a} :: CreateWebLoginTokenResponse) Prelude.. Lens.mapping Core._Sensitive
+createWebLoginTokenResponse_webToken = Lens.lens (\CreateWebLoginTokenResponse' {webToken} -> webToken) (\s@CreateWebLoginTokenResponse' {} a -> s {webToken = a} :: CreateWebLoginTokenResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 createWebLoginTokenResponse_httpStatus :: Lens.Lens' CreateWebLoginTokenResponse Prelude.Int

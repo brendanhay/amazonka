@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.LoggingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types.ModuleLoggingConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,17 +101,17 @@ loggingConfiguration_webserverLogs = Lens.lens (\LoggingConfiguration' {webserve
 loggingConfiguration_schedulerLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe ModuleLoggingConfiguration)
 loggingConfiguration_schedulerLogs = Lens.lens (\LoggingConfiguration' {schedulerLogs} -> schedulerLogs) (\s@LoggingConfiguration' {} a -> s {schedulerLogs = a} :: LoggingConfiguration)
 
-instance Core.FromJSON LoggingConfiguration where
+instance Data.FromJSON LoggingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Core..:? "DagProcessingLogs")
-            Prelude.<*> (x Core..:? "TaskLogs")
-            Prelude.<*> (x Core..:? "WorkerLogs")
-            Prelude.<*> (x Core..:? "WebserverLogs")
-            Prelude.<*> (x Core..:? "SchedulerLogs")
+            Prelude.<$> (x Data..:? "DagProcessingLogs")
+            Prelude.<*> (x Data..:? "TaskLogs")
+            Prelude.<*> (x Data..:? "WorkerLogs")
+            Prelude.<*> (x Data..:? "WebserverLogs")
+            Prelude.<*> (x Data..:? "SchedulerLogs")
       )
 
 instance Prelude.Hashable LoggingConfiguration where

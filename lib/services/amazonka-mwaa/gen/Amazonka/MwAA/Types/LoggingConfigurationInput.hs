@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.LoggingConfigurationInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types.ModuleLoggingConfigurationInput
 import qualified Amazonka.Prelude as Prelude
 
@@ -106,15 +107,15 @@ instance Prelude.NFData LoggingConfigurationInput where
       `Prelude.seq` Prelude.rnf webserverLogs
       `Prelude.seq` Prelude.rnf schedulerLogs
 
-instance Core.ToJSON LoggingConfigurationInput where
+instance Data.ToJSON LoggingConfigurationInput where
   toJSON LoggingConfigurationInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DagProcessingLogs" Core..=)
+          [ ("DagProcessingLogs" Data..=)
               Prelude.<$> dagProcessingLogs,
-            ("TaskLogs" Core..=) Prelude.<$> taskLogs,
-            ("WorkerLogs" Core..=) Prelude.<$> workerLogs,
-            ("WebserverLogs" Core..=) Prelude.<$> webserverLogs,
-            ("SchedulerLogs" Core..=) Prelude.<$> schedulerLogs
+            ("TaskLogs" Data..=) Prelude.<$> taskLogs,
+            ("WorkerLogs" Data..=) Prelude.<$> workerLogs,
+            ("WebserverLogs" Data..=) Prelude.<$> webserverLogs,
+            ("SchedulerLogs" Data..=) Prelude.<$> schedulerLogs
           ]
       )

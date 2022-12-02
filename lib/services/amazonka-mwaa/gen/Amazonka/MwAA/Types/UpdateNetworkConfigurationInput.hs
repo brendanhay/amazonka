@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.UpdateNetworkConfigurationInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the VPC networking components used to secure and enable network
@@ -80,11 +81,11 @@ instance
   rnf UpdateNetworkConfigurationInput' {..} =
     Prelude.rnf securityGroupIds
 
-instance Core.ToJSON UpdateNetworkConfigurationInput where
+instance Data.ToJSON UpdateNetworkConfigurationInput where
   toJSON UpdateNetworkConfigurationInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SecurityGroupIds" Core..= securityGroupIds)
+              ("SecurityGroupIds" Data..= securityGroupIds)
           ]
       )

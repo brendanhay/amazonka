@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.Environment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types.EnvironmentStatus
 import Amazonka.MwAA.Types.LastUpdate
 import Amazonka.MwAA.Types.LoggingConfiguration
@@ -79,7 +80,7 @@ data Environment = Environment'
     -- | A list of key-value pairs containing the Apache Airflow configuration
     -- options attached to your environment. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
-    airflowConfigurationOptions :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))),
+    airflowConfigurationOptions :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))),
     -- | Describes the VPC networking components used to secure and enable
     -- network traffic between the Amazon Web Services resources for your
     -- environment. To learn more, see
@@ -146,7 +147,7 @@ data Environment = Environment'
     -- @20@.
     maxWorkers :: Prelude.Maybe Prelude.Natural,
     -- | The day and time the environment was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Apache Airflow /Web server/ host name for the Amazon MWAA
     -- environment. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html Accessing the Apache Airflow UI>.
@@ -386,7 +387,7 @@ environment_arn = Lens.lens (\Environment' {arn} -> arn) (\s@Environment' {} a -
 -- options attached to your environment. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 environment_airflowConfigurationOptions :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environment_airflowConfigurationOptions = Lens.lens (\Environment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@Environment' {} a -> s {airflowConfigurationOptions = a} :: Environment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+environment_airflowConfigurationOptions = Lens.lens (\Environment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@Environment' {} a -> s {airflowConfigurationOptions = a} :: Environment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Describes the VPC networking components used to secure and enable
 -- network traffic between the Amazon Web Services resources for your
@@ -475,7 +476,7 @@ environment_maxWorkers = Lens.lens (\Environment' {maxWorkers} -> maxWorkers) (\
 
 -- | The day and time the environment was created.
 environment_createdAt :: Lens.Lens' Environment (Prelude.Maybe Prelude.UTCTime)
-environment_createdAt = Lens.lens (\Environment' {createdAt} -> createdAt) (\s@Environment' {} a -> s {createdAt = a} :: Environment) Prelude.. Lens.mapping Core._Time
+environment_createdAt = Lens.lens (\Environment' {createdAt} -> createdAt) (\s@Environment' {} a -> s {createdAt = a} :: Environment) Prelude.. Lens.mapping Data._Time
 
 -- | The Apache Airflow /Web server/ host name for the Amazon MWAA
 -- environment. To learn more, see
@@ -487,40 +488,40 @@ environment_webserverUrl = Lens.lens (\Environment' {webserverUrl} -> webserverU
 environment_loggingConfiguration :: Lens.Lens' Environment (Prelude.Maybe LoggingConfiguration)
 environment_loggingConfiguration = Lens.lens (\Environment' {loggingConfiguration} -> loggingConfiguration) (\s@Environment' {} a -> s {loggingConfiguration = a} :: Environment)
 
-instance Core.FromJSON Environment where
+instance Data.FromJSON Environment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Environment"
       ( \x ->
           Environment'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Schedulers")
-            Prelude.<*> (x Core..:? "PluginsS3ObjectVersion")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "RequirementsS3Path")
-            Prelude.<*> (x Core..:? "PluginsS3Path")
-            Prelude.<*> (x Core..:? "AirflowVersion")
-            Prelude.<*> (x Core..:? "ServiceRoleArn")
-            Prelude.<*> (x Core..:? "DagS3Path")
-            Prelude.<*> (x Core..:? "SourceBucketArn")
-            Prelude.<*> (x Core..:? "KmsKey")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> ( x Core..:? "AirflowConfigurationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Schedulers")
+            Prelude.<*> (x Data..:? "PluginsS3ObjectVersion")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "RequirementsS3Path")
+            Prelude.<*> (x Data..:? "PluginsS3Path")
+            Prelude.<*> (x Data..:? "AirflowVersion")
+            Prelude.<*> (x Data..:? "ServiceRoleArn")
+            Prelude.<*> (x Data..:? "DagS3Path")
+            Prelude.<*> (x Data..:? "SourceBucketArn")
+            Prelude.<*> (x Data..:? "KmsKey")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> ( x Data..:? "AirflowConfigurationOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "NetworkConfiguration")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "MinWorkers")
-            Prelude.<*> (x Core..:? "EnvironmentClass")
-            Prelude.<*> (x Core..:? "WeeklyMaintenanceWindowStart")
-            Prelude.<*> (x Core..:? "LastUpdate")
-            Prelude.<*> (x Core..:? "RequirementsS3ObjectVersion")
-            Prelude.<*> (x Core..:? "ExecutionRoleArn")
-            Prelude.<*> (x Core..:? "WebserverAccessMode")
-            Prelude.<*> (x Core..:? "MaxWorkers")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "WebserverUrl")
-            Prelude.<*> (x Core..:? "LoggingConfiguration")
+            Prelude.<*> (x Data..:? "NetworkConfiguration")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "MinWorkers")
+            Prelude.<*> (x Data..:? "EnvironmentClass")
+            Prelude.<*> (x Data..:? "WeeklyMaintenanceWindowStart")
+            Prelude.<*> (x Data..:? "LastUpdate")
+            Prelude.<*> (x Data..:? "RequirementsS3ObjectVersion")
+            Prelude.<*> (x Data..:? "ExecutionRoleArn")
+            Prelude.<*> (x Data..:? "WebserverAccessMode")
+            Prelude.<*> (x Data..:? "MaxWorkers")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "WebserverUrl")
+            Prelude.<*> (x Data..:? "LoggingConfiguration")
       )
 
 instance Prelude.Hashable Environment where

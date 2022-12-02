@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.UpdateError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the error(s) encountered with the last update of the
@@ -62,14 +63,14 @@ updateError_errorMessage = Lens.lens (\UpdateError' {errorMessage} -> errorMessa
 updateError_errorCode :: Lens.Lens' UpdateError (Prelude.Maybe Prelude.Text)
 updateError_errorCode = Lens.lens (\UpdateError' {errorCode} -> errorCode) (\s@UpdateError' {} a -> s {errorCode = a} :: UpdateError)
 
-instance Core.FromJSON UpdateError where
+instance Data.FromJSON UpdateError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpdateError"
       ( \x ->
           UpdateError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable UpdateError where

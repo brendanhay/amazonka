@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetEnvironment where
     Response.receiveJSON
       ( \s h x ->
           GetEnvironmentResponse'
-            Prelude.<$> (x Core..?> "Environment")
+            Prelude.<$> (x Data..?> "Environment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,22 +99,22 @@ instance Prelude.Hashable GetEnvironment where
 instance Prelude.NFData GetEnvironment where
   rnf GetEnvironment' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetEnvironment where
+instance Data.ToHeaders GetEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEnvironment where
+instance Data.ToPath GetEnvironment where
   toPath GetEnvironment' {..} =
-    Prelude.mconcat ["/environments/", Core.toBS name]
+    Prelude.mconcat ["/environments/", Data.toBS name]
 
-instance Core.ToQuery GetEnvironment where
+instance Data.ToQuery GetEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEnvironmentResponse' smart constructor.

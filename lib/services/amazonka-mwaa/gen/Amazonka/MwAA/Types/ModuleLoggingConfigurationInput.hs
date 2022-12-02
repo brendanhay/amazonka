@@ -21,6 +21,7 @@ module Amazonka.MwAA.Types.ModuleLoggingConfigurationInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types.LoggingLevel
 import qualified Amazonka.Prelude as Prelude
 
@@ -94,11 +95,11 @@ instance
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf logLevel
 
-instance Core.ToJSON ModuleLoggingConfigurationInput where
+instance Data.ToJSON ModuleLoggingConfigurationInput where
   toJSON ModuleLoggingConfigurationInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Enabled" Core..= enabled),
-            Prelude.Just ("LogLevel" Core..= logLevel)
+          [ Prelude.Just ("Enabled" Data..= enabled),
+            Prelude.Just ("LogLevel" Data..= logLevel)
           ]
       )

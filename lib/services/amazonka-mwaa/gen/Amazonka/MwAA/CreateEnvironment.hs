@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MwAA.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ data CreateEnvironment = CreateEnvironment'
     -- | A list of key-value pairs containing the Apache Airflow configuration
     -- options you want to attach to your environment. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
-    airflowConfigurationOptions :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))),
+    airflowConfigurationOptions :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))),
     -- | The minimum number of workers that you want to run in your environment.
     -- MWAA scales the number of Apache Airflow workers up to the number you
     -- specify in the @MaxWorkers@ field. When there are no more tasks running,
@@ -372,7 +373,7 @@ createEnvironment_kmsKey = Lens.lens (\CreateEnvironment' {kmsKey} -> kmsKey) (\
 -- options you want to attach to your environment. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 createEnvironment_airflowConfigurationOptions :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEnvironment_airflowConfigurationOptions = Lens.lens (\CreateEnvironment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@CreateEnvironment' {} a -> s {airflowConfigurationOptions = a} :: CreateEnvironment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createEnvironment_airflowConfigurationOptions = Lens.lens (\CreateEnvironment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@CreateEnvironment' {} a -> s {airflowConfigurationOptions = a} :: CreateEnvironment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The minimum number of workers that you want to run in your environment.
 -- MWAA scales the number of Apache Airflow workers up to the number you
@@ -465,7 +466,7 @@ instance Core.AWSRequest CreateEnvironment where
     Response.receiveJSON
       ( \s h x ->
           CreateEnvironmentResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -515,62 +516,62 @@ instance Prelude.NFData CreateEnvironment where
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf sourceBucketArn
 
-instance Core.ToHeaders CreateEnvironment where
+instance Data.ToHeaders CreateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironment where
+instance Data.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Schedulers" Core..=) Prelude.<$> schedulers,
-            ("PluginsS3ObjectVersion" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Schedulers" Data..=) Prelude.<$> schedulers,
+            ("PluginsS3ObjectVersion" Data..=)
               Prelude.<$> pluginsS3ObjectVersion,
-            ("RequirementsS3Path" Core..=)
+            ("RequirementsS3Path" Data..=)
               Prelude.<$> requirementsS3Path,
-            ("PluginsS3Path" Core..=) Prelude.<$> pluginsS3Path,
-            ("AirflowVersion" Core..=)
+            ("PluginsS3Path" Data..=) Prelude.<$> pluginsS3Path,
+            ("AirflowVersion" Data..=)
               Prelude.<$> airflowVersion,
-            ("KmsKey" Core..=) Prelude.<$> kmsKey,
-            ("AirflowConfigurationOptions" Core..=)
+            ("KmsKey" Data..=) Prelude.<$> kmsKey,
+            ("AirflowConfigurationOptions" Data..=)
               Prelude.<$> airflowConfigurationOptions,
-            ("MinWorkers" Core..=) Prelude.<$> minWorkers,
-            ("EnvironmentClass" Core..=)
+            ("MinWorkers" Data..=) Prelude.<$> minWorkers,
+            ("EnvironmentClass" Data..=)
               Prelude.<$> environmentClass,
-            ("WeeklyMaintenanceWindowStart" Core..=)
+            ("WeeklyMaintenanceWindowStart" Data..=)
               Prelude.<$> weeklyMaintenanceWindowStart,
-            ("RequirementsS3ObjectVersion" Core..=)
+            ("RequirementsS3ObjectVersion" Data..=)
               Prelude.<$> requirementsS3ObjectVersion,
-            ("WebserverAccessMode" Core..=)
+            ("WebserverAccessMode" Data..=)
               Prelude.<$> webserverAccessMode,
-            ("MaxWorkers" Core..=) Prelude.<$> maxWorkers,
-            ("LoggingConfiguration" Core..=)
+            ("MaxWorkers" Data..=) Prelude.<$> maxWorkers,
+            ("LoggingConfiguration" Data..=)
               Prelude.<$> loggingConfiguration,
-            Prelude.Just ("DagS3Path" Core..= dagS3Path),
+            Prelude.Just ("DagS3Path" Data..= dagS3Path),
             Prelude.Just
-              ("ExecutionRoleArn" Core..= executionRoleArn),
+              ("ExecutionRoleArn" Data..= executionRoleArn),
             Prelude.Just
               ( "NetworkConfiguration"
-                  Core..= networkConfiguration
+                  Data..= networkConfiguration
               ),
             Prelude.Just
-              ("SourceBucketArn" Core..= sourceBucketArn)
+              ("SourceBucketArn" Data..= sourceBucketArn)
           ]
       )
 
-instance Core.ToPath CreateEnvironment where
+instance Data.ToPath CreateEnvironment where
   toPath CreateEnvironment' {..} =
-    Prelude.mconcat ["/environments/", Core.toBS name]
+    Prelude.mconcat ["/environments/", Data.toBS name]
 
-instance Core.ToQuery CreateEnvironment where
+instance Data.ToQuery CreateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEnvironmentResponse' smart constructor.

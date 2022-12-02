@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.CustomerProfilesMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Amazon Connect Customer Profiles.
@@ -40,9 +41,9 @@ newCustomerProfilesMetadata ::
 newCustomerProfilesMetadata =
   CustomerProfilesMetadata'
 
-instance Core.FromJSON CustomerProfilesMetadata where
+instance Data.FromJSON CustomerProfilesMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomerProfilesMetadata"
       (\x -> Prelude.pure CustomerProfilesMetadata')
 

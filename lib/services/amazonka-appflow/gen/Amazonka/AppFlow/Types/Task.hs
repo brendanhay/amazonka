@@ -24,6 +24,7 @@ import Amazonka.AppFlow.Types.OperatorPropertiesKeys
 import Amazonka.AppFlow.Types.TaskType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A class for modeling different type of tasks. Task implementation varies
@@ -103,17 +104,17 @@ task_sourceFields = Lens.lens (\Task' {sourceFields} -> sourceFields) (\s@Task' 
 task_taskType :: Lens.Lens' Task TaskType
 task_taskType = Lens.lens (\Task' {taskType} -> taskType) (\s@Task' {} a -> s {taskType = a} :: Task)
 
-instance Core.FromJSON Task where
+instance Data.FromJSON Task where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Task"
       ( \x ->
           Task'
-            Prelude.<$> (x Core..:? "connectorOperator")
-            Prelude.<*> (x Core..:? "taskProperties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "destinationField")
-            Prelude.<*> (x Core..:? "sourceFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "taskType")
+            Prelude.<$> (x Data..:? "connectorOperator")
+            Prelude.<*> (x Data..:? "taskProperties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "destinationField")
+            Prelude.<*> (x Data..:? "sourceFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "taskType")
       )
 
 instance Prelude.Hashable Task where
@@ -132,17 +133,17 @@ instance Prelude.NFData Task where
       `Prelude.seq` Prelude.rnf sourceFields
       `Prelude.seq` Prelude.rnf taskType
 
-instance Core.ToJSON Task where
+instance Data.ToJSON Task where
   toJSON Task' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("connectorOperator" Core..=)
+          [ ("connectorOperator" Data..=)
               Prelude.<$> connectorOperator,
-            ("taskProperties" Core..=)
+            ("taskProperties" Data..=)
               Prelude.<$> taskProperties,
-            ("destinationField" Core..=)
+            ("destinationField" Data..=)
               Prelude.<$> destinationField,
-            Prelude.Just ("sourceFields" Core..= sourceFields),
-            Prelude.Just ("taskType" Core..= taskType)
+            Prelude.Just ("sourceFields" Data..= sourceFields),
+            Prelude.Just ("taskType" Data..= taskType)
           ]
       )

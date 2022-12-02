@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SingularSourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Singular is being used as a source.
@@ -52,13 +53,13 @@ newSingularSourceProperties pObject_ =
 singularSourceProperties_object :: Lens.Lens' SingularSourceProperties Prelude.Text
 singularSourceProperties_object = Lens.lens (\SingularSourceProperties' {object'} -> object') (\s@SingularSourceProperties' {} a -> s {object' = a} :: SingularSourceProperties)
 
-instance Core.FromJSON SingularSourceProperties where
+instance Data.FromJSON SingularSourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SingularSourceProperties"
       ( \x ->
           SingularSourceProperties'
-            Prelude.<$> (x Core..: "object")
+            Prelude.<$> (x Data..: "object")
       )
 
 instance Prelude.Hashable SingularSourceProperties where
@@ -69,9 +70,9 @@ instance Prelude.NFData SingularSourceProperties where
   rnf SingularSourceProperties' {..} =
     Prelude.rnf object'
 
-instance Core.ToJSON SingularSourceProperties where
+instance Data.ToJSON SingularSourceProperties where
   toJSON SingularSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("object" Core..= object')]
+          [Prelude.Just ("object" Data..= object')]
       )

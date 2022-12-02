@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.ExecutionResult where
 import Amazonka.AppFlow.Types.ErrorInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the end result of the flow run.
@@ -81,16 +82,16 @@ executionResult_errorInfo = Lens.lens (\ExecutionResult' {errorInfo} -> errorInf
 executionResult_bytesWritten :: Lens.Lens' ExecutionResult (Prelude.Maybe Prelude.Integer)
 executionResult_bytesWritten = Lens.lens (\ExecutionResult' {bytesWritten} -> bytesWritten) (\s@ExecutionResult' {} a -> s {bytesWritten = a} :: ExecutionResult)
 
-instance Core.FromJSON ExecutionResult where
+instance Data.FromJSON ExecutionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionResult"
       ( \x ->
           ExecutionResult'
-            Prelude.<$> (x Core..:? "recordsProcessed")
-            Prelude.<*> (x Core..:? "bytesProcessed")
-            Prelude.<*> (x Core..:? "errorInfo")
-            Prelude.<*> (x Core..:? "bytesWritten")
+            Prelude.<$> (x Data..:? "recordsProcessed")
+            Prelude.<*> (x Data..:? "bytesProcessed")
+            Prelude.<*> (x Data..:? "errorInfo")
+            Prelude.<*> (x Data..:? "bytesWritten")
       )
 
 instance Prelude.Hashable ExecutionResult where

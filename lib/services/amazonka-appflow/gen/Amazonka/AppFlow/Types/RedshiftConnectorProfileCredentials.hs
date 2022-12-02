@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.RedshiftConnectorProfileCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required when using Amazon
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRedshiftConnectorProfileCredentials' smart constructor.
 data RedshiftConnectorProfileCredentials = RedshiftConnectorProfileCredentials'
   { -- | The password that corresponds to the user name.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the user.
     username :: Prelude.Maybe Prelude.Text
   }
@@ -57,7 +58,7 @@ newRedshiftConnectorProfileCredentials =
 
 -- | The password that corresponds to the user name.
 redshiftConnectorProfileCredentials_password :: Lens.Lens' RedshiftConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
-redshiftConnectorProfileCredentials_password = Lens.lens (\RedshiftConnectorProfileCredentials' {password} -> password) (\s@RedshiftConnectorProfileCredentials' {} a -> s {password = a} :: RedshiftConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
+redshiftConnectorProfileCredentials_password = Lens.lens (\RedshiftConnectorProfileCredentials' {password} -> password) (\s@RedshiftConnectorProfileCredentials' {} a -> s {password = a} :: RedshiftConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the user.
 redshiftConnectorProfileCredentials_username :: Lens.Lens' RedshiftConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
@@ -82,13 +83,13 @@ instance
       `Prelude.seq` Prelude.rnf username
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RedshiftConnectorProfileCredentials
   where
   toJSON RedshiftConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("password" Core..=) Prelude.<$> password,
-            ("username" Core..=) Prelude.<$> username
+          [ ("password" Data..=) Prelude.<$> password,
+            ("username" Data..=) Prelude.<$> username
           ]
       )

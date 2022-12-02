@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ApiKeyCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The API key credentials required for API key authentication.
@@ -28,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newApiKeyCredentials' smart constructor.
 data ApiKeyCredentials = ApiKeyCredentials'
   { -- | The API secret key required for API key authentication.
-    apiSecretKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    apiSecretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The API key required for API key authentication.
-    apiKey :: Core.Sensitive Prelude.Text
+    apiKey :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,16 +53,16 @@ newApiKeyCredentials ::
 newApiKeyCredentials pApiKey_ =
   ApiKeyCredentials'
     { apiSecretKey = Prelude.Nothing,
-      apiKey = Core._Sensitive Lens.# pApiKey_
+      apiKey = Data._Sensitive Lens.# pApiKey_
     }
 
 -- | The API secret key required for API key authentication.
 apiKeyCredentials_apiSecretKey :: Lens.Lens' ApiKeyCredentials (Prelude.Maybe Prelude.Text)
-apiKeyCredentials_apiSecretKey = Lens.lens (\ApiKeyCredentials' {apiSecretKey} -> apiSecretKey) (\s@ApiKeyCredentials' {} a -> s {apiSecretKey = a} :: ApiKeyCredentials) Prelude.. Lens.mapping Core._Sensitive
+apiKeyCredentials_apiSecretKey = Lens.lens (\ApiKeyCredentials' {apiSecretKey} -> apiSecretKey) (\s@ApiKeyCredentials' {} a -> s {apiSecretKey = a} :: ApiKeyCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The API key required for API key authentication.
 apiKeyCredentials_apiKey :: Lens.Lens' ApiKeyCredentials Prelude.Text
-apiKeyCredentials_apiKey = Lens.lens (\ApiKeyCredentials' {apiKey} -> apiKey) (\s@ApiKeyCredentials' {} a -> s {apiKey = a} :: ApiKeyCredentials) Prelude.. Core._Sensitive
+apiKeyCredentials_apiKey = Lens.lens (\ApiKeyCredentials' {apiKey} -> apiKey) (\s@ApiKeyCredentials' {} a -> s {apiKey = a} :: ApiKeyCredentials) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable ApiKeyCredentials where
   hashWithSalt _salt ApiKeyCredentials' {..} =
@@ -73,11 +74,11 @@ instance Prelude.NFData ApiKeyCredentials where
     Prelude.rnf apiSecretKey
       `Prelude.seq` Prelude.rnf apiKey
 
-instance Core.ToJSON ApiKeyCredentials where
+instance Data.ToJSON ApiKeyCredentials where
   toJSON ApiKeyCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("apiSecretKey" Core..=) Prelude.<$> apiSecretKey,
-            Prelude.Just ("apiKey" Core..= apiKey)
+          [ ("apiSecretKey" Data..=) Prelude.<$> apiSecretKey,
+            Prelude.Just ("apiKey" Data..= apiKey)
           ]
       )

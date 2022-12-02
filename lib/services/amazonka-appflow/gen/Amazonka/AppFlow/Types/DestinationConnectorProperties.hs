@@ -34,6 +34,7 @@ import Amazonka.AppFlow.Types.UpsolverDestinationProperties
 import Amazonka.AppFlow.Types.ZendeskDestinationProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This stores the information that is required to query a particular
@@ -175,25 +176,25 @@ destinationConnectorProperties_eventBridge = Lens.lens (\DestinationConnectorPro
 destinationConnectorProperties_lookoutMetrics :: Lens.Lens' DestinationConnectorProperties (Prelude.Maybe LookoutMetricsDestinationProperties)
 destinationConnectorProperties_lookoutMetrics = Lens.lens (\DestinationConnectorProperties' {lookoutMetrics} -> lookoutMetrics) (\s@DestinationConnectorProperties' {} a -> s {lookoutMetrics = a} :: DestinationConnectorProperties)
 
-instance Core.FromJSON DestinationConnectorProperties where
+instance Data.FromJSON DestinationConnectorProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationConnectorProperties"
       ( \x ->
           DestinationConnectorProperties'
-            Prelude.<$> (x Core..:? "Zendesk")
-            Prelude.<*> (x Core..:? "S3")
-            Prelude.<*> (x Core..:? "Honeycode")
-            Prelude.<*> (x Core..:? "Salesforce")
-            Prelude.<*> (x Core..:? "Snowflake")
-            Prelude.<*> (x Core..:? "SAPOData")
-            Prelude.<*> (x Core..:? "Marketo")
-            Prelude.<*> (x Core..:? "Redshift")
-            Prelude.<*> (x Core..:? "CustomerProfiles")
-            Prelude.<*> (x Core..:? "Upsolver")
-            Prelude.<*> (x Core..:? "CustomConnector")
-            Prelude.<*> (x Core..:? "EventBridge")
-            Prelude.<*> (x Core..:? "LookoutMetrics")
+            Prelude.<$> (x Data..:? "Zendesk")
+            Prelude.<*> (x Data..:? "S3")
+            Prelude.<*> (x Data..:? "Honeycode")
+            Prelude.<*> (x Data..:? "Salesforce")
+            Prelude.<*> (x Data..:? "Snowflake")
+            Prelude.<*> (x Data..:? "SAPOData")
+            Prelude.<*> (x Data..:? "Marketo")
+            Prelude.<*> (x Data..:? "Redshift")
+            Prelude.<*> (x Data..:? "CustomerProfiles")
+            Prelude.<*> (x Data..:? "Upsolver")
+            Prelude.<*> (x Data..:? "CustomConnector")
+            Prelude.<*> (x Data..:? "EventBridge")
+            Prelude.<*> (x Data..:? "LookoutMetrics")
       )
 
 instance
@@ -236,25 +237,25 @@ instance
       `Prelude.seq` Prelude.rnf eventBridge
       `Prelude.seq` Prelude.rnf lookoutMetrics
 
-instance Core.ToJSON DestinationConnectorProperties where
+instance Data.ToJSON DestinationConnectorProperties where
   toJSON DestinationConnectorProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Zendesk" Core..=) Prelude.<$> zendesk,
-            ("S3" Core..=) Prelude.<$> s3,
-            ("Honeycode" Core..=) Prelude.<$> honeycode,
-            ("Salesforce" Core..=) Prelude.<$> salesforce,
-            ("Snowflake" Core..=) Prelude.<$> snowflake,
-            ("SAPOData" Core..=) Prelude.<$> sAPOData,
-            ("Marketo" Core..=) Prelude.<$> marketo,
-            ("Redshift" Core..=) Prelude.<$> redshift,
-            ("CustomerProfiles" Core..=)
+          [ ("Zendesk" Data..=) Prelude.<$> zendesk,
+            ("S3" Data..=) Prelude.<$> s3,
+            ("Honeycode" Data..=) Prelude.<$> honeycode,
+            ("Salesforce" Data..=) Prelude.<$> salesforce,
+            ("Snowflake" Data..=) Prelude.<$> snowflake,
+            ("SAPOData" Data..=) Prelude.<$> sAPOData,
+            ("Marketo" Data..=) Prelude.<$> marketo,
+            ("Redshift" Data..=) Prelude.<$> redshift,
+            ("CustomerProfiles" Data..=)
               Prelude.<$> customerProfiles,
-            ("Upsolver" Core..=) Prelude.<$> upsolver,
-            ("CustomConnector" Core..=)
+            ("Upsolver" Data..=) Prelude.<$> upsolver,
+            ("CustomConnector" Data..=)
               Prelude.<$> customConnector,
-            ("EventBridge" Core..=) Prelude.<$> eventBridge,
-            ("LookoutMetrics" Core..=)
+            ("EventBridge" Data..=) Prelude.<$> eventBridge,
+            ("LookoutMetrics" Data..=)
               Prelude.<$> lookoutMetrics
           ]
       )

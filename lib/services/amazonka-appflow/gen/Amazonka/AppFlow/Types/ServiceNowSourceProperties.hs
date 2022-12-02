@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ServiceNowSourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when ServiceNow is being used as a
@@ -53,13 +54,13 @@ newServiceNowSourceProperties pObject_ =
 serviceNowSourceProperties_object :: Lens.Lens' ServiceNowSourceProperties Prelude.Text
 serviceNowSourceProperties_object = Lens.lens (\ServiceNowSourceProperties' {object'} -> object') (\s@ServiceNowSourceProperties' {} a -> s {object' = a} :: ServiceNowSourceProperties)
 
-instance Core.FromJSON ServiceNowSourceProperties where
+instance Data.FromJSON ServiceNowSourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceNowSourceProperties"
       ( \x ->
           ServiceNowSourceProperties'
-            Prelude.<$> (x Core..: "object")
+            Prelude.<$> (x Data..: "object")
       )
 
 instance Prelude.Hashable ServiceNowSourceProperties where
@@ -70,9 +71,9 @@ instance Prelude.NFData ServiceNowSourceProperties where
   rnf ServiceNowSourceProperties' {..} =
     Prelude.rnf object'
 
-instance Core.ToJSON ServiceNowSourceProperties where
+instance Data.ToJSON ServiceNowSourceProperties where
   toJSON ServiceNowSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("object" Core..= object')]
+          [Prelude.Just ("object" Data..= object')]
       )

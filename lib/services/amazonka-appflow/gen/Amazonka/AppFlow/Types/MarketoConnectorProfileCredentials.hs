@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.MarketoConnectorProfileCredentials where
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required by Marketo.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMarketoConnectorProfileCredentials' smart constructor.
 data MarketoConnectorProfileCredentials = MarketoConnectorProfileCredentials'
   { -- | The credentials used to access protected Marketo resources.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The OAuth requirement needed to request security tokens from the
     -- connector endpoint.
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
@@ -37,7 +38,7 @@ data MarketoConnectorProfileCredentials = MarketoConnectorProfileCredentials'
     clientId :: Prelude.Text,
     -- | The client secret used by the OAuth client to authenticate to the
     -- authorization server.
-    clientSecret :: Core.Sensitive Prelude.Text
+    clientSecret :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +74,12 @@ newMarketoConnectorProfileCredentials
         oAuthRequest = Prelude.Nothing,
         clientId = pClientId_,
         clientSecret =
-          Core._Sensitive Lens.# pClientSecret_
+          Data._Sensitive Lens.# pClientSecret_
       }
 
 -- | The credentials used to access protected Marketo resources.
 marketoConnectorProfileCredentials_accessToken :: Lens.Lens' MarketoConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
-marketoConnectorProfileCredentials_accessToken = Lens.lens (\MarketoConnectorProfileCredentials' {accessToken} -> accessToken) (\s@MarketoConnectorProfileCredentials' {} a -> s {accessToken = a} :: MarketoConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
+marketoConnectorProfileCredentials_accessToken = Lens.lens (\MarketoConnectorProfileCredentials' {accessToken} -> accessToken) (\s@MarketoConnectorProfileCredentials' {} a -> s {accessToken = a} :: MarketoConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The OAuth requirement needed to request security tokens from the
 -- connector endpoint.
@@ -92,7 +93,7 @@ marketoConnectorProfileCredentials_clientId = Lens.lens (\MarketoConnectorProfil
 -- | The client secret used by the OAuth client to authenticate to the
 -- authorization server.
 marketoConnectorProfileCredentials_clientSecret :: Lens.Lens' MarketoConnectorProfileCredentials Prelude.Text
-marketoConnectorProfileCredentials_clientSecret = Lens.lens (\MarketoConnectorProfileCredentials' {clientSecret} -> clientSecret) (\s@MarketoConnectorProfileCredentials' {} a -> s {clientSecret = a} :: MarketoConnectorProfileCredentials) Prelude.. Core._Sensitive
+marketoConnectorProfileCredentials_clientSecret = Lens.lens (\MarketoConnectorProfileCredentials' {clientSecret} -> clientSecret) (\s@MarketoConnectorProfileCredentials' {} a -> s {clientSecret = a} :: MarketoConnectorProfileCredentials) Prelude.. Data._Sensitive
 
 instance
   Prelude.Hashable
@@ -117,15 +118,15 @@ instance
       `Prelude.seq` Prelude.rnf clientSecret
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MarketoConnectorProfileCredentials
   where
   toJSON MarketoConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest,
-            Prelude.Just ("clientId" Core..= clientId),
-            Prelude.Just ("clientSecret" Core..= clientSecret)
+          [ ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
+            Prelude.Just ("clientId" Data..= clientId),
+            Prelude.Just ("clientSecret" Data..= clientSecret)
           ]
       )

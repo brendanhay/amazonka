@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.RegistrationOutput where
 import Amazonka.AppFlow.Types.ExecutionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the status of an attempt from Amazon AppFlow to register a
@@ -84,15 +85,15 @@ registrationOutput_status = Lens.lens (\RegistrationOutput' {status} -> status) 
 registrationOutput_result :: Lens.Lens' RegistrationOutput (Prelude.Maybe Prelude.Text)
 registrationOutput_result = Lens.lens (\RegistrationOutput' {result} -> result) (\s@RegistrationOutput' {} a -> s {result = a} :: RegistrationOutput)
 
-instance Core.FromJSON RegistrationOutput where
+instance Data.FromJSON RegistrationOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegistrationOutput"
       ( \x ->
           RegistrationOutput'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "result")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "result")
       )
 
 instance Prelude.Hashable RegistrationOutput where

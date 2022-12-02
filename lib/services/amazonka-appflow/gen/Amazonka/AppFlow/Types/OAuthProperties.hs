@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.OAuthProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth properties required for OAuth type authentication.
@@ -83,15 +84,15 @@ oAuthProperties_authCodeUrl = Lens.lens (\OAuthProperties' {authCodeUrl} -> auth
 oAuthProperties_oAuthScopes :: Lens.Lens' OAuthProperties [Prelude.Text]
 oAuthProperties_oAuthScopes = Lens.lens (\OAuthProperties' {oAuthScopes} -> oAuthScopes) (\s@OAuthProperties' {} a -> s {oAuthScopes = a} :: OAuthProperties) Prelude.. Lens.coerced
 
-instance Core.FromJSON OAuthProperties where
+instance Data.FromJSON OAuthProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OAuthProperties"
       ( \x ->
           OAuthProperties'
-            Prelude.<$> (x Core..: "tokenUrl")
-            Prelude.<*> (x Core..: "authCodeUrl")
-            Prelude.<*> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "tokenUrl")
+            Prelude.<*> (x Data..: "authCodeUrl")
+            Prelude.<*> (x Data..:? "oAuthScopes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OAuthProperties where
@@ -106,12 +107,12 @@ instance Prelude.NFData OAuthProperties where
       `Prelude.seq` Prelude.rnf authCodeUrl
       `Prelude.seq` Prelude.rnf oAuthScopes
 
-instance Core.ToJSON OAuthProperties where
+instance Data.ToJSON OAuthProperties where
   toJSON OAuthProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("tokenUrl" Core..= tokenUrl),
-            Prelude.Just ("authCodeUrl" Core..= authCodeUrl),
-            Prelude.Just ("oAuthScopes" Core..= oAuthScopes)
+          [ Prelude.Just ("tokenUrl" Data..= tokenUrl),
+            Prelude.Just ("authCodeUrl" Data..= authCodeUrl),
+            Prelude.Just ("oAuthScopes" Data..= oAuthScopes)
           ]
       )

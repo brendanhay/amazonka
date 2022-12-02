@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.Range where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The range of values that the property supports.
@@ -61,14 +62,14 @@ range_minimum = Lens.lens (\Range' {minimum} -> minimum) (\s@Range' {} a -> s {m
 range_maximum :: Lens.Lens' Range (Prelude.Maybe Prelude.Double)
 range_maximum = Lens.lens (\Range' {maximum} -> maximum) (\s@Range' {} a -> s {maximum = a} :: Range)
 
-instance Core.FromJSON Range where
+instance Data.FromJSON Range where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Range"
       ( \x ->
           Range'
-            Prelude.<$> (x Core..:? "minimum")
-            Prelude.<*> (x Core..:? "maximum")
+            Prelude.<$> (x Data..:? "minimum")
+            Prelude.<*> (x Data..:? "maximum")
       )
 
 instance Prelude.Hashable Range where

@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.HoneycodeConnectorProfileCredentials where
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific credentials required when using Amazon Honeycode.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newHoneycodeConnectorProfileCredentials' smart constructor.
 data HoneycodeConnectorProfileCredentials = HoneycodeConnectorProfileCredentials'
   { -- | The credentials used to access protected Amazon Honeycode resources.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
     -- | The credentials used to acquire new access tokens.
     refreshToken :: Prelude.Maybe Prelude.Text
@@ -61,7 +62,7 @@ newHoneycodeConnectorProfileCredentials =
 
 -- | The credentials used to access protected Amazon Honeycode resources.
 honeycodeConnectorProfileCredentials_accessToken :: Lens.Lens' HoneycodeConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
-honeycodeConnectorProfileCredentials_accessToken = Lens.lens (\HoneycodeConnectorProfileCredentials' {accessToken} -> accessToken) (\s@HoneycodeConnectorProfileCredentials' {} a -> s {accessToken = a} :: HoneycodeConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
+honeycodeConnectorProfileCredentials_accessToken = Lens.lens (\HoneycodeConnectorProfileCredentials' {accessToken} -> accessToken) (\s@HoneycodeConnectorProfileCredentials' {} a -> s {accessToken = a} :: HoneycodeConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Undocumented member.
 honeycodeConnectorProfileCredentials_oAuthRequest :: Lens.Lens' HoneycodeConnectorProfileCredentials (Prelude.Maybe ConnectorOAuthRequest)
@@ -92,14 +93,14 @@ instance
       `Prelude.seq` Prelude.rnf refreshToken
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     HoneycodeConnectorProfileCredentials
   where
   toJSON HoneycodeConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest,
-            ("refreshToken" Core..=) Prelude.<$> refreshToken
+          [ ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
+            ("refreshToken" Data..=) Prelude.<$> refreshToken
           ]
       )

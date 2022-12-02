@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ConnectorRuntimeSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the connector runtime settings that are
@@ -110,21 +111,21 @@ connectorRuntimeSetting_isRequired = Lens.lens (\ConnectorRuntimeSetting' {isReq
 connectorRuntimeSetting_dataType :: Lens.Lens' ConnectorRuntimeSetting (Prelude.Maybe Prelude.Text)
 connectorRuntimeSetting_dataType = Lens.lens (\ConnectorRuntimeSetting' {dataType} -> dataType) (\s@ConnectorRuntimeSetting' {} a -> s {dataType = a} :: ConnectorRuntimeSetting)
 
-instance Core.FromJSON ConnectorRuntimeSetting where
+instance Data.FromJSON ConnectorRuntimeSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorRuntimeSetting"
       ( \x ->
           ConnectorRuntimeSetting'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "label")
-            Prelude.<*> ( x Core..:? "connectorSuppliedValueOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "label")
+            Prelude.<*> ( x Data..:? "connectorSuppliedValueOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "scope")
-            Prelude.<*> (x Core..:? "isRequired")
-            Prelude.<*> (x Core..:? "dataType")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "scope")
+            Prelude.<*> (x Data..:? "isRequired")
+            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable ConnectorRuntimeSetting where

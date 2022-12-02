@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.AuthParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about required authentication parameters.
@@ -100,20 +101,20 @@ authParameter_isSensitiveField = Lens.lens (\AuthParameter' {isSensitiveField} -
 authParameter_isRequired :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Bool)
 authParameter_isRequired = Lens.lens (\AuthParameter' {isRequired} -> isRequired) (\s@AuthParameter' {} a -> s {isRequired = a} :: AuthParameter)
 
-instance Core.FromJSON AuthParameter where
+instance Data.FromJSON AuthParameter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthParameter"
       ( \x ->
           AuthParameter'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> ( x Core..:? "connectorSuppliedValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> ( x Data..:? "connectorSuppliedValues"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "label")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "isSensitiveField")
-            Prelude.<*> (x Core..:? "isRequired")
+            Prelude.<*> (x Data..:? "label")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "isSensitiveField")
+            Prelude.<*> (x Data..:? "isRequired")
       )
 
 instance Prelude.Hashable AuthParameter where

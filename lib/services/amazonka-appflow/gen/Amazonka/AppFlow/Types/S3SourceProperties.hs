@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.S3SourceProperties where
 import Amazonka.AppFlow.Types.S3InputFormatConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amazon S3 is being used as the flow
@@ -76,15 +77,15 @@ s3SourceProperties_s3InputFormatConfig = Lens.lens (\S3SourceProperties' {s3Inpu
 s3SourceProperties_bucketName :: Lens.Lens' S3SourceProperties Prelude.Text
 s3SourceProperties_bucketName = Lens.lens (\S3SourceProperties' {bucketName} -> bucketName) (\s@S3SourceProperties' {} a -> s {bucketName = a} :: S3SourceProperties)
 
-instance Core.FromJSON S3SourceProperties where
+instance Data.FromJSON S3SourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3SourceProperties"
       ( \x ->
           S3SourceProperties'
-            Prelude.<$> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..:? "s3InputFormatConfig")
-            Prelude.<*> (x Core..: "bucketName")
+            Prelude.<$> (x Data..:? "bucketPrefix")
+            Prelude.<*> (x Data..:? "s3InputFormatConfig")
+            Prelude.<*> (x Data..: "bucketName")
       )
 
 instance Prelude.Hashable S3SourceProperties where
@@ -99,13 +100,13 @@ instance Prelude.NFData S3SourceProperties where
       `Prelude.seq` Prelude.rnf s3InputFormatConfig
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON S3SourceProperties where
+instance Data.ToJSON S3SourceProperties where
   toJSON S3SourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("s3InputFormatConfig" Core..=)
+          [ ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
+            ("s3InputFormatConfig" Data..=)
               Prelude.<$> s3InputFormatConfig,
-            Prelude.Just ("bucketName" Core..= bucketName)
+            Prelude.Just ("bucketName" Data..= bucketName)
           ]
       )

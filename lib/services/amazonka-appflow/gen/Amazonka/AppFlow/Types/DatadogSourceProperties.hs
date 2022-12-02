@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.DatadogSourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Datadog is being used as a source.
@@ -52,13 +53,13 @@ newDatadogSourceProperties pObject_ =
 datadogSourceProperties_object :: Lens.Lens' DatadogSourceProperties Prelude.Text
 datadogSourceProperties_object = Lens.lens (\DatadogSourceProperties' {object'} -> object') (\s@DatadogSourceProperties' {} a -> s {object' = a} :: DatadogSourceProperties)
 
-instance Core.FromJSON DatadogSourceProperties where
+instance Data.FromJSON DatadogSourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatadogSourceProperties"
       ( \x ->
           DatadogSourceProperties'
-            Prelude.<$> (x Core..: "object")
+            Prelude.<$> (x Data..: "object")
       )
 
 instance Prelude.Hashable DatadogSourceProperties where
@@ -69,9 +70,9 @@ instance Prelude.NFData DatadogSourceProperties where
   rnf DatadogSourceProperties' {..} =
     Prelude.rnf object'
 
-instance Core.ToJSON DatadogSourceProperties where
+instance Data.ToJSON DatadogSourceProperties where
   toJSON DatadogSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("object" Core..= object')]
+          [Prelude.Just ("object" Data..= object')]
       )

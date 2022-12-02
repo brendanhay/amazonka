@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.ConnectorProvisioningType
 import Amazonka.AppFlow.Types.ConnectorType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the registered connector.
@@ -50,7 +51,7 @@ data ConnectorDetail = ConnectorDetail'
     -- | The owner of the connector.
     connectorOwner :: Prelude.Maybe Prelude.Text,
     -- | The time at which the connector was registered.
-    registeredAt :: Prelude.Maybe Core.POSIX
+    registeredAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -143,25 +144,25 @@ connectorDetail_connectorOwner = Lens.lens (\ConnectorDetail' {connectorOwner} -
 
 -- | The time at which the connector was registered.
 connectorDetail_registeredAt :: Lens.Lens' ConnectorDetail (Prelude.Maybe Prelude.UTCTime)
-connectorDetail_registeredAt = Lens.lens (\ConnectorDetail' {registeredAt} -> registeredAt) (\s@ConnectorDetail' {} a -> s {registeredAt = a} :: ConnectorDetail) Prelude.. Lens.mapping Core._Time
+connectorDetail_registeredAt = Lens.lens (\ConnectorDetail' {registeredAt} -> registeredAt) (\s@ConnectorDetail' {} a -> s {registeredAt = a} :: ConnectorDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ConnectorDetail where
+instance Data.FromJSON ConnectorDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorDetail"
       ( \x ->
           ConnectorDetail'
-            Prelude.<$> (x Core..:? "connectorProvisioningType")
-            Prelude.<*> (x Core..:? "connectorDescription")
-            Prelude.<*> (x Core..:? "registeredBy")
-            Prelude.<*> (x Core..:? "connectorVersion")
-            Prelude.<*> (x Core..:? "connectorType")
-            Prelude.<*> (x Core..:? "connectorName")
-            Prelude.<*> (x Core..:? "applicationType")
-            Prelude.<*> (x Core..:? "connectorModes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "connectorLabel")
-            Prelude.<*> (x Core..:? "connectorOwner")
-            Prelude.<*> (x Core..:? "registeredAt")
+            Prelude.<$> (x Data..:? "connectorProvisioningType")
+            Prelude.<*> (x Data..:? "connectorDescription")
+            Prelude.<*> (x Data..:? "registeredBy")
+            Prelude.<*> (x Data..:? "connectorVersion")
+            Prelude.<*> (x Data..:? "connectorType")
+            Prelude.<*> (x Data..:? "connectorName")
+            Prelude.<*> (x Data..:? "applicationType")
+            Prelude.<*> (x Data..:? "connectorModes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "connectorLabel")
+            Prelude.<*> (x Data..:? "connectorOwner")
+            Prelude.<*> (x Data..:? "registeredAt")
       )
 
 instance Prelude.Hashable ConnectorDetail where

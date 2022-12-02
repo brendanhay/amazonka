@@ -24,6 +24,7 @@ import Amazonka.AppFlow.Types.PrefixFormat
 import Amazonka.AppFlow.Types.PrefixType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies elements that Amazon AppFlow includes in the file and folder
@@ -125,16 +126,16 @@ prefixConfig_prefixFormat = Lens.lens (\PrefixConfig' {prefixFormat} -> prefixFo
 prefixConfig_pathPrefixHierarchy :: Lens.Lens' PrefixConfig (Prelude.Maybe [PathPrefix])
 prefixConfig_pathPrefixHierarchy = Lens.lens (\PrefixConfig' {pathPrefixHierarchy} -> pathPrefixHierarchy) (\s@PrefixConfig' {} a -> s {pathPrefixHierarchy = a} :: PrefixConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PrefixConfig where
+instance Data.FromJSON PrefixConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrefixConfig"
       ( \x ->
           PrefixConfig'
-            Prelude.<$> (x Core..:? "prefixType")
-            Prelude.<*> (x Core..:? "prefixFormat")
-            Prelude.<*> ( x Core..:? "pathPrefixHierarchy"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "prefixType")
+            Prelude.<*> (x Data..:? "prefixFormat")
+            Prelude.<*> ( x Data..:? "pathPrefixHierarchy"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -150,13 +151,13 @@ instance Prelude.NFData PrefixConfig where
       `Prelude.seq` Prelude.rnf prefixFormat
       `Prelude.seq` Prelude.rnf pathPrefixHierarchy
 
-instance Core.ToJSON PrefixConfig where
+instance Data.ToJSON PrefixConfig where
   toJSON PrefixConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("prefixType" Core..=) Prelude.<$> prefixType,
-            ("prefixFormat" Core..=) Prelude.<$> prefixFormat,
-            ("pathPrefixHierarchy" Core..=)
+          [ ("prefixType" Data..=) Prelude.<$> prefixType,
+            ("prefixFormat" Data..=) Prelude.<$> prefixFormat,
+            ("pathPrefixHierarchy" Data..=)
               Prelude.<$> pathPrefixHierarchy
           ]
       )

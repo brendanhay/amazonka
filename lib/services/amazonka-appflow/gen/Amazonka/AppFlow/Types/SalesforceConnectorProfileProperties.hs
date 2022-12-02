@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SalesforceConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required when using
@@ -67,16 +68,16 @@ salesforceConnectorProfileProperties_instanceUrl :: Lens.Lens' SalesforceConnect
 salesforceConnectorProfileProperties_instanceUrl = Lens.lens (\SalesforceConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@SalesforceConnectorProfileProperties' {} a -> s {instanceUrl = a} :: SalesforceConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SalesforceConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceConnectorProfileProperties"
       ( \x ->
           SalesforceConnectorProfileProperties'
-            Prelude.<$> (x Core..:? "isSandboxEnvironment")
-            Prelude.<*> (x Core..:? "instanceUrl")
+            Prelude.<$> (x Data..:? "isSandboxEnvironment")
+            Prelude.<*> (x Data..:? "instanceUrl")
       )
 
 instance
@@ -98,14 +99,14 @@ instance
       `Prelude.seq` Prelude.rnf instanceUrl
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SalesforceConnectorProfileProperties
   where
   toJSON SalesforceConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("isSandboxEnvironment" Core..=)
+          [ ("isSandboxEnvironment" Data..=)
               Prelude.<$> isSandboxEnvironment,
-            ("instanceUrl" Core..=) Prelude.<$> instanceUrl
+            ("instanceUrl" Data..=) Prelude.<$> instanceUrl
           ]
       )

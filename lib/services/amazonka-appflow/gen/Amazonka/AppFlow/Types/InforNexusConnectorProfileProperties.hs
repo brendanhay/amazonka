@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.InforNexusConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required by Infor Nexus.
@@ -56,15 +57,15 @@ inforNexusConnectorProfileProperties_instanceUrl :: Lens.Lens' InforNexusConnect
 inforNexusConnectorProfileProperties_instanceUrl = Lens.lens (\InforNexusConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@InforNexusConnectorProfileProperties' {} a -> s {instanceUrl = a} :: InforNexusConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InforNexusConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InforNexusConnectorProfileProperties"
       ( \x ->
           InforNexusConnectorProfileProperties'
-            Prelude.<$> (x Core..: "instanceUrl")
+            Prelude.<$> (x Data..: "instanceUrl")
       )
 
 instance
@@ -84,11 +85,11 @@ instance
     Prelude.rnf instanceUrl
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InforNexusConnectorProfileProperties
   where
   toJSON InforNexusConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceUrl" Core..= instanceUrl)]
+          [Prelude.Just ("instanceUrl" Data..= instanceUrl)]
       )

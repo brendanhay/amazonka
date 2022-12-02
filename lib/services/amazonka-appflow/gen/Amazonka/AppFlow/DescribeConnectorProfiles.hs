@@ -53,6 +53,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,8 +147,8 @@ instance Core.AWSRequest DescribeConnectorProfiles where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectorProfilesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "connectorProfileDetails"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "connectorProfileDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -169,35 +170,35 @@ instance Prelude.NFData DescribeConnectorProfiles where
       `Prelude.seq` Prelude.rnf connectorProfileNames
       `Prelude.seq` Prelude.rnf connectorLabel
 
-instance Core.ToHeaders DescribeConnectorProfiles where
+instance Data.ToHeaders DescribeConnectorProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConnectorProfiles where
+instance Data.ToJSON DescribeConnectorProfiles where
   toJSON DescribeConnectorProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("connectorType" Core..=) Prelude.<$> connectorType,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("connectorProfileNames" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("connectorType" Data..=) Prelude.<$> connectorType,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("connectorProfileNames" Data..=)
               Prelude.<$> connectorProfileNames,
-            ("connectorLabel" Core..=)
+            ("connectorLabel" Data..=)
               Prelude.<$> connectorLabel
           ]
       )
 
-instance Core.ToPath DescribeConnectorProfiles where
+instance Data.ToPath DescribeConnectorProfiles where
   toPath = Prelude.const "/describe-connector-profiles"
 
-instance Core.ToQuery DescribeConnectorProfiles where
+instance Data.ToQuery DescribeConnectorProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConnectorProfilesResponse' smart constructor.

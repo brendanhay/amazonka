@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.ErrorHandlingConfig
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Zendesk is used as a destination.
@@ -81,16 +82,16 @@ zendeskDestinationProperties_writeOperationType = Lens.lens (\ZendeskDestination
 zendeskDestinationProperties_object :: Lens.Lens' ZendeskDestinationProperties Prelude.Text
 zendeskDestinationProperties_object = Lens.lens (\ZendeskDestinationProperties' {object'} -> object') (\s@ZendeskDestinationProperties' {} a -> s {object' = a} :: ZendeskDestinationProperties)
 
-instance Core.FromJSON ZendeskDestinationProperties where
+instance Data.FromJSON ZendeskDestinationProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ZendeskDestinationProperties"
       ( \x ->
           ZendeskDestinationProperties'
-            Prelude.<$> (x Core..:? "errorHandlingConfig")
-            Prelude.<*> (x Core..:? "idFieldNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "writeOperationType")
-            Prelude.<*> (x Core..: "object")
+            Prelude.<$> (x Data..:? "errorHandlingConfig")
+            Prelude.<*> (x Data..:? "idFieldNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "writeOperationType")
+            Prelude.<*> (x Data..: "object")
       )
 
 instance
@@ -110,15 +111,15 @@ instance Prelude.NFData ZendeskDestinationProperties where
       `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf object'
 
-instance Core.ToJSON ZendeskDestinationProperties where
+instance Data.ToJSON ZendeskDestinationProperties where
   toJSON ZendeskDestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Data..=)
               Prelude.<$> errorHandlingConfig,
-            ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
-            ("writeOperationType" Core..=)
+            ("idFieldNames" Data..=) Prelude.<$> idFieldNames,
+            ("writeOperationType" Data..=)
               Prelude.<$> writeOperationType,
-            Prelude.Just ("object" Core..= object')
+            Prelude.Just ("object" Data..= object')
           ]
       )

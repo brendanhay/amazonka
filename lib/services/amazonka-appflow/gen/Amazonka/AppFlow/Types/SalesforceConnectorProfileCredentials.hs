@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.SalesforceConnectorProfileCredentials where
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required when using
@@ -30,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSalesforceConnectorProfileCredentials' smart constructor.
 data SalesforceConnectorProfileCredentials = SalesforceConnectorProfileCredentials'
   { -- | The credentials used to access protected Salesforce resources.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The secret manager ARN, which contains the client ID and client secret
     -- of the connected app.
-    clientCredentialsArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientCredentialsArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The OAuth requirement needed to request security tokens from the
     -- connector endpoint.
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
@@ -73,12 +74,12 @@ newSalesforceConnectorProfileCredentials =
 
 -- | The credentials used to access protected Salesforce resources.
 salesforceConnectorProfileCredentials_accessToken :: Lens.Lens' SalesforceConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
-salesforceConnectorProfileCredentials_accessToken = Lens.lens (\SalesforceConnectorProfileCredentials' {accessToken} -> accessToken) (\s@SalesforceConnectorProfileCredentials' {} a -> s {accessToken = a} :: SalesforceConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
+salesforceConnectorProfileCredentials_accessToken = Lens.lens (\SalesforceConnectorProfileCredentials' {accessToken} -> accessToken) (\s@SalesforceConnectorProfileCredentials' {} a -> s {accessToken = a} :: SalesforceConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The secret manager ARN, which contains the client ID and client secret
 -- of the connected app.
 salesforceConnectorProfileCredentials_clientCredentialsArn :: Lens.Lens' SalesforceConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
-salesforceConnectorProfileCredentials_clientCredentialsArn = Lens.lens (\SalesforceConnectorProfileCredentials' {clientCredentialsArn} -> clientCredentialsArn) (\s@SalesforceConnectorProfileCredentials' {} a -> s {clientCredentialsArn = a} :: SalesforceConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
+salesforceConnectorProfileCredentials_clientCredentialsArn = Lens.lens (\SalesforceConnectorProfileCredentials' {clientCredentialsArn} -> clientCredentialsArn) (\s@SalesforceConnectorProfileCredentials' {} a -> s {clientCredentialsArn = a} :: SalesforceConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The OAuth requirement needed to request security tokens from the
 -- connector endpoint.
@@ -112,16 +113,16 @@ instance
       `Prelude.seq` Prelude.rnf refreshToken
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SalesforceConnectorProfileCredentials
   where
   toJSON SalesforceConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("clientCredentialsArn" Core..=)
+          [ ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("clientCredentialsArn" Data..=)
               Prelude.<$> clientCredentialsArn,
-            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest,
-            ("refreshToken" Core..=) Prelude.<$> refreshToken
+            ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
+            ("refreshToken" Data..=) Prelude.<$> refreshToken
           ]
       )

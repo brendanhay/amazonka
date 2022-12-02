@@ -24,6 +24,7 @@ import Amazonka.AppFlow.Types.FileType
 import Amazonka.AppFlow.Types.PrefixConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that determines how Amazon AppFlow formats the flow
@@ -78,15 +79,15 @@ upsolverS3OutputFormatConfig_fileType = Lens.lens (\UpsolverS3OutputFormatConfig
 upsolverS3OutputFormatConfig_prefixConfig :: Lens.Lens' UpsolverS3OutputFormatConfig PrefixConfig
 upsolverS3OutputFormatConfig_prefixConfig = Lens.lens (\UpsolverS3OutputFormatConfig' {prefixConfig} -> prefixConfig) (\s@UpsolverS3OutputFormatConfig' {} a -> s {prefixConfig = a} :: UpsolverS3OutputFormatConfig)
 
-instance Core.FromJSON UpsolverS3OutputFormatConfig where
+instance Data.FromJSON UpsolverS3OutputFormatConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpsolverS3OutputFormatConfig"
       ( \x ->
           UpsolverS3OutputFormatConfig'
-            Prelude.<$> (x Core..:? "aggregationConfig")
-            Prelude.<*> (x Core..:? "fileType")
-            Prelude.<*> (x Core..: "prefixConfig")
+            Prelude.<$> (x Data..:? "aggregationConfig")
+            Prelude.<*> (x Data..:? "fileType")
+            Prelude.<*> (x Data..: "prefixConfig")
       )
 
 instance
@@ -104,13 +105,13 @@ instance Prelude.NFData UpsolverS3OutputFormatConfig where
       `Prelude.seq` Prelude.rnf fileType
       `Prelude.seq` Prelude.rnf prefixConfig
 
-instance Core.ToJSON UpsolverS3OutputFormatConfig where
+instance Data.ToJSON UpsolverS3OutputFormatConfig where
   toJSON UpsolverS3OutputFormatConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("aggregationConfig" Core..=)
+          [ ("aggregationConfig" Data..=)
               Prelude.<$> aggregationConfig,
-            ("fileType" Core..=) Prelude.<$> fileType,
-            Prelude.Just ("prefixConfig" Core..= prefixConfig)
+            ("fileType" Data..=) Prelude.<$> fileType,
+            Prelude.Just ("prefixConfig" Data..= prefixConfig)
           ]
       )

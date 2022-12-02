@@ -25,6 +25,7 @@ import Amazonka.AppFlow.Types.ConnectorType
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance of a connector. This includes the provided name,
@@ -41,7 +42,7 @@ data ConnectorProfile = ConnectorProfile'
     -- | The connector-specific properties of the profile configuration.
     connectorProfileProperties :: Prelude.Maybe ConnectorProfileProperties,
     -- | Specifies when the connector profile was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates the connection mode and if it is public or private.
     connectionMode :: Prelude.Maybe ConnectionMode,
     -- | The name of the connector profile. The name is unique for each
@@ -56,7 +57,7 @@ data ConnectorProfile = ConnectorProfile'
     -- | The label for the connector profile being created.
     connectorLabel :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the connector profile was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,7 +115,7 @@ connectorProfile_connectorProfileProperties = Lens.lens (\ConnectorProfile' {con
 
 -- | Specifies when the connector profile was last updated.
 connectorProfile_lastUpdatedAt :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.UTCTime)
-connectorProfile_lastUpdatedAt = Lens.lens (\ConnectorProfile' {lastUpdatedAt} -> lastUpdatedAt) (\s@ConnectorProfile' {} a -> s {lastUpdatedAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Core._Time
+connectorProfile_lastUpdatedAt = Lens.lens (\ConnectorProfile' {lastUpdatedAt} -> lastUpdatedAt) (\s@ConnectorProfile' {} a -> s {lastUpdatedAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the connection mode and if it is public or private.
 connectorProfile_connectionMode :: Lens.Lens' ConnectorProfile (Prelude.Maybe ConnectionMode)
@@ -143,24 +144,24 @@ connectorProfile_connectorLabel = Lens.lens (\ConnectorProfile' {connectorLabel}
 
 -- | Specifies when the connector profile was created.
 connectorProfile_createdAt :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.UTCTime)
-connectorProfile_createdAt = Lens.lens (\ConnectorProfile' {createdAt} -> createdAt) (\s@ConnectorProfile' {} a -> s {createdAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Core._Time
+connectorProfile_createdAt = Lens.lens (\ConnectorProfile' {createdAt} -> createdAt) (\s@ConnectorProfile' {} a -> s {createdAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ConnectorProfile where
+instance Data.FromJSON ConnectorProfile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorProfile"
       ( \x ->
           ConnectorProfile'
-            Prelude.<$> (x Core..:? "credentialsArn")
-            Prelude.<*> (x Core..:? "connectorProfileProperties")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "connectionMode")
-            Prelude.<*> (x Core..:? "connectorProfileName")
-            Prelude.<*> (x Core..:? "privateConnectionProvisioningState")
-            Prelude.<*> (x Core..:? "connectorType")
-            Prelude.<*> (x Core..:? "connectorProfileArn")
-            Prelude.<*> (x Core..:? "connectorLabel")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "credentialsArn")
+            Prelude.<*> (x Data..:? "connectorProfileProperties")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "connectionMode")
+            Prelude.<*> (x Data..:? "connectorProfileName")
+            Prelude.<*> (x Data..:? "privateConnectionProvisioningState")
+            Prelude.<*> (x Data..:? "connectorType")
+            Prelude.<*> (x Data..:? "connectorProfileArn")
+            Prelude.<*> (x Data..:? "connectorLabel")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable ConnectorProfile where

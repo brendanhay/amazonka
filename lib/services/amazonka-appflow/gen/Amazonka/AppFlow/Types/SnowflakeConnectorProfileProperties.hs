@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SnowflakeConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required when using Snowflake.
@@ -130,21 +131,21 @@ snowflakeConnectorProfileProperties_bucketName :: Lens.Lens' SnowflakeConnectorP
 snowflakeConnectorProfileProperties_bucketName = Lens.lens (\SnowflakeConnectorProfileProperties' {bucketName} -> bucketName) (\s@SnowflakeConnectorProfileProperties' {} a -> s {bucketName = a} :: SnowflakeConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SnowflakeConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnowflakeConnectorProfileProperties"
       ( \x ->
           SnowflakeConnectorProfileProperties'
-            Prelude.<$> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "accountName")
-            Prelude.<*> (x Core..:? "privateLinkServiceName")
-            Prelude.<*> (x Core..: "warehouse")
-            Prelude.<*> (x Core..: "stage")
-            Prelude.<*> (x Core..: "bucketName")
+            Prelude.<$> (x Data..:? "bucketPrefix")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "accountName")
+            Prelude.<*> (x Data..:? "privateLinkServiceName")
+            Prelude.<*> (x Data..: "warehouse")
+            Prelude.<*> (x Data..: "stage")
+            Prelude.<*> (x Data..: "bucketName")
       )
 
 instance
@@ -176,19 +177,19 @@ instance
       `Prelude.seq` Prelude.rnf bucketName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SnowflakeConnectorProfileProperties
   where
   toJSON SnowflakeConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("region" Core..=) Prelude.<$> region,
-            ("accountName" Core..=) Prelude.<$> accountName,
-            ("privateLinkServiceName" Core..=)
+          [ ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
+            ("region" Data..=) Prelude.<$> region,
+            ("accountName" Data..=) Prelude.<$> accountName,
+            ("privateLinkServiceName" Data..=)
               Prelude.<$> privateLinkServiceName,
-            Prelude.Just ("warehouse" Core..= warehouse),
-            Prelude.Just ("stage" Core..= stage),
-            Prelude.Just ("bucketName" Core..= bucketName)
+            Prelude.Just ("warehouse" Data..= warehouse),
+            Prelude.Just ("stage" Data..= stage),
+            Prelude.Just ("bucketName" Data..= bucketName)
           ]
       )

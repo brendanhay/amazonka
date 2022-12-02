@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.UpsolverMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Upsolver.
@@ -39,9 +40,9 @@ newUpsolverMetadata ::
   UpsolverMetadata
 newUpsolverMetadata = UpsolverMetadata'
 
-instance Core.FromJSON UpsolverMetadata where
+instance Data.FromJSON UpsolverMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpsolverMetadata"
       (\x -> Prelude.pure UpsolverMetadata')
 

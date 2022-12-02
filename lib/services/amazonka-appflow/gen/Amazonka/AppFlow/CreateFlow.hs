@@ -56,6 +56,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -203,8 +204,8 @@ instance Core.AWSRequest CreateFlow where
     Response.receiveJSON
       ( \s h x ->
           CreateFlowResponse'
-            Prelude.<$> (x Core..?> "flowStatus")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "flowStatus")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,42 +233,42 @@ instance Prelude.NFData CreateFlow where
       `Prelude.seq` Prelude.rnf destinationFlowConfigList
       `Prelude.seq` Prelude.rnf tasks
 
-instance Core.ToHeaders CreateFlow where
+instance Data.ToHeaders CreateFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFlow where
+instance Data.ToJSON CreateFlow where
   toJSON CreateFlow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("kmsArn" Core..=) Prelude.<$> kmsArn,
-            ("metadataCatalogConfig" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("kmsArn" Data..=) Prelude.<$> kmsArn,
+            ("metadataCatalogConfig" Data..=)
               Prelude.<$> metadataCatalogConfig,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("flowName" Core..= flowName),
-            Prelude.Just ("triggerConfig" Core..= triggerConfig),
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("flowName" Data..= flowName),
+            Prelude.Just ("triggerConfig" Data..= triggerConfig),
             Prelude.Just
-              ("sourceFlowConfig" Core..= sourceFlowConfig),
+              ("sourceFlowConfig" Data..= sourceFlowConfig),
             Prelude.Just
               ( "destinationFlowConfigList"
-                  Core..= destinationFlowConfigList
+                  Data..= destinationFlowConfigList
               ),
-            Prelude.Just ("tasks" Core..= tasks)
+            Prelude.Just ("tasks" Data..= tasks)
           ]
       )
 
-instance Core.ToPath CreateFlow where
+instance Data.ToPath CreateFlow where
   toPath = Prelude.const "/create-flow"
 
-instance Core.ToQuery CreateFlow where
+instance Data.ToQuery CreateFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFlowResponse' smart constructor.

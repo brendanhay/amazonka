@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.RedshiftConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties when using Amazon Redshift.
@@ -159,23 +160,23 @@ redshiftConnectorProfileProperties_roleArn :: Lens.Lens' RedshiftConnectorProfil
 redshiftConnectorProfileProperties_roleArn = Lens.lens (\RedshiftConnectorProfileProperties' {roleArn} -> roleArn) (\s@RedshiftConnectorProfileProperties' {} a -> s {roleArn = a} :: RedshiftConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RedshiftConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftConnectorProfileProperties"
       ( \x ->
           RedshiftConnectorProfileProperties'
-            Prelude.<$> (x Core..:? "clusterIdentifier")
-            Prelude.<*> (x Core..:? "isRedshiftServerless")
-            Prelude.<*> (x Core..:? "databaseUrl")
-            Prelude.<*> (x Core..:? "databaseName")
-            Prelude.<*> (x Core..:? "workgroupName")
-            Prelude.<*> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..:? "dataApiRoleArn")
-            Prelude.<*> (x Core..: "bucketName")
-            Prelude.<*> (x Core..: "roleArn")
+            Prelude.<$> (x Data..:? "clusterIdentifier")
+            Prelude.<*> (x Data..:? "isRedshiftServerless")
+            Prelude.<*> (x Data..:? "databaseUrl")
+            Prelude.<*> (x Data..:? "databaseName")
+            Prelude.<*> (x Data..:? "workgroupName")
+            Prelude.<*> (x Data..:? "bucketPrefix")
+            Prelude.<*> (x Data..:? "dataApiRoleArn")
+            Prelude.<*> (x Data..: "bucketName")
+            Prelude.<*> (x Data..: "roleArn")
       )
 
 instance
@@ -211,23 +212,23 @@ instance
       `Prelude.seq` Prelude.rnf roleArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RedshiftConnectorProfileProperties
   where
   toJSON RedshiftConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clusterIdentifier" Core..=)
+          [ ("clusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("isRedshiftServerless" Core..=)
+            ("isRedshiftServerless" Data..=)
               Prelude.<$> isRedshiftServerless,
-            ("databaseUrl" Core..=) Prelude.<$> databaseUrl,
-            ("databaseName" Core..=) Prelude.<$> databaseName,
-            ("workgroupName" Core..=) Prelude.<$> workgroupName,
-            ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("dataApiRoleArn" Core..=)
+            ("databaseUrl" Data..=) Prelude.<$> databaseUrl,
+            ("databaseName" Data..=) Prelude.<$> databaseName,
+            ("workgroupName" Data..=) Prelude.<$> workgroupName,
+            ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
+            ("dataApiRoleArn" Data..=)
               Prelude.<$> dataApiRoleArn,
-            Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )

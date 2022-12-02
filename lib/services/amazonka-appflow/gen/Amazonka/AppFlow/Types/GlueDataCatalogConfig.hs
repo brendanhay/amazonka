@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.GlueDataCatalogConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
@@ -125,15 +126,15 @@ glueDataCatalogConfig_databaseName = Lens.lens (\GlueDataCatalogConfig' {databas
 glueDataCatalogConfig_tablePrefix :: Lens.Lens' GlueDataCatalogConfig Prelude.Text
 glueDataCatalogConfig_tablePrefix = Lens.lens (\GlueDataCatalogConfig' {tablePrefix} -> tablePrefix) (\s@GlueDataCatalogConfig' {} a -> s {tablePrefix = a} :: GlueDataCatalogConfig)
 
-instance Core.FromJSON GlueDataCatalogConfig where
+instance Data.FromJSON GlueDataCatalogConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlueDataCatalogConfig"
       ( \x ->
           GlueDataCatalogConfig'
-            Prelude.<$> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "databaseName")
-            Prelude.<*> (x Core..: "tablePrefix")
+            Prelude.<$> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "databaseName")
+            Prelude.<*> (x Data..: "tablePrefix")
       )
 
 instance Prelude.Hashable GlueDataCatalogConfig where
@@ -148,12 +149,12 @@ instance Prelude.NFData GlueDataCatalogConfig where
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tablePrefix
 
-instance Core.ToJSON GlueDataCatalogConfig where
+instance Data.ToJSON GlueDataCatalogConfig where
   toJSON GlueDataCatalogConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("databaseName" Core..= databaseName),
-            Prelude.Just ("tablePrefix" Core..= tablePrefix)
+          [ Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("databaseName" Data..= databaseName),
+            Prelude.Just ("tablePrefix" Data..= tablePrefix)
           ]
       )

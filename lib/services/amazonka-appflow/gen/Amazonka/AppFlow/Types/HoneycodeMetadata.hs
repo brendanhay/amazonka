@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.HoneycodeMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Amazon Honeycode.
@@ -50,13 +51,13 @@ newHoneycodeMetadata =
 honeycodeMetadata_oAuthScopes :: Lens.Lens' HoneycodeMetadata (Prelude.Maybe [Prelude.Text])
 honeycodeMetadata_oAuthScopes = Lens.lens (\HoneycodeMetadata' {oAuthScopes} -> oAuthScopes) (\s@HoneycodeMetadata' {} a -> s {oAuthScopes = a} :: HoneycodeMetadata) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON HoneycodeMetadata where
+instance Data.FromJSON HoneycodeMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HoneycodeMetadata"
       ( \x ->
           HoneycodeMetadata'
-            Prelude.<$> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "oAuthScopes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable HoneycodeMetadata where

@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.SAPODataConnectorProfileProperties where
 import Amazonka.AppFlow.Types.OAuthProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required when using SAPOData.
@@ -127,21 +128,21 @@ sAPODataConnectorProfileProperties_clientNumber :: Lens.Lens' SAPODataConnectorP
 sAPODataConnectorProfileProperties_clientNumber = Lens.lens (\SAPODataConnectorProfileProperties' {clientNumber} -> clientNumber) (\s@SAPODataConnectorProfileProperties' {} a -> s {clientNumber = a} :: SAPODataConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SAPODataConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SAPODataConnectorProfileProperties"
       ( \x ->
           SAPODataConnectorProfileProperties'
-            Prelude.<$> (x Core..:? "oAuthProperties")
-            Prelude.<*> (x Core..:? "logonLanguage")
-            Prelude.<*> (x Core..:? "privateLinkServiceName")
-            Prelude.<*> (x Core..: "applicationHostUrl")
-            Prelude.<*> (x Core..: "applicationServicePath")
-            Prelude.<*> (x Core..: "portNumber")
-            Prelude.<*> (x Core..: "clientNumber")
+            Prelude.<$> (x Data..:? "oAuthProperties")
+            Prelude.<*> (x Data..:? "logonLanguage")
+            Prelude.<*> (x Data..:? "privateLinkServiceName")
+            Prelude.<*> (x Data..: "applicationHostUrl")
+            Prelude.<*> (x Data..: "applicationServicePath")
+            Prelude.<*> (x Data..: "portNumber")
+            Prelude.<*> (x Data..: "clientNumber")
       )
 
 instance
@@ -173,24 +174,24 @@ instance
       `Prelude.seq` Prelude.rnf clientNumber
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SAPODataConnectorProfileProperties
   where
   toJSON SAPODataConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("oAuthProperties" Core..=)
+          [ ("oAuthProperties" Data..=)
               Prelude.<$> oAuthProperties,
-            ("logonLanguage" Core..=) Prelude.<$> logonLanguage,
-            ("privateLinkServiceName" Core..=)
+            ("logonLanguage" Data..=) Prelude.<$> logonLanguage,
+            ("privateLinkServiceName" Data..=)
               Prelude.<$> privateLinkServiceName,
             Prelude.Just
-              ("applicationHostUrl" Core..= applicationHostUrl),
+              ("applicationHostUrl" Data..= applicationHostUrl),
             Prelude.Just
               ( "applicationServicePath"
-                  Core..= applicationServicePath
+                  Data..= applicationServicePath
               ),
-            Prelude.Just ("portNumber" Core..= portNumber),
-            Prelude.Just ("clientNumber" Core..= clientNumber)
+            Prelude.Just ("portNumber" Data..= portNumber),
+            Prelude.Just ("clientNumber" Data..= clientNumber)
           ]
       )

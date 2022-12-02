@@ -45,6 +45,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance Core.AWSRequest DescribeConnector where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectorResponse'
-            Prelude.<$> (x Core..?> "connectorConfiguration")
+            Prelude.<$> (x Data..?> "connectorConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,32 +122,32 @@ instance Prelude.NFData DescribeConnector where
     Prelude.rnf connectorLabel
       `Prelude.seq` Prelude.rnf connectorType
 
-instance Core.ToHeaders DescribeConnector where
+instance Data.ToHeaders DescribeConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConnector where
+instance Data.ToJSON DescribeConnector where
   toJSON DescribeConnector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("connectorLabel" Core..=)
+          [ ("connectorLabel" Data..=)
               Prelude.<$> connectorLabel,
             Prelude.Just
-              ("connectorType" Core..= connectorType)
+              ("connectorType" Data..= connectorType)
           ]
       )
 
-instance Core.ToPath DescribeConnector where
+instance Data.ToPath DescribeConnector where
   toPath = Prelude.const "/describe-connector"
 
-instance Core.ToQuery DescribeConnector where
+instance Data.ToQuery DescribeConnector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConnectorResponse' smart constructor.

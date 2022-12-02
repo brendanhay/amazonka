@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.InforNexusConnectorProfileCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required by Infor Nexus.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInforNexusConnectorProfileCredentials' smart constructor.
 data InforNexusConnectorProfileCredentials = InforNexusConnectorProfileCredentials'
   { -- | The Access Key portion of the credentials.
-    accessKeyId :: Core.Sensitive Prelude.Text,
+    accessKeyId :: Data.Sensitive Prelude.Text,
     -- | The identifier for the user.
     userId :: Prelude.Text,
     -- | The secret key used to sign requests.
@@ -70,7 +71,7 @@ newInforNexusConnectorProfileCredentials
   pDatakey_ =
     InforNexusConnectorProfileCredentials'
       { accessKeyId =
-          Core._Sensitive
+          Data._Sensitive
             Lens.# pAccessKeyId_,
         userId = pUserId_,
         secretAccessKey = pSecretAccessKey_,
@@ -79,7 +80,7 @@ newInforNexusConnectorProfileCredentials
 
 -- | The Access Key portion of the credentials.
 inforNexusConnectorProfileCredentials_accessKeyId :: Lens.Lens' InforNexusConnectorProfileCredentials Prelude.Text
-inforNexusConnectorProfileCredentials_accessKeyId = Lens.lens (\InforNexusConnectorProfileCredentials' {accessKeyId} -> accessKeyId) (\s@InforNexusConnectorProfileCredentials' {} a -> s {accessKeyId = a} :: InforNexusConnectorProfileCredentials) Prelude.. Core._Sensitive
+inforNexusConnectorProfileCredentials_accessKeyId = Lens.lens (\InforNexusConnectorProfileCredentials' {accessKeyId} -> accessKeyId) (\s@InforNexusConnectorProfileCredentials' {} a -> s {accessKeyId = a} :: InforNexusConnectorProfileCredentials) Prelude.. Data._Sensitive
 
 -- | The identifier for the user.
 inforNexusConnectorProfileCredentials_userId :: Lens.Lens' InforNexusConnectorProfileCredentials Prelude.Text
@@ -116,16 +117,16 @@ instance
       `Prelude.seq` Prelude.rnf datakey
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     InforNexusConnectorProfileCredentials
   where
   toJSON InforNexusConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("accessKeyId" Core..= accessKeyId),
-            Prelude.Just ("userId" Core..= userId),
+          [ Prelude.Just ("accessKeyId" Data..= accessKeyId),
+            Prelude.Just ("userId" Data..= userId),
             Prelude.Just
-              ("secretAccessKey" Core..= secretAccessKey),
-            Prelude.Just ("datakey" Core..= datakey)
+              ("secretAccessKey" Data..= secretAccessKey),
+            Prelude.Just ("datakey" Data..= datakey)
           ]
       )

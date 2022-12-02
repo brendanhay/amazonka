@@ -31,6 +31,7 @@ import Amazonka.AppFlow.Types.TriggerType
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings related to a given connector.
@@ -87,7 +88,7 @@ data ConnectorConfiguration = ConnectorConfiguration'
     -- @supportedRegions@, @privateLinkServiceUrl@, and so on.
     connectorMetadata :: Prelude.Maybe ConnectorMetadata,
     -- | The date on which the connector was registered.
-    registeredAt :: Prelude.Maybe Core.POSIX,
+    registeredAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies the supported flow frequency for that connector.
     supportedSchedulingFrequencies :: Prelude.Maybe [ScheduleFrequencyType]
   }
@@ -285,57 +286,57 @@ connectorConfiguration_connectorMetadata = Lens.lens (\ConnectorConfiguration' {
 
 -- | The date on which the connector was registered.
 connectorConfiguration_registeredAt :: Lens.Lens' ConnectorConfiguration (Prelude.Maybe Prelude.UTCTime)
-connectorConfiguration_registeredAt = Lens.lens (\ConnectorConfiguration' {registeredAt} -> registeredAt) (\s@ConnectorConfiguration' {} a -> s {registeredAt = a} :: ConnectorConfiguration) Prelude.. Lens.mapping Core._Time
+connectorConfiguration_registeredAt = Lens.lens (\ConnectorConfiguration' {registeredAt} -> registeredAt) (\s@ConnectorConfiguration' {} a -> s {registeredAt = a} :: ConnectorConfiguration) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the supported flow frequency for that connector.
 connectorConfiguration_supportedSchedulingFrequencies :: Lens.Lens' ConnectorConfiguration (Prelude.Maybe [ScheduleFrequencyType])
 connectorConfiguration_supportedSchedulingFrequencies = Lens.lens (\ConnectorConfiguration' {supportedSchedulingFrequencies} -> supportedSchedulingFrequencies) (\s@ConnectorConfiguration' {} a -> s {supportedSchedulingFrequencies = a} :: ConnectorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ConnectorConfiguration where
+instance Data.FromJSON ConnectorConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorConfiguration"
       ( \x ->
           ConnectorConfiguration'
-            Prelude.<$> (x Core..:? "connectorProvisioningType")
-            Prelude.<*> (x Core..:? "canUseAsSource")
-            Prelude.<*> (x Core..:? "connectorDescription")
-            Prelude.<*> (x Core..:? "registeredBy")
-            Prelude.<*> ( x Core..:? "supportedWriteOperations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "connectorProvisioningType")
+            Prelude.<*> (x Data..:? "canUseAsSource")
+            Prelude.<*> (x Data..:? "connectorDescription")
+            Prelude.<*> (x Data..:? "registeredBy")
+            Prelude.<*> ( x Data..:? "supportedWriteOperations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "logoURL")
-            Prelude.<*> (x Core..:? "isPrivateLinkEnabled")
-            Prelude.<*> (x Core..:? "connectorVersion")
-            Prelude.<*> (x Core..:? "connectorArn")
-            Prelude.<*> ( x Core..:? "connectorRuntimeSettings"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "logoURL")
+            Prelude.<*> (x Data..:? "isPrivateLinkEnabled")
+            Prelude.<*> (x Data..:? "connectorVersion")
+            Prelude.<*> (x Data..:? "connectorArn")
+            Prelude.<*> ( x Data..:? "connectorRuntimeSettings"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "connectorType")
-            Prelude.<*> (x Core..:? "canUseAsDestination")
-            Prelude.<*> (x Core..:? "connectorProvisioningConfig")
-            Prelude.<*> ( x Core..:? "supportedOperators"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "connectorType")
+            Prelude.<*> (x Data..:? "canUseAsDestination")
+            Prelude.<*> (x Data..:? "connectorProvisioningConfig")
+            Prelude.<*> ( x Data..:? "supportedOperators"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "connectorName")
-            Prelude.<*> (x Core..:? "connectorModes" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "supportedTriggerTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "connectorName")
+            Prelude.<*> (x Data..:? "connectorModes" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "supportedTriggerTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "authenticationConfig")
-            Prelude.<*> (x Core..:? "isPrivateLinkEndpointUrlRequired")
-            Prelude.<*> (x Core..:? "connectorLabel")
-            Prelude.<*> ( x Core..:? "supportedApiVersions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "authenticationConfig")
+            Prelude.<*> (x Data..:? "isPrivateLinkEndpointUrlRequired")
+            Prelude.<*> (x Data..:? "connectorLabel")
+            Prelude.<*> ( x Data..:? "supportedApiVersions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "supportedDestinationConnectors"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "supportedDestinationConnectors"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "connectorOwner")
-            Prelude.<*> (x Core..:? "connectorMetadata")
-            Prelude.<*> (x Core..:? "registeredAt")
-            Prelude.<*> ( x Core..:? "supportedSchedulingFrequencies"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "connectorOwner")
+            Prelude.<*> (x Data..:? "connectorMetadata")
+            Prelude.<*> (x Data..:? "registeredAt")
+            Prelude.<*> ( x Data..:? "supportedSchedulingFrequencies"
+                            Data..!= Prelude.mempty
                         )
       )
 

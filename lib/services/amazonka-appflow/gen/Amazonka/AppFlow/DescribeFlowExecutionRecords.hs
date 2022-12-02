@@ -45,6 +45,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,8 +117,8 @@ instance Core.AWSRequest DescribeFlowExecutionRecords where
     Response.receiveJSON
       ( \s h x ->
           DescribeFlowExecutionRecordsResponse'
-            Prelude.<$> (x Core..?> "flowExecutions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "flowExecutions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,32 +137,32 @@ instance Prelude.NFData DescribeFlowExecutionRecords where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf flowName
 
-instance Core.ToHeaders DescribeFlowExecutionRecords where
+instance Data.ToHeaders DescribeFlowExecutionRecords where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFlowExecutionRecords where
+instance Data.ToJSON DescribeFlowExecutionRecords where
   toJSON DescribeFlowExecutionRecords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("flowName" Core..= flowName)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("flowName" Data..= flowName)
           ]
       )
 
-instance Core.ToPath DescribeFlowExecutionRecords where
+instance Data.ToPath DescribeFlowExecutionRecords where
   toPath =
     Prelude.const "/describe-flow-execution-records"
 
-instance Core.ToQuery DescribeFlowExecutionRecords where
+instance Data.ToQuery DescribeFlowExecutionRecords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFlowExecutionRecordsResponse' smart constructor.

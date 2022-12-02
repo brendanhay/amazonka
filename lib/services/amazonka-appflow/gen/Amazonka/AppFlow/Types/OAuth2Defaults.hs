@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.OAuth2CustomParameter
 import Amazonka.AppFlow.Types.OAuth2GrantType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the default values required for OAuth 2.0 authentication.
@@ -90,21 +91,21 @@ oAuth2Defaults_oauth2GrantTypesSupported = Lens.lens (\OAuth2Defaults' {oauth2Gr
 oAuth2Defaults_oauthScopes :: Lens.Lens' OAuth2Defaults (Prelude.Maybe [Prelude.Text])
 oAuth2Defaults_oauthScopes = Lens.lens (\OAuth2Defaults' {oauthScopes} -> oauthScopes) (\s@OAuth2Defaults' {} a -> s {oauthScopes = a} :: OAuth2Defaults) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OAuth2Defaults where
+instance Data.FromJSON OAuth2Defaults where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OAuth2Defaults"
       ( \x ->
           OAuth2Defaults'
-            Prelude.<$> (x Core..:? "tokenUrls" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "authCodeUrls" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "oauth2CustomProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tokenUrls" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "authCodeUrls" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "oauth2CustomProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "oauth2GrantTypesSupported"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "oauth2GrantTypesSupported"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "oauthScopes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "oauthScopes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OAuth2Defaults where

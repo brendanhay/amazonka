@@ -60,6 +60,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,29 +103,29 @@ instance Core.AWSRequest DescribeFlow where
     Response.receiveJSON
       ( \s h x ->
           DescribeFlowResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "sourceFlowConfig")
-            Prelude.<*> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "kmsArn")
-            Prelude.<*> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "metadataCatalogConfig")
-            Prelude.<*> (x Core..?> "flowName")
-            Prelude.<*> ( x Core..?> "destinationFlowConfigList"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "sourceFlowConfig")
+            Prelude.<*> (x Data..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "kmsArn")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "metadataCatalogConfig")
+            Prelude.<*> (x Data..?> "flowName")
+            Prelude.<*> ( x Data..?> "destinationFlowConfigList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "flowStatusMessage")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "lastRunExecutionDetails")
-            Prelude.<*> ( x Core..?> "lastRunMetadataCatalogDetails"
+            Prelude.<*> (x Data..?> "flowStatusMessage")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "lastRunExecutionDetails")
+            Prelude.<*> ( x Data..?> "lastRunMetadataCatalogDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "flowStatus")
-            Prelude.<*> (x Core..?> "schemaVersion")
-            Prelude.<*> (x Core..?> "createdBy")
-            Prelude.<*> (x Core..?> "triggerConfig")
-            Prelude.<*> (x Core..?> "flowArn")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "lastUpdatedBy")
+            Prelude.<*> (x Data..?> "flowStatus")
+            Prelude.<*> (x Data..?> "schemaVersion")
+            Prelude.<*> (x Data..?> "createdBy")
+            Prelude.<*> (x Data..?> "triggerConfig")
+            Prelude.<*> (x Data..?> "flowArn")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "lastUpdatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,28 +136,28 @@ instance Prelude.Hashable DescribeFlow where
 instance Prelude.NFData DescribeFlow where
   rnf DescribeFlow' {..} = Prelude.rnf flowName
 
-instance Core.ToHeaders DescribeFlow where
+instance Data.ToHeaders DescribeFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFlow where
+instance Data.ToJSON DescribeFlow where
   toJSON DescribeFlow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("flowName" Core..= flowName)]
+          [Prelude.Just ("flowName" Data..= flowName)]
       )
 
-instance Core.ToPath DescribeFlow where
+instance Data.ToPath DescribeFlow where
   toPath = Prelude.const "/describe-flow"
 
-instance Core.ToQuery DescribeFlow where
+instance Data.ToQuery DescribeFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeFlowResponse' smart constructor.
@@ -175,7 +176,7 @@ data DescribeFlowResponse = DescribeFlowResponse'
     -- Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
     kmsArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the flow was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
     -- the data that\'s transferred by the associated flow. When Amazon AppFlow
     -- catalogs the data from a flow, it stores metadata in a data catalog.
@@ -215,7 +216,7 @@ data DescribeFlowResponse = DescribeFlowResponse'
     -- | The flow\'s Amazon Resource Name (ARN).
     flowArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the flow was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies the user name of the account that performed the most recent
     -- update.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
@@ -342,7 +343,7 @@ describeFlowResponse_kmsArn = Lens.lens (\DescribeFlowResponse' {kmsArn} -> kmsA
 
 -- | Specifies when the flow was last updated.
 describeFlowResponse_lastUpdatedAt :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe Prelude.UTCTime)
-describeFlowResponse_lastUpdatedAt = Lens.lens (\DescribeFlowResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeFlowResponse' {} a -> s {lastUpdatedAt = a} :: DescribeFlowResponse) Prelude.. Lens.mapping Core._Time
+describeFlowResponse_lastUpdatedAt = Lens.lens (\DescribeFlowResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeFlowResponse' {} a -> s {lastUpdatedAt = a} :: DescribeFlowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
 -- the data that\'s transferred by the associated flow. When Amazon AppFlow
@@ -408,7 +409,7 @@ describeFlowResponse_flowArn = Lens.lens (\DescribeFlowResponse' {flowArn} -> fl
 
 -- | Specifies when the flow was created.
 describeFlowResponse_createdAt :: Lens.Lens' DescribeFlowResponse (Prelude.Maybe Prelude.UTCTime)
-describeFlowResponse_createdAt = Lens.lens (\DescribeFlowResponse' {createdAt} -> createdAt) (\s@DescribeFlowResponse' {} a -> s {createdAt = a} :: DescribeFlowResponse) Prelude.. Lens.mapping Core._Time
+describeFlowResponse_createdAt = Lens.lens (\DescribeFlowResponse' {createdAt} -> createdAt) (\s@DescribeFlowResponse' {} a -> s {createdAt = a} :: DescribeFlowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the user name of the account that performed the most recent
 -- update.

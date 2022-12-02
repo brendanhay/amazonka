@@ -24,6 +24,7 @@ import Amazonka.AppFlow.Types.SalesforceDataTransferApi
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Salesforce is being used as a
@@ -234,19 +235,19 @@ salesforceDestinationProperties_object :: Lens.Lens' SalesforceDestinationProper
 salesforceDestinationProperties_object = Lens.lens (\SalesforceDestinationProperties' {object'} -> object') (\s@SalesforceDestinationProperties' {} a -> s {object' = a} :: SalesforceDestinationProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SalesforceDestinationProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SalesforceDestinationProperties"
       ( \x ->
           SalesforceDestinationProperties'
-            Prelude.<$> (x Core..:? "errorHandlingConfig")
-            Prelude.<*> (x Core..:? "dataTransferApi")
-            Prelude.<*> (x Core..:? "idFieldNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "writeOperationType")
-            Prelude.<*> (x Core..: "object")
+            Prelude.<$> (x Data..:? "errorHandlingConfig")
+            Prelude.<*> (x Data..:? "dataTransferApi")
+            Prelude.<*> (x Data..:? "idFieldNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "writeOperationType")
+            Prelude.<*> (x Data..: "object")
       )
 
 instance
@@ -273,17 +274,17 @@ instance
       `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf object'
 
-instance Core.ToJSON SalesforceDestinationProperties where
+instance Data.ToJSON SalesforceDestinationProperties where
   toJSON SalesforceDestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Data..=)
               Prelude.<$> errorHandlingConfig,
-            ("dataTransferApi" Core..=)
+            ("dataTransferApi" Data..=)
               Prelude.<$> dataTransferApi,
-            ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
-            ("writeOperationType" Core..=)
+            ("idFieldNames" Data..=) Prelude.<$> idFieldNames,
+            ("writeOperationType" Data..=)
               Prelude.<$> writeOperationType,
-            Prelude.Just ("object" Core..= object')
+            Prelude.Just ("object" Data..= object')
           ]
       )

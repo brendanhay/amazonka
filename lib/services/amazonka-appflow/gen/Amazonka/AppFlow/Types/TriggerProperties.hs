@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.TriggerProperties where
 import Amazonka.AppFlow.Types.ScheduledTriggerProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration details that control the trigger for a flow.
@@ -55,13 +56,13 @@ newTriggerProperties =
 triggerProperties_scheduled :: Lens.Lens' TriggerProperties (Prelude.Maybe ScheduledTriggerProperties)
 triggerProperties_scheduled = Lens.lens (\TriggerProperties' {scheduled} -> scheduled) (\s@TriggerProperties' {} a -> s {scheduled = a} :: TriggerProperties)
 
-instance Core.FromJSON TriggerProperties where
+instance Data.FromJSON TriggerProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TriggerProperties"
       ( \x ->
           TriggerProperties'
-            Prelude.<$> (x Core..:? "Scheduled")
+            Prelude.<$> (x Data..:? "Scheduled")
       )
 
 instance Prelude.Hashable TriggerProperties where
@@ -71,9 +72,9 @@ instance Prelude.Hashable TriggerProperties where
 instance Prelude.NFData TriggerProperties where
   rnf TriggerProperties' {..} = Prelude.rnf scheduled
 
-instance Core.ToJSON TriggerProperties where
+instance Data.ToJSON TriggerProperties where
   toJSON TriggerProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Scheduled" Core..=) Prelude.<$> scheduled]
+          [("Scheduled" Data..=) Prelude.<$> scheduled]
       )

@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.CustomAuthConfig where
 import Amazonka.AppFlow.Types.AuthParameter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information required for custom authentication.
@@ -62,14 +63,14 @@ customAuthConfig_authParameters = Lens.lens (\CustomAuthConfig' {authParameters}
 customAuthConfig_customAuthenticationType :: Lens.Lens' CustomAuthConfig (Prelude.Maybe Prelude.Text)
 customAuthConfig_customAuthenticationType = Lens.lens (\CustomAuthConfig' {customAuthenticationType} -> customAuthenticationType) (\s@CustomAuthConfig' {} a -> s {customAuthenticationType = a} :: CustomAuthConfig)
 
-instance Core.FromJSON CustomAuthConfig where
+instance Data.FromJSON CustomAuthConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomAuthConfig"
       ( \x ->
           CustomAuthConfig'
-            Prelude.<$> (x Core..:? "authParameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "customAuthenticationType")
+            Prelude.<$> (x Data..:? "authParameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "customAuthenticationType")
       )
 
 instance Prelude.Hashable CustomAuthConfig where

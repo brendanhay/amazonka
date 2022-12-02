@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.TrendmicroConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required when using Trend
@@ -42,11 +43,11 @@ newTrendmicroConnectorProfileProperties =
   TrendmicroConnectorProfileProperties'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     TrendmicroConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrendmicroConnectorProfileProperties"
       ( \x ->
           Prelude.pure TrendmicroConnectorProfileProperties'
@@ -66,7 +67,7 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     TrendmicroConnectorProfileProperties
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

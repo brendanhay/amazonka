@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.ConnectorProfileCredentials
 import Amazonka.AppFlow.Types.ConnectorProfileProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the connector-specific configuration and credentials for the
@@ -80,15 +81,15 @@ instance Prelude.NFData ConnectorProfileConfig where
     Prelude.rnf connectorProfileCredentials
       `Prelude.seq` Prelude.rnf connectorProfileProperties
 
-instance Core.ToJSON ConnectorProfileConfig where
+instance Data.ToJSON ConnectorProfileConfig where
   toJSON ConnectorProfileConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("connectorProfileCredentials" Core..=)
+          [ ("connectorProfileCredentials" Data..=)
               Prelude.<$> connectorProfileCredentials,
             Prelude.Just
               ( "connectorProfileProperties"
-                  Core..= connectorProfileProperties
+                  Data..= connectorProfileProperties
               )
           ]
       )

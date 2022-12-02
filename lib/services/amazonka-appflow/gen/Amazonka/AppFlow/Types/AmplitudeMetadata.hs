@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.AmplitudeMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Amplitude.
@@ -39,9 +40,9 @@ newAmplitudeMetadata ::
   AmplitudeMetadata
 newAmplitudeMetadata = AmplitudeMetadata'
 
-instance Core.FromJSON AmplitudeMetadata where
+instance Data.FromJSON AmplitudeMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmplitudeMetadata"
       (\x -> Prelude.pure AmplitudeMetadata')
 

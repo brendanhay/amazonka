@@ -26,6 +26,7 @@ import Amazonka.AppFlow.Types.CustomAuthCredentials
 import Amazonka.AppFlow.Types.OAuth2Credentials
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials that are required when using
@@ -133,17 +134,17 @@ instance
       `Prelude.seq` Prelude.rnf authenticationType
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomConnectorProfileCredentials
   where
   toJSON CustomConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("apiKey" Core..=) Prelude.<$> apiKey,
-            ("oauth2" Core..=) Prelude.<$> oauth2,
-            ("custom" Core..=) Prelude.<$> custom,
-            ("basic" Core..=) Prelude.<$> basic,
+          [ ("apiKey" Data..=) Prelude.<$> apiKey,
+            ("oauth2" Data..=) Prelude.<$> oauth2,
+            ("custom" Data..=) Prelude.<$> custom,
+            ("basic" Data..=) Prelude.<$> basic,
             Prelude.Just
-              ("authenticationType" Core..= authenticationType)
+              ("authenticationType" Data..= authenticationType)
           ]
       )

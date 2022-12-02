@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.ErrorHandlingConfig
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when the custom connector is being used
@@ -110,21 +111,21 @@ customConnectorDestinationProperties_entityName :: Lens.Lens' CustomConnectorDes
 customConnectorDestinationProperties_entityName = Lens.lens (\CustomConnectorDestinationProperties' {entityName} -> entityName) (\s@CustomConnectorDestinationProperties' {} a -> s {entityName = a} :: CustomConnectorDestinationProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomConnectorDestinationProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomConnectorDestinationProperties"
       ( \x ->
           CustomConnectorDestinationProperties'
-            Prelude.<$> (x Core..:? "errorHandlingConfig")
-            Prelude.<*> ( x Core..:? "customProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "errorHandlingConfig")
+            Prelude.<*> ( x Data..:? "customProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "idFieldNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "writeOperationType")
-            Prelude.<*> (x Core..: "entityName")
+            Prelude.<*> (x Data..:? "idFieldNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "writeOperationType")
+            Prelude.<*> (x Data..: "entityName")
       )
 
 instance
@@ -152,19 +153,19 @@ instance
       `Prelude.seq` Prelude.rnf entityName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CustomConnectorDestinationProperties
   where
   toJSON CustomConnectorDestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Data..=)
               Prelude.<$> errorHandlingConfig,
-            ("customProperties" Core..=)
+            ("customProperties" Data..=)
               Prelude.<$> customProperties,
-            ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
-            ("writeOperationType" Core..=)
+            ("idFieldNames" Data..=) Prelude.<$> idFieldNames,
+            ("writeOperationType" Data..=)
               Prelude.<$> writeOperationType,
-            Prelude.Just ("entityName" Core..= entityName)
+            Prelude.Just ("entityName" Data..= entityName)
           ]
       )

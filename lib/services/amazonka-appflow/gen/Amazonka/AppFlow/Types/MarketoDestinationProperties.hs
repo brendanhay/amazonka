@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.MarketoDestinationProperties where
 import Amazonka.AppFlow.Types.ErrorHandlingConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that Amazon AppFlow applies when you use Marketo as a
@@ -65,14 +66,14 @@ marketoDestinationProperties_errorHandlingConfig = Lens.lens (\MarketoDestinatio
 marketoDestinationProperties_object :: Lens.Lens' MarketoDestinationProperties Prelude.Text
 marketoDestinationProperties_object = Lens.lens (\MarketoDestinationProperties' {object'} -> object') (\s@MarketoDestinationProperties' {} a -> s {object' = a} :: MarketoDestinationProperties)
 
-instance Core.FromJSON MarketoDestinationProperties where
+instance Data.FromJSON MarketoDestinationProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MarketoDestinationProperties"
       ( \x ->
           MarketoDestinationProperties'
-            Prelude.<$> (x Core..:? "errorHandlingConfig")
-            Prelude.<*> (x Core..: "object")
+            Prelude.<$> (x Data..:? "errorHandlingConfig")
+            Prelude.<*> (x Data..: "object")
       )
 
 instance
@@ -88,12 +89,12 @@ instance Prelude.NFData MarketoDestinationProperties where
     Prelude.rnf errorHandlingConfig
       `Prelude.seq` Prelude.rnf object'
 
-instance Core.ToJSON MarketoDestinationProperties where
+instance Data.ToJSON MarketoDestinationProperties where
   toJSON MarketoDestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Data..=)
               Prelude.<$> errorHandlingConfig,
-            Prelude.Just ("object" Core..= object')
+            Prelude.Just ("object" Data..= object')
           ]
       )

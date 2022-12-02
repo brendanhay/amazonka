@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.VeevaMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Veeva.
@@ -39,9 +40,9 @@ newVeevaMetadata ::
   VeevaMetadata
 newVeevaMetadata = VeevaMetadata'
 
-instance Core.FromJSON VeevaMetadata where
+instance Data.FromJSON VeevaMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VeevaMetadata"
       (\x -> Prelude.pure VeevaMetadata')
 

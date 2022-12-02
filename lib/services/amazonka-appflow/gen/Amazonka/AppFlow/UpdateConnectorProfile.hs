@@ -44,6 +44,7 @@ where
 import Amazonka.AppFlow.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,7 +117,7 @@ instance Core.AWSRequest UpdateConnectorProfile where
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectorProfileResponse'
-            Prelude.<$> (x Core..?> "connectorProfileArn")
+            Prelude.<$> (x Data..?> "connectorProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,38 +133,38 @@ instance Prelude.NFData UpdateConnectorProfile where
       `Prelude.seq` Prelude.rnf connectionMode
       `Prelude.seq` Prelude.rnf connectorProfileConfig
 
-instance Core.ToHeaders UpdateConnectorProfile where
+instance Data.ToHeaders UpdateConnectorProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateConnectorProfile where
+instance Data.ToJSON UpdateConnectorProfile where
   toJSON UpdateConnectorProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "connectorProfileName"
-                  Core..= connectorProfileName
+                  Data..= connectorProfileName
               ),
             Prelude.Just
-              ("connectionMode" Core..= connectionMode),
+              ("connectionMode" Data..= connectionMode),
             Prelude.Just
               ( "connectorProfileConfig"
-                  Core..= connectorProfileConfig
+                  Data..= connectorProfileConfig
               )
           ]
       )
 
-instance Core.ToPath UpdateConnectorProfile where
+instance Data.ToPath UpdateConnectorProfile where
   toPath = Prelude.const "/update-connector-profile"
 
-instance Core.ToQuery UpdateConnectorProfile where
+instance Data.ToQuery UpdateConnectorProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateConnectorProfileResponse' smart constructor.

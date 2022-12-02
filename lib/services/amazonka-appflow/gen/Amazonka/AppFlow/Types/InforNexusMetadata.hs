@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.InforNexusMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Infor Nexus.
@@ -39,9 +40,9 @@ newInforNexusMetadata ::
   InforNexusMetadata
 newInforNexusMetadata = InforNexusMetadata'
 
-instance Core.FromJSON InforNexusMetadata where
+instance Data.FromJSON InforNexusMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InforNexusMetadata"
       (\x -> Prelude.pure InforNexusMetadata')
 

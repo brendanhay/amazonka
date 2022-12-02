@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SlackConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required when using Slack.
@@ -56,15 +57,15 @@ slackConnectorProfileProperties_instanceUrl :: Lens.Lens' SlackConnectorProfileP
 slackConnectorProfileProperties_instanceUrl = Lens.lens (\SlackConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@SlackConnectorProfileProperties' {} a -> s {instanceUrl = a} :: SlackConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SlackConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlackConnectorProfileProperties"
       ( \x ->
           SlackConnectorProfileProperties'
-            Prelude.<$> (x Core..: "instanceUrl")
+            Prelude.<$> (x Data..: "instanceUrl")
       )
 
 instance
@@ -83,9 +84,9 @@ instance
   rnf SlackConnectorProfileProperties' {..} =
     Prelude.rnf instanceUrl
 
-instance Core.ToJSON SlackConnectorProfileProperties where
+instance Data.ToJSON SlackConnectorProfileProperties where
   toJSON SlackConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceUrl" Core..= instanceUrl)]
+          [Prelude.Just ("instanceUrl" Data..= instanceUrl)]
       )

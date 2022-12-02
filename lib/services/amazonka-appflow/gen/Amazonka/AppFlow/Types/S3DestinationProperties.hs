@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.S3DestinationProperties where
 import Amazonka.AppFlow.Types.S3OutputFormatConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amazon S3 is used as a destination.
@@ -79,15 +80,15 @@ s3DestinationProperties_s3OutputFormatConfig = Lens.lens (\S3DestinationProperti
 s3DestinationProperties_bucketName :: Lens.Lens' S3DestinationProperties Prelude.Text
 s3DestinationProperties_bucketName = Lens.lens (\S3DestinationProperties' {bucketName} -> bucketName) (\s@S3DestinationProperties' {} a -> s {bucketName = a} :: S3DestinationProperties)
 
-instance Core.FromJSON S3DestinationProperties where
+instance Data.FromJSON S3DestinationProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DestinationProperties"
       ( \x ->
           S3DestinationProperties'
-            Prelude.<$> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..:? "s3OutputFormatConfig")
-            Prelude.<*> (x Core..: "bucketName")
+            Prelude.<$> (x Data..:? "bucketPrefix")
+            Prelude.<*> (x Data..:? "s3OutputFormatConfig")
+            Prelude.<*> (x Data..: "bucketName")
       )
 
 instance Prelude.Hashable S3DestinationProperties where
@@ -102,13 +103,13 @@ instance Prelude.NFData S3DestinationProperties where
       `Prelude.seq` Prelude.rnf s3OutputFormatConfig
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON S3DestinationProperties where
+instance Data.ToJSON S3DestinationProperties where
   toJSON S3DestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("s3OutputFormatConfig" Core..=)
+          [ ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
+            ("s3OutputFormatConfig" Data..=)
               Prelude.<$> s3OutputFormatConfig,
-            Prelude.Just ("bucketName" Core..= bucketName)
+            Prelude.Just ("bucketName" Data..= bucketName)
           ]
       )

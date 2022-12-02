@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.SlackConnectorProfileCredentials where
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required when using Slack.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSlackConnectorProfileCredentials' smart constructor.
 data SlackConnectorProfileCredentials = SlackConnectorProfileCredentials'
   { -- | The credentials used to access protected Slack resources.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The OAuth requirement needed to request security tokens from the
     -- connector endpoint.
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
@@ -37,7 +38,7 @@ data SlackConnectorProfileCredentials = SlackConnectorProfileCredentials'
     clientId :: Prelude.Text,
     -- | The client secret used by the OAuth client to authenticate to the
     -- authorization server.
-    clientSecret :: Core.Sensitive Prelude.Text
+    clientSecret :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +74,12 @@ newSlackConnectorProfileCredentials
         oAuthRequest = Prelude.Nothing,
         clientId = pClientId_,
         clientSecret =
-          Core._Sensitive Lens.# pClientSecret_
+          Data._Sensitive Lens.# pClientSecret_
       }
 
 -- | The credentials used to access protected Slack resources.
 slackConnectorProfileCredentials_accessToken :: Lens.Lens' SlackConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
-slackConnectorProfileCredentials_accessToken = Lens.lens (\SlackConnectorProfileCredentials' {accessToken} -> accessToken) (\s@SlackConnectorProfileCredentials' {} a -> s {accessToken = a} :: SlackConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
+slackConnectorProfileCredentials_accessToken = Lens.lens (\SlackConnectorProfileCredentials' {accessToken} -> accessToken) (\s@SlackConnectorProfileCredentials' {} a -> s {accessToken = a} :: SlackConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The OAuth requirement needed to request security tokens from the
 -- connector endpoint.
@@ -92,7 +93,7 @@ slackConnectorProfileCredentials_clientId = Lens.lens (\SlackConnectorProfileCre
 -- | The client secret used by the OAuth client to authenticate to the
 -- authorization server.
 slackConnectorProfileCredentials_clientSecret :: Lens.Lens' SlackConnectorProfileCredentials Prelude.Text
-slackConnectorProfileCredentials_clientSecret = Lens.lens (\SlackConnectorProfileCredentials' {clientSecret} -> clientSecret) (\s@SlackConnectorProfileCredentials' {} a -> s {clientSecret = a} :: SlackConnectorProfileCredentials) Prelude.. Core._Sensitive
+slackConnectorProfileCredentials_clientSecret = Lens.lens (\SlackConnectorProfileCredentials' {clientSecret} -> clientSecret) (\s@SlackConnectorProfileCredentials' {} a -> s {clientSecret = a} :: SlackConnectorProfileCredentials) Prelude.. Data._Sensitive
 
 instance
   Prelude.Hashable
@@ -116,13 +117,13 @@ instance
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf clientSecret
 
-instance Core.ToJSON SlackConnectorProfileCredentials where
+instance Data.ToJSON SlackConnectorProfileCredentials where
   toJSON SlackConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest,
-            Prelude.Just ("clientId" Core..= clientId),
-            Prelude.Just ("clientSecret" Core..= clientSecret)
+          [ ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
+            Prelude.Just ("clientId" Data..= clientId),
+            Prelude.Just ("clientSecret" Data..= clientSecret)
           ]
       )

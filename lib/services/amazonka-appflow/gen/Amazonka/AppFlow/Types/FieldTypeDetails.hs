@@ -23,6 +23,7 @@ import Amazonka.AppFlow.Types.Operator
 import Amazonka.AppFlow.Types.Range
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details regarding the supported field type and the operators
@@ -115,22 +116,22 @@ fieldTypeDetails_fieldType = Lens.lens (\FieldTypeDetails' {fieldType} -> fieldT
 fieldTypeDetails_filterOperators :: Lens.Lens' FieldTypeDetails [Operator]
 fieldTypeDetails_filterOperators = Lens.lens (\FieldTypeDetails' {filterOperators} -> filterOperators) (\s@FieldTypeDetails' {} a -> s {filterOperators = a} :: FieldTypeDetails) Prelude.. Lens.coerced
 
-instance Core.FromJSON FieldTypeDetails where
+instance Data.FromJSON FieldTypeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldTypeDetails"
       ( \x ->
           FieldTypeDetails'
-            Prelude.<$> (x Core..:? "fieldValueRange")
-            Prelude.<*> (x Core..:? "fieldLengthRange")
-            Prelude.<*> ( x Core..:? "supportedValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "fieldValueRange")
+            Prelude.<*> (x Data..:? "fieldLengthRange")
+            Prelude.<*> ( x Data..:? "supportedValues"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "valueRegexPattern")
-            Prelude.<*> (x Core..:? "supportedDateFormat")
-            Prelude.<*> (x Core..: "fieldType")
-            Prelude.<*> ( x Core..:? "filterOperators"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "valueRegexPattern")
+            Prelude.<*> (x Data..:? "supportedDateFormat")
+            Prelude.<*> (x Data..: "fieldType")
+            Prelude.<*> ( x Data..:? "filterOperators"
+                            Data..!= Prelude.mempty
                         )
       )
 

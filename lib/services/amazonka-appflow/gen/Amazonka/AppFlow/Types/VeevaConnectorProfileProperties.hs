@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.VeevaConnectorProfileProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required when using Veeva.
@@ -56,15 +57,15 @@ veevaConnectorProfileProperties_instanceUrl :: Lens.Lens' VeevaConnectorProfileP
 veevaConnectorProfileProperties_instanceUrl = Lens.lens (\VeevaConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@VeevaConnectorProfileProperties' {} a -> s {instanceUrl = a} :: VeevaConnectorProfileProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VeevaConnectorProfileProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VeevaConnectorProfileProperties"
       ( \x ->
           VeevaConnectorProfileProperties'
-            Prelude.<$> (x Core..: "instanceUrl")
+            Prelude.<$> (x Data..: "instanceUrl")
       )
 
 instance
@@ -83,9 +84,9 @@ instance
   rnf VeevaConnectorProfileProperties' {..} =
     Prelude.rnf instanceUrl
 
-instance Core.ToJSON VeevaConnectorProfileProperties where
+instance Data.ToJSON VeevaConnectorProfileProperties where
   toJSON VeevaConnectorProfileProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("instanceUrl" Core..= instanceUrl)]
+          [Prelude.Just ("instanceUrl" Data..= instanceUrl)]
       )

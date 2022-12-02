@@ -24,6 +24,7 @@ import Amazonka.AppFlow.Types.SuccessResponseHandlingConfig
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when using SAPOData as a flow
@@ -105,17 +106,17 @@ sAPODataDestinationProperties_writeOperationType = Lens.lens (\SAPODataDestinati
 sAPODataDestinationProperties_objectPath :: Lens.Lens' SAPODataDestinationProperties Prelude.Text
 sAPODataDestinationProperties_objectPath = Lens.lens (\SAPODataDestinationProperties' {objectPath} -> objectPath) (\s@SAPODataDestinationProperties' {} a -> s {objectPath = a} :: SAPODataDestinationProperties)
 
-instance Core.FromJSON SAPODataDestinationProperties where
+instance Data.FromJSON SAPODataDestinationProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SAPODataDestinationProperties"
       ( \x ->
           SAPODataDestinationProperties'
-            Prelude.<$> (x Core..:? "errorHandlingConfig")
-            Prelude.<*> (x Core..:? "successResponseHandlingConfig")
-            Prelude.<*> (x Core..:? "idFieldNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "writeOperationType")
-            Prelude.<*> (x Core..: "objectPath")
+            Prelude.<$> (x Data..:? "errorHandlingConfig")
+            Prelude.<*> (x Data..:? "successResponseHandlingConfig")
+            Prelude.<*> (x Data..:? "idFieldNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "writeOperationType")
+            Prelude.<*> (x Data..: "objectPath")
       )
 
 instance
@@ -137,17 +138,17 @@ instance Prelude.NFData SAPODataDestinationProperties where
       `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf objectPath
 
-instance Core.ToJSON SAPODataDestinationProperties where
+instance Data.ToJSON SAPODataDestinationProperties where
   toJSON SAPODataDestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Data..=)
               Prelude.<$> errorHandlingConfig,
-            ("successResponseHandlingConfig" Core..=)
+            ("successResponseHandlingConfig" Data..=)
               Prelude.<$> successResponseHandlingConfig,
-            ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
-            ("writeOperationType" Core..=)
+            ("idFieldNames" Data..=) Prelude.<$> idFieldNames,
+            ("writeOperationType" Data..=)
               Prelude.<$> writeOperationType,
-            Prelude.Just ("objectPath" Core..= objectPath)
+            Prelude.Just ("objectPath" Data..= objectPath)
           ]
       )

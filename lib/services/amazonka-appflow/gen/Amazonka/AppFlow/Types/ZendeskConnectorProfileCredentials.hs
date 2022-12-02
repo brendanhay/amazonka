@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.ZendeskConnectorProfileCredentials where
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile credentials required when using Zendesk.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newZendeskConnectorProfileCredentials' smart constructor.
 data ZendeskConnectorProfileCredentials = ZendeskConnectorProfileCredentials'
   { -- | The credentials used to access protected Zendesk resources.
-    accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The OAuth requirement needed to request security tokens from the
     -- connector endpoint.
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
@@ -37,7 +38,7 @@ data ZendeskConnectorProfileCredentials = ZendeskConnectorProfileCredentials'
     clientId :: Prelude.Text,
     -- | The client secret used by the OAuth client to authenticate to the
     -- authorization server.
-    clientSecret :: Core.Sensitive Prelude.Text
+    clientSecret :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +74,12 @@ newZendeskConnectorProfileCredentials
         oAuthRequest = Prelude.Nothing,
         clientId = pClientId_,
         clientSecret =
-          Core._Sensitive Lens.# pClientSecret_
+          Data._Sensitive Lens.# pClientSecret_
       }
 
 -- | The credentials used to access protected Zendesk resources.
 zendeskConnectorProfileCredentials_accessToken :: Lens.Lens' ZendeskConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
-zendeskConnectorProfileCredentials_accessToken = Lens.lens (\ZendeskConnectorProfileCredentials' {accessToken} -> accessToken) (\s@ZendeskConnectorProfileCredentials' {} a -> s {accessToken = a} :: ZendeskConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
+zendeskConnectorProfileCredentials_accessToken = Lens.lens (\ZendeskConnectorProfileCredentials' {accessToken} -> accessToken) (\s@ZendeskConnectorProfileCredentials' {} a -> s {accessToken = a} :: ZendeskConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The OAuth requirement needed to request security tokens from the
 -- connector endpoint.
@@ -92,7 +93,7 @@ zendeskConnectorProfileCredentials_clientId = Lens.lens (\ZendeskConnectorProfil
 -- | The client secret used by the OAuth client to authenticate to the
 -- authorization server.
 zendeskConnectorProfileCredentials_clientSecret :: Lens.Lens' ZendeskConnectorProfileCredentials Prelude.Text
-zendeskConnectorProfileCredentials_clientSecret = Lens.lens (\ZendeskConnectorProfileCredentials' {clientSecret} -> clientSecret) (\s@ZendeskConnectorProfileCredentials' {} a -> s {clientSecret = a} :: ZendeskConnectorProfileCredentials) Prelude.. Core._Sensitive
+zendeskConnectorProfileCredentials_clientSecret = Lens.lens (\ZendeskConnectorProfileCredentials' {clientSecret} -> clientSecret) (\s@ZendeskConnectorProfileCredentials' {} a -> s {clientSecret = a} :: ZendeskConnectorProfileCredentials) Prelude.. Data._Sensitive
 
 instance
   Prelude.Hashable
@@ -117,15 +118,15 @@ instance
       `Prelude.seq` Prelude.rnf clientSecret
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ZendeskConnectorProfileCredentials
   where
   toJSON ZendeskConnectorProfileCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest,
-            Prelude.Just ("clientId" Core..= clientId),
-            Prelude.Just ("clientSecret" Core..= clientSecret)
+          [ ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
+            Prelude.Just ("clientId" Data..= clientId),
+            Prelude.Just ("clientSecret" Data..= clientSecret)
           ]
       )

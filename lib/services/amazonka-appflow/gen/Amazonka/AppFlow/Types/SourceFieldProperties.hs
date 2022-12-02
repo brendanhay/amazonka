@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SourceFieldProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that can be applied to a field when the connector is
@@ -73,15 +74,15 @@ sourceFieldProperties_isTimestampFieldForIncrementalQueries = Lens.lens (\Source
 sourceFieldProperties_isQueryable :: Lens.Lens' SourceFieldProperties (Prelude.Maybe Prelude.Bool)
 sourceFieldProperties_isQueryable = Lens.lens (\SourceFieldProperties' {isQueryable} -> isQueryable) (\s@SourceFieldProperties' {} a -> s {isQueryable = a} :: SourceFieldProperties)
 
-instance Core.FromJSON SourceFieldProperties where
+instance Data.FromJSON SourceFieldProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceFieldProperties"
       ( \x ->
           SourceFieldProperties'
-            Prelude.<$> (x Core..:? "isRetrievable")
-            Prelude.<*> (x Core..:? "isTimestampFieldForIncrementalQueries")
-            Prelude.<*> (x Core..:? "isQueryable")
+            Prelude.<$> (x Data..:? "isRetrievable")
+            Prelude.<*> (x Data..:? "isTimestampFieldForIncrementalQueries")
+            Prelude.<*> (x Data..:? "isQueryable")
       )
 
 instance Prelude.Hashable SourceFieldProperties where

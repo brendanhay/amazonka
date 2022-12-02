@@ -22,6 +22,7 @@ module Amazonka.AppFlow.Types.ScheduledTriggerProperties where
 import Amazonka.AppFlow.Types.DataPullMode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration details of a schedule-triggered flow as
@@ -33,11 +34,11 @@ data ScheduledTriggerProperties = ScheduledTriggerProperties'
   { -- | The time at which the scheduled flow ends. The time is formatted as a
     -- timestamp that follows the ISO 8601 standard, such as
     -- @2022-04-27T13:00:00-07:00@.
-    scheduleEndTime :: Prelude.Maybe Core.POSIX,
+    scheduleEndTime :: Prelude.Maybe Data.POSIX,
     -- | The time at which the scheduled flow starts. The time is formatted as a
     -- timestamp that follows the ISO 8601 standard, such as
     -- @2022-04-26T13:00:00-07:00@.
-    scheduleStartTime :: Prelude.Maybe Core.POSIX,
+    scheduleStartTime :: Prelude.Maybe Data.POSIX,
     -- | Defines how many times a scheduled flow fails consecutively before
     -- Amazon AppFlow deactivates it.
     flowErrorDeactivationThreshold :: Prelude.Maybe Prelude.Natural,
@@ -56,7 +57,7 @@ data ScheduledTriggerProperties = ScheduledTriggerProperties'
     scheduleOffset :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the date range for the records to import from the connector in
     -- the first flow run.
-    firstExecutionFrom :: Prelude.Maybe Core.POSIX,
+    firstExecutionFrom :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether a scheduled flow has an incremental data transfer or a
     -- complete data transfer for each flow run.
     dataPullMode :: Prelude.Maybe DataPullMode,
@@ -128,13 +129,13 @@ newScheduledTriggerProperties pScheduleExpression_ =
 -- timestamp that follows the ISO 8601 standard, such as
 -- @2022-04-27T13:00:00-07:00@.
 scheduledTriggerProperties_scheduleEndTime :: Lens.Lens' ScheduledTriggerProperties (Prelude.Maybe Prelude.UTCTime)
-scheduledTriggerProperties_scheduleEndTime = Lens.lens (\ScheduledTriggerProperties' {scheduleEndTime} -> scheduleEndTime) (\s@ScheduledTriggerProperties' {} a -> s {scheduleEndTime = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Core._Time
+scheduledTriggerProperties_scheduleEndTime = Lens.lens (\ScheduledTriggerProperties' {scheduleEndTime} -> scheduleEndTime) (\s@ScheduledTriggerProperties' {} a -> s {scheduleEndTime = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the scheduled flow starts. The time is formatted as a
 -- timestamp that follows the ISO 8601 standard, such as
 -- @2022-04-26T13:00:00-07:00@.
 scheduledTriggerProperties_scheduleStartTime :: Lens.Lens' ScheduledTriggerProperties (Prelude.Maybe Prelude.UTCTime)
-scheduledTriggerProperties_scheduleStartTime = Lens.lens (\ScheduledTriggerProperties' {scheduleStartTime} -> scheduleStartTime) (\s@ScheduledTriggerProperties' {} a -> s {scheduleStartTime = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Core._Time
+scheduledTriggerProperties_scheduleStartTime = Lens.lens (\ScheduledTriggerProperties' {scheduleStartTime} -> scheduleStartTime) (\s@ScheduledTriggerProperties' {} a -> s {scheduleStartTime = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Data._Time
 
 -- | Defines how many times a scheduled flow fails consecutively before
 -- Amazon AppFlow deactivates it.
@@ -161,7 +162,7 @@ scheduledTriggerProperties_scheduleOffset = Lens.lens (\ScheduledTriggerProperti
 -- | Specifies the date range for the records to import from the connector in
 -- the first flow run.
 scheduledTriggerProperties_firstExecutionFrom :: Lens.Lens' ScheduledTriggerProperties (Prelude.Maybe Prelude.UTCTime)
-scheduledTriggerProperties_firstExecutionFrom = Lens.lens (\ScheduledTriggerProperties' {firstExecutionFrom} -> firstExecutionFrom) (\s@ScheduledTriggerProperties' {} a -> s {firstExecutionFrom = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Core._Time
+scheduledTriggerProperties_firstExecutionFrom = Lens.lens (\ScheduledTriggerProperties' {firstExecutionFrom} -> firstExecutionFrom) (\s@ScheduledTriggerProperties' {} a -> s {firstExecutionFrom = a} :: ScheduledTriggerProperties) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether a scheduled flow has an incremental data transfer or a
 -- complete data transfer for each flow run.
@@ -173,20 +174,20 @@ scheduledTriggerProperties_dataPullMode = Lens.lens (\ScheduledTriggerProperties
 scheduledTriggerProperties_scheduleExpression :: Lens.Lens' ScheduledTriggerProperties Prelude.Text
 scheduledTriggerProperties_scheduleExpression = Lens.lens (\ScheduledTriggerProperties' {scheduleExpression} -> scheduleExpression) (\s@ScheduledTriggerProperties' {} a -> s {scheduleExpression = a} :: ScheduledTriggerProperties)
 
-instance Core.FromJSON ScheduledTriggerProperties where
+instance Data.FromJSON ScheduledTriggerProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduledTriggerProperties"
       ( \x ->
           ScheduledTriggerProperties'
-            Prelude.<$> (x Core..:? "scheduleEndTime")
-            Prelude.<*> (x Core..:? "scheduleStartTime")
-            Prelude.<*> (x Core..:? "flowErrorDeactivationThreshold")
-            Prelude.<*> (x Core..:? "timezone")
-            Prelude.<*> (x Core..:? "scheduleOffset")
-            Prelude.<*> (x Core..:? "firstExecutionFrom")
-            Prelude.<*> (x Core..:? "dataPullMode")
-            Prelude.<*> (x Core..: "scheduleExpression")
+            Prelude.<$> (x Data..:? "scheduleEndTime")
+            Prelude.<*> (x Data..:? "scheduleStartTime")
+            Prelude.<*> (x Data..:? "flowErrorDeactivationThreshold")
+            Prelude.<*> (x Data..:? "timezone")
+            Prelude.<*> (x Data..:? "scheduleOffset")
+            Prelude.<*> (x Data..:? "firstExecutionFrom")
+            Prelude.<*> (x Data..:? "dataPullMode")
+            Prelude.<*> (x Data..: "scheduleExpression")
       )
 
 instance Prelude.Hashable ScheduledTriggerProperties where
@@ -211,23 +212,23 @@ instance Prelude.NFData ScheduledTriggerProperties where
       `Prelude.seq` Prelude.rnf dataPullMode
       `Prelude.seq` Prelude.rnf scheduleExpression
 
-instance Core.ToJSON ScheduledTriggerProperties where
+instance Data.ToJSON ScheduledTriggerProperties where
   toJSON ScheduledTriggerProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("scheduleEndTime" Core..=)
+          [ ("scheduleEndTime" Data..=)
               Prelude.<$> scheduleEndTime,
-            ("scheduleStartTime" Core..=)
+            ("scheduleStartTime" Data..=)
               Prelude.<$> scheduleStartTime,
-            ("flowErrorDeactivationThreshold" Core..=)
+            ("flowErrorDeactivationThreshold" Data..=)
               Prelude.<$> flowErrorDeactivationThreshold,
-            ("timezone" Core..=) Prelude.<$> timezone,
-            ("scheduleOffset" Core..=)
+            ("timezone" Data..=) Prelude.<$> timezone,
+            ("scheduleOffset" Data..=)
               Prelude.<$> scheduleOffset,
-            ("firstExecutionFrom" Core..=)
+            ("firstExecutionFrom" Data..=)
               Prelude.<$> firstExecutionFrom,
-            ("dataPullMode" Core..=) Prelude.<$> dataPullMode,
+            ("dataPullMode" Data..=) Prelude.<$> dataPullMode,
             Prelude.Just
-              ("scheduleExpression" Core..= scheduleExpression)
+              ("scheduleExpression" Data..= scheduleExpression)
           ]
       )

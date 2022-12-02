@@ -23,6 +23,7 @@ import Amazonka.CloudSearch.Types.OptionStatus
 import Amazonka.CloudSearch.Types.Suggester
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of a @Suggester@ and its current status.
@@ -65,11 +66,11 @@ suggesterStatus_options = Lens.lens (\SuggesterStatus' {options} -> options) (\s
 suggesterStatus_status :: Lens.Lens' SuggesterStatus OptionStatus
 suggesterStatus_status = Lens.lens (\SuggesterStatus' {status} -> status) (\s@SuggesterStatus' {} a -> s {status = a} :: SuggesterStatus)
 
-instance Core.FromXML SuggesterStatus where
+instance Data.FromXML SuggesterStatus where
   parseXML x =
     SuggesterStatus'
-      Prelude.<$> (x Core..@ "Options")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<$> (x Data..@ "Options")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable SuggesterStatus where
   hashWithSalt _salt SuggesterStatus' {..} =

@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.IntOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a 64-bit signed integer field. Present if @IndexFieldType@
@@ -105,15 +106,15 @@ intOptions_defaultValue = Lens.lens (\IntOptions' {defaultValue} -> defaultValue
 intOptions_returnEnabled :: Lens.Lens' IntOptions (Prelude.Maybe Prelude.Bool)
 intOptions_returnEnabled = Lens.lens (\IntOptions' {returnEnabled} -> returnEnabled) (\s@IntOptions' {} a -> s {returnEnabled = a} :: IntOptions)
 
-instance Core.FromXML IntOptions where
+instance Data.FromXML IntOptions where
   parseXML x =
     IntOptions'
-      Prelude.<$> (x Core..@? "SourceField")
-      Prelude.<*> (x Core..@? "FacetEnabled")
-      Prelude.<*> (x Core..@? "SearchEnabled")
-      Prelude.<*> (x Core..@? "SortEnabled")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<$> (x Data..@? "SourceField")
+      Prelude.<*> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "SearchEnabled")
+      Prelude.<*> (x Data..@? "SortEnabled")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
 
 instance Prelude.Hashable IntOptions where
   hashWithSalt _salt IntOptions' {..} =
@@ -133,13 +134,13 @@ instance Prelude.NFData IntOptions where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf returnEnabled
 
-instance Core.ToQuery IntOptions where
+instance Data.ToQuery IntOptions where
   toQuery IntOptions' {..} =
     Prelude.mconcat
-      [ "SourceField" Core.=: sourceField,
-        "FacetEnabled" Core.=: facetEnabled,
-        "SearchEnabled" Core.=: searchEnabled,
-        "SortEnabled" Core.=: sortEnabled,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled
+      [ "SourceField" Data.=: sourceField,
+        "FacetEnabled" Data.=: facetEnabled,
+        "SearchEnabled" Data.=: searchEnabled,
+        "SortEnabled" Data.=: sortEnabled,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled
       ]

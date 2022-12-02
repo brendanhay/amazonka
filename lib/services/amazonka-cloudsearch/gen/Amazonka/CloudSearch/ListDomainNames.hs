@@ -39,6 +39,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -68,8 +69,8 @@ instance Core.AWSRequest ListDomainNames where
       "ListDomainNamesResult"
       ( \s h x ->
           ListDomainNamesResponse'
-            Prelude.<$> ( x Core..@? "DomainNames" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+            Prelude.<$> ( x Data..@? "DomainNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -81,20 +82,20 @@ instance Prelude.Hashable ListDomainNames where
 instance Prelude.NFData ListDomainNames where
   rnf _ = ()
 
-instance Core.ToHeaders ListDomainNames where
+instance Data.ToHeaders ListDomainNames where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDomainNames where
+instance Data.ToPath ListDomainNames where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDomainNames where
+instance Data.ToQuery ListDomainNames where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("ListDomainNames" :: Prelude.ByteString),
+              Data.=: ("ListDomainNames" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2013-01-01" :: Prelude.ByteString)
+              Data.=: ("2013-01-01" :: Prelude.ByteString)
           ]
       )
 

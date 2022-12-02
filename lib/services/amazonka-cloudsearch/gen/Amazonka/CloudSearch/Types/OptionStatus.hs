@@ -22,6 +22,7 @@ module Amazonka.CloudSearch.Types.OptionStatus where
 import Amazonka.CloudSearch.Types.OptionState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of domain configuration option.
@@ -33,9 +34,9 @@ data OptionStatus = OptionStatus'
     -- | A unique integer that indicates when this option was last updated.
     updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | A timestamp for when this option was created.
-    creationDate :: Core.ISO8601,
+    creationDate :: Data.ISO8601,
     -- | A timestamp for when this option was last updated.
-    updateDate :: Core.ISO8601,
+    updateDate :: Data.ISO8601,
     -- | The state of processing a change to an option. Possible values:
     --
     -- -   @RequiresIndexDocuments@: the option\'s latest value will not be
@@ -92,8 +93,8 @@ newOptionStatus pCreationDate_ pUpdateDate_ pState_ =
   OptionStatus'
     { pendingDeletion = Prelude.Nothing,
       updateVersion = Prelude.Nothing,
-      creationDate = Core._Time Lens.# pCreationDate_,
-      updateDate = Core._Time Lens.# pUpdateDate_,
+      creationDate = Data._Time Lens.# pCreationDate_,
+      updateDate = Data._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
@@ -107,11 +108,11 @@ optionStatus_updateVersion = Lens.lens (\OptionStatus' {updateVersion} -> update
 
 -- | A timestamp for when this option was created.
 optionStatus_creationDate :: Lens.Lens' OptionStatus Prelude.UTCTime
-optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Prelude.. Core._Time
+optionStatus_creationDate = Lens.lens (\OptionStatus' {creationDate} -> creationDate) (\s@OptionStatus' {} a -> s {creationDate = a} :: OptionStatus) Prelude.. Data._Time
 
 -- | A timestamp for when this option was last updated.
 optionStatus_updateDate :: Lens.Lens' OptionStatus Prelude.UTCTime
-optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Prelude.. Core._Time
+optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) (\s@OptionStatus' {} a -> s {updateDate = a} :: OptionStatus) Prelude.. Data._Time
 
 -- | The state of processing a change to an option. Possible values:
 --
@@ -128,14 +129,14 @@ optionStatus_updateDate = Lens.lens (\OptionStatus' {updateDate} -> updateDate) 
 optionStatus_state :: Lens.Lens' OptionStatus OptionState
 optionStatus_state = Lens.lens (\OptionStatus' {state} -> state) (\s@OptionStatus' {} a -> s {state = a} :: OptionStatus)
 
-instance Core.FromXML OptionStatus where
+instance Data.FromXML OptionStatus where
   parseXML x =
     OptionStatus'
-      Prelude.<$> (x Core..@? "PendingDeletion")
-      Prelude.<*> (x Core..@? "UpdateVersion")
-      Prelude.<*> (x Core..@ "CreationDate")
-      Prelude.<*> (x Core..@ "UpdateDate")
-      Prelude.<*> (x Core..@ "State")
+      Prelude.<$> (x Data..@? "PendingDeletion")
+      Prelude.<*> (x Data..@? "UpdateVersion")
+      Prelude.<*> (x Data..@ "CreationDate")
+      Prelude.<*> (x Data..@ "UpdateDate")
+      Prelude.<*> (x Data..@ "State")
 
 instance Prelude.Hashable OptionStatus where
   hashWithSalt _salt OptionStatus' {..} =

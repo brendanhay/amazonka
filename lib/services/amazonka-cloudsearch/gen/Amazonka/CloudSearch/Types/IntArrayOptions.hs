@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.IntArrayOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a field that contains an array of 64-bit signed integers.
@@ -93,14 +94,14 @@ intArrayOptions_defaultValue = Lens.lens (\IntArrayOptions' {defaultValue} -> de
 intArrayOptions_returnEnabled :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Bool)
 intArrayOptions_returnEnabled = Lens.lens (\IntArrayOptions' {returnEnabled} -> returnEnabled) (\s@IntArrayOptions' {} a -> s {returnEnabled = a} :: IntArrayOptions)
 
-instance Core.FromXML IntArrayOptions where
+instance Data.FromXML IntArrayOptions where
   parseXML x =
     IntArrayOptions'
-      Prelude.<$> (x Core..@? "FacetEnabled")
-      Prelude.<*> (x Core..@? "SearchEnabled")
-      Prelude.<*> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<$> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "SearchEnabled")
+      Prelude.<*> (x Data..@? "SourceFields")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
 
 instance Prelude.Hashable IntArrayOptions where
   hashWithSalt _salt IntArrayOptions' {..} =
@@ -118,12 +119,12 @@ instance Prelude.NFData IntArrayOptions where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf returnEnabled
 
-instance Core.ToQuery IntArrayOptions where
+instance Data.ToQuery IntArrayOptions where
   toQuery IntArrayOptions' {..} =
     Prelude.mconcat
-      [ "FacetEnabled" Core.=: facetEnabled,
-        "SearchEnabled" Core.=: searchEnabled,
-        "SourceFields" Core.=: sourceFields,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled
+      [ "FacetEnabled" Data.=: facetEnabled,
+        "SearchEnabled" Data.=: searchEnabled,
+        "SourceFields" Data.=: sourceFields,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled
       ]

@@ -51,6 +51,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ instance Core.AWSRequest UpdateScalingParameters where
       ( \s h x ->
           UpdateScalingParametersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "ScalingParameters")
+            Prelude.<*> (x Data..@ "ScalingParameters")
       )
 
 instance Prelude.Hashable UpdateScalingParameters where
@@ -124,21 +125,21 @@ instance Prelude.NFData UpdateScalingParameters where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf scalingParameters
 
-instance Core.ToHeaders UpdateScalingParameters where
+instance Data.ToHeaders UpdateScalingParameters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateScalingParameters where
+instance Data.ToPath UpdateScalingParameters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateScalingParameters where
+instance Data.ToQuery UpdateScalingParameters where
   toQuery UpdateScalingParameters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateScalingParameters" :: Prelude.ByteString),
+          Data.=: ("UpdateScalingParameters" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName,
-        "ScalingParameters" Core.=: scalingParameters
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName,
+        "ScalingParameters" Data.=: scalingParameters
       ]
 
 -- | The result of a @UpdateScalingParameters@ request. Contains the status

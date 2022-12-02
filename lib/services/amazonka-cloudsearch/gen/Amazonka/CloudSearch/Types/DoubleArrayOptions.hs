@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.DoubleArrayOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a field that contains an array of double-precision 64-bit
@@ -93,14 +94,14 @@ doubleArrayOptions_defaultValue = Lens.lens (\DoubleArrayOptions' {defaultValue}
 doubleArrayOptions_returnEnabled :: Lens.Lens' DoubleArrayOptions (Prelude.Maybe Prelude.Bool)
 doubleArrayOptions_returnEnabled = Lens.lens (\DoubleArrayOptions' {returnEnabled} -> returnEnabled) (\s@DoubleArrayOptions' {} a -> s {returnEnabled = a} :: DoubleArrayOptions)
 
-instance Core.FromXML DoubleArrayOptions where
+instance Data.FromXML DoubleArrayOptions where
   parseXML x =
     DoubleArrayOptions'
-      Prelude.<$> (x Core..@? "FacetEnabled")
-      Prelude.<*> (x Core..@? "SearchEnabled")
-      Prelude.<*> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<$> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "SearchEnabled")
+      Prelude.<*> (x Data..@? "SourceFields")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
 
 instance Prelude.Hashable DoubleArrayOptions where
   hashWithSalt _salt DoubleArrayOptions' {..} =
@@ -118,12 +119,12 @@ instance Prelude.NFData DoubleArrayOptions where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf returnEnabled
 
-instance Core.ToQuery DoubleArrayOptions where
+instance Data.ToQuery DoubleArrayOptions where
   toQuery DoubleArrayOptions' {..} =
     Prelude.mconcat
-      [ "FacetEnabled" Core.=: facetEnabled,
-        "SearchEnabled" Core.=: searchEnabled,
-        "SourceFields" Core.=: sourceFields,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled
+      [ "FacetEnabled" Data.=: facetEnabled,
+        "SearchEnabled" Data.=: searchEnabled,
+        "SourceFields" Data.=: sourceFields,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled
       ]

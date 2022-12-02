@@ -60,13 +60,14 @@ module Amazonka.CloudSearch.Types.AnalysisSchemeLanguage
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or
 -- @mul@ for multiple languages.
 newtype AnalysisSchemeLanguage = AnalysisSchemeLanguage'
   { fromAnalysisSchemeLanguage ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -78,18 +79,18 @@ newtype AnalysisSchemeLanguage = AnalysisSchemeLanguage'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern AnalysisSchemeLanguage_Ar :: AnalysisSchemeLanguage

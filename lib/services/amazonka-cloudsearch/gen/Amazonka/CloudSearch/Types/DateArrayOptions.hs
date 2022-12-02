@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.DateArrayOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a field that contains an array of dates. Present if
@@ -93,14 +94,14 @@ dateArrayOptions_defaultValue = Lens.lens (\DateArrayOptions' {defaultValue} -> 
 dateArrayOptions_returnEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
 dateArrayOptions_returnEnabled = Lens.lens (\DateArrayOptions' {returnEnabled} -> returnEnabled) (\s@DateArrayOptions' {} a -> s {returnEnabled = a} :: DateArrayOptions)
 
-instance Core.FromXML DateArrayOptions where
+instance Data.FromXML DateArrayOptions where
   parseXML x =
     DateArrayOptions'
-      Prelude.<$> (x Core..@? "FacetEnabled")
-      Prelude.<*> (x Core..@? "SearchEnabled")
-      Prelude.<*> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<$> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "SearchEnabled")
+      Prelude.<*> (x Data..@? "SourceFields")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
 
 instance Prelude.Hashable DateArrayOptions where
   hashWithSalt _salt DateArrayOptions' {..} =
@@ -118,12 +119,12 @@ instance Prelude.NFData DateArrayOptions where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf returnEnabled
 
-instance Core.ToQuery DateArrayOptions where
+instance Data.ToQuery DateArrayOptions where
   toQuery DateArrayOptions' {..} =
     Prelude.mconcat
-      [ "FacetEnabled" Core.=: facetEnabled,
-        "SearchEnabled" Core.=: searchEnabled,
-        "SourceFields" Core.=: sourceFields,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled
+      [ "FacetEnabled" Data.=: facetEnabled,
+        "SearchEnabled" Data.=: searchEnabled,
+        "SourceFields" Data.=: sourceFields,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled
       ]

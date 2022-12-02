@@ -51,6 +51,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,8 +125,8 @@ instance Core.AWSRequest DescribeAnalysisSchemes where
       ( \s h x ->
           DescribeAnalysisSchemesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "AnalysisSchemes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "AnalysisSchemes" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -141,26 +142,26 @@ instance Prelude.NFData DescribeAnalysisSchemes where
       `Prelude.seq` Prelude.rnf analysisSchemeNames
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeAnalysisSchemes where
+instance Data.ToHeaders DescribeAnalysisSchemes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAnalysisSchemes where
+instance Data.ToPath DescribeAnalysisSchemes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAnalysisSchemes where
+instance Data.ToQuery DescribeAnalysisSchemes where
   toQuery DescribeAnalysisSchemes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAnalysisSchemes" :: Prelude.ByteString),
+          Data.=: ("DescribeAnalysisSchemes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "Deployed" Core.=: deployed,
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "Deployed" Data.=: deployed,
         "AnalysisSchemeNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> analysisSchemeNames
             ),
-        "DomainName" Core.=: domainName
+        "DomainName" Data.=: domainName
       ]
 
 -- | The result of a @DescribeAnalysisSchemes@ request. Contains the analysis

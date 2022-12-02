@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.TextArrayOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a field that contains an array of text strings. Present if
@@ -94,14 +95,14 @@ textArrayOptions_returnEnabled = Lens.lens (\TextArrayOptions' {returnEnabled} -
 textArrayOptions_highlightEnabled :: Lens.Lens' TextArrayOptions (Prelude.Maybe Prelude.Bool)
 textArrayOptions_highlightEnabled = Lens.lens (\TextArrayOptions' {highlightEnabled} -> highlightEnabled) (\s@TextArrayOptions' {} a -> s {highlightEnabled = a} :: TextArrayOptions)
 
-instance Core.FromXML TextArrayOptions where
+instance Data.FromXML TextArrayOptions where
   parseXML x =
     TextArrayOptions'
-      Prelude.<$> (x Core..@? "AnalysisScheme")
-      Prelude.<*> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
-      Prelude.<*> (x Core..@? "HighlightEnabled")
+      Prelude.<$> (x Data..@? "AnalysisScheme")
+      Prelude.<*> (x Data..@? "SourceFields")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
+      Prelude.<*> (x Data..@? "HighlightEnabled")
 
 instance Prelude.Hashable TextArrayOptions where
   hashWithSalt _salt TextArrayOptions' {..} =
@@ -119,12 +120,12 @@ instance Prelude.NFData TextArrayOptions where
       `Prelude.seq` Prelude.rnf returnEnabled
       `Prelude.seq` Prelude.rnf highlightEnabled
 
-instance Core.ToQuery TextArrayOptions where
+instance Data.ToQuery TextArrayOptions where
   toQuery TextArrayOptions' {..} =
     Prelude.mconcat
-      [ "AnalysisScheme" Core.=: analysisScheme,
-        "SourceFields" Core.=: sourceFields,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled,
-        "HighlightEnabled" Core.=: highlightEnabled
+      [ "AnalysisScheme" Data.=: analysisScheme,
+        "SourceFields" Data.=: sourceFields,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled,
+        "HighlightEnabled" Data.=: highlightEnabled
       ]

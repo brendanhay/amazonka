@@ -22,6 +22,7 @@ module Amazonka.CloudSearch.Types.DocumentSuggesterOptions where
 import Amazonka.CloudSearch.Types.SuggesterFuzzyMatching
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a search suggester.
@@ -107,12 +108,12 @@ documentSuggesterOptions_fuzzyMatching = Lens.lens (\DocumentSuggesterOptions' {
 documentSuggesterOptions_sourceField :: Lens.Lens' DocumentSuggesterOptions Prelude.Text
 documentSuggesterOptions_sourceField = Lens.lens (\DocumentSuggesterOptions' {sourceField} -> sourceField) (\s@DocumentSuggesterOptions' {} a -> s {sourceField = a} :: DocumentSuggesterOptions)
 
-instance Core.FromXML DocumentSuggesterOptions where
+instance Data.FromXML DocumentSuggesterOptions where
   parseXML x =
     DocumentSuggesterOptions'
-      Prelude.<$> (x Core..@? "SortExpression")
-      Prelude.<*> (x Core..@? "FuzzyMatching")
-      Prelude.<*> (x Core..@ "SourceField")
+      Prelude.<$> (x Data..@? "SortExpression")
+      Prelude.<*> (x Data..@? "FuzzyMatching")
+      Prelude.<*> (x Data..@ "SourceField")
 
 instance Prelude.Hashable DocumentSuggesterOptions where
   hashWithSalt _salt DocumentSuggesterOptions' {..} =
@@ -126,10 +127,10 @@ instance Prelude.NFData DocumentSuggesterOptions where
       `Prelude.seq` Prelude.rnf fuzzyMatching
       `Prelude.seq` Prelude.rnf sourceField
 
-instance Core.ToQuery DocumentSuggesterOptions where
+instance Data.ToQuery DocumentSuggesterOptions where
   toQuery DocumentSuggesterOptions' {..} =
     Prelude.mconcat
-      [ "SortExpression" Core.=: sortExpression,
-        "FuzzyMatching" Core.=: fuzzyMatching,
-        "SourceField" Core.=: sourceField
+      [ "SortExpression" Data.=: sortExpression,
+        "FuzzyMatching" Data.=: fuzzyMatching,
+        "SourceField" Data.=: sourceField
       ]

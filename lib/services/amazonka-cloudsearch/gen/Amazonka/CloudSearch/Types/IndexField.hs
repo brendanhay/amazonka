@@ -33,6 +33,7 @@ import Amazonka.CloudSearch.Types.TextArrayOptions
 import Amazonka.CloudSearch.Types.TextOptions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for a field in the index, including its name,
@@ -207,22 +208,22 @@ indexField_indexFieldName = Lens.lens (\IndexField' {indexFieldName} -> indexFie
 indexField_indexFieldType :: Lens.Lens' IndexField IndexFieldType
 indexField_indexFieldType = Lens.lens (\IndexField' {indexFieldType} -> indexFieldType) (\s@IndexField' {} a -> s {indexFieldType = a} :: IndexField)
 
-instance Core.FromXML IndexField where
+instance Data.FromXML IndexField where
   parseXML x =
     IndexField'
-      Prelude.<$> (x Core..@? "DateOptions")
-      Prelude.<*> (x Core..@? "LiteralArrayOptions")
-      Prelude.<*> (x Core..@? "TextOptions")
-      Prelude.<*> (x Core..@? "DoubleArrayOptions")
-      Prelude.<*> (x Core..@? "TextArrayOptions")
-      Prelude.<*> (x Core..@? "DateArrayOptions")
-      Prelude.<*> (x Core..@? "DoubleOptions")
-      Prelude.<*> (x Core..@? "LatLonOptions")
-      Prelude.<*> (x Core..@? "IntArrayOptions")
-      Prelude.<*> (x Core..@? "LiteralOptions")
-      Prelude.<*> (x Core..@? "IntOptions")
-      Prelude.<*> (x Core..@ "IndexFieldName")
-      Prelude.<*> (x Core..@ "IndexFieldType")
+      Prelude.<$> (x Data..@? "DateOptions")
+      Prelude.<*> (x Data..@? "LiteralArrayOptions")
+      Prelude.<*> (x Data..@? "TextOptions")
+      Prelude.<*> (x Data..@? "DoubleArrayOptions")
+      Prelude.<*> (x Data..@? "TextArrayOptions")
+      Prelude.<*> (x Data..@? "DateArrayOptions")
+      Prelude.<*> (x Data..@? "DoubleOptions")
+      Prelude.<*> (x Data..@? "LatLonOptions")
+      Prelude.<*> (x Data..@? "IntArrayOptions")
+      Prelude.<*> (x Data..@? "LiteralOptions")
+      Prelude.<*> (x Data..@? "IntOptions")
+      Prelude.<*> (x Data..@ "IndexFieldName")
+      Prelude.<*> (x Data..@ "IndexFieldType")
 
 instance Prelude.Hashable IndexField where
   hashWithSalt _salt IndexField' {..} =
@@ -256,20 +257,20 @@ instance Prelude.NFData IndexField where
       `Prelude.seq` Prelude.rnf indexFieldName
       `Prelude.seq` Prelude.rnf indexFieldType
 
-instance Core.ToQuery IndexField where
+instance Data.ToQuery IndexField where
   toQuery IndexField' {..} =
     Prelude.mconcat
-      [ "DateOptions" Core.=: dateOptions,
-        "LiteralArrayOptions" Core.=: literalArrayOptions,
-        "TextOptions" Core.=: textOptions,
-        "DoubleArrayOptions" Core.=: doubleArrayOptions,
-        "TextArrayOptions" Core.=: textArrayOptions,
-        "DateArrayOptions" Core.=: dateArrayOptions,
-        "DoubleOptions" Core.=: doubleOptions,
-        "LatLonOptions" Core.=: latLonOptions,
-        "IntArrayOptions" Core.=: intArrayOptions,
-        "LiteralOptions" Core.=: literalOptions,
-        "IntOptions" Core.=: intOptions,
-        "IndexFieldName" Core.=: indexFieldName,
-        "IndexFieldType" Core.=: indexFieldType
+      [ "DateOptions" Data.=: dateOptions,
+        "LiteralArrayOptions" Data.=: literalArrayOptions,
+        "TextOptions" Data.=: textOptions,
+        "DoubleArrayOptions" Data.=: doubleArrayOptions,
+        "TextArrayOptions" Data.=: textArrayOptions,
+        "DateArrayOptions" Data.=: dateArrayOptions,
+        "DoubleOptions" Data.=: doubleOptions,
+        "LatLonOptions" Data.=: latLonOptions,
+        "IntArrayOptions" Data.=: intArrayOptions,
+        "LiteralOptions" Data.=: literalOptions,
+        "IntOptions" Data.=: intOptions,
+        "IndexFieldName" Data.=: indexFieldName,
+        "IndexFieldType" Data.=: indexFieldType
       ]

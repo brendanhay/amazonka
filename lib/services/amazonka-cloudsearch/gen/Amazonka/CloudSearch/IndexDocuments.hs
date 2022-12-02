@@ -44,6 +44,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,8 +89,8 @@ instance Core.AWSRequest IndexDocuments where
       "IndexDocumentsResult"
       ( \s h x ->
           IndexDocumentsResponse'
-            Prelude.<$> ( x Core..@? "FieldNames" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "FieldNames" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -101,20 +102,20 @@ instance Prelude.Hashable IndexDocuments where
 instance Prelude.NFData IndexDocuments where
   rnf IndexDocuments' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders IndexDocuments where
+instance Data.ToHeaders IndexDocuments where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath IndexDocuments where
+instance Data.ToPath IndexDocuments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery IndexDocuments where
+instance Data.ToQuery IndexDocuments where
   toQuery IndexDocuments' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("IndexDocuments" :: Prelude.ByteString),
+          Data.=: ("IndexDocuments" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName
       ]
 
 -- | The result of an @IndexDocuments@ request. Contains the status of the

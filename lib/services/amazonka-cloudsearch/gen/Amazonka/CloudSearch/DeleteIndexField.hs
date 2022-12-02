@@ -46,6 +46,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,7 +109,7 @@ instance Core.AWSRequest DeleteIndexField where
       ( \s h x ->
           DeleteIndexFieldResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "IndexField")
+            Prelude.<*> (x Data..@ "IndexField")
       )
 
 instance Prelude.Hashable DeleteIndexField where
@@ -121,21 +122,21 @@ instance Prelude.NFData DeleteIndexField where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf indexFieldName
 
-instance Core.ToHeaders DeleteIndexField where
+instance Data.ToHeaders DeleteIndexField where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteIndexField where
+instance Data.ToPath DeleteIndexField where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteIndexField where
+instance Data.ToQuery DeleteIndexField where
   toQuery DeleteIndexField' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteIndexField" :: Prelude.ByteString),
+          Data.=: ("DeleteIndexField" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName,
-        "IndexFieldName" Core.=: indexFieldName
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName,
+        "IndexFieldName" Data.=: indexFieldName
       ]
 
 -- | The result of a @DeleteIndexField@ request.

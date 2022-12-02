@@ -23,6 +23,7 @@ import Amazonka.CloudSearch.Types.Expression
 import Amazonka.CloudSearch.Types.OptionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of an @Expression@ and its current status.
@@ -69,11 +70,11 @@ expressionStatus_options = Lens.lens (\ExpressionStatus' {options} -> options) (
 expressionStatus_status :: Lens.Lens' ExpressionStatus OptionStatus
 expressionStatus_status = Lens.lens (\ExpressionStatus' {status} -> status) (\s@ExpressionStatus' {} a -> s {status = a} :: ExpressionStatus)
 
-instance Core.FromXML ExpressionStatus where
+instance Data.FromXML ExpressionStatus where
   parseXML x =
     ExpressionStatus'
-      Prelude.<$> (x Core..@ "Options")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<$> (x Data..@ "Options")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable ExpressionStatus where
   hashWithSalt _salt ExpressionStatus' {..} =

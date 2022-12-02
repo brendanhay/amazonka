@@ -22,6 +22,7 @@ module Amazonka.CloudSearch.Types.AnalysisOptions where
 import Amazonka.CloudSearch.Types.AlgorithmicStemming
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
@@ -169,14 +170,14 @@ analysisOptions_stopwords = Lens.lens (\AnalysisOptions' {stopwords} -> stopword
 analysisOptions_synonyms :: Lens.Lens' AnalysisOptions (Prelude.Maybe Prelude.Text)
 analysisOptions_synonyms = Lens.lens (\AnalysisOptions' {synonyms} -> synonyms) (\s@AnalysisOptions' {} a -> s {synonyms = a} :: AnalysisOptions)
 
-instance Core.FromXML AnalysisOptions where
+instance Data.FromXML AnalysisOptions where
   parseXML x =
     AnalysisOptions'
-      Prelude.<$> (x Core..@? "StemmingDictionary")
-      Prelude.<*> (x Core..@? "AlgorithmicStemming")
-      Prelude.<*> (x Core..@? "JapaneseTokenizationDictionary")
-      Prelude.<*> (x Core..@? "Stopwords")
-      Prelude.<*> (x Core..@? "Synonyms")
+      Prelude.<$> (x Data..@? "StemmingDictionary")
+      Prelude.<*> (x Data..@? "AlgorithmicStemming")
+      Prelude.<*> (x Data..@? "JapaneseTokenizationDictionary")
+      Prelude.<*> (x Data..@? "Stopwords")
+      Prelude.<*> (x Data..@? "Synonyms")
 
 instance Prelude.Hashable AnalysisOptions where
   hashWithSalt _salt AnalysisOptions' {..} =
@@ -194,13 +195,13 @@ instance Prelude.NFData AnalysisOptions where
       `Prelude.seq` Prelude.rnf stopwords
       `Prelude.seq` Prelude.rnf synonyms
 
-instance Core.ToQuery AnalysisOptions where
+instance Data.ToQuery AnalysisOptions where
   toQuery AnalysisOptions' {..} =
     Prelude.mconcat
-      [ "StemmingDictionary" Core.=: stemmingDictionary,
-        "AlgorithmicStemming" Core.=: algorithmicStemming,
+      [ "StemmingDictionary" Data.=: stemmingDictionary,
+        "AlgorithmicStemming" Data.=: algorithmicStemming,
         "JapaneseTokenizationDictionary"
-          Core.=: japaneseTokenizationDictionary,
-        "Stopwords" Core.=: stopwords,
-        "Synonyms" Core.=: synonyms
+          Data.=: japaneseTokenizationDictionary,
+        "Stopwords" Data.=: stopwords,
+        "Synonyms" Data.=: synonyms
       ]

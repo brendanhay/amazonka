@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.DoubleOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for a double-precision 64-bit floating point field. Present if
@@ -105,15 +106,15 @@ doubleOptions_defaultValue = Lens.lens (\DoubleOptions' {defaultValue} -> defaul
 doubleOptions_returnEnabled :: Lens.Lens' DoubleOptions (Prelude.Maybe Prelude.Bool)
 doubleOptions_returnEnabled = Lens.lens (\DoubleOptions' {returnEnabled} -> returnEnabled) (\s@DoubleOptions' {} a -> s {returnEnabled = a} :: DoubleOptions)
 
-instance Core.FromXML DoubleOptions where
+instance Data.FromXML DoubleOptions where
   parseXML x =
     DoubleOptions'
-      Prelude.<$> (x Core..@? "SourceField")
-      Prelude.<*> (x Core..@? "FacetEnabled")
-      Prelude.<*> (x Core..@? "SearchEnabled")
-      Prelude.<*> (x Core..@? "SortEnabled")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<$> (x Data..@? "SourceField")
+      Prelude.<*> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "SearchEnabled")
+      Prelude.<*> (x Data..@? "SortEnabled")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
 
 instance Prelude.Hashable DoubleOptions where
   hashWithSalt _salt DoubleOptions' {..} =
@@ -133,13 +134,13 @@ instance Prelude.NFData DoubleOptions where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf returnEnabled
 
-instance Core.ToQuery DoubleOptions where
+instance Data.ToQuery DoubleOptions where
   toQuery DoubleOptions' {..} =
     Prelude.mconcat
-      [ "SourceField" Core.=: sourceField,
-        "FacetEnabled" Core.=: facetEnabled,
-        "SearchEnabled" Core.=: searchEnabled,
-        "SortEnabled" Core.=: sortEnabled,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled
+      [ "SourceField" Data.=: sourceField,
+        "FacetEnabled" Data.=: facetEnabled,
+        "SearchEnabled" Data.=: searchEnabled,
+        "SortEnabled" Data.=: sortEnabled,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled
       ]

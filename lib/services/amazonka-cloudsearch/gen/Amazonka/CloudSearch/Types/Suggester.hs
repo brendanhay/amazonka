@@ -22,6 +22,7 @@ module Amazonka.CloudSearch.Types.Suggester where
 import Amazonka.CloudSearch.Types.DocumentSuggesterOptions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for a search suggester. Each suggester has a
@@ -70,11 +71,11 @@ suggester_suggesterName = Lens.lens (\Suggester' {suggesterName} -> suggesterNam
 suggester_documentSuggesterOptions :: Lens.Lens' Suggester DocumentSuggesterOptions
 suggester_documentSuggesterOptions = Lens.lens (\Suggester' {documentSuggesterOptions} -> documentSuggesterOptions) (\s@Suggester' {} a -> s {documentSuggesterOptions = a} :: Suggester)
 
-instance Core.FromXML Suggester where
+instance Data.FromXML Suggester where
   parseXML x =
     Suggester'
-      Prelude.<$> (x Core..@ "SuggesterName")
-      Prelude.<*> (x Core..@ "DocumentSuggesterOptions")
+      Prelude.<$> (x Data..@ "SuggesterName")
+      Prelude.<*> (x Data..@ "DocumentSuggesterOptions")
 
 instance Prelude.Hashable Suggester where
   hashWithSalt _salt Suggester' {..} =
@@ -86,10 +87,10 @@ instance Prelude.NFData Suggester where
     Prelude.rnf suggesterName
       `Prelude.seq` Prelude.rnf documentSuggesterOptions
 
-instance Core.ToQuery Suggester where
+instance Data.ToQuery Suggester where
   toQuery Suggester' {..} =
     Prelude.mconcat
-      [ "SuggesterName" Core.=: suggesterName,
+      [ "SuggesterName" Data.=: suggesterName,
         "DocumentSuggesterOptions"
-          Core.=: documentSuggesterOptions
+          Data.=: documentSuggesterOptions
       ]

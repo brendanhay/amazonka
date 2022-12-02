@@ -45,6 +45,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest DeleteSuggester where
       ( \s h x ->
           DeleteSuggesterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Suggester")
+            Prelude.<*> (x Data..@ "Suggester")
       )
 
 instance Prelude.Hashable DeleteSuggester where
@@ -117,21 +118,21 @@ instance Prelude.NFData DeleteSuggester where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf suggesterName
 
-instance Core.ToHeaders DeleteSuggester where
+instance Data.ToHeaders DeleteSuggester where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteSuggester where
+instance Data.ToPath DeleteSuggester where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSuggester where
+instance Data.ToQuery DeleteSuggester where
   toQuery DeleteSuggester' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteSuggester" :: Prelude.ByteString),
+          Data.=: ("DeleteSuggester" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName,
-        "SuggesterName" Core.=: suggesterName
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName,
+        "SuggesterName" Data.=: suggesterName
       ]
 
 -- | The result of a @DeleteSuggester@ request. Contains the status of the

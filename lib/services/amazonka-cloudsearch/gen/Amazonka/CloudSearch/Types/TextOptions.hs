@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.TextOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for text field. Present if @IndexFieldType@ specifies the field
@@ -101,15 +102,15 @@ textOptions_returnEnabled = Lens.lens (\TextOptions' {returnEnabled} -> returnEn
 textOptions_highlightEnabled :: Lens.Lens' TextOptions (Prelude.Maybe Prelude.Bool)
 textOptions_highlightEnabled = Lens.lens (\TextOptions' {highlightEnabled} -> highlightEnabled) (\s@TextOptions' {} a -> s {highlightEnabled = a} :: TextOptions)
 
-instance Core.FromXML TextOptions where
+instance Data.FromXML TextOptions where
   parseXML x =
     TextOptions'
-      Prelude.<$> (x Core..@? "SourceField")
-      Prelude.<*> (x Core..@? "AnalysisScheme")
-      Prelude.<*> (x Core..@? "SortEnabled")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
-      Prelude.<*> (x Core..@? "HighlightEnabled")
+      Prelude.<$> (x Data..@? "SourceField")
+      Prelude.<*> (x Data..@? "AnalysisScheme")
+      Prelude.<*> (x Data..@? "SortEnabled")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
+      Prelude.<*> (x Data..@? "HighlightEnabled")
 
 instance Prelude.Hashable TextOptions where
   hashWithSalt _salt TextOptions' {..} =
@@ -129,13 +130,13 @@ instance Prelude.NFData TextOptions where
       `Prelude.seq` Prelude.rnf returnEnabled
       `Prelude.seq` Prelude.rnf highlightEnabled
 
-instance Core.ToQuery TextOptions where
+instance Data.ToQuery TextOptions where
   toQuery TextOptions' {..} =
     Prelude.mconcat
-      [ "SourceField" Core.=: sourceField,
-        "AnalysisScheme" Core.=: analysisScheme,
-        "SortEnabled" Core.=: sortEnabled,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled,
-        "HighlightEnabled" Core.=: highlightEnabled
+      [ "SourceField" Data.=: sourceField,
+        "AnalysisScheme" Data.=: analysisScheme,
+        "SortEnabled" Data.=: sortEnabled,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled,
+        "HighlightEnabled" Data.=: highlightEnabled
       ]

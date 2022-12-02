@@ -49,6 +49,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance
       ( \s h x ->
           DescribeServiceAccessPoliciesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "AccessPolicies")
+            Prelude.<*> (x Data..@ "AccessPolicies")
       )
 
 instance
@@ -131,23 +132,23 @@ instance Prelude.NFData DescribeServiceAccessPolicies where
     Prelude.rnf deployed
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DescribeServiceAccessPolicies where
+instance Data.ToHeaders DescribeServiceAccessPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeServiceAccessPolicies where
+instance Data.ToPath DescribeServiceAccessPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeServiceAccessPolicies where
+instance Data.ToQuery DescribeServiceAccessPolicies where
   toQuery DescribeServiceAccessPolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeServiceAccessPolicies" ::
+          Data.=: ( "DescribeServiceAccessPolicies" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "Deployed" Core.=: deployed,
-        "DomainName" Core.=: domainName
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "Deployed" Data.=: deployed,
+        "DomainName" Data.=: domainName
       ]
 
 -- | The result of a @DescribeServiceAccessPolicies@ request.

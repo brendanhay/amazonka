@@ -22,6 +22,7 @@ module Amazonka.CloudSearch.Types.ScalingParameters where
 import Amazonka.CloudSearch.Types.PartitionInstanceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The desired instance type and desired number of replicas of each index
@@ -82,12 +83,12 @@ scalingParameters_desiredReplicationCount = Lens.lens (\ScalingParameters' {desi
 scalingParameters_desiredInstanceType :: Lens.Lens' ScalingParameters (Prelude.Maybe PartitionInstanceType)
 scalingParameters_desiredInstanceType = Lens.lens (\ScalingParameters' {desiredInstanceType} -> desiredInstanceType) (\s@ScalingParameters' {} a -> s {desiredInstanceType = a} :: ScalingParameters)
 
-instance Core.FromXML ScalingParameters where
+instance Data.FromXML ScalingParameters where
   parseXML x =
     ScalingParameters'
-      Prelude.<$> (x Core..@? "DesiredPartitionCount")
-      Prelude.<*> (x Core..@? "DesiredReplicationCount")
-      Prelude.<*> (x Core..@? "DesiredInstanceType")
+      Prelude.<$> (x Data..@? "DesiredPartitionCount")
+      Prelude.<*> (x Data..@? "DesiredReplicationCount")
+      Prelude.<*> (x Data..@? "DesiredInstanceType")
 
 instance Prelude.Hashable ScalingParameters where
   hashWithSalt _salt ScalingParameters' {..} =
@@ -101,12 +102,12 @@ instance Prelude.NFData ScalingParameters where
       `Prelude.seq` Prelude.rnf desiredReplicationCount
       `Prelude.seq` Prelude.rnf desiredInstanceType
 
-instance Core.ToQuery ScalingParameters where
+instance Data.ToQuery ScalingParameters where
   toQuery ScalingParameters' {..} =
     Prelude.mconcat
       [ "DesiredPartitionCount"
-          Core.=: desiredPartitionCount,
+          Data.=: desiredPartitionCount,
         "DesiredReplicationCount"
-          Core.=: desiredReplicationCount,
-        "DesiredInstanceType" Core.=: desiredInstanceType
+          Data.=: desiredReplicationCount,
+        "DesiredInstanceType" Data.=: desiredInstanceType
       ]

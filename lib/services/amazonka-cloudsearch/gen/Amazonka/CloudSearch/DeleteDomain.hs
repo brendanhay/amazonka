@@ -45,6 +45,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -88,7 +89,7 @@ instance Core.AWSRequest DeleteDomain where
       "DeleteDomainResult"
       ( \s h x ->
           DeleteDomainResponse'
-            Prelude.<$> (x Core..@? "DomainStatus")
+            Prelude.<$> (x Data..@? "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,20 +100,20 @@ instance Prelude.Hashable DeleteDomain where
 instance Prelude.NFData DeleteDomain where
   rnf DeleteDomain' {..} = Prelude.rnf domainName
 
-instance Core.ToHeaders DeleteDomain where
+instance Data.ToHeaders DeleteDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteDomain where
+instance Data.ToPath DeleteDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDomain where
+instance Data.ToQuery DeleteDomain where
   toQuery DeleteDomain' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteDomain" :: Prelude.ByteString),
+          Data.=: ("DeleteDomain" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName
       ]
 
 -- | The result of a @DeleteDomain@ request. Contains the status of a newly

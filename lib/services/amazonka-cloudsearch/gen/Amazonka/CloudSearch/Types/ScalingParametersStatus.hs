@@ -23,6 +23,7 @@ import Amazonka.CloudSearch.Types.OptionStatus
 import Amazonka.CloudSearch.Types.ScalingParameters
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status and configuration of a search domain\'s scaling parameters.
@@ -65,11 +66,11 @@ scalingParametersStatus_options = Lens.lens (\ScalingParametersStatus' {options}
 scalingParametersStatus_status :: Lens.Lens' ScalingParametersStatus OptionStatus
 scalingParametersStatus_status = Lens.lens (\ScalingParametersStatus' {status} -> status) (\s@ScalingParametersStatus' {} a -> s {status = a} :: ScalingParametersStatus)
 
-instance Core.FromXML ScalingParametersStatus where
+instance Data.FromXML ScalingParametersStatus where
   parseXML x =
     ScalingParametersStatus'
-      Prelude.<$> (x Core..@ "Options")
-      Prelude.<*> (x Core..@ "Status")
+      Prelude.<$> (x Data..@ "Options")
+      Prelude.<*> (x Data..@ "Status")
 
 instance Prelude.Hashable ScalingParametersStatus where
   hashWithSalt _salt ScalingParametersStatus' {..} =

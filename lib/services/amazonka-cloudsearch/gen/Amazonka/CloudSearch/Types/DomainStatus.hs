@@ -23,6 +23,7 @@ import Amazonka.CloudSearch.Types.Limits
 import Amazonka.CloudSearch.Types.ServiceEndpoint
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current status of the search domain.
@@ -197,22 +198,22 @@ domainStatus_domainName = Lens.lens (\DomainStatus' {domainName} -> domainName) 
 domainStatus_requiresIndexDocuments :: Lens.Lens' DomainStatus Prelude.Bool
 domainStatus_requiresIndexDocuments = Lens.lens (\DomainStatus' {requiresIndexDocuments} -> requiresIndexDocuments) (\s@DomainStatus' {} a -> s {requiresIndexDocuments = a} :: DomainStatus)
 
-instance Core.FromXML DomainStatus where
+instance Data.FromXML DomainStatus where
   parseXML x =
     DomainStatus'
-      Prelude.<$> (x Core..@? "Limits")
-      Prelude.<*> (x Core..@? "Deleted")
-      Prelude.<*> (x Core..@? "Created")
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "Processing")
-      Prelude.<*> (x Core..@? "SearchPartitionCount")
-      Prelude.<*> (x Core..@? "SearchService")
-      Prelude.<*> (x Core..@? "SearchInstanceType")
-      Prelude.<*> (x Core..@? "SearchInstanceCount")
-      Prelude.<*> (x Core..@? "DocService")
-      Prelude.<*> (x Core..@ "DomainId")
-      Prelude.<*> (x Core..@ "DomainName")
-      Prelude.<*> (x Core..@ "RequiresIndexDocuments")
+      Prelude.<$> (x Data..@? "Limits")
+      Prelude.<*> (x Data..@? "Deleted")
+      Prelude.<*> (x Data..@? "Created")
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "Processing")
+      Prelude.<*> (x Data..@? "SearchPartitionCount")
+      Prelude.<*> (x Data..@? "SearchService")
+      Prelude.<*> (x Data..@? "SearchInstanceType")
+      Prelude.<*> (x Data..@? "SearchInstanceCount")
+      Prelude.<*> (x Data..@? "DocService")
+      Prelude.<*> (x Data..@ "DomainId")
+      Prelude.<*> (x Data..@ "DomainName")
+      Prelude.<*> (x Data..@ "RequiresIndexDocuments")
 
 instance Prelude.Hashable DomainStatus where
   hashWithSalt _salt DomainStatus' {..} =

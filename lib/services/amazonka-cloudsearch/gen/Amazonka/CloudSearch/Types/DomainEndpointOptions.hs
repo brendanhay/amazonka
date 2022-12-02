@@ -22,6 +22,7 @@ module Amazonka.CloudSearch.Types.DomainEndpointOptions where
 import Amazonka.CloudSearch.Types.TLSSecurityPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The domain\'s endpoint options.
@@ -63,11 +64,11 @@ domainEndpointOptions_tLSSecurityPolicy = Lens.lens (\DomainEndpointOptions' {tL
 domainEndpointOptions_enforceHTTPS :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe Prelude.Bool)
 domainEndpointOptions_enforceHTTPS = Lens.lens (\DomainEndpointOptions' {enforceHTTPS} -> enforceHTTPS) (\s@DomainEndpointOptions' {} a -> s {enforceHTTPS = a} :: DomainEndpointOptions)
 
-instance Core.FromXML DomainEndpointOptions where
+instance Data.FromXML DomainEndpointOptions where
   parseXML x =
     DomainEndpointOptions'
-      Prelude.<$> (x Core..@? "TLSSecurityPolicy")
-      Prelude.<*> (x Core..@? "EnforceHTTPS")
+      Prelude.<$> (x Data..@? "TLSSecurityPolicy")
+      Prelude.<*> (x Data..@? "EnforceHTTPS")
 
 instance Prelude.Hashable DomainEndpointOptions where
   hashWithSalt _salt DomainEndpointOptions' {..} =
@@ -79,9 +80,9 @@ instance Prelude.NFData DomainEndpointOptions where
     Prelude.rnf tLSSecurityPolicy
       `Prelude.seq` Prelude.rnf enforceHTTPS
 
-instance Core.ToQuery DomainEndpointOptions where
+instance Data.ToQuery DomainEndpointOptions where
   toQuery DomainEndpointOptions' {..} =
     Prelude.mconcat
-      [ "TLSSecurityPolicy" Core.=: tLSSecurityPolicy,
-        "EnforceHTTPS" Core.=: enforceHTTPS
+      [ "TLSSecurityPolicy" Data.=: tLSSecurityPolicy,
+        "EnforceHTTPS" Data.=: enforceHTTPS
       ]

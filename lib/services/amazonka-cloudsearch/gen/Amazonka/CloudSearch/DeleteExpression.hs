@@ -46,6 +46,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest DeleteExpression where
       ( \s h x ->
           DeleteExpressionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Expression")
+            Prelude.<*> (x Data..@ "Expression")
       )
 
 instance Prelude.Hashable DeleteExpression where
@@ -118,21 +119,21 @@ instance Prelude.NFData DeleteExpression where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf expressionName
 
-instance Core.ToHeaders DeleteExpression where
+instance Data.ToHeaders DeleteExpression where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteExpression where
+instance Data.ToPath DeleteExpression where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteExpression where
+instance Data.ToQuery DeleteExpression where
   toQuery DeleteExpression' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteExpression" :: Prelude.ByteString),
+          Data.=: ("DeleteExpression" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName,
-        "ExpressionName" Core.=: expressionName
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName,
+        "ExpressionName" Data.=: expressionName
       ]
 
 -- | The result of a @DeleteExpression@ request. Specifies the expression

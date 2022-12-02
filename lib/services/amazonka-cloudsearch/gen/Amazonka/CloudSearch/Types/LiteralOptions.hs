@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.LiteralOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Options for literal field. Present if @IndexFieldType@ specifies the
@@ -100,15 +101,15 @@ literalOptions_defaultValue = Lens.lens (\LiteralOptions' {defaultValue} -> defa
 literalOptions_returnEnabled :: Lens.Lens' LiteralOptions (Prelude.Maybe Prelude.Bool)
 literalOptions_returnEnabled = Lens.lens (\LiteralOptions' {returnEnabled} -> returnEnabled) (\s@LiteralOptions' {} a -> s {returnEnabled = a} :: LiteralOptions)
 
-instance Core.FromXML LiteralOptions where
+instance Data.FromXML LiteralOptions where
   parseXML x =
     LiteralOptions'
-      Prelude.<$> (x Core..@? "SourceField")
-      Prelude.<*> (x Core..@? "FacetEnabled")
-      Prelude.<*> (x Core..@? "SearchEnabled")
-      Prelude.<*> (x Core..@? "SortEnabled")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<$> (x Data..@? "SourceField")
+      Prelude.<*> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "SearchEnabled")
+      Prelude.<*> (x Data..@? "SortEnabled")
+      Prelude.<*> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
 
 instance Prelude.Hashable LiteralOptions where
   hashWithSalt _salt LiteralOptions' {..} =
@@ -128,13 +129,13 @@ instance Prelude.NFData LiteralOptions where
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf returnEnabled
 
-instance Core.ToQuery LiteralOptions where
+instance Data.ToQuery LiteralOptions where
   toQuery LiteralOptions' {..} =
     Prelude.mconcat
-      [ "SourceField" Core.=: sourceField,
-        "FacetEnabled" Core.=: facetEnabled,
-        "SearchEnabled" Core.=: searchEnabled,
-        "SortEnabled" Core.=: sortEnabled,
-        "DefaultValue" Core.=: defaultValue,
-        "ReturnEnabled" Core.=: returnEnabled
+      [ "SourceField" Data.=: sourceField,
+        "FacetEnabled" Data.=: facetEnabled,
+        "SearchEnabled" Data.=: searchEnabled,
+        "SortEnabled" Data.=: sortEnabled,
+        "DefaultValue" Data.=: defaultValue,
+        "ReturnEnabled" Data.=: returnEnabled
       ]

@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.ParameterObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types.ParameterAttribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ parameterObject_id = Lens.lens (\ParameterObject' {id} -> id) (\s@ParameterObjec
 parameterObject_attributes :: Lens.Lens' ParameterObject [ParameterAttribute]
 parameterObject_attributes = Lens.lens (\ParameterObject' {attributes} -> attributes) (\s@ParameterObject' {} a -> s {attributes = a} :: ParameterObject) Prelude.. Lens.coerced
 
-instance Core.FromJSON ParameterObject where
+instance Data.FromJSON ParameterObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterObject"
       ( \x ->
           ParameterObject'
-            Prelude.<$> (x Core..: "id")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ParameterObject where
@@ -83,11 +84,11 @@ instance Prelude.NFData ParameterObject where
   rnf ParameterObject' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToJSON ParameterObject where
+instance Data.ToJSON ParameterObject where
   toJSON ParameterObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("attributes" Core..= attributes)
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("attributes" Data..= attributes)
           ]
       )

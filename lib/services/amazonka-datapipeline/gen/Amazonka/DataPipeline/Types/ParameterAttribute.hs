@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.ParameterAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes allowed or specified with a parameter object.
@@ -65,14 +66,14 @@ parameterAttribute_key = Lens.lens (\ParameterAttribute' {key} -> key) (\s@Param
 parameterAttribute_stringValue :: Lens.Lens' ParameterAttribute Prelude.Text
 parameterAttribute_stringValue = Lens.lens (\ParameterAttribute' {stringValue} -> stringValue) (\s@ParameterAttribute' {} a -> s {stringValue = a} :: ParameterAttribute)
 
-instance Core.FromJSON ParameterAttribute where
+instance Data.FromJSON ParameterAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterAttribute"
       ( \x ->
           ParameterAttribute'
-            Prelude.<$> (x Core..: "key")
-            Prelude.<*> (x Core..: "stringValue")
+            Prelude.<$> (x Data..: "key")
+            Prelude.<*> (x Data..: "stringValue")
       )
 
 instance Prelude.Hashable ParameterAttribute where
@@ -85,11 +86,11 @@ instance Prelude.NFData ParameterAttribute where
     Prelude.rnf key
       `Prelude.seq` Prelude.rnf stringValue
 
-instance Core.ToJSON ParameterAttribute where
+instance Data.ToJSON ParameterAttribute where
   toJSON ParameterAttribute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("key" Core..= key),
-            Prelude.Just ("stringValue" Core..= stringValue)
+          [ Prelude.Just ("key" Data..= key),
+            Prelude.Just ("stringValue" Data..= stringValue)
           ]
       )

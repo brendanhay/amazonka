@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -155,7 +156,7 @@ instance Core.AWSRequest PollForTask where
     Response.receiveJSON
       ( \s h x ->
           PollForTaskResponse'
-            Prelude.<$> (x Core..?> "taskObject")
+            Prelude.<$> (x Data..?> "taskObject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,34 +172,34 @@ instance Prelude.NFData PollForTask where
       `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf workerGroup
 
-instance Core.ToHeaders PollForTask where
+instance Data.ToHeaders PollForTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DataPipeline.PollForTask" :: Prelude.ByteString),
+              Data.=# ("DataPipeline.PollForTask" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PollForTask where
+instance Data.ToJSON PollForTask where
   toJSON PollForTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("instanceIdentity" Core..=)
+          [ ("instanceIdentity" Data..=)
               Prelude.<$> instanceIdentity,
-            ("hostname" Core..=) Prelude.<$> hostname,
-            Prelude.Just ("workerGroup" Core..= workerGroup)
+            ("hostname" Data..=) Prelude.<$> hostname,
+            Prelude.Just ("workerGroup" Data..= workerGroup)
           ]
       )
 
-instance Core.ToPath PollForTask where
+instance Data.ToPath PollForTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PollForTask where
+instance Data.ToQuery PollForTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of PollForTask.

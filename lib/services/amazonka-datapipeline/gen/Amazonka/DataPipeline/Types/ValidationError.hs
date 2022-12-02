@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.ValidationError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a validation error. Validation errors prevent pipeline
@@ -63,14 +64,14 @@ validationError_id = Lens.lens (\ValidationError' {id} -> id) (\s@ValidationErro
 validationError_errors :: Lens.Lens' ValidationError (Prelude.Maybe [Prelude.Text])
 validationError_errors = Lens.lens (\ValidationError' {errors} -> errors) (\s@ValidationError' {} a -> s {errors = a} :: ValidationError) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ValidationError where
+instance Data.FromJSON ValidationError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidationError"
       ( \x ->
           ValidationError'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "errors" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ValidationError where

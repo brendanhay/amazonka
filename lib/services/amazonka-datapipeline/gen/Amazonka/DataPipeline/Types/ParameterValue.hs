@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.ParameterValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A value or list of parameter values.
@@ -65,14 +66,14 @@ parameterValue_id = Lens.lens (\ParameterValue' {id} -> id) (\s@ParameterValue' 
 parameterValue_stringValue :: Lens.Lens' ParameterValue Prelude.Text
 parameterValue_stringValue = Lens.lens (\ParameterValue' {stringValue} -> stringValue) (\s@ParameterValue' {} a -> s {stringValue = a} :: ParameterValue)
 
-instance Core.FromJSON ParameterValue where
+instance Data.FromJSON ParameterValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterValue"
       ( \x ->
           ParameterValue'
-            Prelude.<$> (x Core..: "id")
-            Prelude.<*> (x Core..: "stringValue")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "stringValue")
       )
 
 instance Prelude.Hashable ParameterValue where
@@ -85,11 +86,11 @@ instance Prelude.NFData ParameterValue where
     Prelude.rnf id
       `Prelude.seq` Prelude.rnf stringValue
 
-instance Core.ToJSON ParameterValue where
+instance Data.ToJSON ParameterValue where
   toJSON ParameterValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("stringValue" Core..= stringValue)
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("stringValue" Data..= stringValue)
           ]
       )

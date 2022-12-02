@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.Query where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types.Selector
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,9 +61,9 @@ instance Prelude.Hashable Query where
 instance Prelude.NFData Query where
   rnf Query' {..} = Prelude.rnf selectors
 
-instance Core.ToJSON Query where
+instance Data.ToJSON Query where
   toJSON Query' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("selectors" Core..=) Prelude.<$> selectors]
+          [("selectors" Data..=) Prelude.<$> selectors]
       )

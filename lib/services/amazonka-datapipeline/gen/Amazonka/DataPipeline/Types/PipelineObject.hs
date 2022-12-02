@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.PipelineObject where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types.Field
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,15 +78,15 @@ pipelineObject_name = Lens.lens (\PipelineObject' {name} -> name) (\s@PipelineOb
 pipelineObject_fields :: Lens.Lens' PipelineObject [Field]
 pipelineObject_fields = Lens.lens (\PipelineObject' {fields} -> fields) (\s@PipelineObject' {} a -> s {fields = a} :: PipelineObject) Prelude.. Lens.coerced
 
-instance Core.FromJSON PipelineObject where
+instance Data.FromJSON PipelineObject where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineObject"
       ( \x ->
           PipelineObject'
-            Prelude.<$> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..:? "fields" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PipelineObject where
@@ -100,12 +101,12 @@ instance Prelude.NFData PipelineObject where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf fields
 
-instance Core.ToJSON PipelineObject where
+instance Data.ToJSON PipelineObject where
   toJSON PipelineObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("fields" Core..= fields)
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("fields" Data..= fields)
           ]
       )

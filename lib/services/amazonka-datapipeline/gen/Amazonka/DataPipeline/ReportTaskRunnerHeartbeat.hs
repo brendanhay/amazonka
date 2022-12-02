@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest ReportTaskRunnerHeartbeat where
       ( \s h x ->
           ReportTaskRunnerHeartbeatResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "terminate")
+            Prelude.<*> (x Data..:> "terminate")
       )
 
 instance Prelude.Hashable ReportTaskRunnerHeartbeat where
@@ -155,35 +156,35 @@ instance Prelude.NFData ReportTaskRunnerHeartbeat where
       `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf taskrunnerId
 
-instance Core.ToHeaders ReportTaskRunnerHeartbeat where
+instance Data.ToHeaders ReportTaskRunnerHeartbeat where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DataPipeline.ReportTaskRunnerHeartbeat" ::
+              Data.=# ( "DataPipeline.ReportTaskRunnerHeartbeat" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ReportTaskRunnerHeartbeat where
+instance Data.ToJSON ReportTaskRunnerHeartbeat where
   toJSON ReportTaskRunnerHeartbeat' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("workerGroup" Core..=) Prelude.<$> workerGroup,
-            ("hostname" Core..=) Prelude.<$> hostname,
-            Prelude.Just ("taskrunnerId" Core..= taskrunnerId)
+          [ ("workerGroup" Data..=) Prelude.<$> workerGroup,
+            ("hostname" Data..=) Prelude.<$> hostname,
+            Prelude.Just ("taskrunnerId" Data..= taskrunnerId)
           ]
       )
 
-instance Core.ToPath ReportTaskRunnerHeartbeat where
+instance Data.ToPath ReportTaskRunnerHeartbeat where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ReportTaskRunnerHeartbeat where
+instance Data.ToQuery ReportTaskRunnerHeartbeat where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of ReportTaskRunnerHeartbeat.

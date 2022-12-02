@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.PipelineIdName where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the name and identifier of a pipeline.
@@ -64,13 +65,13 @@ pipelineIdName_name = Lens.lens (\PipelineIdName' {name} -> name) (\s@PipelineId
 pipelineIdName_id :: Lens.Lens' PipelineIdName (Prelude.Maybe Prelude.Text)
 pipelineIdName_id = Lens.lens (\PipelineIdName' {id} -> id) (\s@PipelineIdName' {} a -> s {id = a} :: PipelineIdName)
 
-instance Core.FromJSON PipelineIdName where
+instance Data.FromJSON PipelineIdName where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineIdName"
       ( \x ->
           PipelineIdName'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable PipelineIdName where

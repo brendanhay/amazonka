@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,9 +177,9 @@ instance Core.AWSRequest QueryObjects where
     Response.receiveJSON
       ( \s h x ->
           QueryObjectsResponse'
-            Prelude.<$> (x Core..?> "marker")
-            Prelude.<*> (x Core..?> "ids" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "hasMoreResults")
+            Prelude.<$> (x Data..?> "marker")
+            Prelude.<*> (x Data..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "hasMoreResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,35 +199,35 @@ instance Prelude.NFData QueryObjects where
       `Prelude.seq` Prelude.rnf pipelineId
       `Prelude.seq` Prelude.rnf sphere
 
-instance Core.ToHeaders QueryObjects where
+instance Data.ToHeaders QueryObjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("DataPipeline.QueryObjects" :: Prelude.ByteString),
+              Data.=# ("DataPipeline.QueryObjects" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON QueryObjects where
+instance Data.ToJSON QueryObjects where
   toJSON QueryObjects' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("marker" Core..=) Prelude.<$> marker,
-            ("limit" Core..=) Prelude.<$> limit,
-            ("query" Core..=) Prelude.<$> query,
-            Prelude.Just ("pipelineId" Core..= pipelineId),
-            Prelude.Just ("sphere" Core..= sphere)
+          [ ("marker" Data..=) Prelude.<$> marker,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("query" Data..=) Prelude.<$> query,
+            Prelude.Just ("pipelineId" Data..= pipelineId),
+            Prelude.Just ("sphere" Data..= sphere)
           ]
       )
 
-instance Core.ToPath QueryObjects where
+instance Data.ToPath QueryObjects where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery QueryObjects where
+instance Data.ToQuery QueryObjects where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of QueryObjects.

@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.ValidationWarning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a validation warning. Validation warnings do not prevent
@@ -63,14 +64,14 @@ validationWarning_id = Lens.lens (\ValidationWarning' {id} -> id) (\s@Validation
 validationWarning_warnings :: Lens.Lens' ValidationWarning (Prelude.Maybe [Prelude.Text])
 validationWarning_warnings = Lens.lens (\ValidationWarning' {warnings} -> warnings) (\s@ValidationWarning' {} a -> s {warnings = a} :: ValidationWarning) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ValidationWarning where
+instance Data.FromJSON ValidationWarning where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidationWarning"
       ( \x ->
           ValidationWarning'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "warnings" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "warnings" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ValidationWarning where

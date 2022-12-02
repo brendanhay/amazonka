@@ -21,6 +21,7 @@ module Amazonka.DataPipeline.Types.Selector where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataPipeline.Types.Operator
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,11 +82,11 @@ instance Prelude.NFData Selector where
     Prelude.rnf fieldName
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON Selector where
+instance Data.ToJSON Selector where
   toJSON Selector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fieldName" Core..=) Prelude.<$> fieldName,
-            ("operator" Core..=) Prelude.<$> operator
+          [ ("fieldName" Data..=) Prelude.<$> fieldName,
+            ("operator" Data..=) Prelude.<$> operator
           ]
       )

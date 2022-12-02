@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,34 +135,34 @@ instance Prelude.NFData UpdateDetector where
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
       `Prelude.seq` Prelude.rnf detectorId
 
-instance Core.ToHeaders UpdateDetector where
+instance Data.ToHeaders UpdateDetector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDetector where
+instance Data.ToJSON UpdateDetector where
   toJSON UpdateDetector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dataSources" Core..=) Prelude.<$> dataSources,
-            ("enable" Core..=) Prelude.<$> enable,
-            ("findingPublishingFrequency" Core..=)
+          [ ("dataSources" Data..=) Prelude.<$> dataSources,
+            ("enable" Data..=) Prelude.<$> enable,
+            ("findingPublishingFrequency" Data..=)
               Prelude.<$> findingPublishingFrequency
           ]
       )
 
-instance Core.ToPath UpdateDetector where
+instance Data.ToPath UpdateDetector where
   toPath UpdateDetector' {..} =
     Prelude.mconcat
-      ["/detector/", Core.toBS detectorId]
+      ["/detector/", Data.toBS detectorId]
 
-instance Core.ToQuery UpdateDetector where
+instance Data.ToQuery UpdateDetector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDetectorResponse' smart constructor.

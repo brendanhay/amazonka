@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,32 +113,32 @@ instance
     Prelude.rnf adminAccountId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     EnableOrganizationAdminAccount
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableOrganizationAdminAccount where
+instance Data.ToJSON EnableOrganizationAdminAccount where
   toJSON EnableOrganizationAdminAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("adminAccountId" Core..= adminAccountId)
+              ("adminAccountId" Data..= adminAccountId)
           ]
       )
 
-instance Core.ToPath EnableOrganizationAdminAccount where
+instance Data.ToPath EnableOrganizationAdminAccount where
   toPath = Prelude.const "/admin/enable"
 
-instance Core.ToQuery EnableOrganizationAdminAccount where
+instance Data.ToQuery EnableOrganizationAdminAccount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableOrganizationAdminAccountResponse' smart constructor.

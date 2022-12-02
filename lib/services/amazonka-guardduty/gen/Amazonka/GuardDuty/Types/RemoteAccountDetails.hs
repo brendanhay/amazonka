@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.RemoteAccountDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the remote Amazon Web Services account that made
@@ -71,14 +72,14 @@ remoteAccountDetails_accountId = Lens.lens (\RemoteAccountDetails' {accountId} -
 remoteAccountDetails_affiliated :: Lens.Lens' RemoteAccountDetails (Prelude.Maybe Prelude.Bool)
 remoteAccountDetails_affiliated = Lens.lens (\RemoteAccountDetails' {affiliated} -> affiliated) (\s@RemoteAccountDetails' {} a -> s {affiliated = a} :: RemoteAccountDetails)
 
-instance Core.FromJSON RemoteAccountDetails where
+instance Data.FromJSON RemoteAccountDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemoteAccountDetails"
       ( \x ->
           RemoteAccountDetails'
-            Prelude.<$> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "affiliated")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "affiliated")
       )
 
 instance Prelude.Hashable RemoteAccountDetails where

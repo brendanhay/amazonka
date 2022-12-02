@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.S3LogsConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether S3 data event logs will be enabled as a data source.
@@ -59,9 +60,9 @@ instance Prelude.Hashable S3LogsConfiguration where
 instance Prelude.NFData S3LogsConfiguration where
   rnf S3LogsConfiguration' {..} = Prelude.rnf enable
 
-instance Core.ToJSON S3LogsConfiguration where
+instance Data.ToJSON S3LogsConfiguration where
   toJSON S3LogsConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("enable" Core..= enable)]
+          [Prelude.Just ("enable" Data..= enable)]
       )

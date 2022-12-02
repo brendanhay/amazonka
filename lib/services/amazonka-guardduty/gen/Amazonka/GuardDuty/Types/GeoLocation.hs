@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.GeoLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the location of the remote IP address.
@@ -61,13 +62,13 @@ geoLocation_lat = Lens.lens (\GeoLocation' {lat} -> lat) (\s@GeoLocation' {} a -
 geoLocation_lon :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Double)
 geoLocation_lon = Lens.lens (\GeoLocation' {lon} -> lon) (\s@GeoLocation' {} a -> s {lon = a} :: GeoLocation)
 
-instance Core.FromJSON GeoLocation where
+instance Data.FromJSON GeoLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeoLocation"
       ( \x ->
           GeoLocation'
-            Prelude.<$> (x Core..:? "lat") Prelude.<*> (x Core..:? "lon")
+            Prelude.<$> (x Data..:? "lat") Prelude.<*> (x Data..:? "lon")
       )
 
 instance Prelude.Hashable GeoLocation where

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.KubernetesDataSourceFreeTrial where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceFreeTrial
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newKubernetesDataSourceFreeTrial =
 kubernetesDataSourceFreeTrial_auditLogs :: Lens.Lens' KubernetesDataSourceFreeTrial (Prelude.Maybe DataSourceFreeTrial)
 kubernetesDataSourceFreeTrial_auditLogs = Lens.lens (\KubernetesDataSourceFreeTrial' {auditLogs} -> auditLogs) (\s@KubernetesDataSourceFreeTrial' {} a -> s {auditLogs = a} :: KubernetesDataSourceFreeTrial)
 
-instance Core.FromJSON KubernetesDataSourceFreeTrial where
+instance Data.FromJSON KubernetesDataSourceFreeTrial where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KubernetesDataSourceFreeTrial"
       ( \x ->
           KubernetesDataSourceFreeTrial'
-            Prelude.<$> (x Core..:? "auditLogs")
+            Prelude.<$> (x Data..:? "auditLogs")
       )
 
 instance

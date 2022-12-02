@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.PublicAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.PermissionConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ publicAccess_permissionConfiguration = Lens.lens (\PublicAccess' {permissionConf
 publicAccess_effectivePermission :: Lens.Lens' PublicAccess (Prelude.Maybe Prelude.Text)
 publicAccess_effectivePermission = Lens.lens (\PublicAccess' {effectivePermission} -> effectivePermission) (\s@PublicAccess' {} a -> s {effectivePermission = a} :: PublicAccess)
 
-instance Core.FromJSON PublicAccess where
+instance Data.FromJSON PublicAccess where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PublicAccess"
       ( \x ->
           PublicAccess'
-            Prelude.<$> (x Core..:? "permissionConfiguration")
-            Prelude.<*> (x Core..:? "effectivePermission")
+            Prelude.<$> (x Data..:? "permissionConfiguration")
+            Prelude.<*> (x Data..:? "effectivePermission")
       )
 
 instance Prelude.Hashable PublicAccess where

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Scan where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ResourceDetails
 import Amazonka.GuardDuty.Types.ScanResultDetails
 import Amazonka.GuardDuty.Types.ScanStatus
@@ -36,13 +37,13 @@ data Scan = Scan'
     -- scanned.
     attachedVolumes :: Prelude.Maybe [VolumeDetail],
     -- | The timestamp of when the scan was triggered.
-    scanStartTime :: Prelude.Maybe Core.POSIX,
+    scanStartTime :: Prelude.Maybe Data.POSIX,
     -- | The unique detector ID of the administrator account that the request is
     -- associated with. Note that this value will be the same as the one used
     -- for @DetectorId@ if the account is an administrator.
     adminDetectorId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the scan was finished.
-    scanEndTime :: Prelude.Maybe Core.POSIX,
+    scanEndTime :: Prelude.Maybe Data.POSIX,
     -- | An enum value representing possible scan statuses.
     scanStatus :: Prelude.Maybe ScanStatus,
     -- | Represents the resources that were scanned in the scan entry.
@@ -131,7 +132,7 @@ scan_attachedVolumes = Lens.lens (\Scan' {attachedVolumes} -> attachedVolumes) (
 
 -- | The timestamp of when the scan was triggered.
 scan_scanStartTime :: Lens.Lens' Scan (Prelude.Maybe Prelude.UTCTime)
-scan_scanStartTime = Lens.lens (\Scan' {scanStartTime} -> scanStartTime) (\s@Scan' {} a -> s {scanStartTime = a} :: Scan) Prelude.. Lens.mapping Core._Time
+scan_scanStartTime = Lens.lens (\Scan' {scanStartTime} -> scanStartTime) (\s@Scan' {} a -> s {scanStartTime = a} :: Scan) Prelude.. Lens.mapping Data._Time
 
 -- | The unique detector ID of the administrator account that the request is
 -- associated with. Note that this value will be the same as the one used
@@ -141,7 +142,7 @@ scan_adminDetectorId = Lens.lens (\Scan' {adminDetectorId} -> adminDetectorId) (
 
 -- | The timestamp of when the scan was finished.
 scan_scanEndTime :: Lens.Lens' Scan (Prelude.Maybe Prelude.UTCTime)
-scan_scanEndTime = Lens.lens (\Scan' {scanEndTime} -> scanEndTime) (\s@Scan' {} a -> s {scanEndTime = a} :: Scan) Prelude.. Lens.mapping Core._Time
+scan_scanEndTime = Lens.lens (\Scan' {scanEndTime} -> scanEndTime) (\s@Scan' {} a -> s {scanEndTime = a} :: Scan) Prelude.. Lens.mapping Data._Time
 
 -- | An enum value representing possible scan statuses.
 scan_scanStatus :: Lens.Lens' Scan (Prelude.Maybe ScanStatus)
@@ -183,28 +184,28 @@ scan_fileCount = Lens.lens (\Scan' {fileCount} -> fileCount) (\s@Scan' {} a -> s
 scan_failureReason :: Lens.Lens' Scan (Prelude.Maybe Prelude.Text)
 scan_failureReason = Lens.lens (\Scan' {failureReason} -> failureReason) (\s@Scan' {} a -> s {failureReason = a} :: Scan)
 
-instance Core.FromJSON Scan where
+instance Data.FromJSON Scan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Scan"
       ( \x ->
           Scan'
-            Prelude.<$> ( x Core..:? "attachedVolumes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "attachedVolumes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "scanStartTime")
-            Prelude.<*> (x Core..:? "adminDetectorId")
-            Prelude.<*> (x Core..:? "scanEndTime")
-            Prelude.<*> (x Core..:? "scanStatus")
-            Prelude.<*> (x Core..:? "resourceDetails")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "scanResultDetails")
-            Prelude.<*> (x Core..:? "triggerDetails")
-            Prelude.<*> (x Core..:? "totalBytes")
-            Prelude.<*> (x Core..:? "detectorId")
-            Prelude.<*> (x Core..:? "scanId")
-            Prelude.<*> (x Core..:? "fileCount")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<*> (x Data..:? "scanStartTime")
+            Prelude.<*> (x Data..:? "adminDetectorId")
+            Prelude.<*> (x Data..:? "scanEndTime")
+            Prelude.<*> (x Data..:? "scanStatus")
+            Prelude.<*> (x Data..:? "resourceDetails")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "scanResultDetails")
+            Prelude.<*> (x Data..:? "triggerDetails")
+            Prelude.<*> (x Data..:? "totalBytes")
+            Prelude.<*> (x Data..:? "detectorId")
+            Prelude.<*> (x Data..:? "scanId")
+            Prelude.<*> (x Data..:? "fileCount")
+            Prelude.<*> (x Data..:? "failureReason")
       )
 
 instance Prelude.Hashable Scan where

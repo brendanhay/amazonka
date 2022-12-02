@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationScanEc2InstanceWithFindings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.OrganizationEbsVolumes
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,11 +75,11 @@ instance
     Prelude.rnf ebsVolumes
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OrganizationScanEc2InstanceWithFindings
   where
   toJSON OrganizationScanEc2InstanceWithFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ebsVolumes" Core..=) Prelude.<$> ebsVolumes]
+          [("ebsVolumes" Data..=) Prelude.<$> ebsVolumes]
       )

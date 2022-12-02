@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.AccountLevelPermissions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.BlockPublicAccess
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,13 +59,13 @@ newAccountLevelPermissions =
 accountLevelPermissions_blockPublicAccess :: Lens.Lens' AccountLevelPermissions (Prelude.Maybe BlockPublicAccess)
 accountLevelPermissions_blockPublicAccess = Lens.lens (\AccountLevelPermissions' {blockPublicAccess} -> blockPublicAccess) (\s@AccountLevelPermissions' {} a -> s {blockPublicAccess = a} :: AccountLevelPermissions)
 
-instance Core.FromJSON AccountLevelPermissions where
+instance Data.FromJSON AccountLevelPermissions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountLevelPermissions"
       ( \x ->
           AccountLevelPermissions'
-            Prelude.<$> (x Core..:? "blockPublicAccess")
+            Prelude.<$> (x Data..:? "blockPublicAccess")
       )
 
 instance Prelude.Hashable AccountLevelPermissions where

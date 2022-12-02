@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.DestinationProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Amazon Resource Name (ARN) of the resource to publish to,
@@ -72,14 +73,14 @@ destinationProperties_kmsKeyArn = Lens.lens (\DestinationProperties' {kmsKeyArn}
 destinationProperties_destinationArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
 destinationProperties_destinationArn = Lens.lens (\DestinationProperties' {destinationArn} -> destinationArn) (\s@DestinationProperties' {} a -> s {destinationArn = a} :: DestinationProperties)
 
-instance Core.FromJSON DestinationProperties where
+instance Data.FromJSON DestinationProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DestinationProperties"
       ( \x ->
           DestinationProperties'
-            Prelude.<$> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "destinationArn")
+            Prelude.<$> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "destinationArn")
       )
 
 instance Prelude.Hashable DestinationProperties where
@@ -92,12 +93,12 @@ instance Prelude.NFData DestinationProperties where
     Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf destinationArn
 
-instance Core.ToJSON DestinationProperties where
+instance Data.ToJSON DestinationProperties where
   toJSON DestinationProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("destinationArn" Core..=)
+          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("destinationArn" Data..=)
               Prelude.<$> destinationArn
           ]
       )

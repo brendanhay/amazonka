@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Country where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the country where the remote IP address is
@@ -62,14 +63,14 @@ country_countryName = Lens.lens (\Country' {countryName} -> countryName) (\s@Cou
 country_countryCode :: Lens.Lens' Country (Prelude.Maybe Prelude.Text)
 country_countryCode = Lens.lens (\Country' {countryCode} -> countryCode) (\s@Country' {} a -> s {countryCode = a} :: Country)
 
-instance Core.FromJSON Country where
+instance Data.FromJSON Country where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Country"
       ( \x ->
           Country'
-            Prelude.<$> (x Core..:? "countryName")
-            Prelude.<*> (x Core..:? "countryCode")
+            Prelude.<$> (x Data..:? "countryName")
+            Prelude.<*> (x Data..:? "countryCode")
       )
 
 instance Prelude.Hashable Country where

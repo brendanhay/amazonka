@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Administrator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the administrator account and invitation.
@@ -85,16 +86,16 @@ administrator_relationshipStatus = Lens.lens (\Administrator' {relationshipStatu
 administrator_invitationId :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
 administrator_invitationId = Lens.lens (\Administrator' {invitationId} -> invitationId) (\s@Administrator' {} a -> s {invitationId = a} :: Administrator)
 
-instance Core.FromJSON Administrator where
+instance Data.FromJSON Administrator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Administrator"
       ( \x ->
           Administrator'
-            Prelude.<$> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "invitedAt")
-            Prelude.<*> (x Core..:? "relationshipStatus")
-            Prelude.<*> (x Core..:? "invitationId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "invitedAt")
+            Prelude.<*> (x Data..:? "relationshipStatus")
+            Prelude.<*> (x Data..:? "invitationId")
       )
 
 instance Prelude.Hashable Administrator where

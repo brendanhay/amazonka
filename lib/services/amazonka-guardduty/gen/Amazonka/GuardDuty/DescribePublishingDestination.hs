@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,11 +113,11 @@ instance
       ( \s h x ->
           DescribePublishingDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "destinationId")
-            Prelude.<*> (x Core..:> "destinationType")
-            Prelude.<*> (x Core..:> "status")
-            Prelude.<*> (x Core..:> "publishingFailureStartTimestamp")
-            Prelude.<*> (x Core..:> "destinationProperties")
+            Prelude.<*> (x Data..:> "destinationId")
+            Prelude.<*> (x Data..:> "destinationType")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "publishingFailureStartTimestamp")
+            Prelude.<*> (x Data..:> "destinationProperties")
       )
 
 instance
@@ -132,27 +133,27 @@ instance Prelude.NFData DescribePublishingDestination where
     Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf destinationId
 
-instance Core.ToHeaders DescribePublishingDestination where
+instance Data.ToHeaders DescribePublishingDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribePublishingDestination where
+instance Data.ToPath DescribePublishingDestination where
   toPath DescribePublishingDestination' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/publishingDestination/",
-        Core.toBS destinationId
+        Data.toBS destinationId
       ]
 
-instance Core.ToQuery DescribePublishingDestination where
+instance Data.ToQuery DescribePublishingDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePublishingDestinationResponse' smart constructor.

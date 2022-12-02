@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.NetworkConnectionAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.LocalIpDetails
 import Amazonka.GuardDuty.Types.LocalPortDetails
 import Amazonka.GuardDuty.Types.RemoteIpDetails
@@ -112,19 +113,19 @@ networkConnectionAction_protocol = Lens.lens (\NetworkConnectionAction' {protoco
 networkConnectionAction_remotePortDetails :: Lens.Lens' NetworkConnectionAction (Prelude.Maybe RemotePortDetails)
 networkConnectionAction_remotePortDetails = Lens.lens (\NetworkConnectionAction' {remotePortDetails} -> remotePortDetails) (\s@NetworkConnectionAction' {} a -> s {remotePortDetails = a} :: NetworkConnectionAction)
 
-instance Core.FromJSON NetworkConnectionAction where
+instance Data.FromJSON NetworkConnectionAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkConnectionAction"
       ( \x ->
           NetworkConnectionAction'
-            Prelude.<$> (x Core..:? "connectionDirection")
-            Prelude.<*> (x Core..:? "remoteIpDetails")
-            Prelude.<*> (x Core..:? "localPortDetails")
-            Prelude.<*> (x Core..:? "localIpDetails")
-            Prelude.<*> (x Core..:? "blocked")
-            Prelude.<*> (x Core..:? "protocol")
-            Prelude.<*> (x Core..:? "remotePortDetails")
+            Prelude.<$> (x Data..:? "connectionDirection")
+            Prelude.<*> (x Data..:? "remoteIpDetails")
+            Prelude.<*> (x Data..:? "localPortDetails")
+            Prelude.<*> (x Data..:? "localIpDetails")
+            Prelude.<*> (x Data..:? "blocked")
+            Prelude.<*> (x Data..:? "protocol")
+            Prelude.<*> (x Data..:? "remotePortDetails")
       )
 
 instance Prelude.Hashable NetworkConnectionAction where

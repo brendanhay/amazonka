@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfigurationResu
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current configuration of Kubernetes audit logs as a data source for
@@ -61,15 +62,15 @@ organizationKubernetesAuditLogsConfigurationResult_autoEnable :: Lens.Lens' Orga
 organizationKubernetesAuditLogsConfigurationResult_autoEnable = Lens.lens (\OrganizationKubernetesAuditLogsConfigurationResult' {autoEnable} -> autoEnable) (\s@OrganizationKubernetesAuditLogsConfigurationResult' {} a -> s {autoEnable = a} :: OrganizationKubernetesAuditLogsConfigurationResult)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     OrganizationKubernetesAuditLogsConfigurationResult
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationKubernetesAuditLogsConfigurationResult"
       ( \x ->
           OrganizationKubernetesAuditLogsConfigurationResult'
-            Prelude.<$> (x Core..: "autoEnable")
+            Prelude.<$> (x Data..: "autoEnable")
       )
 
 instance

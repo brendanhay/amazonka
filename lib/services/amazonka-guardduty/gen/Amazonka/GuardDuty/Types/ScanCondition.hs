@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ScanConditionPair
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newScanCondition =
 scanCondition_mapEquals :: Lens.Lens' ScanCondition [ScanConditionPair]
 scanCondition_mapEquals = Lens.lens (\ScanCondition' {mapEquals} -> mapEquals) (\s@ScanCondition' {} a -> s {mapEquals = a} :: ScanCondition) Prelude.. Lens.coerced
 
-instance Core.FromJSON ScanCondition where
+instance Data.FromJSON ScanCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanCondition"
       ( \x ->
           ScanCondition'
-            Prelude.<$> (x Core..:? "mapEquals" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "mapEquals" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ScanCondition where
@@ -70,9 +71,9 @@ instance Prelude.Hashable ScanCondition where
 instance Prelude.NFData ScanCondition where
   rnf ScanCondition' {..} = Prelude.rnf mapEquals
 
-instance Core.ToJSON ScanCondition where
+instance Data.ToJSON ScanCondition where
   toJSON ScanCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("mapEquals" Core..= mapEquals)]
+          [Prelude.Just ("mapEquals" Data..= mapEquals)]
       )

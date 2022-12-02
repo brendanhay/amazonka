@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.SecurityContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Container security context.
@@ -50,13 +51,13 @@ newSecurityContext =
 securityContext_privileged :: Lens.Lens' SecurityContext (Prelude.Maybe Prelude.Bool)
 securityContext_privileged = Lens.lens (\SecurityContext' {privileged} -> privileged) (\s@SecurityContext' {} a -> s {privileged = a} :: SecurityContext)
 
-instance Core.FromJSON SecurityContext where
+instance Data.FromJSON SecurityContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityContext"
       ( \x ->
           SecurityContext'
-            Prelude.<$> (x Core..:? "privileged")
+            Prelude.<$> (x Data..:? "privileged")
       )
 
 instance Prelude.Hashable SecurityContext where

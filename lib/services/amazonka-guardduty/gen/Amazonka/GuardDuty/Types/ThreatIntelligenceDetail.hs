@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ThreatIntelligenceDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An instance of a threat intelligence detail that constitutes evidence
@@ -66,14 +67,14 @@ threatIntelligenceDetail_threatListName = Lens.lens (\ThreatIntelligenceDetail' 
 threatIntelligenceDetail_threatNames :: Lens.Lens' ThreatIntelligenceDetail (Prelude.Maybe [Prelude.Text])
 threatIntelligenceDetail_threatNames = Lens.lens (\ThreatIntelligenceDetail' {threatNames} -> threatNames) (\s@ThreatIntelligenceDetail' {} a -> s {threatNames = a} :: ThreatIntelligenceDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ThreatIntelligenceDetail where
+instance Data.FromJSON ThreatIntelligenceDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThreatIntelligenceDetail"
       ( \x ->
           ThreatIntelligenceDetail'
-            Prelude.<$> (x Core..:? "threatListName")
-            Prelude.<*> (x Core..:? "threatNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "threatListName")
+            Prelude.<*> (x Data..:? "threatNames" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ThreatIntelligenceDetail where

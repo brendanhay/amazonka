@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,13 +101,13 @@ instance Core.AWSRequest GetFilter where
     Response.receiveJSON
       ( \s h x ->
           GetFilterResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "rank")
-            Prelude.<*> (x Core..?> "description")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "rank")
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "action")
-            Prelude.<*> (x Core..:> "findingCriteria")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "action")
+            Prelude.<*> (x Data..:> "findingCriteria")
       )
 
 instance Prelude.Hashable GetFilter where
@@ -119,27 +120,27 @@ instance Prelude.NFData GetFilter where
     Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf filterName
 
-instance Core.ToHeaders GetFilter where
+instance Data.ToHeaders GetFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetFilter where
+instance Data.ToPath GetFilter where
   toPath GetFilter' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/filter/",
-        Core.toBS filterName
+        Data.toBS filterName
       ]
 
-instance Core.ToQuery GetFilter where
+instance Data.ToQuery GetFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFilterResponse' smart constructor.

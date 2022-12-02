@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.AccountDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the account.
@@ -75,11 +76,11 @@ instance Prelude.NFData AccountDetail where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf email
 
-instance Core.ToJSON AccountDetail where
+instance Data.ToJSON AccountDetail where
   toJSON AccountDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("accountId" Core..= accountId),
-            Prelude.Just ("email" Core..= email)
+          [ Prelude.Just ("accountId" Data..= accountId),
+            Prelude.Just ("email" Data..= email)
           ]
       )

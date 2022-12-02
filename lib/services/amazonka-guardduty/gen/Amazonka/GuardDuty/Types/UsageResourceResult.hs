@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.UsageResourceResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.Total
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ usageResourceResult_total = Lens.lens (\UsageResourceResult' {total} -> total) (
 usageResourceResult_resource :: Lens.Lens' UsageResourceResult (Prelude.Maybe Prelude.Text)
 usageResourceResult_resource = Lens.lens (\UsageResourceResult' {resource} -> resource) (\s@UsageResourceResult' {} a -> s {resource = a} :: UsageResourceResult)
 
-instance Core.FromJSON UsageResourceResult where
+instance Data.FromJSON UsageResourceResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageResourceResult"
       ( \x ->
           UsageResourceResult'
-            Prelude.<$> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "resource")
+            Prelude.<$> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "resource")
       )
 
 instance Prelude.Hashable UsageResourceResult where

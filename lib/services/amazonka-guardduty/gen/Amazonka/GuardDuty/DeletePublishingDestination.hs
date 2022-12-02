@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,27 +116,27 @@ instance Prelude.NFData DeletePublishingDestination where
     Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf destinationId
 
-instance Core.ToHeaders DeletePublishingDestination where
+instance Data.ToHeaders DeletePublishingDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePublishingDestination where
+instance Data.ToPath DeletePublishingDestination where
   toPath DeletePublishingDestination' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/publishingDestination/",
-        Core.toBS destinationId
+        Data.toBS destinationId
       ]
 
-instance Core.ToQuery DeletePublishingDestination where
+instance Data.ToQuery DeletePublishingDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePublishingDestinationResponse' smart constructor.

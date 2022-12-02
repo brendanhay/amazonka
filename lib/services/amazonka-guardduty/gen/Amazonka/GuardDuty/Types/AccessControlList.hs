@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.AccessControlList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the current access control policies for the
@@ -69,14 +70,14 @@ accessControlList_allowsPublicReadAccess = Lens.lens (\AccessControlList' {allow
 accessControlList_allowsPublicWriteAccess :: Lens.Lens' AccessControlList (Prelude.Maybe Prelude.Bool)
 accessControlList_allowsPublicWriteAccess = Lens.lens (\AccessControlList' {allowsPublicWriteAccess} -> allowsPublicWriteAccess) (\s@AccessControlList' {} a -> s {allowsPublicWriteAccess = a} :: AccessControlList)
 
-instance Core.FromJSON AccessControlList where
+instance Data.FromJSON AccessControlList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessControlList"
       ( \x ->
           AccessControlList'
-            Prelude.<$> (x Core..:? "allowsPublicReadAccess")
-            Prelude.<*> (x Core..:? "allowsPublicWriteAccess")
+            Prelude.<$> (x Data..:? "allowsPublicReadAccess")
+            Prelude.<*> (x Data..:? "allowsPublicWriteAccess")
       )
 
 instance Prelude.Hashable AccessControlList where

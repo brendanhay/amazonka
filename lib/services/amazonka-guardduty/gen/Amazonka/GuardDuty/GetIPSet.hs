@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,12 +100,12 @@ instance Core.AWSRequest GetIPSet where
     Response.receiveJSON
       ( \s h x ->
           GetIPSetResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "format")
-            Prelude.<*> (x Core..:> "location")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "format")
+            Prelude.<*> (x Data..:> "location")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable GetIPSet where
@@ -117,27 +118,27 @@ instance Prelude.NFData GetIPSet where
     Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf ipSetId
 
-instance Core.ToHeaders GetIPSet where
+instance Data.ToHeaders GetIPSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIPSet where
+instance Data.ToPath GetIPSet where
   toPath GetIPSet' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/ipset/",
-        Core.toBS ipSetId
+        Data.toBS ipSetId
       ]
 
-instance Core.ToQuery GetIPSet where
+instance Data.ToQuery GetIPSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIPSetResponse' smart constructor.

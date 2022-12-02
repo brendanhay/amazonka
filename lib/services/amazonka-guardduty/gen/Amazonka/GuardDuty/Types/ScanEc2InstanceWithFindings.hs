@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanEc2InstanceWithFindings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether Malware Protection for EC2 instances with findings
@@ -62,9 +63,9 @@ instance Prelude.NFData ScanEc2InstanceWithFindings where
   rnf ScanEc2InstanceWithFindings' {..} =
     Prelude.rnf ebsVolumes
 
-instance Core.ToJSON ScanEc2InstanceWithFindings where
+instance Data.ToJSON ScanEc2InstanceWithFindings where
   toJSON ScanEc2InstanceWithFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ebsVolumes" Core..=) Prelude.<$> ebsVolumes]
+          [("ebsVolumes" Data..=) Prelude.<$> ebsVolumes]
       )

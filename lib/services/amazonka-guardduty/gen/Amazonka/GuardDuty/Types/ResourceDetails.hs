@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ResourceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the resources that were scanned in the scan entry.
@@ -50,13 +51,13 @@ newResourceDetails =
 resourceDetails_instanceArn :: Lens.Lens' ResourceDetails (Prelude.Maybe Prelude.Text)
 resourceDetails_instanceArn = Lens.lens (\ResourceDetails' {instanceArn} -> instanceArn) (\s@ResourceDetails' {} a -> s {instanceArn = a} :: ResourceDetails)
 
-instance Core.FromJSON ResourceDetails where
+instance Data.FromJSON ResourceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceDetails"
       ( \x ->
           ResourceDetails'
-            Prelude.<$> (x Core..:? "instanceArn")
+            Prelude.<$> (x Data..:? "instanceArn")
       )
 
 instance Prelude.Hashable ResourceDetails where

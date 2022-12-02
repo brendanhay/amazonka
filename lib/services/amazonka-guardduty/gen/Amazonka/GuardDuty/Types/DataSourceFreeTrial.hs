@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.DataSourceFreeTrial where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about which data sources are enabled for the
@@ -57,13 +58,13 @@ newDataSourceFreeTrial =
 dataSourceFreeTrial_freeTrialDaysRemaining :: Lens.Lens' DataSourceFreeTrial (Prelude.Maybe Prelude.Int)
 dataSourceFreeTrial_freeTrialDaysRemaining = Lens.lens (\DataSourceFreeTrial' {freeTrialDaysRemaining} -> freeTrialDaysRemaining) (\s@DataSourceFreeTrial' {} a -> s {freeTrialDaysRemaining = a} :: DataSourceFreeTrial)
 
-instance Core.FromJSON DataSourceFreeTrial where
+instance Data.FromJSON DataSourceFreeTrial where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceFreeTrial"
       ( \x ->
           DataSourceFreeTrial'
-            Prelude.<$> (x Core..:? "freeTrialDaysRemaining")
+            Prelude.<$> (x Data..:? "freeTrialDaysRemaining")
       )
 
 instance Prelude.Hashable DataSourceFreeTrial where

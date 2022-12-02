@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Container where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.SecurityContext
 import Amazonka.GuardDuty.Types.VolumeMount
 import qualified Amazonka.Prelude as Prelude
@@ -120,19 +121,19 @@ container_image = Lens.lens (\Container' {image} -> image) (\s@Container' {} a -
 container_volumeMounts :: Lens.Lens' Container (Prelude.Maybe [VolumeMount])
 container_volumeMounts = Lens.lens (\Container' {volumeMounts} -> volumeMounts) (\s@Container' {} a -> s {volumeMounts = a} :: Container) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Container where
+instance Data.FromJSON Container where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Container"
       ( \x ->
           Container'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "containerRuntime")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "imagePrefix")
-            Prelude.<*> (x Core..:? "securityContext")
-            Prelude.<*> (x Core..:? "image")
-            Prelude.<*> (x Core..:? "volumeMounts" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "containerRuntime")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "imagePrefix")
+            Prelude.<*> (x Data..:? "securityContext")
+            Prelude.<*> (x Data..:? "image")
+            Prelude.<*> (x Data..:? "volumeMounts" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Container where

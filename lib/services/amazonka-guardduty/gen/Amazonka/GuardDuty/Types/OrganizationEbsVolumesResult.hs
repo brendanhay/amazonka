@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationEbsVolumesResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information on the status of whether EBS volumes
@@ -57,13 +58,13 @@ newOrganizationEbsVolumesResult =
 organizationEbsVolumesResult_autoEnable :: Lens.Lens' OrganizationEbsVolumesResult (Prelude.Maybe Prelude.Bool)
 organizationEbsVolumesResult_autoEnable = Lens.lens (\OrganizationEbsVolumesResult' {autoEnable} -> autoEnable) (\s@OrganizationEbsVolumesResult' {} a -> s {autoEnable = a} :: OrganizationEbsVolumesResult)
 
-instance Core.FromJSON OrganizationEbsVolumesResult where
+instance Data.FromJSON OrganizationEbsVolumesResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrganizationEbsVolumesResult"
       ( \x ->
           OrganizationEbsVolumesResult'
-            Prelude.<$> (x Core..:? "autoEnable")
+            Prelude.<$> (x Data..:? "autoEnable")
       )
 
 instance

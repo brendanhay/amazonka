@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,27 +115,27 @@ instance Prelude.NFData DeleteThreatIntelSet where
     Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf threatIntelSetId
 
-instance Core.ToHeaders DeleteThreatIntelSet where
+instance Data.ToHeaders DeleteThreatIntelSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteThreatIntelSet where
+instance Data.ToPath DeleteThreatIntelSet where
   toPath DeleteThreatIntelSet' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/threatintelset/",
-        Core.toBS threatIntelSetId
+        Data.toBS threatIntelSetId
       ]
 
-instance Core.ToQuery DeleteThreatIntelSet where
+instance Data.ToQuery DeleteThreatIntelSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteThreatIntelSetResponse' smart constructor.

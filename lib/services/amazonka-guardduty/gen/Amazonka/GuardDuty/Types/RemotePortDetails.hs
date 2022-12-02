@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.RemotePortDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the remote port.
@@ -61,14 +62,14 @@ remotePortDetails_port = Lens.lens (\RemotePortDetails' {port} -> port) (\s@Remo
 remotePortDetails_portName :: Lens.Lens' RemotePortDetails (Prelude.Maybe Prelude.Text)
 remotePortDetails_portName = Lens.lens (\RemotePortDetails' {portName} -> portName) (\s@RemotePortDetails' {} a -> s {portName = a} :: RemotePortDetails)
 
-instance Core.FromJSON RemotePortDetails where
+instance Data.FromJSON RemotePortDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemotePortDetails"
       ( \x ->
           RemotePortDetails'
-            Prelude.<$> (x Core..:? "port")
-            Prelude.<*> (x Core..:? "portName")
+            Prelude.<$> (x Data..:? "port")
+            Prelude.<*> (x Data..:? "portName")
       )
 
 instance Prelude.Hashable RemotePortDetails where

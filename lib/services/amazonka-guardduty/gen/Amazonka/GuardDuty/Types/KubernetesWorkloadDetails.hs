@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.KubernetesWorkloadDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.Container
 import Amazonka.GuardDuty.Types.Volume
 import qualified Amazonka.Prelude as Prelude
@@ -111,19 +112,19 @@ kubernetesWorkloadDetails_namespace = Lens.lens (\KubernetesWorkloadDetails' {na
 kubernetesWorkloadDetails_hostNetwork :: Lens.Lens' KubernetesWorkloadDetails (Prelude.Maybe Prelude.Bool)
 kubernetesWorkloadDetails_hostNetwork = Lens.lens (\KubernetesWorkloadDetails' {hostNetwork} -> hostNetwork) (\s@KubernetesWorkloadDetails' {} a -> s {hostNetwork = a} :: KubernetesWorkloadDetails)
 
-instance Core.FromJSON KubernetesWorkloadDetails where
+instance Data.FromJSON KubernetesWorkloadDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KubernetesWorkloadDetails"
       ( \x ->
           KubernetesWorkloadDetails'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "uid")
-            Prelude.<*> (x Core..:? "volumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "namespace")
-            Prelude.<*> (x Core..:? "hostNetwork")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "uid")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "namespace")
+            Prelude.<*> (x Data..:? "hostNetwork")
       )
 
 instance Prelude.Hashable KubernetesWorkloadDetails where

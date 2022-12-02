@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Condition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the condition.
@@ -187,24 +188,24 @@ condition_greaterThanOrEqual = Lens.lens (\Condition' {greaterThanOrEqual} -> gr
 condition_greaterThan :: Lens.Lens' Condition (Prelude.Maybe Prelude.Integer)
 condition_greaterThan = Lens.lens (\Condition' {greaterThan} -> greaterThan) (\s@Condition' {} a -> s {greaterThan = a} :: Condition)
 
-instance Core.FromJSON Condition where
+instance Data.FromJSON Condition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Core..:? "notEquals" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lessThanOrEqual")
-            Prelude.<*> (x Core..:? "neq" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "equals" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lessThan")
-            Prelude.<*> (x Core..:? "lte")
-            Prelude.<*> (x Core..:? "lt")
-            Prelude.<*> (x Core..:? "gte")
-            Prelude.<*> (x Core..:? "eq" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "gt")
-            Prelude.<*> (x Core..:? "greaterThanOrEqual")
-            Prelude.<*> (x Core..:? "greaterThan")
+            Prelude.<$> (x Data..:? "notEquals" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lessThanOrEqual")
+            Prelude.<*> (x Data..:? "neq" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "equals" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lessThan")
+            Prelude.<*> (x Data..:? "lte")
+            Prelude.<*> (x Data..:? "lt")
+            Prelude.<*> (x Data..:? "gte")
+            Prelude.<*> (x Data..:? "eq" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "gt")
+            Prelude.<*> (x Data..:? "greaterThanOrEqual")
+            Prelude.<*> (x Data..:? "greaterThan")
       )
 
 instance Prelude.Hashable Condition where
@@ -237,23 +238,23 @@ instance Prelude.NFData Condition where
       `Prelude.seq` Prelude.rnf greaterThanOrEqual
       `Prelude.seq` Prelude.rnf greaterThan
 
-instance Core.ToJSON Condition where
+instance Data.ToJSON Condition where
   toJSON Condition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("notEquals" Core..=) Prelude.<$> notEquals,
-            ("lessThanOrEqual" Core..=)
+          [ ("notEquals" Data..=) Prelude.<$> notEquals,
+            ("lessThanOrEqual" Data..=)
               Prelude.<$> lessThanOrEqual,
-            ("neq" Core..=) Prelude.<$> neq,
-            ("equals" Core..=) Prelude.<$> equals,
-            ("lessThan" Core..=) Prelude.<$> lessThan,
-            ("lte" Core..=) Prelude.<$> lte,
-            ("lt" Core..=) Prelude.<$> lt,
-            ("gte" Core..=) Prelude.<$> gte,
-            ("eq" Core..=) Prelude.<$> eq,
-            ("gt" Core..=) Prelude.<$> gt,
-            ("greaterThanOrEqual" Core..=)
+            ("neq" Data..=) Prelude.<$> neq,
+            ("equals" Data..=) Prelude.<$> equals,
+            ("lessThan" Data..=) Prelude.<$> lessThan,
+            ("lte" Data..=) Prelude.<$> lte,
+            ("lt" Data..=) Prelude.<$> lt,
+            ("gte" Data..=) Prelude.<$> gte,
+            ("eq" Data..=) Prelude.<$> eq,
+            ("gt" Data..=) Prelude.<$> gt,
+            ("greaterThanOrEqual" Data..=)
               Prelude.<$> greaterThanOrEqual,
-            ("greaterThan" Core..=) Prelude.<$> greaterThan
+            ("greaterThan" Data..=) Prelude.<$> greaterThan
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.UsageStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.UsageAccountResult
 import Amazonka.GuardDuty.Types.UsageDataSourceResult
 import Amazonka.GuardDuty.Types.UsageResourceResult
@@ -86,18 +87,18 @@ usageStatistics_sumByResource = Lens.lens (\UsageStatistics' {sumByResource} -> 
 usageStatistics_sumByAccount :: Lens.Lens' UsageStatistics (Prelude.Maybe [UsageAccountResult])
 usageStatistics_sumByAccount = Lens.lens (\UsageStatistics' {sumByAccount} -> sumByAccount) (\s@UsageStatistics' {} a -> s {sumByAccount = a} :: UsageStatistics) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UsageStatistics where
+instance Data.FromJSON UsageStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageStatistics"
       ( \x ->
           UsageStatistics'
-            Prelude.<$> ( x Core..:? "sumByDataSource"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "sumByDataSource"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "topResources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sumByResource" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sumByAccount" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "topResources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sumByResource" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sumByAccount" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UsageStatistics where

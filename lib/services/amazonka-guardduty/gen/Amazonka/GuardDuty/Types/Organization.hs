@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Organization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the ISP organization of the remote IP
@@ -83,16 +84,16 @@ organization_asn = Lens.lens (\Organization' {asn} -> asn) (\s@Organization' {} 
 organization_asnOrg :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
 organization_asnOrg = Lens.lens (\Organization' {asnOrg} -> asnOrg) (\s@Organization' {} a -> s {asnOrg = a} :: Organization)
 
-instance Core.FromJSON Organization where
+instance Data.FromJSON Organization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Organization"
       ( \x ->
           Organization'
-            Prelude.<$> (x Core..:? "isp")
-            Prelude.<*> (x Core..:? "org")
-            Prelude.<*> (x Core..:? "asn")
-            Prelude.<*> (x Core..:? "asnOrg")
+            Prelude.<$> (x Data..:? "isp")
+            Prelude.<*> (x Data..:? "org")
+            Prelude.<*> (x Data..:? "asn")
+            Prelude.<*> (x Data..:? "asnOrg")
       )
 
 instance Prelude.Hashable Organization where

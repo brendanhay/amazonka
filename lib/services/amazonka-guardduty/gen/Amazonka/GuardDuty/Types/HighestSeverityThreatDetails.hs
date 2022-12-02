@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.HighestSeverityThreatDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details of the highest severity threat detected during scan and
@@ -78,15 +79,15 @@ highestSeverityThreatDetails_count = Lens.lens (\HighestSeverityThreatDetails' {
 highestSeverityThreatDetails_threatName :: Lens.Lens' HighestSeverityThreatDetails (Prelude.Maybe Prelude.Text)
 highestSeverityThreatDetails_threatName = Lens.lens (\HighestSeverityThreatDetails' {threatName} -> threatName) (\s@HighestSeverityThreatDetails' {} a -> s {threatName = a} :: HighestSeverityThreatDetails)
 
-instance Core.FromJSON HighestSeverityThreatDetails where
+instance Data.FromJSON HighestSeverityThreatDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HighestSeverityThreatDetails"
       ( \x ->
           HighestSeverityThreatDetails'
-            Prelude.<$> (x Core..:? "severity")
-            Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "threatName")
+            Prelude.<$> (x Data..:? "severity")
+            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "threatName")
       )
 
 instance

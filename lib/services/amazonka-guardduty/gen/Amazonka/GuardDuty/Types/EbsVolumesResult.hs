@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.EbsVolumesResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ ebsVolumesResult_status = Lens.lens (\EbsVolumesResult' {status} -> status) (\s@
 ebsVolumesResult_reason :: Lens.Lens' EbsVolumesResult (Prelude.Maybe Prelude.Text)
 ebsVolumesResult_reason = Lens.lens (\EbsVolumesResult' {reason} -> reason) (\s@EbsVolumesResult' {} a -> s {reason = a} :: EbsVolumesResult)
 
-instance Core.FromJSON EbsVolumesResult where
+instance Data.FromJSON EbsVolumesResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EbsVolumesResult"
       ( \x ->
           EbsVolumesResult'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable EbsVolumesResult where

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.AccessKeyDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the access keys.
@@ -79,16 +80,16 @@ accessKeyDetails_userType = Lens.lens (\AccessKeyDetails' {userType} -> userType
 accessKeyDetails_accessKeyId :: Lens.Lens' AccessKeyDetails (Prelude.Maybe Prelude.Text)
 accessKeyDetails_accessKeyId = Lens.lens (\AccessKeyDetails' {accessKeyId} -> accessKeyId) (\s@AccessKeyDetails' {} a -> s {accessKeyId = a} :: AccessKeyDetails)
 
-instance Core.FromJSON AccessKeyDetails where
+instance Data.FromJSON AccessKeyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessKeyDetails"
       ( \x ->
           AccessKeyDetails'
-            Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "userName")
-            Prelude.<*> (x Core..:? "userType")
-            Prelude.<*> (x Core..:? "accessKeyId")
+            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<*> (x Data..:? "userName")
+            Prelude.<*> (x Data..:? "userType")
+            Prelude.<*> (x Data..:? "accessKeyId")
       )
 
 instance Prelude.Hashable AccessKeyDetails where

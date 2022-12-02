@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.UsageDataSourceResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSource
 import Amazonka.GuardDuty.Types.Total
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ usageDataSourceResult_total = Lens.lens (\UsageDataSourceResult' {total} -> tota
 usageDataSourceResult_dataSource :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe DataSource)
 usageDataSourceResult_dataSource = Lens.lens (\UsageDataSourceResult' {dataSource} -> dataSource) (\s@UsageDataSourceResult' {} a -> s {dataSource = a} :: UsageDataSourceResult)
 
-instance Core.FromJSON UsageDataSourceResult where
+instance Data.FromJSON UsageDataSourceResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageDataSourceResult"
       ( \x ->
           UsageDataSourceResult'
-            Prelude.<$> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "dataSource")
+            Prelude.<$> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "dataSource")
       )
 
 instance Prelude.Hashable UsageDataSourceResult where

@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.FilterCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the condition.
@@ -91,12 +92,12 @@ instance Prelude.NFData FilterCondition where
       `Prelude.seq` Prelude.rnf lessThan
       `Prelude.seq` Prelude.rnf greaterThan
 
-instance Core.ToJSON FilterCondition where
+instance Data.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("equalsValue" Core..=) Prelude.<$> equalsValue,
-            ("lessThan" Core..=) Prelude.<$> lessThan,
-            ("greaterThan" Core..=) Prelude.<$> greaterThan
+          [ ("equalsValue" Data..=) Prelude.<$> equalsValue,
+            ("lessThan" Data..=) Prelude.<$> lessThan,
+            ("greaterThan" Data..=) Prelude.<$> greaterThan
           ]
       )

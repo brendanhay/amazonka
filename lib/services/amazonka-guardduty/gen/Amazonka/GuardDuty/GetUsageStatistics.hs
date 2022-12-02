@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,8 +164,8 @@ instance Core.AWSRequest GetUsageStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetUsageStatisticsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "usageStatistics")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "usageStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,40 +187,40 @@ instance Prelude.NFData GetUsageStatistics where
       `Prelude.seq` Prelude.rnf usageStatisticType
       `Prelude.seq` Prelude.rnf usageCriteria
 
-instance Core.ToHeaders GetUsageStatistics where
+instance Data.ToHeaders GetUsageStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUsageStatistics where
+instance Data.ToJSON GetUsageStatistics where
   toJSON GetUsageStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("unit" Core..=) Prelude.<$> unit,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("unit" Data..=) Prelude.<$> unit,
             Prelude.Just
-              ("usageStatisticsType" Core..= usageStatisticType),
+              ("usageStatisticsType" Data..= usageStatisticType),
             Prelude.Just
-              ("usageCriteria" Core..= usageCriteria)
+              ("usageCriteria" Data..= usageCriteria)
           ]
       )
 
-instance Core.ToPath GetUsageStatistics where
+instance Data.ToPath GetUsageStatistics where
   toPath GetUsageStatistics' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/usage/statistics"
       ]
 
-instance Core.ToQuery GetUsageStatistics where
+instance Data.ToQuery GetUsageStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetUsageStatisticsResponse' smart constructor.

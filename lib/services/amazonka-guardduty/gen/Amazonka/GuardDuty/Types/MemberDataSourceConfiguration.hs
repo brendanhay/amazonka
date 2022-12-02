@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.MemberDataSourceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceConfigurationsResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -70,14 +71,14 @@ memberDataSourceConfiguration_accountId = Lens.lens (\MemberDataSourceConfigurat
 memberDataSourceConfiguration_dataSources :: Lens.Lens' MemberDataSourceConfiguration DataSourceConfigurationsResult
 memberDataSourceConfiguration_dataSources = Lens.lens (\MemberDataSourceConfiguration' {dataSources} -> dataSources) (\s@MemberDataSourceConfiguration' {} a -> s {dataSources = a} :: MemberDataSourceConfiguration)
 
-instance Core.FromJSON MemberDataSourceConfiguration where
+instance Data.FromJSON MemberDataSourceConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberDataSourceConfiguration"
       ( \x ->
           MemberDataSourceConfiguration'
-            Prelude.<$> (x Core..: "accountId")
-            Prelude.<*> (x Core..: "dataSources")
+            Prelude.<$> (x Data..: "accountId")
+            Prelude.<*> (x Data..: "dataSources")
       )
 
 instance

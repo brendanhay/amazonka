@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.CloudTrailConfigurationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newCloudTrailConfigurationResult pStatus_ =
 cloudTrailConfigurationResult_status :: Lens.Lens' CloudTrailConfigurationResult DataSourceStatus
 cloudTrailConfigurationResult_status = Lens.lens (\CloudTrailConfigurationResult' {status} -> status) (\s@CloudTrailConfigurationResult' {} a -> s {status = a} :: CloudTrailConfigurationResult)
 
-instance Core.FromJSON CloudTrailConfigurationResult where
+instance Data.FromJSON CloudTrailConfigurationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudTrailConfigurationResult"
       ( \x ->
           CloudTrailConfigurationResult'
-            Prelude.<$> (x Core..: "status")
+            Prelude.<$> (x Data..: "status")
       )
 
 instance

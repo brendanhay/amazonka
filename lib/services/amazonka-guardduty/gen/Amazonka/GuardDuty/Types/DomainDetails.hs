@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.DomainDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the domain.
@@ -50,12 +51,12 @@ newDomainDetails =
 domainDetails_domain :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
 domainDetails_domain = Lens.lens (\DomainDetails' {domain} -> domain) (\s@DomainDetails' {} a -> s {domain = a} :: DomainDetails)
 
-instance Core.FromJSON DomainDetails where
+instance Data.FromJSON DomainDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainDetails"
       ( \x ->
-          DomainDetails' Prelude.<$> (x Core..:? "domain")
+          DomainDetails' Prelude.<$> (x Data..:? "domain")
       )
 
 instance Prelude.Hashable DomainDetails where

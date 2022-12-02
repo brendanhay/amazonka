@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,7 +138,7 @@ instance Core.AWSRequest InviteMembers where
       ( \s h x ->
           InviteMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "unprocessedAccounts"
+            Prelude.<*> ( x Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -156,37 +157,37 @@ instance Prelude.NFData InviteMembers where
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToHeaders InviteMembers where
+instance Data.ToHeaders InviteMembers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InviteMembers where
+instance Data.ToJSON InviteMembers where
   toJSON InviteMembers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("message" Core..=) Prelude.<$> message,
-            ("disableEmailNotification" Core..=)
+          [ ("message" Data..=) Prelude.<$> message,
+            ("disableEmailNotification" Data..=)
               Prelude.<$> disableEmailNotification,
-            Prelude.Just ("accountIds" Core..= accountIds)
+            Prelude.Just ("accountIds" Data..= accountIds)
           ]
       )
 
-instance Core.ToPath InviteMembers where
+instance Data.ToPath InviteMembers where
   toPath InviteMembers' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/member/invite"
       ]
 
-instance Core.ToQuery InviteMembers where
+instance Data.ToQuery InviteMembers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInviteMembersResponse' smart constructor.

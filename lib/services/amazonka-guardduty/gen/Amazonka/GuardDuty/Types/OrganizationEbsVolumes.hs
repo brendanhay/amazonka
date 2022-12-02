@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.OrganizationEbsVolumes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Organization-wide EBS volumes scan configuration.
@@ -64,9 +65,9 @@ instance Prelude.NFData OrganizationEbsVolumes where
   rnf OrganizationEbsVolumes' {..} =
     Prelude.rnf autoEnable
 
-instance Core.ToJSON OrganizationEbsVolumes where
+instance Data.ToJSON OrganizationEbsVolumes where
   toJSON OrganizationEbsVolumes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("autoEnable" Core..=) Prelude.<$> autoEnable]
+          [("autoEnable" Data..=) Prelude.<$> autoEnable]
       )

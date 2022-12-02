@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.S3BucketDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DefaultServerSideEncryption
 import Amazonka.GuardDuty.Types.Owner
 import Amazonka.GuardDuty.Types.PublicAccess
@@ -46,7 +47,7 @@ data S3BucketDetail = S3BucketDetail'
     -- | The owner of the S3 bucket.
     owner :: Prelude.Maybe Owner,
     -- | The date and time the bucket was created at.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,22 +118,22 @@ s3BucketDetail_owner = Lens.lens (\S3BucketDetail' {owner} -> owner) (\s@S3Bucke
 
 -- | The date and time the bucket was created at.
 s3BucketDetail_createdAt :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.UTCTime)
-s3BucketDetail_createdAt = Lens.lens (\S3BucketDetail' {createdAt} -> createdAt) (\s@S3BucketDetail' {} a -> s {createdAt = a} :: S3BucketDetail) Prelude.. Lens.mapping Core._Time
+s3BucketDetail_createdAt = Lens.lens (\S3BucketDetail' {createdAt} -> createdAt) (\s@S3BucketDetail' {} a -> s {createdAt = a} :: S3BucketDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON S3BucketDetail where
+instance Data.FromJSON S3BucketDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3BucketDetail"
       ( \x ->
           S3BucketDetail'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "defaultServerSideEncryption")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "publicAccess")
-            Prelude.<*> (x Core..:? "owner")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "defaultServerSideEncryption")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "publicAccess")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable S3BucketDetail where

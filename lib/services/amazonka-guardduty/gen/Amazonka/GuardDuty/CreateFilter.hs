@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -551,7 +552,7 @@ instance Core.AWSRequest CreateFilter where
       ( \s h x ->
           CreateFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Data..:> "name")
       )
 
 instance Prelude.Hashable CreateFilter where
@@ -576,38 +577,38 @@ instance Prelude.NFData CreateFilter where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf findingCriteria
 
-instance Core.ToHeaders CreateFilter where
+instance Data.ToHeaders CreateFilter where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFilter where
+instance Data.ToJSON CreateFilter where
   toJSON CreateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("rank" Core..=) Prelude.<$> rank,
-            ("description" Core..=) Prelude.<$> description,
-            ("action" Core..=) Prelude.<$> action,
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("rank" Data..=) Prelude.<$> rank,
+            ("description" Data..=) Prelude.<$> description,
+            ("action" Data..=) Prelude.<$> action,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("findingCriteria" Core..= findingCriteria)
+              ("findingCriteria" Data..= findingCriteria)
           ]
       )
 
-instance Core.ToPath CreateFilter where
+instance Data.ToPath CreateFilter where
   toPath CreateFilter' {..} =
     Prelude.mconcat
-      ["/detector/", Core.toBS detectorId, "/filter"]
+      ["/detector/", Data.toBS detectorId, "/filter"]
 
-instance Core.ToQuery CreateFilter where
+instance Data.ToQuery CreateFilter where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFilterResponse' smart constructor.

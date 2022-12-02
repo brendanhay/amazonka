@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ThreatsDetectedItemCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains total number of infected files.
@@ -50,13 +51,13 @@ newThreatsDetectedItemCount =
 threatsDetectedItemCount_files :: Lens.Lens' ThreatsDetectedItemCount (Prelude.Maybe Prelude.Int)
 threatsDetectedItemCount_files = Lens.lens (\ThreatsDetectedItemCount' {files} -> files) (\s@ThreatsDetectedItemCount' {} a -> s {files = a} :: ThreatsDetectedItemCount)
 
-instance Core.FromJSON ThreatsDetectedItemCount where
+instance Data.FromJSON ThreatsDetectedItemCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThreatsDetectedItemCount"
       ( \x ->
           ThreatsDetectedItemCount'
-            Prelude.<$> (x Core..:? "files")
+            Prelude.<$> (x Data..:? "files")
       )
 
 instance Prelude.Hashable ThreatsDetectedItemCount where

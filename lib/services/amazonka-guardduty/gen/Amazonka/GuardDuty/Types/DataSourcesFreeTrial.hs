@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.DataSourcesFreeTrial where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceFreeTrial
 import Amazonka.GuardDuty.Types.KubernetesDataSourceFreeTrial
 import Amazonka.GuardDuty.Types.MalwareProtectionDataSourceFreeTrial
@@ -105,18 +106,18 @@ dataSourcesFreeTrial_kubernetes = Lens.lens (\DataSourcesFreeTrial' {kubernetes}
 dataSourcesFreeTrial_flowLogs :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe DataSourceFreeTrial)
 dataSourcesFreeTrial_flowLogs = Lens.lens (\DataSourcesFreeTrial' {flowLogs} -> flowLogs) (\s@DataSourcesFreeTrial' {} a -> s {flowLogs = a} :: DataSourcesFreeTrial)
 
-instance Core.FromJSON DataSourcesFreeTrial where
+instance Data.FromJSON DataSourcesFreeTrial where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourcesFreeTrial"
       ( \x ->
           DataSourcesFreeTrial'
-            Prelude.<$> (x Core..:? "malwareProtection")
-            Prelude.<*> (x Core..:? "cloudTrail")
-            Prelude.<*> (x Core..:? "dnsLogs")
-            Prelude.<*> (x Core..:? "s3Logs")
-            Prelude.<*> (x Core..:? "kubernetes")
-            Prelude.<*> (x Core..:? "flowLogs")
+            Prelude.<$> (x Data..:? "malwareProtection")
+            Prelude.<*> (x Data..:? "cloudTrail")
+            Prelude.<*> (x Data..:? "dnsLogs")
+            Prelude.<*> (x Data..:? "s3Logs")
+            Prelude.<*> (x Data..:? "kubernetes")
+            Prelude.<*> (x Data..:? "flowLogs")
       )
 
 instance Prelude.Hashable DataSourcesFreeTrial where

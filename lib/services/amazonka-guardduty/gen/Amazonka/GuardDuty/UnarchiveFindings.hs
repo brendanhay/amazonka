@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,33 +108,33 @@ instance Prelude.NFData UnarchiveFindings where
     Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf findingIds
 
-instance Core.ToHeaders UnarchiveFindings where
+instance Data.ToHeaders UnarchiveFindings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UnarchiveFindings where
+instance Data.ToJSON UnarchiveFindings where
   toJSON UnarchiveFindings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("findingIds" Core..= findingIds)]
+          [Prelude.Just ("findingIds" Data..= findingIds)]
       )
 
-instance Core.ToPath UnarchiveFindings where
+instance Data.ToPath UnarchiveFindings where
   toPath UnarchiveFindings' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/findings/unarchive"
       ]
 
-instance Core.ToQuery UnarchiveFindings where
+instance Data.ToQuery UnarchiveFindings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUnarchiveFindingsResponse' smart constructor.

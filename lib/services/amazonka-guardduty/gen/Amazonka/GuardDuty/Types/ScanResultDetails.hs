@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanResultDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ScanResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newScanResultDetails =
 scanResultDetails_scanResult :: Lens.Lens' ScanResultDetails (Prelude.Maybe ScanResult)
 scanResultDetails_scanResult = Lens.lens (\ScanResultDetails' {scanResult} -> scanResult) (\s@ScanResultDetails' {} a -> s {scanResult = a} :: ScanResultDetails)
 
-instance Core.FromJSON ScanResultDetails where
+instance Data.FromJSON ScanResultDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanResultDetails"
       ( \x ->
           ScanResultDetails'
-            Prelude.<$> (x Core..:? "scanResult")
+            Prelude.<$> (x Data..:? "scanResult")
       )
 
 instance Prelude.Hashable ScanResultDetails where

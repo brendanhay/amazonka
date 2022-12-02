@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,8 +131,8 @@ instance Core.AWSRequest CreateDetector where
     Response.receiveJSON
       ( \s h x ->
           CreateDetectorResponse'
-            Prelude.<$> (x Core..?> "unprocessedDataSources")
-            Prelude.<*> (x Core..?> "detectorId")
+            Prelude.<$> (x Data..?> "unprocessedDataSources")
+            Prelude.<*> (x Data..?> "detectorId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,34 +152,34 @@ instance Prelude.NFData CreateDetector where
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
       `Prelude.seq` Prelude.rnf enable
 
-instance Core.ToHeaders CreateDetector where
+instance Data.ToHeaders CreateDetector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDetector where
+instance Data.ToJSON CreateDetector where
   toJSON CreateDetector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("dataSources" Core..=) Prelude.<$> dataSources,
-            ("findingPublishingFrequency" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("dataSources" Data..=) Prelude.<$> dataSources,
+            ("findingPublishingFrequency" Data..=)
               Prelude.<$> findingPublishingFrequency,
-            Prelude.Just ("enable" Core..= enable)
+            Prelude.Just ("enable" Data..= enable)
           ]
       )
 
-instance Core.ToPath CreateDetector where
+instance Data.ToPath CreateDetector where
   toPath = Prelude.const "/detector"
 
-instance Core.ToQuery CreateDetector where
+instance Data.ToQuery CreateDetector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDetectorResponse' smart constructor.

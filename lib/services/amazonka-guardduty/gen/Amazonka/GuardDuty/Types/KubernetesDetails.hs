@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.KubernetesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.KubernetesUserDetails
 import Amazonka.GuardDuty.Types.KubernetesWorkloadDetails
 import qualified Amazonka.Prelude as Prelude
@@ -65,14 +66,14 @@ kubernetesDetails_kubernetesUserDetails = Lens.lens (\KubernetesDetails' {kubern
 kubernetesDetails_kubernetesWorkloadDetails :: Lens.Lens' KubernetesDetails (Prelude.Maybe KubernetesWorkloadDetails)
 kubernetesDetails_kubernetesWorkloadDetails = Lens.lens (\KubernetesDetails' {kubernetesWorkloadDetails} -> kubernetesWorkloadDetails) (\s@KubernetesDetails' {} a -> s {kubernetesWorkloadDetails = a} :: KubernetesDetails)
 
-instance Core.FromJSON KubernetesDetails where
+instance Data.FromJSON KubernetesDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KubernetesDetails"
       ( \x ->
           KubernetesDetails'
-            Prelude.<$> (x Core..:? "kubernetesUserDetails")
-            Prelude.<*> (x Core..:? "kubernetesWorkloadDetails")
+            Prelude.<$> (x Data..:? "kubernetesUserDetails")
+            Prelude.<*> (x Data..:? "kubernetesWorkloadDetails")
       )
 
 instance Prelude.Hashable KubernetesDetails where

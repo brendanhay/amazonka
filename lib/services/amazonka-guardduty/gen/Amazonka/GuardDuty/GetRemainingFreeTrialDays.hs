@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,10 +99,10 @@ instance Core.AWSRequest GetRemainingFreeTrialDays where
     Response.receiveJSON
       ( \s h x ->
           GetRemainingFreeTrialDaysResponse'
-            Prelude.<$> ( x Core..?> "unprocessedAccounts"
+            Prelude.<$> ( x Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,33 +116,33 @@ instance Prelude.NFData GetRemainingFreeTrialDays where
     Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf detectorId
 
-instance Core.ToHeaders GetRemainingFreeTrialDays where
+instance Data.ToHeaders GetRemainingFreeTrialDays where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRemainingFreeTrialDays where
+instance Data.ToJSON GetRemainingFreeTrialDays where
   toJSON GetRemainingFreeTrialDays' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("accountIds" Core..=) Prelude.<$> accountIds]
+          [("accountIds" Data..=) Prelude.<$> accountIds]
       )
 
-instance Core.ToPath GetRemainingFreeTrialDays where
+instance Data.ToPath GetRemainingFreeTrialDays where
   toPath GetRemainingFreeTrialDays' {..} =
     Prelude.mconcat
       [ "/detector/",
-        Core.toBS detectorId,
+        Data.toBS detectorId,
         "/freeTrial/daysRemaining"
       ]
 
-instance Core.ToQuery GetRemainingFreeTrialDays where
+instance Data.ToQuery GetRemainingFreeTrialDays where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRemainingFreeTrialDaysResponse' smart constructor.

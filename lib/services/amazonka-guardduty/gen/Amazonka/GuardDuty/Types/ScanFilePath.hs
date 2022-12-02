@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanFilePath where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details of infected file including name, file path and hash.
@@ -79,16 +80,16 @@ scanFilePath_fileName = Lens.lens (\ScanFilePath' {fileName} -> fileName) (\s@Sc
 scanFilePath_volumeArn :: Lens.Lens' ScanFilePath (Prelude.Maybe Prelude.Text)
 scanFilePath_volumeArn = Lens.lens (\ScanFilePath' {volumeArn} -> volumeArn) (\s@ScanFilePath' {} a -> s {volumeArn = a} :: ScanFilePath)
 
-instance Core.FromJSON ScanFilePath where
+instance Data.FromJSON ScanFilePath where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanFilePath"
       ( \x ->
           ScanFilePath'
-            Prelude.<$> (x Core..:? "filePath")
-            Prelude.<*> (x Core..:? "hash")
-            Prelude.<*> (x Core..:? "fileName")
-            Prelude.<*> (x Core..:? "volumeArn")
+            Prelude.<$> (x Data..:? "filePath")
+            Prelude.<*> (x Data..:? "hash")
+            Prelude.<*> (x Data..:? "fileName")
+            Prelude.<*> (x Data..:? "volumeArn")
       )
 
 instance Prelude.Hashable ScanFilePath where

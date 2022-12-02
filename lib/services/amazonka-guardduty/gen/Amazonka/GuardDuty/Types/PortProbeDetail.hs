@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.PortProbeDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.LocalIpDetails
 import Amazonka.GuardDuty.Types.LocalPortDetails
 import Amazonka.GuardDuty.Types.RemoteIpDetails
@@ -73,15 +74,15 @@ portProbeDetail_localPortDetails = Lens.lens (\PortProbeDetail' {localPortDetail
 portProbeDetail_localIpDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe LocalIpDetails)
 portProbeDetail_localIpDetails = Lens.lens (\PortProbeDetail' {localIpDetails} -> localIpDetails) (\s@PortProbeDetail' {} a -> s {localIpDetails = a} :: PortProbeDetail)
 
-instance Core.FromJSON PortProbeDetail where
+instance Data.FromJSON PortProbeDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortProbeDetail"
       ( \x ->
           PortProbeDetail'
-            Prelude.<$> (x Core..:? "remoteIpDetails")
-            Prelude.<*> (x Core..:? "localPortDetails")
-            Prelude.<*> (x Core..:? "localIpDetails")
+            Prelude.<$> (x Data..:? "remoteIpDetails")
+            Prelude.<*> (x Data..:? "localPortDetails")
+            Prelude.<*> (x Data..:? "localIpDetails")
       )
 
 instance Prelude.Hashable PortProbeDetail where

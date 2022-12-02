@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.EbsVolumeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.VolumeDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,17 +64,17 @@ ebsVolumeDetails_skippedVolumeDetails = Lens.lens (\EbsVolumeDetails' {skippedVo
 ebsVolumeDetails_scannedVolumeDetails :: Lens.Lens' EbsVolumeDetails (Prelude.Maybe [VolumeDetail])
 ebsVolumeDetails_scannedVolumeDetails = Lens.lens (\EbsVolumeDetails' {scannedVolumeDetails} -> scannedVolumeDetails) (\s@EbsVolumeDetails' {} a -> s {scannedVolumeDetails = a} :: EbsVolumeDetails) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EbsVolumeDetails where
+instance Data.FromJSON EbsVolumeDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EbsVolumeDetails"
       ( \x ->
           EbsVolumeDetails'
-            Prelude.<$> ( x Core..:? "skippedVolumeDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "skippedVolumeDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "scannedVolumeDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "scannedVolumeDetails"
+                            Data..!= Prelude.mempty
                         )
       )
 

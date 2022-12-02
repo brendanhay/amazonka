@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.UsageAccountResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.Total
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ usageAccountResult_total = Lens.lens (\UsageAccountResult' {total} -> total) (\s
 usageAccountResult_accountId :: Lens.Lens' UsageAccountResult (Prelude.Maybe Prelude.Text)
 usageAccountResult_accountId = Lens.lens (\UsageAccountResult' {accountId} -> accountId) (\s@UsageAccountResult' {} a -> s {accountId = a} :: UsageAccountResult)
 
-instance Core.FromJSON UsageAccountResult where
+instance Data.FromJSON UsageAccountResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsageAccountResult"
       ( \x ->
           UsageAccountResult'
-            Prelude.<$> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "total")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable UsageAccountResult where

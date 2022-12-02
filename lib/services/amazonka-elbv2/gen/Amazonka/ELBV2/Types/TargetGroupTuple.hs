@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.TargetGroupTuple where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about how traffic will be distributed between multiple
@@ -62,11 +63,11 @@ targetGroupTuple_targetGroupArn = Lens.lens (\TargetGroupTuple' {targetGroupArn}
 targetGroupTuple_weight :: Lens.Lens' TargetGroupTuple (Prelude.Maybe Prelude.Int)
 targetGroupTuple_weight = Lens.lens (\TargetGroupTuple' {weight} -> weight) (\s@TargetGroupTuple' {} a -> s {weight = a} :: TargetGroupTuple)
 
-instance Core.FromXML TargetGroupTuple where
+instance Data.FromXML TargetGroupTuple where
   parseXML x =
     TargetGroupTuple'
-      Prelude.<$> (x Core..@? "TargetGroupArn")
-      Prelude.<*> (x Core..@? "Weight")
+      Prelude.<$> (x Data..@? "TargetGroupArn")
+      Prelude.<*> (x Data..@? "Weight")
 
 instance Prelude.Hashable TargetGroupTuple where
   hashWithSalt _salt TargetGroupTuple' {..} =
@@ -78,9 +79,9 @@ instance Prelude.NFData TargetGroupTuple where
     Prelude.rnf targetGroupArn
       `Prelude.seq` Prelude.rnf weight
 
-instance Core.ToQuery TargetGroupTuple where
+instance Data.ToQuery TargetGroupTuple where
   toQuery TargetGroupTuple' {..} =
     Prelude.mconcat
-      [ "TargetGroupArn" Core.=: targetGroupArn,
-        "Weight" Core.=: weight
+      [ "TargetGroupArn" Data.=: targetGroupArn,
+        "Weight" Data.=: weight
       ]

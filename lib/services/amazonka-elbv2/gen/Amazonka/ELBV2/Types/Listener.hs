@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.Listener where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.Action
 import Amazonka.ELBV2.Types.Certificate
 import Amazonka.ELBV2.Types.ProtocolEnum
@@ -124,22 +125,22 @@ listener_sslPolicy = Lens.lens (\Listener' {sslPolicy} -> sslPolicy) (\s@Listene
 listener_alpnPolicy :: Lens.Lens' Listener (Prelude.Maybe [Prelude.Text])
 listener_alpnPolicy = Lens.lens (\Listener' {alpnPolicy} -> alpnPolicy) (\s@Listener' {} a -> s {alpnPolicy = a} :: Listener) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Listener where
+instance Data.FromXML Listener where
   parseXML x =
     Listener'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "ListenerArn")
-      Prelude.<*> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "ListenerArn")
+      Prelude.<*> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "LoadBalancerArn")
-      Prelude.<*> ( x Core..@? "DefaultActions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "LoadBalancerArn")
+      Prelude.<*> ( x Data..@? "DefaultActions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Protocol")
-      Prelude.<*> (x Core..@? "SslPolicy")
-      Prelude.<*> ( x Core..@? "AlpnPolicy" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "Protocol")
+      Prelude.<*> (x Data..@? "SslPolicy")
+      Prelude.<*> ( x Data..@? "AlpnPolicy" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable Listener where

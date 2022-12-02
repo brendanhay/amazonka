@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -146,10 +147,10 @@ instance Core.AWSRequest DescribeListenerCertificates where
       "DescribeListenerCertificatesResult"
       ( \s h x ->
           DescribeListenerCertificatesResponse'
-            Prelude.<$> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextMarker")
+            Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,24 +169,24 @@ instance Prelude.NFData DescribeListenerCertificates where
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf listenerArn
 
-instance Core.ToHeaders DescribeListenerCertificates where
+instance Data.ToHeaders DescribeListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeListenerCertificates where
+instance Data.ToPath DescribeListenerCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeListenerCertificates where
+instance Data.ToQuery DescribeListenerCertificates where
   toQuery DescribeListenerCertificates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeListenerCertificates" ::
+          Data.=: ( "DescribeListenerCertificates" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "PageSize" Core.=: pageSize,
-        "ListenerArn" Core.=: listenerArn
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "PageSize" Data.=: pageSize,
+        "ListenerArn" Data.=: listenerArn
       ]
 
 -- | /See:/ 'newDescribeListenerCertificatesResponse' smart constructor.

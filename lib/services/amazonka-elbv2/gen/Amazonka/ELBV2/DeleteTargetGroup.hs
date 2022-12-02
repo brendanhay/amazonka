@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,20 +104,20 @@ instance Prelude.NFData DeleteTargetGroup where
   rnf DeleteTargetGroup' {..} =
     Prelude.rnf targetGroupArn
 
-instance Core.ToHeaders DeleteTargetGroup where
+instance Data.ToHeaders DeleteTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteTargetGroup where
+instance Data.ToPath DeleteTargetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTargetGroup where
+instance Data.ToQuery DeleteTargetGroup where
   toQuery DeleteTargetGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTargetGroup" :: Prelude.ByteString),
+          Data.=: ("DeleteTargetGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "TargetGroupArn" Core.=: targetGroupArn
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "TargetGroupArn" Data.=: targetGroupArn
       ]
 
 -- | /See:/ 'newDeleteTargetGroupResponse' smart constructor.

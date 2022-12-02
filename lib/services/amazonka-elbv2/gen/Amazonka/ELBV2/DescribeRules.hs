@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,10 +142,10 @@ instance Core.AWSRequest DescribeRules where
       "DescribeRulesResult"
       ( \s h x ->
           DescribeRulesResponse'
-            Prelude.<$> ( x Core..@? "Rules" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Rules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextMarker")
+            Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,25 +163,25 @@ instance Prelude.NFData DescribeRules where
       `Prelude.seq` Prelude.rnf ruleArns
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders DescribeRules where
+instance Data.ToHeaders DescribeRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeRules where
+instance Data.ToPath DescribeRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRules where
+instance Data.ToQuery DescribeRules where
   toQuery DescribeRules' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeRules" :: Prelude.ByteString),
+          Data.=: ("DescribeRules" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "ListenerArn" Core.=: listenerArn,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "ListenerArn" Data.=: listenerArn,
         "RuleArns"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> ruleArns),
-        "PageSize" Core.=: pageSize
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> ruleArns),
+        "PageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newDescribeRulesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.SourceIpConditionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a source IP condition.
@@ -76,11 +77,11 @@ newSourceIpConditionConfig =
 sourceIpConditionConfig_values :: Lens.Lens' SourceIpConditionConfig (Prelude.Maybe [Prelude.Text])
 sourceIpConditionConfig_values = Lens.lens (\SourceIpConditionConfig' {values} -> values) (\s@SourceIpConditionConfig' {} a -> s {values = a} :: SourceIpConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML SourceIpConditionConfig where
+instance Data.FromXML SourceIpConditionConfig where
   parseXML x =
     SourceIpConditionConfig'
-      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable SourceIpConditionConfig where
@@ -90,10 +91,10 @@ instance Prelude.Hashable SourceIpConditionConfig where
 instance Prelude.NFData SourceIpConditionConfig where
   rnf SourceIpConditionConfig' {..} = Prelude.rnf values
 
-instance Core.ToQuery SourceIpConditionConfig where
+instance Data.ToQuery SourceIpConditionConfig where
   toQuery SourceIpConditionConfig' {..} =
     Prelude.mconcat
       [ "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]

@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.QueryStringKeyValuePair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a key\/value pair.
@@ -61,10 +62,10 @@ queryStringKeyValuePair_key = Lens.lens (\QueryStringKeyValuePair' {key} -> key)
 queryStringKeyValuePair_value :: Lens.Lens' QueryStringKeyValuePair (Prelude.Maybe Prelude.Text)
 queryStringKeyValuePair_value = Lens.lens (\QueryStringKeyValuePair' {value} -> value) (\s@QueryStringKeyValuePair' {} a -> s {value = a} :: QueryStringKeyValuePair)
 
-instance Core.FromXML QueryStringKeyValuePair where
+instance Data.FromXML QueryStringKeyValuePair where
   parseXML x =
     QueryStringKeyValuePair'
-      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Key") Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable QueryStringKeyValuePair where
   hashWithSalt _salt QueryStringKeyValuePair' {..} =
@@ -75,7 +76,7 @@ instance Prelude.NFData QueryStringKeyValuePair where
   rnf QueryStringKeyValuePair' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery QueryStringKeyValuePair where
+instance Data.ToQuery QueryStringKeyValuePair where
   toQuery QueryStringKeyValuePair' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Key" Data.=: key, "Value" Data.=: value]

@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -368,8 +369,8 @@ instance Core.AWSRequest CreateLoadBalancer where
       "CreateLoadBalancerResult"
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Prelude.<$> ( x Core..@? "LoadBalancers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -398,41 +399,41 @@ instance Prelude.NFData CreateLoadBalancer where
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateLoadBalancer where
+instance Data.ToHeaders CreateLoadBalancer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLoadBalancer where
+instance Data.ToPath CreateLoadBalancer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLoadBalancer where
+instance Data.ToQuery CreateLoadBalancer where
   toQuery CreateLoadBalancer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLoadBalancer" :: Prelude.ByteString),
+          Data.=: ("CreateLoadBalancer" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Scheme" Core.=: scheme,
-        "Type" Core.=: type',
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Scheme" Data.=: scheme,
+        "Type" Data.=: type',
         "Subnets"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> subnets),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> subnets),
         "CustomerOwnedIpv4Pool"
-          Core.=: customerOwnedIpv4Pool,
+          Data.=: customerOwnedIpv4Pool,
         "SecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> securityGroups
             ),
         "SubnetMappings"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> subnetMappings
             ),
-        "IpAddressType" Core.=: ipAddressType,
-        "Name" Core.=: name
+        "IpAddressType" Data.=: ipAddressType,
+        "Name" Data.=: name
       ]
 
 -- | /See:/ 'newCreateLoadBalancerResponse' smart constructor.

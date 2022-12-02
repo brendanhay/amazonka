@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -246,8 +247,8 @@ instance Core.AWSRequest ModifyListener where
       "ModifyListenerResult"
       ( \s h x ->
           ModifyListenerResponse'
-            Prelude.<$> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -272,34 +273,34 @@ instance Prelude.NFData ModifyListener where
       `Prelude.seq` Prelude.rnf alpnPolicy
       `Prelude.seq` Prelude.rnf listenerArn
 
-instance Core.ToHeaders ModifyListener where
+instance Data.ToHeaders ModifyListener where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyListener where
+instance Data.ToPath ModifyListener where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyListener where
+instance Data.ToQuery ModifyListener where
   toQuery ModifyListener' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyListener" :: Prelude.ByteString),
+          Data.=: ("ModifyListener" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "Port" Core.=: port,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "Port" Data.=: port,
         "Certificates"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> certificates),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> certificates),
         "DefaultActions"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> defaultActions
             ),
-        "Protocol" Core.=: protocol,
-        "SslPolicy" Core.=: sslPolicy,
+        "Protocol" Data.=: protocol,
+        "SslPolicy" Data.=: sslPolicy,
         "AlpnPolicy"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> alpnPolicy),
-        "ListenerArn" Core.=: listenerArn
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> alpnPolicy),
+        "ListenerArn" Data.=: listenerArn
       ]
 
 -- | /See:/ 'newModifyListenerResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,8 +110,8 @@ instance Core.AWSRequest ModifyRule where
       "ModifyRuleResult"
       ( \s h x ->
           ModifyRuleResponse'
-            Prelude.<$> ( x Core..@? "Rules" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Rules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -127,26 +128,26 @@ instance Prelude.NFData ModifyRule where
       `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf ruleArn
 
-instance Core.ToHeaders ModifyRule where
+instance Data.ToHeaders ModifyRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyRule where
+instance Data.ToPath ModifyRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyRule where
+instance Data.ToQuery ModifyRule where
   toQuery ModifyRule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyRule" :: Prelude.ByteString),
+          Data.=: ("ModifyRule" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
         "Conditions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> conditions),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> conditions),
         "Actions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> actions),
-        "RuleArn" Core.=: ruleArn
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> actions),
+        "RuleArn" Data.=: ruleArn
       ]
 
 -- | /See:/ 'newModifyRuleResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.PathPatternConditionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a path pattern condition.
@@ -77,11 +78,11 @@ newPathPatternConditionConfig =
 pathPatternConditionConfig_values :: Lens.Lens' PathPatternConditionConfig (Prelude.Maybe [Prelude.Text])
 pathPatternConditionConfig_values = Lens.lens (\PathPatternConditionConfig' {values} -> values) (\s@PathPatternConditionConfig' {} a -> s {values = a} :: PathPatternConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML PathPatternConditionConfig where
+instance Data.FromXML PathPatternConditionConfig where
   parseXML x =
     PathPatternConditionConfig'
-      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable PathPatternConditionConfig where
@@ -92,10 +93,10 @@ instance Prelude.NFData PathPatternConditionConfig where
   rnf PathPatternConditionConfig' {..} =
     Prelude.rnf values
 
-instance Core.ToQuery PathPatternConditionConfig where
+instance Data.ToQuery PathPatternConditionConfig where
   toQuery PathPatternConditionConfig' {..} =
     Prelude.mconcat
       [ "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]

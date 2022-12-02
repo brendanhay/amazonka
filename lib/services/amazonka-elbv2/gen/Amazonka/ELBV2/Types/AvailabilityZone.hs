@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.LoadBalancerAddress
 import qualified Amazonka.Prelude as Prelude
 
@@ -92,15 +93,15 @@ availabilityZone_subnetId = Lens.lens (\AvailabilityZone' {subnetId} -> subnetId
 availabilityZone_loadBalancerAddresses :: Lens.Lens' AvailabilityZone (Prelude.Maybe [LoadBalancerAddress])
 availabilityZone_loadBalancerAddresses = Lens.lens (\AvailabilityZone' {loadBalancerAddresses} -> loadBalancerAddresses) (\s@AvailabilityZone' {} a -> s {loadBalancerAddresses = a} :: AvailabilityZone) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML AvailabilityZone where
+instance Data.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      Prelude.<$> (x Core..@? "OutpostId")
-      Prelude.<*> (x Core..@? "ZoneName")
-      Prelude.<*> (x Core..@? "SubnetId")
-      Prelude.<*> ( x Core..@? "LoadBalancerAddresses"
+      Prelude.<$> (x Data..@? "OutpostId")
+      Prelude.<*> (x Data..@? "ZoneName")
+      Prelude.<*> (x Data..@? "SubnetId")
+      Prelude.<*> ( x Data..@? "LoadBalancerAddresses"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable AvailabilityZone where

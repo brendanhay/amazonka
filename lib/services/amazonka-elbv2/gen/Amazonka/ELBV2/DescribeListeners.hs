@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,10 +146,10 @@ instance Core.AWSRequest DescribeListeners where
       "DescribeListenersResult"
       ( \s h x ->
           DescribeListenersResponse'
-            Prelude.<$> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextMarker")
+            Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,25 +167,25 @@ instance Prelude.NFData DescribeListeners where
       `Prelude.seq` Prelude.rnf loadBalancerArn
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders DescribeListeners where
+instance Data.ToHeaders DescribeListeners where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeListeners where
+instance Data.ToPath DescribeListeners where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeListeners where
+instance Data.ToQuery DescribeListeners where
   toQuery DescribeListeners' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeListeners" :: Prelude.ByteString),
+          Data.=: ("DescribeListeners" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
         "ListenerArns"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> listenerArns),
-        "Marker" Core.=: marker,
-        "LoadBalancerArn" Core.=: loadBalancerArn,
-        "PageSize" Core.=: pageSize
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> listenerArns),
+        "Marker" Data.=: marker,
+        "LoadBalancerArn" Data.=: loadBalancerArn,
+        "PageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newDescribeListenersResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.LoadBalancerAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a load balancer attribute.
@@ -355,10 +356,10 @@ loadBalancerAttribute_key = Lens.lens (\LoadBalancerAttribute' {key} -> key) (\s
 loadBalancerAttribute_value :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
 loadBalancerAttribute_value = Lens.lens (\LoadBalancerAttribute' {value} -> value) (\s@LoadBalancerAttribute' {} a -> s {value = a} :: LoadBalancerAttribute)
 
-instance Core.FromXML LoadBalancerAttribute where
+instance Data.FromXML LoadBalancerAttribute where
   parseXML x =
     LoadBalancerAttribute'
-      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Data..@? "Key") Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable LoadBalancerAttribute where
   hashWithSalt _salt LoadBalancerAttribute' {..} =
@@ -369,7 +370,7 @@ instance Prelude.NFData LoadBalancerAttribute where
   rnf LoadBalancerAttribute' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToQuery LoadBalancerAttribute where
+instance Data.ToQuery LoadBalancerAttribute where
   toQuery LoadBalancerAttribute' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Key" Data.=: key, "Value" Data.=: value]

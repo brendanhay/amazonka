@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.HttpRequestMethodConditionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an HTTP method condition.
@@ -83,13 +84,13 @@ httpRequestMethodConditionConfig_values :: Lens.Lens' HttpRequestMethodCondition
 httpRequestMethodConditionConfig_values = Lens.lens (\HttpRequestMethodConditionConfig' {values} -> values) (\s@HttpRequestMethodConditionConfig' {} a -> s {values = a} :: HttpRequestMethodConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     HttpRequestMethodConditionConfig
   where
   parseXML x =
     HttpRequestMethodConditionConfig'
-      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance
@@ -109,12 +110,12 @@ instance
     Prelude.rnf values
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     HttpRequestMethodConditionConfig
   where
   toQuery HttpRequestMethodConditionConfig' {..} =
     Prelude.mconcat
       [ "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]

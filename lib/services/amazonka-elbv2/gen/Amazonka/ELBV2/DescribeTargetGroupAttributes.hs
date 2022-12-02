@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,8 +102,8 @@ instance
       "DescribeTargetGroupAttributesResult"
       ( \s h x ->
           DescribeTargetGroupAttributesResponse'
-            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -118,22 +119,22 @@ instance Prelude.NFData DescribeTargetGroupAttributes where
   rnf DescribeTargetGroupAttributes' {..} =
     Prelude.rnf targetGroupArn
 
-instance Core.ToHeaders DescribeTargetGroupAttributes where
+instance Data.ToHeaders DescribeTargetGroupAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTargetGroupAttributes where
+instance Data.ToPath DescribeTargetGroupAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTargetGroupAttributes where
+instance Data.ToQuery DescribeTargetGroupAttributes where
   toQuery DescribeTargetGroupAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeTargetGroupAttributes" ::
+          Data.=: ( "DescribeTargetGroupAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "TargetGroupArn" Core.=: targetGroupArn
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "TargetGroupArn" Data.=: targetGroupArn
       ]
 
 -- | /See:/ 'newDescribeTargetGroupAttributesResponse' smart constructor.

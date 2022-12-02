@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,8 +103,8 @@ instance Core.AWSRequest ModifyLoadBalancerAttributes where
       "ModifyLoadBalancerAttributesResult"
       ( \s h x ->
           ModifyLoadBalancerAttributesResponse'
-            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -121,24 +122,24 @@ instance Prelude.NFData ModifyLoadBalancerAttributes where
     Prelude.rnf loadBalancerArn
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders ModifyLoadBalancerAttributes where
+instance Data.ToHeaders ModifyLoadBalancerAttributes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyLoadBalancerAttributes where
+instance Data.ToPath ModifyLoadBalancerAttributes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyLoadBalancerAttributes where
+instance Data.ToQuery ModifyLoadBalancerAttributes where
   toQuery ModifyLoadBalancerAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyLoadBalancerAttributes" ::
+          Data.=: ( "ModifyLoadBalancerAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "LoadBalancerArn" Core.=: loadBalancerArn,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "LoadBalancerArn" Data.=: loadBalancerArn,
         "Attributes"
-          Core.=: Core.toQueryList "member" attributes
+          Data.=: Data.toQueryList "member" attributes
       ]
 
 -- | /See:/ 'newModifyLoadBalancerAttributesResponse' smart constructor.

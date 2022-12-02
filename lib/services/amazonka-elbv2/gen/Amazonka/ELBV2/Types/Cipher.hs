@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.Cipher where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a cipher used in a policy.
@@ -61,11 +62,11 @@ cipher_name = Lens.lens (\Cipher' {name} -> name) (\s@Cipher' {} a -> s {name = 
 cipher_priority :: Lens.Lens' Cipher (Prelude.Maybe Prelude.Int)
 cipher_priority = Lens.lens (\Cipher' {priority} -> priority) (\s@Cipher' {} a -> s {priority = a} :: Cipher)
 
-instance Core.FromXML Cipher where
+instance Data.FromXML Cipher where
   parseXML x =
     Cipher'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "Priority")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Priority")
 
 instance Prelude.Hashable Cipher where
   hashWithSalt _salt Cipher' {..} =

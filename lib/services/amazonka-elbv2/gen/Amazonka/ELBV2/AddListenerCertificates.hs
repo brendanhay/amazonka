@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance Core.AWSRequest AddListenerCertificates where
       "AddListenerCertificatesResult"
       ( \s h x ->
           AddListenerCertificatesResponse'
-            Prelude.<$> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -126,22 +127,22 @@ instance Prelude.NFData AddListenerCertificates where
     Prelude.rnf listenerArn
       `Prelude.seq` Prelude.rnf certificates
 
-instance Core.ToHeaders AddListenerCertificates where
+instance Data.ToHeaders AddListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AddListenerCertificates where
+instance Data.ToPath AddListenerCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddListenerCertificates where
+instance Data.ToQuery AddListenerCertificates where
   toQuery AddListenerCertificates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AddListenerCertificates" :: Prelude.ByteString),
+          Data.=: ("AddListenerCertificates" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "ListenerArn" Core.=: listenerArn,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "ListenerArn" Data.=: listenerArn,
         "Certificates"
-          Core.=: Core.toQueryList "member" certificates
+          Data.=: Data.toQueryList "member" certificates
       ]
 
 -- | /See:/ 'newAddListenerCertificatesResponse' smart constructor.

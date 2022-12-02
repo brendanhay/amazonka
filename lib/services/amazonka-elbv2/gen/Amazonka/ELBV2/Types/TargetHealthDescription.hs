@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.TargetHealthDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.TargetDescription
 import Amazonka.ELBV2.Types.TargetHealth
 import qualified Amazonka.Prelude as Prelude
@@ -73,12 +74,12 @@ targetHealthDescription_target = Lens.lens (\TargetHealthDescription' {target} -
 targetHealthDescription_healthCheckPort :: Lens.Lens' TargetHealthDescription (Prelude.Maybe Prelude.Text)
 targetHealthDescription_healthCheckPort = Lens.lens (\TargetHealthDescription' {healthCheckPort} -> healthCheckPort) (\s@TargetHealthDescription' {} a -> s {healthCheckPort = a} :: TargetHealthDescription)
 
-instance Core.FromXML TargetHealthDescription where
+instance Data.FromXML TargetHealthDescription where
   parseXML x =
     TargetHealthDescription'
-      Prelude.<$> (x Core..@? "TargetHealth")
-      Prelude.<*> (x Core..@? "Target")
-      Prelude.<*> (x Core..@? "HealthCheckPort")
+      Prelude.<$> (x Data..@? "TargetHealth")
+      Prelude.<*> (x Data..@? "Target")
+      Prelude.<*> (x Data..@? "HealthCheckPort")
 
 instance Prelude.Hashable TargetHealthDescription where
   hashWithSalt _salt TargetHealthDescription' {..} =

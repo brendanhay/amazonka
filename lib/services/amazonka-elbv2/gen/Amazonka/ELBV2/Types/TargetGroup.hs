@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.TargetGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.Matcher
 import Amazonka.ELBV2.Types.ProtocolEnum
 import Amazonka.ELBV2.Types.TargetGroupIpAddressTypeEnum
@@ -254,30 +255,30 @@ targetGroup_ipAddressType = Lens.lens (\TargetGroup' {ipAddressType} -> ipAddres
 targetGroup_matcher :: Lens.Lens' TargetGroup (Prelude.Maybe Matcher)
 targetGroup_matcher = Lens.lens (\TargetGroup' {matcher} -> matcher) (\s@TargetGroup' {} a -> s {matcher = a} :: TargetGroup)
 
-instance Core.FromXML TargetGroup where
+instance Data.FromXML TargetGroup where
   parseXML x =
     TargetGroup'
-      Prelude.<$> (x Core..@? "HealthCheckProtocol")
-      Prelude.<*> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "HealthCheckTimeoutSeconds")
-      Prelude.<*> ( x Core..@? "LoadBalancerArns"
+      Prelude.<$> (x Data..@? "HealthCheckProtocol")
+      Prelude.<*> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "HealthCheckTimeoutSeconds")
+      Prelude.<*> ( x Data..@? "LoadBalancerArns"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "HealthCheckPath")
-      Prelude.<*> (x Core..@? "UnhealthyThresholdCount")
-      Prelude.<*> (x Core..@? "HealthCheckEnabled")
-      Prelude.<*> (x Core..@? "TargetGroupName")
-      Prelude.<*> (x Core..@? "HealthCheckIntervalSeconds")
-      Prelude.<*> (x Core..@? "HealthyThresholdCount")
-      Prelude.<*> (x Core..@? "TargetGroupArn")
-      Prelude.<*> (x Core..@? "TargetType")
-      Prelude.<*> (x Core..@? "ProtocolVersion")
-      Prelude.<*> (x Core..@? "HealthCheckPort")
-      Prelude.<*> (x Core..@? "Protocol")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "IpAddressType")
-      Prelude.<*> (x Core..@? "Matcher")
+      Prelude.<*> (x Data..@? "HealthCheckPath")
+      Prelude.<*> (x Data..@? "UnhealthyThresholdCount")
+      Prelude.<*> (x Data..@? "HealthCheckEnabled")
+      Prelude.<*> (x Data..@? "TargetGroupName")
+      Prelude.<*> (x Data..@? "HealthCheckIntervalSeconds")
+      Prelude.<*> (x Data..@? "HealthyThresholdCount")
+      Prelude.<*> (x Data..@? "TargetGroupArn")
+      Prelude.<*> (x Data..@? "TargetType")
+      Prelude.<*> (x Data..@? "ProtocolVersion")
+      Prelude.<*> (x Data..@? "HealthCheckPort")
+      Prelude.<*> (x Data..@? "Protocol")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "IpAddressType")
+      Prelude.<*> (x Data..@? "Matcher")
 
 instance Prelude.Hashable TargetGroup where
   hashWithSalt _salt TargetGroup' {..} =

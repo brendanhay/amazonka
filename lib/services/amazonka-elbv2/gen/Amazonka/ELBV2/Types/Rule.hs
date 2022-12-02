@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.Rule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.Action
 import Amazonka.ELBV2.Types.RuleCondition
 import qualified Amazonka.Prelude as Prelude
@@ -105,17 +106,17 @@ rule_priority = Lens.lens (\Rule' {priority} -> priority) (\s@Rule' {} a -> s {p
 rule_actions :: Lens.Lens' Rule (Prelude.Maybe [Action])
 rule_actions = Lens.lens (\Rule' {actions} -> actions) (\s@Rule' {} a -> s {actions = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML Rule where
+instance Data.FromXML Rule where
   parseXML x =
     Rule'
-      Prelude.<$> (x Core..@? "RuleArn")
-      Prelude.<*> ( x Core..@? "Conditions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "RuleArn")
+      Prelude.<*> ( x Data..@? "Conditions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "IsDefault")
-      Prelude.<*> (x Core..@? "Priority")
-      Prelude.<*> ( x Core..@? "Actions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "IsDefault")
+      Prelude.<*> (x Data..@? "Priority")
+      Prelude.<*> ( x Data..@? "Actions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable Rule where

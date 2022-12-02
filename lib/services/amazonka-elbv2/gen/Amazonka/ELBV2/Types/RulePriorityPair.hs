@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.RulePriorityPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the priorities for the rules for a listener.
@@ -71,9 +72,9 @@ instance Prelude.NFData RulePriorityPair where
     Prelude.rnf ruleArn
       `Prelude.seq` Prelude.rnf priority
 
-instance Core.ToQuery RulePriorityPair where
+instance Data.ToQuery RulePriorityPair where
   toQuery RulePriorityPair' {..} =
     Prelude.mconcat
-      [ "RuleArn" Core.=: ruleArn,
-        "Priority" Core.=: priority
+      [ "RuleArn" Data.=: ruleArn,
+        "Priority" Data.=: priority
       ]

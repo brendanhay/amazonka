@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -481,8 +482,8 @@ instance Core.AWSRequest CreateTargetGroup where
       "CreateTargetGroupResult"
       ( \s h x ->
           CreateTargetGroupResponse'
-            Prelude.<$> ( x Core..@? "TargetGroups" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -527,42 +528,42 @@ instance Prelude.NFData CreateTargetGroup where
       `Prelude.seq` Prelude.rnf matcher
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateTargetGroup where
+instance Data.ToHeaders CreateTargetGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTargetGroup where
+instance Data.ToPath CreateTargetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTargetGroup where
+instance Data.ToQuery CreateTargetGroup where
   toQuery CreateTargetGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTargetGroup" :: Prelude.ByteString),
+          Data.=: ("CreateTargetGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "HealthCheckProtocol" Core.=: healthCheckProtocol,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "HealthCheckProtocol" Data.=: healthCheckProtocol,
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Port" Data.=: port,
         "HealthCheckTimeoutSeconds"
-          Core.=: healthCheckTimeoutSeconds,
-        "HealthCheckPath" Core.=: healthCheckPath,
+          Data.=: healthCheckTimeoutSeconds,
+        "HealthCheckPath" Data.=: healthCheckPath,
         "UnhealthyThresholdCount"
-          Core.=: unhealthyThresholdCount,
-        "HealthCheckEnabled" Core.=: healthCheckEnabled,
+          Data.=: unhealthyThresholdCount,
+        "HealthCheckEnabled" Data.=: healthCheckEnabled,
         "HealthCheckIntervalSeconds"
-          Core.=: healthCheckIntervalSeconds,
+          Data.=: healthCheckIntervalSeconds,
         "HealthyThresholdCount"
-          Core.=: healthyThresholdCount,
-        "TargetType" Core.=: targetType,
-        "ProtocolVersion" Core.=: protocolVersion,
-        "HealthCheckPort" Core.=: healthCheckPort,
-        "Protocol" Core.=: protocol,
-        "VpcId" Core.=: vpcId,
-        "IpAddressType" Core.=: ipAddressType,
-        "Matcher" Core.=: matcher,
-        "Name" Core.=: name
+          Data.=: healthyThresholdCount,
+        "TargetType" Data.=: targetType,
+        "ProtocolVersion" Data.=: protocolVersion,
+        "HealthCheckPort" Data.=: healthCheckPort,
+        "Protocol" Data.=: protocol,
+        "VpcId" Data.=: vpcId,
+        "IpAddressType" Data.=: ipAddressType,
+        "Matcher" Data.=: matcher,
+        "Name" Data.=: name
       ]
 
 -- | /See:/ 'newCreateTargetGroupResponse' smart constructor.

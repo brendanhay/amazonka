@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,21 +123,21 @@ instance Prelude.NFData RegisterTargets where
     Prelude.rnf targetGroupArn
       `Prelude.seq` Prelude.rnf targets
 
-instance Core.ToHeaders RegisterTargets where
+instance Data.ToHeaders RegisterTargets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RegisterTargets where
+instance Data.ToPath RegisterTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterTargets where
+instance Data.ToQuery RegisterTargets where
   toQuery RegisterTargets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RegisterTargets" :: Prelude.ByteString),
+          Data.=: ("RegisterTargets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "TargetGroupArn" Core.=: targetGroupArn,
-        "Targets" Core.=: Core.toQueryList "member" targets
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "TargetGroupArn" Data.=: targetGroupArn,
+        "Targets" Data.=: Data.toQueryList "member" targets
       ]
 
 -- | /See:/ 'newRegisterTargetsResponse' smart constructor.

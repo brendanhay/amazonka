@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,20 +94,20 @@ instance Prelude.Hashable DeleteRule where
 instance Prelude.NFData DeleteRule where
   rnf DeleteRule' {..} = Prelude.rnf ruleArn
 
-instance Core.ToHeaders DeleteRule where
+instance Data.ToHeaders DeleteRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteRule where
+instance Data.ToPath DeleteRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRule where
+instance Data.ToQuery DeleteRule where
   toQuery DeleteRule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteRule" :: Prelude.ByteString),
+          Data.=: ("DeleteRule" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "RuleArn" Core.=: ruleArn
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "RuleArn" Data.=: ruleArn
       ]
 
 -- | /See:/ 'newDeleteRuleResponse' smart constructor.

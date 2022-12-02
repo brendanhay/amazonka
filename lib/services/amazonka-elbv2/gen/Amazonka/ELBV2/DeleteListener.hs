@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,20 +97,20 @@ instance Prelude.Hashable DeleteListener where
 instance Prelude.NFData DeleteListener where
   rnf DeleteListener' {..} = Prelude.rnf listenerArn
 
-instance Core.ToHeaders DeleteListener where
+instance Data.ToHeaders DeleteListener where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteListener where
+instance Data.ToPath DeleteListener where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteListener where
+instance Data.ToQuery DeleteListener where
   toQuery DeleteListener' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteListener" :: Prelude.ByteString),
+          Data.=: ("DeleteListener" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "ListenerArn" Core.=: listenerArn
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "ListenerArn" Data.=: listenerArn
       ]
 
 -- | /See:/ 'newDeleteListenerResponse' smart constructor.

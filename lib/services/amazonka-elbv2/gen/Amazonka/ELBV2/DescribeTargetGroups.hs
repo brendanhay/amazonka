@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,9 +157,9 @@ instance Core.AWSRequest DescribeTargetGroups where
       "DescribeTargetGroupsResult"
       ( \s h x ->
           DescribeTargetGroupsResponse'
-            Prelude.<$> (x Core..@? "NextMarker")
-            Prelude.<*> ( x Core..@? "TargetGroups" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextMarker")
+            Prelude.<*> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -179,30 +180,30 @@ instance Prelude.NFData DescribeTargetGroups where
       `Prelude.seq` Prelude.rnf targetGroupArns
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders DescribeTargetGroups where
+instance Data.ToHeaders DescribeTargetGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTargetGroups where
+instance Data.ToPath DescribeTargetGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTargetGroups where
+instance Data.ToQuery DescribeTargetGroups where
   toQuery DescribeTargetGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTargetGroups" :: Prelude.ByteString),
+          Data.=: ("DescribeTargetGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "LoadBalancerArn" Core.=: loadBalancerArn,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "LoadBalancerArn" Data.=: loadBalancerArn,
         "Names"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> names),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> names),
         "TargetGroupArns"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> targetGroupArns
             ),
-        "PageSize" Core.=: pageSize
+        "PageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newDescribeTargetGroupsResponse' smart constructor.

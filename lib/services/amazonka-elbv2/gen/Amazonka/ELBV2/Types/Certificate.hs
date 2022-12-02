@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.Certificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an SSL server certificate.
@@ -70,11 +71,11 @@ certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certif
 certificate_isDefault :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Bool)
 certificate_isDefault = Lens.lens (\Certificate' {isDefault} -> isDefault) (\s@Certificate' {} a -> s {isDefault = a} :: Certificate)
 
-instance Core.FromXML Certificate where
+instance Data.FromXML Certificate where
   parseXML x =
     Certificate'
-      Prelude.<$> (x Core..@? "CertificateArn")
-      Prelude.<*> (x Core..@? "IsDefault")
+      Prelude.<$> (x Data..@? "CertificateArn")
+      Prelude.<*> (x Data..@? "IsDefault")
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =
@@ -86,9 +87,9 @@ instance Prelude.NFData Certificate where
     Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf isDefault
 
-instance Core.ToQuery Certificate where
+instance Data.ToQuery Certificate where
   toQuery Certificate' {..} =
     Prelude.mconcat
-      [ "CertificateArn" Core.=: certificateArn,
-        "IsDefault" Core.=: isDefault
+      [ "CertificateArn" Data.=: certificateArn,
+        "IsDefault" Data.=: isDefault
       ]

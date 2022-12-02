@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.AuthenticationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types.AuthenticationProviderTypes
 import Amazonka.Grafana.Types.SamlConfigurationStatus
 import qualified Amazonka.Prelude as Prelude
@@ -72,14 +73,14 @@ authenticationSummary_samlConfigurationStatus = Lens.lens (\AuthenticationSummar
 authenticationSummary_providers :: Lens.Lens' AuthenticationSummary [AuthenticationProviderTypes]
 authenticationSummary_providers = Lens.lens (\AuthenticationSummary' {providers} -> providers) (\s@AuthenticationSummary' {} a -> s {providers = a} :: AuthenticationSummary) Prelude.. Lens.coerced
 
-instance Core.FromJSON AuthenticationSummary where
+instance Data.FromJSON AuthenticationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthenticationSummary"
       ( \x ->
           AuthenticationSummary'
-            Prelude.<$> (x Core..:? "samlConfigurationStatus")
-            Prelude.<*> (x Core..:? "providers" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "samlConfigurationStatus")
+            Prelude.<*> (x Data..:? "providers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AuthenticationSummary where

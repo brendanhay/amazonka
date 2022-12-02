@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.AssertionAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that defines which attributes in the IdP assertion are to be
@@ -117,18 +118,18 @@ assertionAttributes_role = Lens.lens (\AssertionAttributes' {role'} -> role') (\
 assertionAttributes_groups :: Lens.Lens' AssertionAttributes (Prelude.Maybe Prelude.Text)
 assertionAttributes_groups = Lens.lens (\AssertionAttributes' {groups} -> groups) (\s@AssertionAttributes' {} a -> s {groups = a} :: AssertionAttributes)
 
-instance Core.FromJSON AssertionAttributes where
+instance Data.FromJSON AssertionAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssertionAttributes"
       ( \x ->
           AssertionAttributes'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "email")
-            Prelude.<*> (x Core..:? "login")
-            Prelude.<*> (x Core..:? "org")
-            Prelude.<*> (x Core..:? "role")
-            Prelude.<*> (x Core..:? "groups")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "email")
+            Prelude.<*> (x Data..:? "login")
+            Prelude.<*> (x Data..:? "org")
+            Prelude.<*> (x Data..:? "role")
+            Prelude.<*> (x Data..:? "groups")
       )
 
 instance Prelude.Hashable AssertionAttributes where
@@ -149,15 +150,15 @@ instance Prelude.NFData AssertionAttributes where
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf groups
 
-instance Core.ToJSON AssertionAttributes where
+instance Data.ToJSON AssertionAttributes where
   toJSON AssertionAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("email" Core..=) Prelude.<$> email,
-            ("login" Core..=) Prelude.<$> login,
-            ("org" Core..=) Prelude.<$> org,
-            ("role" Core..=) Prelude.<$> role',
-            ("groups" Core..=) Prelude.<$> groups
+          [ ("name" Data..=) Prelude.<$> name,
+            ("email" Data..=) Prelude.<$> email,
+            ("login" Data..=) Prelude.<$> login,
+            ("org" Data..=) Prelude.<$> org,
+            ("role" Data..=) Prelude.<$> role',
+            ("groups" Data..=) Prelude.<$> groups
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types.UserType
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,13 +73,13 @@ user_id = Lens.lens (\User' {id} -> id) (\s@User' {} a -> s {id = a} :: User)
 user_type :: Lens.Lens' User UserType
 user_type = Lens.lens (\User' {type'} -> type') (\s@User' {} a -> s {type' = a} :: User)
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..: "id") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "id") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable User where
@@ -90,11 +91,11 @@ instance Prelude.NFData User where
   rnf User' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON User where
+instance Data.ToJSON User where
   toJSON User' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("type" Data..= type')
           ]
       )

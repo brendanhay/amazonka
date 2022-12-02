@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest AssociateLicense where
       ( \s h x ->
           AssociateLicenseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspace")
+            Prelude.<*> (x Data..:> "workspace")
       )
 
 instance Prelude.Hashable AssociateLicense where
@@ -113,30 +114,30 @@ instance Prelude.NFData AssociateLicense where
     Prelude.rnf licenseType
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders AssociateLicense where
+instance Data.ToHeaders AssociateLicense where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateLicense where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AssociateLicense where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AssociateLicense where
+instance Data.ToPath AssociateLicense where
   toPath AssociateLicense' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/licenses/",
-        Core.toBS licenseType
+        Data.toBS licenseType
       ]
 
-instance Core.ToQuery AssociateLicense where
+instance Data.ToQuery AssociateLicense where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateLicenseResponse' smart constructor.

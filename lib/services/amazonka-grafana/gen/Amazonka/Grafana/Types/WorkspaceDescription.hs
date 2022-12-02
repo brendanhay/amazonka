@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.WorkspaceDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types.AccountAccessType
 import Amazonka.Grafana.Types.AuthenticationSummary
 import Amazonka.Grafana.Types.DataSourceType
@@ -56,10 +57,10 @@ data WorkspaceDescription = WorkspaceDescription'
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
     permissionType :: Prelude.Maybe PermissionType,
     -- | The name of the workspace.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the IAM role that is used to access resources through
     -- Organizations.
-    organizationRoleName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    organizationRoleName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies whether this workspace has already fully used its free trial
     -- for Grafana Enterprise.
     freeTrialConsumed :: Prelude.Maybe Prelude.Bool,
@@ -68,23 +69,23 @@ data WorkspaceDescription = WorkspaceDescription'
     licenseType :: Prelude.Maybe LicenseType,
     -- | If this workspace has a full Grafana Enterprise license, this specifies
     -- when the license ends and will need to be renewed.
-    licenseExpiration :: Prelude.Maybe Core.POSIX,
+    licenseExpiration :: Prelude.Maybe Data.POSIX,
     -- | The name of the CloudFormation stack set that is used to generate IAM
     -- roles to be used for this workspace.
     stackSetName :: Prelude.Maybe Prelude.Text,
     -- | If this workspace is currently in the free trial period for Grafana
     -- Enterprise, this value specifies when that free trial ends.
-    freeTrialExpiration :: Prelude.Maybe Core.POSIX,
+    freeTrialExpiration :: Prelude.Maybe Data.POSIX,
     -- | The IAM role that grants permissions to the Amazon Web Services
     -- resources that the workspace will view data from. This role must already
     -- exist.
-    workspaceRoleArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    workspaceRoleArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user-defined description of the workspace.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the organizational units that this workspace is allowed to use
     -- data sources from, if this workspace is in an account that is part of an
     -- organization.
-    organizationalUnits :: Prelude.Maybe (Core.Sensitive [Prelude.Text]),
+    organizationalUnits :: Prelude.Maybe (Data.Sensitive [Prelude.Text]),
     -- | The Amazon Web Services notification channels that Amazon Managed
     -- Grafana can automatically create IAM roles and permissions for, to allow
     -- Amazon Managed Grafana to use these channels.
@@ -100,7 +101,7 @@ data WorkspaceDescription = WorkspaceDescription'
     -- Center, or both methods for user authentication.
     authentication :: AuthenticationSummary,
     -- | The date that the workspace was created.
-    created :: Core.POSIX,
+    created :: Data.POSIX,
     -- | Specifies the Amazon Web Services data sources that have been configured
     -- to have IAM roles and permissions created to allow Amazon Managed
     -- Grafana to read data from these sources.
@@ -113,7 +114,7 @@ data WorkspaceDescription = WorkspaceDescription'
     -- | The unique ID of this workspace.
     id :: Prelude.Text,
     -- | The most recent date that the workspace was modified.
-    modified :: Core.POSIX,
+    modified :: Data.POSIX,
     -- | The current status of the workspace.
     status :: WorkspaceStatus
   }
@@ -248,12 +249,12 @@ newWorkspaceDescription
         notificationDestinations = Prelude.Nothing,
         accountAccessType = Prelude.Nothing,
         authentication = pAuthentication_,
-        created = Core._Time Lens.# pCreated_,
+        created = Data._Time Lens.# pCreated_,
         dataSources = Prelude.mempty,
         endpoint = pEndpoint_,
         grafanaVersion = pGrafanaVersion_,
         id = pId_,
-        modified = Core._Time Lens.# pModified_,
+        modified = Data._Time Lens.# pModified_,
         status = pStatus_
       }
 
@@ -284,12 +285,12 @@ workspaceDescription_permissionType = Lens.lens (\WorkspaceDescription' {permiss
 
 -- | The name of the workspace.
 workspaceDescription_name :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.Text)
-workspaceDescription_name = Lens.lens (\WorkspaceDescription' {name} -> name) (\s@WorkspaceDescription' {} a -> s {name = a} :: WorkspaceDescription) Prelude.. Lens.mapping Core._Sensitive
+workspaceDescription_name = Lens.lens (\WorkspaceDescription' {name} -> name) (\s@WorkspaceDescription' {} a -> s {name = a} :: WorkspaceDescription) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the IAM role that is used to access resources through
 -- Organizations.
 workspaceDescription_organizationRoleName :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.Text)
-workspaceDescription_organizationRoleName = Lens.lens (\WorkspaceDescription' {organizationRoleName} -> organizationRoleName) (\s@WorkspaceDescription' {} a -> s {organizationRoleName = a} :: WorkspaceDescription) Prelude.. Lens.mapping Core._Sensitive
+workspaceDescription_organizationRoleName = Lens.lens (\WorkspaceDescription' {organizationRoleName} -> organizationRoleName) (\s@WorkspaceDescription' {} a -> s {organizationRoleName = a} :: WorkspaceDescription) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies whether this workspace has already fully used its free trial
 -- for Grafana Enterprise.
@@ -304,7 +305,7 @@ workspaceDescription_licenseType = Lens.lens (\WorkspaceDescription' {licenseTyp
 -- | If this workspace has a full Grafana Enterprise license, this specifies
 -- when the license ends and will need to be renewed.
 workspaceDescription_licenseExpiration :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.UTCTime)
-workspaceDescription_licenseExpiration = Lens.lens (\WorkspaceDescription' {licenseExpiration} -> licenseExpiration) (\s@WorkspaceDescription' {} a -> s {licenseExpiration = a} :: WorkspaceDescription) Prelude.. Lens.mapping Core._Time
+workspaceDescription_licenseExpiration = Lens.lens (\WorkspaceDescription' {licenseExpiration} -> licenseExpiration) (\s@WorkspaceDescription' {} a -> s {licenseExpiration = a} :: WorkspaceDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the CloudFormation stack set that is used to generate IAM
 -- roles to be used for this workspace.
@@ -314,23 +315,23 @@ workspaceDescription_stackSetName = Lens.lens (\WorkspaceDescription' {stackSetN
 -- | If this workspace is currently in the free trial period for Grafana
 -- Enterprise, this value specifies when that free trial ends.
 workspaceDescription_freeTrialExpiration :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.UTCTime)
-workspaceDescription_freeTrialExpiration = Lens.lens (\WorkspaceDescription' {freeTrialExpiration} -> freeTrialExpiration) (\s@WorkspaceDescription' {} a -> s {freeTrialExpiration = a} :: WorkspaceDescription) Prelude.. Lens.mapping Core._Time
+workspaceDescription_freeTrialExpiration = Lens.lens (\WorkspaceDescription' {freeTrialExpiration} -> freeTrialExpiration) (\s@WorkspaceDescription' {} a -> s {freeTrialExpiration = a} :: WorkspaceDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The IAM role that grants permissions to the Amazon Web Services
 -- resources that the workspace will view data from. This role must already
 -- exist.
 workspaceDescription_workspaceRoleArn :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.Text)
-workspaceDescription_workspaceRoleArn = Lens.lens (\WorkspaceDescription' {workspaceRoleArn} -> workspaceRoleArn) (\s@WorkspaceDescription' {} a -> s {workspaceRoleArn = a} :: WorkspaceDescription) Prelude.. Lens.mapping Core._Sensitive
+workspaceDescription_workspaceRoleArn = Lens.lens (\WorkspaceDescription' {workspaceRoleArn} -> workspaceRoleArn) (\s@WorkspaceDescription' {} a -> s {workspaceRoleArn = a} :: WorkspaceDescription) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user-defined description of the workspace.
 workspaceDescription_description :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.Text)
-workspaceDescription_description = Lens.lens (\WorkspaceDescription' {description} -> description) (\s@WorkspaceDescription' {} a -> s {description = a} :: WorkspaceDescription) Prelude.. Lens.mapping Core._Sensitive
+workspaceDescription_description = Lens.lens (\WorkspaceDescription' {description} -> description) (\s@WorkspaceDescription' {} a -> s {description = a} :: WorkspaceDescription) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the organizational units that this workspace is allowed to use
 -- data sources from, if this workspace is in an account that is part of an
 -- organization.
 workspaceDescription_organizationalUnits :: Lens.Lens' WorkspaceDescription (Prelude.Maybe [Prelude.Text])
-workspaceDescription_organizationalUnits = Lens.lens (\WorkspaceDescription' {organizationalUnits} -> organizationalUnits) (\s@WorkspaceDescription' {} a -> s {organizationalUnits = a} :: WorkspaceDescription) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+workspaceDescription_organizationalUnits = Lens.lens (\WorkspaceDescription' {organizationalUnits} -> organizationalUnits) (\s@WorkspaceDescription' {} a -> s {organizationalUnits = a} :: WorkspaceDescription) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Amazon Web Services notification channels that Amazon Managed
 -- Grafana can automatically create IAM roles and permissions for, to allow
@@ -354,7 +355,7 @@ workspaceDescription_authentication = Lens.lens (\WorkspaceDescription' {authent
 
 -- | The date that the workspace was created.
 workspaceDescription_created :: Lens.Lens' WorkspaceDescription Prelude.UTCTime
-workspaceDescription_created = Lens.lens (\WorkspaceDescription' {created} -> created) (\s@WorkspaceDescription' {} a -> s {created = a} :: WorkspaceDescription) Prelude.. Core._Time
+workspaceDescription_created = Lens.lens (\WorkspaceDescription' {created} -> created) (\s@WorkspaceDescription' {} a -> s {created = a} :: WorkspaceDescription) Prelude.. Data._Time
 
 -- | Specifies the Amazon Web Services data sources that have been configured
 -- to have IAM roles and permissions created to allow Amazon Managed
@@ -377,45 +378,45 @@ workspaceDescription_id = Lens.lens (\WorkspaceDescription' {id} -> id) (\s@Work
 
 -- | The most recent date that the workspace was modified.
 workspaceDescription_modified :: Lens.Lens' WorkspaceDescription Prelude.UTCTime
-workspaceDescription_modified = Lens.lens (\WorkspaceDescription' {modified} -> modified) (\s@WorkspaceDescription' {} a -> s {modified = a} :: WorkspaceDescription) Prelude.. Core._Time
+workspaceDescription_modified = Lens.lens (\WorkspaceDescription' {modified} -> modified) (\s@WorkspaceDescription' {} a -> s {modified = a} :: WorkspaceDescription) Prelude.. Data._Time
 
 -- | The current status of the workspace.
 workspaceDescription_status :: Lens.Lens' WorkspaceDescription WorkspaceStatus
 workspaceDescription_status = Lens.lens (\WorkspaceDescription' {status} -> status) (\s@WorkspaceDescription' {} a -> s {status = a} :: WorkspaceDescription)
 
-instance Core.FromJSON WorkspaceDescription where
+instance Data.FromJSON WorkspaceDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceDescription"
       ( \x ->
           WorkspaceDescription'
-            Prelude.<$> (x Core..:? "vpcConfiguration")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "permissionType")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "organizationRoleName")
-            Prelude.<*> (x Core..:? "freeTrialConsumed")
-            Prelude.<*> (x Core..:? "licenseType")
-            Prelude.<*> (x Core..:? "licenseExpiration")
-            Prelude.<*> (x Core..:? "stackSetName")
-            Prelude.<*> (x Core..:? "freeTrialExpiration")
-            Prelude.<*> (x Core..:? "workspaceRoleArn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> ( x Core..:? "organizationalUnits"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "vpcConfiguration")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "permissionType")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "organizationRoleName")
+            Prelude.<*> (x Data..:? "freeTrialConsumed")
+            Prelude.<*> (x Data..:? "licenseType")
+            Prelude.<*> (x Data..:? "licenseExpiration")
+            Prelude.<*> (x Data..:? "stackSetName")
+            Prelude.<*> (x Data..:? "freeTrialExpiration")
+            Prelude.<*> (x Data..:? "workspaceRoleArn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> ( x Data..:? "organizationalUnits"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "notificationDestinations"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "notificationDestinations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "accountAccessType")
-            Prelude.<*> (x Core..: "authentication")
-            Prelude.<*> (x Core..: "created")
-            Prelude.<*> (x Core..:? "dataSources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "endpoint")
-            Prelude.<*> (x Core..: "grafanaVersion")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "modified")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<*> (x Data..:? "accountAccessType")
+            Prelude.<*> (x Data..: "authentication")
+            Prelude.<*> (x Data..: "created")
+            Prelude.<*> (x Data..:? "dataSources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "endpoint")
+            Prelude.<*> (x Data..: "grafanaVersion")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "modified")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable WorkspaceDescription where

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,9 +141,9 @@ instance Core.AWSRequest CreateWorkspaceApiKey where
       ( \s h x ->
           CreateWorkspaceApiKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "key")
-            Prelude.<*> (x Core..:> "keyName")
-            Prelude.<*> (x Core..:> "workspaceId")
+            Prelude.<*> (x Data..:> "key")
+            Prelude.<*> (x Data..:> "keyName")
+            Prelude.<*> (x Data..:> "workspaceId")
       )
 
 instance Prelude.Hashable CreateWorkspaceApiKey where
@@ -159,34 +160,34 @@ instance Prelude.NFData CreateWorkspaceApiKey where
       `Prelude.seq` Prelude.rnf secondsToLive
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders CreateWorkspaceApiKey where
+instance Data.ToHeaders CreateWorkspaceApiKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkspaceApiKey where
+instance Data.ToJSON CreateWorkspaceApiKey where
   toJSON CreateWorkspaceApiKey' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("keyName" Core..= keyName),
-            Prelude.Just ("keyRole" Core..= keyRole),
+          [ Prelude.Just ("keyName" Data..= keyName),
+            Prelude.Just ("keyRole" Data..= keyRole),
             Prelude.Just
-              ("secondsToLive" Core..= secondsToLive)
+              ("secondsToLive" Data..= secondsToLive)
           ]
       )
 
-instance Core.ToPath CreateWorkspaceApiKey where
+instance Data.ToPath CreateWorkspaceApiKey where
   toPath CreateWorkspaceApiKey' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId, "/apikeys"]
+      ["/workspaces/", Data.toBS workspaceId, "/apikeys"]
 
-instance Core.ToQuery CreateWorkspaceApiKey where
+instance Data.ToQuery CreateWorkspaceApiKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkspaceApiKeyResponse' smart constructor.
@@ -195,7 +196,7 @@ data CreateWorkspaceApiKeyResponse = CreateWorkspaceApiKeyResponse'
     httpStatus :: Prelude.Int,
     -- | The key token. Use this value as a bearer token to authenticate HTTP
     -- requests to the workspace.
-    key :: Core.Sensitive Prelude.Text,
+    key :: Data.Sensitive Prelude.Text,
     -- | The name of the key that was created.
     keyName :: Prelude.Text,
     -- | The ID of the workspace that the key is valid for.
@@ -237,7 +238,7 @@ newCreateWorkspaceApiKeyResponse
     CreateWorkspaceApiKeyResponse'
       { httpStatus =
           pHttpStatus_,
-        key = Core._Sensitive Lens.# pKey_,
+        key = Data._Sensitive Lens.# pKey_,
         keyName = pKeyName_,
         workspaceId = pWorkspaceId_
       }
@@ -249,7 +250,7 @@ createWorkspaceApiKeyResponse_httpStatus = Lens.lens (\CreateWorkspaceApiKeyResp
 -- | The key token. Use this value as a bearer token to authenticate HTTP
 -- requests to the workspace.
 createWorkspaceApiKeyResponse_key :: Lens.Lens' CreateWorkspaceApiKeyResponse Prelude.Text
-createWorkspaceApiKeyResponse_key = Lens.lens (\CreateWorkspaceApiKeyResponse' {key} -> key) (\s@CreateWorkspaceApiKeyResponse' {} a -> s {key = a} :: CreateWorkspaceApiKeyResponse) Prelude.. Core._Sensitive
+createWorkspaceApiKeyResponse_key = Lens.lens (\CreateWorkspaceApiKeyResponse' {key} -> key) (\s@CreateWorkspaceApiKeyResponse' {} a -> s {key = a} :: CreateWorkspaceApiKeyResponse) Prelude.. Data._Sensitive
 
 -- | The name of the key that was created.
 createWorkspaceApiKeyResponse_keyName :: Lens.Lens' CreateWorkspaceApiKeyResponse Prelude.Text

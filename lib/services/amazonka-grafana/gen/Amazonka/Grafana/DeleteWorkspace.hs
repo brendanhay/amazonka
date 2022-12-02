@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteWorkspace where
       ( \s h x ->
           DeleteWorkspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspace")
+            Prelude.<*> (x Data..:> "workspace")
       )
 
 instance Prelude.Hashable DeleteWorkspace where
@@ -94,23 +95,23 @@ instance Prelude.Hashable DeleteWorkspace where
 instance Prelude.NFData DeleteWorkspace where
   rnf DeleteWorkspace' {..} = Prelude.rnf workspaceId
 
-instance Core.ToHeaders DeleteWorkspace where
+instance Data.ToHeaders DeleteWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteWorkspace where
+instance Data.ToPath DeleteWorkspace where
   toPath DeleteWorkspace' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId]
+      ["/workspaces/", Data.toBS workspaceId]
 
-instance Core.ToQuery DeleteWorkspace where
+instance Data.ToQuery DeleteWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkspaceResponse' smart constructor.

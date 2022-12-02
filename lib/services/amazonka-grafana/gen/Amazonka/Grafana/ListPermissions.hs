@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -174,9 +175,9 @@ instance Core.AWSRequest ListPermissions where
     Response.receiveJSON
       ( \s h x ->
           ListPermissionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "permissions" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListPermissions where
@@ -197,33 +198,33 @@ instance Prelude.NFData ListPermissions where
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders ListPermissions where
+instance Data.ToHeaders ListPermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListPermissions where
+instance Data.ToPath ListPermissions where
   toPath ListPermissions' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/permissions"
       ]
 
-instance Core.ToQuery ListPermissions where
+instance Data.ToQuery ListPermissions where
   toQuery ListPermissions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "userType" Core.=: userType,
-        "maxResults" Core.=: maxResults,
-        "userId" Core.=: userId,
-        "groupId" Core.=: groupId
+      [ "nextToken" Data.=: nextToken,
+        "userType" Data.=: userType,
+        "maxResults" Data.=: maxResults,
+        "userId" Data.=: userId,
+        "groupId" Data.=: groupId
       ]
 
 -- | /See:/ 'newListPermissionsResponse' smart constructor.

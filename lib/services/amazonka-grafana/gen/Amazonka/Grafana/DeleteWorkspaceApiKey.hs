@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,8 +100,8 @@ instance Core.AWSRequest DeleteWorkspaceApiKey where
       ( \s h x ->
           DeleteWorkspaceApiKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "keyName")
-            Prelude.<*> (x Core..:> "workspaceId")
+            Prelude.<*> (x Data..:> "keyName")
+            Prelude.<*> (x Data..:> "workspaceId")
       )
 
 instance Prelude.Hashable DeleteWorkspaceApiKey where
@@ -113,27 +114,27 @@ instance Prelude.NFData DeleteWorkspaceApiKey where
     Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders DeleteWorkspaceApiKey where
+instance Data.ToHeaders DeleteWorkspaceApiKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteWorkspaceApiKey where
+instance Data.ToPath DeleteWorkspaceApiKey where
   toPath DeleteWorkspaceApiKey' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/apikeys/",
-        Core.toBS keyName
+        Data.toBS keyName
       ]
 
-instance Core.ToQuery DeleteWorkspaceApiKey where
+instance Data.ToQuery DeleteWorkspaceApiKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWorkspaceApiKeyResponse' smart constructor.

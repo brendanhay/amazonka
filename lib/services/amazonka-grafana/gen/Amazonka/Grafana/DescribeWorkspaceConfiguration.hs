@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance
       ( \s h x ->
           DescribeWorkspaceConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "configuration")
+            Prelude.<*> (x Data..:> "configuration")
       )
 
 instance
@@ -110,28 +111,28 @@ instance
     Prelude.rnf workspaceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeWorkspaceConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeWorkspaceConfiguration where
+instance Data.ToPath DescribeWorkspaceConfiguration where
   toPath DescribeWorkspaceConfiguration' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/configuration"
       ]
 
-instance Core.ToQuery DescribeWorkspaceConfiguration where
+instance Data.ToQuery DescribeWorkspaceConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWorkspaceConfigurationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.VpcConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings for an Amazon VPC that contains data sources
@@ -73,14 +74,14 @@ vpcConfiguration_securityGroupIds = Lens.lens (\VpcConfiguration' {securityGroup
 vpcConfiguration_subnetIds :: Lens.Lens' VpcConfiguration (Prelude.NonEmpty Prelude.Text)
 vpcConfiguration_subnetIds = Lens.lens (\VpcConfiguration' {subnetIds} -> subnetIds) (\s@VpcConfiguration' {} a -> s {subnetIds = a} :: VpcConfiguration) Prelude.. Lens.coerced
 
-instance Core.FromJSON VpcConfiguration where
+instance Data.FromJSON VpcConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfiguration"
       ( \x ->
           VpcConfiguration'
-            Prelude.<$> (x Core..: "securityGroupIds")
-            Prelude.<*> (x Core..: "subnetIds")
+            Prelude.<$> (x Data..: "securityGroupIds")
+            Prelude.<*> (x Data..: "subnetIds")
       )
 
 instance Prelude.Hashable VpcConfiguration where
@@ -93,12 +94,12 @@ instance Prelude.NFData VpcConfiguration where
     Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON VpcConfiguration where
+instance Data.ToJSON VpcConfiguration where
   toJSON VpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("securityGroupIds" Core..= securityGroupIds),
-            Prelude.Just ("subnetIds" Core..= subnetIds)
+              ("securityGroupIds" Data..= securityGroupIds),
+            Prelude.Just ("subnetIds" Data..= subnetIds)
           ]
       )

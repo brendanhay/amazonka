@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.IdpMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the identity provider (IdP) metadata used to
@@ -65,13 +66,13 @@ idpMetadata_url = Lens.lens (\IdpMetadata' {url} -> url) (\s@IdpMetadata' {} a -
 idpMetadata_xml :: Lens.Lens' IdpMetadata (Prelude.Maybe Prelude.Text)
 idpMetadata_xml = Lens.lens (\IdpMetadata' {xml} -> xml) (\s@IdpMetadata' {} a -> s {xml = a} :: IdpMetadata)
 
-instance Core.FromJSON IdpMetadata where
+instance Data.FromJSON IdpMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdpMetadata"
       ( \x ->
           IdpMetadata'
-            Prelude.<$> (x Core..:? "url") Prelude.<*> (x Core..:? "xml")
+            Prelude.<$> (x Data..:? "url") Prelude.<*> (x Data..:? "xml")
       )
 
 instance Prelude.Hashable IdpMetadata where
@@ -83,11 +84,11 @@ instance Prelude.NFData IdpMetadata where
   rnf IdpMetadata' {..} =
     Prelude.rnf url `Prelude.seq` Prelude.rnf xml
 
-instance Core.ToJSON IdpMetadata where
+instance Data.ToJSON IdpMetadata where
   toJSON IdpMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("url" Core..=) Prelude.<$> url,
-            ("xml" Core..=) Prelude.<$> xml
+          [ ("url" Data..=) Prelude.<$> url,
+            ("xml" Data..=) Prelude.<$> xml
           ]
       )

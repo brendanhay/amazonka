@@ -18,6 +18,7 @@ module Amazonka.Grafana.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Lens
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude

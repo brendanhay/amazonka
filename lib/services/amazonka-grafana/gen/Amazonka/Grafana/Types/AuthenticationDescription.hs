@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.AuthenticationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types.AuthenticationProviderTypes
 import Amazonka.Grafana.Types.AwsSsoAuthentication
 import Amazonka.Grafana.Types.SamlAuthentication
@@ -90,15 +91,15 @@ authenticationDescription_saml = Lens.lens (\AuthenticationDescription' {saml} -
 authenticationDescription_providers :: Lens.Lens' AuthenticationDescription [AuthenticationProviderTypes]
 authenticationDescription_providers = Lens.lens (\AuthenticationDescription' {providers} -> providers) (\s@AuthenticationDescription' {} a -> s {providers = a} :: AuthenticationDescription) Prelude.. Lens.coerced
 
-instance Core.FromJSON AuthenticationDescription where
+instance Data.FromJSON AuthenticationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthenticationDescription"
       ( \x ->
           AuthenticationDescription'
-            Prelude.<$> (x Core..:? "awsSso")
-            Prelude.<*> (x Core..:? "saml")
-            Prelude.<*> (x Core..:? "providers" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "awsSso")
+            Prelude.<*> (x Data..:? "saml")
+            Prelude.<*> (x Data..:? "providers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AuthenticationDescription where

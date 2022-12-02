@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,11 +81,11 @@ data CreateWorkspace = CreateWorkspace'
     -- | The name of an IAM role that already exists to use with Organizations to
     -- access Amazon Web Services data sources and notification channels in
     -- other accounts in an organization.
-    organizationRoleName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    organizationRoleName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the organizational units that this workspace is allowed to use
     -- data sources from, if this workspace is in an account that is part of an
     -- organization.
-    workspaceOrganizationalUnits :: Prelude.Maybe (Core.Sensitive [Prelude.Text]),
+    workspaceOrganizationalUnits :: Prelude.Maybe (Data.Sensitive [Prelude.Text]),
     -- | The name of the CloudFormation stack set to use to generate IAM roles to
     -- be used for this workspace.
     stackSetName :: Prelude.Maybe Prelude.Text,
@@ -96,7 +97,7 @@ data CreateWorkspace = CreateWorkspace'
     -- Web Services resources that the workspace will view data from. If you
     -- already have a role that you want to use, specify it here. The
     -- permission type should be set to @CUSTOMER_MANAGED@.
-    workspaceRoleArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    workspaceRoleArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specify the Amazon Web Services notification channels that you plan to
     -- use in this workspace. Specifying these data sources here enables Amazon
     -- Managed Grafana to create IAM roles and permissions that allow Amazon
@@ -113,12 +114,12 @@ data CreateWorkspace = CreateWorkspace'
     -- manually configure permissions for it.
     workspaceDataSources :: Prelude.Maybe [DataSourceType],
     -- | The name for the workspace. It does not have to be unique.
-    workspaceName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    workspaceName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description for the workspace. This is used only to help you identify
     -- this workspace.
     --
     -- Pattern: @^[\\\\p{L}\\\\p{Z}\\\\p{N}\\\\p{P}]{0,2048}$@
-    workspaceDescription :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    workspaceDescription :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies whether the workspace can access Amazon Web Services resources
     -- in this Amazon Web Services account only, or whether it can also access
     -- Amazon Web Services resources in other accounts in the same
@@ -289,13 +290,13 @@ createWorkspace_clientToken = Lens.lens (\CreateWorkspace' {clientToken} -> clie
 -- access Amazon Web Services data sources and notification channels in
 -- other accounts in an organization.
 createWorkspace_organizationRoleName :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
-createWorkspace_organizationRoleName = Lens.lens (\CreateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@CreateWorkspace' {} a -> s {organizationRoleName = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+createWorkspace_organizationRoleName = Lens.lens (\CreateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@CreateWorkspace' {} a -> s {organizationRoleName = a} :: CreateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the organizational units that this workspace is allowed to use
 -- data sources from, if this workspace is in an account that is part of an
 -- organization.
 createWorkspace_workspaceOrganizationalUnits :: Lens.Lens' CreateWorkspace (Prelude.Maybe [Prelude.Text])
-createWorkspace_workspaceOrganizationalUnits = Lens.lens (\CreateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@CreateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: CreateWorkspace) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createWorkspace_workspaceOrganizationalUnits = Lens.lens (\CreateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@CreateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: CreateWorkspace) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the CloudFormation stack set to use to generate IAM roles to
 -- be used for this workspace.
@@ -313,7 +314,7 @@ createWorkspace_configuration = Lens.lens (\CreateWorkspace' {configuration} -> 
 -- already have a role that you want to use, specify it here. The
 -- permission type should be set to @CUSTOMER_MANAGED@.
 createWorkspace_workspaceRoleArn :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
-createWorkspace_workspaceRoleArn = Lens.lens (\CreateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@CreateWorkspace' {} a -> s {workspaceRoleArn = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+createWorkspace_workspaceRoleArn = Lens.lens (\CreateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@CreateWorkspace' {} a -> s {workspaceRoleArn = a} :: CreateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specify the Amazon Web Services notification channels that you plan to
 -- use in this workspace. Specifying these data sources here enables Amazon
@@ -336,14 +337,14 @@ createWorkspace_workspaceDataSources = Lens.lens (\CreateWorkspace' {workspaceDa
 
 -- | The name for the workspace. It does not have to be unique.
 createWorkspace_workspaceName :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
-createWorkspace_workspaceName = Lens.lens (\CreateWorkspace' {workspaceName} -> workspaceName) (\s@CreateWorkspace' {} a -> s {workspaceName = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+createWorkspace_workspaceName = Lens.lens (\CreateWorkspace' {workspaceName} -> workspaceName) (\s@CreateWorkspace' {} a -> s {workspaceName = a} :: CreateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description for the workspace. This is used only to help you identify
 -- this workspace.
 --
 -- Pattern: @^[\\\\p{L}\\\\p{Z}\\\\p{N}\\\\p{P}]{0,2048}$@
 createWorkspace_workspaceDescription :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
-createWorkspace_workspaceDescription = Lens.lens (\CreateWorkspace' {workspaceDescription} -> workspaceDescription) (\s@CreateWorkspace' {} a -> s {workspaceDescription = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+createWorkspace_workspaceDescription = Lens.lens (\CreateWorkspace' {workspaceDescription} -> workspaceDescription) (\s@CreateWorkspace' {} a -> s {workspaceDescription = a} :: CreateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies whether the workspace can access Amazon Web Services resources
 -- in this Amazon Web Services account only, or whether it can also access
@@ -394,7 +395,7 @@ instance Core.AWSRequest CreateWorkspace where
       ( \s h x ->
           CreateWorkspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspace")
+            Prelude.<*> (x Data..:> "workspace")
       )
 
 instance Prelude.Hashable CreateWorkspace where
@@ -433,55 +434,55 @@ instance Prelude.NFData CreateWorkspace where
       `Prelude.seq` Prelude.rnf authenticationProviders
       `Prelude.seq` Prelude.rnf permissionType
 
-instance Core.ToHeaders CreateWorkspace where
+instance Data.ToHeaders CreateWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkspace where
+instance Data.ToJSON CreateWorkspace where
   toJSON CreateWorkspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpcConfiguration" Core..=)
+          [ ("vpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("organizationRoleName" Core..=)
+            ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("organizationRoleName" Data..=)
               Prelude.<$> organizationRoleName,
-            ("workspaceOrganizationalUnits" Core..=)
+            ("workspaceOrganizationalUnits" Data..=)
               Prelude.<$> workspaceOrganizationalUnits,
-            ("stackSetName" Core..=) Prelude.<$> stackSetName,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("workspaceRoleArn" Core..=)
+            ("stackSetName" Data..=) Prelude.<$> stackSetName,
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("workspaceRoleArn" Data..=)
               Prelude.<$> workspaceRoleArn,
-            ("workspaceNotificationDestinations" Core..=)
+            ("workspaceNotificationDestinations" Data..=)
               Prelude.<$> workspaceNotificationDestinations,
-            ("workspaceDataSources" Core..=)
+            ("workspaceDataSources" Data..=)
               Prelude.<$> workspaceDataSources,
-            ("workspaceName" Core..=) Prelude.<$> workspaceName,
-            ("workspaceDescription" Core..=)
+            ("workspaceName" Data..=) Prelude.<$> workspaceName,
+            ("workspaceDescription" Data..=)
               Prelude.<$> workspaceDescription,
             Prelude.Just
-              ("accountAccessType" Core..= accountAccessType),
+              ("accountAccessType" Data..= accountAccessType),
             Prelude.Just
               ( "authenticationProviders"
-                  Core..= authenticationProviders
+                  Data..= authenticationProviders
               ),
             Prelude.Just
-              ("permissionType" Core..= permissionType)
+              ("permissionType" Data..= permissionType)
           ]
       )
 
-instance Core.ToPath CreateWorkspace where
+instance Data.ToPath CreateWorkspace where
   toPath = Prelude.const "/workspaces"
 
-instance Core.ToQuery CreateWorkspace where
+instance Data.ToQuery CreateWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkspaceResponse' smart constructor.

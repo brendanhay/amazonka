@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance
       ( \s h x ->
           UpdateWorkspaceAuthenticationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "authentication")
+            Prelude.<*> (x Data..:> "authentication")
       )
 
 instance
@@ -150,39 +151,39 @@ instance Prelude.NFData UpdateWorkspaceAuthentication where
       `Prelude.seq` Prelude.rnf authenticationProviders
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders UpdateWorkspaceAuthentication where
+instance Data.ToHeaders UpdateWorkspaceAuthentication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkspaceAuthentication where
+instance Data.ToJSON UpdateWorkspaceAuthentication where
   toJSON UpdateWorkspaceAuthentication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("samlConfiguration" Core..=)
+          [ ("samlConfiguration" Data..=)
               Prelude.<$> samlConfiguration,
             Prelude.Just
               ( "authenticationProviders"
-                  Core..= authenticationProviders
+                  Data..= authenticationProviders
               )
           ]
       )
 
-instance Core.ToPath UpdateWorkspaceAuthentication where
+instance Data.ToPath UpdateWorkspaceAuthentication where
   toPath UpdateWorkspaceAuthentication' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/authentication"
       ]
 
-instance Core.ToQuery UpdateWorkspaceAuthentication where
+instance Data.ToQuery UpdateWorkspaceAuthentication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkspaceAuthenticationResponse' smart constructor.

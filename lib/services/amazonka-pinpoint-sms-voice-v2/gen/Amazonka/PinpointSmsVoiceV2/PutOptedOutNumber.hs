@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,11 +108,11 @@ instance Core.AWSRequest PutOptedOutNumber where
     Response.receiveJSON
       ( \s h x ->
           PutOptedOutNumberResponse'
-            Prelude.<$> (x Core..?> "OptOutListArn")
-            Prelude.<*> (x Core..?> "OptedOutTimestamp")
-            Prelude.<*> (x Core..?> "OptOutListName")
-            Prelude.<*> (x Core..?> "OptedOutNumber")
-            Prelude.<*> (x Core..?> "EndUserOptedOut")
+            Prelude.<$> (x Data..?> "OptOutListArn")
+            Prelude.<*> (x Data..?> "OptedOutTimestamp")
+            Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "OptedOutNumber")
+            Prelude.<*> (x Data..?> "EndUserOptedOut")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,36 +126,36 @@ instance Prelude.NFData PutOptedOutNumber where
     Prelude.rnf optOutListName
       `Prelude.seq` Prelude.rnf optedOutNumber
 
-instance Core.ToHeaders PutOptedOutNumber where
+instance Data.ToHeaders PutOptedOutNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.PutOptedOutNumber" ::
+              Data.=# ( "PinpointSMSVoiceV2.PutOptedOutNumber" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutOptedOutNumber where
+instance Data.ToJSON PutOptedOutNumber where
   toJSON PutOptedOutNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OptOutListName" Core..= optOutListName),
+              ("OptOutListName" Data..= optOutListName),
             Prelude.Just
-              ("OptedOutNumber" Core..= optedOutNumber)
+              ("OptedOutNumber" Data..= optedOutNumber)
           ]
       )
 
-instance Core.ToPath PutOptedOutNumber where
+instance Data.ToPath PutOptedOutNumber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutOptedOutNumber where
+instance Data.ToQuery PutOptedOutNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutOptedOutNumberResponse' smart constructor.
@@ -163,7 +164,7 @@ data PutOptedOutNumberResponse = PutOptedOutNumberResponse'
     optOutListArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the phone number was added to the OptOutList, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    optedOutTimestamp :: Prelude.Maybe Core.POSIX,
+    optedOutTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The OptOutListName that the phone number was removed from.
     optOutListName :: Prelude.Maybe Prelude.Text,
     -- | The phone number that was added to the OptOutList.
@@ -219,7 +220,7 @@ putOptedOutNumberResponse_optOutListArn = Lens.lens (\PutOptedOutNumberResponse'
 -- | The time that the phone number was added to the OptOutList, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 putOptedOutNumberResponse_optedOutTimestamp :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.UTCTime)
-putOptedOutNumberResponse_optedOutTimestamp = Lens.lens (\PutOptedOutNumberResponse' {optedOutTimestamp} -> optedOutTimestamp) (\s@PutOptedOutNumberResponse' {} a -> s {optedOutTimestamp = a} :: PutOptedOutNumberResponse) Prelude.. Lens.mapping Core._Time
+putOptedOutNumberResponse_optedOutTimestamp = Lens.lens (\PutOptedOutNumberResponse' {optedOutTimestamp} -> optedOutTimestamp) (\s@PutOptedOutNumberResponse' {} a -> s {optedOutTimestamp = a} :: PutOptedOutNumberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The OptOutListName that the phone number was removed from.
 putOptedOutNumberResponse_optOutListName :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.Text)

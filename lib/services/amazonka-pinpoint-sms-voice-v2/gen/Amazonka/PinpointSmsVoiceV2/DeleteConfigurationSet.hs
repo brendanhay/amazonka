@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,12 +103,12 @@ instance Core.AWSRequest DeleteConfigurationSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteConfigurationSetResponse'
-            Prelude.<$> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "DefaultSenderId")
-            Prelude.<*> (x Core..?> "ConfigurationSetArn")
-            Prelude.<*> (x Core..?> "DefaultMessageType")
-            Prelude.<*> ( x Core..?> "EventDestinations"
+            Prelude.<$> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "DefaultSenderId")
+            Prelude.<*> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "DefaultMessageType")
+            Prelude.<*> ( x Data..?> "EventDestinations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -121,43 +122,43 @@ instance Prelude.NFData DeleteConfigurationSet where
   rnf DeleteConfigurationSet' {..} =
     Prelude.rnf configurationSetName
 
-instance Core.ToHeaders DeleteConfigurationSet where
+instance Data.ToHeaders DeleteConfigurationSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeleteConfigurationSet" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeleteConfigurationSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConfigurationSet where
+instance Data.ToJSON DeleteConfigurationSet where
   toJSON DeleteConfigurationSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               )
           ]
       )
 
-instance Core.ToPath DeleteConfigurationSet where
+instance Data.ToPath DeleteConfigurationSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConfigurationSet where
+instance Data.ToQuery DeleteConfigurationSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConfigurationSetResponse' smart constructor.
 data DeleteConfigurationSetResponse = DeleteConfigurationSetResponse'
   { -- | The time that the deleted configuration set was created in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the deleted configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The default Sender ID of the configuration set that was deleted.
@@ -216,7 +217,7 @@ newDeleteConfigurationSetResponse pHttpStatus_ =
 -- | The time that the deleted configuration set was created in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 deleteConfigurationSetResponse_createdTimestamp :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe Prelude.UTCTime)
-deleteConfigurationSetResponse_createdTimestamp = Lens.lens (\DeleteConfigurationSetResponse' {createdTimestamp} -> createdTimestamp) (\s@DeleteConfigurationSetResponse' {} a -> s {createdTimestamp = a} :: DeleteConfigurationSetResponse) Prelude.. Lens.mapping Core._Time
+deleteConfigurationSetResponse_createdTimestamp = Lens.lens (\DeleteConfigurationSetResponse' {createdTimestamp} -> createdTimestamp) (\s@DeleteConfigurationSetResponse' {} a -> s {createdTimestamp = a} :: DeleteConfigurationSetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the deleted configuration set.
 deleteConfigurationSetResponse_configurationSetName :: Lens.Lens' DeleteConfigurationSetResponse (Prelude.Maybe Prelude.Text)

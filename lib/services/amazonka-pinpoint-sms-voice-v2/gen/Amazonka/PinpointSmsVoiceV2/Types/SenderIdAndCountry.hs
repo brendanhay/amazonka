@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.SenderIdAndCountry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The alphanumeric sender ID in a specific country that you want to
@@ -81,12 +82,12 @@ instance Prelude.NFData SenderIdAndCountry where
     Prelude.rnf senderId
       `Prelude.seq` Prelude.rnf isoCountryCode
 
-instance Core.ToJSON SenderIdAndCountry where
+instance Data.ToJSON SenderIdAndCountry where
   toJSON SenderIdAndCountry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SenderId" Core..= senderId),
+          [ Prelude.Just ("SenderId" Data..= senderId),
             Prelude.Just
-              ("IsoCountryCode" Core..= isoCountryCode)
+              ("IsoCountryCode" Data..= isoCountryCode)
           ]
       )

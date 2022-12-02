@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           SetTextMessageSpendLimitOverrideResponse'
-            Prelude.<$> (x Core..?> "MonthlyLimit")
+            Prelude.<$> (x Data..?> "MonthlyLimit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,35 +113,35 @@ instance
     Prelude.rnf monthlyLimit
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     SetTextMessageSpendLimitOverride
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.SetTextMessageSpendLimitOverride" ::
+              Data.=# ( "PinpointSMSVoiceV2.SetTextMessageSpendLimitOverride" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SetTextMessageSpendLimitOverride where
+instance Data.ToJSON SetTextMessageSpendLimitOverride where
   toJSON SetTextMessageSpendLimitOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MonthlyLimit" Core..= monthlyLimit)]
+          [Prelude.Just ("MonthlyLimit" Data..= monthlyLimit)]
       )
 
-instance Core.ToPath SetTextMessageSpendLimitOverride where
+instance Data.ToPath SetTextMessageSpendLimitOverride where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     SetTextMessageSpendLimitOverride
   where
   toQuery = Prelude.const Prelude.mempty

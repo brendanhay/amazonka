@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,7 +77,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteVoiceMessageSpendLimitOverrideResponse'
-            Prelude.<$> (x Core..?> "MonthlyLimit")
+            Prelude.<$> (x Data..?> "MonthlyLimit")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,37 +95,37 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteVoiceMessageSpendLimitOverride
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DeleteVoiceMessageSpendLimitOverride" ::
+              Data.=# ( "PinpointSMSVoiceV2.DeleteVoiceMessageSpendLimitOverride" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteVoiceMessageSpendLimitOverride
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteVoiceMessageSpendLimitOverride
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteVoiceMessageSpendLimitOverride
   where
   toQuery = Prelude.const Prelude.mempty

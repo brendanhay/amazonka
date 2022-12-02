@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,10 +174,10 @@ instance Core.AWSRequest DescribeKeywords where
     Response.receiveJSON
       ( \s h x ->
           DescribeKeywordsResponse'
-            Prelude.<$> (x Core..?> "OriginationIdentity")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "OriginationIdentityArn")
-            Prelude.<*> (x Core..?> "Keywords" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "OriginationIdentity")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "OriginationIdentityArn")
+            Prelude.<*> (x Data..?> "Keywords" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,38 +197,38 @@ instance Prelude.NFData DescribeKeywords where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf originationIdentity
 
-instance Core.ToHeaders DescribeKeywords where
+instance Data.ToHeaders DescribeKeywords where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DescribeKeywords" ::
+              Data.=# ( "PinpointSMSVoiceV2.DescribeKeywords" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeKeywords where
+instance Data.ToJSON DescribeKeywords where
   toJSON DescribeKeywords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("Keywords" Core..=) Prelude.<$> keywords,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("Keywords" Data..=) Prelude.<$> keywords,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("OriginationIdentity" Core..= originationIdentity)
+              ("OriginationIdentity" Data..= originationIdentity)
           ]
       )
 
-instance Core.ToPath DescribeKeywords where
+instance Data.ToPath DescribeKeywords where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeKeywords where
+instance Data.ToQuery DescribeKeywords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeKeywordsResponse' smart constructor.

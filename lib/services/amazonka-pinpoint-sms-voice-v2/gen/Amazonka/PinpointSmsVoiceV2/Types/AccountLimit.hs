@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.AccountLimit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.AccountLimitName
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,15 +79,15 @@ accountLimit_used = Lens.lens (\AccountLimit' {used} -> used) (\s@AccountLimit' 
 accountLimit_max :: Lens.Lens' AccountLimit Prelude.Integer
 accountLimit_max = Lens.lens (\AccountLimit' {max} -> max) (\s@AccountLimit' {} a -> s {max = a} :: AccountLimit)
 
-instance Core.FromJSON AccountLimit where
+instance Data.FromJSON AccountLimit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountLimit"
       ( \x ->
           AccountLimit'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Used")
-            Prelude.<*> (x Core..: "Max")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Used")
+            Prelude.<*> (x Data..: "Max")
       )
 
 instance Prelude.Hashable AccountLimit where

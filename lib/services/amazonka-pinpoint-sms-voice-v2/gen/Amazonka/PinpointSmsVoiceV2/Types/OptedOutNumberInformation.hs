@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.OptedOutNumberInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information for an opted out number in an Amazon Web Services
@@ -32,7 +33,7 @@ data OptedOutNumberInformation = OptedOutNumberInformation'
     optedOutNumber :: Prelude.Text,
     -- | The time that the op tout occurred, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    optedOutTimestamp :: Core.POSIX,
+    optedOutTimestamp :: Data.POSIX,
     -- | This is set to true if it was the end recipient that opted out.
     endUserOptedOut :: Prelude.Bool
   }
@@ -68,7 +69,7 @@ newOptedOutNumberInformation
       { optedOutNumber =
           pOptedOutNumber_,
         optedOutTimestamp =
-          Core._Time Lens.# pOptedOutTimestamp_,
+          Data._Time Lens.# pOptedOutTimestamp_,
         endUserOptedOut = pEndUserOptedOut_
       }
 
@@ -79,21 +80,21 @@ optedOutNumberInformation_optedOutNumber = Lens.lens (\OptedOutNumberInformation
 -- | The time that the op tout occurred, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 optedOutNumberInformation_optedOutTimestamp :: Lens.Lens' OptedOutNumberInformation Prelude.UTCTime
-optedOutNumberInformation_optedOutTimestamp = Lens.lens (\OptedOutNumberInformation' {optedOutTimestamp} -> optedOutTimestamp) (\s@OptedOutNumberInformation' {} a -> s {optedOutTimestamp = a} :: OptedOutNumberInformation) Prelude.. Core._Time
+optedOutNumberInformation_optedOutTimestamp = Lens.lens (\OptedOutNumberInformation' {optedOutTimestamp} -> optedOutTimestamp) (\s@OptedOutNumberInformation' {} a -> s {optedOutTimestamp = a} :: OptedOutNumberInformation) Prelude.. Data._Time
 
 -- | This is set to true if it was the end recipient that opted out.
 optedOutNumberInformation_endUserOptedOut :: Lens.Lens' OptedOutNumberInformation Prelude.Bool
 optedOutNumberInformation_endUserOptedOut = Lens.lens (\OptedOutNumberInformation' {endUserOptedOut} -> endUserOptedOut) (\s@OptedOutNumberInformation' {} a -> s {endUserOptedOut = a} :: OptedOutNumberInformation)
 
-instance Core.FromJSON OptedOutNumberInformation where
+instance Data.FromJSON OptedOutNumberInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OptedOutNumberInformation"
       ( \x ->
           OptedOutNumberInformation'
-            Prelude.<$> (x Core..: "OptedOutNumber")
-            Prelude.<*> (x Core..: "OptedOutTimestamp")
-            Prelude.<*> (x Core..: "EndUserOptedOut")
+            Prelude.<$> (x Data..: "OptedOutNumber")
+            Prelude.<*> (x Data..: "OptedOutTimestamp")
+            Prelude.<*> (x Data..: "EndUserOptedOut")
       )
 
 instance Prelude.Hashable OptedOutNumberInformation where

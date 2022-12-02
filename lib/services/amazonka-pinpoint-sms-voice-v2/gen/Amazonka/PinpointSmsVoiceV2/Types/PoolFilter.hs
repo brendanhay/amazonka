@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.PoolFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.PoolFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,11 +76,11 @@ instance Prelude.NFData PoolFilter where
   rnf PoolFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON PoolFilter where
+instance Data.ToJSON PoolFilter where
   toJSON PoolFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.KeywordFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.KeywordFilterName
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,11 +76,11 @@ instance Prelude.NFData KeywordFilter where
   rnf KeywordFilter' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON KeywordFilter where
+instance Data.ToJSON KeywordFilter where
   toJSON KeywordFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values)
           ]
       )

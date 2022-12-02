@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,8 +155,8 @@ instance Core.AWSRequest DescribePools where
     Response.receiveJSON
       ( \s h x ->
           DescribePoolsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Pools" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Pools" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,36 +174,36 @@ instance Prelude.NFData DescribePools where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribePools where
+instance Data.ToHeaders DescribePools where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.DescribePools" ::
+              Data.=# ( "PinpointSMSVoiceV2.DescribePools" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePools where
+instance Data.ToJSON DescribePools where
   toJSON DescribePools' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("PoolIds" Core..=) Prelude.<$> poolIds,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PoolIds" Data..=) Prelude.<$> poolIds,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribePools where
+instance Data.ToPath DescribePools where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePools where
+instance Data.ToQuery DescribePools where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePoolsResponse' smart constructor.

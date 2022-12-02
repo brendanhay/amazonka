@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.PoolInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.MessageType
 import Amazonka.PinpointSmsVoiceV2.Types.PoolStatus
 import qualified Amazonka.Prelude as Prelude
@@ -66,7 +67,7 @@ data PoolInformation = PoolInformation'
     deletionProtectionEnabled :: Prelude.Bool,
     -- | The time when the pool was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Core.POSIX
+    createdTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -163,7 +164,7 @@ newPoolInformation
         deletionProtectionEnabled =
           pDeletionProtectionEnabled_,
         createdTimestamp =
-          Core._Time Lens.# pCreatedTimestamp_
+          Data._Time Lens.# pCreatedTimestamp_
       }
 
 -- | The Amazon Resource Name (ARN) of the two way channel.
@@ -224,25 +225,25 @@ poolInformation_deletionProtectionEnabled = Lens.lens (\PoolInformation' {deleti
 -- | The time when the pool was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 poolInformation_createdTimestamp :: Lens.Lens' PoolInformation Prelude.UTCTime
-poolInformation_createdTimestamp = Lens.lens (\PoolInformation' {createdTimestamp} -> createdTimestamp) (\s@PoolInformation' {} a -> s {createdTimestamp = a} :: PoolInformation) Prelude.. Core._Time
+poolInformation_createdTimestamp = Lens.lens (\PoolInformation' {createdTimestamp} -> createdTimestamp) (\s@PoolInformation' {} a -> s {createdTimestamp = a} :: PoolInformation) Prelude.. Data._Time
 
-instance Core.FromJSON PoolInformation where
+instance Data.FromJSON PoolInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PoolInformation"
       ( \x ->
           PoolInformation'
-            Prelude.<$> (x Core..:? "TwoWayChannelArn")
-            Prelude.<*> (x Core..: "PoolArn")
-            Prelude.<*> (x Core..: "PoolId")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "MessageType")
-            Prelude.<*> (x Core..: "TwoWayEnabled")
-            Prelude.<*> (x Core..: "SelfManagedOptOutsEnabled")
-            Prelude.<*> (x Core..: "OptOutListName")
-            Prelude.<*> (x Core..: "SharedRoutesEnabled")
-            Prelude.<*> (x Core..: "DeletionProtectionEnabled")
-            Prelude.<*> (x Core..: "CreatedTimestamp")
+            Prelude.<$> (x Data..:? "TwoWayChannelArn")
+            Prelude.<*> (x Data..: "PoolArn")
+            Prelude.<*> (x Data..: "PoolId")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "MessageType")
+            Prelude.<*> (x Data..: "TwoWayEnabled")
+            Prelude.<*> (x Data..: "SelfManagedOptOutsEnabled")
+            Prelude.<*> (x Data..: "OptOutListName")
+            Prelude.<*> (x Data..: "SharedRoutesEnabled")
+            Prelude.<*> (x Data..: "DeletionProtectionEnabled")
+            Prelude.<*> (x Data..: "CreatedTimestamp")
       )
 
 instance Prelude.Hashable PoolInformation where

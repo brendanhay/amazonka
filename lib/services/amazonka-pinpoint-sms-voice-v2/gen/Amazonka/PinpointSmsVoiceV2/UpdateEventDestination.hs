@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -171,9 +172,9 @@ instance Core.AWSRequest UpdateEventDestination where
     Response.receiveJSON
       ( \s h x ->
           UpdateEventDestinationResponse'
-            Prelude.<$> (x Core..?> "ConfigurationSetName")
-            Prelude.<*> (x Core..?> "EventDestination")
-            Prelude.<*> (x Core..?> "ConfigurationSetArn")
+            Prelude.<$> (x Data..?> "ConfigurationSetName")
+            Prelude.<*> (x Data..?> "EventDestination")
+            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,49 +199,49 @@ instance Prelude.NFData UpdateEventDestination where
       `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf eventDestinationName
 
-instance Core.ToHeaders UpdateEventDestination where
+instance Data.ToHeaders UpdateEventDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.UpdateEventDestination" ::
+              Data.=# ( "PinpointSMSVoiceV2.UpdateEventDestination" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEventDestination where
+instance Data.ToJSON UpdateEventDestination where
   toJSON UpdateEventDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CloudWatchLogsDestination" Core..=)
+          [ ("CloudWatchLogsDestination" Data..=)
               Prelude.<$> cloudWatchLogsDestination,
-            ("MatchingEventTypes" Core..=)
+            ("MatchingEventTypes" Data..=)
               Prelude.<$> matchingEventTypes,
-            ("SnsDestination" Core..=)
+            ("SnsDestination" Data..=)
               Prelude.<$> snsDestination,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("KinesisFirehoseDestination" Core..=)
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("KinesisFirehoseDestination" Data..=)
               Prelude.<$> kinesisFirehoseDestination,
             Prelude.Just
               ( "ConfigurationSetName"
-                  Core..= configurationSetName
+                  Data..= configurationSetName
               ),
             Prelude.Just
               ( "EventDestinationName"
-                  Core..= eventDestinationName
+                  Data..= eventDestinationName
               )
           ]
       )
 
-instance Core.ToPath UpdateEventDestination where
+instance Data.ToPath UpdateEventDestination where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEventDestination where
+instance Data.ToQuery UpdateEventDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEventDestinationResponse' smart constructor.

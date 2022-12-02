@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.PhoneNumberInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types.MessageType
 import Amazonka.PinpointSmsVoiceV2.Types.NumberCapability
 import Amazonka.PinpointSmsVoiceV2.Types.NumberStatus
@@ -75,7 +76,7 @@ data PhoneNumberInformation = PhoneNumberInformation'
     deletionProtectionEnabled :: Prelude.Bool,
     -- | The time when the phone number was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Core.POSIX
+    createdTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -194,7 +195,7 @@ newPhoneNumberInformation
         deletionProtectionEnabled =
           pDeletionProtectionEnabled_,
         createdTimestamp =
-          Core._Time Lens.# pCreatedTimestamp_
+          Data._Time Lens.# pCreatedTimestamp_
       }
 
 -- | The unique identifier for the phone number.
@@ -272,30 +273,30 @@ phoneNumberInformation_deletionProtectionEnabled = Lens.lens (\PhoneNumberInform
 -- | The time when the phone number was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 phoneNumberInformation_createdTimestamp :: Lens.Lens' PhoneNumberInformation Prelude.UTCTime
-phoneNumberInformation_createdTimestamp = Lens.lens (\PhoneNumberInformation' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumberInformation' {} a -> s {createdTimestamp = a} :: PhoneNumberInformation) Prelude.. Core._Time
+phoneNumberInformation_createdTimestamp = Lens.lens (\PhoneNumberInformation' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumberInformation' {} a -> s {createdTimestamp = a} :: PhoneNumberInformation) Prelude.. Data._Time
 
-instance Core.FromJSON PhoneNumberInformation where
+instance Data.FromJSON PhoneNumberInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PhoneNumberInformation"
       ( \x ->
           PhoneNumberInformation'
-            Prelude.<$> (x Core..:? "PhoneNumberId")
-            Prelude.<*> (x Core..:? "PoolId")
-            Prelude.<*> (x Core..:? "TwoWayChannelArn")
-            Prelude.<*> (x Core..: "PhoneNumberArn")
-            Prelude.<*> (x Core..: "PhoneNumber")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "IsoCountryCode")
-            Prelude.<*> (x Core..: "MessageType")
-            Prelude.<*> (x Core..: "NumberCapabilities")
-            Prelude.<*> (x Core..: "NumberType")
-            Prelude.<*> (x Core..: "MonthlyLeasingPrice")
-            Prelude.<*> (x Core..: "TwoWayEnabled")
-            Prelude.<*> (x Core..: "SelfManagedOptOutsEnabled")
-            Prelude.<*> (x Core..: "OptOutListName")
-            Prelude.<*> (x Core..: "DeletionProtectionEnabled")
-            Prelude.<*> (x Core..: "CreatedTimestamp")
+            Prelude.<$> (x Data..:? "PhoneNumberId")
+            Prelude.<*> (x Data..:? "PoolId")
+            Prelude.<*> (x Data..:? "TwoWayChannelArn")
+            Prelude.<*> (x Data..: "PhoneNumberArn")
+            Prelude.<*> (x Data..: "PhoneNumber")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "IsoCountryCode")
+            Prelude.<*> (x Data..: "MessageType")
+            Prelude.<*> (x Data..: "NumberCapabilities")
+            Prelude.<*> (x Data..: "NumberType")
+            Prelude.<*> (x Data..: "MonthlyLeasingPrice")
+            Prelude.<*> (x Data..: "TwoWayEnabled")
+            Prelude.<*> (x Data..: "SelfManagedOptOutsEnabled")
+            Prelude.<*> (x Data..: "OptOutListName")
+            Prelude.<*> (x Data..: "DeletionProtectionEnabled")
+            Prelude.<*> (x Data..: "CreatedTimestamp")
       )
 
 instance Prelude.Hashable PhoneNumberInformation where

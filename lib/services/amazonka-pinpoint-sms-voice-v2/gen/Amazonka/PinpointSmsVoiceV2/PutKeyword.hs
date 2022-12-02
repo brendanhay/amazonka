@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -160,11 +161,11 @@ instance Core.AWSRequest PutKeyword where
     Response.receiveJSON
       ( \s h x ->
           PutKeywordResponse'
-            Prelude.<$> (x Core..?> "OriginationIdentity")
-            Prelude.<*> (x Core..?> "KeywordAction")
-            Prelude.<*> (x Core..?> "OriginationIdentityArn")
-            Prelude.<*> (x Core..?> "Keyword")
-            Prelude.<*> (x Core..?> "KeywordMessage")
+            Prelude.<$> (x Data..?> "OriginationIdentity")
+            Prelude.<*> (x Data..?> "KeywordAction")
+            Prelude.<*> (x Data..?> "OriginationIdentityArn")
+            Prelude.<*> (x Data..?> "Keyword")
+            Prelude.<*> (x Data..?> "KeywordMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,38 +183,38 @@ instance Prelude.NFData PutKeyword where
       `Prelude.seq` Prelude.rnf keyword
       `Prelude.seq` Prelude.rnf keywordMessage
 
-instance Core.ToHeaders PutKeyword where
+instance Data.ToHeaders PutKeyword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.PutKeyword" ::
+              Data.=# ( "PinpointSMSVoiceV2.PutKeyword" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutKeyword where
+instance Data.ToJSON PutKeyword where
   toJSON PutKeyword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeywordAction" Core..=) Prelude.<$> keywordAction,
+          [ ("KeywordAction" Data..=) Prelude.<$> keywordAction,
             Prelude.Just
-              ("OriginationIdentity" Core..= originationIdentity),
-            Prelude.Just ("Keyword" Core..= keyword),
+              ("OriginationIdentity" Data..= originationIdentity),
+            Prelude.Just ("Keyword" Data..= keyword),
             Prelude.Just
-              ("KeywordMessage" Core..= keywordMessage)
+              ("KeywordMessage" Data..= keywordMessage)
           ]
       )
 
-instance Core.ToPath PutKeyword where
+instance Data.ToPath PutKeyword where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutKeyword where
+instance Data.ToQuery PutKeyword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutKeywordResponse' smart constructor.

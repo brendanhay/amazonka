@@ -26,6 +26,7 @@ import Amazonka.ApiGatewayV2.Types.PassthroughBehavior
 import Amazonka.ApiGatewayV2.Types.TlsConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an integration.
@@ -583,38 +584,38 @@ integration_passthroughBehavior = Lens.lens (\Integration' {passthroughBehavior}
 integration_integrationSubtype :: Lens.Lens' Integration (Prelude.Maybe Prelude.Text)
 integration_integrationSubtype = Lens.lens (\Integration' {integrationSubtype} -> integrationSubtype) (\s@Integration' {} a -> s {integrationSubtype = a} :: Integration)
 
-instance Core.FromJSON Integration where
+instance Data.FromJSON Integration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Integration"
       ( \x ->
           Integration'
-            Prelude.<$> (x Core..:? "credentialsArn")
-            Prelude.<*> ( x Core..:? "requestParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "credentialsArn")
+            Prelude.<*> ( x Data..:? "requestParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "connectionType")
-            Prelude.<*> (x Core..:? "tlsConfig")
-            Prelude.<*> (x Core..:? "templateSelectionExpression")
-            Prelude.<*> (x Core..:? "integrationResponseSelectionExpression")
-            Prelude.<*> (x Core..:? "connectionId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "integrationMethod")
-            Prelude.<*> (x Core..:? "integrationUri")
-            Prelude.<*> (x Core..:? "integrationType")
-            Prelude.<*> ( x Core..:? "responseParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "connectionType")
+            Prelude.<*> (x Data..:? "tlsConfig")
+            Prelude.<*> (x Data..:? "templateSelectionExpression")
+            Prelude.<*> (x Data..:? "integrationResponseSelectionExpression")
+            Prelude.<*> (x Data..:? "connectionId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "integrationMethod")
+            Prelude.<*> (x Data..:? "integrationUri")
+            Prelude.<*> (x Data..:? "integrationType")
+            Prelude.<*> ( x Data..:? "responseParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "payloadFormatVersion")
-            Prelude.<*> (x Core..:? "timeoutInMillis")
-            Prelude.<*> (x Core..:? "integrationId")
-            Prelude.<*> (x Core..:? "contentHandlingStrategy")
-            Prelude.<*> ( x Core..:? "requestTemplates"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "payloadFormatVersion")
+            Prelude.<*> (x Data..:? "timeoutInMillis")
+            Prelude.<*> (x Data..:? "integrationId")
+            Prelude.<*> (x Data..:? "contentHandlingStrategy")
+            Prelude.<*> ( x Data..:? "requestTemplates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "apiGatewayManaged")
-            Prelude.<*> (x Core..:? "passthroughBehavior")
-            Prelude.<*> (x Core..:? "integrationSubtype")
+            Prelude.<*> (x Data..:? "apiGatewayManaged")
+            Prelude.<*> (x Data..:? "passthroughBehavior")
+            Prelude.<*> (x Data..:? "integrationSubtype")
       )
 
 instance Prelude.Hashable Integration where

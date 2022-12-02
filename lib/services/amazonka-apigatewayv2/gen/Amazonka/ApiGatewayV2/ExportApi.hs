@@ -47,6 +47,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -180,33 +181,33 @@ instance Prelude.NFData ExportApi where
       `Prelude.seq` Prelude.rnf outputType
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders ExportApi where
+instance Data.ToHeaders ExportApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ExportApi where
+instance Data.ToPath ExportApi where
   toPath ExportApi' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/exports/",
-        Core.toBS specification
+        Data.toBS specification
       ]
 
-instance Core.ToQuery ExportApi where
+instance Data.ToQuery ExportApi where
   toQuery ExportApi' {..} =
     Prelude.mconcat
-      [ "stageName" Core.=: stageName,
-        "exportVersion" Core.=: exportVersion,
-        "includeExtensions" Core.=: includeExtensions,
-        "outputType" Core.=: outputType
+      [ "stageName" Data.=: stageName,
+        "exportVersion" Data.=: exportVersion,
+        "includeExtensions" Data.=: includeExtensions,
+        "outputType" Data.=: outputType
       ]
 
 -- | /See:/ 'newExportApiResponse' smart constructor.

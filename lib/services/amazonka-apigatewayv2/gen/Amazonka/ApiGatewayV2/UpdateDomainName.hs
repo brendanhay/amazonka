@@ -48,6 +48,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,13 +113,13 @@ instance Core.AWSRequest UpdateDomainName where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainNameResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "mutualTlsAuthentication")
-            Prelude.<*> (x Core..?> "domainName")
-            Prelude.<*> ( x Core..?> "domainNameConfigurations"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "mutualTlsAuthentication")
+            Prelude.<*> (x Data..?> "domainName")
+            Prelude.<*> ( x Data..?> "domainNameConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "apiMappingSelectionExpression")
+            Prelude.<*> (x Data..?> "apiMappingSelectionExpression")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,34 +136,34 @@ instance Prelude.NFData UpdateDomainName where
       `Prelude.seq` Prelude.rnf domainNameConfigurations
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders UpdateDomainName where
+instance Data.ToHeaders UpdateDomainName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDomainName where
+instance Data.ToJSON UpdateDomainName where
   toJSON UpdateDomainName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("mutualTlsAuthentication" Core..=)
+          [ ("mutualTlsAuthentication" Data..=)
               Prelude.<$> mutualTlsAuthentication,
-            ("domainNameConfigurations" Core..=)
+            ("domainNameConfigurations" Data..=)
               Prelude.<$> domainNameConfigurations
           ]
       )
 
-instance Core.ToPath UpdateDomainName where
+instance Data.ToPath UpdateDomainName where
   toPath UpdateDomainName' {..} =
     Prelude.mconcat
-      ["/v2/domainnames/", Core.toBS domainName]
+      ["/v2/domainnames/", Data.toBS domainName]
 
-instance Core.ToQuery UpdateDomainName where
+instance Data.ToQuery UpdateDomainName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDomainNameResponse' smart constructor.

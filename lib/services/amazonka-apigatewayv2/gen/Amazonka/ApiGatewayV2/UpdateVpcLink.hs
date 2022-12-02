@@ -51,6 +51,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,17 +106,17 @@ instance Core.AWSRequest UpdateVpcLink where
     Response.receiveJSON
       ( \s h x ->
           UpdateVpcLinkResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "vpcLinkStatusMessage")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> ( x Core..?> "securityGroupIds"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vpcLinkStatusMessage")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> ( x Data..?> "securityGroupIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "vpcLinkVersion")
-            Prelude.<*> (x Core..?> "vpcLinkStatus")
-            Prelude.<*> (x Core..?> "vpcLinkId")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "subnetIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vpcLinkVersion")
+            Prelude.<*> (x Data..?> "vpcLinkStatus")
+            Prelude.<*> (x Data..?> "vpcLinkId")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,30 +130,30 @@ instance Prelude.NFData UpdateVpcLink where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf vpcLinkId
 
-instance Core.ToHeaders UpdateVpcLink where
+instance Data.ToHeaders UpdateVpcLink where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateVpcLink where
+instance Data.ToJSON UpdateVpcLink where
   toJSON UpdateVpcLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("name" Core..=) Prelude.<$> name]
+          [("name" Data..=) Prelude.<$> name]
       )
 
-instance Core.ToPath UpdateVpcLink where
+instance Data.ToPath UpdateVpcLink where
   toPath UpdateVpcLink' {..} =
     Prelude.mconcat
-      ["/v2/vpclinks/", Core.toBS vpcLinkId]
+      ["/v2/vpclinks/", Data.toBS vpcLinkId]
 
-instance Core.ToQuery UpdateVpcLink where
+instance Data.ToQuery UpdateVpcLink where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateVpcLinkResponse' smart constructor.
@@ -172,7 +173,7 @@ data UpdateVpcLinkResponse = UpdateVpcLinkResponse'
     -- | The ID of the VPC link.
     vpcLinkId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the VPC link was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | A list of subnet IDs to include in the VPC link.
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
@@ -255,7 +256,7 @@ updateVpcLinkResponse_vpcLinkId = Lens.lens (\UpdateVpcLinkResponse' {vpcLinkId}
 
 -- | The timestamp when the VPC link was created.
 updateVpcLinkResponse_createdDate :: Lens.Lens' UpdateVpcLinkResponse (Prelude.Maybe Prelude.UTCTime)
-updateVpcLinkResponse_createdDate = Lens.lens (\UpdateVpcLinkResponse' {createdDate} -> createdDate) (\s@UpdateVpcLinkResponse' {} a -> s {createdDate = a} :: UpdateVpcLinkResponse) Prelude.. Lens.mapping Core._Time
+updateVpcLinkResponse_createdDate = Lens.lens (\UpdateVpcLinkResponse' {createdDate} -> createdDate) (\s@UpdateVpcLinkResponse' {} a -> s {createdDate = a} :: UpdateVpcLinkResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A list of subnet IDs to include in the VPC link.
 updateVpcLinkResponse_subnetIds :: Lens.Lens' UpdateVpcLinkResponse (Prelude.Maybe [Prelude.Text])

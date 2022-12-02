@@ -23,6 +23,7 @@ import Amazonka.ApiGatewayV2.Types.AuthorizerType
 import Amazonka.ApiGatewayV2.Types.JWTConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an authorizer.
@@ -294,23 +295,23 @@ authorizer_authorizerPayloadFormatVersion = Lens.lens (\Authorizer' {authorizerP
 authorizer_name :: Lens.Lens' Authorizer Prelude.Text
 authorizer_name = Lens.lens (\Authorizer' {name} -> name) (\s@Authorizer' {} a -> s {name = a} :: Authorizer)
 
-instance Core.FromJSON Authorizer where
+instance Data.FromJSON Authorizer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Authorizer"
       ( \x ->
           Authorizer'
-            Prelude.<$> (x Core..:? "authorizerCredentialsArn")
-            Prelude.<*> (x Core..:? "identitySource" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "authorizerResultTtlInSeconds")
-            Prelude.<*> (x Core..:? "jwtConfiguration")
-            Prelude.<*> (x Core..:? "identityValidationExpression")
-            Prelude.<*> (x Core..:? "authorizerUri")
-            Prelude.<*> (x Core..:? "authorizerType")
-            Prelude.<*> (x Core..:? "enableSimpleResponses")
-            Prelude.<*> (x Core..:? "authorizerId")
-            Prelude.<*> (x Core..:? "authorizerPayloadFormatVersion")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "authorizerCredentialsArn")
+            Prelude.<*> (x Data..:? "identitySource" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "authorizerResultTtlInSeconds")
+            Prelude.<*> (x Data..:? "jwtConfiguration")
+            Prelude.<*> (x Data..:? "identityValidationExpression")
+            Prelude.<*> (x Data..:? "authorizerUri")
+            Prelude.<*> (x Data..:? "authorizerType")
+            Prelude.<*> (x Data..:? "enableSimpleResponses")
+            Prelude.<*> (x Data..:? "authorizerId")
+            Prelude.<*> (x Data..:? "authorizerPayloadFormatVersion")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Authorizer where

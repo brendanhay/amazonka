@@ -21,6 +21,7 @@ module Amazonka.ApiGatewayV2.Types.TlsConfigInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The TLS configuration for a private integration. If you specify a TLS
@@ -72,11 +73,11 @@ instance Prelude.NFData TlsConfigInput where
   rnf TlsConfigInput' {..} =
     Prelude.rnf serverNameToVerify
 
-instance Core.ToJSON TlsConfigInput where
+instance Data.ToJSON TlsConfigInput where
   toJSON TlsConfigInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("serverNameToVerify" Core..=)
+          [ ("serverNameToVerify" Data..=)
               Prelude.<$> serverNameToVerify
           ]
       )

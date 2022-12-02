@@ -49,6 +49,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,13 +122,13 @@ instance Core.AWSRequest CreateDomainName where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainNameResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "mutualTlsAuthentication")
-            Prelude.<*> (x Core..?> "domainName")
-            Prelude.<*> ( x Core..?> "domainNameConfigurations"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "mutualTlsAuthentication")
+            Prelude.<*> (x Data..?> "domainName")
+            Prelude.<*> ( x Data..?> "domainNameConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "apiMappingSelectionExpression")
+            Prelude.<*> (x Data..?> "apiMappingSelectionExpression")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,34 +146,34 @@ instance Prelude.NFData CreateDomainName where
       `Prelude.seq` Prelude.rnf domainNameConfigurations
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders CreateDomainName where
+instance Data.ToHeaders CreateDomainName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDomainName where
+instance Data.ToJSON CreateDomainName where
   toJSON CreateDomainName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("mutualTlsAuthentication" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("mutualTlsAuthentication" Data..=)
               Prelude.<$> mutualTlsAuthentication,
-            ("domainNameConfigurations" Core..=)
+            ("domainNameConfigurations" Data..=)
               Prelude.<$> domainNameConfigurations,
-            Prelude.Just ("domainName" Core..= domainName)
+            Prelude.Just ("domainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath CreateDomainName where
+instance Data.ToPath CreateDomainName where
   toPath = Prelude.const "/v2/domainnames"
 
-instance Core.ToQuery CreateDomainName where
+instance Data.ToQuery CreateDomainName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDomainNameResponse' smart constructor.

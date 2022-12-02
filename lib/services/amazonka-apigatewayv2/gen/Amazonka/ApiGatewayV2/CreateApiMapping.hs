@@ -48,6 +48,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,10 +125,10 @@ instance Core.AWSRequest CreateApiMapping where
     Response.receiveJSON
       ( \s h x ->
           CreateApiMappingResponse'
-            Prelude.<$> (x Core..?> "apiId")
-            Prelude.<*> (x Core..?> "apiMappingKey")
-            Prelude.<*> (x Core..?> "stage")
-            Prelude.<*> (x Core..?> "apiMappingId")
+            Prelude.<$> (x Data..?> "apiId")
+            Prelude.<*> (x Data..?> "apiMappingKey")
+            Prelude.<*> (x Data..?> "stage")
+            Prelude.<*> (x Data..?> "apiMappingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,36 +146,36 @@ instance Prelude.NFData CreateApiMapping where
       `Prelude.seq` Prelude.rnf stage
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders CreateApiMapping where
+instance Data.ToHeaders CreateApiMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApiMapping where
+instance Data.ToJSON CreateApiMapping where
   toJSON CreateApiMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("apiMappingKey" Core..=) Prelude.<$> apiMappingKey,
-            Prelude.Just ("stage" Core..= stage),
-            Prelude.Just ("apiId" Core..= apiId)
+          [ ("apiMappingKey" Data..=) Prelude.<$> apiMappingKey,
+            Prelude.Just ("stage" Data..= stage),
+            Prelude.Just ("apiId" Data..= apiId)
           ]
       )
 
-instance Core.ToPath CreateApiMapping where
+instance Data.ToPath CreateApiMapping where
   toPath CreateApiMapping' {..} =
     Prelude.mconcat
       [ "/v2/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/apimappings"
       ]
 
-instance Core.ToQuery CreateApiMapping where
+instance Data.ToQuery CreateApiMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApiMappingResponse' smart constructor.

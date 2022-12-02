@@ -50,6 +50,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,11 +137,11 @@ instance Core.AWSRequest CreateModel where
     Response.receiveJSON
       ( \s h x ->
           CreateModelResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "schema")
-            Prelude.<*> (x Core..?> "modelId")
-            Prelude.<*> (x Core..?> "contentType")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "schema")
+            Prelude.<*> (x Data..?> "modelId")
+            Prelude.<*> (x Data..?> "contentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,34 +161,34 @@ instance Prelude.NFData CreateModel where
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateModel where
+instance Data.ToHeaders CreateModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateModel where
+instance Data.ToJSON CreateModel where
   toJSON CreateModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("contentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("schema" Core..= schema),
-            Prelude.Just ("name" Core..= name)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("contentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("schema" Data..= schema),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateModel where
+instance Data.ToPath CreateModel where
   toPath CreateModel' {..} =
     Prelude.mconcat
-      ["/v2/apis/", Core.toBS apiId, "/models"]
+      ["/v2/apis/", Data.toBS apiId, "/models"]
 
-instance Core.ToQuery CreateModel where
+instance Data.ToQuery CreateModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateModelResponse' smart constructor.

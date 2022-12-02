@@ -22,6 +22,7 @@ module Amazonka.ApiGatewayV2.Types.Deployment where
 import Amazonka.ApiGatewayV2.Types.DeploymentStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An immutable representation of an API that can be called by users. A
@@ -41,7 +42,7 @@ data Deployment = Deployment'
     -- | May contain additional feedback on the status of an API deployment.
     deploymentStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the Deployment resource was created.
-    createdDate :: Prelude.Maybe Core.POSIX
+    createdDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,20 +99,20 @@ deployment_deploymentStatusMessage = Lens.lens (\Deployment' {deploymentStatusMe
 
 -- | The date and time when the Deployment resource was created.
 deployment_createdDate :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_createdDate = Lens.lens (\Deployment' {createdDate} -> createdDate) (\s@Deployment' {} a -> s {createdDate = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+deployment_createdDate = Lens.lens (\Deployment' {createdDate} -> createdDate) (\s@Deployment' {} a -> s {createdDate = a} :: Deployment) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Deployment where
+instance Data.FromJSON Deployment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "deploymentStatus")
-            Prelude.<*> (x Core..:? "autoDeployed")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "deploymentStatusMessage")
-            Prelude.<*> (x Core..:? "createdDate")
+            Prelude.<$> (x Data..:? "deploymentStatus")
+            Prelude.<*> (x Data..:? "autoDeployed")
+            Prelude.<*> (x Data..:? "deploymentId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "deploymentStatusMessage")
+            Prelude.<*> (x Data..:? "createdDate")
       )
 
 instance Prelude.Hashable Deployment where

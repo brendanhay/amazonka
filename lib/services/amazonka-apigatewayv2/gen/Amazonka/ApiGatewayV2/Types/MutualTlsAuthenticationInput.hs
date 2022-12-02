@@ -21,6 +21,7 @@ module Amazonka.ApiGatewayV2.Types.MutualTlsAuthenticationInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newMutualTlsAuthenticationInput' smart constructor.
@@ -91,12 +92,12 @@ instance Prelude.NFData MutualTlsAuthenticationInput where
     Prelude.rnf truststoreVersion
       `Prelude.seq` Prelude.rnf truststoreUri
 
-instance Core.ToJSON MutualTlsAuthenticationInput where
+instance Data.ToJSON MutualTlsAuthenticationInput where
   toJSON MutualTlsAuthenticationInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("truststoreVersion" Core..=)
+          [ ("truststoreVersion" Data..=)
               Prelude.<$> truststoreVersion,
-            ("truststoreUri" Core..=) Prelude.<$> truststoreUri
+            ("truststoreUri" Data..=) Prelude.<$> truststoreUri
           ]
       )

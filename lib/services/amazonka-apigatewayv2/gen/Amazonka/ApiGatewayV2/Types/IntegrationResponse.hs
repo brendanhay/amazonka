@@ -22,6 +22,7 @@ module Amazonka.ApiGatewayV2.Types.IntegrationResponse where
 import Amazonka.ApiGatewayV2.Types.ContentHandlingStrategy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an integration response.
@@ -176,22 +177,22 @@ integrationResponse_integrationResponseId = Lens.lens (\IntegrationResponse' {in
 integrationResponse_integrationResponseKey :: Lens.Lens' IntegrationResponse Prelude.Text
 integrationResponse_integrationResponseKey = Lens.lens (\IntegrationResponse' {integrationResponseKey} -> integrationResponseKey) (\s@IntegrationResponse' {} a -> s {integrationResponseKey = a} :: IntegrationResponse)
 
-instance Core.FromJSON IntegrationResponse where
+instance Data.FromJSON IntegrationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntegrationResponse"
       ( \x ->
           IntegrationResponse'
-            Prelude.<$> (x Core..:? "templateSelectionExpression")
-            Prelude.<*> ( x Core..:? "responseParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "templateSelectionExpression")
+            Prelude.<*> ( x Data..:? "responseParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "responseTemplates"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "responseTemplates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "contentHandlingStrategy")
-            Prelude.<*> (x Core..:? "integrationResponseId")
-            Prelude.<*> (x Core..: "integrationResponseKey")
+            Prelude.<*> (x Data..:? "contentHandlingStrategy")
+            Prelude.<*> (x Data..:? "integrationResponseId")
+            Prelude.<*> (x Data..: "integrationResponseKey")
       )
 
 instance Prelude.Hashable IntegrationResponse where

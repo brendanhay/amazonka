@@ -49,6 +49,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,16 +118,16 @@ instance Core.AWSRequest GetIntegrationResponse where
     Response.receiveJSON
       ( \s h x ->
           GetIntegrationResponseResponse'
-            Prelude.<$> (x Core..?> "templateSelectionExpression")
-            Prelude.<*> ( x Core..?> "responseParameters"
+            Prelude.<$> (x Data..?> "templateSelectionExpression")
+            Prelude.<*> ( x Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "integrationResponseKey")
-            Prelude.<*> ( x Core..?> "responseTemplates"
+            Prelude.<*> (x Data..?> "integrationResponseKey")
+            Prelude.<*> ( x Data..?> "responseTemplates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "contentHandlingStrategy")
-            Prelude.<*> (x Core..?> "integrationResponseId")
+            Prelude.<*> (x Data..?> "contentHandlingStrategy")
+            Prelude.<*> (x Data..?> "integrationResponseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,29 +143,29 @@ instance Prelude.NFData GetIntegrationResponse where
       `Prelude.seq` Prelude.rnf integrationResponseId
       `Prelude.seq` Prelude.rnf integrationId
 
-instance Core.ToHeaders GetIntegrationResponse where
+instance Data.ToHeaders GetIntegrationResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIntegrationResponse where
+instance Data.ToPath GetIntegrationResponse where
   toPath GetIntegrationResponse' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/integrations/",
-        Core.toBS integrationId,
+        Data.toBS integrationId,
         "/integrationresponses/",
-        Core.toBS integrationResponseId
+        Data.toBS integrationResponseId
       ]
 
-instance Core.ToQuery GetIntegrationResponse where
+instance Data.ToQuery GetIntegrationResponse where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetIntegrationResponseResponse' smart constructor.

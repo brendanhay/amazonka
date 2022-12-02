@@ -63,6 +63,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -353,17 +354,17 @@ instance Core.AWSRequest UpdateAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           UpdateAuthorizerResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "authorizerCredentialsArn")
-            Prelude.<*> (x Core..?> "identitySource" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "authorizerResultTtlInSeconds")
-            Prelude.<*> (x Core..?> "jwtConfiguration")
-            Prelude.<*> (x Core..?> "identityValidationExpression")
-            Prelude.<*> (x Core..?> "authorizerUri")
-            Prelude.<*> (x Core..?> "authorizerType")
-            Prelude.<*> (x Core..?> "enableSimpleResponses")
-            Prelude.<*> (x Core..?> "authorizerId")
-            Prelude.<*> (x Core..?> "authorizerPayloadFormatVersion")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "authorizerCredentialsArn")
+            Prelude.<*> (x Data..?> "identitySource" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "authorizerResultTtlInSeconds")
+            Prelude.<*> (x Data..?> "jwtConfiguration")
+            Prelude.<*> (x Data..?> "identityValidationExpression")
+            Prelude.<*> (x Data..?> "authorizerUri")
+            Prelude.<*> (x Data..?> "authorizerType")
+            Prelude.<*> (x Data..?> "enableSimpleResponses")
+            Prelude.<*> (x Data..?> "authorizerId")
+            Prelude.<*> (x Data..?> "authorizerPayloadFormatVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -397,52 +398,52 @@ instance Prelude.NFData UpdateAuthorizer where
       `Prelude.seq` Prelude.rnf authorizerId
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders UpdateAuthorizer where
+instance Data.ToHeaders UpdateAuthorizer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAuthorizer where
+instance Data.ToJSON UpdateAuthorizer where
   toJSON UpdateAuthorizer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("authorizerCredentialsArn" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("authorizerCredentialsArn" Data..=)
               Prelude.<$> authorizerCredentialsArn,
-            ("identitySource" Core..=)
+            ("identitySource" Data..=)
               Prelude.<$> identitySource,
-            ("authorizerResultTtlInSeconds" Core..=)
+            ("authorizerResultTtlInSeconds" Data..=)
               Prelude.<$> authorizerResultTtlInSeconds,
-            ("jwtConfiguration" Core..=)
+            ("jwtConfiguration" Data..=)
               Prelude.<$> jwtConfiguration,
-            ("identityValidationExpression" Core..=)
+            ("identityValidationExpression" Data..=)
               Prelude.<$> identityValidationExpression,
-            ("authorizerUri" Core..=) Prelude.<$> authorizerUri,
-            ("authorizerType" Core..=)
+            ("authorizerUri" Data..=) Prelude.<$> authorizerUri,
+            ("authorizerType" Data..=)
               Prelude.<$> authorizerType,
-            ("enableSimpleResponses" Core..=)
+            ("enableSimpleResponses" Data..=)
               Prelude.<$> enableSimpleResponses,
-            ("authorizerPayloadFormatVersion" Core..=)
+            ("authorizerPayloadFormatVersion" Data..=)
               Prelude.<$> authorizerPayloadFormatVersion
           ]
       )
 
-instance Core.ToPath UpdateAuthorizer where
+instance Data.ToPath UpdateAuthorizer where
   toPath UpdateAuthorizer' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/authorizers/",
-        Core.toBS authorizerId
+        Data.toBS authorizerId
       ]
 
-instance Core.ToQuery UpdateAuthorizer where
+instance Data.ToQuery UpdateAuthorizer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAuthorizerResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,11 +145,11 @@ instance Core.AWSRequest UpdateModel where
     Response.receiveJSON
       ( \s h x ->
           UpdateModelResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "schema")
-            Prelude.<*> (x Core..?> "modelId")
-            Prelude.<*> (x Core..?> "contentType")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "schema")
+            Prelude.<*> (x Data..?> "modelId")
+            Prelude.<*> (x Data..?> "contentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,38 +171,38 @@ instance Prelude.NFData UpdateModel where
       `Prelude.seq` Prelude.rnf modelId
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders UpdateModel where
+instance Data.ToHeaders UpdateModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateModel where
+instance Data.ToJSON UpdateModel where
   toJSON UpdateModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description,
-            ("schema" Core..=) Prelude.<$> schema,
-            ("contentType" Core..=) Prelude.<$> contentType
+          [ ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description,
+            ("schema" Data..=) Prelude.<$> schema,
+            ("contentType" Data..=) Prelude.<$> contentType
           ]
       )
 
-instance Core.ToPath UpdateModel where
+instance Data.ToPath UpdateModel where
   toPath UpdateModel' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/models/",
-        Core.toBS modelId
+        Data.toBS modelId
       ]
 
-instance Core.ToQuery UpdateModel where
+instance Data.ToQuery UpdateModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateModelResponse' smart constructor.

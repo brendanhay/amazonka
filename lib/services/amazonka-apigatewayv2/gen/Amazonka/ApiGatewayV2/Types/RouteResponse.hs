@@ -22,6 +22,7 @@ module Amazonka.ApiGatewayV2.Types.RouteResponse where
 import Amazonka.ApiGatewayV2.Types.ParameterConstraints
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a route response.
@@ -95,19 +96,19 @@ routeResponse_routeResponseId = Lens.lens (\RouteResponse' {routeResponseId} -> 
 routeResponse_routeResponseKey :: Lens.Lens' RouteResponse Prelude.Text
 routeResponse_routeResponseKey = Lens.lens (\RouteResponse' {routeResponseKey} -> routeResponseKey) (\s@RouteResponse' {} a -> s {routeResponseKey = a} :: RouteResponse)
 
-instance Core.FromJSON RouteResponse where
+instance Data.FromJSON RouteResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteResponse"
       ( \x ->
           RouteResponse'
-            Prelude.<$> (x Core..:? "modelSelectionExpression")
-            Prelude.<*> ( x Core..:? "responseParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "modelSelectionExpression")
+            Prelude.<*> ( x Data..:? "responseParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "responseModels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "routeResponseId")
-            Prelude.<*> (x Core..: "routeResponseKey")
+            Prelude.<*> (x Data..:? "responseModels" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "routeResponseId")
+            Prelude.<*> (x Data..: "routeResponseKey")
       )
 
 instance Prelude.Hashable RouteResponse where

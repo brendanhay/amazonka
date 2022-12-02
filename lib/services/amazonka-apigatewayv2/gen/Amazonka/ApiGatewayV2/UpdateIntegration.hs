@@ -79,6 +79,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -628,32 +629,32 @@ instance Core.AWSRequest UpdateIntegration where
     Response.receiveJSON
       ( \s h x ->
           UpdateIntegrationResponse''
-            Prelude.<$> (x Core..?> "credentialsArn")
-            Prelude.<*> ( x Core..?> "requestParameters"
+            Prelude.<$> (x Data..?> "credentialsArn")
+            Prelude.<*> ( x Data..?> "requestParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "connectionType")
-            Prelude.<*> (x Core..?> "tlsConfig")
-            Prelude.<*> (x Core..?> "templateSelectionExpression")
-            Prelude.<*> (x Core..?> "integrationResponseSelectionExpression")
-            Prelude.<*> (x Core..?> "connectionId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "integrationMethod")
-            Prelude.<*> (x Core..?> "integrationUri")
-            Prelude.<*> (x Core..?> "integrationType")
-            Prelude.<*> ( x Core..?> "responseParameters"
+            Prelude.<*> (x Data..?> "connectionType")
+            Prelude.<*> (x Data..?> "tlsConfig")
+            Prelude.<*> (x Data..?> "templateSelectionExpression")
+            Prelude.<*> (x Data..?> "integrationResponseSelectionExpression")
+            Prelude.<*> (x Data..?> "connectionId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "integrationMethod")
+            Prelude.<*> (x Data..?> "integrationUri")
+            Prelude.<*> (x Data..?> "integrationType")
+            Prelude.<*> ( x Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "payloadFormatVersion")
-            Prelude.<*> (x Core..?> "timeoutInMillis")
-            Prelude.<*> (x Core..?> "integrationId")
-            Prelude.<*> (x Core..?> "contentHandlingStrategy")
-            Prelude.<*> ( x Core..?> "requestTemplates"
+            Prelude.<*> (x Data..?> "payloadFormatVersion")
+            Prelude.<*> (x Data..?> "timeoutInMillis")
+            Prelude.<*> (x Data..?> "integrationId")
+            Prelude.<*> (x Data..?> "contentHandlingStrategy")
+            Prelude.<*> ( x Data..?> "requestTemplates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "apiGatewayManaged")
-            Prelude.<*> (x Core..?> "passthroughBehavior")
-            Prelude.<*> (x Core..?> "integrationSubtype")
+            Prelude.<*> (x Data..?> "apiGatewayManaged")
+            Prelude.<*> (x Data..?> "passthroughBehavior")
+            Prelude.<*> (x Data..?> "integrationSubtype")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -701,65 +702,65 @@ instance Prelude.NFData UpdateIntegration where
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf integrationId
 
-instance Core.ToHeaders UpdateIntegration where
+instance Data.ToHeaders UpdateIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateIntegration where
+instance Data.ToJSON UpdateIntegration where
   toJSON UpdateIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("credentialsArn" Core..=)
+          [ ("credentialsArn" Data..=)
               Prelude.<$> credentialsArn,
-            ("requestParameters" Core..=)
+            ("requestParameters" Data..=)
               Prelude.<$> requestParameters,
-            ("connectionType" Core..=)
+            ("connectionType" Data..=)
               Prelude.<$> connectionType,
-            ("tlsConfig" Core..=) Prelude.<$> tlsConfig,
-            ("templateSelectionExpression" Core..=)
+            ("tlsConfig" Data..=) Prelude.<$> tlsConfig,
+            ("templateSelectionExpression" Data..=)
               Prelude.<$> templateSelectionExpression,
-            ("connectionId" Core..=) Prelude.<$> connectionId,
-            ("description" Core..=) Prelude.<$> description,
-            ("integrationMethod" Core..=)
+            ("connectionId" Data..=) Prelude.<$> connectionId,
+            ("description" Data..=) Prelude.<$> description,
+            ("integrationMethod" Data..=)
               Prelude.<$> integrationMethod,
-            ("integrationUri" Core..=)
+            ("integrationUri" Data..=)
               Prelude.<$> integrationUri,
-            ("integrationType" Core..=)
+            ("integrationType" Data..=)
               Prelude.<$> integrationType,
-            ("responseParameters" Core..=)
+            ("responseParameters" Data..=)
               Prelude.<$> responseParameters,
-            ("payloadFormatVersion" Core..=)
+            ("payloadFormatVersion" Data..=)
               Prelude.<$> payloadFormatVersion,
-            ("timeoutInMillis" Core..=)
+            ("timeoutInMillis" Data..=)
               Prelude.<$> timeoutInMillis,
-            ("contentHandlingStrategy" Core..=)
+            ("contentHandlingStrategy" Data..=)
               Prelude.<$> contentHandlingStrategy,
-            ("requestTemplates" Core..=)
+            ("requestTemplates" Data..=)
               Prelude.<$> requestTemplates,
-            ("passthroughBehavior" Core..=)
+            ("passthroughBehavior" Data..=)
               Prelude.<$> passthroughBehavior,
-            ("integrationSubtype" Core..=)
+            ("integrationSubtype" Data..=)
               Prelude.<$> integrationSubtype
           ]
       )
 
-instance Core.ToPath UpdateIntegration where
+instance Data.ToPath UpdateIntegration where
   toPath UpdateIntegration' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/integrations/",
-        Core.toBS integrationId
+        Data.toBS integrationId
       ]
 
-instance Core.ToQuery UpdateIntegration where
+instance Data.ToQuery UpdateIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIntegrationResponse'' smart constructor.

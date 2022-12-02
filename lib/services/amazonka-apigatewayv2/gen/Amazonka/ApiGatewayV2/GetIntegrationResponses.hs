@@ -48,6 +48,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -146,8 +147,8 @@ instance Core.AWSRequest GetIntegrationResponses where
     Response.receiveJSON
       ( \s h x ->
           GetIntegrationResponsesResponse'
-            Prelude.<$> (x Core..?> "items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,32 +166,32 @@ instance Prelude.NFData GetIntegrationResponses where
       `Prelude.seq` Prelude.rnf integrationId
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders GetIntegrationResponses where
+instance Data.ToHeaders GetIntegrationResponses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIntegrationResponses where
+instance Data.ToPath GetIntegrationResponses where
   toPath GetIntegrationResponses' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/integrations/",
-        Core.toBS integrationId,
+        Data.toBS integrationId,
         "/integrationresponses"
       ]
 
-instance Core.ToQuery GetIntegrationResponses where
+instance Data.ToQuery GetIntegrationResponses where
   toQuery GetIntegrationResponses' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetIntegrationResponsesResponse' smart constructor.

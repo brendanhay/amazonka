@@ -23,6 +23,7 @@ import Amazonka.ApiGatewayV2.Types.VpcLinkStatus
 import Amazonka.ApiGatewayV2.Types.VpcLinkVersion
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a VPC link.
@@ -38,7 +39,7 @@ data VpcLink = VpcLink'
     -- | The status of the VPC link.
     vpcLinkStatus :: Prelude.Maybe VpcLinkStatus,
     -- | The timestamp when the VPC link was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the VPC link.
     vpcLinkId :: Prelude.Text,
     -- | A list of security group IDs for the VPC link.
@@ -112,7 +113,7 @@ vpcLink_vpcLinkStatus = Lens.lens (\VpcLink' {vpcLinkStatus} -> vpcLinkStatus) (
 
 -- | The timestamp when the VPC link was created.
 vpcLink_createdDate :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.UTCTime)
-vpcLink_createdDate = Lens.lens (\VpcLink' {createdDate} -> createdDate) (\s@VpcLink' {} a -> s {createdDate = a} :: VpcLink) Prelude.. Lens.mapping Core._Time
+vpcLink_createdDate = Lens.lens (\VpcLink' {createdDate} -> createdDate) (\s@VpcLink' {} a -> s {createdDate = a} :: VpcLink) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the VPC link.
 vpcLink_vpcLinkId :: Lens.Lens' VpcLink Prelude.Text
@@ -130,23 +131,23 @@ vpcLink_subnetIds = Lens.lens (\VpcLink' {subnetIds} -> subnetIds) (\s@VpcLink' 
 vpcLink_name :: Lens.Lens' VpcLink Prelude.Text
 vpcLink_name = Lens.lens (\VpcLink' {name} -> name) (\s@VpcLink' {} a -> s {name = a} :: VpcLink)
 
-instance Core.FromJSON VpcLink where
+instance Data.FromJSON VpcLink where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcLink"
       ( \x ->
           VpcLink'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "vpcLinkStatusMessage")
-            Prelude.<*> (x Core..:? "vpcLinkVersion")
-            Prelude.<*> (x Core..:? "vpcLinkStatus")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..: "vpcLinkId")
-            Prelude.<*> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "vpcLinkStatusMessage")
+            Prelude.<*> (x Data..:? "vpcLinkVersion")
+            Prelude.<*> (x Data..:? "vpcLinkStatus")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..: "vpcLinkId")
+            Prelude.<*> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "name")
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable VpcLink where

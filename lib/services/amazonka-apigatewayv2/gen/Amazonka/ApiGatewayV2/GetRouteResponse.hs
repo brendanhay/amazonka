@@ -48,6 +48,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,13 +118,13 @@ instance Core.AWSRequest GetRouteResponse where
     Response.receiveJSON
       ( \s h x ->
           GetRouteResponseResponse'
-            Prelude.<$> (x Core..?> "routeResponseKey")
-            Prelude.<*> (x Core..?> "modelSelectionExpression")
-            Prelude.<*> ( x Core..?> "responseParameters"
+            Prelude.<$> (x Data..?> "routeResponseKey")
+            Prelude.<*> (x Data..?> "modelSelectionExpression")
+            Prelude.<*> ( x Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "responseModels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "routeResponseId")
+            Prelude.<*> (x Data..?> "responseModels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "routeResponseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,29 +140,29 @@ instance Prelude.NFData GetRouteResponse where
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf routeId
 
-instance Core.ToHeaders GetRouteResponse where
+instance Data.ToHeaders GetRouteResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRouteResponse where
+instance Data.ToPath GetRouteResponse where
   toPath GetRouteResponse' {..} =
     Prelude.mconcat
       [ "/v2/apis/",
-        Core.toBS apiId,
+        Data.toBS apiId,
         "/routes/",
-        Core.toBS routeId,
+        Data.toBS routeId,
         "/routeresponses/",
-        Core.toBS routeResponseId
+        Data.toBS routeResponseId
       ]
 
-instance Core.ToQuery GetRouteResponse where
+instance Data.ToQuery GetRouteResponse where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRouteResponseResponse' smart constructor.

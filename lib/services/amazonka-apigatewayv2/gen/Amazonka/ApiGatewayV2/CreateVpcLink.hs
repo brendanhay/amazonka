@@ -53,6 +53,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,17 +126,17 @@ instance Core.AWSRequest CreateVpcLink where
     Response.receiveJSON
       ( \s h x ->
           CreateVpcLinkResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "vpcLinkStatusMessage")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> ( x Core..?> "securityGroupIds"
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vpcLinkStatusMessage")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> ( x Data..?> "securityGroupIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "vpcLinkVersion")
-            Prelude.<*> (x Core..?> "vpcLinkStatus")
-            Prelude.<*> (x Core..?> "vpcLinkId")
-            Prelude.<*> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "subnetIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vpcLinkVersion")
+            Prelude.<*> (x Data..?> "vpcLinkStatus")
+            Prelude.<*> (x Data..?> "vpcLinkId")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,33 +154,33 @@ instance Prelude.NFData CreateVpcLink where
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateVpcLink where
+instance Data.ToHeaders CreateVpcLink where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateVpcLink where
+instance Data.ToJSON CreateVpcLink where
   toJSON CreateVpcLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("securityGroupIds" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            Prelude.Just ("subnetIds" Core..= subnetIds),
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("subnetIds" Data..= subnetIds),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateVpcLink where
+instance Data.ToPath CreateVpcLink where
   toPath = Prelude.const "/v2/vpclinks"
 
-instance Core.ToQuery CreateVpcLink where
+instance Data.ToQuery CreateVpcLink where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateVpcLinkResponse' smart constructor.
@@ -199,7 +200,7 @@ data CreateVpcLinkResponse = CreateVpcLinkResponse'
     -- | The ID of the VPC link.
     vpcLinkId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the VPC link was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | A list of subnet IDs to include in the VPC link.
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
@@ -282,7 +283,7 @@ createVpcLinkResponse_vpcLinkId = Lens.lens (\CreateVpcLinkResponse' {vpcLinkId}
 
 -- | The timestamp when the VPC link was created.
 createVpcLinkResponse_createdDate :: Lens.Lens' CreateVpcLinkResponse (Prelude.Maybe Prelude.UTCTime)
-createVpcLinkResponse_createdDate = Lens.lens (\CreateVpcLinkResponse' {createdDate} -> createdDate) (\s@CreateVpcLinkResponse' {} a -> s {createdDate = a} :: CreateVpcLinkResponse) Prelude.. Lens.mapping Core._Time
+createVpcLinkResponse_createdDate = Lens.lens (\CreateVpcLinkResponse' {createdDate} -> createdDate) (\s@CreateVpcLinkResponse' {} a -> s {createdDate = a} :: CreateVpcLinkResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A list of subnet IDs to include in the VPC link.
 createVpcLinkResponse_subnetIds :: Lens.Lens' CreateVpcLinkResponse (Prelude.Maybe [Prelude.Text])

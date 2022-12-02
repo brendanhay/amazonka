@@ -21,6 +21,7 @@ module Amazonka.ApiGatewayV2.Types.Cors where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a CORS configuration. Supported only for HTTP APIs. See
@@ -117,18 +118,18 @@ cors_allowOrigins = Lens.lens (\Cors' {allowOrigins} -> allowOrigins) (\s@Cors' 
 cors_maxAge :: Lens.Lens' Cors (Prelude.Maybe Prelude.Int)
 cors_maxAge = Lens.lens (\Cors' {maxAge} -> maxAge) (\s@Cors' {} a -> s {maxAge = a} :: Cors)
 
-instance Core.FromJSON Cors where
+instance Data.FromJSON Cors where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cors"
       ( \x ->
           Cors'
-            Prelude.<$> (x Core..:? "allowHeaders" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "exposeHeaders" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "allowCredentials")
-            Prelude.<*> (x Core..:? "allowMethods" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "allowOrigins" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "maxAge")
+            Prelude.<$> (x Data..:? "allowHeaders" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "exposeHeaders" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "allowCredentials")
+            Prelude.<*> (x Data..:? "allowMethods" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "allowOrigins" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "maxAge")
       )
 
 instance Prelude.Hashable Cors where
@@ -149,16 +150,16 @@ instance Prelude.NFData Cors where
       `Prelude.seq` Prelude.rnf allowOrigins
       `Prelude.seq` Prelude.rnf maxAge
 
-instance Core.ToJSON Cors where
+instance Data.ToJSON Cors where
   toJSON Cors' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("allowHeaders" Core..=) Prelude.<$> allowHeaders,
-            ("exposeHeaders" Core..=) Prelude.<$> exposeHeaders,
-            ("allowCredentials" Core..=)
+          [ ("allowHeaders" Data..=) Prelude.<$> allowHeaders,
+            ("exposeHeaders" Data..=) Prelude.<$> exposeHeaders,
+            ("allowCredentials" Data..=)
               Prelude.<$> allowCredentials,
-            ("allowMethods" Core..=) Prelude.<$> allowMethods,
-            ("allowOrigins" Core..=) Prelude.<$> allowOrigins,
-            ("maxAge" Core..=) Prelude.<$> maxAge
+            ("allowMethods" Data..=) Prelude.<$> allowMethods,
+            ("allowOrigins" Data..=) Prelude.<$> allowOrigins,
+            ("maxAge" Data..=) Prelude.<$> maxAge
           ]
       )

@@ -47,6 +47,7 @@ where
 import Amazonka.ApiGatewayV2.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,8 +129,8 @@ instance Core.AWSRequest GetRoutes where
     Response.receiveJSON
       ( \s h x ->
           GetRoutesResponse'
-            Prelude.<$> (x Core..?> "items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,27 +146,27 @@ instance Prelude.NFData GetRoutes where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf apiId
 
-instance Core.ToHeaders GetRoutes where
+instance Data.ToHeaders GetRoutes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRoutes where
+instance Data.ToPath GetRoutes where
   toPath GetRoutes' {..} =
     Prelude.mconcat
-      ["/v2/apis/", Core.toBS apiId, "/routes"]
+      ["/v2/apis/", Data.toBS apiId, "/routes"]
 
-instance Core.ToQuery GetRoutes where
+instance Data.ToQuery GetRoutes where
   toQuery GetRoutes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetRoutesResponse' smart constructor.

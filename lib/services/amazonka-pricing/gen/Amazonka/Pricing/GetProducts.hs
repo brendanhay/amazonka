@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Pricing.Types
 import qualified Amazonka.Request as Request
@@ -158,9 +159,9 @@ instance Core.AWSRequest GetProducts where
     Response.receiveJSON
       ( \s h x ->
           GetProductsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "FormatVersion")
-            Prelude.<*> (x Core..?> "PriceList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "FormatVersion")
+            Prelude.<*> (x Data..?> "PriceList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,37 +181,37 @@ instance Prelude.NFData GetProducts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceCode
 
-instance Core.ToHeaders GetProducts where
+instance Data.ToHeaders GetProducts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPriceListService.GetProducts" ::
+              Data.=# ( "AWSPriceListService.GetProducts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetProducts where
+instance Data.ToJSON GetProducts where
   toJSON GetProducts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FormatVersion" Core..=) Prelude.<$> formatVersion,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServiceCode" Core..= serviceCode)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FormatVersion" Data..=) Prelude.<$> formatVersion,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServiceCode" Data..= serviceCode)
           ]
       )
 
-instance Core.ToPath GetProducts where
+instance Data.ToPath GetProducts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetProducts where
+instance Data.ToQuery GetProducts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetProductsResponse' smart constructor.

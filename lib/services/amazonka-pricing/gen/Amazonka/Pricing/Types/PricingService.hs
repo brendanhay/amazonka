@@ -21,6 +21,7 @@ module Amazonka.Pricing.Types.PricingService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata for a service, such as the service code and available
@@ -64,14 +65,14 @@ pricingService_attributeNames = Lens.lens (\PricingService' {attributeNames} -> 
 pricingService_serviceCode :: Lens.Lens' PricingService Prelude.Text
 pricingService_serviceCode = Lens.lens (\PricingService' {serviceCode} -> serviceCode) (\s@PricingService' {} a -> s {serviceCode = a} :: PricingService)
 
-instance Core.FromJSON PricingService where
+instance Data.FromJSON PricingService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PricingService"
       ( \x ->
           PricingService'
-            Prelude.<$> (x Core..:? "AttributeNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ServiceCode")
+            Prelude.<$> (x Data..:? "AttributeNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ServiceCode")
       )
 
 instance Prelude.Hashable PricingService where

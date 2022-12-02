@@ -21,6 +21,7 @@ module Amazonka.Pricing.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Pricing.Types.FilterType
 
@@ -140,12 +141,12 @@ instance Prelude.NFData Filter where
       `Prelude.seq` Prelude.rnf field
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Field" Core..= field),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Field" Data..= field),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

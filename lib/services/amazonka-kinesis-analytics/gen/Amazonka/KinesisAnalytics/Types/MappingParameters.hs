@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.MappingParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types.CSVMappingParameters
 import Amazonka.KinesisAnalytics.Types.JSONMappingParameters
 import qualified Amazonka.Prelude as Prelude
@@ -73,14 +74,14 @@ mappingParameters_cSVMappingParameters = Lens.lens (\MappingParameters' {cSVMapp
 mappingParameters_jSONMappingParameters :: Lens.Lens' MappingParameters (Prelude.Maybe JSONMappingParameters)
 mappingParameters_jSONMappingParameters = Lens.lens (\MappingParameters' {jSONMappingParameters} -> jSONMappingParameters) (\s@MappingParameters' {} a -> s {jSONMappingParameters = a} :: MappingParameters)
 
-instance Core.FromJSON MappingParameters where
+instance Data.FromJSON MappingParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MappingParameters"
       ( \x ->
           MappingParameters'
-            Prelude.<$> (x Core..:? "CSVMappingParameters")
-            Prelude.<*> (x Core..:? "JSONMappingParameters")
+            Prelude.<$> (x Data..:? "CSVMappingParameters")
+            Prelude.<*> (x Data..:? "JSONMappingParameters")
       )
 
 instance Prelude.Hashable MappingParameters where
@@ -93,13 +94,13 @@ instance Prelude.NFData MappingParameters where
     Prelude.rnf cSVMappingParameters
       `Prelude.seq` Prelude.rnf jSONMappingParameters
 
-instance Core.ToJSON MappingParameters where
+instance Data.ToJSON MappingParameters where
   toJSON MappingParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CSVMappingParameters" Core..=)
+          [ ("CSVMappingParameters" Data..=)
               Prelude.<$> cSVMappingParameters,
-            ("JSONMappingParameters" Core..=)
+            ("JSONMappingParameters" Data..=)
               Prelude.<$> jSONMappingParameters
           ]
       )

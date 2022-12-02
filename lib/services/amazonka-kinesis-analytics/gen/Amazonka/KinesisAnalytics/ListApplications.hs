@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,10 +127,10 @@ instance Core.AWSRequest ListApplications where
       ( \s h x ->
           ListApplicationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ApplicationSummaries"
+            Prelude.<*> ( x Data..?> "ApplicationSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "HasMoreApplications")
+            Prelude.<*> (x Data..:> "HasMoreApplications")
       )
 
 instance Prelude.Hashable ListApplications where
@@ -142,35 +143,35 @@ instance Prelude.NFData ListApplications where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf exclusiveStartApplicationName
 
-instance Core.ToHeaders ListApplications where
+instance Data.ToHeaders ListApplications where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20150814.ListApplications" ::
+              Data.=# ( "KinesisAnalytics_20150814.ListApplications" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListApplications where
+instance Data.ToJSON ListApplications where
   toJSON ListApplications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("ExclusiveStartApplicationName" Core..=)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("ExclusiveStartApplicationName" Data..=)
               Prelude.<$> exclusiveStartApplicationName
           ]
       )
 
-instance Core.ToPath ListApplications where
+instance Data.ToPath ListApplications where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListApplications where
+instance Data.ToQuery ListApplications where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

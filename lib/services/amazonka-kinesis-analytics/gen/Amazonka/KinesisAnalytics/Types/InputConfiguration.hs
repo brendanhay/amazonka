@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.InputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types.InputStartingPositionConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,14 +91,14 @@ instance Prelude.NFData InputConfiguration where
     Prelude.rnf id
       `Prelude.seq` Prelude.rnf inputStartingPositionConfiguration
 
-instance Core.ToJSON InputConfiguration where
+instance Data.ToJSON InputConfiguration where
   toJSON InputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
+          [ Prelude.Just ("Id" Data..= id),
             Prelude.Just
               ( "InputStartingPositionConfiguration"
-                  Core..= inputStartingPositionConfiguration
+                  Data..= inputStartingPositionConfiguration
               )
           ]
       )

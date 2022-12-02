@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes CloudWatch logging option updates.
@@ -96,16 +97,16 @@ instance Prelude.NFData CloudWatchLoggingOptionUpdate where
       `Prelude.seq` Prelude.rnf logStreamARNUpdate
       `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionId
 
-instance Core.ToJSON CloudWatchLoggingOptionUpdate where
+instance Data.ToJSON CloudWatchLoggingOptionUpdate where
   toJSON CloudWatchLoggingOptionUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate,
-            ("LogStreamARNUpdate" Core..=)
+          [ ("RoleARNUpdate" Data..=) Prelude.<$> roleARNUpdate,
+            ("LogStreamARNUpdate" Data..=)
               Prelude.<$> logStreamARNUpdate,
             Prelude.Just
               ( "CloudWatchLoggingOptionId"
-                  Core..= cloudWatchLoggingOptionId
+                  Data..= cloudWatchLoggingOptionId
               )
           ]
       )

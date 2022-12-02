@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.ApplicationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types.ApplicationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,15 +88,15 @@ applicationSummary_applicationARN = Lens.lens (\ApplicationSummary' {application
 applicationSummary_applicationStatus :: Lens.Lens' ApplicationSummary ApplicationStatus
 applicationSummary_applicationStatus = Lens.lens (\ApplicationSummary' {applicationStatus} -> applicationStatus) (\s@ApplicationSummary' {} a -> s {applicationStatus = a} :: ApplicationSummary)
 
-instance Core.FromJSON ApplicationSummary where
+instance Data.FromJSON ApplicationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..: "ApplicationName")
-            Prelude.<*> (x Core..: "ApplicationARN")
-            Prelude.<*> (x Core..: "ApplicationStatus")
+            Prelude.<$> (x Data..: "ApplicationName")
+            Prelude.<*> (x Data..: "ApplicationARN")
+            Prelude.<*> (x Data..: "ApplicationStatus")
       )
 
 instance Prelude.Hashable ApplicationSummary where

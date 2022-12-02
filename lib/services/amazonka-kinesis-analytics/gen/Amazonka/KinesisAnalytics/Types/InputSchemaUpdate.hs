@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.InputSchemaUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types.RecordColumn
 import Amazonka.KinesisAnalytics.Types.RecordFormat
 import qualified Amazonka.Prelude as Prelude
@@ -94,15 +95,15 @@ instance Prelude.NFData InputSchemaUpdate where
       `Prelude.seq` Prelude.rnf recordColumnUpdates
       `Prelude.seq` Prelude.rnf recordFormatUpdate
 
-instance Core.ToJSON InputSchemaUpdate where
+instance Data.ToJSON InputSchemaUpdate where
   toJSON InputSchemaUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RecordEncodingUpdate" Core..=)
+          [ ("RecordEncodingUpdate" Data..=)
               Prelude.<$> recordEncodingUpdate,
-            ("RecordColumnUpdates" Core..=)
+            ("RecordColumnUpdates" Data..=)
               Prelude.<$> recordColumnUpdates,
-            ("RecordFormatUpdate" Core..=)
+            ("RecordFormatUpdate" Data..=)
               Prelude.<$> recordFormatUpdate
           ]
       )

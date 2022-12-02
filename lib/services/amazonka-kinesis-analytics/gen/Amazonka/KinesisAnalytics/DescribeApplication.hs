@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest DescribeApplication where
       ( \s h x ->
           DescribeApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ApplicationDetail")
+            Prelude.<*> (x Data..:> "ApplicationDetail")
       )
 
 instance Prelude.Hashable DescribeApplication where
@@ -116,34 +117,34 @@ instance Prelude.NFData DescribeApplication where
   rnf DescribeApplication' {..} =
     Prelude.rnf applicationName
 
-instance Core.ToHeaders DescribeApplication where
+instance Data.ToHeaders DescribeApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20150814.DescribeApplication" ::
+              Data.=# ( "KinesisAnalytics_20150814.DescribeApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeApplication where
+instance Data.ToJSON DescribeApplication where
   toJSON DescribeApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationName" Core..= applicationName)
+              ("ApplicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath DescribeApplication where
+instance Data.ToPath DescribeApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeApplication where
+instance Data.ToQuery DescribeApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

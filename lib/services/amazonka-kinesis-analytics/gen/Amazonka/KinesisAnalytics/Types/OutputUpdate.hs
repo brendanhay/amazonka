@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.OutputUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types.DestinationSchema
 import Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate
 import Amazonka.KinesisAnalytics.Types.KinesisStreamsOutputUpdate
@@ -137,19 +138,19 @@ instance Prelude.NFData OutputUpdate where
       `Prelude.seq` Prelude.rnf kinesisStreamsOutputUpdate
       `Prelude.seq` Prelude.rnf outputId
 
-instance Core.ToJSON OutputUpdate where
+instance Data.ToJSON OutputUpdate where
   toJSON OutputUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LambdaOutputUpdate" Core..=)
+          [ ("LambdaOutputUpdate" Data..=)
               Prelude.<$> lambdaOutputUpdate,
-            ("NameUpdate" Core..=) Prelude.<$> nameUpdate,
-            ("DestinationSchemaUpdate" Core..=)
+            ("NameUpdate" Data..=) Prelude.<$> nameUpdate,
+            ("DestinationSchemaUpdate" Data..=)
               Prelude.<$> destinationSchemaUpdate,
-            ("KinesisFirehoseOutputUpdate" Core..=)
+            ("KinesisFirehoseOutputUpdate" Data..=)
               Prelude.<$> kinesisFirehoseOutputUpdate,
-            ("KinesisStreamsOutputUpdate" Core..=)
+            ("KinesisStreamsOutputUpdate" Data..=)
               Prelude.<$> kinesisStreamsOutputUpdate,
-            Prelude.Just ("OutputId" Core..= outputId)
+            Prelude.Just ("OutputId" Data..= outputId)
           ]
       )

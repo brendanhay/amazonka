@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalytics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -346,7 +347,7 @@ instance Core.AWSRequest CreateApplication where
       ( \s h x ->
           CreateApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ApplicationSummary")
+            Prelude.<*> (x Data..:> "ApplicationSummary")
       )
 
 instance Prelude.Hashable CreateApplication where
@@ -369,43 +370,43 @@ instance Prelude.NFData CreateApplication where
       `Prelude.seq` Prelude.rnf applicationDescription
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToHeaders CreateApplication where
+instance Data.ToHeaders CreateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "KinesisAnalytics_20150814.CreateApplication" ::
+              Data.=# ( "KinesisAnalytics_20150814.CreateApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApplication where
+instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ApplicationCode" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ApplicationCode" Data..=)
               Prelude.<$> applicationCode,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("Outputs" Core..=) Prelude.<$> outputs,
-            ("Inputs" Core..=) Prelude.<$> inputs,
-            ("ApplicationDescription" Core..=)
+            ("Outputs" Data..=) Prelude.<$> outputs,
+            ("Inputs" Data..=) Prelude.<$> inputs,
+            ("ApplicationDescription" Data..=)
               Prelude.<$> applicationDescription,
             Prelude.Just
-              ("ApplicationName" Core..= applicationName)
+              ("ApplicationName" Data..= applicationName)
           ]
       )
 
-instance Core.ToPath CreateApplication where
+instance Data.ToPath CreateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApplication where
+instance Data.ToQuery CreateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | TBD

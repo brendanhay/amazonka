@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.KinesisFirehoseInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Amazon Kinesis Firehose delivery stream as the streaming
@@ -84,11 +85,11 @@ instance Prelude.NFData KinesisFirehoseInput where
     Prelude.rnf resourceARN
       `Prelude.seq` Prelude.rnf roleARN
 
-instance Core.ToJSON KinesisFirehoseInput where
+instance Data.ToJSON KinesisFirehoseInput where
   toJSON KinesisFirehoseInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceARN" Core..= resourceARN),
-            Prelude.Just ("RoleARN" Core..= roleARN)
+          [ Prelude.Just ("ResourceARN" Data..= resourceARN),
+            Prelude.Just ("RoleARN" Data..= roleARN)
           ]
       )

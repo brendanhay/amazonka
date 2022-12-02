@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon Kinesis Firehose delivery stream that is configured
@@ -70,16 +71,16 @@ kinesisFirehoseInputDescription_resourceARN :: Lens.Lens' KinesisFirehoseInputDe
 kinesisFirehoseInputDescription_resourceARN = Lens.lens (\KinesisFirehoseInputDescription' {resourceARN} -> resourceARN) (\s@KinesisFirehoseInputDescription' {} a -> s {resourceARN = a} :: KinesisFirehoseInputDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     KinesisFirehoseInputDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisFirehoseInputDescription"
       ( \x ->
           KinesisFirehoseInputDescription'
-            Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "ResourceARN")
+            Prelude.<$> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..:? "ResourceARN")
       )
 
 instance

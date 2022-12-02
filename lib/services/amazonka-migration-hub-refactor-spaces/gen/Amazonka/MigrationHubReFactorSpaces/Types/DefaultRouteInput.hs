@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.DefaultRouteInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.RouteActivationState
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,11 +66,11 @@ instance Prelude.NFData DefaultRouteInput where
   rnf DefaultRouteInput' {..} =
     Prelude.rnf activationState
 
-instance Core.ToJSON DefaultRouteInput where
+instance Data.ToJSON DefaultRouteInput where
   toJSON DefaultRouteInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActivationState" Core..=)
+          [ ("ActivationState" Data..=)
               Prelude.<$> activationState
           ]
       )

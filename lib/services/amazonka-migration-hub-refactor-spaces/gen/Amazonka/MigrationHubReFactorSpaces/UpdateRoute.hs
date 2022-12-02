@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,12 +132,12 @@ instance Core.AWSRequest UpdateRoute where
     Response.receiveJSON
       ( \s h x ->
           UpdateRouteResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "RouteId")
-            Prelude.<*> (x Core..?> "ApplicationId")
-            Prelude.<*> (x Core..?> "ServiceId")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "RouteId")
+            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "ServiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,38 +155,38 @@ instance Prelude.NFData UpdateRoute where
       `Prelude.seq` Prelude.rnf environmentIdentifier
       `Prelude.seq` Prelude.rnf routeIdentifier
 
-instance Core.ToHeaders UpdateRoute where
+instance Data.ToHeaders UpdateRoute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateRoute where
+instance Data.ToJSON UpdateRoute where
   toJSON UpdateRoute' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ActivationState" Core..= activationState)
+              ("ActivationState" Data..= activationState)
           ]
       )
 
-instance Core.ToPath UpdateRoute where
+instance Data.ToPath UpdateRoute where
   toPath UpdateRoute' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/applications/",
-        Core.toBS applicationIdentifier,
+        Data.toBS applicationIdentifier,
         "/routes/",
-        Core.toBS routeIdentifier
+        Data.toBS routeIdentifier
       ]
 
-instance Core.ToQuery UpdateRoute where
+instance Data.ToQuery UpdateRoute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateRouteResponse' smart constructor.
@@ -199,7 +200,7 @@ data UpdateRouteResponse = UpdateRouteResponse'
     -- | The current state of the route.
     state :: Prelude.Maybe RouteState,
     -- | A timestamp that indicates when the route was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the route.
     routeId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application in which the route is being updated.
@@ -267,7 +268,7 @@ updateRouteResponse_state = Lens.lens (\UpdateRouteResponse' {state} -> state) (
 
 -- | A timestamp that indicates when the route was last updated.
 updateRouteResponse_lastUpdatedTime :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe Prelude.UTCTime)
-updateRouteResponse_lastUpdatedTime = Lens.lens (\UpdateRouteResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@UpdateRouteResponse' {} a -> s {lastUpdatedTime = a} :: UpdateRouteResponse) Prelude.. Lens.mapping Core._Time
+updateRouteResponse_lastUpdatedTime = Lens.lens (\UpdateRouteResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@UpdateRouteResponse' {} a -> s {lastUpdatedTime = a} :: UpdateRouteResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the route.
 updateRouteResponse_routeId :: Lens.Lens' UpdateRouteResponse (Prelude.Maybe Prelude.Text)

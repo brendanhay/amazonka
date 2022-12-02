@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,7 +72,7 @@ data CreateEnvironment = CreateEnvironment'
   { -- | The tags to assign to the environment. A tag is a label that you assign
     -- to an Amazon Web Services resource. Each tag consists of a key-value
     -- pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -123,7 +124,7 @@ newCreateEnvironment pName_ pNetworkFabricType_ =
 -- to an Amazon Web Services resource. Each tag consists of a key-value
 -- pair.
 createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -152,16 +153,16 @@ instance Core.AWSRequest CreateEnvironment where
     Response.receiveJSON
       ( \s h x ->
           CreateEnvironmentResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "OwnerAccountId")
-            Prelude.<*> (x Core..?> "EnvironmentId")
-            Prelude.<*> (x Core..?> "NetworkFabricType")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> (x Data..?> "EnvironmentId")
+            Prelude.<*> (x Data..?> "NetworkFabricType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,34 +182,34 @@ instance Prelude.NFData CreateEnvironment where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkFabricType
 
-instance Core.ToHeaders CreateEnvironment where
+instance Data.ToHeaders CreateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironment where
+instance Data.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("NetworkFabricType" Core..= networkFabricType)
+              ("NetworkFabricType" Data..= networkFabricType)
           ]
       )
 
-instance Core.ToPath CreateEnvironment where
+instance Data.ToPath CreateEnvironment where
   toPath = Prelude.const "/environments"
 
-instance Core.ToQuery CreateEnvironment where
+instance Data.ToQuery CreateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEnvironmentResponse' smart constructor.
@@ -216,17 +217,17 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse'
   { -- | The tags assigned to the created environment. A tag is a label that you
     -- assign to an Amazon Web Services resource. Each tag consists of a
     -- key-value pair..
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the environment.
     name :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the environment is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the environment.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The current state of the environment.
     state :: Prelude.Maybe EnvironmentState,
     -- | A timestamp that indicates when the environment was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | A description of the environment.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID of environment owner.
@@ -294,7 +295,7 @@ newCreateEnvironmentResponse pHttpStatus_ =
 -- assign to an Amazon Web Services resource. Each tag consists of a
 -- key-value pair..
 createEnvironmentResponse_tags :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEnvironmentResponse_tags = Lens.lens (\CreateEnvironmentResponse' {tags} -> tags) (\s@CreateEnvironmentResponse' {} a -> s {tags = a} :: CreateEnvironmentResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createEnvironmentResponse_tags = Lens.lens (\CreateEnvironmentResponse' {tags} -> tags) (\s@CreateEnvironmentResponse' {} a -> s {tags = a} :: CreateEnvironmentResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the environment.
 createEnvironmentResponse_name :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)
@@ -302,7 +303,7 @@ createEnvironmentResponse_name = Lens.lens (\CreateEnvironmentResponse' {name} -
 
 -- | A timestamp that indicates when the environment is created.
 createEnvironmentResponse_createdTime :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.UTCTime)
-createEnvironmentResponse_createdTime = Lens.lens (\CreateEnvironmentResponse' {createdTime} -> createdTime) (\s@CreateEnvironmentResponse' {} a -> s {createdTime = a} :: CreateEnvironmentResponse) Prelude.. Lens.mapping Core._Time
+createEnvironmentResponse_createdTime = Lens.lens (\CreateEnvironmentResponse' {createdTime} -> createdTime) (\s@CreateEnvironmentResponse' {} a -> s {createdTime = a} :: CreateEnvironmentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the environment.
 createEnvironmentResponse_arn :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)
@@ -314,7 +315,7 @@ createEnvironmentResponse_state = Lens.lens (\CreateEnvironmentResponse' {state}
 
 -- | A timestamp that indicates when the environment was last updated.
 createEnvironmentResponse_lastUpdatedTime :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.UTCTime)
-createEnvironmentResponse_lastUpdatedTime = Lens.lens (\CreateEnvironmentResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@CreateEnvironmentResponse' {} a -> s {lastUpdatedTime = a} :: CreateEnvironmentResponse) Prelude.. Lens.mapping Core._Time
+createEnvironmentResponse_lastUpdatedTime = Lens.lens (\CreateEnvironmentResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@CreateEnvironmentResponse' {} a -> s {lastUpdatedTime = a} :: CreateEnvironmentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the environment.
 createEnvironmentResponse_description :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)

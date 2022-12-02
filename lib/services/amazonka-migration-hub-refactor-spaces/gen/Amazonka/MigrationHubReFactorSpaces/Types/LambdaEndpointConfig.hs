@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.LambdaEndpointConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the Lambda endpoint type.
@@ -50,12 +51,12 @@ newLambdaEndpointConfig =
 lambdaEndpointConfig_arn :: Lens.Lens' LambdaEndpointConfig (Prelude.Maybe Prelude.Text)
 lambdaEndpointConfig_arn = Lens.lens (\LambdaEndpointConfig' {arn} -> arn) (\s@LambdaEndpointConfig' {} a -> s {arn = a} :: LambdaEndpointConfig)
 
-instance Core.FromJSON LambdaEndpointConfig where
+instance Data.FromJSON LambdaEndpointConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaEndpointConfig"
       ( \x ->
-          LambdaEndpointConfig' Prelude.<$> (x Core..:? "Arn")
+          LambdaEndpointConfig' Prelude.<$> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable LambdaEndpointConfig where

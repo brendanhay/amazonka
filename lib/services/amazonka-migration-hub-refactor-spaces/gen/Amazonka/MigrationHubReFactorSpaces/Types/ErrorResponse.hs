@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.ErrorResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorCode
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorResourceType
 import qualified Amazonka.Prelude as Prelude
@@ -100,20 +101,20 @@ errorResponse_accountId = Lens.lens (\ErrorResponse' {accountId} -> accountId) (
 errorResponse_resourceIdentifier :: Lens.Lens' ErrorResponse (Prelude.Maybe Prelude.Text)
 errorResponse_resourceIdentifier = Lens.lens (\ErrorResponse' {resourceIdentifier} -> resourceIdentifier) (\s@ErrorResponse' {} a -> s {resourceIdentifier = a} :: ErrorResponse)
 
-instance Core.FromJSON ErrorResponse where
+instance Data.FromJSON ErrorResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorResponse"
       ( \x ->
           ErrorResponse'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> ( x Core..:? "AdditionalDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> ( x Data..:? "AdditionalDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "ResourceIdentifier")
+            Prelude.<*> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "ResourceIdentifier")
       )
 
 instance Prelude.Hashable ErrorResponse where

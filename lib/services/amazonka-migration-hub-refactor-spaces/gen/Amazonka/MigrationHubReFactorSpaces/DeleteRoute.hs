@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,12 +117,12 @@ instance Core.AWSRequest DeleteRoute where
     Response.receiveJSON
       ( \s h x ->
           DeleteRouteResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "RouteId")
-            Prelude.<*> (x Core..?> "ApplicationId")
-            Prelude.<*> (x Core..?> "ServiceId")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "RouteId")
+            Prelude.<*> (x Data..?> "ApplicationId")
+            Prelude.<*> (x Data..?> "ServiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,29 +138,29 @@ instance Prelude.NFData DeleteRoute where
       `Prelude.seq` Prelude.rnf environmentIdentifier
       `Prelude.seq` Prelude.rnf routeIdentifier
 
-instance Core.ToHeaders DeleteRoute where
+instance Data.ToHeaders DeleteRoute where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteRoute where
+instance Data.ToPath DeleteRoute where
   toPath DeleteRoute' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/applications/",
-        Core.toBS applicationIdentifier,
+        Data.toBS applicationIdentifier,
         "/routes/",
-        Core.toBS routeIdentifier
+        Data.toBS routeIdentifier
       ]
 
-instance Core.ToQuery DeleteRoute where
+instance Data.ToQuery DeleteRoute where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRouteResponse' smart constructor.
@@ -169,7 +170,7 @@ data DeleteRouteResponse = DeleteRouteResponse'
     -- | The current state of the route.
     state :: Prelude.Maybe RouteState,
     -- | A timestamp that indicates when the route was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the route to delete.
     routeId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application that the route belongs to.
@@ -227,7 +228,7 @@ deleteRouteResponse_state = Lens.lens (\DeleteRouteResponse' {state} -> state) (
 
 -- | A timestamp that indicates when the route was last updated.
 deleteRouteResponse_lastUpdatedTime :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe Prelude.UTCTime)
-deleteRouteResponse_lastUpdatedTime = Lens.lens (\DeleteRouteResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteRouteResponse' {} a -> s {lastUpdatedTime = a} :: DeleteRouteResponse) Prelude.. Lens.mapping Core._Time
+deleteRouteResponse_lastUpdatedTime = Lens.lens (\DeleteRouteResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteRouteResponse' {} a -> s {lastUpdatedTime = a} :: DeleteRouteResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the route to delete.
 deleteRouteResponse_routeId :: Lens.Lens' DeleteRouteResponse (Prelude.Maybe Prelude.Text)

@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.RouteSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.ErrorResponse
 import Amazonka.MigrationHubReFactorSpaces.Types.HttpMethod
 import Amazonka.MigrationHubReFactorSpaces.Types.RouteState
@@ -32,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRouteSummary' smart constructor.
 data RouteSummary = RouteSummary'
   { -- | The tags assigned to the route.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The route type of the route.
     routeType :: Prelude.Maybe RouteType,
     -- | A timestamp that indicates when the route is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the route creator.
     createdByAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the route.
@@ -46,7 +47,7 @@ data RouteSummary = RouteSummary'
     -- | A mapping of Amazon API Gateway path resources to resource IDs.
     pathResourceToId :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A timestamp that indicates when the route was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID of the route owner.
     ownerAccountId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the route.
@@ -144,7 +145,7 @@ newRouteSummary =
 
 -- | The tags assigned to the route.
 routeSummary_tags :: Lens.Lens' RouteSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-routeSummary_tags = Lens.lens (\RouteSummary' {tags} -> tags) (\s@RouteSummary' {} a -> s {tags = a} :: RouteSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+routeSummary_tags = Lens.lens (\RouteSummary' {tags} -> tags) (\s@RouteSummary' {} a -> s {tags = a} :: RouteSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The route type of the route.
 routeSummary_routeType :: Lens.Lens' RouteSummary (Prelude.Maybe RouteType)
@@ -152,7 +153,7 @@ routeSummary_routeType = Lens.lens (\RouteSummary' {routeType} -> routeType) (\s
 
 -- | A timestamp that indicates when the route is created.
 routeSummary_createdTime :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.UTCTime)
-routeSummary_createdTime = Lens.lens (\RouteSummary' {createdTime} -> createdTime) (\s@RouteSummary' {} a -> s {createdTime = a} :: RouteSummary) Prelude.. Lens.mapping Core._Time
+routeSummary_createdTime = Lens.lens (\RouteSummary' {createdTime} -> createdTime) (\s@RouteSummary' {} a -> s {createdTime = a} :: RouteSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the route creator.
 routeSummary_createdByAccountId :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.Text)
@@ -172,7 +173,7 @@ routeSummary_pathResourceToId = Lens.lens (\RouteSummary' {pathResourceToId} -> 
 
 -- | A timestamp that indicates when the route was last updated.
 routeSummary_lastUpdatedTime :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.UTCTime)
-routeSummary_lastUpdatedTime = Lens.lens (\RouteSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@RouteSummary' {} a -> s {lastUpdatedTime = a} :: RouteSummary) Prelude.. Lens.mapping Core._Time
+routeSummary_lastUpdatedTime = Lens.lens (\RouteSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@RouteSummary' {} a -> s {lastUpdatedTime = a} :: RouteSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account ID of the route owner.
 routeSummary_ownerAccountId :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.Text)
@@ -215,31 +216,31 @@ routeSummary_includeChildPaths = Lens.lens (\RouteSummary' {includeChildPaths} -
 routeSummary_serviceId :: Lens.Lens' RouteSummary (Prelude.Maybe Prelude.Text)
 routeSummary_serviceId = Lens.lens (\RouteSummary' {serviceId} -> serviceId) (\s@RouteSummary' {} a -> s {serviceId = a} :: RouteSummary)
 
-instance Core.FromJSON RouteSummary where
+instance Data.FromJSON RouteSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteSummary"
       ( \x ->
           RouteSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RouteType")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "CreatedByAccountId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> ( x Core..:? "PathResourceToId"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RouteType")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "CreatedByAccountId")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> ( x Data..:? "PathResourceToId"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "RouteId")
-            Prelude.<*> (x Core..:? "Methods" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EnvironmentId")
-            Prelude.<*> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "SourcePath")
-            Prelude.<*> (x Core..:? "IncludeChildPaths")
-            Prelude.<*> (x Core..:? "ServiceId")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "RouteId")
+            Prelude.<*> (x Data..:? "Methods" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EnvironmentId")
+            Prelude.<*> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "SourcePath")
+            Prelude.<*> (x Data..:? "IncludeChildPaths")
+            Prelude.<*> (x Data..:? "ServiceId")
       )
 
 instance Prelude.Hashable RouteSummary where

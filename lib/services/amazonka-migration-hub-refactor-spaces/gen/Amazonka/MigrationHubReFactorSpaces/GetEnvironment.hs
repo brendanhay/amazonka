@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,18 +98,18 @@ instance Core.AWSRequest GetEnvironment where
     Response.receiveJSON
       ( \s h x ->
           GetEnvironmentResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "TransitGatewayId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "OwnerAccountId")
-            Prelude.<*> (x Core..?> "EnvironmentId")
-            Prelude.<*> (x Core..?> "Error")
-            Prelude.<*> (x Core..?> "NetworkFabricType")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "TransitGatewayId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> (x Data..?> "EnvironmentId")
+            Prelude.<*> (x Data..?> "Error")
+            Prelude.<*> (x Data..?> "NetworkFabricType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,23 +121,23 @@ instance Prelude.NFData GetEnvironment where
   rnf GetEnvironment' {..} =
     Prelude.rnf environmentIdentifier
 
-instance Core.ToHeaders GetEnvironment where
+instance Data.ToHeaders GetEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEnvironment where
+instance Data.ToPath GetEnvironment where
   toPath GetEnvironment' {..} =
     Prelude.mconcat
-      ["/environments/", Core.toBS environmentIdentifier]
+      ["/environments/", Data.toBS environmentIdentifier]
 
-instance Core.ToQuery GetEnvironment where
+instance Data.ToQuery GetEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEnvironmentResponse' smart constructor.
@@ -144,11 +145,11 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
   { -- | The tags to assign to the environment. A tag is a label that you assign
     -- to an Amazon Web Services resource. Each tag consists of a key-value
     -- pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the environment.
     name :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the environment is created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the transit gateway set up by the environment.
     transitGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the environment.
@@ -156,7 +157,7 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
     -- | The current state of the environment.
     state :: Prelude.Maybe EnvironmentState,
     -- | A timestamp that indicates when the environment was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the environment.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID of the environment owner.
@@ -232,7 +233,7 @@ newGetEnvironmentResponse pHttpStatus_ =
 -- to an Amazon Web Services resource. Each tag consists of a key-value
 -- pair.
 getEnvironmentResponse_tags :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getEnvironmentResponse_tags = Lens.lens (\GetEnvironmentResponse' {tags} -> tags) (\s@GetEnvironmentResponse' {} a -> s {tags = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getEnvironmentResponse_tags = Lens.lens (\GetEnvironmentResponse' {tags} -> tags) (\s@GetEnvironmentResponse' {} a -> s {tags = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the environment.
 getEnvironmentResponse_name :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
@@ -240,7 +241,7 @@ getEnvironmentResponse_name = Lens.lens (\GetEnvironmentResponse' {name} -> name
 
 -- | A timestamp that indicates when the environment is created.
 getEnvironmentResponse_createdTime :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.UTCTime)
-getEnvironmentResponse_createdTime = Lens.lens (\GetEnvironmentResponse' {createdTime} -> createdTime) (\s@GetEnvironmentResponse' {} a -> s {createdTime = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping Core._Time
+getEnvironmentResponse_createdTime = Lens.lens (\GetEnvironmentResponse' {createdTime} -> createdTime) (\s@GetEnvironmentResponse' {} a -> s {createdTime = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the transit gateway set up by the environment.
 getEnvironmentResponse_transitGatewayId :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
@@ -256,7 +257,7 @@ getEnvironmentResponse_state = Lens.lens (\GetEnvironmentResponse' {state} -> st
 
 -- | A timestamp that indicates when the environment was last updated.
 getEnvironmentResponse_lastUpdatedTime :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.UTCTime)
-getEnvironmentResponse_lastUpdatedTime = Lens.lens (\GetEnvironmentResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@GetEnvironmentResponse' {} a -> s {lastUpdatedTime = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping Core._Time
+getEnvironmentResponse_lastUpdatedTime = Lens.lens (\GetEnvironmentResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@GetEnvironmentResponse' {} a -> s {lastUpdatedTime = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the environment.
 getEnvironmentResponse_description :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)

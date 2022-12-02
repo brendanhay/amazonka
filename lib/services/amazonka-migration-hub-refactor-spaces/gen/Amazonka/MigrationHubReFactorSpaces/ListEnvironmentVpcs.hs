@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance Core.AWSRequest ListEnvironmentVpcs where
     Response.receiveJSON
       ( \s h x ->
           ListEnvironmentVpcsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "EnvironmentVpcList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "EnvironmentVpcList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,30 +157,30 @@ instance Prelude.NFData ListEnvironmentVpcs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf environmentIdentifier
 
-instance Core.ToHeaders ListEnvironmentVpcs where
+instance Data.ToHeaders ListEnvironmentVpcs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListEnvironmentVpcs where
+instance Data.ToPath ListEnvironmentVpcs where
   toPath ListEnvironmentVpcs' {..} =
     Prelude.mconcat
       [ "/environments/",
-        Core.toBS environmentIdentifier,
+        Data.toBS environmentIdentifier,
         "/vpcs"
       ]
 
-instance Core.ToQuery ListEnvironmentVpcs where
+instance Data.ToQuery ListEnvironmentVpcs where
   toQuery ListEnvironmentVpcs' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListEnvironmentVpcsResponse' smart constructor.

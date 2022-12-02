@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayProxyInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubReFactorSpaces.Types.ApiGatewayEndpointType
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,14 +84,14 @@ apiGatewayProxyInput_stageName = Lens.lens (\ApiGatewayProxyInput' {stageName} -
 apiGatewayProxyInput_endpointType :: Lens.Lens' ApiGatewayProxyInput (Prelude.Maybe ApiGatewayEndpointType)
 apiGatewayProxyInput_endpointType = Lens.lens (\ApiGatewayProxyInput' {endpointType} -> endpointType) (\s@ApiGatewayProxyInput' {} a -> s {endpointType = a} :: ApiGatewayProxyInput)
 
-instance Core.FromJSON ApiGatewayProxyInput where
+instance Data.FromJSON ApiGatewayProxyInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiGatewayProxyInput"
       ( \x ->
           ApiGatewayProxyInput'
-            Prelude.<$> (x Core..:? "StageName")
-            Prelude.<*> (x Core..:? "EndpointType")
+            Prelude.<$> (x Data..:? "StageName")
+            Prelude.<*> (x Data..:? "EndpointType")
       )
 
 instance Prelude.Hashable ApiGatewayProxyInput where
@@ -103,11 +104,11 @@ instance Prelude.NFData ApiGatewayProxyInput where
     Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf endpointType
 
-instance Core.ToJSON ApiGatewayProxyInput where
+instance Data.ToJSON ApiGatewayProxyInput where
   toJSON ApiGatewayProxyInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StageName" Core..=) Prelude.<$> stageName,
-            ("EndpointType" Core..=) Prelude.<$> endpointType
+          [ ("StageName" Data..=) Prelude.<$> stageName,
+            ("EndpointType" Data..=) Prelude.<$> endpointType
           ]
       )

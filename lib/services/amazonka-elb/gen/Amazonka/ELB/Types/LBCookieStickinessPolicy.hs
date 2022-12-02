@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.LBCookieStickinessPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,11 +73,11 @@ lBCookieStickinessPolicy_policyName = Lens.lens (\LBCookieStickinessPolicy' {pol
 lBCookieStickinessPolicy_cookieExpirationPeriod :: Lens.Lens' LBCookieStickinessPolicy (Prelude.Maybe Prelude.Integer)
 lBCookieStickinessPolicy_cookieExpirationPeriod = Lens.lens (\LBCookieStickinessPolicy' {cookieExpirationPeriod} -> cookieExpirationPeriod) (\s@LBCookieStickinessPolicy' {} a -> s {cookieExpirationPeriod = a} :: LBCookieStickinessPolicy)
 
-instance Core.FromXML LBCookieStickinessPolicy where
+instance Data.FromXML LBCookieStickinessPolicy where
   parseXML x =
     LBCookieStickinessPolicy'
-      Prelude.<$> (x Core..@? "PolicyName")
-      Prelude.<*> (x Core..@? "CookieExpirationPeriod")
+      Prelude.<$> (x Data..@? "PolicyName")
+      Prelude.<*> (x Data..@? "CookieExpirationPeriod")
 
 instance Prelude.Hashable LBCookieStickinessPolicy where
   hashWithSalt _salt LBCookieStickinessPolicy' {..} =

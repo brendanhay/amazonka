@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,10 +62,10 @@ tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} ::
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
-instance Core.FromXML Tag where
+instance Data.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@ "Key")
+      Prelude.<$> (x Data..@? "Value") Prelude.<*> (x Data..@ "Key")
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
@@ -75,7 +76,7 @@ instance Prelude.NFData Tag where
   rnf Tag' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf key
 
-instance Core.ToQuery Tag where
+instance Data.ToQuery Tag where
   toQuery Tag' {..} =
     Prelude.mconcat
-      ["Value" Core.=: value, "Key" Core.=: key]
+      ["Value" Data.=: value, "Key" Data.=: key]

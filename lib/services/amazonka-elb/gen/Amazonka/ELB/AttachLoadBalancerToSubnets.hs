@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest AttachLoadBalancerToSubnets where
       "AttachLoadBalancerToSubnetsResult"
       ( \s h x ->
           AttachLoadBalancerToSubnetsResponse'
-            Prelude.<$> ( x Core..@? "Subnets" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -124,23 +125,23 @@ instance Prelude.NFData AttachLoadBalancerToSubnets where
     Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf subnets
 
-instance Core.ToHeaders AttachLoadBalancerToSubnets where
+instance Data.ToHeaders AttachLoadBalancerToSubnets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AttachLoadBalancerToSubnets where
+instance Data.ToPath AttachLoadBalancerToSubnets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AttachLoadBalancerToSubnets where
+instance Data.ToQuery AttachLoadBalancerToSubnets where
   toQuery AttachLoadBalancerToSubnets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "AttachLoadBalancerToSubnets" ::
+          Data.=: ( "AttachLoadBalancerToSubnets" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
-        "Subnets" Core.=: Core.toQueryList "member" subnets
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
+        "Subnets" Data.=: Data.toQueryList "member" subnets
       ]
 
 -- | Contains the output of AttachLoadBalancerToSubnets.

@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -253,7 +254,7 @@ instance Core.AWSRequest CreateLoadBalancer where
       "CreateLoadBalancerResult"
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Prelude.<$> (x Core..@? "DNSName")
+            Prelude.<$> (x Data..@? "DNSName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -277,39 +278,39 @@ instance Prelude.NFData CreateLoadBalancer where
       `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf listeners
 
-instance Core.ToHeaders CreateLoadBalancer where
+instance Data.ToHeaders CreateLoadBalancer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLoadBalancer where
+instance Data.ToPath CreateLoadBalancer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLoadBalancer where
+instance Data.ToQuery CreateLoadBalancer where
   toQuery CreateLoadBalancer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateLoadBalancer" :: Prelude.ByteString),
+          Data.=: ("CreateLoadBalancer" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Scheme" Core.=: scheme,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Scheme" Data.=: scheme,
         "Subnets"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> subnets),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> subnets),
         "AvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> availabilityZones
             ),
         "SecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> securityGroups
             ),
-        "LoadBalancerName" Core.=: loadBalancerName,
+        "LoadBalancerName" Data.=: loadBalancerName,
         "Listeners"
-          Core.=: Core.toQueryList "member" listeners
+          Data.=: Data.toQueryList "member" listeners
       ]
 
 -- | Contains the output for CreateLoadBalancer.

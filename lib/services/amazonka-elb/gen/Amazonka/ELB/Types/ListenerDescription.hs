@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.ListenerDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import Amazonka.ELB.Types.Listener
 import qualified Amazonka.Prelude as Prelude
@@ -63,12 +64,12 @@ listenerDescription_listener = Lens.lens (\ListenerDescription' {listener} -> li
 listenerDescription_policyNames :: Lens.Lens' ListenerDescription (Prelude.Maybe [Prelude.Text])
 listenerDescription_policyNames = Lens.lens (\ListenerDescription' {policyNames} -> policyNames) (\s@ListenerDescription' {} a -> s {policyNames = a} :: ListenerDescription) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ListenerDescription where
+instance Data.FromXML ListenerDescription where
   parseXML x =
     ListenerDescription'
-      Prelude.<$> (x Core..@? "Listener")
-      Prelude.<*> ( x Core..@? "PolicyNames" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "Listener")
+      Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable ListenerDescription where

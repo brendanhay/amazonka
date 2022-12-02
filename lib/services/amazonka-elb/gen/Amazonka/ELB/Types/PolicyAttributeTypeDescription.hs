@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.PolicyAttributeTypeDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -120,14 +121,14 @@ policyAttributeTypeDescription_cardinality = Lens.lens (\PolicyAttributeTypeDesc
 policyAttributeTypeDescription_attributeName :: Lens.Lens' PolicyAttributeTypeDescription (Prelude.Maybe Prelude.Text)
 policyAttributeTypeDescription_attributeName = Lens.lens (\PolicyAttributeTypeDescription' {attributeName} -> attributeName) (\s@PolicyAttributeTypeDescription' {} a -> s {attributeName = a} :: PolicyAttributeTypeDescription)
 
-instance Core.FromXML PolicyAttributeTypeDescription where
+instance Data.FromXML PolicyAttributeTypeDescription where
   parseXML x =
     PolicyAttributeTypeDescription'
-      Prelude.<$> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "AttributeType")
-      Prelude.<*> (x Core..@? "Cardinality")
-      Prelude.<*> (x Core..@? "AttributeName")
+      Prelude.<$> (x Data..@? "DefaultValue")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "AttributeType")
+      Prelude.<*> (x Data..@? "Cardinality")
+      Prelude.<*> (x Data..@? "AttributeName")
 
 instance
   Prelude.Hashable

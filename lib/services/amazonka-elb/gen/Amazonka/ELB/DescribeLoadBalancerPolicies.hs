@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,9 +106,9 @@ instance Core.AWSRequest DescribeLoadBalancerPolicies where
       "DescribeLoadBalancerPoliciesResult"
       ( \s h x ->
           DescribeLoadBalancerPoliciesResponse'
-            Prelude.<$> ( x Core..@? "PolicyDescriptions"
+            Prelude.<$> ( x Data..@? "PolicyDescriptions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -125,25 +126,25 @@ instance Prelude.NFData DescribeLoadBalancerPolicies where
     Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf policyNames
 
-instance Core.ToHeaders DescribeLoadBalancerPolicies where
+instance Data.ToHeaders DescribeLoadBalancerPolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLoadBalancerPolicies where
+instance Data.ToPath DescribeLoadBalancerPolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLoadBalancerPolicies where
+instance Data.ToQuery DescribeLoadBalancerPolicies where
   toQuery DescribeLoadBalancerPolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeLoadBalancerPolicies" ::
+          Data.=: ( "DescribeLoadBalancerPolicies" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
         "PolicyNames"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> policyNames)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyNames)
       ]
 
 -- | Contains the output of DescribeLoadBalancerPolicies.

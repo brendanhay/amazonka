@@ -18,6 +18,7 @@ module Amazonka.ELB.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.DescribeInstanceHealth
 import Amazonka.ELB.Lens
 import Amazonka.ELB.Types
@@ -42,7 +43,7 @@ newInstanceDeregistered =
                 )
                 Prelude.. instanceState_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError
             "InvalidInstance"
@@ -69,7 +70,7 @@ newAnyInstanceInService =
                 )
                 Prelude.. instanceState_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -93,7 +94,7 @@ newInstanceInService =
                 )
                 Prelude.. instanceState_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError "InvalidInstance" Core.AcceptRetry
         ]

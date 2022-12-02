@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,8 +113,8 @@ instance
       "ApplySecurityGroupsToLoadBalancerResult"
       ( \s h x ->
           ApplySecurityGroupsToLoadBalancerResponse'
-            Prelude.<$> ( x Core..@? "SecurityGroups" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,32 +138,32 @@ instance
       `Prelude.seq` Prelude.rnf securityGroups
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ApplySecurityGroupsToLoadBalancer
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ApplySecurityGroupsToLoadBalancer
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ApplySecurityGroupsToLoadBalancer
   where
   toQuery ApplySecurityGroupsToLoadBalancer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ApplySecurityGroupsToLoadBalancer" ::
+          Data.=: ( "ApplySecurityGroupsToLoadBalancer" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
         "SecurityGroups"
-          Core.=: Core.toQueryList "member" securityGroups
+          Data.=: Data.toQueryList "member" securityGroups
       ]
 
 -- | Contains the output of ApplySecurityGroupsToLoadBalancer.

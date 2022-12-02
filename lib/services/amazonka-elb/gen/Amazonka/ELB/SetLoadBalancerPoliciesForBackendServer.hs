@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,33 +163,33 @@ instance
       `Prelude.seq` Prelude.rnf policyNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     SetLoadBalancerPoliciesForBackendServer
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     SetLoadBalancerPoliciesForBackendServer
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     SetLoadBalancerPoliciesForBackendServer
   where
   toQuery SetLoadBalancerPoliciesForBackendServer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "SetLoadBalancerPoliciesForBackendServer" ::
+          Data.=: ( "SetLoadBalancerPoliciesForBackendServer" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Core.=: loadBalancerName,
-        "InstancePort" Core.=: instancePort,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Data.=: loadBalancerName,
+        "InstancePort" Data.=: instancePort,
         "PolicyNames"
-          Core.=: Core.toQueryList "member" policyNames
+          Data.=: Data.toQueryList "member" policyNames
       ]
 
 -- | Contains the output of SetLoadBalancerPoliciesForBackendServer.

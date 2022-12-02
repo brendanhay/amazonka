@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,21 +118,21 @@ instance Prelude.NFData AddTags where
     Prelude.rnf loadBalancerNames
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders AddTags where
+instance Data.ToHeaders AddTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AddTags where
+instance Data.ToPath AddTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddTags where
+instance Data.ToQuery AddTags where
   toQuery AddTags' {..} =
     Prelude.mconcat
-      [ "Action" Core.=: ("AddTags" :: Prelude.ByteString),
+      [ "Action" Data.=: ("AddTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
         "LoadBalancerNames"
-          Core.=: Core.toQueryList "member" loadBalancerNames,
-        "Tags" Core.=: Core.toQueryList "member" tags
+          Data.=: Data.toQueryList "member" loadBalancerNames,
+        "Tags" Data.=: Data.toQueryList "member" tags
       ]
 
 -- | Contains the output of AddTags.

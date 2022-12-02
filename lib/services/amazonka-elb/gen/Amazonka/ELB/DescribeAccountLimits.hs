@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,10 +128,10 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> ( x Core..@? "Limits" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Limits" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextMarker")
+            Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,21 +145,21 @@ instance Prelude.NFData DescribeAccountLimits where
     Prelude.rnf marker
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders DescribeAccountLimits where
+instance Data.ToHeaders DescribeAccountLimits where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAccountLimits where
+instance Data.ToPath DescribeAccountLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAccountLimits where
+instance Data.ToQuery DescribeAccountLimits where
   toQuery DescribeAccountLimits' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAccountLimits" :: Prelude.ByteString),
+          Data.=: ("DescribeAccountLimits" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "PageSize" Core.=: pageSize
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "PageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,10 +139,10 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> (x Core..@? "NextMarker")
-            Prelude.<*> ( x Core..@? "LoadBalancerDescriptions"
+            Prelude.<$> (x Data..@? "NextMarker")
+            Prelude.<*> ( x Data..@? "LoadBalancerDescriptions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -158,26 +159,26 @@ instance Prelude.NFData DescribeLoadBalancers where
       `Prelude.seq` Prelude.rnf loadBalancerNames
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders DescribeLoadBalancers where
+instance Data.ToHeaders DescribeLoadBalancers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeLoadBalancers where
+instance Data.ToPath DescribeLoadBalancers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLoadBalancers where
+instance Data.ToQuery DescribeLoadBalancers where
   toQuery DescribeLoadBalancers' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeLoadBalancers" :: Prelude.ByteString),
+          Data.=: ("DescribeLoadBalancers" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "LoadBalancerNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> loadBalancerNames
             ),
-        "PageSize" Core.=: pageSize
+        "PageSize" Data.=: pageSize
       ]
 
 -- | Contains the parameters for DescribeLoadBalancers.

@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,27 +174,27 @@ instance
       `Prelude.seq` Prelude.rnf policyName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateLBCookieStickinessPolicy
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateLBCookieStickinessPolicy where
+instance Data.ToPath CreateLBCookieStickinessPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLBCookieStickinessPolicy where
+instance Data.ToQuery CreateLBCookieStickinessPolicy where
   toQuery CreateLBCookieStickinessPolicy' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateLBCookieStickinessPolicy" ::
+          Data.=: ( "CreateLBCookieStickinessPolicy" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-06-01" :: Prelude.ByteString),
+          Data.=: ("2012-06-01" :: Prelude.ByteString),
         "CookieExpirationPeriod"
-          Core.=: cookieExpirationPeriod,
-        "LoadBalancerName" Core.=: loadBalancerName,
-        "PolicyName" Core.=: policyName
+          Data.=: cookieExpirationPeriod,
+        "LoadBalancerName" Data.=: loadBalancerName,
+        "PolicyName" Data.=: policyName
       ]
 
 -- | Contains the output for CreateLBCookieStickinessPolicy.

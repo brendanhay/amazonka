@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.Limit where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,10 +82,10 @@ limit_name = Lens.lens (\Limit' {name} -> name) (\s@Limit' {} a -> s {name = a} 
 limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
 limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
 
-instance Core.FromXML Limit where
+instance Data.FromXML Limit where
   parseXML x =
     Limit'
-      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Max")
+      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "Max")
 
 instance Prelude.Hashable Limit where
   hashWithSalt _salt Limit' {..} =

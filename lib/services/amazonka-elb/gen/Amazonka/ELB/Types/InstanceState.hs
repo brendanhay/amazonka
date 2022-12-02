@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.InstanceState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -170,13 +171,13 @@ instanceState_instanceId = Lens.lens (\InstanceState' {instanceId} -> instanceId
 instanceState_reasonCode :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
 instanceState_reasonCode = Lens.lens (\InstanceState' {reasonCode} -> reasonCode) (\s@InstanceState' {} a -> s {reasonCode = a} :: InstanceState)
 
-instance Core.FromXML InstanceState where
+instance Data.FromXML InstanceState where
   parseXML x =
     InstanceState'
-      Prelude.<$> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "InstanceId")
-      Prelude.<*> (x Core..@? "ReasonCode")
+      Prelude.<$> (x Data..@? "State")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "InstanceId")
+      Prelude.<*> (x Data..@? "ReasonCode")
 
 instance Prelude.Hashable InstanceState where
   hashWithSalt _salt InstanceState' {..} =

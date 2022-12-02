@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.Instance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -50,9 +51,9 @@ newInstance = Instance' {instanceId = Prelude.Nothing}
 instance_instanceId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
 
-instance Core.FromXML Instance where
+instance Data.FromXML Instance where
   parseXML x =
-    Instance' Prelude.<$> (x Core..@? "InstanceId")
+    Instance' Prelude.<$> (x Data..@? "InstanceId")
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
@@ -61,6 +62,6 @@ instance Prelude.Hashable Instance where
 instance Prelude.NFData Instance where
   rnf Instance' {..} = Prelude.rnf instanceId
 
-instance Core.ToQuery Instance where
+instance Data.ToQuery Instance where
   toQuery Instance' {..} =
-    Prelude.mconcat ["InstanceId" Core.=: instanceId]
+    Prelude.mconcat ["InstanceId" Data.=: instanceId]

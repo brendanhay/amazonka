@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.LabelsInputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ labelsInputConfiguration_s3InputConfiguration = Lens.lens (\LabelsInputConfigura
 labelsInputConfiguration_labelGroupName :: Lens.Lens' LabelsInputConfiguration (Prelude.Maybe Prelude.Text)
 labelsInputConfiguration_labelGroupName = Lens.lens (\LabelsInputConfiguration' {labelGroupName} -> labelGroupName) (\s@LabelsInputConfiguration' {} a -> s {labelGroupName = a} :: LabelsInputConfiguration)
 
-instance Core.FromJSON LabelsInputConfiguration where
+instance Data.FromJSON LabelsInputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelsInputConfiguration"
       ( \x ->
           LabelsInputConfiguration'
-            Prelude.<$> (x Core..:? "S3InputConfiguration")
-            Prelude.<*> (x Core..:? "LabelGroupName")
+            Prelude.<$> (x Data..:? "S3InputConfiguration")
+            Prelude.<*> (x Data..:? "LabelGroupName")
       )
 
 instance Prelude.Hashable LabelsInputConfiguration where
@@ -87,13 +88,13 @@ instance Prelude.NFData LabelsInputConfiguration where
     Prelude.rnf s3InputConfiguration
       `Prelude.seq` Prelude.rnf labelGroupName
 
-instance Core.ToJSON LabelsInputConfiguration where
+instance Data.ToJSON LabelsInputConfiguration where
   toJSON LabelsInputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3InputConfiguration" Core..=)
+          [ ("S3InputConfiguration" Data..=)
               Prelude.<$> s3InputConfiguration,
-            ("LabelGroupName" Core..=)
+            ("LabelGroupName" Data..=)
               Prelude.<$> labelGroupName
           ]
       )

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,11 +91,11 @@ instance Core.AWSRequest DescribeLabelGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeLabelGroupResponse'
-            Prelude.<$> (x Core..?> "FaultCodes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LabelGroupArn")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "UpdatedAt")
-            Prelude.<*> (x Core..?> "LabelGroupName")
+            Prelude.<$> (x Data..?> "FaultCodes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LabelGroupArn")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "UpdatedAt")
+            Prelude.<*> (x Data..?> "LabelGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,34 +107,34 @@ instance Prelude.NFData DescribeLabelGroup where
   rnf DescribeLabelGroup' {..} =
     Prelude.rnf labelGroupName
 
-instance Core.ToHeaders DescribeLabelGroup where
+instance Data.ToHeaders DescribeLabelGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DescribeLabelGroup" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DescribeLabelGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLabelGroup where
+instance Data.ToJSON DescribeLabelGroup where
   toJSON DescribeLabelGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LabelGroupName" Core..= labelGroupName)
+              ("LabelGroupName" Data..= labelGroupName)
           ]
       )
 
-instance Core.ToPath DescribeLabelGroup where
+instance Data.ToPath DescribeLabelGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLabelGroup where
+instance Data.ToQuery DescribeLabelGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLabelGroupResponse' smart constructor.
@@ -144,9 +145,9 @@ data DescribeLabelGroupResponse = DescribeLabelGroupResponse'
     -- | The ARN of the label group.
     labelGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the label group was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The time at which the label group was updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the label group.
     labelGroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -200,11 +201,11 @@ describeLabelGroupResponse_labelGroupArn = Lens.lens (\DescribeLabelGroupRespons
 
 -- | The time at which the label group was created.
 describeLabelGroupResponse_createdAt :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeLabelGroupResponse_createdAt = Lens.lens (\DescribeLabelGroupResponse' {createdAt} -> createdAt) (\s@DescribeLabelGroupResponse' {} a -> s {createdAt = a} :: DescribeLabelGroupResponse) Prelude.. Lens.mapping Core._Time
+describeLabelGroupResponse_createdAt = Lens.lens (\DescribeLabelGroupResponse' {createdAt} -> createdAt) (\s@DescribeLabelGroupResponse' {} a -> s {createdAt = a} :: DescribeLabelGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the label group was updated.
 describeLabelGroupResponse_updatedAt :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeLabelGroupResponse_updatedAt = Lens.lens (\DescribeLabelGroupResponse' {updatedAt} -> updatedAt) (\s@DescribeLabelGroupResponse' {} a -> s {updatedAt = a} :: DescribeLabelGroupResponse) Prelude.. Lens.mapping Core._Time
+describeLabelGroupResponse_updatedAt = Lens.lens (\DescribeLabelGroupResponse' {updatedAt} -> updatedAt) (\s@DescribeLabelGroupResponse' {} a -> s {updatedAt = a} :: DescribeLabelGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the label group.
 describeLabelGroupResponse_labelGroupName :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.Text)

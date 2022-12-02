@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,16 +101,16 @@ data CreateModel = CreateModel'
     labelsInputConfiguration :: Prelude.Maybe LabelsInputConfiguration,
     -- | Indicates the time reference in the dataset that should be used to begin
     -- the subset of training data for the ML model.
-    trainingDataStartTime :: Prelude.Maybe Core.POSIX,
+    trainingDataStartTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the time reference in the dataset that should be used to begin
     -- the subset of evaluation data for the ML model.
-    evaluationDataStartTime :: Prelude.Maybe Core.POSIX,
+    evaluationDataStartTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the time reference in the dataset that should be used to end
     -- the subset of training data for the ML model.
-    trainingDataEndTime :: Prelude.Maybe Core.POSIX,
+    trainingDataEndTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the time reference in the dataset that should be used to end
     -- the subset of evaluation data for the ML model.
-    evaluationDataEndTime :: Prelude.Maybe Core.POSIX,
+    evaluationDataEndTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates that the asset associated with this sensor has been shut off.
     -- As long as this condition is met, Lookout for Equipment will not use
     -- data from this asset for training, evaluation, or inference.
@@ -246,22 +247,22 @@ createModel_labelsInputConfiguration = Lens.lens (\CreateModel' {labelsInputConf
 -- | Indicates the time reference in the dataset that should be used to begin
 -- the subset of training data for the ML model.
 createModel_trainingDataStartTime :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.UTCTime)
-createModel_trainingDataStartTime = Lens.lens (\CreateModel' {trainingDataStartTime} -> trainingDataStartTime) (\s@CreateModel' {} a -> s {trainingDataStartTime = a} :: CreateModel) Prelude.. Lens.mapping Core._Time
+createModel_trainingDataStartTime = Lens.lens (\CreateModel' {trainingDataStartTime} -> trainingDataStartTime) (\s@CreateModel' {} a -> s {trainingDataStartTime = a} :: CreateModel) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the time reference in the dataset that should be used to begin
 -- the subset of evaluation data for the ML model.
 createModel_evaluationDataStartTime :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.UTCTime)
-createModel_evaluationDataStartTime = Lens.lens (\CreateModel' {evaluationDataStartTime} -> evaluationDataStartTime) (\s@CreateModel' {} a -> s {evaluationDataStartTime = a} :: CreateModel) Prelude.. Lens.mapping Core._Time
+createModel_evaluationDataStartTime = Lens.lens (\CreateModel' {evaluationDataStartTime} -> evaluationDataStartTime) (\s@CreateModel' {} a -> s {evaluationDataStartTime = a} :: CreateModel) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the time reference in the dataset that should be used to end
 -- the subset of training data for the ML model.
 createModel_trainingDataEndTime :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.UTCTime)
-createModel_trainingDataEndTime = Lens.lens (\CreateModel' {trainingDataEndTime} -> trainingDataEndTime) (\s@CreateModel' {} a -> s {trainingDataEndTime = a} :: CreateModel) Prelude.. Lens.mapping Core._Time
+createModel_trainingDataEndTime = Lens.lens (\CreateModel' {trainingDataEndTime} -> trainingDataEndTime) (\s@CreateModel' {} a -> s {trainingDataEndTime = a} :: CreateModel) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the time reference in the dataset that should be used to end
 -- the subset of evaluation data for the ML model.
 createModel_evaluationDataEndTime :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.UTCTime)
-createModel_evaluationDataEndTime = Lens.lens (\CreateModel' {evaluationDataEndTime} -> evaluationDataEndTime) (\s@CreateModel' {} a -> s {evaluationDataEndTime = a} :: CreateModel) Prelude.. Lens.mapping Core._Time
+createModel_evaluationDataEndTime = Lens.lens (\CreateModel' {evaluationDataEndTime} -> evaluationDataEndTime) (\s@CreateModel' {} a -> s {evaluationDataEndTime = a} :: CreateModel) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates that the asset associated with this sensor has been shut off.
 -- As long as this condition is met, Lookout for Equipment will not use
@@ -290,8 +291,8 @@ instance Core.AWSRequest CreateModel where
     Response.receiveJSON
       ( \s h x ->
           CreateModelResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ModelArn")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ModelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -329,53 +330,53 @@ instance Prelude.NFData CreateModel where
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateModel where
+instance Data.ToHeaders CreateModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.CreateModel" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.CreateModel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateModel where
+instance Data.ToJSON CreateModel where
   toJSON CreateModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ServerSideKmsKeyId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ServerSideKmsKeyId" Data..=)
               Prelude.<$> serverSideKmsKeyId,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("DataPreProcessingConfiguration" Core..=)
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("DataPreProcessingConfiguration" Data..=)
               Prelude.<$> dataPreProcessingConfiguration,
-            ("DatasetSchema" Core..=) Prelude.<$> datasetSchema,
-            ("LabelsInputConfiguration" Core..=)
+            ("DatasetSchema" Data..=) Prelude.<$> datasetSchema,
+            ("LabelsInputConfiguration" Data..=)
               Prelude.<$> labelsInputConfiguration,
-            ("TrainingDataStartTime" Core..=)
+            ("TrainingDataStartTime" Data..=)
               Prelude.<$> trainingDataStartTime,
-            ("EvaluationDataStartTime" Core..=)
+            ("EvaluationDataStartTime" Data..=)
               Prelude.<$> evaluationDataStartTime,
-            ("TrainingDataEndTime" Core..=)
+            ("TrainingDataEndTime" Data..=)
               Prelude.<$> trainingDataEndTime,
-            ("EvaluationDataEndTime" Core..=)
+            ("EvaluationDataEndTime" Data..=)
               Prelude.<$> evaluationDataEndTime,
-            ("OffCondition" Core..=) Prelude.<$> offCondition,
-            Prelude.Just ("ModelName" Core..= modelName),
-            Prelude.Just ("DatasetName" Core..= datasetName),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+            ("OffCondition" Data..=) Prelude.<$> offCondition,
+            Prelude.Just ("ModelName" Data..= modelName),
+            Prelude.Just ("DatasetName" Data..= datasetName),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateModel where
+instance Data.ToPath CreateModel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateModel where
+instance Data.ToQuery CreateModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateModelResponse' smart constructor.

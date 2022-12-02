@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration information for the input data for the
@@ -65,14 +66,14 @@ inferenceS3InputConfiguration_prefix = Lens.lens (\InferenceS3InputConfiguration
 inferenceS3InputConfiguration_bucket :: Lens.Lens' InferenceS3InputConfiguration Prelude.Text
 inferenceS3InputConfiguration_bucket = Lens.lens (\InferenceS3InputConfiguration' {bucket} -> bucket) (\s@InferenceS3InputConfiguration' {} a -> s {bucket = a} :: InferenceS3InputConfiguration)
 
-instance Core.FromJSON InferenceS3InputConfiguration where
+instance Data.FromJSON InferenceS3InputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceS3InputConfiguration"
       ( \x ->
           InferenceS3InputConfiguration'
-            Prelude.<$> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..: "Bucket")
+            Prelude.<$> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..: "Bucket")
       )
 
 instance
@@ -87,11 +88,11 @@ instance Prelude.NFData InferenceS3InputConfiguration where
   rnf InferenceS3InputConfiguration' {..} =
     Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToJSON InferenceS3InputConfiguration where
+instance Data.ToJSON InferenceS3InputConfiguration where
   toJSON InferenceS3InputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("Bucket" Core..= bucket)
+          [ ("Prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("Bucket" Data..= bucket)
           ]
       )

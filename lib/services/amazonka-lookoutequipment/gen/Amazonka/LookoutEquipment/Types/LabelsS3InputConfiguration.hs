@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The location information (prefix and bucket name) for the s3 location
@@ -65,14 +66,14 @@ labelsS3InputConfiguration_prefix = Lens.lens (\LabelsS3InputConfiguration' {pre
 labelsS3InputConfiguration_bucket :: Lens.Lens' LabelsS3InputConfiguration Prelude.Text
 labelsS3InputConfiguration_bucket = Lens.lens (\LabelsS3InputConfiguration' {bucket} -> bucket) (\s@LabelsS3InputConfiguration' {} a -> s {bucket = a} :: LabelsS3InputConfiguration)
 
-instance Core.FromJSON LabelsS3InputConfiguration where
+instance Data.FromJSON LabelsS3InputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelsS3InputConfiguration"
       ( \x ->
           LabelsS3InputConfiguration'
-            Prelude.<$> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..: "Bucket")
+            Prelude.<$> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..: "Bucket")
       )
 
 instance Prelude.Hashable LabelsS3InputConfiguration where
@@ -84,11 +85,11 @@ instance Prelude.NFData LabelsS3InputConfiguration where
   rnf LabelsS3InputConfiguration' {..} =
     Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToJSON LabelsS3InputConfiguration where
+instance Data.ToJSON LabelsS3InputConfiguration where
   toJSON LabelsS3InputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("Bucket" Core..= bucket)
+          [ ("Prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("Bucket" Data..= bucket)
           ]
       )

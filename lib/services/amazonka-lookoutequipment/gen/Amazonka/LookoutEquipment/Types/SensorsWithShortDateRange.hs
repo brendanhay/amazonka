@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.SensorsWithShortDateRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Entity that comprises information on sensors that have shorter date
@@ -56,13 +57,13 @@ newSensorsWithShortDateRange pAffectedSensorCount_ =
 sensorsWithShortDateRange_affectedSensorCount :: Lens.Lens' SensorsWithShortDateRange Prelude.Int
 sensorsWithShortDateRange_affectedSensorCount = Lens.lens (\SensorsWithShortDateRange' {affectedSensorCount} -> affectedSensorCount) (\s@SensorsWithShortDateRange' {} a -> s {affectedSensorCount = a} :: SensorsWithShortDateRange)
 
-instance Core.FromJSON SensorsWithShortDateRange where
+instance Data.FromJSON SensorsWithShortDateRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SensorsWithShortDateRange"
       ( \x ->
           SensorsWithShortDateRange'
-            Prelude.<$> (x Core..: "AffectedSensorCount")
+            Prelude.<$> (x Data..: "AffectedSensorCount")
       )
 
 instance Prelude.Hashable SensorsWithShortDateRange where

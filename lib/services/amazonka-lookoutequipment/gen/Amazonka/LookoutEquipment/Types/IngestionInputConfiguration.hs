@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.IngestionInputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -60,13 +61,13 @@ newIngestionInputConfiguration pS3InputConfiguration_ =
 ingestionInputConfiguration_s3InputConfiguration :: Lens.Lens' IngestionInputConfiguration IngestionS3InputConfiguration
 ingestionInputConfiguration_s3InputConfiguration = Lens.lens (\IngestionInputConfiguration' {s3InputConfiguration} -> s3InputConfiguration) (\s@IngestionInputConfiguration' {} a -> s {s3InputConfiguration = a} :: IngestionInputConfiguration)
 
-instance Core.FromJSON IngestionInputConfiguration where
+instance Data.FromJSON IngestionInputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IngestionInputConfiguration"
       ( \x ->
           IngestionInputConfiguration'
-            Prelude.<$> (x Core..: "S3InputConfiguration")
+            Prelude.<$> (x Data..: "S3InputConfiguration")
       )
 
 instance Prelude.Hashable IngestionInputConfiguration where
@@ -77,13 +78,13 @@ instance Prelude.NFData IngestionInputConfiguration where
   rnf IngestionInputConfiguration' {..} =
     Prelude.rnf s3InputConfiguration
 
-instance Core.ToJSON IngestionInputConfiguration where
+instance Data.ToJSON IngestionInputConfiguration where
   toJSON IngestionInputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "S3InputConfiguration"
-                  Core..= s3InputConfiguration
+                  Data..= s3InputConfiguration
               )
           ]
       )

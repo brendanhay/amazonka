@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.LabelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.LabelRating
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data LabelSummary = LabelSummary'
     -- | The ID of the label.
     labelId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp indicating the end of the label.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the type of anomaly associated with the label.
     --
     -- Data in this field will be retained for service usage. Follow best
@@ -44,9 +45,9 @@ data LabelSummary = LabelSummary'
     -- | Indicates whether a labeled event represents an anomaly.
     rating :: Prelude.Maybe LabelRating,
     -- | The time at which the label was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The timestamp indicating the start of the label.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the label group.
     labelGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -105,7 +106,7 @@ labelSummary_labelId = Lens.lens (\LabelSummary' {labelId} -> labelId) (\s@Label
 
 -- | The timestamp indicating the end of the label.
 labelSummary_endTime :: Lens.Lens' LabelSummary (Prelude.Maybe Prelude.UTCTime)
-labelSummary_endTime = Lens.lens (\LabelSummary' {endTime} -> endTime) (\s@LabelSummary' {} a -> s {endTime = a} :: LabelSummary) Prelude.. Lens.mapping Core._Time
+labelSummary_endTime = Lens.lens (\LabelSummary' {endTime} -> endTime) (\s@LabelSummary' {} a -> s {endTime = a} :: LabelSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the type of anomaly associated with the label.
 --
@@ -124,31 +125,31 @@ labelSummary_rating = Lens.lens (\LabelSummary' {rating} -> rating) (\s@LabelSum
 
 -- | The time at which the label was created.
 labelSummary_createdAt :: Lens.Lens' LabelSummary (Prelude.Maybe Prelude.UTCTime)
-labelSummary_createdAt = Lens.lens (\LabelSummary' {createdAt} -> createdAt) (\s@LabelSummary' {} a -> s {createdAt = a} :: LabelSummary) Prelude.. Lens.mapping Core._Time
+labelSummary_createdAt = Lens.lens (\LabelSummary' {createdAt} -> createdAt) (\s@LabelSummary' {} a -> s {createdAt = a} :: LabelSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp indicating the start of the label.
 labelSummary_startTime :: Lens.Lens' LabelSummary (Prelude.Maybe Prelude.UTCTime)
-labelSummary_startTime = Lens.lens (\LabelSummary' {startTime} -> startTime) (\s@LabelSummary' {} a -> s {startTime = a} :: LabelSummary) Prelude.. Lens.mapping Core._Time
+labelSummary_startTime = Lens.lens (\LabelSummary' {startTime} -> startTime) (\s@LabelSummary' {} a -> s {startTime = a} :: LabelSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the label group.
 labelSummary_labelGroupName :: Lens.Lens' LabelSummary (Prelude.Maybe Prelude.Text)
 labelSummary_labelGroupName = Lens.lens (\LabelSummary' {labelGroupName} -> labelGroupName) (\s@LabelSummary' {} a -> s {labelGroupName = a} :: LabelSummary)
 
-instance Core.FromJSON LabelSummary where
+instance Data.FromJSON LabelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelSummary"
       ( \x ->
           LabelSummary'
-            Prelude.<$> (x Core..:? "Equipment")
-            Prelude.<*> (x Core..:? "LabelId")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "FaultCode")
-            Prelude.<*> (x Core..:? "LabelGroupArn")
-            Prelude.<*> (x Core..:? "Rating")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "LabelGroupName")
+            Prelude.<$> (x Data..:? "Equipment")
+            Prelude.<*> (x Data..:? "LabelId")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "FaultCode")
+            Prelude.<*> (x Data..:? "LabelGroupArn")
+            Prelude.<*> (x Data..:? "Rating")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "LabelGroupName")
       )
 
 instance Prelude.Hashable LabelSummary where

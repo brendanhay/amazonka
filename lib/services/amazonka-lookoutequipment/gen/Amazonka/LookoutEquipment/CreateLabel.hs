@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,9 +78,9 @@ data CreateLabel = CreateLabel'
     -- practices for the security of your data.
     labelGroupName :: Prelude.Text,
     -- | The start time of the labeled event.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The end time of the labeled event.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | Indicates whether a labeled event represents an anomaly.
     rating :: LabelRating,
     -- | A unique identifier for the request to create a label. If you do not set
@@ -148,8 +149,8 @@ newCreateLabel
         faultCode = Prelude.Nothing,
         notes = Prelude.Nothing,
         labelGroupName = pLabelGroupName_,
-        startTime = Core._Time Lens.# pStartTime_,
-        endTime = Core._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         rating = pRating_,
         clientToken = pClientToken_
       }
@@ -185,11 +186,11 @@ createLabel_labelGroupName = Lens.lens (\CreateLabel' {labelGroupName} -> labelG
 
 -- | The start time of the labeled event.
 createLabel_startTime :: Lens.Lens' CreateLabel Prelude.UTCTime
-createLabel_startTime = Lens.lens (\CreateLabel' {startTime} -> startTime) (\s@CreateLabel' {} a -> s {startTime = a} :: CreateLabel) Prelude.. Core._Time
+createLabel_startTime = Lens.lens (\CreateLabel' {startTime} -> startTime) (\s@CreateLabel' {} a -> s {startTime = a} :: CreateLabel) Prelude.. Data._Time
 
 -- | The end time of the labeled event.
 createLabel_endTime :: Lens.Lens' CreateLabel Prelude.UTCTime
-createLabel_endTime = Lens.lens (\CreateLabel' {endTime} -> endTime) (\s@CreateLabel' {} a -> s {endTime = a} :: CreateLabel) Prelude.. Core._Time
+createLabel_endTime = Lens.lens (\CreateLabel' {endTime} -> endTime) (\s@CreateLabel' {} a -> s {endTime = a} :: CreateLabel) Prelude.. Data._Time
 
 -- | Indicates whether a labeled event represents an anomaly.
 createLabel_rating :: Lens.Lens' CreateLabel LabelRating
@@ -208,7 +209,7 @@ instance Core.AWSRequest CreateLabel where
     Response.receiveJSON
       ( \s h x ->
           CreateLabelResponse'
-            Prelude.<$> (x Core..?> "LabelId")
+            Prelude.<$> (x Data..?> "LabelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,41 +235,41 @@ instance Prelude.NFData CreateLabel where
       `Prelude.seq` Prelude.rnf rating
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateLabel where
+instance Data.ToHeaders CreateLabel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.CreateLabel" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.CreateLabel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLabel where
+instance Data.ToJSON CreateLabel where
   toJSON CreateLabel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Equipment" Core..=) Prelude.<$> equipment,
-            ("FaultCode" Core..=) Prelude.<$> faultCode,
-            ("Notes" Core..=) Prelude.<$> notes,
+          [ ("Equipment" Data..=) Prelude.<$> equipment,
+            ("FaultCode" Data..=) Prelude.<$> faultCode,
+            ("Notes" Data..=) Prelude.<$> notes,
             Prelude.Just
-              ("LabelGroupName" Core..= labelGroupName),
-            Prelude.Just ("StartTime" Core..= startTime),
-            Prelude.Just ("EndTime" Core..= endTime),
-            Prelude.Just ("Rating" Core..= rating),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("LabelGroupName" Data..= labelGroupName),
+            Prelude.Just ("StartTime" Data..= startTime),
+            Prelude.Just ("EndTime" Data..= endTime),
+            Prelude.Just ("Rating" Data..= rating),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateLabel where
+instance Data.ToPath CreateLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLabel where
+instance Data.ToQuery CreateLabel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLabelResponse' smart constructor.

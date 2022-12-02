@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -63,10 +64,10 @@ data ListInferenceEvents = ListInferenceEvents'
     inferenceSchedulerName :: Prelude.Text,
     -- | Lookout for Equipment will return all the inference events with an end
     -- time equal to or greater than the start time given.
-    intervalStartTime :: Core.POSIX,
+    intervalStartTime :: Data.POSIX,
     -- | Returns all the inference events with an end start time equal to or
     -- greater than less than the end time given
-    intervalEndTime :: Core.POSIX
+    intervalEndTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,9 +108,9 @@ newListInferenceEvents
         maxResults = Prelude.Nothing,
         inferenceSchedulerName = pInferenceSchedulerName_,
         intervalStartTime =
-          Core._Time Lens.# pIntervalStartTime_,
+          Data._Time Lens.# pIntervalStartTime_,
         intervalEndTime =
-          Core._Time Lens.# pIntervalEndTime_
+          Data._Time Lens.# pIntervalEndTime_
       }
 
 -- | An opaque pagination token indicating where to continue the listing of
@@ -128,12 +129,12 @@ listInferenceEvents_inferenceSchedulerName = Lens.lens (\ListInferenceEvents' {i
 -- | Lookout for Equipment will return all the inference events with an end
 -- time equal to or greater than the start time given.
 listInferenceEvents_intervalStartTime :: Lens.Lens' ListInferenceEvents Prelude.UTCTime
-listInferenceEvents_intervalStartTime = Lens.lens (\ListInferenceEvents' {intervalStartTime} -> intervalStartTime) (\s@ListInferenceEvents' {} a -> s {intervalStartTime = a} :: ListInferenceEvents) Prelude.. Core._Time
+listInferenceEvents_intervalStartTime = Lens.lens (\ListInferenceEvents' {intervalStartTime} -> intervalStartTime) (\s@ListInferenceEvents' {} a -> s {intervalStartTime = a} :: ListInferenceEvents) Prelude.. Data._Time
 
 -- | Returns all the inference events with an end start time equal to or
 -- greater than less than the end time given
 listInferenceEvents_intervalEndTime :: Lens.Lens' ListInferenceEvents Prelude.UTCTime
-listInferenceEvents_intervalEndTime = Lens.lens (\ListInferenceEvents' {intervalEndTime} -> intervalEndTime) (\s@ListInferenceEvents' {} a -> s {intervalEndTime = a} :: ListInferenceEvents) Prelude.. Core._Time
+listInferenceEvents_intervalEndTime = Lens.lens (\ListInferenceEvents' {intervalEndTime} -> intervalEndTime) (\s@ListInferenceEvents' {} a -> s {intervalEndTime = a} :: ListInferenceEvents) Prelude.. Data._Time
 
 instance Core.AWSRequest ListInferenceEvents where
   type
@@ -145,8 +146,8 @@ instance Core.AWSRequest ListInferenceEvents where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InferenceEventSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InferenceEventSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,42 +169,42 @@ instance Prelude.NFData ListInferenceEvents where
       `Prelude.seq` Prelude.rnf intervalStartTime
       `Prelude.seq` Prelude.rnf intervalEndTime
 
-instance Core.ToHeaders ListInferenceEvents where
+instance Data.ToHeaders ListInferenceEvents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.ListInferenceEvents" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.ListInferenceEvents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListInferenceEvents where
+instance Data.ToJSON ListInferenceEvents where
   toJSON ListInferenceEvents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "InferenceSchedulerName"
-                  Core..= inferenceSchedulerName
+                  Data..= inferenceSchedulerName
               ),
             Prelude.Just
-              ("IntervalStartTime" Core..= intervalStartTime),
+              ("IntervalStartTime" Data..= intervalStartTime),
             Prelude.Just
-              ("IntervalEndTime" Core..= intervalEndTime)
+              ("IntervalEndTime" Data..= intervalEndTime)
           ]
       )
 
-instance Core.ToPath ListInferenceEvents where
+instance Data.ToPath ListInferenceEvents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListInferenceEvents where
+instance Data.ToQuery ListInferenceEvents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListInferenceEventsResponse' smart constructor.

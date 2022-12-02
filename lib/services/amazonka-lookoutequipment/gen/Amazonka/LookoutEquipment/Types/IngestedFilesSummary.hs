@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.IngestedFilesSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.S3Object
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,15 +86,15 @@ ingestedFilesSummary_totalNumberOfFiles = Lens.lens (\IngestedFilesSummary' {tot
 ingestedFilesSummary_ingestedNumberOfFiles :: Lens.Lens' IngestedFilesSummary Prelude.Int
 ingestedFilesSummary_ingestedNumberOfFiles = Lens.lens (\IngestedFilesSummary' {ingestedNumberOfFiles} -> ingestedNumberOfFiles) (\s@IngestedFilesSummary' {} a -> s {ingestedNumberOfFiles = a} :: IngestedFilesSummary)
 
-instance Core.FromJSON IngestedFilesSummary where
+instance Data.FromJSON IngestedFilesSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IngestedFilesSummary"
       ( \x ->
           IngestedFilesSummary'
-            Prelude.<$> (x Core..:? "DiscardedFiles" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "TotalNumberOfFiles")
-            Prelude.<*> (x Core..: "IngestedNumberOfFiles")
+            Prelude.<$> (x Data..:? "DiscardedFiles" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "TotalNumberOfFiles")
+            Prelude.<*> (x Data..: "IngestedNumberOfFiles")
       )
 
 instance Prelude.Hashable IngestedFilesSummary where

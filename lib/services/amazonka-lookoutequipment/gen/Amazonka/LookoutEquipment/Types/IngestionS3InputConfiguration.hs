@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies S3 configuration information for the input data for the data
@@ -89,15 +90,15 @@ ingestionS3InputConfiguration_prefix = Lens.lens (\IngestionS3InputConfiguration
 ingestionS3InputConfiguration_bucket :: Lens.Lens' IngestionS3InputConfiguration Prelude.Text
 ingestionS3InputConfiguration_bucket = Lens.lens (\IngestionS3InputConfiguration' {bucket} -> bucket) (\s@IngestionS3InputConfiguration' {} a -> s {bucket = a} :: IngestionS3InputConfiguration)
 
-instance Core.FromJSON IngestionS3InputConfiguration where
+instance Data.FromJSON IngestionS3InputConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IngestionS3InputConfiguration"
       ( \x ->
           IngestionS3InputConfiguration'
-            Prelude.<$> (x Core..:? "KeyPattern")
-            Prelude.<*> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..: "Bucket")
+            Prelude.<$> (x Data..:? "KeyPattern")
+            Prelude.<*> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..: "Bucket")
       )
 
 instance
@@ -115,12 +116,12 @@ instance Prelude.NFData IngestionS3InputConfiguration where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf bucket
 
-instance Core.ToJSON IngestionS3InputConfiguration where
+instance Data.ToJSON IngestionS3InputConfiguration where
   toJSON IngestionS3InputConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KeyPattern" Core..=) Prelude.<$> keyPattern,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("Bucket" Core..= bucket)
+          [ ("KeyPattern" Data..=) Prelude.<$> keyPattern,
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("Bucket" Data..= bucket)
           ]
       )

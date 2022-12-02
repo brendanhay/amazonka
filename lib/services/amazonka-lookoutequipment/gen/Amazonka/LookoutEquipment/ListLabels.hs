@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -64,11 +65,11 @@ data ListLabels = ListLabels'
     faultCode :: Prelude.Maybe Prelude.Text,
     -- | Returns all the labels with a end time equal to or later than the start
     -- time given.
-    intervalStartTime :: Prelude.Maybe Core.POSIX,
+    intervalStartTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies the maximum number of labels to list.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Returns all labels with a start time earlier than the end time given.
-    intervalEndTime :: Prelude.Maybe Core.POSIX,
+    intervalEndTime :: Prelude.Maybe Data.POSIX,
     -- | Retruns the name of the label group.
     labelGroupName :: Prelude.Text
   }
@@ -128,7 +129,7 @@ listLabels_faultCode = Lens.lens (\ListLabels' {faultCode} -> faultCode) (\s@Lis
 -- | Returns all the labels with a end time equal to or later than the start
 -- time given.
 listLabels_intervalStartTime :: Lens.Lens' ListLabels (Prelude.Maybe Prelude.UTCTime)
-listLabels_intervalStartTime = Lens.lens (\ListLabels' {intervalStartTime} -> intervalStartTime) (\s@ListLabels' {} a -> s {intervalStartTime = a} :: ListLabels) Prelude.. Lens.mapping Core._Time
+listLabels_intervalStartTime = Lens.lens (\ListLabels' {intervalStartTime} -> intervalStartTime) (\s@ListLabels' {} a -> s {intervalStartTime = a} :: ListLabels) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the maximum number of labels to list.
 listLabels_maxResults :: Lens.Lens' ListLabels (Prelude.Maybe Prelude.Natural)
@@ -136,7 +137,7 @@ listLabels_maxResults = Lens.lens (\ListLabels' {maxResults} -> maxResults) (\s@
 
 -- | Returns all labels with a start time earlier than the end time given.
 listLabels_intervalEndTime :: Lens.Lens' ListLabels (Prelude.Maybe Prelude.UTCTime)
-listLabels_intervalEndTime = Lens.lens (\ListLabels' {intervalEndTime} -> intervalEndTime) (\s@ListLabels' {} a -> s {intervalEndTime = a} :: ListLabels) Prelude.. Lens.mapping Core._Time
+listLabels_intervalEndTime = Lens.lens (\ListLabels' {intervalEndTime} -> intervalEndTime) (\s@ListLabels' {} a -> s {intervalEndTime = a} :: ListLabels) Prelude.. Lens.mapping Data._Time
 
 -- | Retruns the name of the label group.
 listLabels_labelGroupName :: Lens.Lens' ListLabels Prelude.Text
@@ -150,8 +151,8 @@ instance Core.AWSRequest ListLabels where
     Response.receiveJSON
       ( \s h x ->
           ListLabelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "LabelSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "LabelSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,42 +176,42 @@ instance Prelude.NFData ListLabels where
       `Prelude.seq` Prelude.rnf intervalEndTime
       `Prelude.seq` Prelude.rnf labelGroupName
 
-instance Core.ToHeaders ListLabels where
+instance Data.ToHeaders ListLabels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.ListLabels" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.ListLabels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLabels where
+instance Data.ToJSON ListLabels where
   toJSON ListLabels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Equipment" Core..=) Prelude.<$> equipment,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FaultCode" Core..=) Prelude.<$> faultCode,
-            ("IntervalStartTime" Core..=)
+          [ ("Equipment" Data..=) Prelude.<$> equipment,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FaultCode" Data..=) Prelude.<$> faultCode,
+            ("IntervalStartTime" Data..=)
               Prelude.<$> intervalStartTime,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("IntervalEndTime" Core..=)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("IntervalEndTime" Data..=)
               Prelude.<$> intervalEndTime,
             Prelude.Just
-              ("LabelGroupName" Core..= labelGroupName)
+              ("LabelGroupName" Data..= labelGroupName)
           ]
       )
 
-instance Core.ToPath ListLabels where
+instance Data.ToPath ListLabels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLabels where
+instance Data.ToQuery ListLabels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLabelsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.DataQualitySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.DuplicateTimestamps
 import Amazonka.LookoutEquipment.Types.InsufficientSensorData
 import Amazonka.LookoutEquipment.Types.InvalidSensorData
@@ -131,17 +132,17 @@ dataQualitySummary_unsupportedTimestamps = Lens.lens (\DataQualitySummary' {unsu
 dataQualitySummary_duplicateTimestamps :: Lens.Lens' DataQualitySummary DuplicateTimestamps
 dataQualitySummary_duplicateTimestamps = Lens.lens (\DataQualitySummary' {duplicateTimestamps} -> duplicateTimestamps) (\s@DataQualitySummary' {} a -> s {duplicateTimestamps = a} :: DataQualitySummary)
 
-instance Core.FromJSON DataQualitySummary where
+instance Data.FromJSON DataQualitySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataQualitySummary"
       ( \x ->
           DataQualitySummary'
-            Prelude.<$> (x Core..: "InsufficientSensorData")
-            Prelude.<*> (x Core..: "MissingSensorData")
-            Prelude.<*> (x Core..: "InvalidSensorData")
-            Prelude.<*> (x Core..: "UnsupportedTimestamps")
-            Prelude.<*> (x Core..: "DuplicateTimestamps")
+            Prelude.<$> (x Data..: "InsufficientSensorData")
+            Prelude.<*> (x Data..: "MissingSensorData")
+            Prelude.<*> (x Data..: "InvalidSensorData")
+            Prelude.<*> (x Data..: "UnsupportedTimestamps")
+            Prelude.<*> (x Data..: "DuplicateTimestamps")
       )
 
 instance Prelude.Hashable DataQualitySummary where

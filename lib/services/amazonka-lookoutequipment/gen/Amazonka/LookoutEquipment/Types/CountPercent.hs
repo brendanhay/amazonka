@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.CountPercent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Entity that comprises information of count and percentage.
@@ -65,14 +66,14 @@ countPercent_count = Lens.lens (\CountPercent' {count} -> count) (\s@CountPercen
 countPercent_percentage :: Lens.Lens' CountPercent Prelude.Double
 countPercent_percentage = Lens.lens (\CountPercent' {percentage} -> percentage) (\s@CountPercent' {} a -> s {percentage = a} :: CountPercent)
 
-instance Core.FromJSON CountPercent where
+instance Data.FromJSON CountPercent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CountPercent"
       ( \x ->
           CountPercent'
-            Prelude.<$> (x Core..: "Count")
-            Prelude.<*> (x Core..: "Percentage")
+            Prelude.<$> (x Data..: "Count")
+            Prelude.<*> (x Data..: "Percentage")
       )
 
 instance Prelude.Hashable CountPercent where

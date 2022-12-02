@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -201,45 +202,45 @@ instance Prelude.NFData UpdateInferenceScheduler where
       `Prelude.seq` Prelude.rnf dataInputConfiguration
       `Prelude.seq` Prelude.rnf inferenceSchedulerName
 
-instance Core.ToHeaders UpdateInferenceScheduler where
+instance Data.ToHeaders UpdateInferenceScheduler where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.UpdateInferenceScheduler" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.UpdateInferenceScheduler" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateInferenceScheduler where
+instance Data.ToJSON UpdateInferenceScheduler where
   toJSON UpdateInferenceScheduler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("DataDelayOffsetInMinutes" Core..=)
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("DataDelayOffsetInMinutes" Data..=)
               Prelude.<$> dataDelayOffsetInMinutes,
-            ("DataOutputConfiguration" Core..=)
+            ("DataOutputConfiguration" Data..=)
               Prelude.<$> dataOutputConfiguration,
-            ("DataUploadFrequency" Core..=)
+            ("DataUploadFrequency" Data..=)
               Prelude.<$> dataUploadFrequency,
-            ("DataInputConfiguration" Core..=)
+            ("DataInputConfiguration" Data..=)
               Prelude.<$> dataInputConfiguration,
             Prelude.Just
               ( "InferenceSchedulerName"
-                  Core..= inferenceSchedulerName
+                  Data..= inferenceSchedulerName
               )
           ]
       )
 
-instance Core.ToPath UpdateInferenceScheduler where
+instance Data.ToPath UpdateInferenceScheduler where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateInferenceScheduler where
+instance Data.ToQuery UpdateInferenceScheduler where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateInferenceSchedulerResponse' smart constructor.

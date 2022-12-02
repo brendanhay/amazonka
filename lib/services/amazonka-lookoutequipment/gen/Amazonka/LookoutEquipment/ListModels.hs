@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -126,8 +127,8 @@ instance Core.AWSRequest ListModels where
     Response.receiveJSON
       ( \s h x ->
           ListModelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ModelSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "ModelSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,39 +148,39 @@ instance Prelude.NFData ListModels where
       `Prelude.seq` Prelude.rnf modelNameBeginsWith
       `Prelude.seq` Prelude.rnf datasetNameBeginsWith
 
-instance Core.ToHeaders ListModels where
+instance Data.ToHeaders ListModels where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.ListModels" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.ListModels" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListModels where
+instance Data.ToJSON ListModels where
   toJSON ListModels' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Status" Core..=) Prelude.<$> status,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ModelNameBeginsWith" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ModelNameBeginsWith" Data..=)
               Prelude.<$> modelNameBeginsWith,
-            ("DatasetNameBeginsWith" Core..=)
+            ("DatasetNameBeginsWith" Data..=)
               Prelude.<$> datasetNameBeginsWith
           ]
       )
 
-instance Core.ToPath ListModels where
+instance Data.ToPath ListModels where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListModels where
+instance Data.ToQuery ListModels where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListModelsResponse' smart constructor.

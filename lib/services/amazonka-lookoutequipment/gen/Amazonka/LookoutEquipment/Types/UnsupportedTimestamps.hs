@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.UnsupportedTimestamps where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Entity that comprises information abount unsupported timestamps in the
@@ -60,13 +61,13 @@ newUnsupportedTimestamps
 unsupportedTimestamps_totalNumberOfUnsupportedTimestamps :: Lens.Lens' UnsupportedTimestamps Prelude.Int
 unsupportedTimestamps_totalNumberOfUnsupportedTimestamps = Lens.lens (\UnsupportedTimestamps' {totalNumberOfUnsupportedTimestamps} -> totalNumberOfUnsupportedTimestamps) (\s@UnsupportedTimestamps' {} a -> s {totalNumberOfUnsupportedTimestamps = a} :: UnsupportedTimestamps)
 
-instance Core.FromJSON UnsupportedTimestamps where
+instance Data.FromJSON UnsupportedTimestamps where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnsupportedTimestamps"
       ( \x ->
           UnsupportedTimestamps'
-            Prelude.<$> (x Core..: "TotalNumberOfUnsupportedTimestamps")
+            Prelude.<$> (x Data..: "TotalNumberOfUnsupportedTimestamps")
       )
 
 instance Prelude.Hashable UnsupportedTimestamps where

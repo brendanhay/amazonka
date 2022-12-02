@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,8 +120,8 @@ instance Core.AWSRequest ListInferenceSchedulers where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceSchedulersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "InferenceSchedulerSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "InferenceSchedulerSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,37 +141,37 @@ instance Prelude.NFData ListInferenceSchedulers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelName
 
-instance Core.ToHeaders ListInferenceSchedulers where
+instance Data.ToHeaders ListInferenceSchedulers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.ListInferenceSchedulers" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.ListInferenceSchedulers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListInferenceSchedulers where
+instance Data.ToJSON ListInferenceSchedulers where
   toJSON ListInferenceSchedulers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("InferenceSchedulerNameBeginsWith" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("InferenceSchedulerNameBeginsWith" Data..=)
               Prelude.<$> inferenceSchedulerNameBeginsWith,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ModelName" Core..=) Prelude.<$> modelName
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ModelName" Data..=) Prelude.<$> modelName
           ]
       )
 
-instance Core.ToPath ListInferenceSchedulers where
+instance Data.ToPath ListInferenceSchedulers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListInferenceSchedulers where
+instance Data.ToQuery ListInferenceSchedulers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListInferenceSchedulersResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance Core.AWSRequest StartDataIngestionJob where
     Response.receiveJSON
       ( \s h x ->
           StartDataIngestionJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,39 +157,39 @@ instance Prelude.NFData StartDataIngestionJob where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders StartDataIngestionJob where
+instance Data.ToHeaders StartDataIngestionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.StartDataIngestionJob" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.StartDataIngestionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartDataIngestionJob where
+instance Data.ToJSON StartDataIngestionJob where
   toJSON StartDataIngestionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DatasetName" Core..= datasetName),
+          [ Prelude.Just ("DatasetName" Data..= datasetName),
             Prelude.Just
               ( "IngestionInputConfiguration"
-                  Core..= ingestionInputConfiguration
+                  Data..= ingestionInputConfiguration
               ),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath StartDataIngestionJob where
+instance Data.ToPath StartDataIngestionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartDataIngestionJob where
+instance Data.ToQuery StartDataIngestionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDataIngestionJobResponse' smart constructor.

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,16 +107,16 @@ instance Core.AWSRequest DescribeLabel where
     Response.receiveJSON
       ( \s h x ->
           DescribeLabelResponse'
-            Prelude.<$> (x Core..?> "Equipment")
-            Prelude.<*> (x Core..?> "LabelId")
-            Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "FaultCode")
-            Prelude.<*> (x Core..?> "LabelGroupArn")
-            Prelude.<*> (x Core..?> "Notes")
-            Prelude.<*> (x Core..?> "Rating")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "StartTime")
-            Prelude.<*> (x Core..?> "LabelGroupName")
+            Prelude.<$> (x Data..?> "Equipment")
+            Prelude.<*> (x Data..?> "LabelId")
+            Prelude.<*> (x Data..?> "EndTime")
+            Prelude.<*> (x Data..?> "FaultCode")
+            Prelude.<*> (x Data..?> "LabelGroupArn")
+            Prelude.<*> (x Data..?> "Notes")
+            Prelude.<*> (x Data..?> "Rating")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "StartTime")
+            Prelude.<*> (x Data..?> "LabelGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,35 +130,35 @@ instance Prelude.NFData DescribeLabel where
     Prelude.rnf labelGroupName
       `Prelude.seq` Prelude.rnf labelId
 
-instance Core.ToHeaders DescribeLabel where
+instance Data.ToHeaders DescribeLabel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DescribeLabel" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DescribeLabel" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLabel where
+instance Data.ToJSON DescribeLabel where
   toJSON DescribeLabel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LabelGroupName" Core..= labelGroupName),
-            Prelude.Just ("LabelId" Core..= labelId)
+              ("LabelGroupName" Data..= labelGroupName),
+            Prelude.Just ("LabelId" Data..= labelId)
           ]
       )
 
-instance Core.ToPath DescribeLabel where
+instance Data.ToPath DescribeLabel where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLabel where
+instance Data.ToQuery DescribeLabel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLabelResponse' smart constructor.
@@ -167,7 +168,7 @@ data DescribeLabelResponse = DescribeLabelResponse'
     -- | The ID of the requested label.
     labelId :: Prelude.Maybe Prelude.Text,
     -- | The end time of the requested label.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates the type of anomaly associated with the label.
     --
     -- Data in this field will be retained for service usage. Follow best
@@ -183,9 +184,9 @@ data DescribeLabelResponse = DescribeLabelResponse'
     -- | Indicates whether a labeled event represents an anomaly.
     rating :: Prelude.Maybe LabelRating,
     -- | The time at which the label was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The start time of the requested label.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the requested label group.
     labelGroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -257,7 +258,7 @@ describeLabelResponse_labelId = Lens.lens (\DescribeLabelResponse' {labelId} -> 
 
 -- | The end time of the requested label.
 describeLabelResponse_endTime :: Lens.Lens' DescribeLabelResponse (Prelude.Maybe Prelude.UTCTime)
-describeLabelResponse_endTime = Lens.lens (\DescribeLabelResponse' {endTime} -> endTime) (\s@DescribeLabelResponse' {} a -> s {endTime = a} :: DescribeLabelResponse) Prelude.. Lens.mapping Core._Time
+describeLabelResponse_endTime = Lens.lens (\DescribeLabelResponse' {endTime} -> endTime) (\s@DescribeLabelResponse' {} a -> s {endTime = a} :: DescribeLabelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the type of anomaly associated with the label.
 --
@@ -283,11 +284,11 @@ describeLabelResponse_rating = Lens.lens (\DescribeLabelResponse' {rating} -> ra
 
 -- | The time at which the label was created.
 describeLabelResponse_createdAt :: Lens.Lens' DescribeLabelResponse (Prelude.Maybe Prelude.UTCTime)
-describeLabelResponse_createdAt = Lens.lens (\DescribeLabelResponse' {createdAt} -> createdAt) (\s@DescribeLabelResponse' {} a -> s {createdAt = a} :: DescribeLabelResponse) Prelude.. Lens.mapping Core._Time
+describeLabelResponse_createdAt = Lens.lens (\DescribeLabelResponse' {createdAt} -> createdAt) (\s@DescribeLabelResponse' {} a -> s {createdAt = a} :: DescribeLabelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The start time of the requested label.
 describeLabelResponse_startTime :: Lens.Lens' DescribeLabelResponse (Prelude.Maybe Prelude.UTCTime)
-describeLabelResponse_startTime = Lens.lens (\DescribeLabelResponse' {startTime} -> startTime) (\s@DescribeLabelResponse' {} a -> s {startTime = a} :: DescribeLabelResponse) Prelude.. Lens.mapping Core._Time
+describeLabelResponse_startTime = Lens.lens (\DescribeLabelResponse' {startTime} -> startTime) (\s@DescribeLabelResponse' {} a -> s {startTime = a} :: DescribeLabelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the requested label group.
 describeLabelResponse_labelGroupName :: Lens.Lens' DescribeLabelResponse (Prelude.Maybe Prelude.Text)

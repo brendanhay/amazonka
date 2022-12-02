@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -277,9 +278,9 @@ instance Core.AWSRequest CreateInferenceScheduler where
     Response.receiveJSON
       ( \s h x ->
           CreateInferenceSchedulerResponse'
-            Prelude.<$> (x Core..?> "InferenceSchedulerName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "InferenceSchedulerArn")
+            Prelude.<$> (x Data..?> "InferenceSchedulerName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "InferenceSchedulerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -309,54 +310,54 @@ instance Prelude.NFData CreateInferenceScheduler where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateInferenceScheduler where
+instance Data.ToHeaders CreateInferenceScheduler where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.CreateInferenceScheduler" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.CreateInferenceScheduler" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateInferenceScheduler where
+instance Data.ToJSON CreateInferenceScheduler where
   toJSON CreateInferenceScheduler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ServerSideKmsKeyId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ServerSideKmsKeyId" Data..=)
               Prelude.<$> serverSideKmsKeyId,
-            ("DataDelayOffsetInMinutes" Core..=)
+            ("DataDelayOffsetInMinutes" Data..=)
               Prelude.<$> dataDelayOffsetInMinutes,
-            Prelude.Just ("ModelName" Core..= modelName),
+            Prelude.Just ("ModelName" Data..= modelName),
             Prelude.Just
               ( "InferenceSchedulerName"
-                  Core..= inferenceSchedulerName
+                  Data..= inferenceSchedulerName
               ),
             Prelude.Just
-              ("DataUploadFrequency" Core..= dataUploadFrequency),
+              ("DataUploadFrequency" Data..= dataUploadFrequency),
             Prelude.Just
               ( "DataInputConfiguration"
-                  Core..= dataInputConfiguration
+                  Data..= dataInputConfiguration
               ),
             Prelude.Just
               ( "DataOutputConfiguration"
-                  Core..= dataOutputConfiguration
+                  Data..= dataOutputConfiguration
               ),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+            Prelude.Just ("RoleArn" Data..= roleArn),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateInferenceScheduler where
+instance Data.ToPath CreateInferenceScheduler where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateInferenceScheduler where
+instance Data.ToQuery CreateInferenceScheduler where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateInferenceSchedulerResponse' smart constructor.

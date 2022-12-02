@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,35 +113,35 @@ instance Prelude.NFData UpdateLabelGroup where
     Prelude.rnf faultCodes
       `Prelude.seq` Prelude.rnf labelGroupName
 
-instance Core.ToHeaders UpdateLabelGroup where
+instance Data.ToHeaders UpdateLabelGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.UpdateLabelGroup" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.UpdateLabelGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLabelGroup where
+instance Data.ToJSON UpdateLabelGroup where
   toJSON UpdateLabelGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FaultCodes" Core..=) Prelude.<$> faultCodes,
+          [ ("FaultCodes" Data..=) Prelude.<$> faultCodes,
             Prelude.Just
-              ("LabelGroupName" Core..= labelGroupName)
+              ("LabelGroupName" Data..= labelGroupName)
           ]
       )
 
-instance Core.ToPath UpdateLabelGroup where
+instance Data.ToPath UpdateLabelGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLabelGroup where
+instance Data.ToQuery UpdateLabelGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLabelGroupResponse' smart constructor.

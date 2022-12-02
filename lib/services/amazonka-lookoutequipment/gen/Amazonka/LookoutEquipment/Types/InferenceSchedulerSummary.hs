@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.DataUploadFrequency
 import Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus
 import Amazonka.LookoutEquipment.Types.LatestInferenceResult
@@ -171,20 +172,20 @@ inferenceSchedulerSummary_dataUploadFrequency = Lens.lens (\InferenceSchedulerSu
 inferenceSchedulerSummary_inferenceSchedulerArn :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
 inferenceSchedulerSummary_inferenceSchedulerArn = Lens.lens (\InferenceSchedulerSummary' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@InferenceSchedulerSummary' {} a -> s {inferenceSchedulerArn = a} :: InferenceSchedulerSummary)
 
-instance Core.FromJSON InferenceSchedulerSummary where
+instance Data.FromJSON InferenceSchedulerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceSchedulerSummary"
       ( \x ->
           InferenceSchedulerSummary'
-            Prelude.<$> (x Core..:? "InferenceSchedulerName")
-            Prelude.<*> (x Core..:? "DataDelayOffsetInMinutes")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ModelArn")
-            Prelude.<*> (x Core..:? "LatestInferenceResult")
-            Prelude.<*> (x Core..:? "ModelName")
-            Prelude.<*> (x Core..:? "DataUploadFrequency")
-            Prelude.<*> (x Core..:? "InferenceSchedulerArn")
+            Prelude.<$> (x Data..:? "InferenceSchedulerName")
+            Prelude.<*> (x Data..:? "DataDelayOffsetInMinutes")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ModelArn")
+            Prelude.<*> (x Data..:? "LatestInferenceResult")
+            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<*> (x Data..:? "DataUploadFrequency")
+            Prelude.<*> (x Data..:? "InferenceSchedulerArn")
       )
 
 instance Prelude.Hashable InferenceSchedulerSummary where

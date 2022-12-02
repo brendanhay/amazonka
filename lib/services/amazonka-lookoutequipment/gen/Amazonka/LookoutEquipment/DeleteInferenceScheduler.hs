@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,36 +92,36 @@ instance Prelude.NFData DeleteInferenceScheduler where
   rnf DeleteInferenceScheduler' {..} =
     Prelude.rnf inferenceSchedulerName
 
-instance Core.ToHeaders DeleteInferenceScheduler where
+instance Data.ToHeaders DeleteInferenceScheduler where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DeleteInferenceScheduler" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DeleteInferenceScheduler" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteInferenceScheduler where
+instance Data.ToJSON DeleteInferenceScheduler where
   toJSON DeleteInferenceScheduler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "InferenceSchedulerName"
-                  Core..= inferenceSchedulerName
+                  Data..= inferenceSchedulerName
               )
           ]
       )
 
-instance Core.ToPath DeleteInferenceScheduler where
+instance Data.ToPath DeleteInferenceScheduler where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteInferenceScheduler where
+instance Data.ToQuery DeleteInferenceScheduler where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInferenceSchedulerResponse' smart constructor.

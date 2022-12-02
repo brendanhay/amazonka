@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,19 +97,19 @@ instance Core.AWSRequest DescribeDataset where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Prelude.<$> (x Core..?> "DataStartTime")
-            Prelude.<*> (x Core..?> "ServerSideKmsKeyId")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "DataEndTime")
-            Prelude.<*> (x Core..?> "DatasetName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "DatasetArn")
-            Prelude.<*> (x Core..?> "IngestionInputConfiguration")
-            Prelude.<*> (x Core..?> "IngestedFilesSummary")
-            Prelude.<*> (x Core..?> "Schema")
-            Prelude.<*> (x Core..?> "DataQualitySummary")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Data..?> "DataStartTime")
+            Prelude.<*> (x Data..?> "ServerSideKmsKeyId")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "DataEndTime")
+            Prelude.<*> (x Data..?> "DatasetName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "DatasetArn")
+            Prelude.<*> (x Data..?> "IngestionInputConfiguration")
+            Prelude.<*> (x Data..?> "IngestedFilesSummary")
+            Prelude.<*> (x Data..?> "Schema")
+            Prelude.<*> (x Data..?> "DataQualitySummary")
+            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,32 +120,32 @@ instance Prelude.Hashable DescribeDataset where
 instance Prelude.NFData DescribeDataset where
   rnf DescribeDataset' {..} = Prelude.rnf datasetName
 
-instance Core.ToHeaders DescribeDataset where
+instance Data.ToHeaders DescribeDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DescribeDataset" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DescribeDataset" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDataset where
+instance Data.ToJSON DescribeDataset where
   toJSON DescribeDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DatasetName" Core..= datasetName)]
+          [Prelude.Just ("DatasetName" Data..= datasetName)]
       )
 
-instance Core.ToPath DescribeDataset where
+instance Data.ToPath DescribeDataset where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDataset where
+instance Data.ToQuery DescribeDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDatasetResponse' smart constructor.
@@ -152,7 +153,7 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
   { -- | Indicates the earliest timestamp corresponding to data that was
     -- successfully ingested during the most recent ingestion of this
     -- particular dataset.
-    dataStartTime :: Prelude.Maybe Core.POSIX,
+    dataStartTime :: Prelude.Maybe Data.POSIX,
     -- | Provides the identifier of the KMS key used to encrypt dataset data by
     -- Amazon Lookout for Equipment.
     serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
@@ -160,11 +161,11 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- this the data ingestion job.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time the dataset was last updated, if it was.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates the latest timestamp corresponding to data that was
     -- successfully ingested during the most recent ingestion of this
     -- particular dataset.
-    dataEndTime :: Prelude.Maybe Core.POSIX,
+    dataEndTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the dataset being described.
     datasetName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the status of the dataset.
@@ -187,7 +188,7 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- DuplicateTimeStamps.
     dataQualitySummary :: Prelude.Maybe DataQualitySummary,
     -- | Specifies the time the dataset was created in Lookout for Equipment.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -268,7 +269,7 @@ newDescribeDatasetResponse pHttpStatus_ =
 -- successfully ingested during the most recent ingestion of this
 -- particular dataset.
 describeDatasetResponse_dataStartTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_dataStartTime = Lens.lens (\DescribeDatasetResponse' {dataStartTime} -> dataStartTime) (\s@DescribeDatasetResponse' {} a -> s {dataStartTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetResponse_dataStartTime = Lens.lens (\DescribeDatasetResponse' {dataStartTime} -> dataStartTime) (\s@DescribeDatasetResponse' {} a -> s {dataStartTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Provides the identifier of the KMS key used to encrypt dataset data by
 -- Amazon Lookout for Equipment.
@@ -282,13 +283,13 @@ describeDatasetResponse_roleArn = Lens.lens (\DescribeDatasetResponse' {roleArn}
 
 -- | Specifies the time the dataset was last updated, if it was.
 describeDatasetResponse_lastUpdatedAt :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_lastUpdatedAt = Lens.lens (\DescribeDatasetResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeDatasetResponse' {} a -> s {lastUpdatedAt = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetResponse_lastUpdatedAt = Lens.lens (\DescribeDatasetResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeDatasetResponse' {} a -> s {lastUpdatedAt = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the latest timestamp corresponding to data that was
 -- successfully ingested during the most recent ingestion of this
 -- particular dataset.
 describeDatasetResponse_dataEndTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_dataEndTime = Lens.lens (\DescribeDatasetResponse' {dataEndTime} -> dataEndTime) (\s@DescribeDatasetResponse' {} a -> s {dataEndTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetResponse_dataEndTime = Lens.lens (\DescribeDatasetResponse' {dataEndTime} -> dataEndTime) (\s@DescribeDatasetResponse' {} a -> s {dataEndTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the dataset being described.
 describeDatasetResponse_datasetName :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.Text)
@@ -327,7 +328,7 @@ describeDatasetResponse_dataQualitySummary = Lens.lens (\DescribeDatasetResponse
 
 -- | Specifies the time the dataset was created in Lookout for Equipment.
 describeDatasetResponse_createdAt :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_createdAt = Lens.lens (\DescribeDatasetResponse' {createdAt} -> createdAt) (\s@DescribeDatasetResponse' {} a -> s {createdAt = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetResponse_createdAt = Lens.lens (\DescribeDatasetResponse' {createdAt} -> createdAt) (\s@DescribeDatasetResponse' {} a -> s {createdAt = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Prelude.Int

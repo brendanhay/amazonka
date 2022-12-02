@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.ModelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.ModelStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,7 +41,7 @@ data ModelSummary = ModelSummary'
     -- | The name of the ML model.
     modelName :: Prelude.Maybe Prelude.Text,
     -- | The time at which the specific model was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,20 +98,20 @@ modelSummary_modelName = Lens.lens (\ModelSummary' {modelName} -> modelName) (\s
 
 -- | The time at which the specific model was created.
 modelSummary_createdAt :: Lens.Lens' ModelSummary (Prelude.Maybe Prelude.UTCTime)
-modelSummary_createdAt = Lens.lens (\ModelSummary' {createdAt} -> createdAt) (\s@ModelSummary' {} a -> s {createdAt = a} :: ModelSummary) Prelude.. Lens.mapping Core._Time
+modelSummary_createdAt = Lens.lens (\ModelSummary' {createdAt} -> createdAt) (\s@ModelSummary' {} a -> s {createdAt = a} :: ModelSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ModelSummary where
+instance Data.FromJSON ModelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ModelSummary"
       ( \x ->
           ModelSummary'
-            Prelude.<$> (x Core..:? "DatasetName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DatasetArn")
-            Prelude.<*> (x Core..:? "ModelArn")
-            Prelude.<*> (x Core..:? "ModelName")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "DatasetName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "DatasetArn")
+            Prelude.<*> (x Data..:? "ModelArn")
+            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ModelSummary where

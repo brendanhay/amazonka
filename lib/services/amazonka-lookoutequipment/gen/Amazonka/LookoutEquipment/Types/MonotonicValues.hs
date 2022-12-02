@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.MonotonicValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.Monotonicity
 import Amazonka.LookoutEquipment.Types.StatisticalIssueStatus
 import qualified Amazonka.Prelude as Prelude
@@ -71,14 +72,14 @@ monotonicValues_monotonicity = Lens.lens (\MonotonicValues' {monotonicity} -> mo
 monotonicValues_status :: Lens.Lens' MonotonicValues StatisticalIssueStatus
 monotonicValues_status = Lens.lens (\MonotonicValues' {status} -> status) (\s@MonotonicValues' {} a -> s {status = a} :: MonotonicValues)
 
-instance Core.FromJSON MonotonicValues where
+instance Data.FromJSON MonotonicValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonotonicValues"
       ( \x ->
           MonotonicValues'
-            Prelude.<$> (x Core..:? "Monotonicity")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "Monotonicity")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable MonotonicValues where

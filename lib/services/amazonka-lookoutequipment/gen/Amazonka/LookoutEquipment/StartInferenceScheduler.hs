@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,11 +91,11 @@ instance Core.AWSRequest StartInferenceScheduler where
     Response.receiveJSON
       ( \s h x ->
           StartInferenceSchedulerResponse'
-            Prelude.<$> (x Core..?> "InferenceSchedulerName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ModelArn")
-            Prelude.<*> (x Core..?> "ModelName")
-            Prelude.<*> (x Core..?> "InferenceSchedulerArn")
+            Prelude.<$> (x Data..?> "InferenceSchedulerName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ModelArn")
+            Prelude.<*> (x Data..?> "ModelName")
+            Prelude.<*> (x Data..?> "InferenceSchedulerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,36 +107,36 @@ instance Prelude.NFData StartInferenceScheduler where
   rnf StartInferenceScheduler' {..} =
     Prelude.rnf inferenceSchedulerName
 
-instance Core.ToHeaders StartInferenceScheduler where
+instance Data.ToHeaders StartInferenceScheduler where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.StartInferenceScheduler" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.StartInferenceScheduler" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartInferenceScheduler where
+instance Data.ToJSON StartInferenceScheduler where
   toJSON StartInferenceScheduler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "InferenceSchedulerName"
-                  Core..= inferenceSchedulerName
+                  Data..= inferenceSchedulerName
               )
           ]
       )
 
-instance Core.ToPath StartInferenceScheduler where
+instance Data.ToPath StartInferenceScheduler where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartInferenceScheduler where
+instance Data.ToQuery StartInferenceScheduler where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartInferenceSchedulerResponse' smart constructor.

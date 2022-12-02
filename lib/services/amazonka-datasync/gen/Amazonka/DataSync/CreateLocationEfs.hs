@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,7 +206,7 @@ instance Core.AWSRequest CreateLocationEfs where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationEfsResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -229,43 +230,43 @@ instance Prelude.NFData CreateLocationEfs where
       `Prelude.seq` Prelude.rnf efsFilesystemArn
       `Prelude.seq` Prelude.rnf ec2Config
 
-instance Core.ToHeaders CreateLocationEfs where
+instance Data.ToHeaders CreateLocationEfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationEfs" ::
+              Data.=# ( "FmrsService.CreateLocationEfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationEfs where
+instance Data.ToJSON CreateLocationEfs where
   toJSON CreateLocationEfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("InTransitEncryption" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("InTransitEncryption" Data..=)
               Prelude.<$> inTransitEncryption,
-            ("AccessPointArn" Core..=)
+            ("AccessPointArn" Data..=)
               Prelude.<$> accessPointArn,
-            ("FileSystemAccessRoleArn" Core..=)
+            ("FileSystemAccessRoleArn" Data..=)
               Prelude.<$> fileSystemAccessRoleArn,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
             Prelude.Just
-              ("EfsFilesystemArn" Core..= efsFilesystemArn),
-            Prelude.Just ("Ec2Config" Core..= ec2Config)
+              ("EfsFilesystemArn" Data..= efsFilesystemArn),
+            Prelude.Just ("Ec2Config" Data..= ec2Config)
           ]
       )
 
-instance Core.ToPath CreateLocationEfs where
+instance Data.ToPath CreateLocationEfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationEfs where
+instance Data.ToQuery CreateLocationEfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateLocationEfs

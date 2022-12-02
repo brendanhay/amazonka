@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -75,7 +76,7 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
     -- certificate can be up to 32768 bytes (before Base64 encoding).
     --
     -- To use this parameter, configure @ServerProtocol@ to @HTTPS@.
-    serverCertificate :: Prelude.Maybe Core.Base64,
+    serverCertificate :: Prelude.Maybe Data.Base64,
     -- | Specifies the port that your object storage server accepts inbound
     -- network traffic on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
@@ -84,7 +85,7 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
     accessKey :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret key (for example, a password) if credentials are
     -- required to authenticate with the object storage server.
-    secretKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the object prefix for your object storage server. If this is a
     -- source location, DataSync only copies objects with this prefix. If this
     -- is a destination location, DataSync writes all objects with this prefix.
@@ -200,7 +201,7 @@ createLocationObjectStorage_serverProtocol = Lens.lens (\CreateLocationObjectSto
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 createLocationObjectStorage_serverCertificate :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.ByteString)
-createLocationObjectStorage_serverCertificate = Lens.lens (\CreateLocationObjectStorage' {serverCertificate} -> serverCertificate) (\s@CreateLocationObjectStorage' {} a -> s {serverCertificate = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Core._Base64
+createLocationObjectStorage_serverCertificate = Lens.lens (\CreateLocationObjectStorage' {serverCertificate} -> serverCertificate) (\s@CreateLocationObjectStorage' {} a -> s {serverCertificate = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Data._Base64
 
 -- | Specifies the port that your object storage server accepts inbound
 -- network traffic on (for example, port 443).
@@ -215,7 +216,7 @@ createLocationObjectStorage_accessKey = Lens.lens (\CreateLocationObjectStorage'
 -- | Specifies the secret key (for example, a password) if credentials are
 -- required to authenticate with the object storage server.
 createLocationObjectStorage_secretKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
-createLocationObjectStorage_secretKey = Lens.lens (\CreateLocationObjectStorage' {secretKey} -> secretKey) (\s@CreateLocationObjectStorage' {} a -> s {secretKey = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Core._Sensitive
+createLocationObjectStorage_secretKey = Lens.lens (\CreateLocationObjectStorage' {secretKey} -> secretKey) (\s@CreateLocationObjectStorage' {} a -> s {secretKey = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the object prefix for your object storage server. If this is a
 -- source location, DataSync only copies objects with this prefix. If this
@@ -249,7 +250,7 @@ instance Core.AWSRequest CreateLocationObjectStorage where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationObjectStorageResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -279,45 +280,45 @@ instance Prelude.NFData CreateLocationObjectStorage where
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf agentArns
 
-instance Core.ToHeaders CreateLocationObjectStorage where
+instance Data.ToHeaders CreateLocationObjectStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationObjectStorage" ::
+              Data.=# ( "FmrsService.CreateLocationObjectStorage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationObjectStorage where
+instance Data.ToJSON CreateLocationObjectStorage where
   toJSON CreateLocationObjectStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ServerProtocol" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ServerProtocol" Data..=)
               Prelude.<$> serverProtocol,
-            ("ServerCertificate" Core..=)
+            ("ServerCertificate" Data..=)
               Prelude.<$> serverCertificate,
-            ("ServerPort" Core..=) Prelude.<$> serverPort,
-            ("AccessKey" Core..=) Prelude.<$> accessKey,
-            ("SecretKey" Core..=) Prelude.<$> secretKey,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
+            ("ServerPort" Data..=) Prelude.<$> serverPort,
+            ("AccessKey" Data..=) Prelude.<$> accessKey,
+            ("SecretKey" Data..=) Prelude.<$> secretKey,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
             Prelude.Just
-              ("ServerHostname" Core..= serverHostname),
-            Prelude.Just ("BucketName" Core..= bucketName),
-            Prelude.Just ("AgentArns" Core..= agentArns)
+              ("ServerHostname" Data..= serverHostname),
+            Prelude.Just ("BucketName" Data..= bucketName),
+            Prelude.Just ("AgentArns" Data..= agentArns)
           ]
       )
 
-instance Core.ToPath CreateLocationObjectStorage where
+instance Data.ToPath CreateLocationObjectStorage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationObjectStorage where
+instance Data.ToQuery CreateLocationObjectStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateLocationObjectStorageResponse

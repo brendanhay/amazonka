@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.HdfsNameNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The NameNode of the Hadoop Distributed File System (HDFS). The NameNode
@@ -75,14 +76,14 @@ hdfsNameNode_hostname = Lens.lens (\HdfsNameNode' {hostname} -> hostname) (\s@Hd
 hdfsNameNode_port :: Lens.Lens' HdfsNameNode Prelude.Natural
 hdfsNameNode_port = Lens.lens (\HdfsNameNode' {port} -> port) (\s@HdfsNameNode' {} a -> s {port = a} :: HdfsNameNode)
 
-instance Core.FromJSON HdfsNameNode where
+instance Data.FromJSON HdfsNameNode where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HdfsNameNode"
       ( \x ->
           HdfsNameNode'
-            Prelude.<$> (x Core..: "Hostname")
-            Prelude.<*> (x Core..: "Port")
+            Prelude.<$> (x Data..: "Hostname")
+            Prelude.<*> (x Data..: "Port")
       )
 
 instance Prelude.Hashable HdfsNameNode where
@@ -94,11 +95,11 @@ instance Prelude.NFData HdfsNameNode where
   rnf HdfsNameNode' {..} =
     Prelude.rnf hostname `Prelude.seq` Prelude.rnf port
 
-instance Core.ToJSON HdfsNameNode where
+instance Data.ToJSON HdfsNameNode where
   toJSON HdfsNameNode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Hostname" Core..= hostname),
-            Prelude.Just ("Port" Core..= port)
+          [ Prelude.Just ("Hostname" Data..= hostname),
+            Prelude.Just ("Port" Data..= port)
           ]
       )

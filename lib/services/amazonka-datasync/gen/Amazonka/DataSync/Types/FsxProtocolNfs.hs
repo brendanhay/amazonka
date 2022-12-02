@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.FsxProtocolNfs where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.NfsMountOptions
 import qualified Amazonka.Prelude as Prelude
 
@@ -52,13 +53,13 @@ newFsxProtocolNfs =
 fsxProtocolNfs_mountOptions :: Lens.Lens' FsxProtocolNfs (Prelude.Maybe NfsMountOptions)
 fsxProtocolNfs_mountOptions = Lens.lens (\FsxProtocolNfs' {mountOptions} -> mountOptions) (\s@FsxProtocolNfs' {} a -> s {mountOptions = a} :: FsxProtocolNfs)
 
-instance Core.FromJSON FsxProtocolNfs where
+instance Data.FromJSON FsxProtocolNfs where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FsxProtocolNfs"
       ( \x ->
           FsxProtocolNfs'
-            Prelude.<$> (x Core..:? "MountOptions")
+            Prelude.<$> (x Data..:? "MountOptions")
       )
 
 instance Prelude.Hashable FsxProtocolNfs where
@@ -68,9 +69,9 @@ instance Prelude.Hashable FsxProtocolNfs where
 instance Prelude.NFData FsxProtocolNfs where
   rnf FsxProtocolNfs' {..} = Prelude.rnf mountOptions
 
-instance Core.ToJSON FsxProtocolNfs where
+instance Data.ToJSON FsxProtocolNfs where
   toJSON FsxProtocolNfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("MountOptions" Core..=) Prelude.<$> mountOptions]
+          [("MountOptions" Data..=) Prelude.<$> mountOptions]
       )

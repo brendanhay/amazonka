@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -210,36 +211,36 @@ instance Prelude.NFData UpdateLocationNfs where
       `Prelude.seq` Prelude.rnf subdirectory
       `Prelude.seq` Prelude.rnf locationArn
 
-instance Core.ToHeaders UpdateLocationNfs where
+instance Data.ToHeaders UpdateLocationNfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.UpdateLocationNfs" ::
+              Data.=# ( "FmrsService.UpdateLocationNfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLocationNfs where
+instance Data.ToJSON UpdateLocationNfs where
   toJSON UpdateLocationNfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OnPremConfig" Core..=) Prelude.<$> onPremConfig,
-            ("MountOptions" Core..=) Prelude.<$> mountOptions,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            Prelude.Just ("LocationArn" Core..= locationArn)
+          [ ("OnPremConfig" Data..=) Prelude.<$> onPremConfig,
+            ("MountOptions" Data..=) Prelude.<$> mountOptions,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            Prelude.Just ("LocationArn" Data..= locationArn)
           ]
       )
 
-instance Core.ToPath UpdateLocationNfs where
+instance Data.ToPath UpdateLocationNfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLocationNfs where
+instance Data.ToQuery UpdateLocationNfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLocationNfsResponse' smart constructor.

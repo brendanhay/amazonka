@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.LocationListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single entry in a list of locations. @LocationListEntry@
@@ -127,14 +128,14 @@ locationListEntry_locationArn = Lens.lens (\LocationListEntry' {locationArn} -> 
 locationListEntry_locationUri :: Lens.Lens' LocationListEntry (Prelude.Maybe Prelude.Text)
 locationListEntry_locationUri = Lens.lens (\LocationListEntry' {locationUri} -> locationUri) (\s@LocationListEntry' {} a -> s {locationUri = a} :: LocationListEntry)
 
-instance Core.FromJSON LocationListEntry where
+instance Data.FromJSON LocationListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocationListEntry"
       ( \x ->
           LocationListEntry'
-            Prelude.<$> (x Core..:? "LocationArn")
-            Prelude.<*> (x Core..:? "LocationUri")
+            Prelude.<$> (x Data..:? "LocationArn")
+            Prelude.<*> (x Data..:? "LocationUri")
       )
 
 instance Prelude.Hashable LocationListEntry where

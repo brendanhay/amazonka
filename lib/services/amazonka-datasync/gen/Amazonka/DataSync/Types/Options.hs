@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.Options where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.Atime
 import Amazonka.DataSync.Types.Gid
 import Amazonka.DataSync.Types.LogLevel
@@ -752,27 +753,27 @@ options_securityDescriptorCopyFlags = Lens.lens (\Options' {securityDescriptorCo
 options_bytesPerSecond :: Lens.Lens' Options (Prelude.Maybe Prelude.Integer)
 options_bytesPerSecond = Lens.lens (\Options' {bytesPerSecond} -> bytesPerSecond) (\s@Options' {} a -> s {bytesPerSecond = a} :: Options)
 
-instance Core.FromJSON Options where
+instance Data.FromJSON Options where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Options"
       ( \x ->
           Options'
-            Prelude.<$> (x Core..:? "ObjectTags")
-            Prelude.<*> (x Core..:? "Gid")
-            Prelude.<*> (x Core..:? "LogLevel")
-            Prelude.<*> (x Core..:? "TaskQueueing")
-            Prelude.<*> (x Core..:? "PreserveDevices")
-            Prelude.<*> (x Core..:? "OverwriteMode")
-            Prelude.<*> (x Core..:? "Mtime")
-            Prelude.<*> (x Core..:? "TransferMode")
-            Prelude.<*> (x Core..:? "Uid")
-            Prelude.<*> (x Core..:? "VerifyMode")
-            Prelude.<*> (x Core..:? "PreserveDeletedFiles")
-            Prelude.<*> (x Core..:? "Atime")
-            Prelude.<*> (x Core..:? "PosixPermissions")
-            Prelude.<*> (x Core..:? "SecurityDescriptorCopyFlags")
-            Prelude.<*> (x Core..:? "BytesPerSecond")
+            Prelude.<$> (x Data..:? "ObjectTags")
+            Prelude.<*> (x Data..:? "Gid")
+            Prelude.<*> (x Data..:? "LogLevel")
+            Prelude.<*> (x Data..:? "TaskQueueing")
+            Prelude.<*> (x Data..:? "PreserveDevices")
+            Prelude.<*> (x Data..:? "OverwriteMode")
+            Prelude.<*> (x Data..:? "Mtime")
+            Prelude.<*> (x Data..:? "TransferMode")
+            Prelude.<*> (x Data..:? "Uid")
+            Prelude.<*> (x Data..:? "VerifyMode")
+            Prelude.<*> (x Data..:? "PreserveDeletedFiles")
+            Prelude.<*> (x Data..:? "Atime")
+            Prelude.<*> (x Data..:? "PosixPermissions")
+            Prelude.<*> (x Data..:? "SecurityDescriptorCopyFlags")
+            Prelude.<*> (x Data..:? "BytesPerSecond")
       )
 
 instance Prelude.Hashable Options where
@@ -811,29 +812,29 @@ instance Prelude.NFData Options where
       `Prelude.seq` Prelude.rnf securityDescriptorCopyFlags
       `Prelude.seq` Prelude.rnf bytesPerSecond
 
-instance Core.ToJSON Options where
+instance Data.ToJSON Options where
   toJSON Options' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ObjectTags" Core..=) Prelude.<$> objectTags,
-            ("Gid" Core..=) Prelude.<$> gid,
-            ("LogLevel" Core..=) Prelude.<$> logLevel,
-            ("TaskQueueing" Core..=) Prelude.<$> taskQueueing,
-            ("PreserveDevices" Core..=)
+          [ ("ObjectTags" Data..=) Prelude.<$> objectTags,
+            ("Gid" Data..=) Prelude.<$> gid,
+            ("LogLevel" Data..=) Prelude.<$> logLevel,
+            ("TaskQueueing" Data..=) Prelude.<$> taskQueueing,
+            ("PreserveDevices" Data..=)
               Prelude.<$> preserveDevices,
-            ("OverwriteMode" Core..=) Prelude.<$> overwriteMode,
-            ("Mtime" Core..=) Prelude.<$> mtime,
-            ("TransferMode" Core..=) Prelude.<$> transferMode,
-            ("Uid" Core..=) Prelude.<$> uid,
-            ("VerifyMode" Core..=) Prelude.<$> verifyMode,
-            ("PreserveDeletedFiles" Core..=)
+            ("OverwriteMode" Data..=) Prelude.<$> overwriteMode,
+            ("Mtime" Data..=) Prelude.<$> mtime,
+            ("TransferMode" Data..=) Prelude.<$> transferMode,
+            ("Uid" Data..=) Prelude.<$> uid,
+            ("VerifyMode" Data..=) Prelude.<$> verifyMode,
+            ("PreserveDeletedFiles" Data..=)
               Prelude.<$> preserveDeletedFiles,
-            ("Atime" Core..=) Prelude.<$> atime,
-            ("PosixPermissions" Core..=)
+            ("Atime" Data..=) Prelude.<$> atime,
+            ("PosixPermissions" Data..=)
               Prelude.<$> posixPermissions,
-            ("SecurityDescriptorCopyFlags" Core..=)
+            ("SecurityDescriptorCopyFlags" Data..=)
               Prelude.<$> securityDescriptorCopyFlags,
-            ("BytesPerSecond" Core..=)
+            ("BytesPerSecond" Data..=)
               Prelude.<$> bytesPerSecond
           ]
       )

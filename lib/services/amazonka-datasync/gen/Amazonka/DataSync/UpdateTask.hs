@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -205,38 +206,38 @@ instance Prelude.NFData UpdateTask where
       `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf taskArn
 
-instance Core.ToHeaders UpdateTask where
+instance Data.ToHeaders UpdateTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("FmrsService.UpdateTask" :: Prelude.ByteString),
+              Data.=# ("FmrsService.UpdateTask" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTask where
+instance Data.ToJSON UpdateTask where
   toJSON UpdateTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Name" Core..=) Prelude.<$> name,
-            ("CloudWatchLogGroupArn" Core..=)
+          [ ("Schedule" Data..=) Prelude.<$> schedule,
+            ("Name" Data..=) Prelude.<$> name,
+            ("CloudWatchLogGroupArn" Data..=)
               Prelude.<$> cloudWatchLogGroupArn,
-            ("Excludes" Core..=) Prelude.<$> excludes,
-            ("Options" Core..=) Prelude.<$> options,
-            ("Includes" Core..=) Prelude.<$> includes,
-            Prelude.Just ("TaskArn" Core..= taskArn)
+            ("Excludes" Data..=) Prelude.<$> excludes,
+            ("Options" Data..=) Prelude.<$> options,
+            ("Includes" Data..=) Prelude.<$> includes,
+            Prelude.Just ("TaskArn" Data..= taskArn)
           ]
       )
 
-instance Core.ToPath UpdateTask where
+instance Data.ToPath UpdateTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTask where
+instance Data.ToQuery UpdateTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTaskResponse' smart constructor.

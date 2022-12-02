@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -253,7 +254,7 @@ instance Core.AWSRequest CreateTask where
     Response.receiveJSON
       ( \s h x ->
           CreateTaskResponse'
-            Prelude.<$> (x Core..?> "TaskArn")
+            Prelude.<$> (x Data..?> "TaskArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -281,44 +282,44 @@ instance Prelude.NFData CreateTask where
       `Prelude.seq` Prelude.rnf sourceLocationArn
       `Prelude.seq` Prelude.rnf destinationLocationArn
 
-instance Core.ToHeaders CreateTask where
+instance Data.ToHeaders CreateTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("FmrsService.CreateTask" :: Prelude.ByteString),
+              Data.=# ("FmrsService.CreateTask" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTask where
+instance Data.ToJSON CreateTask where
   toJSON CreateTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Name" Core..=) Prelude.<$> name,
-            ("CloudWatchLogGroupArn" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Schedule" Data..=) Prelude.<$> schedule,
+            ("Name" Data..=) Prelude.<$> name,
+            ("CloudWatchLogGroupArn" Data..=)
               Prelude.<$> cloudWatchLogGroupArn,
-            ("Excludes" Core..=) Prelude.<$> excludes,
-            ("Options" Core..=) Prelude.<$> options,
-            ("Includes" Core..=) Prelude.<$> includes,
+            ("Excludes" Data..=) Prelude.<$> excludes,
+            ("Options" Data..=) Prelude.<$> options,
+            ("Includes" Data..=) Prelude.<$> includes,
             Prelude.Just
-              ("SourceLocationArn" Core..= sourceLocationArn),
+              ("SourceLocationArn" Data..= sourceLocationArn),
             Prelude.Just
               ( "DestinationLocationArn"
-                  Core..= destinationLocationArn
+                  Data..= destinationLocationArn
               )
           ]
       )
 
-instance Core.ToPath CreateTask where
+instance Data.ToPath CreateTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTask where
+instance Data.ToQuery CreateTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateTaskResponse

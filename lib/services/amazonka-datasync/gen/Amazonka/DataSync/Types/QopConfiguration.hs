@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.QopConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.HdfsDataTransferProtection
 import Amazonka.DataSync.Types.HdfsRpcProtection
 import qualified Amazonka.Prelude as Prelude
@@ -78,14 +79,14 @@ qopConfiguration_dataTransferProtection = Lens.lens (\QopConfiguration' {dataTra
 qopConfiguration_rpcProtection :: Lens.Lens' QopConfiguration (Prelude.Maybe HdfsRpcProtection)
 qopConfiguration_rpcProtection = Lens.lens (\QopConfiguration' {rpcProtection} -> rpcProtection) (\s@QopConfiguration' {} a -> s {rpcProtection = a} :: QopConfiguration)
 
-instance Core.FromJSON QopConfiguration where
+instance Data.FromJSON QopConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QopConfiguration"
       ( \x ->
           QopConfiguration'
-            Prelude.<$> (x Core..:? "DataTransferProtection")
-            Prelude.<*> (x Core..:? "RpcProtection")
+            Prelude.<$> (x Data..:? "DataTransferProtection")
+            Prelude.<*> (x Data..:? "RpcProtection")
       )
 
 instance Prelude.Hashable QopConfiguration where
@@ -98,12 +99,12 @@ instance Prelude.NFData QopConfiguration where
     Prelude.rnf dataTransferProtection
       `Prelude.seq` Prelude.rnf rpcProtection
 
-instance Core.ToJSON QopConfiguration where
+instance Data.ToJSON QopConfiguration where
   toJSON QopConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataTransferProtection" Core..=)
+          [ ("DataTransferProtection" Data..=)
               Prelude.<$> dataTransferProtection,
-            ("RpcProtection" Core..=) Prelude.<$> rpcProtection
+            ("RpcProtection" Data..=) Prelude.<$> rpcProtection
           ]
       )

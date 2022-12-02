@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,26 +99,26 @@ instance Core.AWSRequest DescribeTask where
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskResponse'
-            Prelude.<$> (x Core..?> "Schedule")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "TaskArn")
-            Prelude.<*> (x Core..?> "CloudWatchLogGroupArn")
-            Prelude.<*> (x Core..?> "Excludes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "SourceLocationArn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Options")
-            Prelude.<*> ( x Core..?> "DestinationNetworkInterfaceArns"
+            Prelude.<$> (x Data..?> "Schedule")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "TaskArn")
+            Prelude.<*> (x Data..?> "CloudWatchLogGroupArn")
+            Prelude.<*> (x Data..?> "Excludes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SourceLocationArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Options")
+            Prelude.<*> ( x Data..?> "DestinationNetworkInterfaceArns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ErrorCode")
-            Prelude.<*> (x Core..?> "DestinationLocationArn")
-            Prelude.<*> (x Core..?> "Includes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "CurrentTaskExecutionArn")
-            Prelude.<*> ( x Core..?> "SourceNetworkInterfaceArns"
+            Prelude.<*> (x Data..?> "ErrorCode")
+            Prelude.<*> (x Data..?> "DestinationLocationArn")
+            Prelude.<*> (x Data..?> "Includes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "CurrentTaskExecutionArn")
+            Prelude.<*> ( x Data..?> "SourceNetworkInterfaceArns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ErrorDetail")
+            Prelude.<*> (x Data..?> "ErrorDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,30 +129,30 @@ instance Prelude.Hashable DescribeTask where
 instance Prelude.NFData DescribeTask where
   rnf DescribeTask' {..} = Prelude.rnf taskArn
 
-instance Core.ToHeaders DescribeTask where
+instance Data.ToHeaders DescribeTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("FmrsService.DescribeTask" :: Prelude.ByteString),
+              Data.=# ("FmrsService.DescribeTask" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTask where
+instance Data.ToJSON DescribeTask where
   toJSON DescribeTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TaskArn" Core..= taskArn)]
+          [Prelude.Just ("TaskArn" Data..= taskArn)]
       )
 
-instance Core.ToPath DescribeTask where
+instance Data.ToPath DescribeTask where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTask where
+instance Data.ToQuery DescribeTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeTaskResponse
@@ -209,7 +210,7 @@ data DescribeTaskResponse = DescribeTaskResponse'
     -- (that is, a pipe), for example, @\"\/folder1|\/folder2@\".
     includes :: Prelude.Maybe [FilterRule],
     -- | The time that the task was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the task execution that is syncing
     -- files.
     currentTaskExecutionArn :: Prelude.Maybe Prelude.Text,
@@ -395,7 +396,7 @@ describeTaskResponse_includes = Lens.lens (\DescribeTaskResponse' {includes} -> 
 
 -- | The time that the task was created.
 describeTaskResponse_creationTime :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskResponse_creationTime = Lens.lens (\DescribeTaskResponse' {creationTime} -> creationTime) (\s@DescribeTaskResponse' {} a -> s {creationTime = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
+describeTaskResponse_creationTime = Lens.lens (\DescribeTaskResponse' {creationTime} -> creationTime) (\s@DescribeTaskResponse' {} a -> s {creationTime = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the task execution that is syncing
 -- files.

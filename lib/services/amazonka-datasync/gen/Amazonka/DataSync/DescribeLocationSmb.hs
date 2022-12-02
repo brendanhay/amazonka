@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,13 +93,13 @@ instance Core.AWSRequest DescribeLocationSmb where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationSmbResponse'
-            Prelude.<$> (x Core..?> "User")
-            Prelude.<*> (x Core..?> "Domain")
-            Prelude.<*> (x Core..?> "MountOptions")
-            Prelude.<*> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "AgentArns")
+            Prelude.<$> (x Data..?> "User")
+            Prelude.<*> (x Data..?> "Domain")
+            Prelude.<*> (x Data..?> "MountOptions")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "AgentArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,32 +111,32 @@ instance Prelude.NFData DescribeLocationSmb where
   rnf DescribeLocationSmb' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationSmb where
+instance Data.ToHeaders DescribeLocationSmb where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationSmb" ::
+              Data.=# ( "FmrsService.DescribeLocationSmb" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationSmb where
+instance Data.ToJSON DescribeLocationSmb where
   toJSON DescribeLocationSmb' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationSmb where
+instance Data.ToPath DescribeLocationSmb where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationSmb where
+instance Data.ToQuery DescribeLocationSmb where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeLocationSmbResponse
@@ -155,7 +156,7 @@ data DescribeLocationSmbResponse = DescribeLocationSmbResponse'
     -- | The URL of the source SMB location that was described.
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | The time that the SMB location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the source SMB file system location
     -- that is created.
     agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -231,7 +232,7 @@ describeLocationSmbResponse_locationUri = Lens.lens (\DescribeLocationSmbRespons
 
 -- | The time that the SMB location was created.
 describeLocationSmbResponse_creationTime :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationSmbResponse_creationTime = Lens.lens (\DescribeLocationSmbResponse' {creationTime} -> creationTime) (\s@DescribeLocationSmbResponse' {} a -> s {creationTime = a} :: DescribeLocationSmbResponse) Prelude.. Lens.mapping Core._Time
+describeLocationSmbResponse_creationTime = Lens.lens (\DescribeLocationSmbResponse' {creationTime} -> creationTime) (\s@DescribeLocationSmbResponse' {} a -> s {creationTime = a} :: DescribeLocationSmbResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the source SMB file system location
 -- that is created.

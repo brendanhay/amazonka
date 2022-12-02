@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,12 +96,12 @@ instance Core.AWSRequest DescribeLocationFsxWindows where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationFsxWindowsResponse'
-            Prelude.<$> (x Core..?> "User")
-            Prelude.<*> (x Core..?> "Domain")
-            Prelude.<*> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "SecurityGroupArns")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "User")
+            Prelude.<*> (x Data..?> "Domain")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "SecurityGroupArns")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.NFData DescribeLocationFsxWindows where
   rnf DescribeLocationFsxWindows' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationFsxWindows where
+instance Data.ToHeaders DescribeLocationFsxWindows where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationFsxWindows" ::
+              Data.=# ( "FmrsService.DescribeLocationFsxWindows" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationFsxWindows where
+instance Data.ToJSON DescribeLocationFsxWindows where
   toJSON DescribeLocationFsxWindows' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationFsxWindows where
+instance Data.ToPath DescribeLocationFsxWindows where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationFsxWindows where
+instance Data.ToQuery DescribeLocationFsxWindows where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLocationFsxWindowsResponse' smart constructor.
@@ -157,7 +158,7 @@ data DescribeLocationFsxWindowsResponse = DescribeLocationFsxWindowsResponse'
     -- configured for the FSx for Windows File Server file system.
     securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time that the FSx for Windows File Server location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,7 +231,7 @@ describeLocationFsxWindowsResponse_securityGroupArns = Lens.lens (\DescribeLocat
 
 -- | The time that the FSx for Windows File Server location was created.
 describeLocationFsxWindowsResponse_creationTime :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationFsxWindowsResponse_creationTime = Lens.lens (\DescribeLocationFsxWindowsResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxWindowsResponse) Prelude.. Lens.mapping Core._Time
+describeLocationFsxWindowsResponse_creationTime = Lens.lens (\DescribeLocationFsxWindowsResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxWindowsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeLocationFsxWindowsResponse_httpStatus :: Lens.Lens' DescribeLocationFsxWindowsResponse Prelude.Int

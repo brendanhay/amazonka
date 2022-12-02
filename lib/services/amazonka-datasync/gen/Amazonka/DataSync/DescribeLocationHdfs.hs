@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,18 +96,18 @@ instance Core.AWSRequest DescribeLocationHdfs where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationHdfsResponse'
-            Prelude.<$> (x Core..?> "AuthenticationType")
-            Prelude.<*> (x Core..?> "KerberosPrincipal")
-            Prelude.<*> (x Core..?> "ReplicationFactor")
-            Prelude.<*> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "KmsKeyProviderUri")
-            Prelude.<*> (x Core..?> "QopConfiguration")
-            Prelude.<*> (x Core..?> "NameNodes")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SimpleUser")
-            Prelude.<*> (x Core..?> "BlockSize")
-            Prelude.<*> (x Core..?> "AgentArns")
+            Prelude.<$> (x Data..?> "AuthenticationType")
+            Prelude.<*> (x Data..?> "KerberosPrincipal")
+            Prelude.<*> (x Data..?> "ReplicationFactor")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "KmsKeyProviderUri")
+            Prelude.<*> (x Data..?> "QopConfiguration")
+            Prelude.<*> (x Data..?> "NameNodes")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "SimpleUser")
+            Prelude.<*> (x Data..?> "BlockSize")
+            Prelude.<*> (x Data..?> "AgentArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,32 +119,32 @@ instance Prelude.NFData DescribeLocationHdfs where
   rnf DescribeLocationHdfs' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationHdfs where
+instance Data.ToHeaders DescribeLocationHdfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationHdfs" ::
+              Data.=# ( "FmrsService.DescribeLocationHdfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationHdfs where
+instance Data.ToJSON DescribeLocationHdfs where
   toJSON DescribeLocationHdfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationHdfs where
+instance Data.ToPath DescribeLocationHdfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationHdfs where
+instance Data.ToQuery DescribeLocationHdfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLocationHdfsResponse' smart constructor.
@@ -170,7 +171,7 @@ data DescribeLocationHdfsResponse = DescribeLocationHdfsResponse'
     -- | The URI of the HDFS cluster location.
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | The time that the HDFS location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The user name used to identify the client on the host operating system.
     -- This parameter is used if the @AuthenticationType@ is defined as
     -- @SIMPLE@.
@@ -285,7 +286,7 @@ describeLocationHdfsResponse_locationUri = Lens.lens (\DescribeLocationHdfsRespo
 
 -- | The time that the HDFS location was created.
 describeLocationHdfsResponse_creationTime :: Lens.Lens' DescribeLocationHdfsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationHdfsResponse_creationTime = Lens.lens (\DescribeLocationHdfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationHdfsResponse' {} a -> s {creationTime = a} :: DescribeLocationHdfsResponse) Prelude.. Lens.mapping Core._Time
+describeLocationHdfsResponse_creationTime = Lens.lens (\DescribeLocationHdfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationHdfsResponse' {} a -> s {creationTime = a} :: DescribeLocationHdfsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The user name used to identify the client on the host operating system.
 -- This parameter is used if the @AuthenticationType@ is defined as

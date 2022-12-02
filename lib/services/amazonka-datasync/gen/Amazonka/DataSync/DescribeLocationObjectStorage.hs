@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,14 +103,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationObjectStorageResponse'
-            Prelude.<$> (x Core..?> "ServerProtocol")
-            Prelude.<*> (x Core..?> "ServerCertificate")
-            Prelude.<*> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "ServerPort")
-            Prelude.<*> (x Core..?> "AccessKey")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "AgentArns")
+            Prelude.<$> (x Data..?> "ServerProtocol")
+            Prelude.<*> (x Data..?> "ServerCertificate")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "ServerPort")
+            Prelude.<*> (x Data..?> "AccessKey")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "AgentArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,32 +125,32 @@ instance Prelude.NFData DescribeLocationObjectStorage where
   rnf DescribeLocationObjectStorage' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationObjectStorage where
+instance Data.ToHeaders DescribeLocationObjectStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationObjectStorage" ::
+              Data.=# ( "FmrsService.DescribeLocationObjectStorage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationObjectStorage where
+instance Data.ToJSON DescribeLocationObjectStorage where
   toJSON DescribeLocationObjectStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationObjectStorage where
+instance Data.ToPath DescribeLocationObjectStorage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationObjectStorage where
+instance Data.ToQuery DescribeLocationObjectStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeLocationObjectStorageResponse
@@ -160,7 +161,7 @@ data DescribeLocationObjectStorageResponse = DescribeLocationObjectStorageRespon
     serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
     -- | The self-signed certificate that DataSync uses to securely authenticate
     -- with your object storage system.
-    serverCertificate :: Prelude.Maybe Core.Base64,
+    serverCertificate :: Prelude.Maybe Data.Base64,
     -- | The ARN of the object storage system location.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The port that your object storage server accepts inbound network traffic
@@ -172,7 +173,7 @@ data DescribeLocationObjectStorageResponse = DescribeLocationObjectStorageRespon
     -- | The URL of the object storage system location.
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | The time that the location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARNs of the DataSync agents that can securely connect with your
     -- location.
     agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -243,7 +244,7 @@ describeLocationObjectStorageResponse_serverProtocol = Lens.lens (\DescribeLocat
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 describeLocationObjectStorageResponse_serverCertificate :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.ByteString)
-describeLocationObjectStorageResponse_serverCertificate = Lens.lens (\DescribeLocationObjectStorageResponse' {serverCertificate} -> serverCertificate) (\s@DescribeLocationObjectStorageResponse' {} a -> s {serverCertificate = a} :: DescribeLocationObjectStorageResponse) Prelude.. Lens.mapping Core._Base64
+describeLocationObjectStorageResponse_serverCertificate = Lens.lens (\DescribeLocationObjectStorageResponse' {serverCertificate} -> serverCertificate) (\s@DescribeLocationObjectStorageResponse' {} a -> s {serverCertificate = a} :: DescribeLocationObjectStorageResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The ARN of the object storage system location.
 describeLocationObjectStorageResponse_locationArn :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.Text)
@@ -265,7 +266,7 @@ describeLocationObjectStorageResponse_locationUri = Lens.lens (\DescribeLocation
 
 -- | The time that the location was created.
 describeLocationObjectStorageResponse_creationTime :: Lens.Lens' DescribeLocationObjectStorageResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationObjectStorageResponse_creationTime = Lens.lens (\DescribeLocationObjectStorageResponse' {creationTime} -> creationTime) (\s@DescribeLocationObjectStorageResponse' {} a -> s {creationTime = a} :: DescribeLocationObjectStorageResponse) Prelude.. Lens.mapping Core._Time
+describeLocationObjectStorageResponse_creationTime = Lens.lens (\DescribeLocationObjectStorageResponse' {creationTime} -> creationTime) (\s@DescribeLocationObjectStorageResponse' {} a -> s {creationTime = a} :: DescribeLocationObjectStorageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ARNs of the DataSync agents that can securely connect with your
 -- location.

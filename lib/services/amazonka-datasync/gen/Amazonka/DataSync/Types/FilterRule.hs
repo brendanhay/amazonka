@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.FilterRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.FilterType
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,14 +73,14 @@ filterRule_filterType = Lens.lens (\FilterRule' {filterType} -> filterType) (\s@
 filterRule_value :: Lens.Lens' FilterRule (Prelude.Maybe Prelude.Text)
 filterRule_value = Lens.lens (\FilterRule' {value} -> value) (\s@FilterRule' {} a -> s {value = a} :: FilterRule)
 
-instance Core.FromJSON FilterRule where
+instance Data.FromJSON FilterRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilterRule"
       ( \x ->
           FilterRule'
-            Prelude.<$> (x Core..:? "FilterType")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "FilterType")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable FilterRule where
@@ -92,11 +93,11 @@ instance Prelude.NFData FilterRule where
     Prelude.rnf filterType
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON FilterRule where
+instance Data.ToJSON FilterRule where
   toJSON FilterRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FilterType" Core..=) Prelude.<$> filterType,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("FilterType" Data..=) Prelude.<$> filterType,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

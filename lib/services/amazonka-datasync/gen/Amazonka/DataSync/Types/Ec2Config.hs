@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.Ec2Config where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The subnet and security groups that DataSync uses to access your Amazon
@@ -109,14 +110,14 @@ ec2Config_subnetArn = Lens.lens (\Ec2Config' {subnetArn} -> subnetArn) (\s@Ec2Co
 ec2Config_securityGroupArns :: Lens.Lens' Ec2Config (Prelude.NonEmpty Prelude.Text)
 ec2Config_securityGroupArns = Lens.lens (\Ec2Config' {securityGroupArns} -> securityGroupArns) (\s@Ec2Config' {} a -> s {securityGroupArns = a} :: Ec2Config) Prelude.. Lens.coerced
 
-instance Core.FromJSON Ec2Config where
+instance Data.FromJSON Ec2Config where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ec2Config"
       ( \x ->
           Ec2Config'
-            Prelude.<$> (x Core..: "SubnetArn")
-            Prelude.<*> (x Core..: "SecurityGroupArns")
+            Prelude.<$> (x Data..: "SubnetArn")
+            Prelude.<*> (x Data..: "SecurityGroupArns")
       )
 
 instance Prelude.Hashable Ec2Config where
@@ -129,12 +130,12 @@ instance Prelude.NFData Ec2Config where
     Prelude.rnf subnetArn
       `Prelude.seq` Prelude.rnf securityGroupArns
 
-instance Core.ToJSON Ec2Config where
+instance Data.ToJSON Ec2Config where
   toJSON Ec2Config' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SubnetArn" Core..= subnetArn),
+          [ Prelude.Just ("SubnetArn" Data..= subnetArn),
             Prelude.Just
-              ("SecurityGroupArns" Core..= securityGroupArns)
+              ("SecurityGroupArns" Data..= securityGroupArns)
           ]
       )

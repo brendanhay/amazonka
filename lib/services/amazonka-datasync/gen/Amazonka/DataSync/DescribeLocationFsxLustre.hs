@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,10 +94,10 @@ instance Core.AWSRequest DescribeLocationFsxLustre where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationFsxLustreResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "SecurityGroupArns")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "SecurityGroupArns")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,32 +109,32 @@ instance Prelude.NFData DescribeLocationFsxLustre where
   rnf DescribeLocationFsxLustre' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationFsxLustre where
+instance Data.ToHeaders DescribeLocationFsxLustre where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationFsxLustre" ::
+              Data.=# ( "FmrsService.DescribeLocationFsxLustre" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationFsxLustre where
+instance Data.ToJSON DescribeLocationFsxLustre where
   toJSON DescribeLocationFsxLustre' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationFsxLustre where
+instance Data.ToPath DescribeLocationFsxLustre where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationFsxLustre where
+instance Data.ToQuery DescribeLocationFsxLustre where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLocationFsxLustreResponse' smart constructor.
@@ -147,7 +148,7 @@ data DescribeLocationFsxLustreResponse = DescribeLocationFsxLustreResponse'
     -- configured for the FSx for Lustre file system.
     securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time that the FSx for Lustre location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,7 +203,7 @@ describeLocationFsxLustreResponse_securityGroupArns = Lens.lens (\DescribeLocati
 
 -- | The time that the FSx for Lustre location was created.
 describeLocationFsxLustreResponse_creationTime :: Lens.Lens' DescribeLocationFsxLustreResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationFsxLustreResponse_creationTime = Lens.lens (\DescribeLocationFsxLustreResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxLustreResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxLustreResponse) Prelude.. Lens.mapping Core._Time
+describeLocationFsxLustreResponse_creationTime = Lens.lens (\DescribeLocationFsxLustreResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxLustreResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxLustreResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeLocationFsxLustreResponse_httpStatus :: Lens.Lens' DescribeLocationFsxLustreResponse Prelude.Int

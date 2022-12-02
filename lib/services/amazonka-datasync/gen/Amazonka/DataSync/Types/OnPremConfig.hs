@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.OnPremConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of Amazon Resource Names (ARNs) of agents to use for a Network
@@ -56,12 +57,12 @@ newOnPremConfig pAgentArns_ =
 onPremConfig_agentArns :: Lens.Lens' OnPremConfig (Prelude.NonEmpty Prelude.Text)
 onPremConfig_agentArns = Lens.lens (\OnPremConfig' {agentArns} -> agentArns) (\s@OnPremConfig' {} a -> s {agentArns = a} :: OnPremConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON OnPremConfig where
+instance Data.FromJSON OnPremConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnPremConfig"
       ( \x ->
-          OnPremConfig' Prelude.<$> (x Core..: "AgentArns")
+          OnPremConfig' Prelude.<$> (x Data..: "AgentArns")
       )
 
 instance Prelude.Hashable OnPremConfig where
@@ -71,9 +72,9 @@ instance Prelude.Hashable OnPremConfig where
 instance Prelude.NFData OnPremConfig where
   rnf OnPremConfig' {..} = Prelude.rnf agentArns
 
-instance Core.ToJSON OnPremConfig where
+instance Data.ToJSON OnPremConfig where
   toJSON OnPremConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AgentArns" Core..= agentArns)]
+          [Prelude.Just ("AgentArns" Data..= agentArns)]
       )

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -258,7 +259,7 @@ instance Core.AWSRequest CreateLocationNfs where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationNfsResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -278,38 +279,38 @@ instance Prelude.NFData CreateLocationNfs where
       `Prelude.seq` Prelude.rnf serverHostname
       `Prelude.seq` Prelude.rnf onPremConfig
 
-instance Core.ToHeaders CreateLocationNfs where
+instance Data.ToHeaders CreateLocationNfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationNfs" ::
+              Data.=# ( "FmrsService.CreateLocationNfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationNfs where
+instance Data.ToJSON CreateLocationNfs where
   toJSON CreateLocationNfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("MountOptions" Core..=) Prelude.<$> mountOptions,
-            Prelude.Just ("Subdirectory" Core..= subdirectory),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("MountOptions" Data..=) Prelude.<$> mountOptions,
+            Prelude.Just ("Subdirectory" Data..= subdirectory),
             Prelude.Just
-              ("ServerHostname" Core..= serverHostname),
-            Prelude.Just ("OnPremConfig" Core..= onPremConfig)
+              ("ServerHostname" Data..= serverHostname),
+            Prelude.Just ("OnPremConfig" Data..= onPremConfig)
           ]
       )
 
-instance Core.ToPath CreateLocationNfs where
+instance Data.ToPath CreateLocationNfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationNfs where
+instance Data.ToQuery CreateLocationNfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateLocationNfsResponse

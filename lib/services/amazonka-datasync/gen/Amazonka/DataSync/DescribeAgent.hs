@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,13 +95,13 @@ instance Core.AWSRequest DescribeAgent where
     Response.receiveJSON
       ( \s h x ->
           DescribeAgentResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "PrivateLinkConfig")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EndpointType")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastConnectionTime")
-            Prelude.<*> (x Core..?> "AgentArn")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "PrivateLinkConfig")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EndpointType")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastConnectionTime")
+            Prelude.<*> (x Data..?> "AgentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,30 +112,30 @@ instance Prelude.Hashable DescribeAgent where
 instance Prelude.NFData DescribeAgent where
   rnf DescribeAgent' {..} = Prelude.rnf agentArn
 
-instance Core.ToHeaders DescribeAgent where
+instance Data.ToHeaders DescribeAgent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("FmrsService.DescribeAgent" :: Prelude.ByteString),
+              Data.=# ("FmrsService.DescribeAgent" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAgent where
+instance Data.ToJSON DescribeAgent where
   toJSON DescribeAgent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AgentArn" Core..= agentArn)]
+          [Prelude.Just ("AgentArn" Data..= agentArn)]
       )
 
-instance Core.ToPath DescribeAgent where
+instance Data.ToPath DescribeAgent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAgent where
+instance Data.ToQuery DescribeAgent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeAgentResponse
@@ -158,9 +159,9 @@ data DescribeAgentResponse = DescribeAgentResponse'
     endpointType :: Prelude.Maybe EndpointType,
     -- | The time that the agent was activated (that is, created in your
     -- account).
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time that the agent last connected to DataSync.
-    lastConnectionTime :: Prelude.Maybe Core.POSIX,
+    lastConnectionTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the agent.
     agentArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -241,11 +242,11 @@ describeAgentResponse_endpointType = Lens.lens (\DescribeAgentResponse' {endpoin
 -- | The time that the agent was activated (that is, created in your
 -- account).
 describeAgentResponse_creationTime :: Lens.Lens' DescribeAgentResponse (Prelude.Maybe Prelude.UTCTime)
-describeAgentResponse_creationTime = Lens.lens (\DescribeAgentResponse' {creationTime} -> creationTime) (\s@DescribeAgentResponse' {} a -> s {creationTime = a} :: DescribeAgentResponse) Prelude.. Lens.mapping Core._Time
+describeAgentResponse_creationTime = Lens.lens (\DescribeAgentResponse' {creationTime} -> creationTime) (\s@DescribeAgentResponse' {} a -> s {creationTime = a} :: DescribeAgentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time that the agent last connected to DataSync.
 describeAgentResponse_lastConnectionTime :: Lens.Lens' DescribeAgentResponse (Prelude.Maybe Prelude.UTCTime)
-describeAgentResponse_lastConnectionTime = Lens.lens (\DescribeAgentResponse' {lastConnectionTime} -> lastConnectionTime) (\s@DescribeAgentResponse' {} a -> s {lastConnectionTime = a} :: DescribeAgentResponse) Prelude.. Lens.mapping Core._Time
+describeAgentResponse_lastConnectionTime = Lens.lens (\DescribeAgentResponse' {lastConnectionTime} -> lastConnectionTime) (\s@DescribeAgentResponse' {} a -> s {lastConnectionTime = a} :: DescribeAgentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the agent.
 describeAgentResponse_agentArn :: Lens.Lens' DescribeAgentResponse (Prelude.Maybe Prelude.Text)

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,7 +139,7 @@ instance Core.AWSRequest CreateLocationFsxLustre where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationFsxLustreResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,38 +157,38 @@ instance Prelude.NFData CreateLocationFsxLustre where
       `Prelude.seq` Prelude.rnf fsxFilesystemArn
       `Prelude.seq` Prelude.rnf securityGroupArns
 
-instance Core.ToHeaders CreateLocationFsxLustre where
+instance Data.ToHeaders CreateLocationFsxLustre where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationFsxLustre" ::
+              Data.=# ( "FmrsService.CreateLocationFsxLustre" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationFsxLustre where
+instance Data.ToJSON CreateLocationFsxLustre where
   toJSON CreateLocationFsxLustre' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
             Prelude.Just
-              ("FsxFilesystemArn" Core..= fsxFilesystemArn),
+              ("FsxFilesystemArn" Data..= fsxFilesystemArn),
             Prelude.Just
-              ("SecurityGroupArns" Core..= securityGroupArns)
+              ("SecurityGroupArns" Data..= securityGroupArns)
           ]
       )
 
-instance Core.ToPath CreateLocationFsxLustre where
+instance Data.ToPath CreateLocationFsxLustre where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationFsxLustre where
+instance Data.ToQuery CreateLocationFsxLustre where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLocationFsxLustreResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -58,7 +59,7 @@ import qualified Amazonka.Response as Response
 data UpdateLocationSmb = UpdateLocationSmb'
   { -- | The password of the user who can mount the share has the permissions to
     -- access files and folders in the SMB share.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user who can mount the share has the permissions to access files and
     -- folders in the SMB share.
     user :: Prelude.Maybe Prelude.Text,
@@ -161,7 +162,7 @@ newUpdateLocationSmb pLocationArn_ =
 -- | The password of the user who can mount the share has the permissions to
 -- access files and folders in the SMB share.
 updateLocationSmb_password :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe Prelude.Text)
-updateLocationSmb_password = Lens.lens (\UpdateLocationSmb' {password} -> password) (\s@UpdateLocationSmb' {} a -> s {password = a} :: UpdateLocationSmb) Prelude.. Lens.mapping Core._Sensitive
+updateLocationSmb_password = Lens.lens (\UpdateLocationSmb' {password} -> password) (\s@UpdateLocationSmb' {} a -> s {password = a} :: UpdateLocationSmb) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user who can mount the share has the permissions to access files and
 -- folders in the SMB share.
@@ -244,39 +245,39 @@ instance Prelude.NFData UpdateLocationSmb where
       `Prelude.seq` Prelude.rnf agentArns
       `Prelude.seq` Prelude.rnf locationArn
 
-instance Core.ToHeaders UpdateLocationSmb where
+instance Data.ToHeaders UpdateLocationSmb where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.UpdateLocationSmb" ::
+              Data.=# ( "FmrsService.UpdateLocationSmb" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLocationSmb where
+instance Data.ToJSON UpdateLocationSmb where
   toJSON UpdateLocationSmb' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Password" Core..=) Prelude.<$> password,
-            ("User" Core..=) Prelude.<$> user,
-            ("Domain" Core..=) Prelude.<$> domain,
-            ("MountOptions" Core..=) Prelude.<$> mountOptions,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            ("AgentArns" Core..=) Prelude.<$> agentArns,
-            Prelude.Just ("LocationArn" Core..= locationArn)
+          [ ("Password" Data..=) Prelude.<$> password,
+            ("User" Data..=) Prelude.<$> user,
+            ("Domain" Data..=) Prelude.<$> domain,
+            ("MountOptions" Data..=) Prelude.<$> mountOptions,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("AgentArns" Data..=) Prelude.<$> agentArns,
+            Prelude.Just ("LocationArn" Data..= locationArn)
           ]
       )
 
-instance Core.ToPath UpdateLocationSmb where
+instance Data.ToPath UpdateLocationSmb where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLocationSmb where
+instance Data.ToQuery UpdateLocationSmb where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLocationSmbResponse' smart constructor.

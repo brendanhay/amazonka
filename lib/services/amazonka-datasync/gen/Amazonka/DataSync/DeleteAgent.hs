@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,30 +103,30 @@ instance Prelude.Hashable DeleteAgent where
 instance Prelude.NFData DeleteAgent where
   rnf DeleteAgent' {..} = Prelude.rnf agentArn
 
-instance Core.ToHeaders DeleteAgent where
+instance Data.ToHeaders DeleteAgent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("FmrsService.DeleteAgent" :: Prelude.ByteString),
+              Data.=# ("FmrsService.DeleteAgent" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAgent where
+instance Data.ToJSON DeleteAgent where
   toJSON DeleteAgent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AgentArn" Core..= agentArn)]
+          [Prelude.Just ("AgentArn" Data..= agentArn)]
       )
 
-instance Core.ToPath DeleteAgent where
+instance Data.ToPath DeleteAgent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAgent where
+instance Data.ToQuery DeleteAgent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAgentResponse' smart constructor.

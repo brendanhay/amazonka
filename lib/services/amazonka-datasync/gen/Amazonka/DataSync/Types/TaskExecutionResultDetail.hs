@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.TaskExecutionResultDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.PhaseStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -146,21 +147,21 @@ taskExecutionResultDetail_verifyDuration = Lens.lens (\TaskExecutionResultDetail
 taskExecutionResultDetail_errorDetail :: Lens.Lens' TaskExecutionResultDetail (Prelude.Maybe Prelude.Text)
 taskExecutionResultDetail_errorDetail = Lens.lens (\TaskExecutionResultDetail' {errorDetail} -> errorDetail) (\s@TaskExecutionResultDetail' {} a -> s {errorDetail = a} :: TaskExecutionResultDetail)
 
-instance Core.FromJSON TaskExecutionResultDetail where
+instance Data.FromJSON TaskExecutionResultDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskExecutionResultDetail"
       ( \x ->
           TaskExecutionResultDetail'
-            Prelude.<$> (x Core..:? "PrepareStatus")
-            Prelude.<*> (x Core..:? "TotalDuration")
-            Prelude.<*> (x Core..:? "TransferStatus")
-            Prelude.<*> (x Core..:? "VerifyStatus")
-            Prelude.<*> (x Core..:? "TransferDuration")
-            Prelude.<*> (x Core..:? "PrepareDuration")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "VerifyDuration")
-            Prelude.<*> (x Core..:? "ErrorDetail")
+            Prelude.<$> (x Data..:? "PrepareStatus")
+            Prelude.<*> (x Data..:? "TotalDuration")
+            Prelude.<*> (x Data..:? "TransferStatus")
+            Prelude.<*> (x Data..:? "VerifyStatus")
+            Prelude.<*> (x Data..:? "TransferDuration")
+            Prelude.<*> (x Data..:? "PrepareDuration")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "VerifyDuration")
+            Prelude.<*> (x Data..:? "ErrorDetail")
       )
 
 instance Prelude.Hashable TaskExecutionResultDetail where

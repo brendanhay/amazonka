@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.LocationFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.LocationFilterName
 import Amazonka.DataSync.Types.Operator
 import qualified Amazonka.Prelude as Prelude
@@ -106,12 +107,12 @@ instance Prelude.NFData LocationFilter where
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf operator
 
-instance Core.ToJSON LocationFilter where
+instance Data.ToJSON LocationFilter where
   toJSON LocationFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Values" Core..= values),
-            Prelude.Just ("Operator" Core..= operator)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Values" Data..= values),
+            Prelude.Just ("Operator" Data..= operator)
           ]
       )

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -70,7 +71,7 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
     --
     -- Updating the certificate doesn\'t interfere with tasks that you have in
     -- progress.
-    serverCertificate :: Prelude.Maybe Core.Base64,
+    serverCertificate :: Prelude.Maybe Data.Base64,
     -- | Specifies the port that your object storage server accepts inbound
     -- network traffic on (for example, port 443).
     serverPort :: Prelude.Maybe Prelude.Natural,
@@ -79,7 +80,7 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
     accessKey :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret key (for example, a password) if credentials are
     -- required to authenticate with the object storage server.
-    secretKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    secretKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the object prefix for your object storage server. If this is a
     -- source location, DataSync only copies objects with this prefix. If this
     -- is a destination location, DataSync writes all objects with this prefix.
@@ -174,7 +175,7 @@ updateLocationObjectStorage_serverProtocol = Lens.lens (\UpdateLocationObjectSto
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateLocationObjectStorage_serverCertificate :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.ByteString)
-updateLocationObjectStorage_serverCertificate = Lens.lens (\UpdateLocationObjectStorage' {serverCertificate} -> serverCertificate) (\s@UpdateLocationObjectStorage' {} a -> s {serverCertificate = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Core._Base64
+updateLocationObjectStorage_serverCertificate = Lens.lens (\UpdateLocationObjectStorage' {serverCertificate} -> serverCertificate) (\s@UpdateLocationObjectStorage' {} a -> s {serverCertificate = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Data._Base64
 
 -- | Specifies the port that your object storage server accepts inbound
 -- network traffic on (for example, port 443).
@@ -189,7 +190,7 @@ updateLocationObjectStorage_accessKey = Lens.lens (\UpdateLocationObjectStorage'
 -- | Specifies the secret key (for example, a password) if credentials are
 -- required to authenticate with the object storage server.
 updateLocationObjectStorage_secretKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
-updateLocationObjectStorage_secretKey = Lens.lens (\UpdateLocationObjectStorage' {secretKey} -> secretKey) (\s@UpdateLocationObjectStorage' {} a -> s {secretKey = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Core._Sensitive
+updateLocationObjectStorage_secretKey = Lens.lens (\UpdateLocationObjectStorage' {secretKey} -> secretKey) (\s@UpdateLocationObjectStorage' {} a -> s {secretKey = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the object prefix for your object storage server. If this is a
 -- source location, DataSync only copies objects with this prefix. If this
@@ -242,42 +243,42 @@ instance Prelude.NFData UpdateLocationObjectStorage where
       `Prelude.seq` Prelude.rnf agentArns
       `Prelude.seq` Prelude.rnf locationArn
 
-instance Core.ToHeaders UpdateLocationObjectStorage where
+instance Data.ToHeaders UpdateLocationObjectStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.UpdateLocationObjectStorage" ::
+              Data.=# ( "FmrsService.UpdateLocationObjectStorage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLocationObjectStorage where
+instance Data.ToJSON UpdateLocationObjectStorage where
   toJSON UpdateLocationObjectStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ServerProtocol" Core..=)
+          [ ("ServerProtocol" Data..=)
               Prelude.<$> serverProtocol,
-            ("ServerCertificate" Core..=)
+            ("ServerCertificate" Data..=)
               Prelude.<$> serverCertificate,
-            ("ServerPort" Core..=) Prelude.<$> serverPort,
-            ("AccessKey" Core..=) Prelude.<$> accessKey,
-            ("SecretKey" Core..=) Prelude.<$> secretKey,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            ("AgentArns" Core..=) Prelude.<$> agentArns,
-            Prelude.Just ("LocationArn" Core..= locationArn)
+            ("ServerPort" Data..=) Prelude.<$> serverPort,
+            ("AccessKey" Data..=) Prelude.<$> accessKey,
+            ("SecretKey" Data..=) Prelude.<$> secretKey,
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("AgentArns" Data..=) Prelude.<$> agentArns,
+            Prelude.Just ("LocationArn" Data..= locationArn)
           ]
       )
 
-instance Core.ToPath UpdateLocationObjectStorage where
+instance Data.ToPath UpdateLocationObjectStorage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLocationObjectStorage where
+instance Data.ToQuery UpdateLocationObjectStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLocationObjectStorageResponse' smart constructor.

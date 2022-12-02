@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.FsxProtocolSmb where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.SmbMountOptions
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,7 +37,7 @@ data FsxProtocolSmb = FsxProtocolSmb'
     domain :: Prelude.Maybe Prelude.Text,
     mountOptions :: Prelude.Maybe SmbMountOptions,
     -- | Specifies the password of a user who has permission to access your SVM.
-    password :: Core.Sensitive Prelude.Text,
+    password :: Data.Sensitive Prelude.Text,
     -- | Specifies a user name that can mount the location and access the files,
     -- folders, and metadata that you need in the SVM.
     --
@@ -122,7 +123,7 @@ newFsxProtocolSmb pPassword_ pUser_ =
   FsxProtocolSmb'
     { domain = Prelude.Nothing,
       mountOptions = Prelude.Nothing,
-      password = Core._Sensitive Lens.# pPassword_,
+      password = Data._Sensitive Lens.# pPassword_,
       user = pUser_
     }
 
@@ -137,7 +138,7 @@ fsxProtocolSmb_mountOptions = Lens.lens (\FsxProtocolSmb' {mountOptions} -> moun
 
 -- | Specifies the password of a user who has permission to access your SVM.
 fsxProtocolSmb_password :: Lens.Lens' FsxProtocolSmb Prelude.Text
-fsxProtocolSmb_password = Lens.lens (\FsxProtocolSmb' {password} -> password) (\s@FsxProtocolSmb' {} a -> s {password = a} :: FsxProtocolSmb) Prelude.. Core._Sensitive
+fsxProtocolSmb_password = Lens.lens (\FsxProtocolSmb' {password} -> password) (\s@FsxProtocolSmb' {} a -> s {password = a} :: FsxProtocolSmb) Prelude.. Data._Sensitive
 
 -- | Specifies a user name that can mount the location and access the files,
 -- folders, and metadata that you need in the SVM.
@@ -170,16 +171,16 @@ fsxProtocolSmb_password = Lens.lens (\FsxProtocolSmb' {password} -> password) (\
 fsxProtocolSmb_user :: Lens.Lens' FsxProtocolSmb Prelude.Text
 fsxProtocolSmb_user = Lens.lens (\FsxProtocolSmb' {user} -> user) (\s@FsxProtocolSmb' {} a -> s {user = a} :: FsxProtocolSmb)
 
-instance Core.FromJSON FsxProtocolSmb where
+instance Data.FromJSON FsxProtocolSmb where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FsxProtocolSmb"
       ( \x ->
           FsxProtocolSmb'
-            Prelude.<$> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "MountOptions")
-            Prelude.<*> (x Core..: "Password")
-            Prelude.<*> (x Core..: "User")
+            Prelude.<$> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "MountOptions")
+            Prelude.<*> (x Data..: "Password")
+            Prelude.<*> (x Data..: "User")
       )
 
 instance Prelude.Hashable FsxProtocolSmb where
@@ -196,13 +197,13 @@ instance Prelude.NFData FsxProtocolSmb where
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf user
 
-instance Core.ToJSON FsxProtocolSmb where
+instance Data.ToJSON FsxProtocolSmb where
   toJSON FsxProtocolSmb' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
-            ("MountOptions" Core..=) Prelude.<$> mountOptions,
-            Prelude.Just ("Password" Core..= password),
-            Prelude.Just ("User" Core..= user)
+          [ ("Domain" Data..=) Prelude.<$> domain,
+            ("MountOptions" Data..=) Prelude.<$> mountOptions,
+            Prelude.Just ("Password" Data..= password),
+            Prelude.Just ("User" Data..= user)
           ]
       )

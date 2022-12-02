@@ -21,6 +21,7 @@ module Amazonka.DataSync.Types.TaskExecutionListEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.TaskExecutionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ taskExecutionListEntry_status = Lens.lens (\TaskExecutionListEntry' {status} -> 
 taskExecutionListEntry_taskExecutionArn :: Lens.Lens' TaskExecutionListEntry (Prelude.Maybe Prelude.Text)
 taskExecutionListEntry_taskExecutionArn = Lens.lens (\TaskExecutionListEntry' {taskExecutionArn} -> taskExecutionArn) (\s@TaskExecutionListEntry' {} a -> s {taskExecutionArn = a} :: TaskExecutionListEntry)
 
-instance Core.FromJSON TaskExecutionListEntry where
+instance Data.FromJSON TaskExecutionListEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TaskExecutionListEntry"
       ( \x ->
           TaskExecutionListEntry'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TaskExecutionArn")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TaskExecutionArn")
       )
 
 instance Prelude.Hashable TaskExecutionListEntry where

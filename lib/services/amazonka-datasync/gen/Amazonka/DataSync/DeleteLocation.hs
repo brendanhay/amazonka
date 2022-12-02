@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,30 +95,30 @@ instance Prelude.Hashable DeleteLocation where
 instance Prelude.NFData DeleteLocation where
   rnf DeleteLocation' {..} = Prelude.rnf locationArn
 
-instance Core.ToHeaders DeleteLocation where
+instance Data.ToHeaders DeleteLocation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("FmrsService.DeleteLocation" :: Prelude.ByteString),
+              Data.=# ("FmrsService.DeleteLocation" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLocation where
+instance Data.ToJSON DeleteLocation where
   toJSON DeleteLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DeleteLocation where
+instance Data.ToPath DeleteLocation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLocation where
+instance Data.ToQuery DeleteLocation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLocationResponse' smart constructor.

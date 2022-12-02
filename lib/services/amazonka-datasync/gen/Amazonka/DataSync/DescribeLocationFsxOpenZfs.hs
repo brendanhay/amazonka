@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,11 +98,11 @@ instance Core.AWSRequest DescribeLocationFsxOpenZfs where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationFsxOpenZfsResponse'
-            Prelude.<$> (x Core..?> "LocationArn")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "SecurityGroupArns")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "Protocol")
+            Prelude.<$> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<*> (x Data..?> "SecurityGroupArns")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "Protocol")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,32 +114,32 @@ instance Prelude.NFData DescribeLocationFsxOpenZfs where
   rnf DescribeLocationFsxOpenZfs' {..} =
     Prelude.rnf locationArn
 
-instance Core.ToHeaders DescribeLocationFsxOpenZfs where
+instance Data.ToHeaders DescribeLocationFsxOpenZfs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.DescribeLocationFsxOpenZfs" ::
+              Data.=# ( "FmrsService.DescribeLocationFsxOpenZfs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeLocationFsxOpenZfs where
+instance Data.ToJSON DescribeLocationFsxOpenZfs where
   toJSON DescribeLocationFsxOpenZfs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LocationArn" Core..= locationArn)]
+          [Prelude.Just ("LocationArn" Data..= locationArn)]
       )
 
-instance Core.ToPath DescribeLocationFsxOpenZfs where
+instance Data.ToPath DescribeLocationFsxOpenZfs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeLocationFsxOpenZfs where
+instance Data.ToQuery DescribeLocationFsxOpenZfs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLocationFsxOpenZfsResponse' smart constructor.
@@ -155,7 +156,7 @@ data DescribeLocationFsxOpenZfsResponse = DescribeLocationFsxOpenZfsResponse'
     -- OpenZFS file system.
     securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time that the FSx for OpenZFS location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The type of protocol that DataSync uses to access your file system.
     protocol :: Prelude.Maybe FsxProtocol,
     -- | The response's http status code.
@@ -221,7 +222,7 @@ describeLocationFsxOpenZfsResponse_securityGroupArns = Lens.lens (\DescribeLocat
 
 -- | The time that the FSx for OpenZFS location was created.
 describeLocationFsxOpenZfsResponse_creationTime :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationFsxOpenZfsResponse_creationTime = Lens.lens (\DescribeLocationFsxOpenZfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxOpenZfsResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxOpenZfsResponse) Prelude.. Lens.mapping Core._Time
+describeLocationFsxOpenZfsResponse_creationTime = Lens.lens (\DescribeLocationFsxOpenZfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxOpenZfsResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxOpenZfsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The type of protocol that DataSync uses to access your file system.
 describeLocationFsxOpenZfsResponse_protocol :: Lens.Lens' DescribeLocationFsxOpenZfsResponse (Prelude.Maybe FsxProtocol)

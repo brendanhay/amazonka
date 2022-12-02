@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,7 +198,7 @@ instance Core.AWSRequest CreateLocationS3 where
     Response.receiveJSON
       ( \s h x ->
           CreateLocationS3Response'
-            Prelude.<$> (x Core..?> "LocationArn")
+            Prelude.<$> (x Data..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,39 +220,39 @@ instance Prelude.NFData CreateLocationS3 where
       `Prelude.seq` Prelude.rnf s3BucketArn
       `Prelude.seq` Prelude.rnf s3Config
 
-instance Core.ToHeaders CreateLocationS3 where
+instance Data.ToHeaders CreateLocationS3 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "FmrsService.CreateLocationS3" ::
+              Data.=# ( "FmrsService.CreateLocationS3" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLocationS3 where
+instance Data.ToJSON CreateLocationS3 where
   toJSON CreateLocationS3' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("S3StorageClass" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("S3StorageClass" Data..=)
               Prelude.<$> s3StorageClass,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            ("AgentArns" Core..=) Prelude.<$> agentArns,
-            Prelude.Just ("S3BucketArn" Core..= s3BucketArn),
-            Prelude.Just ("S3Config" Core..= s3Config)
+            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("AgentArns" Data..=) Prelude.<$> agentArns,
+            Prelude.Just ("S3BucketArn" Data..= s3BucketArn),
+            Prelude.Just ("S3Config" Data..= s3Config)
           ]
       )
 
-instance Core.ToPath CreateLocationS3 where
+instance Data.ToPath CreateLocationS3 where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLocationS3 where
+instance Data.ToQuery CreateLocationS3 where
   toQuery = Prelude.const Prelude.mempty
 
 -- | CreateLocationS3Response

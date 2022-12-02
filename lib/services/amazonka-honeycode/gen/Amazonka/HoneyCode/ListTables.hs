@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,10 +146,10 @@ instance Core.AWSRequest ListTables where
     Response.receiveJSON
       ( \s h x ->
           ListTablesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "workbookCursor")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "workbookCursor")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "tables" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tables" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListTables where
@@ -163,27 +164,27 @@ instance Prelude.NFData ListTables where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workbookId
 
-instance Core.ToHeaders ListTables where
+instance Data.ToHeaders ListTables where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTables where
+instance Data.ToPath ListTables where
   toPath ListTables' {..} =
     Prelude.mconcat
-      ["/workbooks/", Core.toBS workbookId, "/tables"]
+      ["/workbooks/", Data.toBS workbookId, "/tables"]
 
-instance Core.ToQuery ListTables where
+instance Data.ToQuery ListTables where
   toQuery ListTables' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListTablesResponse' smart constructor.

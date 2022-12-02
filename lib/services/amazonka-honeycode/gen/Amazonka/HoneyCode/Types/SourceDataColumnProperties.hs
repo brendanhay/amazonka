@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.SourceDataColumnProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the properties for importing data to a specific
@@ -54,13 +55,13 @@ newSourceDataColumnProperties =
 sourceDataColumnProperties_columnIndex :: Lens.Lens' SourceDataColumnProperties (Prelude.Maybe Prelude.Natural)
 sourceDataColumnProperties_columnIndex = Lens.lens (\SourceDataColumnProperties' {columnIndex} -> columnIndex) (\s@SourceDataColumnProperties' {} a -> s {columnIndex = a} :: SourceDataColumnProperties)
 
-instance Core.FromJSON SourceDataColumnProperties where
+instance Data.FromJSON SourceDataColumnProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceDataColumnProperties"
       ( \x ->
           SourceDataColumnProperties'
-            Prelude.<$> (x Core..:? "columnIndex")
+            Prelude.<$> (x Data..:? "columnIndex")
       )
 
 instance Prelude.Hashable SourceDataColumnProperties where
@@ -71,9 +72,9 @@ instance Prelude.NFData SourceDataColumnProperties where
   rnf SourceDataColumnProperties' {..} =
     Prelude.rnf columnIndex
 
-instance Core.ToJSON SourceDataColumnProperties where
+instance Data.ToJSON SourceDataColumnProperties where
   toJSON SourceDataColumnProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("columnIndex" Core..=) Prelude.<$> columnIndex]
+          [("columnIndex" Data..=) Prelude.<$> columnIndex]
       )

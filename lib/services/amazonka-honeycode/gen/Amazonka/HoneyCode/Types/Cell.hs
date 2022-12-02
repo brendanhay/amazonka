@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.Cell where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.Format
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data Cell = Cell'
     formattedValue :: Prelude.Maybe Prelude.Text,
     -- | The formula contained in the cell. This field is empty if a cell does
     -- not have a formula.
-    formula :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    formula :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of formatted values of the cell. This field is only returned when
     -- the cell is ROWSET format (aka multi-select or multi-record picklist).
     -- Values in the list are always represented as strings. The formattedValue
@@ -233,7 +234,7 @@ cell_formattedValue = Lens.lens (\Cell' {formattedValue} -> formattedValue) (\s@
 -- | The formula contained in the cell. This field is empty if a cell does
 -- not have a formula.
 cell_formula :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
-cell_formula = Lens.lens (\Cell' {formula} -> formula) (\s@Cell' {} a -> s {formula = a} :: Cell) Prelude.. Lens.mapping Core._Sensitive
+cell_formula = Lens.lens (\Cell' {formula} -> formula) (\s@Cell' {} a -> s {formula = a} :: Cell) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of formatted values of the cell. This field is only returned when
 -- the cell is ROWSET format (aka multi-select or multi-record picklist).
@@ -305,19 +306,19 @@ cell_formattedValues = Lens.lens (\Cell' {formattedValues} -> formattedValues) (
 cell_rawValue :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
 cell_rawValue = Lens.lens (\Cell' {rawValue} -> rawValue) (\s@Cell' {} a -> s {rawValue = a} :: Cell)
 
-instance Core.FromJSON Cell where
+instance Data.FromJSON Cell where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cell"
       ( \x ->
           Cell'
-            Prelude.<$> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "formattedValue")
-            Prelude.<*> (x Core..:? "formula")
-            Prelude.<*> ( x Core..:? "formattedValues"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "formattedValue")
+            Prelude.<*> (x Data..:? "formula")
+            Prelude.<*> ( x Data..:? "formattedValues"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "rawValue")
+            Prelude.<*> (x Data..:? "rawValue")
       )
 
 instance Prelude.Hashable Cell where

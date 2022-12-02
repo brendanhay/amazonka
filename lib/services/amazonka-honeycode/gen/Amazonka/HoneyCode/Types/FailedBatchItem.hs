@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.FailedBatchItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single item in a batch that failed to perform the intended action
@@ -72,14 +73,14 @@ failedBatchItem_id = Lens.lens (\FailedBatchItem' {id} -> id) (\s@FailedBatchIte
 failedBatchItem_errorMessage :: Lens.Lens' FailedBatchItem Prelude.Text
 failedBatchItem_errorMessage = Lens.lens (\FailedBatchItem' {errorMessage} -> errorMessage) (\s@FailedBatchItem' {} a -> s {errorMessage = a} :: FailedBatchItem)
 
-instance Core.FromJSON FailedBatchItem where
+instance Data.FromJSON FailedBatchItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedBatchItem"
       ( \x ->
           FailedBatchItem'
-            Prelude.<$> (x Core..: "id")
-            Prelude.<*> (x Core..: "errorMessage")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "errorMessage")
       )
 
 instance Prelude.Hashable FailedBatchItem where

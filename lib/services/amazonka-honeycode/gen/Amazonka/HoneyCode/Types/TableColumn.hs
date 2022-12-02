@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.TableColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.Format
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,15 +75,15 @@ tableColumn_tableColumnName = Lens.lens (\TableColumn' {tableColumnName} -> tabl
 tableColumn_tableColumnId :: Lens.Lens' TableColumn (Prelude.Maybe Prelude.Text)
 tableColumn_tableColumnId = Lens.lens (\TableColumn' {tableColumnId} -> tableColumnId) (\s@TableColumn' {} a -> s {tableColumnId = a} :: TableColumn)
 
-instance Core.FromJSON TableColumn where
+instance Data.FromJSON TableColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableColumn"
       ( \x ->
           TableColumn'
-            Prelude.<$> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "tableColumnName")
-            Prelude.<*> (x Core..:? "tableColumnId")
+            Prelude.<$> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "tableColumnName")
+            Prelude.<*> (x Data..:? "tableColumnId")
       )
 
 instance Prelude.Hashable TableColumn where

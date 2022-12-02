@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,7 +78,7 @@ data InvokeScreenAutomation = InvokeScreenAutomation'
     -- currently has only one property, rawValue, which holds the value of the
     -- variable to be passed to the screen. Any variables defined in a screen
     -- are required to be passed in the call.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
+    variables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive VariableValue))),
     -- | The ID of the workbook that contains the screen automation.
     workbookId :: Prelude.Text,
     -- | The ID of the app that contains the screen automation.
@@ -174,7 +175,7 @@ invokeScreenAutomation_rowId = Lens.lens (\InvokeScreenAutomation' {rowId} -> ro
 -- variable to be passed to the screen. Any variables defined in a screen
 -- are required to be passed in the call.
 invokeScreenAutomation_variables :: Lens.Lens' InvokeScreenAutomation (Prelude.Maybe (Prelude.HashMap Prelude.Text VariableValue))
-invokeScreenAutomation_variables = Lens.lens (\InvokeScreenAutomation' {variables} -> variables) (\s@InvokeScreenAutomation' {} a -> s {variables = a} :: InvokeScreenAutomation) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+invokeScreenAutomation_variables = Lens.lens (\InvokeScreenAutomation' {variables} -> variables) (\s@InvokeScreenAutomation' {} a -> s {variables = a} :: InvokeScreenAutomation) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The ID of the workbook that contains the screen automation.
 invokeScreenAutomation_workbookId :: Lens.Lens' InvokeScreenAutomation Prelude.Text
@@ -203,7 +204,7 @@ instance Core.AWSRequest InvokeScreenAutomation where
       ( \s h x ->
           InvokeScreenAutomationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workbookCursor")
+            Prelude.<*> (x Data..:> "workbookCursor")
       )
 
 instance Prelude.Hashable InvokeScreenAutomation where
@@ -226,42 +227,42 @@ instance Prelude.NFData InvokeScreenAutomation where
       `Prelude.seq` Prelude.rnf screenId
       `Prelude.seq` Prelude.rnf screenAutomationId
 
-instance Core.ToHeaders InvokeScreenAutomation where
+instance Data.ToHeaders InvokeScreenAutomation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InvokeScreenAutomation where
+instance Data.ToJSON InvokeScreenAutomation where
   toJSON InvokeScreenAutomation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("rowId" Core..=) Prelude.<$> rowId,
-            ("variables" Core..=) Prelude.<$> variables
+            ("rowId" Data..=) Prelude.<$> rowId,
+            ("variables" Data..=) Prelude.<$> variables
           ]
       )
 
-instance Core.ToPath InvokeScreenAutomation where
+instance Data.ToPath InvokeScreenAutomation where
   toPath InvokeScreenAutomation' {..} =
     Prelude.mconcat
       [ "/workbooks/",
-        Core.toBS workbookId,
+        Data.toBS workbookId,
         "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/screens/",
-        Core.toBS screenId,
+        Data.toBS screenId,
         "/automations/",
-        Core.toBS screenAutomationId
+        Data.toBS screenAutomationId
       ]
 
-instance Core.ToQuery InvokeScreenAutomation where
+instance Data.ToQuery InvokeScreenAutomation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInvokeScreenAutomationResponse' smart constructor.

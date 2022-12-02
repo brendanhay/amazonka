@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.ResultSet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.ColumnMetadata
 import Amazonka.HoneyCode.Types.ResultRow
 import qualified Amazonka.Prelude as Prelude
@@ -109,14 +110,14 @@ resultSet_headers = Lens.lens (\ResultSet' {headers} -> headers) (\s@ResultSet' 
 resultSet_rows :: Lens.Lens' ResultSet [ResultRow]
 resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Prelude.. Lens.coerced
 
-instance Core.FromJSON ResultSet where
+instance Data.FromJSON ResultSet where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResultSet"
       ( \x ->
           ResultSet'
-            Prelude.<$> (x Core..:? "headers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "rows" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "headers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "rows" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResultSet where

@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.TableDataImportJobMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.ImportDataSource
 import Amazonka.HoneyCode.Types.ImportJobSubmitter
 import Amazonka.HoneyCode.Types.ImportOptions
@@ -34,7 +35,7 @@ data TableDataImportJobMetadata = TableDataImportJobMetadata'
   { -- | Details about the submitter of the import request.
     submitter :: ImportJobSubmitter,
     -- | The timestamp when the job was submitted for import.
-    submitTime :: Core.POSIX,
+    submitTime :: Data.POSIX,
     -- | The options that was specified at the time of submitting the import
     -- request.
     importOptions :: ImportOptions,
@@ -77,7 +78,7 @@ newTableDataImportJobMetadata
     TableDataImportJobMetadata'
       { submitter =
           pSubmitter_,
-        submitTime = Core._Time Lens.# pSubmitTime_,
+        submitTime = Data._Time Lens.# pSubmitTime_,
         importOptions = pImportOptions_,
         dataSource = pDataSource_
       }
@@ -88,7 +89,7 @@ tableDataImportJobMetadata_submitter = Lens.lens (\TableDataImportJobMetadata' {
 
 -- | The timestamp when the job was submitted for import.
 tableDataImportJobMetadata_submitTime :: Lens.Lens' TableDataImportJobMetadata Prelude.UTCTime
-tableDataImportJobMetadata_submitTime = Lens.lens (\TableDataImportJobMetadata' {submitTime} -> submitTime) (\s@TableDataImportJobMetadata' {} a -> s {submitTime = a} :: TableDataImportJobMetadata) Prelude.. Core._Time
+tableDataImportJobMetadata_submitTime = Lens.lens (\TableDataImportJobMetadata' {submitTime} -> submitTime) (\s@TableDataImportJobMetadata' {} a -> s {submitTime = a} :: TableDataImportJobMetadata) Prelude.. Data._Time
 
 -- | The options that was specified at the time of submitting the import
 -- request.
@@ -99,16 +100,16 @@ tableDataImportJobMetadata_importOptions = Lens.lens (\TableDataImportJobMetadat
 tableDataImportJobMetadata_dataSource :: Lens.Lens' TableDataImportJobMetadata ImportDataSource
 tableDataImportJobMetadata_dataSource = Lens.lens (\TableDataImportJobMetadata' {dataSource} -> dataSource) (\s@TableDataImportJobMetadata' {} a -> s {dataSource = a} :: TableDataImportJobMetadata)
 
-instance Core.FromJSON TableDataImportJobMetadata where
+instance Data.FromJSON TableDataImportJobMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TableDataImportJobMetadata"
       ( \x ->
           TableDataImportJobMetadata'
-            Prelude.<$> (x Core..: "submitter")
-            Prelude.<*> (x Core..: "submitTime")
-            Prelude.<*> (x Core..: "importOptions")
-            Prelude.<*> (x Core..: "dataSource")
+            Prelude.<$> (x Data..: "submitter")
+            Prelude.<*> (x Data..: "submitTime")
+            Prelude.<*> (x Data..: "importOptions")
+            Prelude.<*> (x Data..: "dataSource")
       )
 
 instance Prelude.Hashable TableDataImportJobMetadata where

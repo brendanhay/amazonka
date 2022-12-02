@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,11 +148,11 @@ instance Core.AWSRequest DescribeTableDataImportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeTableDataImportJobResponse'
-            Prelude.<$> (x Core..?> "errorCode")
+            Prelude.<$> (x Data..?> "errorCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "jobStatus")
-            Prelude.<*> (x Core..:> "message")
-            Prelude.<*> (x Core..:> "jobMetadata")
+            Prelude.<*> (x Data..:> "jobStatus")
+            Prelude.<*> (x Data..:> "message")
+            Prelude.<*> (x Data..:> "jobMetadata")
       )
 
 instance Prelude.Hashable DescribeTableDataImportJob where
@@ -166,29 +167,29 @@ instance Prelude.NFData DescribeTableDataImportJob where
       `Prelude.seq` Prelude.rnf tableId
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders DescribeTableDataImportJob where
+instance Data.ToHeaders DescribeTableDataImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeTableDataImportJob where
+instance Data.ToPath DescribeTableDataImportJob where
   toPath DescribeTableDataImportJob' {..} =
     Prelude.mconcat
       [ "/workbooks/",
-        Core.toBS workbookId,
+        Data.toBS workbookId,
         "/tables/",
-        Core.toBS tableId,
+        Data.toBS tableId,
         "/import/",
-        Core.toBS jobId
+        Data.toBS jobId
       ]
 
-instance Core.ToQuery DescribeTableDataImportJob where
+instance Data.ToQuery DescribeTableDataImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTableDataImportJobResponse' smart constructor.

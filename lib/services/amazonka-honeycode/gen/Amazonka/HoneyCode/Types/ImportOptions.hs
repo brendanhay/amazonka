@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.ImportOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.DelimitedTextImportOptions
 import Amazonka.HoneyCode.Types.DestinationOptions
 import qualified Amazonka.Prelude as Prelude
@@ -68,14 +69,14 @@ importOptions_destinationOptions = Lens.lens (\ImportOptions' {destinationOption
 importOptions_delimitedTextOptions :: Lens.Lens' ImportOptions (Prelude.Maybe DelimitedTextImportOptions)
 importOptions_delimitedTextOptions = Lens.lens (\ImportOptions' {delimitedTextOptions} -> delimitedTextOptions) (\s@ImportOptions' {} a -> s {delimitedTextOptions = a} :: ImportOptions)
 
-instance Core.FromJSON ImportOptions where
+instance Data.FromJSON ImportOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportOptions"
       ( \x ->
           ImportOptions'
-            Prelude.<$> (x Core..:? "destinationOptions")
-            Prelude.<*> (x Core..:? "delimitedTextOptions")
+            Prelude.<$> (x Data..:? "destinationOptions")
+            Prelude.<*> (x Data..:? "delimitedTextOptions")
       )
 
 instance Prelude.Hashable ImportOptions where
@@ -88,13 +89,13 @@ instance Prelude.NFData ImportOptions where
     Prelude.rnf destinationOptions
       `Prelude.seq` Prelude.rnf delimitedTextOptions
 
-instance Core.ToJSON ImportOptions where
+instance Data.ToJSON ImportOptions where
   toJSON ImportOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("destinationOptions" Core..=)
+          [ ("destinationOptions" Data..=)
               Prelude.<$> destinationOptions,
-            ("delimitedTextOptions" Core..=)
+            ("delimitedTextOptions" Data..=)
               Prelude.<$> delimitedTextOptions
           ]
       )

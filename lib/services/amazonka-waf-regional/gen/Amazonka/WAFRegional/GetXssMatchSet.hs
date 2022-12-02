@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetXssMatchSet where
     Response.receiveJSON
       ( \s h x ->
           GetXssMatchSetResponse'
-            Prelude.<$> (x Core..?> "XssMatchSet")
+            Prelude.<$> (x Data..?> "XssMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,34 +112,34 @@ instance Prelude.Hashable GetXssMatchSet where
 instance Prelude.NFData GetXssMatchSet where
   rnf GetXssMatchSet' {..} = Prelude.rnf xssMatchSetId
 
-instance Core.ToHeaders GetXssMatchSet where
+instance Data.ToHeaders GetXssMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.GetXssMatchSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.GetXssMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetXssMatchSet where
+instance Data.ToJSON GetXssMatchSet where
   toJSON GetXssMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("XssMatchSetId" Core..= xssMatchSetId)
+              ("XssMatchSetId" Data..= xssMatchSetId)
           ]
       )
 
-instance Core.ToPath GetXssMatchSet where
+instance Data.ToPath GetXssMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetXssMatchSet where
+instance Data.ToQuery GetXssMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a GetXssMatchSet request.

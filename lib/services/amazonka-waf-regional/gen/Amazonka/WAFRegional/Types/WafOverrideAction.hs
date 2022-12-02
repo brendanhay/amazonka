@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.WafOverrideAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.WafOverrideActionType
 
@@ -65,12 +66,12 @@ newWafOverrideAction pType_ =
 wafOverrideAction_type :: Lens.Lens' WafOverrideAction WafOverrideActionType
 wafOverrideAction_type = Lens.lens (\WafOverrideAction' {type'} -> type') (\s@WafOverrideAction' {} a -> s {type' = a} :: WafOverrideAction)
 
-instance Core.FromJSON WafOverrideAction where
+instance Data.FromJSON WafOverrideAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WafOverrideAction"
       ( \x ->
-          WafOverrideAction' Prelude.<$> (x Core..: "Type")
+          WafOverrideAction' Prelude.<$> (x Data..: "Type")
       )
 
 instance Prelude.Hashable WafOverrideAction where
@@ -80,9 +81,9 @@ instance Prelude.Hashable WafOverrideAction where
 instance Prelude.NFData WafOverrideAction where
   rnf WafOverrideAction' {..} = Prelude.rnf type'
 
-instance Core.ToJSON WafOverrideAction where
+instance Data.ToJSON WafOverrideAction where
   toJSON WafOverrideAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Type" Core..= type')]
+          [Prelude.Just ("Type" Data..= type')]
       )

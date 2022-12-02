@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListRules where
     Response.receiveJSON
       ( \s h x ->
           ListRulesResponse'
-            Prelude.<$> (x Core..?> "Rules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,34 +138,34 @@ instance Prelude.NFData ListRules where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListRules where
+instance Data.ToHeaders ListRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.ListRules" ::
+              Data.=# ( "AWSWAF_Regional_20161128.ListRules" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRules where
+instance Data.ToJSON ListRules where
   toJSON ListRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListRules where
+instance Data.ToPath ListRules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRules where
+instance Data.ToQuery ListRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRulesResponse' smart constructor.

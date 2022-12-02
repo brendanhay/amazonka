@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,8 +131,8 @@ instance Core.AWSRequest ListSubscribedRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListSubscribedRuleGroupsResponse'
-            Prelude.<$> (x Core..?> "RuleGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "RuleGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,34 +146,34 @@ instance Prelude.NFData ListSubscribedRuleGroups where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListSubscribedRuleGroups where
+instance Data.ToHeaders ListSubscribedRuleGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.ListSubscribedRuleGroups" ::
+              Data.=# ( "AWSWAF_Regional_20161128.ListSubscribedRuleGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListSubscribedRuleGroups where
+instance Data.ToJSON ListSubscribedRuleGroups where
   toJSON ListSubscribedRuleGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListSubscribedRuleGroups where
+instance Data.ToPath ListSubscribedRuleGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSubscribedRuleGroups where
+instance Data.ToQuery ListSubscribedRuleGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListSubscribedRuleGroupsResponse' smart constructor.

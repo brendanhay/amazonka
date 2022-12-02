@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,8 +133,8 @@ instance Core.AWSRequest CreateGeoMatchSet where
     Response.receiveJSON
       ( \s h x ->
           CreateGeoMatchSetResponse'
-            Prelude.<$> (x Core..?> "GeoMatchSet")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "GeoMatchSet")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,34 +148,34 @@ instance Prelude.NFData CreateGeoMatchSet where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateGeoMatchSet where
+instance Data.ToHeaders CreateGeoMatchSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.CreateGeoMatchSet" ::
+              Data.=# ( "AWSWAF_Regional_20161128.CreateGeoMatchSet" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGeoMatchSet where
+instance Data.ToJSON CreateGeoMatchSet where
   toJSON CreateGeoMatchSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateGeoMatchSet where
+instance Data.ToPath CreateGeoMatchSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGeoMatchSet where
+instance Data.ToQuery CreateGeoMatchSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGeoMatchSetResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,8 +128,8 @@ instance Core.AWSRequest ListRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListRuleGroupsResponse'
-            Prelude.<$> (x Core..?> "RuleGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "RuleGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,34 +143,34 @@ instance Prelude.NFData ListRuleGroups where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListRuleGroups where
+instance Data.ToHeaders ListRuleGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.ListRuleGroups" ::
+              Data.=# ( "AWSWAF_Regional_20161128.ListRuleGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRuleGroups where
+instance Data.ToJSON ListRuleGroups where
   toJSON ListRuleGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListRuleGroups where
+instance Data.ToPath ListRuleGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRuleGroups where
+instance Data.ToQuery ListRuleGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRuleGroupsResponse' smart constructor.

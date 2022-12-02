@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.SqlInjectionMatchTuple where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.FieldToMatch
 import Amazonka.WAFRegional.Types.TextTransformation
@@ -300,14 +301,14 @@ sqlInjectionMatchTuple_fieldToMatch = Lens.lens (\SqlInjectionMatchTuple' {field
 sqlInjectionMatchTuple_textTransformation :: Lens.Lens' SqlInjectionMatchTuple TextTransformation
 sqlInjectionMatchTuple_textTransformation = Lens.lens (\SqlInjectionMatchTuple' {textTransformation} -> textTransformation) (\s@SqlInjectionMatchTuple' {} a -> s {textTransformation = a} :: SqlInjectionMatchTuple)
 
-instance Core.FromJSON SqlInjectionMatchTuple where
+instance Data.FromJSON SqlInjectionMatchTuple where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SqlInjectionMatchTuple"
       ( \x ->
           SqlInjectionMatchTuple'
-            Prelude.<$> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "TextTransformation")
+            Prelude.<$> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "TextTransformation")
       )
 
 instance Prelude.Hashable SqlInjectionMatchTuple where
@@ -320,12 +321,12 @@ instance Prelude.NFData SqlInjectionMatchTuple where
     Prelude.rnf fieldToMatch
       `Prelude.seq` Prelude.rnf textTransformation
 
-instance Core.ToJSON SqlInjectionMatchTuple where
+instance Data.ToJSON SqlInjectionMatchTuple where
   toJSON SqlInjectionMatchTuple' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("TextTransformation" Core..= textTransformation)
+              ("TextTransformation" Data..= textTransformation)
           ]
       )

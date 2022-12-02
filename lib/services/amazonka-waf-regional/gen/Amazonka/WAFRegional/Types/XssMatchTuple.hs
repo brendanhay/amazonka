@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.XssMatchTuple where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.FieldToMatch
 import Amazonka.WAFRegional.Types.TextTransformation
@@ -297,14 +298,14 @@ xssMatchTuple_fieldToMatch = Lens.lens (\XssMatchTuple' {fieldToMatch} -> fieldT
 xssMatchTuple_textTransformation :: Lens.Lens' XssMatchTuple TextTransformation
 xssMatchTuple_textTransformation = Lens.lens (\XssMatchTuple' {textTransformation} -> textTransformation) (\s@XssMatchTuple' {} a -> s {textTransformation = a} :: XssMatchTuple)
 
-instance Core.FromJSON XssMatchTuple where
+instance Data.FromJSON XssMatchTuple where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "XssMatchTuple"
       ( \x ->
           XssMatchTuple'
-            Prelude.<$> (x Core..: "FieldToMatch")
-            Prelude.<*> (x Core..: "TextTransformation")
+            Prelude.<$> (x Data..: "FieldToMatch")
+            Prelude.<*> (x Data..: "TextTransformation")
       )
 
 instance Prelude.Hashable XssMatchTuple where
@@ -317,12 +318,12 @@ instance Prelude.NFData XssMatchTuple where
     Prelude.rnf fieldToMatch
       `Prelude.seq` Prelude.rnf textTransformation
 
-instance Core.ToJSON XssMatchTuple where
+instance Data.ToJSON XssMatchTuple where
   toJSON XssMatchTuple' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("FieldToMatch" Core..= fieldToMatch),
+          [ Prelude.Just ("FieldToMatch" Data..= fieldToMatch),
             Prelude.Just
-              ("TextTransformation" Core..= textTransformation)
+              ("TextTransformation" Data..= textTransformation)
           ]
       )

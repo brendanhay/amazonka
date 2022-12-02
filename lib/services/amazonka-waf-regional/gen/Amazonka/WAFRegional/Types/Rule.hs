@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.Rule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.Predicate
 
@@ -146,16 +147,16 @@ rule_ruleId = Lens.lens (\Rule' {ruleId} -> ruleId) (\s@Rule' {} a -> s {ruleId 
 rule_predicates :: Lens.Lens' Rule [Predicate]
 rule_predicates = Lens.lens (\Rule' {predicates} -> predicates) (\s@Rule' {} a -> s {predicates = a} :: Rule) Prelude.. Lens.coerced
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..: "RuleId")
-            Prelude.<*> (x Core..:? "Predicates" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..: "RuleId")
+            Prelude.<*> (x Data..:? "Predicates" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Rule where

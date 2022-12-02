@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.GeoMatchSetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -81,14 +82,14 @@ geoMatchSetSummary_geoMatchSetId = Lens.lens (\GeoMatchSetSummary' {geoMatchSetI
 geoMatchSetSummary_name :: Lens.Lens' GeoMatchSetSummary Prelude.Text
 geoMatchSetSummary_name = Lens.lens (\GeoMatchSetSummary' {name} -> name) (\s@GeoMatchSetSummary' {} a -> s {name = a} :: GeoMatchSetSummary)
 
-instance Core.FromJSON GeoMatchSetSummary where
+instance Data.FromJSON GeoMatchSetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeoMatchSetSummary"
       ( \x ->
           GeoMatchSetSummary'
-            Prelude.<$> (x Core..: "GeoMatchSetId")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..: "GeoMatchSetId")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable GeoMatchSetSummary where

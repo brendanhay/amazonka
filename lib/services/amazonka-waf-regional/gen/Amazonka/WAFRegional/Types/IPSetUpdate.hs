@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.IPSetUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.ChangeAction
 import Amazonka.WAFRegional.Types.IPSetDescriptor
@@ -89,12 +90,12 @@ instance Prelude.NFData IPSetUpdate where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf iPSetDescriptor
 
-instance Core.ToJSON IPSetUpdate where
+instance Data.ToJSON IPSetUpdate where
   toJSON IPSetUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
+          [ Prelude.Just ("Action" Data..= action),
             Prelude.Just
-              ("IPSetDescriptor" Core..= iPSetDescriptor)
+              ("IPSetDescriptor" Data..= iPSetDescriptor)
           ]
       )

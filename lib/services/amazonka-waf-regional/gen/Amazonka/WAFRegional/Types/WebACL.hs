@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.WebACL where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.ActivatedRule
 import Amazonka.WAFRegional.Types.WafAction
@@ -156,18 +157,18 @@ webACL_defaultAction = Lens.lens (\WebACL' {defaultAction} -> defaultAction) (\s
 webACL_rules :: Lens.Lens' WebACL [ActivatedRule]
 webACL_rules = Lens.lens (\WebACL' {rules} -> rules) (\s@WebACL' {} a -> s {rules = a} :: WebACL) Prelude.. Lens.coerced
 
-instance Core.FromJSON WebACL where
+instance Data.FromJSON WebACL where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebACL"
       ( \x ->
           WebACL'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "WebACLArn")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..: "WebACLId")
-            Prelude.<*> (x Core..: "DefaultAction")
-            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "WebACLArn")
+            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..: "WebACLId")
+            Prelude.<*> (x Data..: "DefaultAction")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable WebACL where

@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance Core.AWSRequest GetRateBasedRuleManagedKeys where
     Response.receiveJSON
       ( \s h x ->
           GetRateBasedRuleManagedKeysResponse'
-            Prelude.<$> (x Core..?> "ManagedKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Data..?> "ManagedKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,34 +135,34 @@ instance Prelude.NFData GetRateBasedRuleManagedKeys where
     Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf ruleId
 
-instance Core.ToHeaders GetRateBasedRuleManagedKeys where
+instance Data.ToHeaders GetRateBasedRuleManagedKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.GetRateBasedRuleManagedKeys" ::
+              Data.=# ( "AWSWAF_Regional_20161128.GetRateBasedRuleManagedKeys" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRateBasedRuleManagedKeys where
+instance Data.ToJSON GetRateBasedRuleManagedKeys where
   toJSON GetRateBasedRuleManagedKeys' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            Prelude.Just ("RuleId" Core..= ruleId)
+          [ ("NextMarker" Data..=) Prelude.<$> nextMarker,
+            Prelude.Just ("RuleId" Data..= ruleId)
           ]
       )
 
-instance Core.ToPath GetRateBasedRuleManagedKeys where
+instance Data.ToPath GetRateBasedRuleManagedKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRateBasedRuleManagedKeys where
+instance Data.ToQuery GetRateBasedRuleManagedKeys where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRateBasedRuleManagedKeysResponse' smart constructor.

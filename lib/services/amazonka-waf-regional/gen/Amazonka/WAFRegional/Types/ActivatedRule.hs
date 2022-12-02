@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.ActivatedRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.ExcludedRule
 import Amazonka.WAFRegional.Types.WafAction
@@ -369,18 +370,18 @@ activatedRule_priority = Lens.lens (\ActivatedRule' {priority} -> priority) (\s@
 activatedRule_ruleId :: Lens.Lens' ActivatedRule Prelude.Text
 activatedRule_ruleId = Lens.lens (\ActivatedRule' {ruleId} -> ruleId) (\s@ActivatedRule' {} a -> s {ruleId = a} :: ActivatedRule)
 
-instance Core.FromJSON ActivatedRule where
+instance Data.FromJSON ActivatedRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActivatedRule"
       ( \x ->
           ActivatedRule'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "OverrideAction")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "ExcludedRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Priority")
-            Prelude.<*> (x Core..: "RuleId")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "OverrideAction")
+            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "ExcludedRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Priority")
+            Prelude.<*> (x Data..: "RuleId")
       )
 
 instance Prelude.Hashable ActivatedRule where
@@ -401,16 +402,16 @@ instance Prelude.NFData ActivatedRule where
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf ruleId
 
-instance Core.ToJSON ActivatedRule where
+instance Data.ToJSON ActivatedRule where
   toJSON ActivatedRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("OverrideAction" Core..=)
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("OverrideAction" Data..=)
               Prelude.<$> overrideAction,
-            ("Action" Core..=) Prelude.<$> action,
-            ("ExcludedRules" Core..=) Prelude.<$> excludedRules,
-            Prelude.Just ("Priority" Core..= priority),
-            Prelude.Just ("RuleId" Core..= ruleId)
+            ("Action" Data..=) Prelude.<$> action,
+            ("ExcludedRules" Data..=) Prelude.<$> excludedRules,
+            Prelude.Just ("Priority" Data..= priority),
+            Prelude.Just ("RuleId" Data..= ruleId)
           ]
       )

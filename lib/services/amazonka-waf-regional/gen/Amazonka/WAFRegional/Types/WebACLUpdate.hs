@@ -21,6 +21,7 @@ module Amazonka.WAFRegional.Types.WebACLUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFRegional.Types.ActivatedRule
 import Amazonka.WAFRegional.Types.ChangeAction
@@ -99,12 +100,12 @@ instance Prelude.NFData WebACLUpdate where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf activatedRule
 
-instance Core.ToJSON WebACLUpdate where
+instance Data.ToJSON WebACLUpdate where
   toJSON WebACLUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
+          [ Prelude.Just ("Action" Data..= action),
             Prelude.Just
-              ("ActivatedRule" Core..= activatedRule)
+              ("ActivatedRule" Data..= activatedRule)
           ]
       )

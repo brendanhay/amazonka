@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest GetChangeTokenStatus where
     Response.receiveJSON
       ( \s h x ->
           GetChangeTokenStatusResponse'
-            Prelude.<$> (x Core..?> "ChangeTokenStatus")
+            Prelude.<$> (x Data..?> "ChangeTokenStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,32 +118,32 @@ instance Prelude.NFData GetChangeTokenStatus where
   rnf GetChangeTokenStatus' {..} =
     Prelude.rnf changeToken
 
-instance Core.ToHeaders GetChangeTokenStatus where
+instance Data.ToHeaders GetChangeTokenStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.GetChangeTokenStatus" ::
+              Data.=# ( "AWSWAF_Regional_20161128.GetChangeTokenStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetChangeTokenStatus where
+instance Data.ToJSON GetChangeTokenStatus where
   toJSON GetChangeTokenStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ChangeToken" Core..= changeToken)]
+          [Prelude.Just ("ChangeToken" Data..= changeToken)]
       )
 
-instance Core.ToPath GetChangeTokenStatus where
+instance Data.ToPath GetChangeTokenStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetChangeTokenStatus where
+instance Data.ToQuery GetChangeTokenStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetChangeTokenStatusResponse' smart constructor.

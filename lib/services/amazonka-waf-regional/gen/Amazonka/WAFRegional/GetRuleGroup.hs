@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ instance Core.AWSRequest GetRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           GetRuleGroupResponse'
-            Prelude.<$> (x Core..?> "RuleGroup")
+            Prelude.<$> (x Data..?> "RuleGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,32 +108,32 @@ instance Prelude.Hashable GetRuleGroup where
 instance Prelude.NFData GetRuleGroup where
   rnf GetRuleGroup' {..} = Prelude.rnf ruleGroupId
 
-instance Core.ToHeaders GetRuleGroup where
+instance Data.ToHeaders GetRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.GetRuleGroup" ::
+              Data.=# ( "AWSWAF_Regional_20161128.GetRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRuleGroup where
+instance Data.ToJSON GetRuleGroup where
   toJSON GetRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("RuleGroupId" Core..= ruleGroupId)]
+          [Prelude.Just ("RuleGroupId" Data..= ruleGroupId)]
       )
 
-instance Core.ToPath GetRuleGroup where
+instance Data.ToPath GetRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRuleGroup where
+instance Data.ToQuery GetRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRuleGroupResponse' smart constructor.

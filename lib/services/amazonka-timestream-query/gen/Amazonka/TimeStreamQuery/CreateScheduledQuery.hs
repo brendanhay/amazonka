@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,7 +74,7 @@ data CreateScheduledQuery = CreateScheduledQuery'
     --
     -- -   After 8 hours, any request with the same @ClientToken@ is treated as
     --     a new request.
-    clientToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon KMS key used to encrypt the scheduled query resource,
     -- at-rest. If the Amazon KMS key is not specified, the scheduled query
     -- resource will be encrypted with a Timestream owned Amazon KMS key. To
@@ -98,7 +99,7 @@ data CreateScheduledQuery = CreateScheduledQuery'
     -- executing on 2021-12-01 00:00:00. For this instance, the
     -- @\@scheduled_runtime@ parameter is initialized to the timestamp
     -- 2021-12-01 00:00:00 when invoking the query.
-    queryString :: Core.Sensitive Prelude.Text,
+    queryString :: Data.Sensitive Prelude.Text,
     -- | The schedule configuration for the query.
     scheduleConfiguration :: ScheduleConfiguration,
     -- | Notification configuration for the scheduled query. A notification is
@@ -198,7 +199,7 @@ newCreateScheduledQuery
         kmsKeyId = Prelude.Nothing,
         targetConfiguration = Prelude.Nothing,
         name = pName_,
-        queryString = Core._Sensitive Lens.# pQueryString_,
+        queryString = Data._Sensitive Lens.# pQueryString_,
         scheduleConfiguration = pScheduleConfiguration_,
         notificationConfiguration =
           pNotificationConfiguration_,
@@ -223,7 +224,7 @@ createScheduledQuery_tags = Lens.lens (\CreateScheduledQuery' {tags} -> tags) (\
 -- -   After 8 hours, any request with the same @ClientToken@ is treated as
 --     a new request.
 createScheduledQuery_clientToken :: Lens.Lens' CreateScheduledQuery (Prelude.Maybe Prelude.Text)
-createScheduledQuery_clientToken = Lens.lens (\CreateScheduledQuery' {clientToken} -> clientToken) (\s@CreateScheduledQuery' {} a -> s {clientToken = a} :: CreateScheduledQuery) Prelude.. Lens.mapping Core._Sensitive
+createScheduledQuery_clientToken = Lens.lens (\CreateScheduledQuery' {clientToken} -> clientToken) (\s@CreateScheduledQuery' {} a -> s {clientToken = a} :: CreateScheduledQuery) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon KMS key used to encrypt the scheduled query resource,
 -- at-rest. If the Amazon KMS key is not specified, the scheduled query
@@ -256,7 +257,7 @@ createScheduledQuery_name = Lens.lens (\CreateScheduledQuery' {name} -> name) (\
 -- @\@scheduled_runtime@ parameter is initialized to the timestamp
 -- 2021-12-01 00:00:00 when invoking the query.
 createScheduledQuery_queryString :: Lens.Lens' CreateScheduledQuery Prelude.Text
-createScheduledQuery_queryString = Lens.lens (\CreateScheduledQuery' {queryString} -> queryString) (\s@CreateScheduledQuery' {} a -> s {queryString = a} :: CreateScheduledQuery) Prelude.. Core._Sensitive
+createScheduledQuery_queryString = Lens.lens (\CreateScheduledQuery' {queryString} -> queryString) (\s@CreateScheduledQuery' {} a -> s {queryString = a} :: CreateScheduledQuery) Prelude.. Data._Sensitive
 
 -- | The schedule configuration for the query.
 createScheduledQuery_scheduleConfiguration :: Lens.Lens' CreateScheduledQuery ScheduleConfiguration
@@ -289,7 +290,7 @@ instance Core.AWSRequest CreateScheduledQuery where
       ( \s h x ->
           CreateScheduledQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Arn")
+            Prelude.<*> (x Data..:> "Arn")
       )
 
 instance Prelude.Hashable CreateScheduledQuery where
@@ -318,55 +319,55 @@ instance Prelude.NFData CreateScheduledQuery where
       `Prelude.seq` Prelude.rnf scheduledQueryExecutionRoleArn
       `Prelude.seq` Prelude.rnf errorReportConfiguration
 
-instance Core.ToHeaders CreateScheduledQuery where
+instance Data.ToHeaders CreateScheduledQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.CreateScheduledQuery" ::
+              Data.=# ( "Timestream_20181101.CreateScheduledQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateScheduledQuery where
+instance Data.ToJSON CreateScheduledQuery where
   toJSON CreateScheduledQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("TargetConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("TargetConfiguration" Data..=)
               Prelude.<$> targetConfiguration,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("QueryString" Core..= queryString),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("QueryString" Data..= queryString),
             Prelude.Just
               ( "ScheduleConfiguration"
-                  Core..= scheduleConfiguration
+                  Data..= scheduleConfiguration
               ),
             Prelude.Just
               ( "NotificationConfiguration"
-                  Core..= notificationConfiguration
+                  Data..= notificationConfiguration
               ),
             Prelude.Just
               ( "ScheduledQueryExecutionRoleArn"
-                  Core..= scheduledQueryExecutionRoleArn
+                  Data..= scheduledQueryExecutionRoleArn
               ),
             Prelude.Just
               ( "ErrorReportConfiguration"
-                  Core..= errorReportConfiguration
+                  Data..= errorReportConfiguration
               )
           ]
       )
 
-instance Core.ToPath CreateScheduledQuery where
+instance Data.ToPath CreateScheduledQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateScheduledQuery where
+instance Data.ToQuery CreateScheduledQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateScheduledQueryResponse' smart constructor.

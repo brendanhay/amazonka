@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.NotificationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.SnsConfiguration
 
@@ -58,13 +59,13 @@ newNotificationConfiguration pSnsConfiguration_ =
 notificationConfiguration_snsConfiguration :: Lens.Lens' NotificationConfiguration SnsConfiguration
 notificationConfiguration_snsConfiguration = Lens.lens (\NotificationConfiguration' {snsConfiguration} -> snsConfiguration) (\s@NotificationConfiguration' {} a -> s {snsConfiguration = a} :: NotificationConfiguration)
 
-instance Core.FromJSON NotificationConfiguration where
+instance Data.FromJSON NotificationConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotificationConfiguration"
       ( \x ->
           NotificationConfiguration'
-            Prelude.<$> (x Core..: "SnsConfiguration")
+            Prelude.<$> (x Data..: "SnsConfiguration")
       )
 
 instance Prelude.Hashable NotificationConfiguration where
@@ -75,11 +76,11 @@ instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
     Prelude.rnf snsConfiguration
 
-instance Core.ToJSON NotificationConfiguration where
+instance Data.ToJSON NotificationConfiguration where
   toJSON NotificationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SnsConfiguration" Core..= snsConfiguration)
+              ("SnsConfiguration" Data..= snsConfiguration)
           ]
       )

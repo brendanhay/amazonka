@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.ColumnInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.TimeStreamQuery.Types.Type
 
@@ -71,13 +72,13 @@ columnInfo_name = Lens.lens (\ColumnInfo' {name} -> name) (\s@ColumnInfo' {} a -
 columnInfo_type :: Lens.Lens' ColumnInfo Type
 columnInfo_type = Lens.lens (\ColumnInfo' {type'} -> type') (\s@ColumnInfo' {} a -> s {type' = a} :: ColumnInfo)
 
-instance Core.FromJSON ColumnInfo where
+instance Data.FromJSON ColumnInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnInfo"
       ( \x ->
           ColumnInfo'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable ColumnInfo where

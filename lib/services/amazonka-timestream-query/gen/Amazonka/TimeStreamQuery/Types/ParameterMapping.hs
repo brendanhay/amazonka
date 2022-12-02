@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.ParameterMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.Type
 
@@ -62,13 +63,13 @@ parameterMapping_name = Lens.lens (\ParameterMapping' {name} -> name) (\s@Parame
 parameterMapping_type :: Lens.Lens' ParameterMapping Type
 parameterMapping_type = Lens.lens (\ParameterMapping' {type'} -> type') (\s@ParameterMapping' {} a -> s {type' = a} :: ParameterMapping)
 
-instance Core.FromJSON ParameterMapping where
+instance Data.FromJSON ParameterMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterMapping"
       ( \x ->
           ParameterMapping'
-            Prelude.<$> (x Core..: "Name") Prelude.<*> (x Core..: "Type")
+            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable ParameterMapping where

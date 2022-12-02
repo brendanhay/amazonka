@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.ScheduledQueryRunSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.ErrorReportLocation
 import Amazonka.TimeStreamQuery.Types.ExecutionStats
@@ -35,13 +36,13 @@ data ScheduledQueryRunSummary = ScheduledQueryRunSummary'
     -- | InvocationTime for this run. This is the time at which the query is
     -- scheduled to run. Parameter @\@scheduled_runtime@ can be used in the
     -- query to get the value.
-    invocationTime :: Prelude.Maybe Core.POSIX,
+    invocationTime :: Prelude.Maybe Data.POSIX,
     -- | The status of a scheduled query run.
     runStatus :: Prelude.Maybe ScheduledQueryRunStatus,
     -- | Runtime statistics for a scheduled run.
     executionStats :: Prelude.Maybe ExecutionStats,
     -- | The actual time when the query was run.
-    triggerTime :: Prelude.Maybe Core.POSIX,
+    triggerTime :: Prelude.Maybe Data.POSIX,
     -- | Error message for the scheduled query in case of failure. You might have
     -- to look at the error report to get more detailed error reasons.
     failureReason :: Prelude.Maybe Prelude.Text
@@ -91,7 +92,7 @@ scheduledQueryRunSummary_errorReportLocation = Lens.lens (\ScheduledQueryRunSumm
 -- scheduled to run. Parameter @\@scheduled_runtime@ can be used in the
 -- query to get the value.
 scheduledQueryRunSummary_invocationTime :: Lens.Lens' ScheduledQueryRunSummary (Prelude.Maybe Prelude.UTCTime)
-scheduledQueryRunSummary_invocationTime = Lens.lens (\ScheduledQueryRunSummary' {invocationTime} -> invocationTime) (\s@ScheduledQueryRunSummary' {} a -> s {invocationTime = a} :: ScheduledQueryRunSummary) Prelude.. Lens.mapping Core._Time
+scheduledQueryRunSummary_invocationTime = Lens.lens (\ScheduledQueryRunSummary' {invocationTime} -> invocationTime) (\s@ScheduledQueryRunSummary' {} a -> s {invocationTime = a} :: ScheduledQueryRunSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of a scheduled query run.
 scheduledQueryRunSummary_runStatus :: Lens.Lens' ScheduledQueryRunSummary (Prelude.Maybe ScheduledQueryRunStatus)
@@ -103,25 +104,25 @@ scheduledQueryRunSummary_executionStats = Lens.lens (\ScheduledQueryRunSummary' 
 
 -- | The actual time when the query was run.
 scheduledQueryRunSummary_triggerTime :: Lens.Lens' ScheduledQueryRunSummary (Prelude.Maybe Prelude.UTCTime)
-scheduledQueryRunSummary_triggerTime = Lens.lens (\ScheduledQueryRunSummary' {triggerTime} -> triggerTime) (\s@ScheduledQueryRunSummary' {} a -> s {triggerTime = a} :: ScheduledQueryRunSummary) Prelude.. Lens.mapping Core._Time
+scheduledQueryRunSummary_triggerTime = Lens.lens (\ScheduledQueryRunSummary' {triggerTime} -> triggerTime) (\s@ScheduledQueryRunSummary' {} a -> s {triggerTime = a} :: ScheduledQueryRunSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Error message for the scheduled query in case of failure. You might have
 -- to look at the error report to get more detailed error reasons.
 scheduledQueryRunSummary_failureReason :: Lens.Lens' ScheduledQueryRunSummary (Prelude.Maybe Prelude.Text)
 scheduledQueryRunSummary_failureReason = Lens.lens (\ScheduledQueryRunSummary' {failureReason} -> failureReason) (\s@ScheduledQueryRunSummary' {} a -> s {failureReason = a} :: ScheduledQueryRunSummary)
 
-instance Core.FromJSON ScheduledQueryRunSummary where
+instance Data.FromJSON ScheduledQueryRunSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduledQueryRunSummary"
       ( \x ->
           ScheduledQueryRunSummary'
-            Prelude.<$> (x Core..:? "ErrorReportLocation")
-            Prelude.<*> (x Core..:? "InvocationTime")
-            Prelude.<*> (x Core..:? "RunStatus")
-            Prelude.<*> (x Core..:? "ExecutionStats")
-            Prelude.<*> (x Core..:? "TriggerTime")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "ErrorReportLocation")
+            Prelude.<*> (x Data..:? "InvocationTime")
+            Prelude.<*> (x Data..:? "RunStatus")
+            Prelude.<*> (x Data..:? "ExecutionStats")
+            Prelude.<*> (x Data..:? "TriggerTime")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable ScheduledQueryRunSummary where

@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.MultiMeasureMappings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.MultiMeasureAttributeMapping
 
@@ -81,14 +82,14 @@ multiMeasureMappings_targetMultiMeasureName = Lens.lens (\MultiMeasureMappings' 
 multiMeasureMappings_multiMeasureAttributeMappings :: Lens.Lens' MultiMeasureMappings (Prelude.NonEmpty MultiMeasureAttributeMapping)
 multiMeasureMappings_multiMeasureAttributeMappings = Lens.lens (\MultiMeasureMappings' {multiMeasureAttributeMappings} -> multiMeasureAttributeMappings) (\s@MultiMeasureMappings' {} a -> s {multiMeasureAttributeMappings = a} :: MultiMeasureMappings) Prelude.. Lens.coerced
 
-instance Core.FromJSON MultiMeasureMappings where
+instance Data.FromJSON MultiMeasureMappings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiMeasureMappings"
       ( \x ->
           MultiMeasureMappings'
-            Prelude.<$> (x Core..:? "TargetMultiMeasureName")
-            Prelude.<*> (x Core..: "MultiMeasureAttributeMappings")
+            Prelude.<$> (x Data..:? "TargetMultiMeasureName")
+            Prelude.<*> (x Data..: "MultiMeasureAttributeMappings")
       )
 
 instance Prelude.Hashable MultiMeasureMappings where
@@ -101,15 +102,15 @@ instance Prelude.NFData MultiMeasureMappings where
     Prelude.rnf targetMultiMeasureName
       `Prelude.seq` Prelude.rnf multiMeasureAttributeMappings
 
-instance Core.ToJSON MultiMeasureMappings where
+instance Data.ToJSON MultiMeasureMappings where
   toJSON MultiMeasureMappings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetMultiMeasureName" Core..=)
+          [ ("TargetMultiMeasureName" Data..=)
               Prelude.<$> targetMultiMeasureName,
             Prelude.Just
               ( "MultiMeasureAttributeMappings"
-                  Core..= multiMeasureAttributeMappings
+                  Data..= multiMeasureAttributeMappings
               )
           ]
       )

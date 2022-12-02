@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.S3ReportLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | S3 report location for the scheduled query run.
@@ -61,14 +62,14 @@ s3ReportLocation_objectKey = Lens.lens (\S3ReportLocation' {objectKey} -> object
 s3ReportLocation_bucketName :: Lens.Lens' S3ReportLocation (Prelude.Maybe Prelude.Text)
 s3ReportLocation_bucketName = Lens.lens (\S3ReportLocation' {bucketName} -> bucketName) (\s@S3ReportLocation' {} a -> s {bucketName = a} :: S3ReportLocation)
 
-instance Core.FromJSON S3ReportLocation where
+instance Data.FromJSON S3ReportLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3ReportLocation"
       ( \x ->
           S3ReportLocation'
-            Prelude.<$> (x Core..:? "ObjectKey")
-            Prelude.<*> (x Core..:? "BucketName")
+            Prelude.<$> (x Data..:? "ObjectKey")
+            Prelude.<*> (x Data..:? "BucketName")
       )
 
 instance Prelude.Hashable S3ReportLocation where

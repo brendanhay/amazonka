@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.TimeSeriesDataPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.TimeStreamQuery.Types.Datum
 
@@ -70,13 +71,13 @@ timeSeriesDataPoint_time = Lens.lens (\TimeSeriesDataPoint' {time} -> time) (\s@
 timeSeriesDataPoint_value :: Lens.Lens' TimeSeriesDataPoint Datum
 timeSeriesDataPoint_value = Lens.lens (\TimeSeriesDataPoint' {value} -> value) (\s@TimeSeriesDataPoint' {} a -> s {value = a} :: TimeSeriesDataPoint)
 
-instance Core.FromJSON TimeSeriesDataPoint where
+instance Data.FromJSON TimeSeriesDataPoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesDataPoint"
       ( \x ->
           TimeSeriesDataPoint'
-            Prelude.<$> (x Core..: "Time") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Time") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable TimeSeriesDataPoint where

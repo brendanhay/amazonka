@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.DimensionMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.DimensionValueType
 
@@ -67,14 +68,14 @@ dimensionMapping_name = Lens.lens (\DimensionMapping' {name} -> name) (\s@Dimens
 dimensionMapping_dimensionValueType :: Lens.Lens' DimensionMapping DimensionValueType
 dimensionMapping_dimensionValueType = Lens.lens (\DimensionMapping' {dimensionValueType} -> dimensionValueType) (\s@DimensionMapping' {} a -> s {dimensionValueType = a} :: DimensionMapping)
 
-instance Core.FromJSON DimensionMapping where
+instance Data.FromJSON DimensionMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DimensionMapping"
       ( \x ->
           DimensionMapping'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "DimensionValueType")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "DimensionValueType")
       )
 
 instance Prelude.Hashable DimensionMapping where
@@ -87,12 +88,12 @@ instance Prelude.NFData DimensionMapping where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf dimensionValueType
 
-instance Core.ToJSON DimensionMapping where
+instance Data.ToJSON DimensionMapping where
   toJSON DimensionMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
+          [ Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("DimensionValueType" Core..= dimensionValueType)
+              ("DimensionValueType" Data..= dimensionValueType)
           ]
       )

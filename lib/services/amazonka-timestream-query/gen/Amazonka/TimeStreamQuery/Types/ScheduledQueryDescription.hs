@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.ScheduledQueryDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.ErrorReportConfiguration
 import Amazonka.TimeStreamQuery.Types.NotificationConfiguration
@@ -38,7 +39,7 @@ data ScheduledQueryDescription = ScheduledQueryDescription'
     -- | Runtime summary for the last scheduled query run.
     lastRunSummary :: Prelude.Maybe ScheduledQueryRunSummary,
     -- | Last time the query was run.
-    previousInvocationTime :: Prelude.Maybe Core.POSIX,
+    previousInvocationTime :: Prelude.Maybe Data.POSIX,
     -- | Error-reporting configuration for the scheduled query.
     errorReportConfiguration :: Prelude.Maybe ErrorReportConfiguration,
     -- | IAM role that Timestream uses to run the schedule query.
@@ -49,15 +50,15 @@ data ScheduledQueryDescription = ScheduledQueryDescription'
     -- | Scheduled query target store configuration.
     targetConfiguration :: Prelude.Maybe TargetConfiguration,
     -- | The next time the scheduled query is scheduled to run.
-    nextInvocationTime :: Prelude.Maybe Core.POSIX,
+    nextInvocationTime :: Prelude.Maybe Data.POSIX,
     -- | Creation time of the scheduled query.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Scheduled query ARN.
     arn :: Prelude.Text,
     -- | Name of the scheduled query.
     name :: Prelude.Text,
     -- | The query to be run.
-    queryString :: Core.Sensitive Prelude.Text,
+    queryString :: Data.Sensitive Prelude.Text,
     -- | State of the scheduled query.
     state :: ScheduledQueryState,
     -- | Schedule configuration.
@@ -140,7 +141,7 @@ newScheduledQueryDescription
         arn = pArn_,
         name = pName_,
         queryString =
-          Core._Sensitive Lens.# pQueryString_,
+          Data._Sensitive Lens.# pQueryString_,
         state = pState_,
         scheduleConfiguration = pScheduleConfiguration_,
         notificationConfiguration =
@@ -157,7 +158,7 @@ scheduledQueryDescription_lastRunSummary = Lens.lens (\ScheduledQueryDescription
 
 -- | Last time the query was run.
 scheduledQueryDescription_previousInvocationTime :: Lens.Lens' ScheduledQueryDescription (Prelude.Maybe Prelude.UTCTime)
-scheduledQueryDescription_previousInvocationTime = Lens.lens (\ScheduledQueryDescription' {previousInvocationTime} -> previousInvocationTime) (\s@ScheduledQueryDescription' {} a -> s {previousInvocationTime = a} :: ScheduledQueryDescription) Prelude.. Lens.mapping Core._Time
+scheduledQueryDescription_previousInvocationTime = Lens.lens (\ScheduledQueryDescription' {previousInvocationTime} -> previousInvocationTime) (\s@ScheduledQueryDescription' {} a -> s {previousInvocationTime = a} :: ScheduledQueryDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Error-reporting configuration for the scheduled query.
 scheduledQueryDescription_errorReportConfiguration :: Lens.Lens' ScheduledQueryDescription (Prelude.Maybe ErrorReportConfiguration)
@@ -178,11 +179,11 @@ scheduledQueryDescription_targetConfiguration = Lens.lens (\ScheduledQueryDescri
 
 -- | The next time the scheduled query is scheduled to run.
 scheduledQueryDescription_nextInvocationTime :: Lens.Lens' ScheduledQueryDescription (Prelude.Maybe Prelude.UTCTime)
-scheduledQueryDescription_nextInvocationTime = Lens.lens (\ScheduledQueryDescription' {nextInvocationTime} -> nextInvocationTime) (\s@ScheduledQueryDescription' {} a -> s {nextInvocationTime = a} :: ScheduledQueryDescription) Prelude.. Lens.mapping Core._Time
+scheduledQueryDescription_nextInvocationTime = Lens.lens (\ScheduledQueryDescription' {nextInvocationTime} -> nextInvocationTime) (\s@ScheduledQueryDescription' {} a -> s {nextInvocationTime = a} :: ScheduledQueryDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Creation time of the scheduled query.
 scheduledQueryDescription_creationTime :: Lens.Lens' ScheduledQueryDescription (Prelude.Maybe Prelude.UTCTime)
-scheduledQueryDescription_creationTime = Lens.lens (\ScheduledQueryDescription' {creationTime} -> creationTime) (\s@ScheduledQueryDescription' {} a -> s {creationTime = a} :: ScheduledQueryDescription) Prelude.. Lens.mapping Core._Time
+scheduledQueryDescription_creationTime = Lens.lens (\ScheduledQueryDescription' {creationTime} -> creationTime) (\s@ScheduledQueryDescription' {} a -> s {creationTime = a} :: ScheduledQueryDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Scheduled query ARN.
 scheduledQueryDescription_arn :: Lens.Lens' ScheduledQueryDescription Prelude.Text
@@ -194,7 +195,7 @@ scheduledQueryDescription_name = Lens.lens (\ScheduledQueryDescription' {name} -
 
 -- | The query to be run.
 scheduledQueryDescription_queryString :: Lens.Lens' ScheduledQueryDescription Prelude.Text
-scheduledQueryDescription_queryString = Lens.lens (\ScheduledQueryDescription' {queryString} -> queryString) (\s@ScheduledQueryDescription' {} a -> s {queryString = a} :: ScheduledQueryDescription) Prelude.. Core._Sensitive
+scheduledQueryDescription_queryString = Lens.lens (\ScheduledQueryDescription' {queryString} -> queryString) (\s@ScheduledQueryDescription' {} a -> s {queryString = a} :: ScheduledQueryDescription) Prelude.. Data._Sensitive
 
 -- | State of the scheduled query.
 scheduledQueryDescription_state :: Lens.Lens' ScheduledQueryDescription ScheduledQueryState
@@ -208,29 +209,29 @@ scheduledQueryDescription_scheduleConfiguration = Lens.lens (\ScheduledQueryDesc
 scheduledQueryDescription_notificationConfiguration :: Lens.Lens' ScheduledQueryDescription NotificationConfiguration
 scheduledQueryDescription_notificationConfiguration = Lens.lens (\ScheduledQueryDescription' {notificationConfiguration} -> notificationConfiguration) (\s@ScheduledQueryDescription' {} a -> s {notificationConfiguration = a} :: ScheduledQueryDescription)
 
-instance Core.FromJSON ScheduledQueryDescription where
+instance Data.FromJSON ScheduledQueryDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScheduledQueryDescription"
       ( \x ->
           ScheduledQueryDescription'
-            Prelude.<$> ( x Core..:? "RecentlyFailedRuns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "RecentlyFailedRuns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastRunSummary")
-            Prelude.<*> (x Core..:? "PreviousInvocationTime")
-            Prelude.<*> (x Core..:? "ErrorReportConfiguration")
-            Prelude.<*> (x Core..:? "ScheduledQueryExecutionRoleArn")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "TargetConfiguration")
-            Prelude.<*> (x Core..:? "NextInvocationTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "QueryString")
-            Prelude.<*> (x Core..: "State")
-            Prelude.<*> (x Core..: "ScheduleConfiguration")
-            Prelude.<*> (x Core..: "NotificationConfiguration")
+            Prelude.<*> (x Data..:? "LastRunSummary")
+            Prelude.<*> (x Data..:? "PreviousInvocationTime")
+            Prelude.<*> (x Data..:? "ErrorReportConfiguration")
+            Prelude.<*> (x Data..:? "ScheduledQueryExecutionRoleArn")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "TargetConfiguration")
+            Prelude.<*> (x Data..:? "NextInvocationTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "QueryString")
+            Prelude.<*> (x Data..: "State")
+            Prelude.<*> (x Data..: "ScheduleConfiguration")
+            Prelude.<*> (x Data..: "NotificationConfiguration")
       )
 
 instance Prelude.Hashable ScheduledQueryDescription where

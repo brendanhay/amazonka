@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.MixedMeasureMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.MeasureValueType
 import Amazonka.TimeStreamQuery.Types.MultiMeasureAttributeMapping
@@ -108,17 +109,17 @@ mixedMeasureMapping_multiMeasureAttributeMappings = Lens.lens (\MixedMeasureMapp
 mixedMeasureMapping_measureValueType :: Lens.Lens' MixedMeasureMapping MeasureValueType
 mixedMeasureMapping_measureValueType = Lens.lens (\MixedMeasureMapping' {measureValueType} -> measureValueType) (\s@MixedMeasureMapping' {} a -> s {measureValueType = a} :: MixedMeasureMapping)
 
-instance Core.FromJSON MixedMeasureMapping where
+instance Data.FromJSON MixedMeasureMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MixedMeasureMapping"
       ( \x ->
           MixedMeasureMapping'
-            Prelude.<$> (x Core..:? "MeasureName")
-            Prelude.<*> (x Core..:? "TargetMeasureName")
-            Prelude.<*> (x Core..:? "SourceColumn")
-            Prelude.<*> (x Core..:? "MultiMeasureAttributeMappings")
-            Prelude.<*> (x Core..: "MeasureValueType")
+            Prelude.<$> (x Data..:? "MeasureName")
+            Prelude.<*> (x Data..:? "TargetMeasureName")
+            Prelude.<*> (x Data..:? "SourceColumn")
+            Prelude.<*> (x Data..:? "MultiMeasureAttributeMappings")
+            Prelude.<*> (x Data..: "MeasureValueType")
       )
 
 instance Prelude.Hashable MixedMeasureMapping where
@@ -137,17 +138,17 @@ instance Prelude.NFData MixedMeasureMapping where
       `Prelude.seq` Prelude.rnf multiMeasureAttributeMappings
       `Prelude.seq` Prelude.rnf measureValueType
 
-instance Core.ToJSON MixedMeasureMapping where
+instance Data.ToJSON MixedMeasureMapping where
   toJSON MixedMeasureMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MeasureName" Core..=) Prelude.<$> measureName,
-            ("TargetMeasureName" Core..=)
+          [ ("MeasureName" Data..=) Prelude.<$> measureName,
+            ("TargetMeasureName" Data..=)
               Prelude.<$> targetMeasureName,
-            ("SourceColumn" Core..=) Prelude.<$> sourceColumn,
-            ("MultiMeasureAttributeMappings" Core..=)
+            ("SourceColumn" Data..=) Prelude.<$> sourceColumn,
+            ("MultiMeasureAttributeMappings" Data..=)
               Prelude.<$> multiMeasureAttributeMappings,
             Prelude.Just
-              ("MeasureValueType" Core..= measureValueType)
+              ("MeasureValueType" Data..= measureValueType)
           ]
       )

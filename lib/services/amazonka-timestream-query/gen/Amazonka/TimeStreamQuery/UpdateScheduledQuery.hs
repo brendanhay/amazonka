@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,35 +104,35 @@ instance Prelude.NFData UpdateScheduledQuery where
     Prelude.rnf scheduledQueryArn
       `Prelude.seq` Prelude.rnf state
 
-instance Core.ToHeaders UpdateScheduledQuery where
+instance Data.ToHeaders UpdateScheduledQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.UpdateScheduledQuery" ::
+              Data.=# ( "Timestream_20181101.UpdateScheduledQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateScheduledQuery where
+instance Data.ToJSON UpdateScheduledQuery where
   toJSON UpdateScheduledQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ScheduledQueryArn" Core..= scheduledQueryArn),
-            Prelude.Just ("State" Core..= state)
+              ("ScheduledQueryArn" Data..= scheduledQueryArn),
+            Prelude.Just ("State" Data..= state)
           ]
       )
 
-instance Core.ToPath UpdateScheduledQuery where
+instance Data.ToPath UpdateScheduledQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateScheduledQuery where
+instance Data.ToQuery UpdateScheduledQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateScheduledQueryResponse' smart constructor.

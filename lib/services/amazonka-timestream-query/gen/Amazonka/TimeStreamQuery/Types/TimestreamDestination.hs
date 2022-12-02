@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.TimestreamDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Destination for scheduled query.
@@ -61,14 +62,14 @@ timestreamDestination_tableName = Lens.lens (\TimestreamDestination' {tableName}
 timestreamDestination_databaseName :: Lens.Lens' TimestreamDestination (Prelude.Maybe Prelude.Text)
 timestreamDestination_databaseName = Lens.lens (\TimestreamDestination' {databaseName} -> databaseName) (\s@TimestreamDestination' {} a -> s {databaseName = a} :: TimestreamDestination)
 
-instance Core.FromJSON TimestreamDestination where
+instance Data.FromJSON TimestreamDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestreamDestination"
       ( \x ->
           TimestreamDestination'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "DatabaseName")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "DatabaseName")
       )
 
 instance Prelude.Hashable TimestreamDestination where

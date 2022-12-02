@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.S3Configuration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.S3EncryptionOption
 
@@ -80,15 +81,15 @@ s3Configuration_encryptionOption = Lens.lens (\S3Configuration' {encryptionOptio
 s3Configuration_bucketName :: Lens.Lens' S3Configuration Prelude.Text
 s3Configuration_bucketName = Lens.lens (\S3Configuration' {bucketName} -> bucketName) (\s@S3Configuration' {} a -> s {bucketName = a} :: S3Configuration)
 
-instance Core.FromJSON S3Configuration where
+instance Data.FromJSON S3Configuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Configuration"
       ( \x ->
           S3Configuration'
-            Prelude.<$> (x Core..:? "ObjectKeyPrefix")
-            Prelude.<*> (x Core..:? "EncryptionOption")
-            Prelude.<*> (x Core..: "BucketName")
+            Prelude.<$> (x Data..:? "ObjectKeyPrefix")
+            Prelude.<*> (x Data..:? "EncryptionOption")
+            Prelude.<*> (x Data..: "BucketName")
       )
 
 instance Prelude.Hashable S3Configuration where
@@ -103,14 +104,14 @@ instance Prelude.NFData S3Configuration where
       `Prelude.seq` Prelude.rnf encryptionOption
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON S3Configuration where
+instance Data.ToJSON S3Configuration where
   toJSON S3Configuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ObjectKeyPrefix" Core..=)
+          [ ("ObjectKeyPrefix" Data..=)
               Prelude.<$> objectKeyPrefix,
-            ("EncryptionOption" Core..=)
+            ("EncryptionOption" Data..=)
               Prelude.<$> encryptionOption,
-            Prelude.Just ("BucketName" Core..= bucketName)
+            Prelude.Just ("BucketName" Data..= bucketName)
           ]
       )

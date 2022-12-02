@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.ExecutionStats where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Statistics for a single scheduled query run.
@@ -97,17 +98,17 @@ executionStats_executionTimeInMillis = Lens.lens (\ExecutionStats' {executionTim
 executionStats_bytesMetered :: Lens.Lens' ExecutionStats (Prelude.Maybe Prelude.Integer)
 executionStats_bytesMetered = Lens.lens (\ExecutionStats' {bytesMetered} -> bytesMetered) (\s@ExecutionStats' {} a -> s {bytesMetered = a} :: ExecutionStats)
 
-instance Core.FromJSON ExecutionStats where
+instance Data.FromJSON ExecutionStats where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionStats"
       ( \x ->
           ExecutionStats'
-            Prelude.<$> (x Core..:? "DataWrites")
-            Prelude.<*> (x Core..:? "QueryResultRows")
-            Prelude.<*> (x Core..:? "RecordsIngested")
-            Prelude.<*> (x Core..:? "ExecutionTimeInMillis")
-            Prelude.<*> (x Core..:? "BytesMetered")
+            Prelude.<$> (x Data..:? "DataWrites")
+            Prelude.<*> (x Data..:? "QueryResultRows")
+            Prelude.<*> (x Data..:? "RecordsIngested")
+            Prelude.<*> (x Data..:? "ExecutionTimeInMillis")
+            Prelude.<*> (x Data..:? "BytesMetered")
       )
 
 instance Prelude.Hashable ExecutionStats where

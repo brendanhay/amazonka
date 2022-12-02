@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.Datum where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.TimeStreamQuery.Types.Row
 import {-# SOURCE #-} Amazonka.TimeStreamQuery.Types.TimeSeriesDataPoint
@@ -93,19 +94,19 @@ datum_nullValue = Lens.lens (\Datum' {nullValue} -> nullValue) (\s@Datum' {} a -
 datum_arrayValue :: Lens.Lens' Datum (Prelude.Maybe [Datum])
 datum_arrayValue = Lens.lens (\Datum' {arrayValue} -> arrayValue) (\s@Datum' {} a -> s {arrayValue = a} :: Datum) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Datum where
+instance Data.FromJSON Datum where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Datum"
       ( \x ->
           Datum'
-            Prelude.<$> (x Core..:? "ScalarValue")
-            Prelude.<*> ( x Core..:? "TimeSeriesValue"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ScalarValue")
+            Prelude.<*> ( x Data..:? "TimeSeriesValue"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "RowValue")
-            Prelude.<*> (x Core..:? "NullValue")
-            Prelude.<*> (x Core..:? "ArrayValue" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RowValue")
+            Prelude.<*> (x Data..:? "NullValue")
+            Prelude.<*> (x Data..:? "ArrayValue" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Datum where

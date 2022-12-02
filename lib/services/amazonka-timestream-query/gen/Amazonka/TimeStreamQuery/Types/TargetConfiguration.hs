@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.TargetConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.TimestreamConfiguration
 
@@ -59,13 +60,13 @@ newTargetConfiguration pTimestreamConfiguration_ =
 targetConfiguration_timestreamConfiguration :: Lens.Lens' TargetConfiguration TimestreamConfiguration
 targetConfiguration_timestreamConfiguration = Lens.lens (\TargetConfiguration' {timestreamConfiguration} -> timestreamConfiguration) (\s@TargetConfiguration' {} a -> s {timestreamConfiguration = a} :: TargetConfiguration)
 
-instance Core.FromJSON TargetConfiguration where
+instance Data.FromJSON TargetConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetConfiguration"
       ( \x ->
           TargetConfiguration'
-            Prelude.<$> (x Core..: "TimestreamConfiguration")
+            Prelude.<$> (x Data..: "TimestreamConfiguration")
       )
 
 instance Prelude.Hashable TargetConfiguration where
@@ -77,13 +78,13 @@ instance Prelude.NFData TargetConfiguration where
   rnf TargetConfiguration' {..} =
     Prelude.rnf timestreamConfiguration
 
-instance Core.ToJSON TargetConfiguration where
+instance Data.ToJSON TargetConfiguration where
   toJSON TargetConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "TimestreamConfiguration"
-                  Core..= timestreamConfiguration
+                  Data..= timestreamConfiguration
               )
           ]
       )

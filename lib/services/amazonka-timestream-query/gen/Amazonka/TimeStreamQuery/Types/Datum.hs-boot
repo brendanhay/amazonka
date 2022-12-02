@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.TimeStreamQuery.Types.Datum where
 
-import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 data Datum
@@ -24,7 +24,7 @@ instance Prelude.Show Datum
 
 instance Prelude.Generic Datum
 
-instance Core.FromJSON Datum
+instance Data.FromJSON Datum
 
 instance Prelude.NFData Datum
 

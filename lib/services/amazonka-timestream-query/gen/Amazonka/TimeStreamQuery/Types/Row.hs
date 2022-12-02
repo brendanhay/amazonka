@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.Row where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import {-# SOURCE #-} Amazonka.TimeStreamQuery.Types.Datum
 
@@ -50,13 +51,13 @@ newRow = Row' {data' = Prelude.mempty}
 row_data :: Lens.Lens' Row [Datum]
 row_data = Lens.lens (\Row' {data'} -> data') (\s@Row' {} a -> s {data' = a} :: Row) Prelude.. Lens.coerced
 
-instance Core.FromJSON Row where
+instance Data.FromJSON Row where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Row"
       ( \x ->
           Row'
-            Prelude.<$> (x Core..:? "Data" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Data" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Row where

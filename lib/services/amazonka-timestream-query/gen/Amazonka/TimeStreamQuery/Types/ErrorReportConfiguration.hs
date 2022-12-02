@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.ErrorReportConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.S3Configuration
 
@@ -56,13 +57,13 @@ newErrorReportConfiguration pS3Configuration_ =
 errorReportConfiguration_s3Configuration :: Lens.Lens' ErrorReportConfiguration S3Configuration
 errorReportConfiguration_s3Configuration = Lens.lens (\ErrorReportConfiguration' {s3Configuration} -> s3Configuration) (\s@ErrorReportConfiguration' {} a -> s {s3Configuration = a} :: ErrorReportConfiguration)
 
-instance Core.FromJSON ErrorReportConfiguration where
+instance Data.FromJSON ErrorReportConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorReportConfiguration"
       ( \x ->
           ErrorReportConfiguration'
-            Prelude.<$> (x Core..: "S3Configuration")
+            Prelude.<$> (x Data..: "S3Configuration")
       )
 
 instance Prelude.Hashable ErrorReportConfiguration where
@@ -73,11 +74,11 @@ instance Prelude.NFData ErrorReportConfiguration where
   rnf ErrorReportConfiguration' {..} =
     Prelude.rnf s3Configuration
 
-instance Core.ToJSON ErrorReportConfiguration where
+instance Data.ToJSON ErrorReportConfiguration where
   toJSON ErrorReportConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("S3Configuration" Core..= s3Configuration)
+              ("S3Configuration" Data..= s3Configuration)
           ]
       )

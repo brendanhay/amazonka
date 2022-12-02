@@ -21,6 +21,7 @@ module Amazonka.TimeStreamQuery.Types.SelectColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamQuery.Types.Type
 
@@ -88,17 +89,17 @@ selectColumn_databaseName = Lens.lens (\SelectColumn' {databaseName} -> database
 selectColumn_aliased :: Lens.Lens' SelectColumn (Prelude.Maybe Prelude.Bool)
 selectColumn_aliased = Lens.lens (\SelectColumn' {aliased} -> aliased) (\s@SelectColumn' {} a -> s {aliased = a} :: SelectColumn)
 
-instance Core.FromJSON SelectColumn where
+instance Data.FromJSON SelectColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SelectColumn"
       ( \x ->
           SelectColumn'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Aliased")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Aliased")
       )
 
 instance Prelude.Hashable SelectColumn where

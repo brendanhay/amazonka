@@ -108,6 +108,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,10 +165,10 @@ instance Core.AWSRequest PutRecordBatch where
     Response.receiveJSON
       ( \s h x ->
           PutRecordBatchResponse'
-            Prelude.<$> (x Core..?> "Encrypted")
+            Prelude.<$> (x Data..?> "Encrypted")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "FailedPutCount")
-            Prelude.<*> (x Core..:> "RequestResponses")
+            Prelude.<*> (x Data..:> "FailedPutCount")
+            Prelude.<*> (x Data..:> "RequestResponses")
       )
 
 instance Prelude.Hashable PutRecordBatch where
@@ -180,35 +181,35 @@ instance Prelude.NFData PutRecordBatch where
     Prelude.rnf deliveryStreamName
       `Prelude.seq` Prelude.rnf records
 
-instance Core.ToHeaders PutRecordBatch where
+instance Data.ToHeaders PutRecordBatch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.PutRecordBatch" ::
+              Data.=# ( "Firehose_20150804.PutRecordBatch" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRecordBatch where
+instance Data.ToJSON PutRecordBatch where
   toJSON PutRecordBatch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName),
-            Prelude.Just ("Records" Core..= records)
+              ("DeliveryStreamName" Data..= deliveryStreamName),
+            Prelude.Just ("Records" Data..= records)
           ]
       )
 
-instance Core.ToPath PutRecordBatch where
+instance Data.ToPath PutRecordBatch where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRecordBatch where
+instance Data.ToQuery PutRecordBatch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutRecordBatchResponse' smart constructor.

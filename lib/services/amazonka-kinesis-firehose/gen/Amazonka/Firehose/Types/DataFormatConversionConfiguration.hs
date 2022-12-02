@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.DataFormatConversionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.InputFormatConfiguration
 import Amazonka.Firehose.Types.OutputFormatConfiguration
 import Amazonka.Firehose.Types.SchemaConfiguration
@@ -109,18 +110,18 @@ dataFormatConversionConfiguration_outputFormatConfiguration :: Lens.Lens' DataFo
 dataFormatConversionConfiguration_outputFormatConfiguration = Lens.lens (\DataFormatConversionConfiguration' {outputFormatConfiguration} -> outputFormatConfiguration) (\s@DataFormatConversionConfiguration' {} a -> s {outputFormatConfiguration = a} :: DataFormatConversionConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DataFormatConversionConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataFormatConversionConfiguration"
       ( \x ->
           DataFormatConversionConfiguration'
-            Prelude.<$> (x Core..:? "InputFormatConfiguration")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "SchemaConfiguration")
-            Prelude.<*> (x Core..:? "OutputFormatConfiguration")
+            Prelude.<$> (x Data..:? "InputFormatConfiguration")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "SchemaConfiguration")
+            Prelude.<*> (x Data..:? "OutputFormatConfiguration")
       )
 
 instance
@@ -147,18 +148,18 @@ instance
       `Prelude.seq` Prelude.rnf outputFormatConfiguration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DataFormatConversionConfiguration
   where
   toJSON DataFormatConversionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("InputFormatConfiguration" Core..=)
+          [ ("InputFormatConfiguration" Data..=)
               Prelude.<$> inputFormatConfiguration,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("SchemaConfiguration" Core..=)
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("SchemaConfiguration" Data..=)
               Prelude.<$> schemaConfiguration,
-            ("OutputFormatConfiguration" Core..=)
+            ("OutputFormatConfiguration" Data..=)
               Prelude.<$> outputFormatConfiguration
           ]
       )

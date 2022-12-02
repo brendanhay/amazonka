@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.EncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.KMSEncryptionConfig
 import Amazonka.Firehose.Types.NoEncryptionConfig
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ encryptionConfiguration_noEncryptionConfig = Lens.lens (\EncryptionConfiguration
 encryptionConfiguration_kmsEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe KMSEncryptionConfig)
 encryptionConfiguration_kmsEncryptionConfig = Lens.lens (\EncryptionConfiguration' {kmsEncryptionConfig} -> kmsEncryptionConfig) (\s@EncryptionConfiguration' {} a -> s {kmsEncryptionConfig = a} :: EncryptionConfiguration)
 
-instance Core.FromJSON EncryptionConfiguration where
+instance Data.FromJSON EncryptionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Core..:? "NoEncryptionConfig")
-            Prelude.<*> (x Core..:? "KMSEncryptionConfig")
+            Prelude.<$> (x Data..:? "NoEncryptionConfig")
+            Prelude.<*> (x Data..:? "KMSEncryptionConfig")
       )
 
 instance Prelude.Hashable EncryptionConfiguration where
@@ -87,13 +88,13 @@ instance Prelude.NFData EncryptionConfiguration where
     Prelude.rnf noEncryptionConfig
       `Prelude.seq` Prelude.rnf kmsEncryptionConfig
 
-instance Core.ToJSON EncryptionConfiguration where
+instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NoEncryptionConfig" Core..=)
+          [ ("NoEncryptionConfig" Data..=)
               Prelude.<$> noEncryptionConfig,
-            ("KMSEncryptionConfig" Core..=)
+            ("KMSEncryptionConfig" Data..=)
               Prelude.<$> kmsEncryptionConfig
           ]
       )

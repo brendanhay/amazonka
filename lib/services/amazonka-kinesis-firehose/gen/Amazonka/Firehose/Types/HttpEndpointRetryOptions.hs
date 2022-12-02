@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.HttpEndpointRetryOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the retry behavior in case Kinesis Data Firehose is unable to
@@ -68,13 +69,13 @@ newHttpEndpointRetryOptions =
 httpEndpointRetryOptions_durationInSeconds :: Lens.Lens' HttpEndpointRetryOptions (Prelude.Maybe Prelude.Natural)
 httpEndpointRetryOptions_durationInSeconds = Lens.lens (\HttpEndpointRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@HttpEndpointRetryOptions' {} a -> s {durationInSeconds = a} :: HttpEndpointRetryOptions)
 
-instance Core.FromJSON HttpEndpointRetryOptions where
+instance Data.FromJSON HttpEndpointRetryOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpEndpointRetryOptions"
       ( \x ->
           HttpEndpointRetryOptions'
-            Prelude.<$> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "DurationInSeconds")
       )
 
 instance Prelude.Hashable HttpEndpointRetryOptions where
@@ -85,11 +86,11 @@ instance Prelude.NFData HttpEndpointRetryOptions where
   rnf HttpEndpointRetryOptions' {..} =
     Prelude.rnf durationInSeconds
 
-instance Core.ToJSON HttpEndpointRetryOptions where
+instance Data.ToJSON HttpEndpointRetryOptions where
   toJSON HttpEndpointRetryOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DurationInSeconds" Core..=)
+          [ ("DurationInSeconds" Data..=)
               Prelude.<$> durationInSeconds
           ]
       )

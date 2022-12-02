@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.OpenXJsonSerDe where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data,
@@ -111,16 +112,16 @@ openXJsonSerDe_convertDotsInJsonKeysToUnderscores = Lens.lens (\OpenXJsonSerDe' 
 openXJsonSerDe_columnToJsonKeyMappings :: Lens.Lens' OpenXJsonSerDe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 openXJsonSerDe_columnToJsonKeyMappings = Lens.lens (\OpenXJsonSerDe' {columnToJsonKeyMappings} -> columnToJsonKeyMappings) (\s@OpenXJsonSerDe' {} a -> s {columnToJsonKeyMappings = a} :: OpenXJsonSerDe) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OpenXJsonSerDe where
+instance Data.FromJSON OpenXJsonSerDe where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenXJsonSerDe"
       ( \x ->
           OpenXJsonSerDe'
-            Prelude.<$> (x Core..:? "CaseInsensitive")
-            Prelude.<*> (x Core..:? "ConvertDotsInJsonKeysToUnderscores")
-            Prelude.<*> ( x Core..:? "ColumnToJsonKeyMappings"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "CaseInsensitive")
+            Prelude.<*> (x Data..:? "ConvertDotsInJsonKeysToUnderscores")
+            Prelude.<*> ( x Data..:? "ColumnToJsonKeyMappings"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -136,15 +137,15 @@ instance Prelude.NFData OpenXJsonSerDe where
       `Prelude.seq` Prelude.rnf convertDotsInJsonKeysToUnderscores
       `Prelude.seq` Prelude.rnf columnToJsonKeyMappings
 
-instance Core.ToJSON OpenXJsonSerDe where
+instance Data.ToJSON OpenXJsonSerDe where
   toJSON OpenXJsonSerDe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CaseInsensitive" Core..=)
+          [ ("CaseInsensitive" Data..=)
               Prelude.<$> caseInsensitive,
-            ("ConvertDotsInJsonKeysToUnderscores" Core..=)
+            ("ConvertDotsInJsonKeysToUnderscores" Data..=)
               Prelude.<$> convertDotsInJsonKeysToUnderscores,
-            ("ColumnToJsonKeyMappings" Core..=)
+            ("ColumnToJsonKeyMappings" Data..=)
               Prelude.<$> columnToJsonKeyMappings
           ]
       )

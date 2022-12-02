@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.VpcConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the VPC of the Amazon ES destination.
@@ -246,13 +247,13 @@ instance Prelude.NFData VpcConfiguration where
       `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf securityGroupIds
 
-instance Core.ToJSON VpcConfiguration where
+instance Data.ToJSON VpcConfiguration where
   toJSON VpcConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SubnetIds" Core..= subnetIds),
-            Prelude.Just ("RoleARN" Core..= roleARN),
+          [ Prelude.Just ("SubnetIds" Data..= subnetIds),
+            Prelude.Just ("RoleARN" Data..= roleARN),
             Prelude.Just
-              ("SecurityGroupIds" Core..= securityGroupIds)
+              ("SecurityGroupIds" Data..= securityGroupIds)
           ]
       )

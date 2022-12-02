@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.Record where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The unit of data in a delivery stream.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data Record = Record'
   { -- | The data blob, which is base64-encoded when the blob is serialized. The
     -- maximum size of the data blob, before base64-encoding, is 1,000 KiB.
-    data' :: Core.Base64
+    data' :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,7 +53,7 @@ newRecord ::
   Prelude.ByteString ->
   Record
 newRecord pData_ =
-  Record' {data' = Core._Base64 Lens.# pData_}
+  Record' {data' = Data._Base64 Lens.# pData_}
 
 -- | The data blob, which is base64-encoded when the blob is serialized. The
 -- maximum size of the data blob, before base64-encoding, is 1,000 KiB.--
@@ -61,7 +62,7 @@ newRecord pData_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 record_data :: Lens.Lens' Record Prelude.ByteString
-record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Prelude.. Core._Base64
+record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Prelude.. Data._Base64
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
@@ -70,9 +71,9 @@ instance Prelude.Hashable Record where
 instance Prelude.NFData Record where
   rnf Record' {..} = Prelude.rnf data'
 
-instance Core.ToJSON Record where
+instance Data.ToJSON Record where
   toJSON Record' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Data" Core..= data')]
+          [Prelude.Just ("Data" Data..= data')]
       )

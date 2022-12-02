@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.AmazonopensearchserviceDestinationConfiguration w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints
 import Amazonka.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod
 import Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions
@@ -214,32 +215,32 @@ instance
         `Prelude.seq` Prelude.rnf s3Configuration
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AmazonopensearchserviceDestinationConfiguration
   where
   toJSON
     AmazonopensearchserviceDestinationConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("VpcConfiguration" Core..=)
+            [ ("VpcConfiguration" Data..=)
                 Prelude.<$> vpcConfiguration,
-              ("ProcessingConfiguration" Core..=)
+              ("ProcessingConfiguration" Data..=)
                 Prelude.<$> processingConfiguration,
-              ("BufferingHints" Core..=)
+              ("BufferingHints" Data..=)
                 Prelude.<$> bufferingHints,
-              ("ClusterEndpoint" Core..=)
+              ("ClusterEndpoint" Data..=)
                 Prelude.<$> clusterEndpoint,
-              ("DomainARN" Core..=) Prelude.<$> domainARN,
-              ("TypeName" Core..=) Prelude.<$> typeName,
-              ("CloudWatchLoggingOptions" Core..=)
+              ("DomainARN" Data..=) Prelude.<$> domainARN,
+              ("TypeName" Data..=) Prelude.<$> typeName,
+              ("CloudWatchLoggingOptions" Data..=)
                 Prelude.<$> cloudWatchLoggingOptions,
-              ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
-              ("IndexRotationPeriod" Core..=)
+              ("S3BackupMode" Data..=) Prelude.<$> s3BackupMode,
+              ("IndexRotationPeriod" Data..=)
                 Prelude.<$> indexRotationPeriod,
-              ("RetryOptions" Core..=) Prelude.<$> retryOptions,
-              Prelude.Just ("RoleARN" Core..= roleARN),
-              Prelude.Just ("IndexName" Core..= indexName),
+              ("RetryOptions" Data..=) Prelude.<$> retryOptions,
+              Prelude.Just ("RoleARN" Data..= roleARN),
+              Prelude.Just ("IndexName" Data..= indexName),
               Prelude.Just
-                ("S3Configuration" Core..= s3Configuration)
+                ("S3Configuration" Data..= s3Configuration)
             ]
         )

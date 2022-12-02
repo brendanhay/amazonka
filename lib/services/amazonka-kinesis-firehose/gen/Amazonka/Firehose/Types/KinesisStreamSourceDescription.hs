@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.KinesisStreamSourceDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a Kinesis data stream used as the source for a Kinesis
@@ -38,7 +39,7 @@ data KinesisStreamSourceDescription = KinesisStreamSourceDescription'
     kinesisStreamARN :: Prelude.Maybe Prelude.Text,
     -- | Kinesis Data Firehose starts retrieving records from the Kinesis data
     -- stream starting with this timestamp.
-    deliveryStartTimestamp :: Prelude.Maybe Core.POSIX
+    deliveryStartTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,17 +86,17 @@ kinesisStreamSourceDescription_kinesisStreamARN = Lens.lens (\KinesisStreamSourc
 -- | Kinesis Data Firehose starts retrieving records from the Kinesis data
 -- stream starting with this timestamp.
 kinesisStreamSourceDescription_deliveryStartTimestamp :: Lens.Lens' KinesisStreamSourceDescription (Prelude.Maybe Prelude.UTCTime)
-kinesisStreamSourceDescription_deliveryStartTimestamp = Lens.lens (\KinesisStreamSourceDescription' {deliveryStartTimestamp} -> deliveryStartTimestamp) (\s@KinesisStreamSourceDescription' {} a -> s {deliveryStartTimestamp = a} :: KinesisStreamSourceDescription) Prelude.. Lens.mapping Core._Time
+kinesisStreamSourceDescription_deliveryStartTimestamp = Lens.lens (\KinesisStreamSourceDescription' {deliveryStartTimestamp} -> deliveryStartTimestamp) (\s@KinesisStreamSourceDescription' {} a -> s {deliveryStartTimestamp = a} :: KinesisStreamSourceDescription) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON KinesisStreamSourceDescription where
+instance Data.FromJSON KinesisStreamSourceDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisStreamSourceDescription"
       ( \x ->
           KinesisStreamSourceDescription'
-            Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "KinesisStreamARN")
-            Prelude.<*> (x Core..:? "DeliveryStartTimestamp")
+            Prelude.<$> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..:? "KinesisStreamARN")
+            Prelude.<*> (x Data..:? "DeliveryStartTimestamp")
       )
 
 instance

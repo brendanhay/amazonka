@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.SchemaConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the schema to which you want Kinesis Data Firehose to
@@ -159,18 +160,18 @@ schemaConfiguration_catalogId = Lens.lens (\SchemaConfiguration' {catalogId} -> 
 schemaConfiguration_versionId :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_versionId = Lens.lens (\SchemaConfiguration' {versionId} -> versionId) (\s@SchemaConfiguration' {} a -> s {versionId = a} :: SchemaConfiguration)
 
-instance Core.FromJSON SchemaConfiguration where
+instance Data.FromJSON SchemaConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaConfiguration"
       ( \x ->
           SchemaConfiguration'
-            Prelude.<$> (x Core..:? "TableName")
-            Prelude.<*> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "RoleARN")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable SchemaConfiguration where
@@ -191,15 +192,15 @@ instance Prelude.NFData SchemaConfiguration where
       `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToJSON SchemaConfiguration where
+instance Data.ToJSON SchemaConfiguration where
   toJSON SchemaConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Core..=) Prelude.<$> tableName,
-            ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName,
-            ("Region" Core..=) Prelude.<$> region,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("VersionId" Core..=) Prelude.<$> versionId
+          [ ("TableName" Data..=) Prelude.<$> tableName,
+            ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Region" Data..=) Prelude.<$> region,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("VersionId" Data..=) Prelude.<$> versionId
           ]
       )

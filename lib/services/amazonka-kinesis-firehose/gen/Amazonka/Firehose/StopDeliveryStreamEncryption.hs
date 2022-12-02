@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,34 +128,34 @@ instance Prelude.NFData StopDeliveryStreamEncryption where
   rnf StopDeliveryStreamEncryption' {..} =
     Prelude.rnf deliveryStreamName
 
-instance Core.ToHeaders StopDeliveryStreamEncryption where
+instance Data.ToHeaders StopDeliveryStreamEncryption where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.StopDeliveryStreamEncryption" ::
+              Data.=# ( "Firehose_20150804.StopDeliveryStreamEncryption" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopDeliveryStreamEncryption where
+instance Data.ToJSON StopDeliveryStreamEncryption where
   toJSON StopDeliveryStreamEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName)
+              ("DeliveryStreamName" Data..= deliveryStreamName)
           ]
       )
 
-instance Core.ToPath StopDeliveryStreamEncryption where
+instance Data.ToPath StopDeliveryStreamEncryption where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopDeliveryStreamEncryption where
+instance Data.ToQuery StopDeliveryStreamEncryption where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopDeliveryStreamEncryptionResponse' smart constructor.

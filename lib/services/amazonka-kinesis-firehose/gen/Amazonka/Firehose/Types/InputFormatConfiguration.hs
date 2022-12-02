@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.InputFormatConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.Deserializer
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,13 +62,13 @@ newInputFormatConfiguration =
 inputFormatConfiguration_deserializer :: Lens.Lens' InputFormatConfiguration (Prelude.Maybe Deserializer)
 inputFormatConfiguration_deserializer = Lens.lens (\InputFormatConfiguration' {deserializer} -> deserializer) (\s@InputFormatConfiguration' {} a -> s {deserializer = a} :: InputFormatConfiguration)
 
-instance Core.FromJSON InputFormatConfiguration where
+instance Data.FromJSON InputFormatConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputFormatConfiguration"
       ( \x ->
           InputFormatConfiguration'
-            Prelude.<$> (x Core..:? "Deserializer")
+            Prelude.<$> (x Data..:? "Deserializer")
       )
 
 instance Prelude.Hashable InputFormatConfiguration where
@@ -78,9 +79,9 @@ instance Prelude.NFData InputFormatConfiguration where
   rnf InputFormatConfiguration' {..} =
     Prelude.rnf deserializer
 
-instance Core.ToJSON InputFormatConfiguration where
+instance Data.ToJSON InputFormatConfiguration where
   toJSON InputFormatConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Deserializer" Core..=) Prelude.<$> deserializer]
+          [("Deserializer" Data..=) Prelude.<$> deserializer]
       )

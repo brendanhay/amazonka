@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.CopyCommand where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a @COPY@ command for Amazon Redshift.
@@ -141,15 +142,15 @@ copyCommand_copyOptions = Lens.lens (\CopyCommand' {copyOptions} -> copyOptions)
 copyCommand_dataTableName :: Lens.Lens' CopyCommand Prelude.Text
 copyCommand_dataTableName = Lens.lens (\CopyCommand' {dataTableName} -> dataTableName) (\s@CopyCommand' {} a -> s {dataTableName = a} :: CopyCommand)
 
-instance Core.FromJSON CopyCommand where
+instance Data.FromJSON CopyCommand where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CopyCommand"
       ( \x ->
           CopyCommand'
-            Prelude.<$> (x Core..:? "DataTableColumns")
-            Prelude.<*> (x Core..:? "CopyOptions")
-            Prelude.<*> (x Core..: "DataTableName")
+            Prelude.<$> (x Data..:? "DataTableColumns")
+            Prelude.<*> (x Data..:? "CopyOptions")
+            Prelude.<*> (x Data..: "DataTableName")
       )
 
 instance Prelude.Hashable CopyCommand where
@@ -164,14 +165,14 @@ instance Prelude.NFData CopyCommand where
       `Prelude.seq` Prelude.rnf copyOptions
       `Prelude.seq` Prelude.rnf dataTableName
 
-instance Core.ToJSON CopyCommand where
+instance Data.ToJSON CopyCommand where
   toJSON CopyCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataTableColumns" Core..=)
+          [ ("DataTableColumns" Data..=)
               Prelude.<$> dataTableColumns,
-            ("CopyOptions" Core..=) Prelude.<$> copyOptions,
+            ("CopyOptions" Data..=) Prelude.<$> copyOptions,
             Prelude.Just
-              ("DataTableName" Core..= dataTableName)
+              ("DataTableName" Data..= dataTableName)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.KinesisStreamSourceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The stream and role Amazon Resource Names (ARNs) for a Kinesis data
@@ -96,12 +97,12 @@ instance
     Prelude.rnf kinesisStreamARN
       `Prelude.seq` Prelude.rnf roleARN
 
-instance Core.ToJSON KinesisStreamSourceConfiguration where
+instance Data.ToJSON KinesisStreamSourceConfiguration where
   toJSON KinesisStreamSourceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("KinesisStreamARN" Core..= kinesisStreamARN),
-            Prelude.Just ("RoleARN" Core..= roleARN)
+              ("KinesisStreamARN" Data..= kinesisStreamARN),
+            Prelude.Just ("RoleARN" Data..= roleARN)
           ]
       )

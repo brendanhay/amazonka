@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.OutputFormatConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.Serializer
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,13 +63,13 @@ newOutputFormatConfiguration =
 outputFormatConfiguration_serializer :: Lens.Lens' OutputFormatConfiguration (Prelude.Maybe Serializer)
 outputFormatConfiguration_serializer = Lens.lens (\OutputFormatConfiguration' {serializer} -> serializer) (\s@OutputFormatConfiguration' {} a -> s {serializer = a} :: OutputFormatConfiguration)
 
-instance Core.FromJSON OutputFormatConfiguration where
+instance Data.FromJSON OutputFormatConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputFormatConfiguration"
       ( \x ->
           OutputFormatConfiguration'
-            Prelude.<$> (x Core..:? "Serializer")
+            Prelude.<$> (x Data..:? "Serializer")
       )
 
 instance Prelude.Hashable OutputFormatConfiguration where
@@ -79,9 +80,9 @@ instance Prelude.NFData OutputFormatConfiguration where
   rnf OutputFormatConfiguration' {..} =
     Prelude.rnf serializer
 
-instance Core.ToJSON OutputFormatConfiguration where
+instance Data.ToJSON OutputFormatConfiguration where
   toJSON OutputFormatConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Serializer" Core..=) Prelude.<$> serializer]
+          [("Serializer" Data..=) Prelude.<$> serializer]
       )

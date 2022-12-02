@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,35 +120,35 @@ instance Prelude.NFData UntagDeliveryStream where
     Prelude.rnf deliveryStreamName
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders UntagDeliveryStream where
+instance Data.ToHeaders UntagDeliveryStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.UntagDeliveryStream" ::
+              Data.=# ( "Firehose_20150804.UntagDeliveryStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UntagDeliveryStream where
+instance Data.ToJSON UntagDeliveryStream where
   toJSON UntagDeliveryStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName),
-            Prelude.Just ("TagKeys" Core..= tagKeys)
+              ("DeliveryStreamName" Data..= deliveryStreamName),
+            Prelude.Just ("TagKeys" Data..= tagKeys)
           ]
       )
 
-instance Core.ToPath UntagDeliveryStream where
+instance Data.ToPath UntagDeliveryStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UntagDeliveryStream where
+instance Data.ToQuery UntagDeliveryStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUntagDeliveryStreamResponse' smart constructor.

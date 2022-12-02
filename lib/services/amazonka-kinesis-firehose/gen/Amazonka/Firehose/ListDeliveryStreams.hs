@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,10 +152,10 @@ instance Core.AWSRequest ListDeliveryStreams where
       ( \s h x ->
           ListDeliveryStreamsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DeliveryStreamNames"
+            Prelude.<*> ( x Data..?> "DeliveryStreamNames"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..:> "HasMoreDeliveryStreams")
+            Prelude.<*> (x Data..:> "HasMoreDeliveryStreams")
       )
 
 instance Prelude.Hashable ListDeliveryStreams where
@@ -169,37 +170,37 @@ instance Prelude.NFData ListDeliveryStreams where
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf exclusiveStartDeliveryStreamName
 
-instance Core.ToHeaders ListDeliveryStreams where
+instance Data.ToHeaders ListDeliveryStreams where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.ListDeliveryStreams" ::
+              Data.=# ( "Firehose_20150804.ListDeliveryStreams" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDeliveryStreams where
+instance Data.ToJSON ListDeliveryStreams where
   toJSON ListDeliveryStreams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeliveryStreamType" Core..=)
+          [ ("DeliveryStreamType" Data..=)
               Prelude.<$> deliveryStreamType,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("ExclusiveStartDeliveryStreamName" Core..=)
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("ExclusiveStartDeliveryStreamName" Data..=)
               Prelude.<$> exclusiveStartDeliveryStreamName
           ]
       )
 
-instance Core.ToPath ListDeliveryStreams where
+instance Data.ToPath ListDeliveryStreams where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListDeliveryStreams where
+instance Data.ToQuery ListDeliveryStreams where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDeliveryStreamsResponse' smart constructor.

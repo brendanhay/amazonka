@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,35 +123,35 @@ instance Prelude.NFData TagDeliveryStream where
     Prelude.rnf deliveryStreamName
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagDeliveryStream where
+instance Data.ToHeaders TagDeliveryStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.TagDeliveryStream" ::
+              Data.=# ( "Firehose_20150804.TagDeliveryStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TagDeliveryStream where
+instance Data.ToJSON TagDeliveryStream where
   toJSON TagDeliveryStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName),
-            Prelude.Just ("Tags" Core..= tags)
+              ("DeliveryStreamName" Data..= deliveryStreamName),
+            Prelude.Just ("Tags" Data..= tags)
           ]
       )
 
-instance Core.ToPath TagDeliveryStream where
+instance Data.ToPath TagDeliveryStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TagDeliveryStream where
+instance Data.ToQuery TagDeliveryStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTagDeliveryStreamResponse' smart constructor.

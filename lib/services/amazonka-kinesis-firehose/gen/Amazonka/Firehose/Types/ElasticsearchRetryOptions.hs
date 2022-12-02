@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.ElasticsearchRetryOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to
@@ -66,13 +67,13 @@ newElasticsearchRetryOptions =
 elasticsearchRetryOptions_durationInSeconds :: Lens.Lens' ElasticsearchRetryOptions (Prelude.Maybe Prelude.Natural)
 elasticsearchRetryOptions_durationInSeconds = Lens.lens (\ElasticsearchRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@ElasticsearchRetryOptions' {} a -> s {durationInSeconds = a} :: ElasticsearchRetryOptions)
 
-instance Core.FromJSON ElasticsearchRetryOptions where
+instance Data.FromJSON ElasticsearchRetryOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticsearchRetryOptions"
       ( \x ->
           ElasticsearchRetryOptions'
-            Prelude.<$> (x Core..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "DurationInSeconds")
       )
 
 instance Prelude.Hashable ElasticsearchRetryOptions where
@@ -83,11 +84,11 @@ instance Prelude.NFData ElasticsearchRetryOptions where
   rnf ElasticsearchRetryOptions' {..} =
     Prelude.rnf durationInSeconds
 
-instance Core.ToJSON ElasticsearchRetryOptions where
+instance Data.ToJSON ElasticsearchRetryOptions where
   toJSON ElasticsearchRetryOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DurationInSeconds" Core..=)
+          [ ("DurationInSeconds" Data..=)
               Prelude.<$> durationInSeconds
           ]
       )

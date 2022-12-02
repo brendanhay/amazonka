@@ -123,6 +123,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -344,7 +345,7 @@ instance Core.AWSRequest CreateDeliveryStream where
     Response.receiveJSON
       ( \s h x ->
           CreateDeliveryStreamResponse'
-            Prelude.<$> (x Core..?> "DeliveryStreamARN")
+            Prelude.<$> (x Data..?> "DeliveryStreamARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -380,59 +381,59 @@ instance Prelude.NFData CreateDeliveryStream where
         amazonopensearchserviceDestinationConfiguration
       `Prelude.seq` Prelude.rnf deliveryStreamName
 
-instance Core.ToHeaders CreateDeliveryStream where
+instance Data.ToHeaders CreateDeliveryStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.CreateDeliveryStream" ::
+              Data.=# ( "Firehose_20150804.CreateDeliveryStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDeliveryStream where
+instance Data.ToJSON CreateDeliveryStream where
   toJSON CreateDeliveryStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("S3DestinationConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("S3DestinationConfiguration" Data..=)
               Prelude.<$> s3DestinationConfiguration,
-            ("HttpEndpointDestinationConfiguration" Core..=)
+            ("HttpEndpointDestinationConfiguration" Data..=)
               Prelude.<$> httpEndpointDestinationConfiguration,
-            ("DeliveryStreamType" Core..=)
+            ("DeliveryStreamType" Data..=)
               Prelude.<$> deliveryStreamType,
-            ("SplunkDestinationConfiguration" Core..=)
+            ("SplunkDestinationConfiguration" Data..=)
               Prelude.<$> splunkDestinationConfiguration,
-            ("ElasticsearchDestinationConfiguration" Core..=)
+            ("ElasticsearchDestinationConfiguration" Data..=)
               Prelude.<$> elasticsearchDestinationConfiguration,
-            ("RedshiftDestinationConfiguration" Core..=)
+            ("RedshiftDestinationConfiguration" Data..=)
               Prelude.<$> redshiftDestinationConfiguration,
             ( "DeliveryStreamEncryptionConfigurationInput"
-                Core..=
+                Data..=
             )
               Prelude.<$> deliveryStreamEncryptionConfigurationInput,
-            ("ExtendedS3DestinationConfiguration" Core..=)
+            ("ExtendedS3DestinationConfiguration" Data..=)
               Prelude.<$> extendedS3DestinationConfiguration,
-            ("KinesisStreamSourceConfiguration" Core..=)
+            ("KinesisStreamSourceConfiguration" Data..=)
               Prelude.<$> kinesisStreamSourceConfiguration,
             ( "AmazonopensearchserviceDestinationConfiguration"
-                Core..=
+                Data..=
             )
               Prelude.<$> amazonopensearchserviceDestinationConfiguration,
             Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName)
+              ("DeliveryStreamName" Data..= deliveryStreamName)
           ]
       )
 
-instance Core.ToPath CreateDeliveryStream where
+instance Data.ToPath CreateDeliveryStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDeliveryStream where
+instance Data.ToQuery CreateDeliveryStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDeliveryStreamResponse' smart constructor.

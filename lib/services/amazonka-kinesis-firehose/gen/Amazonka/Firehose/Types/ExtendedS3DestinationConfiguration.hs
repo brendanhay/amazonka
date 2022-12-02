@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.ExtendedS3DestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.BufferingHints
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CompressionFormat
@@ -276,33 +277,33 @@ instance
       `Prelude.seq` Prelude.rnf bucketARN
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ExtendedS3DestinationConfiguration
   where
   toJSON ExtendedS3DestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3BackupConfiguration" Core..=)
+          [ ("S3BackupConfiguration" Data..=)
               Prelude.<$> s3BackupConfiguration,
-            ("ProcessingConfiguration" Core..=)
+            ("ProcessingConfiguration" Data..=)
               Prelude.<$> processingConfiguration,
-            ("BufferingHints" Core..=)
+            ("BufferingHints" Data..=)
               Prelude.<$> bufferingHints,
-            ("DataFormatConversionConfiguration" Core..=)
+            ("DataFormatConversionConfiguration" Data..=)
               Prelude.<$> dataFormatConversionConfiguration,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
-            ("EncryptionConfiguration" Core..=)
+            ("S3BackupMode" Data..=) Prelude.<$> s3BackupMode,
+            ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            ("CompressionFormat" Core..=)
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("CompressionFormat" Data..=)
               Prelude.<$> compressionFormat,
-            ("DynamicPartitioningConfiguration" Core..=)
+            ("DynamicPartitioningConfiguration" Data..=)
               Prelude.<$> dynamicPartitioningConfiguration,
-            ("ErrorOutputPrefix" Core..=)
+            ("ErrorOutputPrefix" Data..=)
               Prelude.<$> errorOutputPrefix,
-            Prelude.Just ("RoleARN" Core..= roleARN),
-            Prelude.Just ("BucketARN" Core..= bucketARN)
+            Prelude.Just ("RoleARN" Data..= roleARN),
+            Prelude.Just ("BucketARN" Data..= bucketARN)
           ]
       )

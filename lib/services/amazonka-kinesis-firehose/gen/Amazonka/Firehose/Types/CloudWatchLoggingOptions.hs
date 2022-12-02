@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.CloudWatchLoggingOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon CloudWatch logging options for your delivery
@@ -78,15 +79,15 @@ cloudWatchLoggingOptions_logStreamName = Lens.lens (\CloudWatchLoggingOptions' {
 cloudWatchLoggingOptions_logGroupName :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Text)
 cloudWatchLoggingOptions_logGroupName = Lens.lens (\CloudWatchLoggingOptions' {logGroupName} -> logGroupName) (\s@CloudWatchLoggingOptions' {} a -> s {logGroupName = a} :: CloudWatchLoggingOptions)
 
-instance Core.FromJSON CloudWatchLoggingOptions where
+instance Data.FromJSON CloudWatchLoggingOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLoggingOptions"
       ( \x ->
           CloudWatchLoggingOptions'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "LogStreamName")
-            Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "LogStreamName")
+            Prelude.<*> (x Data..:? "LogGroupName")
       )
 
 instance Prelude.Hashable CloudWatchLoggingOptions where
@@ -101,12 +102,12 @@ instance Prelude.NFData CloudWatchLoggingOptions where
       `Prelude.seq` Prelude.rnf logStreamName
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToJSON CloudWatchLoggingOptions where
+instance Data.ToJSON CloudWatchLoggingOptions where
   toJSON CloudWatchLoggingOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("LogStreamName" Core..=) Prelude.<$> logStreamName,
-            ("LogGroupName" Core..=) Prelude.<$> logGroupName
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("LogStreamName" Data..=) Prelude.<$> logStreamName,
+            ("LogGroupName" Data..=) Prelude.<$> logGroupName
           ]
       )

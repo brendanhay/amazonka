@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.HttpEndpointDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the HTTP endpoint selected as the destination.
@@ -30,7 +31,7 @@ data HttpEndpointDescription = HttpEndpointDescription'
   { -- | The name of the HTTP endpoint selected as the destination.
     name :: Prelude.Maybe Prelude.Text,
     -- | The URL of the HTTP endpoint selected as the destination.
-    url :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    url :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,15 +60,15 @@ httpEndpointDescription_name = Lens.lens (\HttpEndpointDescription' {name} -> na
 
 -- | The URL of the HTTP endpoint selected as the destination.
 httpEndpointDescription_url :: Lens.Lens' HttpEndpointDescription (Prelude.Maybe Prelude.Text)
-httpEndpointDescription_url = Lens.lens (\HttpEndpointDescription' {url} -> url) (\s@HttpEndpointDescription' {} a -> s {url = a} :: HttpEndpointDescription) Prelude.. Lens.mapping Core._Sensitive
+httpEndpointDescription_url = Lens.lens (\HttpEndpointDescription' {url} -> url) (\s@HttpEndpointDescription' {} a -> s {url = a} :: HttpEndpointDescription) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON HttpEndpointDescription where
+instance Data.FromJSON HttpEndpointDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HttpEndpointDescription"
       ( \x ->
           HttpEndpointDescription'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Url")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable HttpEndpointDescription where

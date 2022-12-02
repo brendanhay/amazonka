@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.DeliveryStreamEncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.DeliveryStreamEncryptionStatus
 import Amazonka.Firehose.Types.FailureDescription
 import Amazonka.Firehose.Types.KeyType
@@ -124,18 +125,18 @@ deliveryStreamEncryptionConfiguration_keyARN :: Lens.Lens' DeliveryStreamEncrypt
 deliveryStreamEncryptionConfiguration_keyARN = Lens.lens (\DeliveryStreamEncryptionConfiguration' {keyARN} -> keyARN) (\s@DeliveryStreamEncryptionConfiguration' {} a -> s {keyARN = a} :: DeliveryStreamEncryptionConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DeliveryStreamEncryptionConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeliveryStreamEncryptionConfiguration"
       ( \x ->
           DeliveryStreamEncryptionConfiguration'
-            Prelude.<$> (x Core..:? "FailureDescription")
-            Prelude.<*> (x Core..:? "KeyType")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "KeyARN")
+            Prelude.<$> (x Data..:? "FailureDescription")
+            Prelude.<*> (x Data..:? "KeyType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "KeyARN")
       )
 
 instance

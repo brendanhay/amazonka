@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.SplunkDestinationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.HECEndpointType
 import Amazonka.Firehose.Types.ProcessingConfiguration
@@ -201,22 +202,22 @@ instance Prelude.NFData SplunkDestinationUpdate where
       `Prelude.seq` Prelude.rnf retryOptions
       `Prelude.seq` Prelude.rnf hECAcknowledgmentTimeoutInSeconds
 
-instance Core.ToJSON SplunkDestinationUpdate where
+instance Data.ToJSON SplunkDestinationUpdate where
   toJSON SplunkDestinationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HECToken" Core..=) Prelude.<$> hECToken,
-            ("ProcessingConfiguration" Core..=)
+          [ ("HECToken" Data..=) Prelude.<$> hECToken,
+            ("ProcessingConfiguration" Data..=)
               Prelude.<$> processingConfiguration,
-            ("S3Update" Core..=) Prelude.<$> s3Update,
-            ("HECEndpointType" Core..=)
+            ("S3Update" Data..=) Prelude.<$> s3Update,
+            ("HECEndpointType" Data..=)
               Prelude.<$> hECEndpointType,
-            ("HECEndpoint" Core..=) Prelude.<$> hECEndpoint,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("HECEndpoint" Data..=) Prelude.<$> hECEndpoint,
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
-            ("RetryOptions" Core..=) Prelude.<$> retryOptions,
-            ("HECAcknowledgmentTimeoutInSeconds" Core..=)
+            ("S3BackupMode" Data..=) Prelude.<$> s3BackupMode,
+            ("RetryOptions" Data..=) Prelude.<$> retryOptions,
+            ("HECAcknowledgmentTimeoutInSeconds" Data..=)
               Prelude.<$> hECAcknowledgmentTimeoutInSeconds
           ]
       )

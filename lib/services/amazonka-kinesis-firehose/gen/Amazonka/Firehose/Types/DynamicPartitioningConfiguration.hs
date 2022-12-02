@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.DynamicPartitioningConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.RetryOptions
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,16 +75,16 @@ dynamicPartitioningConfiguration_retryOptions :: Lens.Lens' DynamicPartitioningC
 dynamicPartitioningConfiguration_retryOptions = Lens.lens (\DynamicPartitioningConfiguration' {retryOptions} -> retryOptions) (\s@DynamicPartitioningConfiguration' {} a -> s {retryOptions = a} :: DynamicPartitioningConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DynamicPartitioningConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynamicPartitioningConfiguration"
       ( \x ->
           DynamicPartitioningConfiguration'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "RetryOptions")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "RetryOptions")
       )
 
 instance
@@ -104,11 +105,11 @@ instance
     Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf retryOptions
 
-instance Core.ToJSON DynamicPartitioningConfiguration where
+instance Data.ToJSON DynamicPartitioningConfiguration where
   toJSON DynamicPartitioningConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("RetryOptions" Core..=) Prelude.<$> retryOptions
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("RetryOptions" Data..=) Prelude.<$> retryOptions
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.HttpEndpointDestinationUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.HttpEndpointBufferingHints
 import Amazonka.Firehose.Types.HttpEndpointConfiguration
@@ -199,23 +200,23 @@ instance Prelude.NFData HttpEndpointDestinationUpdate where
       `Prelude.seq` Prelude.rnf endpointConfiguration
       `Prelude.seq` Prelude.rnf retryOptions
 
-instance Core.ToJSON HttpEndpointDestinationUpdate where
+instance Data.ToJSON HttpEndpointDestinationUpdate where
   toJSON HttpEndpointDestinationUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequestConfiguration" Core..=)
+          [ ("RequestConfiguration" Data..=)
               Prelude.<$> requestConfiguration,
-            ("ProcessingConfiguration" Core..=)
+            ("ProcessingConfiguration" Data..=)
               Prelude.<$> processingConfiguration,
-            ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("S3Update" Core..=) Prelude.<$> s3Update,
-            ("BufferingHints" Core..=)
+            ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("S3Update" Data..=) Prelude.<$> s3Update,
+            ("BufferingHints" Data..=)
               Prelude.<$> bufferingHints,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
-            ("EndpointConfiguration" Core..=)
+            ("S3BackupMode" Data..=) Prelude.<$> s3BackupMode,
+            ("EndpointConfiguration" Data..=)
               Prelude.<$> endpointConfiguration,
-            ("RetryOptions" Core..=) Prelude.<$> retryOptions
+            ("RetryOptions" Data..=) Prelude.<$> retryOptions
           ]
       )

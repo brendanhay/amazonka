@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.SplunkDestinationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.HECEndpointType
 import Amazonka.Firehose.Types.ProcessingConfiguration
@@ -168,21 +169,21 @@ splunkDestinationDescription_hECAcknowledgmentTimeoutInSeconds = Lens.lens (\Spl
 splunkDestinationDescription_s3DestinationDescription :: Lens.Lens' SplunkDestinationDescription (Prelude.Maybe S3DestinationDescription)
 splunkDestinationDescription_s3DestinationDescription = Lens.lens (\SplunkDestinationDescription' {s3DestinationDescription} -> s3DestinationDescription) (\s@SplunkDestinationDescription' {} a -> s {s3DestinationDescription = a} :: SplunkDestinationDescription)
 
-instance Core.FromJSON SplunkDestinationDescription where
+instance Data.FromJSON SplunkDestinationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SplunkDestinationDescription"
       ( \x ->
           SplunkDestinationDescription'
-            Prelude.<$> (x Core..:? "HECToken")
-            Prelude.<*> (x Core..:? "ProcessingConfiguration")
-            Prelude.<*> (x Core..:? "HECEndpointType")
-            Prelude.<*> (x Core..:? "HECEndpoint")
-            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
-            Prelude.<*> (x Core..:? "S3BackupMode")
-            Prelude.<*> (x Core..:? "RetryOptions")
-            Prelude.<*> (x Core..:? "HECAcknowledgmentTimeoutInSeconds")
-            Prelude.<*> (x Core..:? "S3DestinationDescription")
+            Prelude.<$> (x Data..:? "HECToken")
+            Prelude.<*> (x Data..:? "ProcessingConfiguration")
+            Prelude.<*> (x Data..:? "HECEndpointType")
+            Prelude.<*> (x Data..:? "HECEndpoint")
+            Prelude.<*> (x Data..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Data..:? "S3BackupMode")
+            Prelude.<*> (x Data..:? "RetryOptions")
+            Prelude.<*> (x Data..:? "HECAcknowledgmentTimeoutInSeconds")
+            Prelude.<*> (x Data..:? "S3DestinationDescription")
       )
 
 instance

@@ -83,6 +83,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -265,54 +266,54 @@ instance Prelude.NFData UpdateDestination where
       `Prelude.seq` Prelude.rnf currentDeliveryStreamVersionId
       `Prelude.seq` Prelude.rnf destinationId
 
-instance Core.ToHeaders UpdateDestination where
+instance Data.ToHeaders UpdateDestination where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.UpdateDestination" ::
+              Data.=# ( "Firehose_20150804.UpdateDestination" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDestination where
+instance Data.ToJSON UpdateDestination where
   toJSON UpdateDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AmazonopensearchserviceDestinationUpdate" Core..=)
+          [ ("AmazonopensearchserviceDestinationUpdate" Data..=)
               Prelude.<$> amazonopensearchserviceDestinationUpdate,
-            ("SplunkDestinationUpdate" Core..=)
+            ("SplunkDestinationUpdate" Data..=)
               Prelude.<$> splunkDestinationUpdate,
-            ("ExtendedS3DestinationUpdate" Core..=)
+            ("ExtendedS3DestinationUpdate" Data..=)
               Prelude.<$> extendedS3DestinationUpdate,
-            ("S3DestinationUpdate" Core..=)
+            ("S3DestinationUpdate" Data..=)
               Prelude.<$> s3DestinationUpdate,
-            ("ElasticsearchDestinationUpdate" Core..=)
+            ("ElasticsearchDestinationUpdate" Data..=)
               Prelude.<$> elasticsearchDestinationUpdate,
-            ("HttpEndpointDestinationUpdate" Core..=)
+            ("HttpEndpointDestinationUpdate" Data..=)
               Prelude.<$> httpEndpointDestinationUpdate,
-            ("RedshiftDestinationUpdate" Core..=)
+            ("RedshiftDestinationUpdate" Data..=)
               Prelude.<$> redshiftDestinationUpdate,
             Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName),
+              ("DeliveryStreamName" Data..= deliveryStreamName),
             Prelude.Just
               ( "CurrentDeliveryStreamVersionId"
-                  Core..= currentDeliveryStreamVersionId
+                  Data..= currentDeliveryStreamVersionId
               ),
             Prelude.Just
-              ("DestinationId" Core..= destinationId)
+              ("DestinationId" Data..= destinationId)
           ]
       )
 
-instance Core.ToPath UpdateDestination where
+instance Data.ToPath UpdateDestination where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDestination where
+instance Data.ToQuery UpdateDestination where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDestinationResponse' smart constructor.

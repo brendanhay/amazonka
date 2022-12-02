@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance Core.AWSRequest ListTagsForDeliveryStream where
       ( \s h x ->
           ListTagsForDeliveryStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "HasMoreTags")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "HasMoreTags")
       )
 
 instance Prelude.Hashable ListTagsForDeliveryStream where
@@ -139,37 +140,37 @@ instance Prelude.NFData ListTagsForDeliveryStream where
       `Prelude.seq` Prelude.rnf exclusiveStartTagKey
       `Prelude.seq` Prelude.rnf deliveryStreamName
 
-instance Core.ToHeaders ListTagsForDeliveryStream where
+instance Data.ToHeaders ListTagsForDeliveryStream where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Firehose_20150804.ListTagsForDeliveryStream" ::
+              Data.=# ( "Firehose_20150804.ListTagsForDeliveryStream" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTagsForDeliveryStream where
+instance Data.ToJSON ListTagsForDeliveryStream where
   toJSON ListTagsForDeliveryStream' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("ExclusiveStartTagKey" Core..=)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("ExclusiveStartTagKey" Data..=)
               Prelude.<$> exclusiveStartTagKey,
             Prelude.Just
-              ("DeliveryStreamName" Core..= deliveryStreamName)
+              ("DeliveryStreamName" Data..= deliveryStreamName)
           ]
       )
 
-instance Core.ToPath ListTagsForDeliveryStream where
+instance Data.ToPath ListTagsForDeliveryStream where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTagsForDeliveryStream where
+instance Data.ToQuery ListTagsForDeliveryStream where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForDeliveryStreamResponse' smart constructor.

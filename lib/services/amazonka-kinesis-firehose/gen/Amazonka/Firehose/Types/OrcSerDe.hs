@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.OrcSerDe where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.OrcCompression
 import Amazonka.Firehose.Types.OrcFormatVersion
 import qualified Amazonka.Prelude as Prelude
@@ -219,24 +220,24 @@ orcSerDe_dictionaryKeyThreshold = Lens.lens (\OrcSerDe' {dictionaryKeyThreshold}
 orcSerDe_stripeSizeBytes :: Lens.Lens' OrcSerDe (Prelude.Maybe Prelude.Natural)
 orcSerDe_stripeSizeBytes = Lens.lens (\OrcSerDe' {stripeSizeBytes} -> stripeSizeBytes) (\s@OrcSerDe' {} a -> s {stripeSizeBytes = a} :: OrcSerDe)
 
-instance Core.FromJSON OrcSerDe where
+instance Data.FromJSON OrcSerDe where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OrcSerDe"
       ( \x ->
           OrcSerDe'
-            Prelude.<$> (x Core..:? "FormatVersion")
-            Prelude.<*> (x Core..:? "Compression")
-            Prelude.<*> (x Core..:? "BlockSizeBytes")
-            Prelude.<*> (x Core..:? "BloomFilterFalsePositiveProbability")
-            Prelude.<*> (x Core..:? "RowIndexStride")
-            Prelude.<*> (x Core..:? "EnablePadding")
-            Prelude.<*> ( x Core..:? "BloomFilterColumns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "FormatVersion")
+            Prelude.<*> (x Data..:? "Compression")
+            Prelude.<*> (x Data..:? "BlockSizeBytes")
+            Prelude.<*> (x Data..:? "BloomFilterFalsePositiveProbability")
+            Prelude.<*> (x Data..:? "RowIndexStride")
+            Prelude.<*> (x Data..:? "EnablePadding")
+            Prelude.<*> ( x Data..:? "BloomFilterColumns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PaddingTolerance")
-            Prelude.<*> (x Core..:? "DictionaryKeyThreshold")
-            Prelude.<*> (x Core..:? "StripeSizeBytes")
+            Prelude.<*> (x Data..:? "PaddingTolerance")
+            Prelude.<*> (x Data..:? "DictionaryKeyThreshold")
+            Prelude.<*> (x Data..:? "StripeSizeBytes")
       )
 
 instance Prelude.Hashable OrcSerDe where
@@ -265,26 +266,26 @@ instance Prelude.NFData OrcSerDe where
       `Prelude.seq` Prelude.rnf dictionaryKeyThreshold
       `Prelude.seq` Prelude.rnf stripeSizeBytes
 
-instance Core.ToJSON OrcSerDe where
+instance Data.ToJSON OrcSerDe where
   toJSON OrcSerDe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FormatVersion" Core..=) Prelude.<$> formatVersion,
-            ("Compression" Core..=) Prelude.<$> compression,
-            ("BlockSizeBytes" Core..=)
+          [ ("FormatVersion" Data..=) Prelude.<$> formatVersion,
+            ("Compression" Data..=) Prelude.<$> compression,
+            ("BlockSizeBytes" Data..=)
               Prelude.<$> blockSizeBytes,
-            ("BloomFilterFalsePositiveProbability" Core..=)
+            ("BloomFilterFalsePositiveProbability" Data..=)
               Prelude.<$> bloomFilterFalsePositiveProbability,
-            ("RowIndexStride" Core..=)
+            ("RowIndexStride" Data..=)
               Prelude.<$> rowIndexStride,
-            ("EnablePadding" Core..=) Prelude.<$> enablePadding,
-            ("BloomFilterColumns" Core..=)
+            ("EnablePadding" Data..=) Prelude.<$> enablePadding,
+            ("BloomFilterColumns" Data..=)
               Prelude.<$> bloomFilterColumns,
-            ("PaddingTolerance" Core..=)
+            ("PaddingTolerance" Data..=)
               Prelude.<$> paddingTolerance,
-            ("DictionaryKeyThreshold" Core..=)
+            ("DictionaryKeyThreshold" Data..=)
               Prelude.<$> dictionaryKeyThreshold,
-            ("StripeSizeBytes" Core..=)
+            ("StripeSizeBytes" Data..=)
               Prelude.<$> stripeSizeBytes
           ]
       )

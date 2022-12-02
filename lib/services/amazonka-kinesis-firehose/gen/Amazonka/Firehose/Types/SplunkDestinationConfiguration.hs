@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.SplunkDestinationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.HECEndpointType
 import Amazonka.Firehose.Types.ProcessingConfiguration
@@ -222,23 +223,23 @@ instance
       `Prelude.seq` Prelude.rnf hECToken
       `Prelude.seq` Prelude.rnf s3Configuration
 
-instance Core.ToJSON SplunkDestinationConfiguration where
+instance Data.ToJSON SplunkDestinationConfiguration where
   toJSON SplunkDestinationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProcessingConfiguration" Core..=)
+          [ ("ProcessingConfiguration" Data..=)
               Prelude.<$> processingConfiguration,
-            ("CloudWatchLoggingOptions" Core..=)
+            ("CloudWatchLoggingOptions" Data..=)
               Prelude.<$> cloudWatchLoggingOptions,
-            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
-            ("RetryOptions" Core..=) Prelude.<$> retryOptions,
-            ("HECAcknowledgmentTimeoutInSeconds" Core..=)
+            ("S3BackupMode" Data..=) Prelude.<$> s3BackupMode,
+            ("RetryOptions" Data..=) Prelude.<$> retryOptions,
+            ("HECAcknowledgmentTimeoutInSeconds" Data..=)
               Prelude.<$> hECAcknowledgmentTimeoutInSeconds,
-            Prelude.Just ("HECEndpoint" Core..= hECEndpoint),
+            Prelude.Just ("HECEndpoint" Data..= hECEndpoint),
             Prelude.Just
-              ("HECEndpointType" Core..= hECEndpointType),
-            Prelude.Just ("HECToken" Core..= hECToken),
+              ("HECEndpointType" Data..= hECEndpointType),
+            Prelude.Just ("HECToken" Data..= hECToken),
             Prelude.Just
-              ("S3Configuration" Core..= s3Configuration)
+              ("S3Configuration" Data..= s3Configuration)
           ]
       )

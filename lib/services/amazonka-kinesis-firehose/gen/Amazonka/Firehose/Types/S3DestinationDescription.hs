@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.S3DestinationDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Firehose.Types.BufferingHints
 import Amazonka.Firehose.Types.CloudWatchLoggingOptions
 import Amazonka.Firehose.Types.CompressionFormat
@@ -172,20 +173,20 @@ s3DestinationDescription_compressionFormat = Lens.lens (\S3DestinationDescriptio
 s3DestinationDescription_encryptionConfiguration :: Lens.Lens' S3DestinationDescription EncryptionConfiguration
 s3DestinationDescription_encryptionConfiguration = Lens.lens (\S3DestinationDescription' {encryptionConfiguration} -> encryptionConfiguration) (\s@S3DestinationDescription' {} a -> s {encryptionConfiguration = a} :: S3DestinationDescription)
 
-instance Core.FromJSON S3DestinationDescription where
+instance Data.FromJSON S3DestinationDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3DestinationDescription"
       ( \x ->
           S3DestinationDescription'
-            Prelude.<$> (x Core..:? "CloudWatchLoggingOptions")
-            Prelude.<*> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..:? "ErrorOutputPrefix")
-            Prelude.<*> (x Core..: "RoleARN")
-            Prelude.<*> (x Core..: "BucketARN")
-            Prelude.<*> (x Core..: "BufferingHints")
-            Prelude.<*> (x Core..: "CompressionFormat")
-            Prelude.<*> (x Core..: "EncryptionConfiguration")
+            Prelude.<$> (x Data..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..:? "ErrorOutputPrefix")
+            Prelude.<*> (x Data..: "RoleARN")
+            Prelude.<*> (x Data..: "BucketARN")
+            Prelude.<*> (x Data..: "BufferingHints")
+            Prelude.<*> (x Data..: "CompressionFormat")
+            Prelude.<*> (x Data..: "EncryptionConfiguration")
       )
 
 instance Prelude.Hashable S3DestinationDescription where

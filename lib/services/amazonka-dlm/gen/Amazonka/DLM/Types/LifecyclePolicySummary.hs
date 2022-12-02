@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.GettablePolicyStateValues
 import Amazonka.DLM.Types.PolicyTypeValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a lifecycle policy.
@@ -102,17 +103,17 @@ lifecyclePolicySummary_state = Lens.lens (\LifecyclePolicySummary' {state} -> st
 lifecyclePolicySummary_description :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe Prelude.Text)
 lifecyclePolicySummary_description = Lens.lens (\LifecyclePolicySummary' {description} -> description) (\s@LifecyclePolicySummary' {} a -> s {description = a} :: LifecyclePolicySummary)
 
-instance Core.FromJSON LifecyclePolicySummary where
+instance Data.FromJSON LifecyclePolicySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LifecyclePolicySummary"
       ( \x ->
           LifecyclePolicySummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "PolicyType")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "PolicyType")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable LifecyclePolicySummary where

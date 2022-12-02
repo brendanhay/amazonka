@@ -42,6 +42,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetLifecyclePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetLifecyclePolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetLifecyclePolicy where
 instance Prelude.NFData GetLifecyclePolicy where
   rnf GetLifecyclePolicy' {..} = Prelude.rnf policyId
 
-instance Core.ToHeaders GetLifecyclePolicy where
+instance Data.ToHeaders GetLifecyclePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLifecyclePolicy where
+instance Data.ToPath GetLifecyclePolicy where
   toPath GetLifecyclePolicy' {..} =
     Prelude.mconcat
-      ["/policies/", Core.toBS policyId, "/"]
+      ["/policies/", Data.toBS policyId, "/"]
 
-instance Core.ToQuery GetLifecyclePolicy where
+instance Data.ToQuery GetLifecyclePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLifecyclePolicyResponse' smart constructor.

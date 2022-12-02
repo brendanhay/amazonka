@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.FastRestoreRule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot policies only]__ Specifies a rule for enabling fast snapshot
@@ -88,16 +89,16 @@ fastRestoreRule_intervalUnit = Lens.lens (\FastRestoreRule' {intervalUnit} -> in
 fastRestoreRule_availabilityZones :: Lens.Lens' FastRestoreRule (Prelude.NonEmpty Prelude.Text)
 fastRestoreRule_availabilityZones = Lens.lens (\FastRestoreRule' {availabilityZones} -> availabilityZones) (\s@FastRestoreRule' {} a -> s {availabilityZones = a} :: FastRestoreRule) Prelude.. Lens.coerced
 
-instance Core.FromJSON FastRestoreRule where
+instance Data.FromJSON FastRestoreRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FastRestoreRule"
       ( \x ->
           FastRestoreRule'
-            Prelude.<$> (x Core..:? "Interval")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "IntervalUnit")
-            Prelude.<*> (x Core..: "AvailabilityZones")
+            Prelude.<$> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "IntervalUnit")
+            Prelude.<*> (x Data..: "AvailabilityZones")
       )
 
 instance Prelude.Hashable FastRestoreRule where
@@ -114,14 +115,14 @@ instance Prelude.NFData FastRestoreRule where
       `Prelude.seq` Prelude.rnf intervalUnit
       `Prelude.seq` Prelude.rnf availabilityZones
 
-instance Core.ToJSON FastRestoreRule where
+instance Data.ToJSON FastRestoreRule where
   toJSON FastRestoreRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Core..=) Prelude.<$> interval,
-            ("Count" Core..=) Prelude.<$> count,
-            ("IntervalUnit" Core..=) Prelude.<$> intervalUnit,
+          [ ("Interval" Data..=) Prelude.<$> interval,
+            ("Count" Data..=) Prelude.<$> count,
+            ("IntervalUnit" Data..=) Prelude.<$> intervalUnit,
             Prelude.Just
-              ("AvailabilityZones" Core..= availabilityZones)
+              ("AvailabilityZones" Data..= availabilityZones)
           ]
       )

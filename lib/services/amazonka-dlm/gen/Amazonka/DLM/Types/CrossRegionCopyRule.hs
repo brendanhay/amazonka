@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.CrossRegionCopyDeprecateRule
 import Amazonka.DLM.Types.CrossRegionCopyRetainRule
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot and AMI policies only]__ Specifies a cross-Region copy rule
@@ -162,19 +163,19 @@ crossRegionCopyRule_deprecateRule = Lens.lens (\CrossRegionCopyRule' {deprecateR
 crossRegionCopyRule_encrypted :: Lens.Lens' CrossRegionCopyRule Prelude.Bool
 crossRegionCopyRule_encrypted = Lens.lens (\CrossRegionCopyRule' {encrypted} -> encrypted) (\s@CrossRegionCopyRule' {} a -> s {encrypted = a} :: CrossRegionCopyRule)
 
-instance Core.FromJSON CrossRegionCopyRule where
+instance Data.FromJSON CrossRegionCopyRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrossRegionCopyRule"
       ( \x ->
           CrossRegionCopyRule'
-            Prelude.<$> (x Core..:? "CmkArn")
-            Prelude.<*> (x Core..:? "CopyTags")
-            Prelude.<*> (x Core..:? "RetainRule")
-            Prelude.<*> (x Core..:? "Target")
-            Prelude.<*> (x Core..:? "TargetRegion")
-            Prelude.<*> (x Core..:? "DeprecateRule")
-            Prelude.<*> (x Core..: "Encrypted")
+            Prelude.<$> (x Data..:? "CmkArn")
+            Prelude.<*> (x Data..:? "CopyTags")
+            Prelude.<*> (x Data..:? "RetainRule")
+            Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "TargetRegion")
+            Prelude.<*> (x Data..:? "DeprecateRule")
+            Prelude.<*> (x Data..: "Encrypted")
       )
 
 instance Prelude.Hashable CrossRegionCopyRule where
@@ -197,16 +198,16 @@ instance Prelude.NFData CrossRegionCopyRule where
       `Prelude.seq` Prelude.rnf deprecateRule
       `Prelude.seq` Prelude.rnf encrypted
 
-instance Core.ToJSON CrossRegionCopyRule where
+instance Data.ToJSON CrossRegionCopyRule where
   toJSON CrossRegionCopyRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CmkArn" Core..=) Prelude.<$> cmkArn,
-            ("CopyTags" Core..=) Prelude.<$> copyTags,
-            ("RetainRule" Core..=) Prelude.<$> retainRule,
-            ("Target" Core..=) Prelude.<$> target,
-            ("TargetRegion" Core..=) Prelude.<$> targetRegion,
-            ("DeprecateRule" Core..=) Prelude.<$> deprecateRule,
-            Prelude.Just ("Encrypted" Core..= encrypted)
+          [ ("CmkArn" Data..=) Prelude.<$> cmkArn,
+            ("CopyTags" Data..=) Prelude.<$> copyTags,
+            ("RetainRule" Data..=) Prelude.<$> retainRule,
+            ("Target" Data..=) Prelude.<$> target,
+            ("TargetRegion" Data..=) Prelude.<$> targetRegion,
+            ("DeprecateRule" Data..=) Prelude.<$> deprecateRule,
+            Prelude.Just ("Encrypted" Data..= encrypted)
           ]
       )

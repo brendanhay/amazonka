@@ -29,6 +29,7 @@ import Amazonka.DLM.Types.ResourceLocationValues
 import Amazonka.DLM.Types.ResourceTypeValues
 import Amazonka.DLM.Types.Schedule
 import Amazonka.DLM.Types.Tag
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[All policy types]__ Specifies the configuration of a lifecycle
@@ -220,20 +221,20 @@ policyDetails_eventSource = Lens.lens (\PolicyDetails' {eventSource} -> eventSou
 policyDetails_parameters :: Lens.Lens' PolicyDetails (Prelude.Maybe Parameters)
 policyDetails_parameters = Lens.lens (\PolicyDetails' {parameters} -> parameters) (\s@PolicyDetails' {} a -> s {parameters = a} :: PolicyDetails)
 
-instance Core.FromJSON PolicyDetails where
+instance Data.FromJSON PolicyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyDetails"
       ( \x ->
           PolicyDetails'
-            Prelude.<$> (x Core..:? "PolicyType")
-            Prelude.<*> (x Core..:? "TargetTags")
-            Prelude.<*> (x Core..:? "ResourceLocations")
-            Prelude.<*> (x Core..:? "Schedules")
-            Prelude.<*> (x Core..:? "ResourceTypes")
-            Prelude.<*> (x Core..:? "Actions")
-            Prelude.<*> (x Core..:? "EventSource")
-            Prelude.<*> (x Core..:? "Parameters")
+            Prelude.<$> (x Data..:? "PolicyType")
+            Prelude.<*> (x Data..:? "TargetTags")
+            Prelude.<*> (x Data..:? "ResourceLocations")
+            Prelude.<*> (x Data..:? "Schedules")
+            Prelude.<*> (x Data..:? "ResourceTypes")
+            Prelude.<*> (x Data..:? "Actions")
+            Prelude.<*> (x Data..:? "EventSource")
+            Prelude.<*> (x Data..:? "Parameters")
       )
 
 instance Prelude.Hashable PolicyDetails where
@@ -258,18 +259,18 @@ instance Prelude.NFData PolicyDetails where
       `Prelude.seq` Prelude.rnf eventSource
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON PolicyDetails where
+instance Data.ToJSON PolicyDetails where
   toJSON PolicyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyType" Core..=) Prelude.<$> policyType,
-            ("TargetTags" Core..=) Prelude.<$> targetTags,
-            ("ResourceLocations" Core..=)
+          [ ("PolicyType" Data..=) Prelude.<$> policyType,
+            ("TargetTags" Data..=) Prelude.<$> targetTags,
+            ("ResourceLocations" Data..=)
               Prelude.<$> resourceLocations,
-            ("Schedules" Core..=) Prelude.<$> schedules,
-            ("ResourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("Actions" Core..=) Prelude.<$> actions,
-            ("EventSource" Core..=) Prelude.<$> eventSource,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("Schedules" Data..=) Prelude.<$> schedules,
+            ("ResourceTypes" Data..=) Prelude.<$> resourceTypes,
+            ("Actions" Data..=) Prelude.<$> actions,
+            ("EventSource" Data..=) Prelude.<$> eventSource,
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

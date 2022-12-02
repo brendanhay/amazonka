@@ -48,6 +48,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,34 +154,34 @@ instance Prelude.NFData UpdateLifecyclePolicy where
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf policyId
 
-instance Core.ToHeaders UpdateLifecyclePolicy where
+instance Data.ToHeaders UpdateLifecyclePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLifecyclePolicy where
+instance Data.ToJSON UpdateLifecyclePolicy where
   toJSON UpdateLifecyclePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyDetails" Core..=) Prelude.<$> policyDetails,
-            ("State" Core..=) Prelude.<$> state,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ExecutionRoleArn" Core..=)
+          [ ("PolicyDetails" Data..=) Prelude.<$> policyDetails,
+            ("State" Data..=) Prelude.<$> state,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ExecutionRoleArn" Data..=)
               Prelude.<$> executionRoleArn
           ]
       )
 
-instance Core.ToPath UpdateLifecyclePolicy where
+instance Data.ToPath UpdateLifecyclePolicy where
   toPath UpdateLifecyclePolicy' {..} =
-    Prelude.mconcat ["/policies/", Core.toBS policyId]
+    Prelude.mconcat ["/policies/", Data.toBS policyId]
 
-instance Core.ToQuery UpdateLifecyclePolicy where
+instance Data.ToQuery UpdateLifecyclePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLifecyclePolicyResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DLM.Types.EncryptionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies the encryption settings for
@@ -79,14 +80,14 @@ encryptionConfiguration_cmkArn = Lens.lens (\EncryptionConfiguration' {cmkArn} -
 encryptionConfiguration_encrypted :: Lens.Lens' EncryptionConfiguration Prelude.Bool
 encryptionConfiguration_encrypted = Lens.lens (\EncryptionConfiguration' {encrypted} -> encrypted) (\s@EncryptionConfiguration' {} a -> s {encrypted = a} :: EncryptionConfiguration)
 
-instance Core.FromJSON EncryptionConfiguration where
+instance Data.FromJSON EncryptionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Core..:? "CmkArn")
-            Prelude.<*> (x Core..: "Encrypted")
+            Prelude.<$> (x Data..:? "CmkArn")
+            Prelude.<*> (x Data..: "Encrypted")
       )
 
 instance Prelude.Hashable EncryptionConfiguration where
@@ -99,11 +100,11 @@ instance Prelude.NFData EncryptionConfiguration where
     Prelude.rnf cmkArn
       `Prelude.seq` Prelude.rnf encrypted
 
-instance Core.ToJSON EncryptionConfiguration where
+instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CmkArn" Core..=) Prelude.<$> cmkArn,
-            Prelude.Just ("Encrypted" Core..= encrypted)
+          [ ("CmkArn" Data..=) Prelude.<$> cmkArn,
+            Prelude.Just ("Encrypted" Data..= encrypted)
           ]
       )

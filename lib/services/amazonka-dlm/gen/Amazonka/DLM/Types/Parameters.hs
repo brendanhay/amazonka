@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.Parameters where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.Tag
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot and AMI policies only]__ Specifies optional parameters for
@@ -127,17 +128,17 @@ parameters_excludeBootVolume = Lens.lens (\Parameters' {excludeBootVolume} -> ex
 parameters_noReboot :: Lens.Lens' Parameters (Prelude.Maybe Prelude.Bool)
 parameters_noReboot = Lens.lens (\Parameters' {noReboot} -> noReboot) (\s@Parameters' {} a -> s {noReboot = a} :: Parameters)
 
-instance Core.FromJSON Parameters where
+instance Data.FromJSON Parameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Parameters"
       ( \x ->
           Parameters'
-            Prelude.<$> ( x Core..:? "ExcludeDataVolumeTags"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ExcludeDataVolumeTags"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ExcludeBootVolume")
-            Prelude.<*> (x Core..:? "NoReboot")
+            Prelude.<*> (x Data..:? "ExcludeBootVolume")
+            Prelude.<*> (x Data..:? "NoReboot")
       )
 
 instance Prelude.Hashable Parameters where
@@ -152,14 +153,14 @@ instance Prelude.NFData Parameters where
       `Prelude.seq` Prelude.rnf excludeBootVolume
       `Prelude.seq` Prelude.rnf noReboot
 
-instance Core.ToJSON Parameters where
+instance Data.ToJSON Parameters where
   toJSON Parameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExcludeDataVolumeTags" Core..=)
+          [ ("ExcludeDataVolumeTags" Data..=)
               Prelude.<$> excludeDataVolumeTags,
-            ("ExcludeBootVolume" Core..=)
+            ("ExcludeBootVolume" Data..=)
               Prelude.<$> excludeBootVolume,
-            ("NoReboot" Core..=) Prelude.<$> noReboot
+            ("NoReboot" Data..=) Prelude.<$> noReboot
           ]
       )

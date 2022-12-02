@@ -20,4 +20,5 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Lens
 import Amazonka.DLM.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude

@@ -49,6 +49,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,7 +148,7 @@ instance Core.AWSRequest GetLifecyclePolicies where
     Response.receiveJSON
       ( \s h x ->
           GetLifecyclePoliciesResponse'
-            Prelude.<$> (x Core..?> "Policies" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,36 +168,36 @@ instance Prelude.NFData GetLifecyclePolicies where
       `Prelude.seq` Prelude.rnf policyIds
       `Prelude.seq` Prelude.rnf resourceTypes
 
-instance Core.ToHeaders GetLifecyclePolicies where
+instance Data.ToHeaders GetLifecyclePolicies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLifecyclePolicies where
+instance Data.ToPath GetLifecyclePolicies where
   toPath = Prelude.const "/policies"
 
-instance Core.ToQuery GetLifecyclePolicies where
+instance Data.ToQuery GetLifecyclePolicies where
   toQuery GetLifecyclePolicies' {..} =
     Prelude.mconcat
       [ "tagsToAdd"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tagsToAdd),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tagsToAdd),
         "targetTags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> targetTags),
-        "state" Core.=: state,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> targetTags),
+        "state" Data.=: state,
         "policyIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> policyIds),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyIds),
         "resourceTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> resourceTypes
             )
       ]

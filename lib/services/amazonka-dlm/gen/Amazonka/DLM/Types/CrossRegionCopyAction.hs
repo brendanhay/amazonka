@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.CrossRegionCopyRetainRule
 import Amazonka.DLM.Types.EncryptionConfiguration
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies a cross-Region copy action for
@@ -82,15 +83,15 @@ crossRegionCopyAction_target = Lens.lens (\CrossRegionCopyAction' {target} -> ta
 crossRegionCopyAction_encryptionConfiguration :: Lens.Lens' CrossRegionCopyAction EncryptionConfiguration
 crossRegionCopyAction_encryptionConfiguration = Lens.lens (\CrossRegionCopyAction' {encryptionConfiguration} -> encryptionConfiguration) (\s@CrossRegionCopyAction' {} a -> s {encryptionConfiguration = a} :: CrossRegionCopyAction)
 
-instance Core.FromJSON CrossRegionCopyAction where
+instance Data.FromJSON CrossRegionCopyAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrossRegionCopyAction"
       ( \x ->
           CrossRegionCopyAction'
-            Prelude.<$> (x Core..:? "RetainRule")
-            Prelude.<*> (x Core..: "Target")
-            Prelude.<*> (x Core..: "EncryptionConfiguration")
+            Prelude.<$> (x Data..:? "RetainRule")
+            Prelude.<*> (x Data..: "Target")
+            Prelude.<*> (x Data..: "EncryptionConfiguration")
       )
 
 instance Prelude.Hashable CrossRegionCopyAction where
@@ -105,15 +106,15 @@ instance Prelude.NFData CrossRegionCopyAction where
       `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf encryptionConfiguration
 
-instance Core.ToJSON CrossRegionCopyAction where
+instance Data.ToJSON CrossRegionCopyAction where
   toJSON CrossRegionCopyAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RetainRule" Core..=) Prelude.<$> retainRule,
-            Prelude.Just ("Target" Core..= target),
+          [ ("RetainRule" Data..=) Prelude.<$> retainRule,
+            Prelude.Just ("Target" Data..= target),
             Prelude.Just
               ( "EncryptionConfiguration"
-                  Core..= encryptionConfiguration
+                  Data..= encryptionConfiguration
               )
           ]
       )

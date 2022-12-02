@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.ShareRule where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.RetentionIntervalUnitValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Snapshot policies only]__ Specifies a rule for sharing snapshots
@@ -81,15 +82,15 @@ shareRule_unshareIntervalUnit = Lens.lens (\ShareRule' {unshareIntervalUnit} -> 
 shareRule_targetAccounts :: Lens.Lens' ShareRule (Prelude.NonEmpty Prelude.Text)
 shareRule_targetAccounts = Lens.lens (\ShareRule' {targetAccounts} -> targetAccounts) (\s@ShareRule' {} a -> s {targetAccounts = a} :: ShareRule) Prelude.. Lens.coerced
 
-instance Core.FromJSON ShareRule where
+instance Data.FromJSON ShareRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ShareRule"
       ( \x ->
           ShareRule'
-            Prelude.<$> (x Core..:? "UnshareInterval")
-            Prelude.<*> (x Core..:? "UnshareIntervalUnit")
-            Prelude.<*> (x Core..: "TargetAccounts")
+            Prelude.<$> (x Data..:? "UnshareInterval")
+            Prelude.<*> (x Data..:? "UnshareIntervalUnit")
+            Prelude.<*> (x Data..: "TargetAccounts")
       )
 
 instance Prelude.Hashable ShareRule where
@@ -104,15 +105,15 @@ instance Prelude.NFData ShareRule where
       `Prelude.seq` Prelude.rnf unshareIntervalUnit
       `Prelude.seq` Prelude.rnf targetAccounts
 
-instance Core.ToJSON ShareRule where
+instance Data.ToJSON ShareRule where
   toJSON ShareRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UnshareInterval" Core..=)
+          [ ("UnshareInterval" Data..=)
               Prelude.<$> unshareInterval,
-            ("UnshareIntervalUnit" Core..=)
+            ("UnshareIntervalUnit" Data..=)
               Prelude.<$> unshareIntervalUnit,
             Prelude.Just
-              ("TargetAccounts" Core..= targetAccounts)
+              ("TargetAccounts" Data..= targetAccounts)
           ]
       )

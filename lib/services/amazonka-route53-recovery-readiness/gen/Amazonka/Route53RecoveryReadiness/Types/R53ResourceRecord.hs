@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Route 53 resource that a DNS target resource record points to.
@@ -61,14 +62,14 @@ r53ResourceRecord_domainName = Lens.lens (\R53ResourceRecord' {domainName} -> do
 r53ResourceRecord_recordSetId :: Lens.Lens' R53ResourceRecord (Prelude.Maybe Prelude.Text)
 r53ResourceRecord_recordSetId = Lens.lens (\R53ResourceRecord' {recordSetId} -> recordSetId) (\s@R53ResourceRecord' {} a -> s {recordSetId = a} :: R53ResourceRecord)
 
-instance Core.FromJSON R53ResourceRecord where
+instance Data.FromJSON R53ResourceRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "R53ResourceRecord"
       ( \x ->
           R53ResourceRecord'
-            Prelude.<$> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "recordSetId")
+            Prelude.<$> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "recordSetId")
       )
 
 instance Prelude.Hashable R53ResourceRecord where
@@ -81,11 +82,11 @@ instance Prelude.NFData R53ResourceRecord where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf recordSetId
 
-instance Core.ToJSON R53ResourceRecord where
+instance Data.ToJSON R53ResourceRecord where
   toJSON R53ResourceRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("domainName" Core..=) Prelude.<$> domainName,
-            ("recordSetId" Core..=) Prelude.<$> recordSetId
+          [ ("domainName" Data..=) Prelude.<$> domainName,
+            ("recordSetId" Data..=) Prelude.<$> recordSetId
           ]
       )

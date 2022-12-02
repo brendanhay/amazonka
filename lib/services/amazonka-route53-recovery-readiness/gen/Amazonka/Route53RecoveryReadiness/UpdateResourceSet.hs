@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,11 +150,11 @@ instance Core.AWSRequest UpdateResourceSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateResourceSetResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resourceSetType")
-            Prelude.<*> (x Core..?> "resourceSetName")
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resourceSetArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceSetType")
+            Prelude.<*> (x Data..?> "resourceSetName")
+            Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,33 +170,33 @@ instance Prelude.NFData UpdateResourceSet where
       `Prelude.seq` Prelude.rnf resourceSetType
       `Prelude.seq` Prelude.rnf resources
 
-instance Core.ToHeaders UpdateResourceSet where
+instance Data.ToHeaders UpdateResourceSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResourceSet where
+instance Data.ToJSON UpdateResourceSet where
   toJSON UpdateResourceSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("resourceSetType" Core..= resourceSetType),
-            Prelude.Just ("resources" Core..= resources)
+              ("resourceSetType" Data..= resourceSetType),
+            Prelude.Just ("resources" Data..= resources)
           ]
       )
 
-instance Core.ToPath UpdateResourceSet where
+instance Data.ToPath UpdateResourceSet where
   toPath UpdateResourceSet' {..} =
     Prelude.mconcat
-      ["/resourcesets/", Core.toBS resourceSetName]
+      ["/resourcesets/", Data.toBS resourceSetName]
 
-instance Core.ToQuery UpdateResourceSet where
+instance Data.ToQuery UpdateResourceSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResourceSetResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,11 +92,11 @@ instance Core.AWSRequest GetResourceSet where
     Response.receiveJSON
       ( \s h x ->
           GetResourceSetResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resourceSetType")
-            Prelude.<*> (x Core..?> "resourceSetName")
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resourceSetArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceSetType")
+            Prelude.<*> (x Data..?> "resourceSetName")
+            Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,23 +107,23 @@ instance Prelude.Hashable GetResourceSet where
 instance Prelude.NFData GetResourceSet where
   rnf GetResourceSet' {..} = Prelude.rnf resourceSetName
 
-instance Core.ToHeaders GetResourceSet where
+instance Data.ToHeaders GetResourceSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetResourceSet where
+instance Data.ToPath GetResourceSet where
   toPath GetResourceSet' {..} =
     Prelude.mconcat
-      ["/resourcesets/", Core.toBS resourceSetName]
+      ["/resourcesets/", Data.toBS resourceSetName]
 
-instance Core.ToQuery GetResourceSet where
+instance Data.ToQuery GetResourceSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceSetResponse' smart constructor.

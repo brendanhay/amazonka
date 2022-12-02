@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource
 
@@ -86,18 +87,18 @@ resource_resourceArn = Lens.lens (\Resource' {resourceArn} -> resourceArn) (\s@R
 resource_componentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_componentId = Lens.lens (\Resource' {componentId} -> componentId) (\s@Resource' {} a -> s {componentId = a} :: Resource)
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> ( x Core..:? "readinessScopes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "readinessScopes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "dnsTargetResource")
-            Prelude.<*> (x Core..:? "resourceArn")
-            Prelude.<*> (x Core..:? "componentId")
+            Prelude.<*> (x Data..:? "dnsTargetResource")
+            Prelude.<*> (x Data..:? "resourceArn")
+            Prelude.<*> (x Data..:? "componentId")
       )
 
 instance Prelude.Hashable Resource where
@@ -114,15 +115,15 @@ instance Prelude.NFData Resource where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf componentId
 
-instance Core.ToJSON Resource where
+instance Data.ToJSON Resource where
   toJSON Resource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("readinessScopes" Core..=)
+          [ ("readinessScopes" Data..=)
               Prelude.<$> readinessScopes,
-            ("dnsTargetResource" Core..=)
+            ("dnsTargetResource" Data..=)
               Prelude.<$> dnsTargetResource,
-            ("resourceArn" Core..=) Prelude.<$> resourceArn,
-            ("componentId" Core..=) Prelude.<$> componentId
+            ("resourceArn" Data..=) Prelude.<$> resourceArn,
+            ("componentId" Data..=) Prelude.<$> componentId
           ]
       )

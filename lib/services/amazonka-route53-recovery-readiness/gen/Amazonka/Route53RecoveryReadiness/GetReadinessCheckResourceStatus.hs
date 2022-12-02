@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,9 +162,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetReadinessCheckResourceStatusResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "readiness")
-            Prelude.<*> (x Core..?> "rules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "readiness")
+            Prelude.<*> (x Data..?> "rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,34 +191,34 @@ instance
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetReadinessCheckResourceStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetReadinessCheckResourceStatus where
+instance Data.ToPath GetReadinessCheckResourceStatus where
   toPath GetReadinessCheckResourceStatus' {..} =
     Prelude.mconcat
       [ "/readinesschecks/",
-        Core.toBS readinessCheckName,
+        Data.toBS readinessCheckName,
         "/resource/",
-        Core.toBS resourceIdentifier,
+        Data.toBS resourceIdentifier,
         "/status"
       ]
 
-instance Core.ToQuery GetReadinessCheckResourceStatus where
+instance Data.ToQuery GetReadinessCheckResourceStatus where
   toQuery GetReadinessCheckResourceStatus' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetReadinessCheckResourceStatusResponse' smart constructor.

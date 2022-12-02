@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest ListTagsForResources where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourcesResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,22 +96,22 @@ instance Prelude.NFData ListTagsForResources where
   rnf ListTagsForResources' {..} =
     Prelude.rnf resourceArn
 
-instance Core.ToHeaders ListTagsForResources where
+instance Data.ToHeaders ListTagsForResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListTagsForResources where
+instance Data.ToPath ListTagsForResources where
   toPath ListTagsForResources' {..} =
-    Prelude.mconcat ["/tags/", Core.toBS resourceArn]
+    Prelude.mconcat ["/tags/", Data.toBS resourceArn]
 
-instance Core.ToQuery ListTagsForResources where
+instance Data.ToQuery ListTagsForResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTagsForResourcesResponse' smart constructor.

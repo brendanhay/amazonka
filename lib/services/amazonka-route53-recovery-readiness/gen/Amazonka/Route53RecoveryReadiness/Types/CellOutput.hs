@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.CellOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a cell.
@@ -98,19 +99,19 @@ cellOutput_cellName = Lens.lens (\CellOutput' {cellName} -> cellName) (\s@CellOu
 cellOutput_cells :: Lens.Lens' CellOutput [Prelude.Text]
 cellOutput_cells = Lens.lens (\CellOutput' {cells} -> cells) (\s@CellOutput' {} a -> s {cells = a} :: CellOutput) Prelude.. Lens.coerced
 
-instance Core.FromJSON CellOutput where
+instance Data.FromJSON CellOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CellOutput"
       ( \x ->
           CellOutput'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "parentReadinessScopes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "parentReadinessScopes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "cellArn")
-            Prelude.<*> (x Core..: "cellName")
-            Prelude.<*> (x Core..:? "cells" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "cellArn")
+            Prelude.<*> (x Data..: "cellName")
+            Prelude.<*> (x Data..:? "cells" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CellOutput where

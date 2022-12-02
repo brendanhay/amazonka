@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.RuleResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.Message
 import Amazonka.Route53RecoveryReadiness.Types.Readiness
@@ -38,7 +39,7 @@ data RuleResult = RuleResult'
     ruleId :: Prelude.Text,
     -- | The time the resource was last checked for readiness, in ISO-8601
     -- format, UTC.
-    lastCheckedTimestamp :: Core.POSIX
+    lastCheckedTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +76,7 @@ newRuleResult
         readiness = pReadiness_,
         ruleId = pRuleId_,
         lastCheckedTimestamp =
-          Core._Time Lens.# pLastCheckedTimestamp_
+          Data._Time Lens.# pLastCheckedTimestamp_
       }
 
 -- | Details about the resource\'s readiness.
@@ -93,18 +94,18 @@ ruleResult_ruleId = Lens.lens (\RuleResult' {ruleId} -> ruleId) (\s@RuleResult' 
 -- | The time the resource was last checked for readiness, in ISO-8601
 -- format, UTC.
 ruleResult_lastCheckedTimestamp :: Lens.Lens' RuleResult Prelude.UTCTime
-ruleResult_lastCheckedTimestamp = Lens.lens (\RuleResult' {lastCheckedTimestamp} -> lastCheckedTimestamp) (\s@RuleResult' {} a -> s {lastCheckedTimestamp = a} :: RuleResult) Prelude.. Core._Time
+ruleResult_lastCheckedTimestamp = Lens.lens (\RuleResult' {lastCheckedTimestamp} -> lastCheckedTimestamp) (\s@RuleResult' {} a -> s {lastCheckedTimestamp = a} :: RuleResult) Prelude.. Data._Time
 
-instance Core.FromJSON RuleResult where
+instance Data.FromJSON RuleResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleResult"
       ( \x ->
           RuleResult'
-            Prelude.<$> (x Core..:? "messages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "readiness")
-            Prelude.<*> (x Core..: "ruleId")
-            Prelude.<*> (x Core..: "lastCheckedTimestamp")
+            Prelude.<$> (x Data..:? "messages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "readiness")
+            Prelude.<*> (x Data..: "ruleId")
+            Prelude.<*> (x Data..: "lastCheckedTimestamp")
       )
 
 instance Prelude.Hashable RuleResult where

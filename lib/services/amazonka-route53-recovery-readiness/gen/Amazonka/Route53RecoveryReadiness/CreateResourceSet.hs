@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,11 +159,11 @@ instance Core.AWSRequest CreateResourceSet where
     Response.receiveJSON
       ( \s h x ->
           CreateResourceSetResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resourceSetType")
-            Prelude.<*> (x Core..?> "resourceSetName")
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resourceSetArn")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceSetType")
+            Prelude.<*> (x Data..?> "resourceSetName")
+            Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,34 +181,34 @@ instance Prelude.NFData CreateResourceSet where
       `Prelude.seq` Prelude.rnf resourceSetName
       `Prelude.seq` Prelude.rnf resources
 
-instance Core.ToHeaders CreateResourceSet where
+instance Data.ToHeaders CreateResourceSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResourceSet where
+instance Data.ToJSON CreateResourceSet where
   toJSON CreateResourceSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("resourceSetType" Core..= resourceSetType),
+              ("resourceSetType" Data..= resourceSetType),
             Prelude.Just
-              ("resourceSetName" Core..= resourceSetName),
-            Prelude.Just ("resources" Core..= resources)
+              ("resourceSetName" Data..= resourceSetName),
+            Prelude.Just ("resources" Data..= resources)
           ]
       )
 
-instance Core.ToPath CreateResourceSet where
+instance Data.ToPath CreateResourceSet where
   toPath = Prelude.const "/resourcesets"
 
-instance Core.ToQuery CreateResourceSet where
+instance Data.ToQuery CreateResourceSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceSetResponse' smart constructor.

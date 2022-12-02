@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.ResourceResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.Readiness
 
@@ -37,7 +38,7 @@ data ResourceResult = ResourceResult'
     readiness :: Readiness,
     -- | The time (UTC) that the resource was last checked for readiness, in
     -- ISO-8601 format.
-    lastCheckedTimestamp :: Core.POSIX
+    lastCheckedTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,7 +70,7 @@ newResourceResult pReadiness_ pLastCheckedTimestamp_ =
       componentId = Prelude.Nothing,
       readiness = pReadiness_,
       lastCheckedTimestamp =
-        Core._Time Lens.# pLastCheckedTimestamp_
+        Data._Time Lens.# pLastCheckedTimestamp_
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
@@ -87,18 +88,18 @@ resourceResult_readiness = Lens.lens (\ResourceResult' {readiness} -> readiness)
 -- | The time (UTC) that the resource was last checked for readiness, in
 -- ISO-8601 format.
 resourceResult_lastCheckedTimestamp :: Lens.Lens' ResourceResult Prelude.UTCTime
-resourceResult_lastCheckedTimestamp = Lens.lens (\ResourceResult' {lastCheckedTimestamp} -> lastCheckedTimestamp) (\s@ResourceResult' {} a -> s {lastCheckedTimestamp = a} :: ResourceResult) Prelude.. Core._Time
+resourceResult_lastCheckedTimestamp = Lens.lens (\ResourceResult' {lastCheckedTimestamp} -> lastCheckedTimestamp) (\s@ResourceResult' {} a -> s {lastCheckedTimestamp = a} :: ResourceResult) Prelude.. Data._Time
 
-instance Core.FromJSON ResourceResult where
+instance Data.FromJSON ResourceResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceResult"
       ( \x ->
           ResourceResult'
-            Prelude.<$> (x Core..:? "resourceArn")
-            Prelude.<*> (x Core..:? "componentId")
-            Prelude.<*> (x Core..: "readiness")
-            Prelude.<*> (x Core..: "lastCheckedTimestamp")
+            Prelude.<$> (x Data..:? "resourceArn")
+            Prelude.<*> (x Data..:? "componentId")
+            Prelude.<*> (x Data..: "readiness")
+            Prelude.<*> (x Data..: "lastCheckedTimestamp")
       )
 
 instance Prelude.Hashable ResourceResult where

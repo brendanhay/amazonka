@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.Resource
 
@@ -130,17 +131,17 @@ resourceSetOutput_resourceSetArn = Lens.lens (\ResourceSetOutput' {resourceSetAr
 resourceSetOutput_resources :: Lens.Lens' ResourceSetOutput [Resource]
 resourceSetOutput_resources = Lens.lens (\ResourceSetOutput' {resources} -> resources) (\s@ResourceSetOutput' {} a -> s {resources = a} :: ResourceSetOutput) Prelude.. Lens.coerced
 
-instance Core.FromJSON ResourceSetOutput where
+instance Data.FromJSON ResourceSetOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceSetOutput"
       ( \x ->
           ResourceSetOutput'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "resourceSetType")
-            Prelude.<*> (x Core..: "resourceSetName")
-            Prelude.<*> (x Core..: "resourceSetArn")
-            Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "resourceSetType")
+            Prelude.<*> (x Data..: "resourceSetName")
+            Prelude.<*> (x Data..: "resourceSetArn")
+            Prelude.<*> (x Data..:? "resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourceSetOutput where

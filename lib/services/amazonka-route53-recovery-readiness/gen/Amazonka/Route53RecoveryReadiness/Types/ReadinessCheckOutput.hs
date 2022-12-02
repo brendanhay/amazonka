@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A readiness check.
@@ -84,16 +85,16 @@ readinessCheckOutput_readinessCheckArn = Lens.lens (\ReadinessCheckOutput' {read
 readinessCheckOutput_resourceSet :: Lens.Lens' ReadinessCheckOutput Prelude.Text
 readinessCheckOutput_resourceSet = Lens.lens (\ReadinessCheckOutput' {resourceSet} -> resourceSet) (\s@ReadinessCheckOutput' {} a -> s {resourceSet = a} :: ReadinessCheckOutput)
 
-instance Core.FromJSON ReadinessCheckOutput where
+instance Data.FromJSON ReadinessCheckOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReadinessCheckOutput"
       ( \x ->
           ReadinessCheckOutput'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "readinessCheckName")
-            Prelude.<*> (x Core..: "readinessCheckArn")
-            Prelude.<*> (x Core..: "resourceSet")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "readinessCheckName")
+            Prelude.<*> (x Data..: "readinessCheckArn")
+            Prelude.<*> (x Data..: "resourceSet")
       )
 
 instance Prelude.Hashable ReadinessCheckOutput where

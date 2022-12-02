@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,11 +113,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetArchitectureRecommendationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "recommendations"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "lastAuditTimestamp")
+            Prelude.<*> (x Data..?> "lastAuditTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,32 +142,32 @@ instance
       `Prelude.seq` Prelude.rnf recoveryGroupName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetArchitectureRecommendations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetArchitectureRecommendations where
+instance Data.ToPath GetArchitectureRecommendations where
   toPath GetArchitectureRecommendations' {..} =
     Prelude.mconcat
       [ "/recoverygroups/",
-        Core.toBS recoveryGroupName,
+        Data.toBS recoveryGroupName,
         "/architectureRecommendations"
       ]
 
-instance Core.ToQuery GetArchitectureRecommendations where
+instance Data.ToQuery GetArchitectureRecommendations where
   toQuery GetArchitectureRecommendations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newGetArchitectureRecommendationsResponse' smart constructor.
@@ -177,7 +178,7 @@ data GetArchitectureRecommendationsResponse = GetArchitectureRecommendationsResp
     recommendations :: Prelude.Maybe [Recommendation],
     -- | The time that a recovery group was last assessed for recommendations, in
     -- UTC ISO-8601 format.
-    lastAuditTimestamp :: Prelude.Maybe Core.POSIX,
+    lastAuditTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,7 +226,7 @@ getArchitectureRecommendationsResponse_recommendations = Lens.lens (\GetArchitec
 -- | The time that a recovery group was last assessed for recommendations, in
 -- UTC ISO-8601 format.
 getArchitectureRecommendationsResponse_lastAuditTimestamp :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe Prelude.UTCTime)
-getArchitectureRecommendationsResponse_lastAuditTimestamp = Lens.lens (\GetArchitectureRecommendationsResponse' {lastAuditTimestamp} -> lastAuditTimestamp) (\s@GetArchitectureRecommendationsResponse' {} a -> s {lastAuditTimestamp = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Core._Time
+getArchitectureRecommendationsResponse_lastAuditTimestamp = Lens.lens (\GetArchitectureRecommendationsResponse' {lastAuditTimestamp} -> lastAuditTimestamp) (\s@GetArchitectureRecommendationsResponse' {} a -> s {lastAuditTimestamp = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getArchitectureRecommendationsResponse_httpStatus :: Lens.Lens' GetArchitectureRecommendationsResponse Prelude.Int

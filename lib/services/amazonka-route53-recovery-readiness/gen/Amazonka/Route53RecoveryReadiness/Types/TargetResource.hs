@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryReadiness.Types.TargetResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.NLBResource
 import Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord
@@ -63,14 +64,14 @@ targetResource_nLBResource = Lens.lens (\TargetResource' {nLBResource} -> nLBRes
 targetResource_r53Resource :: Lens.Lens' TargetResource (Prelude.Maybe R53ResourceRecord)
 targetResource_r53Resource = Lens.lens (\TargetResource' {r53Resource} -> r53Resource) (\s@TargetResource' {} a -> s {r53Resource = a} :: TargetResource)
 
-instance Core.FromJSON TargetResource where
+instance Data.FromJSON TargetResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetResource"
       ( \x ->
           TargetResource'
-            Prelude.<$> (x Core..:? "nLBResource")
-            Prelude.<*> (x Core..:? "r53Resource")
+            Prelude.<$> (x Data..:? "nLBResource")
+            Prelude.<*> (x Data..:? "r53Resource")
       )
 
 instance Prelude.Hashable TargetResource where
@@ -83,11 +84,11 @@ instance Prelude.NFData TargetResource where
     Prelude.rnf nLBResource
       `Prelude.seq` Prelude.rnf r53Resource
 
-instance Core.ToJSON TargetResource where
+instance Data.ToJSON TargetResource where
   toJSON TargetResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nLBResource" Core..=) Prelude.<$> nLBResource,
-            ("r53Resource" Core..=) Prelude.<$> r53Resource
+          [ ("nLBResource" Data..=) Prelude.<$> nLBResource,
+            ("r53Resource" Data..=) Prelude.<$> r53Resource
           ]
       )

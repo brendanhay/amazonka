@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,27 +108,27 @@ instance Prelude.NFData DeleteStage where
     Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders DeleteStage where
+instance Data.ToHeaders DeleteStage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteStage where
+instance Data.ToPath DeleteStage where
   toPath DeleteStage' {..} =
     Prelude.mconcat
       [ "/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/stage/",
-        Core.toBS stageName
+        Data.toBS stageName
       ]
 
-instance Core.ToQuery DeleteStage where
+instance Data.ToQuery DeleteStage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteStageResponse' smart constructor.

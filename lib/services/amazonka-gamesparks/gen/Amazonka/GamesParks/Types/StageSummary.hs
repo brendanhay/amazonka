@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.StageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.StageState
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,17 +99,17 @@ stageSummary_state = Lens.lens (\StageSummary' {state} -> state) (\s@StageSummar
 stageSummary_description :: Lens.Lens' StageSummary (Prelude.Maybe Prelude.Text)
 stageSummary_description = Lens.lens (\StageSummary' {description} -> description) (\s@StageSummary' {} a -> s {description = a} :: StageSummary)
 
-instance Core.FromJSON StageSummary where
+instance Data.FromJSON StageSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StageSummary"
       ( \x ->
           StageSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "GameKey")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "GameKey")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
       )
 
 instance Prelude.Hashable StageSummary where

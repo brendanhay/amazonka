@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest UpdateGameConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateGameConfigurationResponse'
-            Prelude.<$> (x Core..?> "GameConfiguration")
+            Prelude.<$> (x Data..?> "GameConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.NFData UpdateGameConfiguration where
     Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf modifications
 
-instance Core.ToHeaders UpdateGameConfiguration where
+instance Data.ToHeaders UpdateGameConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateGameConfiguration where
+instance Data.ToJSON UpdateGameConfiguration where
   toJSON UpdateGameConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("Modifications" Core..= modifications)
+              ("Modifications" Data..= modifications)
           ]
       )
 
-instance Core.ToPath UpdateGameConfiguration where
+instance Data.ToPath UpdateGameConfiguration where
   toPath UpdateGameConfiguration' {..} =
     Prelude.mconcat
-      ["/game/", Core.toBS gameName, "/configuration"]
+      ["/game/", Data.toBS gameName, "/configuration"]
 
-instance Core.ToQuery UpdateGameConfiguration where
+instance Data.ToQuery UpdateGameConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateGameConfigurationResponse' smart constructor.

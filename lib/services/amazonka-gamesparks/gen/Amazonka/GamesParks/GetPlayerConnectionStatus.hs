@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest GetPlayerConnectionStatus where
     Response.receiveJSON
       ( \s h x ->
           GetPlayerConnectionStatusResponse'
-            Prelude.<$> (x Core..?> "Connections" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Connections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,30 +133,30 @@ instance Prelude.NFData GetPlayerConnectionStatus where
       `Prelude.seq` Prelude.rnf playerId
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders GetPlayerConnectionStatus where
+instance Data.ToHeaders GetPlayerConnectionStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPlayerConnectionStatus where
+instance Data.ToPath GetPlayerConnectionStatus where
   toPath GetPlayerConnectionStatus' {..} =
     Prelude.mconcat
       [ "/runtime/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/stage/",
-        Core.toBS stageName,
+        Data.toBS stageName,
         "/player/",
-        Core.toBS playerId,
+        Data.toBS playerId,
         "/connection"
       ]
 
-instance Core.ToQuery GetPlayerConnectionStatus where
+instance Data.ToQuery GetPlayerConnectionStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPlayerConnectionStatusResponse' smart constructor.

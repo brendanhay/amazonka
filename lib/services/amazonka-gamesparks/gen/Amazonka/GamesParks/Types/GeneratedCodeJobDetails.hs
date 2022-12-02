@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.GeneratedCodeJobDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.GeneratedCodeJobState
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data GeneratedCodeJobDetails = GeneratedCodeJobDetails'
   { -- | The expiration date and time for the download URL.
     --
     -- The download URL us guaranteed to be available until at least this time.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier for the generated code job.
     generatedCodeJobId :: Prelude.Maybe Prelude.Text,
     -- | The status of the generated code job
@@ -78,7 +79,7 @@ newGeneratedCodeJobDetails =
 --
 -- The download URL us guaranteed to be available until at least this time.
 generatedCodeJobDetails_expirationTime :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe Prelude.UTCTime)
-generatedCodeJobDetails_expirationTime = Lens.lens (\GeneratedCodeJobDetails' {expirationTime} -> expirationTime) (\s@GeneratedCodeJobDetails' {} a -> s {expirationTime = a} :: GeneratedCodeJobDetails) Prelude.. Lens.mapping Core._Time
+generatedCodeJobDetails_expirationTime = Lens.lens (\GeneratedCodeJobDetails' {expirationTime} -> expirationTime) (\s@GeneratedCodeJobDetails' {} a -> s {expirationTime = a} :: GeneratedCodeJobDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier for the generated code job.
 generatedCodeJobDetails_generatedCodeJobId :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe Prelude.Text)
@@ -96,17 +97,17 @@ generatedCodeJobDetails_description = Lens.lens (\GeneratedCodeJobDetails' {desc
 generatedCodeJobDetails_s3Url :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe Prelude.Text)
 generatedCodeJobDetails_s3Url = Lens.lens (\GeneratedCodeJobDetails' {s3Url} -> s3Url) (\s@GeneratedCodeJobDetails' {} a -> s {s3Url = a} :: GeneratedCodeJobDetails)
 
-instance Core.FromJSON GeneratedCodeJobDetails where
+instance Data.FromJSON GeneratedCodeJobDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeneratedCodeJobDetails"
       ( \x ->
           GeneratedCodeJobDetails'
-            Prelude.<$> (x Core..:? "ExpirationTime")
-            Prelude.<*> (x Core..:? "GeneratedCodeJobId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "S3Url")
+            Prelude.<$> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..:? "GeneratedCodeJobId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "S3Url")
       )
 
 instance Prelude.Hashable GeneratedCodeJobDetails where

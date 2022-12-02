@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,8 +168,8 @@ instance Core.AWSRequest ListExtensionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListExtensionVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ExtensionVersions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ExtensionVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -188,32 +189,32 @@ instance Prelude.NFData ListExtensionVersions where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders ListExtensionVersions where
+instance Data.ToHeaders ListExtensionVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListExtensionVersions where
+instance Data.ToPath ListExtensionVersions where
   toPath ListExtensionVersions' {..} =
     Prelude.mconcat
       [ "/extension/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/",
-        Core.toBS name,
+        Data.toBS name,
         "/version"
       ]
 
-instance Core.ToQuery ListExtensionVersions where
+instance Data.ToQuery ListExtensionVersions where
   toQuery ListExtensionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListExtensionVersionsResponse' smart constructor.

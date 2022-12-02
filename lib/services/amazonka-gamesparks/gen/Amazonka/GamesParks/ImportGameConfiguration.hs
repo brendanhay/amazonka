@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest ImportGameConfiguration where
     Response.receiveJSON
       ( \s h x ->
           ImportGameConfigurationResponse'
-            Prelude.<$> (x Core..?> "GameConfiguration")
+            Prelude.<$> (x Data..?> "GameConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,30 +117,30 @@ instance Prelude.NFData ImportGameConfiguration where
     Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf importSource
 
-instance Core.ToHeaders ImportGameConfiguration where
+instance Data.ToHeaders ImportGameConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportGameConfiguration where
+instance Data.ToJSON ImportGameConfiguration where
   toJSON ImportGameConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ImportSource" Core..= importSource)]
+          [Prelude.Just ("ImportSource" Data..= importSource)]
       )
 
-instance Core.ToPath ImportGameConfiguration where
+instance Data.ToPath ImportGameConfiguration where
   toPath ImportGameConfiguration' {..} =
     Prelude.mconcat
-      ["/game/", Core.toBS gameName, "/configuration"]
+      ["/game/", Data.toBS gameName, "/configuration"]
 
-instance Core.ToQuery ImportGameConfiguration where
+instance Data.ToQuery ImportGameConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportGameConfigurationResponse' smart constructor.

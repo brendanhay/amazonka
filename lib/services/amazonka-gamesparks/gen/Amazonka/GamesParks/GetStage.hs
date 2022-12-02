@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest GetStage where
     Response.receiveJSON
       ( \s h x ->
           GetStageResponse'
-            Prelude.<$> (x Core..?> "Stage")
+            Prelude.<$> (x Data..?> "Stage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,27 +110,27 @@ instance Prelude.NFData GetStage where
     Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders GetStage where
+instance Data.ToHeaders GetStage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetStage where
+instance Data.ToPath GetStage where
   toPath GetStage' {..} =
     Prelude.mconcat
       [ "/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/stage/",
-        Core.toBS stageName
+        Data.toBS stageName
       ]
 
-instance Core.ToQuery GetStage where
+instance Data.ToQuery GetStage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetStageResponse' smart constructor.

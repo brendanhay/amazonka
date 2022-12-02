@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.ImportGameConfigurationSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source used to import configuration sections.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImportGameConfigurationSource' smart constructor.
 data ImportGameConfigurationSource = ImportGameConfigurationSource'
   { -- | The JSON string containing the configuration sections.
-    file :: Core.Base64
+    file :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,7 +53,7 @@ newImportGameConfigurationSource ::
 newImportGameConfigurationSource pFile_ =
   ImportGameConfigurationSource'
     { file =
-        Core._Base64 Lens.# pFile_
+        Data._Base64 Lens.# pFile_
     }
 
 -- | The JSON string containing the configuration sections.--
@@ -61,7 +62,7 @@ newImportGameConfigurationSource pFile_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importGameConfigurationSource_file :: Lens.Lens' ImportGameConfigurationSource Prelude.ByteString
-importGameConfigurationSource_file = Lens.lens (\ImportGameConfigurationSource' {file} -> file) (\s@ImportGameConfigurationSource' {} a -> s {file = a} :: ImportGameConfigurationSource) Prelude.. Core._Base64
+importGameConfigurationSource_file = Lens.lens (\ImportGameConfigurationSource' {file} -> file) (\s@ImportGameConfigurationSource' {} a -> s {file = a} :: ImportGameConfigurationSource) Prelude.. Data._Base64
 
 instance
   Prelude.Hashable
@@ -74,9 +75,9 @@ instance Prelude.NFData ImportGameConfigurationSource where
   rnf ImportGameConfigurationSource' {..} =
     Prelude.rnf file
 
-instance Core.ToJSON ImportGameConfigurationSource where
+instance Data.ToJSON ImportGameConfigurationSource where
   toJSON ImportGameConfigurationSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("File" Core..= file)]
+          [Prelude.Just ("File" Data..= file)]
       )

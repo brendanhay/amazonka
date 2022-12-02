@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest GetExtensionVersion where
     Response.receiveJSON
       ( \s h x ->
           GetExtensionVersionResponse'
-            Prelude.<$> (x Core..?> "ExtensionVersion")
+            Prelude.<$> (x Data..?> "ExtensionVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,29 +130,29 @@ instance Prelude.NFData GetExtensionVersion where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf namespace
 
-instance Core.ToHeaders GetExtensionVersion where
+instance Data.ToHeaders GetExtensionVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetExtensionVersion where
+instance Data.ToPath GetExtensionVersion where
   toPath GetExtensionVersion' {..} =
     Prelude.mconcat
       [ "/extension/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/",
-        Core.toBS name,
+        Data.toBS name,
         "/version/",
-        Core.toBS extensionVersion
+        Data.toBS extensionVersion
       ]
 
-instance Core.ToQuery GetExtensionVersion where
+instance Data.ToQuery GetExtensionVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetExtensionVersionResponse' smart constructor.

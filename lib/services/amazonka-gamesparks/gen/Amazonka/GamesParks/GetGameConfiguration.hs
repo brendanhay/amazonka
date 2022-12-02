@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest GetGameConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetGameConfigurationResponse'
-            Prelude.<$> (x Core..?> "GameConfiguration")
+            Prelude.<$> (x Data..?> "GameConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,28 +110,28 @@ instance Prelude.NFData GetGameConfiguration where
     Prelude.rnf sections
       `Prelude.seq` Prelude.rnf gameName
 
-instance Core.ToHeaders GetGameConfiguration where
+instance Data.ToHeaders GetGameConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetGameConfiguration where
+instance Data.ToPath GetGameConfiguration where
   toPath GetGameConfiguration' {..} =
     Prelude.mconcat
-      ["/game/", Core.toBS gameName, "/configuration"]
+      ["/game/", Data.toBS gameName, "/configuration"]
 
-instance Core.ToQuery GetGameConfiguration where
+instance Data.ToQuery GetGameConfiguration where
   toQuery GetGameConfiguration' {..} =
     Prelude.mconcat
       [ "Sections"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> sections)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> sections)
       ]
 
 -- | /See:/ 'newGetGameConfigurationResponse' smart constructor.

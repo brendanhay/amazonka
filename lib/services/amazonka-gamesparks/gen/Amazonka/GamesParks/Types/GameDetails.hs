@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.GameDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.GameState
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,7 +36,7 @@ data GameDetails = GameDetails'
     -- | Determines if the game can be deleted.
     enableTerminationProtection :: Prelude.Maybe Prelude.Bool,
     -- | The date when the game was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of this game.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The state of the game.
@@ -43,7 +44,7 @@ data GameDetails = GameDetails'
     -- | The description of the game.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date when the game was last modified.
-    lastUpdated :: Prelude.Maybe Core.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,7 +99,7 @@ gameDetails_enableTerminationProtection = Lens.lens (\GameDetails' {enableTermin
 
 -- | The date when the game was created.
 gameDetails_created :: Lens.Lens' GameDetails (Prelude.Maybe Prelude.UTCTime)
-gameDetails_created = Lens.lens (\GameDetails' {created} -> created) (\s@GameDetails' {} a -> s {created = a} :: GameDetails) Prelude.. Lens.mapping Core._Time
+gameDetails_created = Lens.lens (\GameDetails' {created} -> created) (\s@GameDetails' {} a -> s {created = a} :: GameDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of this game.
 gameDetails_arn :: Lens.Lens' GameDetails (Prelude.Maybe Prelude.Text)
@@ -114,22 +115,22 @@ gameDetails_description = Lens.lens (\GameDetails' {description} -> description)
 
 -- | The date when the game was last modified.
 gameDetails_lastUpdated :: Lens.Lens' GameDetails (Prelude.Maybe Prelude.UTCTime)
-gameDetails_lastUpdated = Lens.lens (\GameDetails' {lastUpdated} -> lastUpdated) (\s@GameDetails' {} a -> s {lastUpdated = a} :: GameDetails) Prelude.. Lens.mapping Core._Time
+gameDetails_lastUpdated = Lens.lens (\GameDetails' {lastUpdated} -> lastUpdated) (\s@GameDetails' {} a -> s {lastUpdated = a} :: GameDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON GameDetails where
+instance Data.FromJSON GameDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GameDetails"
       ( \x ->
           GameDetails'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EnableTerminationProtection")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "EnableTerminationProtection")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastUpdated")
       )
 
 instance Prelude.Hashable GameDetails where

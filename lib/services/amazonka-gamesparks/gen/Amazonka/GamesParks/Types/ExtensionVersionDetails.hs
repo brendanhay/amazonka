@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.ExtensionVersionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the extension version.
@@ -79,16 +80,16 @@ extensionVersionDetails_namespace = Lens.lens (\ExtensionVersionDetails' {namesp
 extensionVersionDetails_version :: Lens.Lens' ExtensionVersionDetails (Prelude.Maybe Prelude.Text)
 extensionVersionDetails_version = Lens.lens (\ExtensionVersionDetails' {version} -> version) (\s@ExtensionVersionDetails' {} a -> s {version = a} :: ExtensionVersionDetails)
 
-instance Core.FromJSON ExtensionVersionDetails where
+instance Data.FromJSON ExtensionVersionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtensionVersionDetails"
       ( \x ->
           ExtensionVersionDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Schema")
-            Prelude.<*> (x Core..:? "Namespace")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Schema")
+            Prelude.<*> (x Data..:? "Namespace")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable ExtensionVersionDetails where

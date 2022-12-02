@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ instance Core.AWSRequest StartStageDeployment where
     Response.receiveJSON
       ( \s h x ->
           StartStageDeploymentResponse'
-            Prelude.<$> (x Core..?> "StageDeployment")
+            Prelude.<$> (x Data..?> "StageDeployment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,37 +154,37 @@ instance Prelude.NFData StartStageDeployment where
       `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders StartStageDeployment where
+instance Data.ToHeaders StartStageDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartStageDeployment where
+instance Data.ToJSON StartStageDeployment where
   toJSON StartStageDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("SnapshotId" Core..= snapshotId)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("SnapshotId" Data..= snapshotId)
           ]
       )
 
-instance Core.ToPath StartStageDeployment where
+instance Data.ToPath StartStageDeployment where
   toPath StartStageDeployment' {..} =
     Prelude.mconcat
       [ "/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/stage/",
-        Core.toBS stageName,
+        Data.toBS stageName,
         "/deployment"
       ]
 
-instance Core.ToQuery StartStageDeployment where
+instance Data.ToQuery StartStageDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartStageDeploymentResponse' smart constructor.

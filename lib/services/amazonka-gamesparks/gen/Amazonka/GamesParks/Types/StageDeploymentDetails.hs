@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.StageDeploymentDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.DeploymentAction
 import Amazonka.GamesParks.Types.DeploymentResult
 import Amazonka.GamesParks.Types.DeploymentState
@@ -39,11 +40,11 @@ data StageDeploymentDetails = StageDeploymentDetails'
     -- | The result of the deployment.
     deploymentResult :: Prelude.Maybe DeploymentResult,
     -- | The timestamp of when the stage deployment was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the snapshot associated with the stage deployment.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the deployment was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,7 +101,7 @@ stageDeploymentDetails_deploymentResult = Lens.lens (\StageDeploymentDetails' {d
 
 -- | The timestamp of when the stage deployment was created.
 stageDeploymentDetails_created :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe Prelude.UTCTime)
-stageDeploymentDetails_created = Lens.lens (\StageDeploymentDetails' {created} -> created) (\s@StageDeploymentDetails' {} a -> s {created = a} :: StageDeploymentDetails) Prelude.. Lens.mapping Core._Time
+stageDeploymentDetails_created = Lens.lens (\StageDeploymentDetails' {created} -> created) (\s@StageDeploymentDetails' {} a -> s {created = a} :: StageDeploymentDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the snapshot associated with the stage deployment.
 stageDeploymentDetails_snapshotId :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe Prelude.Text)
@@ -108,21 +109,21 @@ stageDeploymentDetails_snapshotId = Lens.lens (\StageDeploymentDetails' {snapsho
 
 -- | The timestamp of when the deployment was last updated.
 stageDeploymentDetails_lastUpdated :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe Prelude.UTCTime)
-stageDeploymentDetails_lastUpdated = Lens.lens (\StageDeploymentDetails' {lastUpdated} -> lastUpdated) (\s@StageDeploymentDetails' {} a -> s {lastUpdated = a} :: StageDeploymentDetails) Prelude.. Lens.mapping Core._Time
+stageDeploymentDetails_lastUpdated = Lens.lens (\StageDeploymentDetails' {lastUpdated} -> lastUpdated) (\s@StageDeploymentDetails' {} a -> s {lastUpdated = a} :: StageDeploymentDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StageDeploymentDetails where
+instance Data.FromJSON StageDeploymentDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StageDeploymentDetails"
       ( \x ->
           StageDeploymentDetails'
-            Prelude.<$> (x Core..:? "DeploymentState")
-            Prelude.<*> (x Core..:? "DeploymentAction")
-            Prelude.<*> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "DeploymentResult")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "SnapshotId")
-            Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<$> (x Data..:? "DeploymentState")
+            Prelude.<*> (x Data..:? "DeploymentAction")
+            Prelude.<*> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "DeploymentResult")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "LastUpdated")
       )
 
 instance Prelude.Hashable StageDeploymentDetails where

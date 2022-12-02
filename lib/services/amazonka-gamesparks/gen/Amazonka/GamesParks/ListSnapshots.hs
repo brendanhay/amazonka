@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance Core.AWSRequest ListSnapshots where
     Response.receiveJSON
       ( \s h x ->
           ListSnapshotsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Snapshots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Snapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,27 +166,27 @@ instance Prelude.NFData ListSnapshots where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf gameName
 
-instance Core.ToHeaders ListSnapshots where
+instance Data.ToHeaders ListSnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListSnapshots where
+instance Data.ToPath ListSnapshots where
   toPath ListSnapshots' {..} =
     Prelude.mconcat
-      ["/game/", Core.toBS gameName, "/snapshot"]
+      ["/game/", Data.toBS gameName, "/snapshot"]
 
-instance Core.ToQuery ListSnapshots where
+instance Data.ToQuery ListSnapshots where
   toQuery ListSnapshots' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListSnapshotsResponse' smart constructor.

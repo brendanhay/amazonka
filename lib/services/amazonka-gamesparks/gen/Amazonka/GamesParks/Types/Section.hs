@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.Section where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types.Document
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,15 +72,15 @@ section_size = Lens.lens (\Section' {size} -> size) (\s@Section' {} a -> s {size
 section_attributes :: Lens.Lens' Section (Prelude.Maybe Document)
 section_attributes = Lens.lens (\Section' {attributes} -> attributes) (\s@Section' {} a -> s {attributes = a} :: Section)
 
-instance Core.FromJSON Section where
+instance Data.FromJSON Section where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Section"
       ( \x ->
           Section'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "Attributes")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "Attributes")
       )
 
 instance Prelude.Hashable Section where

@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.Generator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties that specify the code generator for a generated code job.
@@ -97,14 +98,14 @@ instance Prelude.NFData Generator where
       `Prelude.seq` Prelude.rnf gameSdkVersion
       `Prelude.seq` Prelude.rnf language
 
-instance Core.ToJSON Generator where
+instance Data.ToJSON Generator where
   toJSON Generator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TargetPlatform" Core..=)
+          [ ("TargetPlatform" Data..=)
               Prelude.<$> targetPlatform,
-            ("GameSdkVersion" Core..=)
+            ("GameSdkVersion" Data..=)
               Prelude.<$> gameSdkVersion,
-            ("Language" Core..=) Prelude.<$> language
+            ("Language" Data..=) Prelude.<$> language
           ]
       )

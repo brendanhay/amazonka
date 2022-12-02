@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.ExtensionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the extension.
@@ -70,15 +71,15 @@ extensionDetails_description = Lens.lens (\ExtensionDetails' {description} -> de
 extensionDetails_namespace :: Lens.Lens' ExtensionDetails (Prelude.Maybe Prelude.Text)
 extensionDetails_namespace = Lens.lens (\ExtensionDetails' {namespace} -> namespace) (\s@ExtensionDetails' {} a -> s {namespace = a} :: ExtensionDetails)
 
-instance Core.FromJSON ExtensionDetails where
+instance Data.FromJSON ExtensionDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtensionDetails"
       ( \x ->
           ExtensionDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Namespace")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Namespace")
       )
 
 instance Prelude.Hashable ExtensionDetails where

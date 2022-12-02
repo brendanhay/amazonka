@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GamesParks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,10 +164,10 @@ instance Core.AWSRequest ListStageDeployments where
     Response.receiveJSON
       ( \s h x ->
           ListStageDeploymentsResponse'
-            Prelude.<$> ( x Core..?> "StageDeployments"
+            Prelude.<$> ( x Data..?> "StageDeployments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,32 +185,32 @@ instance Prelude.NFData ListStageDeployments where
       `Prelude.seq` Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders ListStageDeployments where
+instance Data.ToHeaders ListStageDeployments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListStageDeployments where
+instance Data.ToPath ListStageDeployments where
   toPath ListStageDeployments' {..} =
     Prelude.mconcat
       [ "/game/",
-        Core.toBS gameName,
+        Data.toBS gameName,
         "/stage/",
-        Core.toBS stageName,
+        Data.toBS stageName,
         "/deployments"
       ]
 
-instance Core.ToQuery ListStageDeployments where
+instance Data.ToQuery ListStageDeployments where
   toQuery ListStageDeployments' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListStageDeploymentsResponse' smart constructor.

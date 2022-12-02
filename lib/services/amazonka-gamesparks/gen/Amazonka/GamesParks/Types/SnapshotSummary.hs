@@ -21,6 +21,7 @@ module Amazonka.GamesParks.Types.SnapshotSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the properties of a snapshot.
@@ -28,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSnapshotSummary' smart constructor.
 data SnapshotSummary = SnapshotSummary'
   { -- | The timestamp of when the snapshot was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the snapshot.
     id :: Prelude.Maybe Prelude.Text,
     -- | The description of the snapshot.
     description :: Prelude.Maybe Prelude.Text,
     -- | Then timestamp of when the snapshot was last updated.
-    lastUpdated :: Prelude.Maybe Core.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,7 +66,7 @@ newSnapshotSummary =
 
 -- | The timestamp of when the snapshot was created.
 snapshotSummary_created :: Lens.Lens' SnapshotSummary (Prelude.Maybe Prelude.UTCTime)
-snapshotSummary_created = Lens.lens (\SnapshotSummary' {created} -> created) (\s@SnapshotSummary' {} a -> s {created = a} :: SnapshotSummary) Prelude.. Lens.mapping Core._Time
+snapshotSummary_created = Lens.lens (\SnapshotSummary' {created} -> created) (\s@SnapshotSummary' {} a -> s {created = a} :: SnapshotSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the snapshot.
 snapshotSummary_id :: Lens.Lens' SnapshotSummary (Prelude.Maybe Prelude.Text)
@@ -77,18 +78,18 @@ snapshotSummary_description = Lens.lens (\SnapshotSummary' {description} -> desc
 
 -- | Then timestamp of when the snapshot was last updated.
 snapshotSummary_lastUpdated :: Lens.Lens' SnapshotSummary (Prelude.Maybe Prelude.UTCTime)
-snapshotSummary_lastUpdated = Lens.lens (\SnapshotSummary' {lastUpdated} -> lastUpdated) (\s@SnapshotSummary' {} a -> s {lastUpdated = a} :: SnapshotSummary) Prelude.. Lens.mapping Core._Time
+snapshotSummary_lastUpdated = Lens.lens (\SnapshotSummary' {lastUpdated} -> lastUpdated) (\s@SnapshotSummary' {} a -> s {lastUpdated = a} :: SnapshotSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SnapshotSummary where
+instance Data.FromJSON SnapshotSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SnapshotSummary"
       ( \x ->
           SnapshotSummary'
-            Prelude.<$> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<$> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastUpdated")
       )
 
 instance Prelude.Hashable SnapshotSummary where

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,35 +113,35 @@ instance Prelude.NFData DeleteGroupMembership where
     Prelude.rnf identityStoreId
       `Prelude.seq` Prelude.rnf membershipId
 
-instance Core.ToHeaders DeleteGroupMembership where
+instance Data.ToHeaders DeleteGroupMembership where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIdentityStore.DeleteGroupMembership" ::
+              Data.=# ( "AWSIdentityStore.DeleteGroupMembership" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteGroupMembership where
+instance Data.ToJSON DeleteGroupMembership where
   toJSON DeleteGroupMembership' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityStoreId" Core..= identityStoreId),
-            Prelude.Just ("MembershipId" Core..= membershipId)
+              ("IdentityStoreId" Data..= identityStoreId),
+            Prelude.Just ("MembershipId" Data..= membershipId)
           ]
       )
 
-instance Core.ToPath DeleteGroupMembership where
+instance Data.ToPath DeleteGroupMembership where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteGroupMembership where
+instance Data.ToQuery DeleteGroupMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGroupMembershipResponse' smart constructor.

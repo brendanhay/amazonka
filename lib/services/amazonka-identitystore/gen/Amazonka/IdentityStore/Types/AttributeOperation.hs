@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.AttributeOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types.AttributeValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,13 +83,13 @@ instance Prelude.NFData AttributeOperation where
     Prelude.rnf attributeValue
       `Prelude.seq` Prelude.rnf attributePath
 
-instance Core.ToJSON AttributeOperation where
+instance Data.ToJSON AttributeOperation where
   toJSON AttributeOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AttributeValue" Core..=)
+          [ ("AttributeValue" Data..=)
               Prelude.<$> attributeValue,
             Prelude.Just
-              ("AttributePath" Core..= attributePath)
+              ("AttributePath" Data..= attributePath)
           ]
       )

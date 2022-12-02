@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,23 +124,23 @@ instance Core.AWSRequest DescribeUser where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "ExternalIds")
-            Prelude.<*> (x Core..?> "UserName")
-            Prelude.<*> (x Core..?> "Locale")
-            Prelude.<*> (x Core..?> "Timezone")
-            Prelude.<*> (x Core..?> "DisplayName")
-            Prelude.<*> (x Core..?> "UserType")
-            Prelude.<*> (x Core..?> "ProfileUrl")
-            Prelude.<*> (x Core..?> "PreferredLanguage")
-            Prelude.<*> (x Core..?> "Title")
-            Prelude.<*> (x Core..?> "Emails")
-            Prelude.<*> (x Core..?> "Addresses")
-            Prelude.<*> (x Core..?> "NickName")
-            Prelude.<*> (x Core..?> "PhoneNumbers")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "ExternalIds")
+            Prelude.<*> (x Data..?> "UserName")
+            Prelude.<*> (x Data..?> "Locale")
+            Prelude.<*> (x Data..?> "Timezone")
+            Prelude.<*> (x Data..?> "DisplayName")
+            Prelude.<*> (x Data..?> "UserType")
+            Prelude.<*> (x Data..?> "ProfileUrl")
+            Prelude.<*> (x Data..?> "PreferredLanguage")
+            Prelude.<*> (x Data..?> "Title")
+            Prelude.<*> (x Data..?> "Emails")
+            Prelude.<*> (x Data..?> "Addresses")
+            Prelude.<*> (x Data..?> "NickName")
+            Prelude.<*> (x Data..?> "PhoneNumbers")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "UserId")
-            Prelude.<*> (x Core..:> "IdentityStoreId")
+            Prelude.<*> (x Data..:> "UserId")
+            Prelude.<*> (x Data..:> "IdentityStoreId")
       )
 
 instance Prelude.Hashable DescribeUser where
@@ -152,35 +153,35 @@ instance Prelude.NFData DescribeUser where
     Prelude.rnf identityStoreId
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders DescribeUser where
+instance Data.ToHeaders DescribeUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIdentityStore.DescribeUser" ::
+              Data.=# ( "AWSIdentityStore.DescribeUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeUser where
+instance Data.ToJSON DescribeUser where
   toJSON DescribeUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityStoreId" Core..= identityStoreId),
-            Prelude.Just ("UserId" Core..= userId)
+              ("IdentityStoreId" Data..= identityStoreId),
+            Prelude.Just ("UserId" Data..= userId)
           ]
       )
 
-instance Core.ToPath DescribeUser where
+instance Data.ToPath DescribeUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUser where
+instance Data.ToQuery DescribeUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeUserResponse' smart constructor.
@@ -195,27 +196,27 @@ data DescribeUserResponse = DescribeUserResponse'
     -- symbols, numbers, and punctuation. This value is specified at the time
     -- the user is created and stored as an attribute of the user object in the
     -- identity store.
-    userName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s geographical region or location.
-    locale :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    locale :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time zone for a user.
-    timezone :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    timezone :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user\'s name value for display.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string indicating the user\'s type.
-    userType :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A URL link for the user\'s profile.
-    profileUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    profileUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The preferred language of the user.
-    preferredLanguage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    preferredLanguage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s title.
-    title :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    title :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user\'s email value.
     emails :: Prelude.Maybe (Prelude.NonEmpty Email),
     -- | The user\'s physical address.
     addresses :: Prelude.Maybe (Prelude.NonEmpty Address),
     -- | An alternative descriptive name for the user.
-    nickName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nickName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of @PhoneNumber@ objects associated with a user.
     phoneNumbers :: Prelude.Maybe (Prelude.NonEmpty PhoneNumber),
     -- | The response's http status code.
@@ -320,35 +321,35 @@ describeUserResponse_externalIds = Lens.lens (\DescribeUserResponse' {externalId
 -- the user is created and stored as an attribute of the user object in the
 -- identity store.
 describeUserResponse_userName :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_userName = Lens.lens (\DescribeUserResponse' {userName} -> userName) (\s@DescribeUserResponse' {} a -> s {userName = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_userName = Lens.lens (\DescribeUserResponse' {userName} -> userName) (\s@DescribeUserResponse' {} a -> s {userName = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s geographical region or location.
 describeUserResponse_locale :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_locale = Lens.lens (\DescribeUserResponse' {locale} -> locale) (\s@DescribeUserResponse' {} a -> s {locale = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_locale = Lens.lens (\DescribeUserResponse' {locale} -> locale) (\s@DescribeUserResponse' {} a -> s {locale = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time zone for a user.
 describeUserResponse_timezone :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_timezone = Lens.lens (\DescribeUserResponse' {timezone} -> timezone) (\s@DescribeUserResponse' {} a -> s {timezone = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_timezone = Lens.lens (\DescribeUserResponse' {timezone} -> timezone) (\s@DescribeUserResponse' {} a -> s {timezone = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user\'s name value for display.
 describeUserResponse_displayName :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_displayName = Lens.lens (\DescribeUserResponse' {displayName} -> displayName) (\s@DescribeUserResponse' {} a -> s {displayName = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_displayName = Lens.lens (\DescribeUserResponse' {displayName} -> displayName) (\s@DescribeUserResponse' {} a -> s {displayName = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string indicating the user\'s type.
 describeUserResponse_userType :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_userType = Lens.lens (\DescribeUserResponse' {userType} -> userType) (\s@DescribeUserResponse' {} a -> s {userType = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_userType = Lens.lens (\DescribeUserResponse' {userType} -> userType) (\s@DescribeUserResponse' {} a -> s {userType = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A URL link for the user\'s profile.
 describeUserResponse_profileUrl :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_profileUrl = Lens.lens (\DescribeUserResponse' {profileUrl} -> profileUrl) (\s@DescribeUserResponse' {} a -> s {profileUrl = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_profileUrl = Lens.lens (\DescribeUserResponse' {profileUrl} -> profileUrl) (\s@DescribeUserResponse' {} a -> s {profileUrl = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The preferred language of the user.
 describeUserResponse_preferredLanguage :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_preferredLanguage = Lens.lens (\DescribeUserResponse' {preferredLanguage} -> preferredLanguage) (\s@DescribeUserResponse' {} a -> s {preferredLanguage = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_preferredLanguage = Lens.lens (\DescribeUserResponse' {preferredLanguage} -> preferredLanguage) (\s@DescribeUserResponse' {} a -> s {preferredLanguage = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s title.
 describeUserResponse_title :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_title = Lens.lens (\DescribeUserResponse' {title} -> title) (\s@DescribeUserResponse' {} a -> s {title = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_title = Lens.lens (\DescribeUserResponse' {title} -> title) (\s@DescribeUserResponse' {} a -> s {title = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The user\'s email value.
 describeUserResponse_emails :: Lens.Lens' DescribeUserResponse (Prelude.Maybe (Prelude.NonEmpty Email))
@@ -360,7 +361,7 @@ describeUserResponse_addresses = Lens.lens (\DescribeUserResponse' {addresses} -
 
 -- | An alternative descriptive name for the user.
 describeUserResponse_nickName :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_nickName = Lens.lens (\DescribeUserResponse' {nickName} -> nickName) (\s@DescribeUserResponse' {} a -> s {nickName = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Sensitive
+describeUserResponse_nickName = Lens.lens (\DescribeUserResponse' {nickName} -> nickName) (\s@DescribeUserResponse' {} a -> s {nickName = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of @PhoneNumber@ objects associated with a user.
 describeUserResponse_phoneNumbers :: Lens.Lens' DescribeUserResponse (Prelude.Maybe (Prelude.NonEmpty PhoneNumber))

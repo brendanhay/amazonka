@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.GroupMembershipExistenceResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types.MemberId
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,7 +35,7 @@ data GroupMembershipExistenceResult = GroupMembershipExistenceResult'
     -- user is a member of the group.
     memberId :: Prelude.Maybe MemberId,
     -- | Indicates whether a membership relation exists or not.
-    membershipExists :: Prelude.Maybe (Core.Sensitive Prelude.Bool),
+    membershipExists :: Prelude.Maybe (Data.Sensitive Prelude.Bool),
     -- | The identifier for a group in the identity store.
     groupId :: Prelude.Maybe Prelude.Text
   }
@@ -73,21 +74,21 @@ groupMembershipExistenceResult_memberId = Lens.lens (\GroupMembershipExistenceRe
 
 -- | Indicates whether a membership relation exists or not.
 groupMembershipExistenceResult_membershipExists :: Lens.Lens' GroupMembershipExistenceResult (Prelude.Maybe Prelude.Bool)
-groupMembershipExistenceResult_membershipExists = Lens.lens (\GroupMembershipExistenceResult' {membershipExists} -> membershipExists) (\s@GroupMembershipExistenceResult' {} a -> s {membershipExists = a} :: GroupMembershipExistenceResult) Prelude.. Lens.mapping Core._Sensitive
+groupMembershipExistenceResult_membershipExists = Lens.lens (\GroupMembershipExistenceResult' {membershipExists} -> membershipExists) (\s@GroupMembershipExistenceResult' {} a -> s {membershipExists = a} :: GroupMembershipExistenceResult) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The identifier for a group in the identity store.
 groupMembershipExistenceResult_groupId :: Lens.Lens' GroupMembershipExistenceResult (Prelude.Maybe Prelude.Text)
 groupMembershipExistenceResult_groupId = Lens.lens (\GroupMembershipExistenceResult' {groupId} -> groupId) (\s@GroupMembershipExistenceResult' {} a -> s {groupId = a} :: GroupMembershipExistenceResult)
 
-instance Core.FromJSON GroupMembershipExistenceResult where
+instance Data.FromJSON GroupMembershipExistenceResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupMembershipExistenceResult"
       ( \x ->
           GroupMembershipExistenceResult'
-            Prelude.<$> (x Core..:? "MemberId")
-            Prelude.<*> (x Core..:? "MembershipExists")
-            Prelude.<*> (x Core..:? "GroupId")
+            Prelude.<$> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "MembershipExists")
+            Prelude.<*> (x Data..:? "GroupId")
       )
 
 instance

@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.GroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types.MemberId
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,16 +90,16 @@ groupMembership_groupId = Lens.lens (\GroupMembership' {groupId} -> groupId) (\s
 groupMembership_identityStoreId :: Lens.Lens' GroupMembership Prelude.Text
 groupMembership_identityStoreId = Lens.lens (\GroupMembership' {identityStoreId} -> identityStoreId) (\s@GroupMembership' {} a -> s {identityStoreId = a} :: GroupMembership)
 
-instance Core.FromJSON GroupMembership where
+instance Data.FromJSON GroupMembership where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupMembership"
       ( \x ->
           GroupMembership'
-            Prelude.<$> (x Core..:? "MemberId")
-            Prelude.<*> (x Core..:? "MembershipId")
-            Prelude.<*> (x Core..:? "GroupId")
-            Prelude.<*> (x Core..: "IdentityStoreId")
+            Prelude.<$> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "MembershipId")
+            Prelude.<*> (x Data..:? "GroupId")
+            Prelude.<*> (x Data..: "IdentityStoreId")
       )
 
 instance Prelude.Hashable GroupMembership where

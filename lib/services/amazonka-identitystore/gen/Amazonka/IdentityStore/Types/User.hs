@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types.Address
 import Amazonka.IdentityStore.Types.Email
 import Amazonka.IdentityStore.Types.ExternalId
@@ -42,25 +43,25 @@ data User = User'
     -- symbols, numbers, and punctuation. This value is specified at the time
     -- the user is created and stored as an attribute of the user object in the
     -- identity store.
-    userName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s geographical region or location.
-    locale :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    locale :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s time zone.
-    timezone :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    timezone :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s name that\'s formatted for display when
     -- the user is referenced. For example, \"John Doe.\"
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string indicating the user\'s type. Possible values depend on each
     -- customer\'s specific needs, so they are left unspecified.
-    userType :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    userType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing a URL that may be associated with the user.
-    profileUrl :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    profileUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the preferred language of the user. For example,
     -- \"American English\" or \"en-us.\"
-    preferredLanguage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    preferredLanguage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the user\'s title. Possible values depend on each
     -- customer\'s specific needs, so they are left unspecified.
-    title :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    title :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of @Email@ objects containing email addresses associated with the
     -- user.
     emails :: Prelude.Maybe (Prelude.NonEmpty Email),
@@ -68,7 +69,7 @@ data User = User'
     -- user.
     addresses :: Prelude.Maybe (Prelude.NonEmpty Address),
     -- | A string containing an alternate name for the user.
-    nickName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nickName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of @PhoneNumber@ objects containing phone numbers associated with
     -- the user.
     phoneNumbers :: Prelude.Maybe (Prelude.NonEmpty PhoneNumber),
@@ -171,39 +172,39 @@ user_externalIds = Lens.lens (\User' {externalIds} -> externalIds) (\s@User' {} 
 -- the user is created and stored as an attribute of the user object in the
 -- identity store.
 user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s geographical region or location.
 user_locale :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_locale = Lens.lens (\User' {locale} -> locale) (\s@User' {} a -> s {locale = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_locale = Lens.lens (\User' {locale} -> locale) (\s@User' {} a -> s {locale = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s time zone.
 user_timezone :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_timezone = Lens.lens (\User' {timezone} -> timezone) (\s@User' {} a -> s {timezone = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_timezone = Lens.lens (\User' {timezone} -> timezone) (\s@User' {} a -> s {timezone = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s name that\'s formatted for display when
 -- the user is referenced. For example, \"John Doe.\"
 user_displayName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_displayName = Lens.lens (\User' {displayName} -> displayName) (\s@User' {} a -> s {displayName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_displayName = Lens.lens (\User' {displayName} -> displayName) (\s@User' {} a -> s {displayName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string indicating the user\'s type. Possible values depend on each
 -- customer\'s specific needs, so they are left unspecified.
 user_userType :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_userType = Lens.lens (\User' {userType} -> userType) (\s@User' {} a -> s {userType = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_userType = Lens.lens (\User' {userType} -> userType) (\s@User' {} a -> s {userType = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing a URL that may be associated with the user.
 user_profileUrl :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_profileUrl = Lens.lens (\User' {profileUrl} -> profileUrl) (\s@User' {} a -> s {profileUrl = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_profileUrl = Lens.lens (\User' {profileUrl} -> profileUrl) (\s@User' {} a -> s {profileUrl = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the preferred language of the user. For example,
 -- \"American English\" or \"en-us.\"
 user_preferredLanguage :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_preferredLanguage = Lens.lens (\User' {preferredLanguage} -> preferredLanguage) (\s@User' {} a -> s {preferredLanguage = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_preferredLanguage = Lens.lens (\User' {preferredLanguage} -> preferredLanguage) (\s@User' {} a -> s {preferredLanguage = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the user\'s title. Possible values depend on each
 -- customer\'s specific needs, so they are left unspecified.
 user_title :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_title = Lens.lens (\User' {title} -> title) (\s@User' {} a -> s {title = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_title = Lens.lens (\User' {title} -> title) (\s@User' {} a -> s {title = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of @Email@ objects containing email addresses associated with the
 -- user.
@@ -217,7 +218,7 @@ user_addresses = Lens.lens (\User' {addresses} -> addresses) (\s@User' {} a -> s
 
 -- | A string containing an alternate name for the user.
 user_nickName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_nickName = Lens.lens (\User' {nickName} -> nickName) (\s@User' {} a -> s {nickName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+user_nickName = Lens.lens (\User' {nickName} -> nickName) (\s@User' {} a -> s {nickName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of @PhoneNumber@ objects containing phone numbers associated with
 -- the user.
@@ -232,28 +233,28 @@ user_userId = Lens.lens (\User' {userId} -> userId) (\s@User' {} a -> s {userId 
 user_identityStoreId :: Lens.Lens' User Prelude.Text
 user_identityStoreId = Lens.lens (\User' {identityStoreId} -> identityStoreId) (\s@User' {} a -> s {identityStoreId = a} :: User)
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ExternalIds")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "Locale")
-            Prelude.<*> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "UserType")
-            Prelude.<*> (x Core..:? "ProfileUrl")
-            Prelude.<*> (x Core..:? "PreferredLanguage")
-            Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "Emails")
-            Prelude.<*> (x Core..:? "Addresses")
-            Prelude.<*> (x Core..:? "NickName")
-            Prelude.<*> (x Core..:? "PhoneNumbers")
-            Prelude.<*> (x Core..: "UserId")
-            Prelude.<*> (x Core..: "IdentityStoreId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ExternalIds")
+            Prelude.<*> (x Data..:? "UserName")
+            Prelude.<*> (x Data..:? "Locale")
+            Prelude.<*> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "UserType")
+            Prelude.<*> (x Data..:? "ProfileUrl")
+            Prelude.<*> (x Data..:? "PreferredLanguage")
+            Prelude.<*> (x Data..:? "Title")
+            Prelude.<*> (x Data..:? "Emails")
+            Prelude.<*> (x Data..:? "Addresses")
+            Prelude.<*> (x Data..:? "NickName")
+            Prelude.<*> (x Data..:? "PhoneNumbers")
+            Prelude.<*> (x Data..: "UserId")
+            Prelude.<*> (x Data..: "IdentityStoreId")
       )
 
 instance Prelude.Hashable User where

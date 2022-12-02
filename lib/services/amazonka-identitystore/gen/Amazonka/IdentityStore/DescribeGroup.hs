@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,12 +115,12 @@ instance Core.AWSRequest DescribeGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupResponse'
-            Prelude.<$> (x Core..?> "ExternalIds")
-            Prelude.<*> (x Core..?> "DisplayName")
-            Prelude.<*> (x Core..?> "Description")
+            Prelude.<$> (x Data..?> "ExternalIds")
+            Prelude.<*> (x Data..?> "DisplayName")
+            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "GroupId")
-            Prelude.<*> (x Core..:> "IdentityStoreId")
+            Prelude.<*> (x Data..:> "GroupId")
+            Prelude.<*> (x Data..:> "IdentityStoreId")
       )
 
 instance Prelude.Hashable DescribeGroup where
@@ -132,35 +133,35 @@ instance Prelude.NFData DescribeGroup where
     Prelude.rnf identityStoreId
       `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToHeaders DescribeGroup where
+instance Data.ToHeaders DescribeGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIdentityStore.DescribeGroup" ::
+              Data.=# ( "AWSIdentityStore.DescribeGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeGroup where
+instance Data.ToJSON DescribeGroup where
   toJSON DescribeGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("IdentityStoreId" Core..= identityStoreId),
-            Prelude.Just ("GroupId" Core..= groupId)
+              ("IdentityStoreId" Data..= identityStoreId),
+            Prelude.Just ("GroupId" Data..= groupId)
           ]
       )
 
-instance Core.ToPath DescribeGroup where
+instance Data.ToPath DescribeGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGroup where
+instance Data.ToQuery DescribeGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGroupResponse' smart constructor.
@@ -174,9 +175,9 @@ data DescribeGroupResponse = DescribeGroupResponse'
     -- nonbreaking space in this attribute. This value is specified at the time
     -- that the group is created and stored as an attribute of the group object
     -- in the identity store.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing a description of the group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The identifier for a group in the identity store.
@@ -245,11 +246,11 @@ describeGroupResponse_externalIds = Lens.lens (\DescribeGroupResponse' {external
 -- that the group is created and stored as an attribute of the group object
 -- in the identity store.
 describeGroupResponse_displayName :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
-describeGroupResponse_displayName = Lens.lens (\DescribeGroupResponse' {displayName} -> displayName) (\s@DescribeGroupResponse' {} a -> s {displayName = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Core._Sensitive
+describeGroupResponse_displayName = Lens.lens (\DescribeGroupResponse' {displayName} -> displayName) (\s@DescribeGroupResponse' {} a -> s {displayName = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing a description of the group.
 describeGroupResponse_description :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
-describeGroupResponse_description = Lens.lens (\DescribeGroupResponse' {description} -> description) (\s@DescribeGroupResponse' {} a -> s {description = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Core._Sensitive
+describeGroupResponse_description = Lens.lens (\DescribeGroupResponse' {description} -> description) (\s@DescribeGroupResponse' {} a -> s {description = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 describeGroupResponse_httpStatus :: Lens.Lens' DescribeGroupResponse Prelude.Int

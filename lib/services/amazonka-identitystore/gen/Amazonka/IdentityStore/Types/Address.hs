@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.Address where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The address associated with the specified user.
@@ -28,22 +29,22 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAddress' smart constructor.
 data Address = Address'
   { -- | A string representing the type of address. For example, \"Home.\"
-    type' :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    type' :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The street of the address.
-    streetAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    streetAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing a formatted version of the address for display.
-    formatted :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    formatted :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The postal code of the address.
-    postalCode :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    postalCode :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The country of the address.
-    country :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    country :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The region of the address.
-    region :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    region :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string of the address locality.
-    locality :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    locality :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A Boolean value representing whether this is the primary address for the
     -- associated resource.
-    primary :: Prelude.Maybe (Core.Sensitive Prelude.Bool)
+    primary :: Prelude.Maybe (Data.Sensitive Prelude.Bool)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -87,51 +88,51 @@ newAddress =
 
 -- | A string representing the type of address. For example, \"Home.\"
 address_type :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_type = Lens.lens (\Address' {type'} -> type') (\s@Address' {} a -> s {type' = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_type = Lens.lens (\Address' {type'} -> type') (\s@Address' {} a -> s {type' = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The street of the address.
 address_streetAddress :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_streetAddress = Lens.lens (\Address' {streetAddress} -> streetAddress) (\s@Address' {} a -> s {streetAddress = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_streetAddress = Lens.lens (\Address' {streetAddress} -> streetAddress) (\s@Address' {} a -> s {streetAddress = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing a formatted version of the address for display.
 address_formatted :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_formatted = Lens.lens (\Address' {formatted} -> formatted) (\s@Address' {} a -> s {formatted = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_formatted = Lens.lens (\Address' {formatted} -> formatted) (\s@Address' {} a -> s {formatted = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The postal code of the address.
 address_postalCode :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_postalCode = Lens.lens (\Address' {postalCode} -> postalCode) (\s@Address' {} a -> s {postalCode = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_postalCode = Lens.lens (\Address' {postalCode} -> postalCode) (\s@Address' {} a -> s {postalCode = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The country of the address.
 address_country :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_country = Lens.lens (\Address' {country} -> country) (\s@Address' {} a -> s {country = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_country = Lens.lens (\Address' {country} -> country) (\s@Address' {} a -> s {country = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The region of the address.
 address_region :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_region = Lens.lens (\Address' {region} -> region) (\s@Address' {} a -> s {region = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_region = Lens.lens (\Address' {region} -> region) (\s@Address' {} a -> s {region = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string of the address locality.
 address_locality :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
-address_locality = Lens.lens (\Address' {locality} -> locality) (\s@Address' {} a -> s {locality = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_locality = Lens.lens (\Address' {locality} -> locality) (\s@Address' {} a -> s {locality = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A Boolean value representing whether this is the primary address for the
 -- associated resource.
 address_primary :: Lens.Lens' Address (Prelude.Maybe Prelude.Bool)
-address_primary = Lens.lens (\Address' {primary} -> primary) (\s@Address' {} a -> s {primary = a} :: Address) Prelude.. Lens.mapping Core._Sensitive
+address_primary = Lens.lens (\Address' {primary} -> primary) (\s@Address' {} a -> s {primary = a} :: Address) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON Address where
+instance Data.FromJSON Address where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Address"
       ( \x ->
           Address'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "StreetAddress")
-            Prelude.<*> (x Core..:? "Formatted")
-            Prelude.<*> (x Core..:? "PostalCode")
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Locality")
-            Prelude.<*> (x Core..:? "Primary")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "StreetAddress")
+            Prelude.<*> (x Data..:? "Formatted")
+            Prelude.<*> (x Data..:? "PostalCode")
+            Prelude.<*> (x Data..:? "Country")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Locality")
+            Prelude.<*> (x Data..:? "Primary")
       )
 
 instance Prelude.Hashable Address where
@@ -156,17 +157,17 @@ instance Prelude.NFData Address where
       `Prelude.seq` Prelude.rnf locality
       `Prelude.seq` Prelude.rnf primary
 
-instance Core.ToJSON Address where
+instance Data.ToJSON Address where
   toJSON Address' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("StreetAddress" Core..=) Prelude.<$> streetAddress,
-            ("Formatted" Core..=) Prelude.<$> formatted,
-            ("PostalCode" Core..=) Prelude.<$> postalCode,
-            ("Country" Core..=) Prelude.<$> country,
-            ("Region" Core..=) Prelude.<$> region,
-            ("Locality" Core..=) Prelude.<$> locality,
-            ("Primary" Core..=) Prelude.<$> primary
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("StreetAddress" Data..=) Prelude.<$> streetAddress,
+            ("Formatted" Data..=) Prelude.<$> formatted,
+            ("PostalCode" Data..=) Prelude.<$> postalCode,
+            ("Country" Data..=) Prelude.<$> country,
+            ("Region" Data..=) Prelude.<$> region,
+            ("Locality" Data..=) Prelude.<$> locality,
+            ("Primary" Data..=) Prelude.<$> primary
           ]
       )

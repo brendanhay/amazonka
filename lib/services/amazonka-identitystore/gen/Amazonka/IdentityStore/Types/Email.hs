@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.Email where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The email address associated with the user.
@@ -28,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEmail' smart constructor.
 data Email = Email'
   { -- | A string representing the type of address. For example, \"Work.\"
-    type' :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    type' :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A Boolean value representing whether this is the primary email address
     -- for the associated resource.
-    primary :: Prelude.Maybe (Core.Sensitive Prelude.Bool),
+    primary :: Prelude.Maybe (Data.Sensitive Prelude.Bool),
     -- | A string containing an email address. For example,
     -- \"johndoe\@amazon.com.\"
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    value :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -64,27 +65,27 @@ newEmail =
 
 -- | A string representing the type of address. For example, \"Work.\"
 email_type :: Lens.Lens' Email (Prelude.Maybe Prelude.Text)
-email_type = Lens.lens (\Email' {type'} -> type') (\s@Email' {} a -> s {type' = a} :: Email) Prelude.. Lens.mapping Core._Sensitive
+email_type = Lens.lens (\Email' {type'} -> type') (\s@Email' {} a -> s {type' = a} :: Email) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A Boolean value representing whether this is the primary email address
 -- for the associated resource.
 email_primary :: Lens.Lens' Email (Prelude.Maybe Prelude.Bool)
-email_primary = Lens.lens (\Email' {primary} -> primary) (\s@Email' {} a -> s {primary = a} :: Email) Prelude.. Lens.mapping Core._Sensitive
+email_primary = Lens.lens (\Email' {primary} -> primary) (\s@Email' {} a -> s {primary = a} :: Email) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing an email address. For example,
 -- \"johndoe\@amazon.com.\"
 email_value :: Lens.Lens' Email (Prelude.Maybe Prelude.Text)
-email_value = Lens.lens (\Email' {value} -> value) (\s@Email' {} a -> s {value = a} :: Email) Prelude.. Lens.mapping Core._Sensitive
+email_value = Lens.lens (\Email' {value} -> value) (\s@Email' {} a -> s {value = a} :: Email) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON Email where
+instance Data.FromJSON Email where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Email"
       ( \x ->
           Email'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Primary")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Primary")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Email where
@@ -99,12 +100,12 @@ instance Prelude.NFData Email where
       `Prelude.seq` Prelude.rnf primary
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Email where
+instance Data.ToJSON Email where
   toJSON Email' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Primary" Core..=) Prelude.<$> primary,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("Primary" Data..=) Prelude.<$> primary,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

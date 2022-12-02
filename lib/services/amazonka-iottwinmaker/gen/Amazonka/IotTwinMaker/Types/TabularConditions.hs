@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.TabularConditions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.OrderBy
 import Amazonka.IotTwinMaker.Types.PropertyFilter
 import qualified Amazonka.Prelude as Prelude
@@ -86,12 +87,12 @@ instance Prelude.NFData TabularConditions where
     Prelude.rnf propertyFilters
       `Prelude.seq` Prelude.rnf orderBy
 
-instance Core.ToJSON TabularConditions where
+instance Data.ToJSON TabularConditions where
   toJSON TabularConditions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyFilters" Core..=)
+          [ ("propertyFilters" Data..=)
               Prelude.<$> propertyFilters,
-            ("orderBy" Core..=) Prelude.<$> orderBy
+            ("orderBy" Data..=) Prelude.<$> orderBy
           ]
       )

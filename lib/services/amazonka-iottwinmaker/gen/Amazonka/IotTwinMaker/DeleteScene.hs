@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,27 +108,27 @@ instance Prelude.NFData DeleteScene where
     Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId
 
-instance Core.ToHeaders DeleteScene where
+instance Data.ToHeaders DeleteScene where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteScene where
+instance Data.ToPath DeleteScene where
   toPath DeleteScene' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/scenes/",
-        Core.toBS sceneId
+        Data.toBS sceneId
       ]
 
-instance Core.ToQuery DeleteScene where
+instance Data.ToQuery DeleteScene where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSceneResponse' smart constructor.

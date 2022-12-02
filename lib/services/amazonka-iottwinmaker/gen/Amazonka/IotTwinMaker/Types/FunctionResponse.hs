@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.FunctionResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataConnector
 import Amazonka.IotTwinMaker.Types.Scope
 import qualified Amazonka.Prelude as Prelude
@@ -82,18 +83,18 @@ functionResponse_scope = Lens.lens (\FunctionResponse' {scope} -> scope) (\s@Fun
 functionResponse_isInherited :: Lens.Lens' FunctionResponse (Prelude.Maybe Prelude.Bool)
 functionResponse_isInherited = Lens.lens (\FunctionResponse' {isInherited} -> isInherited) (\s@FunctionResponse' {} a -> s {isInherited = a} :: FunctionResponse)
 
-instance Core.FromJSON FunctionResponse where
+instance Data.FromJSON FunctionResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FunctionResponse"
       ( \x ->
           FunctionResponse'
-            Prelude.<$> ( x Core..:? "requiredProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "requiredProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "implementedBy")
-            Prelude.<*> (x Core..:? "scope")
-            Prelude.<*> (x Core..:? "isInherited")
+            Prelude.<*> (x Data..:? "implementedBy")
+            Prelude.<*> (x Data..:? "scope")
+            Prelude.<*> (x Data..:? "isInherited")
       )
 
 instance Prelude.Hashable FunctionResponse where

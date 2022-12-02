@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.Status where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.ErrorDetails
 import Amazonka.IotTwinMaker.Types.State
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ status_state = Lens.lens (\Status' {state} -> state) (\s@Status' {} a -> s {stat
 status_error :: Lens.Lens' Status (Prelude.Maybe ErrorDetails)
 status_error = Lens.lens (\Status' {error} -> error) (\s@Status' {} a -> s {error = a} :: Status)
 
-instance Core.FromJSON Status where
+instance Data.FromJSON Status where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Status"
       ( \x ->
           Status'
-            Prelude.<$> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "error")
+            Prelude.<$> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "error")
       )
 
 instance Prelude.Hashable Status where

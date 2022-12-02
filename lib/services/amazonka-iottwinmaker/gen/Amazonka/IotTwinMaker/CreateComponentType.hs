@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,9 +181,9 @@ instance Core.AWSRequest CreateComponentType where
       ( \s h x ->
           CreateComponentTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationDateTime")
-            Prelude.<*> (x Core..:> "state")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "creationDateTime")
+            Prelude.<*> (x Data..:> "state")
       )
 
 instance Prelude.Hashable CreateComponentType where
@@ -209,43 +210,43 @@ instance Prelude.NFData CreateComponentType where
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf componentTypeId
 
-instance Core.ToHeaders CreateComponentType where
+instance Data.ToHeaders CreateComponentType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateComponentType where
+instance Data.ToJSON CreateComponentType where
   toJSON CreateComponentType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("functions" Core..=) Prelude.<$> functions,
-            ("propertyDefinitions" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("functions" Data..=) Prelude.<$> functions,
+            ("propertyDefinitions" Data..=)
               Prelude.<$> propertyDefinitions,
-            ("description" Core..=) Prelude.<$> description,
-            ("propertyGroups" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("propertyGroups" Data..=)
               Prelude.<$> propertyGroups,
-            ("isSingleton" Core..=) Prelude.<$> isSingleton,
-            ("extendsFrom" Core..=) Prelude.<$> extendsFrom
+            ("isSingleton" Data..=) Prelude.<$> isSingleton,
+            ("extendsFrom" Data..=) Prelude.<$> extendsFrom
           ]
       )
 
-instance Core.ToPath CreateComponentType where
+instance Data.ToPath CreateComponentType where
   toPath CreateComponentType' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/component-types/",
-        Core.toBS componentTypeId
+        Data.toBS componentTypeId
       ]
 
-instance Core.ToQuery CreateComponentType where
+instance Data.ToQuery CreateComponentType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateComponentTypeResponse' smart constructor.
@@ -255,7 +256,7 @@ data CreateComponentTypeResponse = CreateComponentTypeResponse'
     -- | The ARN of the component type.
     arn :: Prelude.Text,
     -- | The date and time when the entity was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The current state of the component type.
     state :: State
   }
@@ -296,7 +297,7 @@ newCreateComponentTypeResponse
           pHttpStatus_,
         arn = pArn_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
+          Data._Time Lens.# pCreationDateTime_,
         state = pState_
       }
 
@@ -310,7 +311,7 @@ createComponentTypeResponse_arn = Lens.lens (\CreateComponentTypeResponse' {arn}
 
 -- | The date and time when the entity was created.
 createComponentTypeResponse_creationDateTime :: Lens.Lens' CreateComponentTypeResponse Prelude.UTCTime
-createComponentTypeResponse_creationDateTime = Lens.lens (\CreateComponentTypeResponse' {creationDateTime} -> creationDateTime) (\s@CreateComponentTypeResponse' {} a -> s {creationDateTime = a} :: CreateComponentTypeResponse) Prelude.. Core._Time
+createComponentTypeResponse_creationDateTime = Lens.lens (\CreateComponentTypeResponse' {creationDateTime} -> creationDateTime) (\s@CreateComponentTypeResponse' {} a -> s {creationDateTime = a} :: CreateComponentTypeResponse) Prelude.. Data._Time
 
 -- | The current state of the component type.
 createComponentTypeResponse_state :: Lens.Lens' CreateComponentTypeResponse State

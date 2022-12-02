@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.DataValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.RelationshipValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -125,21 +126,21 @@ dataValue_listValue = Lens.lens (\DataValue' {listValue} -> listValue) (\s@DataV
 dataValue_longValue :: Lens.Lens' DataValue (Prelude.Maybe Prelude.Integer)
 dataValue_longValue = Lens.lens (\DataValue' {longValue} -> longValue) (\s@DataValue' {} a -> s {longValue = a} :: DataValue)
 
-instance Core.FromJSON DataValue where
+instance Data.FromJSON DataValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataValue"
       ( \x ->
           DataValue'
-            Prelude.<$> (x Core..:? "integerValue")
-            Prelude.<*> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "booleanValue")
-            Prelude.<*> (x Core..:? "expression")
-            Prelude.<*> (x Core..:? "mapValue" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stringValue")
-            Prelude.<*> (x Core..:? "relationshipValue")
-            Prelude.<*> (x Core..:? "listValue" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "longValue")
+            Prelude.<$> (x Data..:? "integerValue")
+            Prelude.<*> (x Data..:? "doubleValue")
+            Prelude.<*> (x Data..:? "booleanValue")
+            Prelude.<*> (x Data..:? "expression")
+            Prelude.<*> (x Data..:? "mapValue" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "stringValue")
+            Prelude.<*> (x Data..:? "relationshipValue")
+            Prelude.<*> (x Data..:? "listValue" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "longValue")
       )
 
 instance Prelude.Hashable DataValue where
@@ -166,19 +167,19 @@ instance Prelude.NFData DataValue where
       `Prelude.seq` Prelude.rnf listValue
       `Prelude.seq` Prelude.rnf longValue
 
-instance Core.ToJSON DataValue where
+instance Data.ToJSON DataValue where
   toJSON DataValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("integerValue" Core..=) Prelude.<$> integerValue,
-            ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("booleanValue" Core..=) Prelude.<$> booleanValue,
-            ("expression" Core..=) Prelude.<$> expression,
-            ("mapValue" Core..=) Prelude.<$> mapValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue,
-            ("relationshipValue" Core..=)
+          [ ("integerValue" Data..=) Prelude.<$> integerValue,
+            ("doubleValue" Data..=) Prelude.<$> doubleValue,
+            ("booleanValue" Data..=) Prelude.<$> booleanValue,
+            ("expression" Data..=) Prelude.<$> expression,
+            ("mapValue" Data..=) Prelude.<$> mapValue,
+            ("stringValue" Data..=) Prelude.<$> stringValue,
+            ("relationshipValue" Data..=)
               Prelude.<$> relationshipValue,
-            ("listValue" Core..=) Prelude.<$> listValue,
-            ("longValue" Core..=) Prelude.<$> longValue
+            ("listValue" Data..=) Prelude.<$> listValue,
+            ("longValue" Data..=) Prelude.<$> longValue
           ]
       )

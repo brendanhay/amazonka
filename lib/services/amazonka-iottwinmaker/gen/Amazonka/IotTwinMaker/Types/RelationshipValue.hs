@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.RelationshipValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A value that associates a component and an entity.
@@ -62,14 +63,14 @@ relationshipValue_targetEntityId = Lens.lens (\RelationshipValue' {targetEntityI
 relationshipValue_targetComponentName :: Lens.Lens' RelationshipValue (Prelude.Maybe Prelude.Text)
 relationshipValue_targetComponentName = Lens.lens (\RelationshipValue' {targetComponentName} -> targetComponentName) (\s@RelationshipValue' {} a -> s {targetComponentName = a} :: RelationshipValue)
 
-instance Core.FromJSON RelationshipValue where
+instance Data.FromJSON RelationshipValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelationshipValue"
       ( \x ->
           RelationshipValue'
-            Prelude.<$> (x Core..:? "targetEntityId")
-            Prelude.<*> (x Core..:? "targetComponentName")
+            Prelude.<$> (x Data..:? "targetEntityId")
+            Prelude.<*> (x Data..:? "targetComponentName")
       )
 
 instance Prelude.Hashable RelationshipValue where
@@ -82,13 +83,13 @@ instance Prelude.NFData RelationshipValue where
     Prelude.rnf targetEntityId
       `Prelude.seq` Prelude.rnf targetComponentName
 
-instance Core.ToJSON RelationshipValue where
+instance Data.ToJSON RelationshipValue where
   toJSON RelationshipValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetEntityId" Core..=)
+          [ ("targetEntityId" Data..=)
               Prelude.<$> targetEntityId,
-            ("targetComponentName" Core..=)
+            ("targetComponentName" Data..=)
               Prelude.<$> targetComponentName
           ]
       )

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,15 +103,15 @@ instance Core.AWSRequest GetScene where
     Response.receiveJSON
       ( \s h x ->
           GetSceneResponse'
-            Prelude.<$> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "capabilities" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "capabilities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspaceId")
-            Prelude.<*> (x Core..:> "sceneId")
-            Prelude.<*> (x Core..:> "contentLocation")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationDateTime")
-            Prelude.<*> (x Core..:> "updateDateTime")
+            Prelude.<*> (x Data..:> "workspaceId")
+            Prelude.<*> (x Data..:> "sceneId")
+            Prelude.<*> (x Data..:> "contentLocation")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "creationDateTime")
+            Prelude.<*> (x Data..:> "updateDateTime")
       )
 
 instance Prelude.Hashable GetScene where
@@ -123,27 +124,27 @@ instance Prelude.NFData GetScene where
     Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId
 
-instance Core.ToHeaders GetScene where
+instance Data.ToHeaders GetScene where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetScene where
+instance Data.ToPath GetScene where
   toPath GetScene' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/scenes/",
-        Core.toBS sceneId
+        Data.toBS sceneId
       ]
 
-instance Core.ToQuery GetScene where
+instance Data.ToQuery GetScene where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSceneResponse' smart constructor.
@@ -164,9 +165,9 @@ data GetSceneResponse = GetSceneResponse'
     -- | The ARN of the scene.
     arn :: Prelude.Text,
     -- | The date and time when the scene was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The date and time when the scene was last updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -229,8 +230,8 @@ newGetSceneResponse
         contentLocation = pContentLocation_,
         arn = pArn_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_
+          Data._Time Lens.# pCreationDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
 -- | The description of the scene.
@@ -264,11 +265,11 @@ getSceneResponse_arn = Lens.lens (\GetSceneResponse' {arn} -> arn) (\s@GetSceneR
 
 -- | The date and time when the scene was created.
 getSceneResponse_creationDateTime :: Lens.Lens' GetSceneResponse Prelude.UTCTime
-getSceneResponse_creationDateTime = Lens.lens (\GetSceneResponse' {creationDateTime} -> creationDateTime) (\s@GetSceneResponse' {} a -> s {creationDateTime = a} :: GetSceneResponse) Prelude.. Core._Time
+getSceneResponse_creationDateTime = Lens.lens (\GetSceneResponse' {creationDateTime} -> creationDateTime) (\s@GetSceneResponse' {} a -> s {creationDateTime = a} :: GetSceneResponse) Prelude.. Data._Time
 
 -- | The date and time when the scene was last updated.
 getSceneResponse_updateDateTime :: Lens.Lens' GetSceneResponse Prelude.UTCTime
-getSceneResponse_updateDateTime = Lens.lens (\GetSceneResponse' {updateDateTime} -> updateDateTime) (\s@GetSceneResponse' {} a -> s {updateDateTime = a} :: GetSceneResponse) Prelude.. Core._Time
+getSceneResponse_updateDateTime = Lens.lens (\GetSceneResponse' {updateDateTime} -> updateDateTime) (\s@GetSceneResponse' {} a -> s {updateDateTime = a} :: GetSceneResponse) Prelude.. Data._Time
 
 instance Prelude.NFData GetSceneResponse where
   rnf GetSceneResponse' {..} =

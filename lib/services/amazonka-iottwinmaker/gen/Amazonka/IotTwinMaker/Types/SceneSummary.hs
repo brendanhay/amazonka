@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.SceneSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about a scene.
@@ -37,9 +38,9 @@ data SceneSummary = SceneSummary'
     -- | The ARN of the scene.
     arn :: Prelude.Text,
     -- | The date and time when the scene was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The date and time when the scene was last updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,8 +88,8 @@ newSceneSummary
         contentLocation = pContentLocation_,
         arn = pArn_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_
+          Data._Time Lens.# pCreationDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
 -- | The scene description.
@@ -110,24 +111,24 @@ sceneSummary_arn = Lens.lens (\SceneSummary' {arn} -> arn) (\s@SceneSummary' {} 
 
 -- | The date and time when the scene was created.
 sceneSummary_creationDateTime :: Lens.Lens' SceneSummary Prelude.UTCTime
-sceneSummary_creationDateTime = Lens.lens (\SceneSummary' {creationDateTime} -> creationDateTime) (\s@SceneSummary' {} a -> s {creationDateTime = a} :: SceneSummary) Prelude.. Core._Time
+sceneSummary_creationDateTime = Lens.lens (\SceneSummary' {creationDateTime} -> creationDateTime) (\s@SceneSummary' {} a -> s {creationDateTime = a} :: SceneSummary) Prelude.. Data._Time
 
 -- | The date and time when the scene was last updated.
 sceneSummary_updateDateTime :: Lens.Lens' SceneSummary Prelude.UTCTime
-sceneSummary_updateDateTime = Lens.lens (\SceneSummary' {updateDateTime} -> updateDateTime) (\s@SceneSummary' {} a -> s {updateDateTime = a} :: SceneSummary) Prelude.. Core._Time
+sceneSummary_updateDateTime = Lens.lens (\SceneSummary' {updateDateTime} -> updateDateTime) (\s@SceneSummary' {} a -> s {updateDateTime = a} :: SceneSummary) Prelude.. Data._Time
 
-instance Core.FromJSON SceneSummary where
+instance Data.FromJSON SceneSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SceneSummary"
       ( \x ->
           SceneSummary'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..: "sceneId")
-            Prelude.<*> (x Core..: "contentLocation")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "creationDateTime")
-            Prelude.<*> (x Core..: "updateDateTime")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..: "sceneId")
+            Prelude.<*> (x Data..: "contentLocation")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "creationDateTime")
+            Prelude.<*> (x Data..: "updateDateTime")
       )
 
 instance Prelude.Hashable SceneSummary where

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,10 +153,10 @@ instance Core.AWSRequest CreateEntity where
       ( \s h x ->
           CreateEntityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "entityId")
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationDateTime")
-            Prelude.<*> (x Core..:> "state")
+            Prelude.<*> (x Data..:> "entityId")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "creationDateTime")
+            Prelude.<*> (x Data..:> "state")
       )
 
 instance Prelude.Hashable CreateEntity where
@@ -178,37 +179,37 @@ instance Prelude.NFData CreateEntity where
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf entityName
 
-instance Core.ToHeaders CreateEntity where
+instance Data.ToHeaders CreateEntity where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEntity where
+instance Data.ToJSON CreateEntity where
   toJSON CreateEntity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("entityId" Core..=) Prelude.<$> entityId,
-            ("parentEntityId" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("entityId" Data..=) Prelude.<$> entityId,
+            ("parentEntityId" Data..=)
               Prelude.<$> parentEntityId,
-            ("description" Core..=) Prelude.<$> description,
-            ("components" Core..=) Prelude.<$> components,
-            Prelude.Just ("entityName" Core..= entityName)
+            ("description" Data..=) Prelude.<$> description,
+            ("components" Data..=) Prelude.<$> components,
+            Prelude.Just ("entityName" Data..= entityName)
           ]
       )
 
-instance Core.ToPath CreateEntity where
+instance Data.ToPath CreateEntity where
   toPath CreateEntity' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId, "/entities"]
+      ["/workspaces/", Data.toBS workspaceId, "/entities"]
 
-instance Core.ToQuery CreateEntity where
+instance Data.ToQuery CreateEntity where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEntityResponse' smart constructor.
@@ -220,7 +221,7 @@ data CreateEntityResponse = CreateEntityResponse'
     -- | The ARN of the entity.
     arn :: Prelude.Text,
     -- | The date and time when the entity was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The current state of the entity.
     state :: State
   }
@@ -266,7 +267,7 @@ newCreateEntityResponse
         entityId = pEntityId_,
         arn = pArn_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
+          Data._Time Lens.# pCreationDateTime_,
         state = pState_
       }
 
@@ -284,7 +285,7 @@ createEntityResponse_arn = Lens.lens (\CreateEntityResponse' {arn} -> arn) (\s@C
 
 -- | The date and time when the entity was created.
 createEntityResponse_creationDateTime :: Lens.Lens' CreateEntityResponse Prelude.UTCTime
-createEntityResponse_creationDateTime = Lens.lens (\CreateEntityResponse' {creationDateTime} -> creationDateTime) (\s@CreateEntityResponse' {} a -> s {creationDateTime = a} :: CreateEntityResponse) Prelude.. Core._Time
+createEntityResponse_creationDateTime = Lens.lens (\CreateEntityResponse' {creationDateTime} -> creationDateTime) (\s@CreateEntityResponse' {} a -> s {creationDateTime = a} :: CreateEntityResponse) Prelude.. Data._Time
 
 -- | The current state of the entity.
 createEntityResponse_state :: Lens.Lens' CreateEntityResponse State

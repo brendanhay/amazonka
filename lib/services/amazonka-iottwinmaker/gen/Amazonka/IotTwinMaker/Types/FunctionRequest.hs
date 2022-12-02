@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.FunctionRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataConnector
 import Amazonka.IotTwinMaker.Types.Scope
 import qualified Amazonka.Prelude as Prelude
@@ -85,13 +86,13 @@ instance Prelude.NFData FunctionRequest where
       `Prelude.seq` Prelude.rnf implementedBy
       `Prelude.seq` Prelude.rnf scope
 
-instance Core.ToJSON FunctionRequest where
+instance Data.ToJSON FunctionRequest where
   toJSON FunctionRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("requiredProperties" Core..=)
+          [ ("requiredProperties" Data..=)
               Prelude.<$> requiredProperties,
-            ("implementedBy" Core..=) Prelude.<$> implementedBy,
-            ("scope" Core..=) Prelude.<$> scope
+            ("implementedBy" Data..=) Prelude.<$> implementedBy,
+            ("scope" Data..=) Prelude.<$> scope
           ]
       )

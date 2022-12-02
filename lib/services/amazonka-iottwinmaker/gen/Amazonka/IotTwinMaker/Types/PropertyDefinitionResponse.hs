@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyDefinitionResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataType
 import Amazonka.IotTwinMaker.Types.DataValue
 import qualified Amazonka.Prelude as Prelude
@@ -182,22 +183,22 @@ propertyDefinitionResponse_isFinal = Lens.lens (\PropertyDefinitionResponse' {is
 propertyDefinitionResponse_isInherited :: Lens.Lens' PropertyDefinitionResponse Prelude.Bool
 propertyDefinitionResponse_isInherited = Lens.lens (\PropertyDefinitionResponse' {isInherited} -> isInherited) (\s@PropertyDefinitionResponse' {} a -> s {isInherited = a} :: PropertyDefinitionResponse)
 
-instance Core.FromJSON PropertyDefinitionResponse where
+instance Data.FromJSON PropertyDefinitionResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyDefinitionResponse"
       ( \x ->
           PropertyDefinitionResponse'
-            Prelude.<$> (x Core..:? "configuration" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..: "dataType")
-            Prelude.<*> (x Core..: "isTimeSeries")
-            Prelude.<*> (x Core..: "isRequiredInEntity")
-            Prelude.<*> (x Core..: "isExternalId")
-            Prelude.<*> (x Core..: "isStoredExternally")
-            Prelude.<*> (x Core..: "isImported")
-            Prelude.<*> (x Core..: "isFinal")
-            Prelude.<*> (x Core..: "isInherited")
+            Prelude.<$> (x Data..:? "configuration" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..: "dataType")
+            Prelude.<*> (x Data..: "isTimeSeries")
+            Prelude.<*> (x Data..: "isRequiredInEntity")
+            Prelude.<*> (x Data..: "isExternalId")
+            Prelude.<*> (x Data..: "isStoredExternally")
+            Prelude.<*> (x Data..: "isImported")
+            Prelude.<*> (x Data..: "isFinal")
+            Prelude.<*> (x Data..: "isInherited")
       )
 
 instance Prelude.Hashable PropertyDefinitionResponse where

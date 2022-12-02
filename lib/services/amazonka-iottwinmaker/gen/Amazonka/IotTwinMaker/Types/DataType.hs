@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.DataType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataValue
 import Amazonka.IotTwinMaker.Types.Relationship
 import Amazonka.IotTwinMaker.Types.Type
@@ -93,17 +94,17 @@ dataType_allowedValues = Lens.lens (\DataType' {allowedValues} -> allowedValues)
 dataType_type :: Lens.Lens' DataType Type
 dataType_type = Lens.lens (\DataType' {type'} -> type') (\s@DataType' {} a -> s {type' = a} :: DataType)
 
-instance Core.FromJSON DataType where
+instance Data.FromJSON DataType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataType"
       ( \x ->
           DataType'
-            Prelude.<$> (x Core..:? "nestedType")
-            Prelude.<*> (x Core..:? "relationship")
-            Prelude.<*> (x Core..:? "unitOfMeasure")
-            Prelude.<*> (x Core..:? "allowedValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "nestedType")
+            Prelude.<*> (x Data..:? "relationship")
+            Prelude.<*> (x Data..:? "unitOfMeasure")
+            Prelude.<*> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable DataType where
@@ -122,14 +123,14 @@ instance Prelude.NFData DataType where
       `Prelude.seq` Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON DataType where
+instance Data.ToJSON DataType where
   toJSON DataType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nestedType" Core..=) Prelude.<$> nestedType,
-            ("relationship" Core..=) Prelude.<$> relationship,
-            ("unitOfMeasure" Core..=) Prelude.<$> unitOfMeasure,
-            ("allowedValues" Core..=) Prelude.<$> allowedValues,
-            Prelude.Just ("type" Core..= type')
+          [ ("nestedType" Data..=) Prelude.<$> nestedType,
+            ("relationship" Data..=) Prelude.<$> relationship,
+            ("unitOfMeasure" Data..=) Prelude.<$> unitOfMeasure,
+            ("allowedValues" Data..=) Prelude.<$> allowedValues,
+            Prelude.Just ("type" Data..= type')
           ]
       )

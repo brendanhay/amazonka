@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance Core.AWSRequest UpdateWorkspace where
       ( \s h x ->
           UpdateWorkspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "updateDateTime")
+            Prelude.<*> (x Data..:> "updateDateTime")
       )
 
 instance Prelude.Hashable UpdateWorkspace where
@@ -121,32 +122,32 @@ instance Prelude.NFData UpdateWorkspace where
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders UpdateWorkspace where
+instance Data.ToHeaders UpdateWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkspace where
+instance Data.ToJSON UpdateWorkspace where
   toJSON UpdateWorkspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("role" Core..=) Prelude.<$> role'
+          [ ("description" Data..=) Prelude.<$> description,
+            ("role" Data..=) Prelude.<$> role'
           ]
       )
 
-instance Core.ToPath UpdateWorkspace where
+instance Data.ToPath UpdateWorkspace where
   toPath UpdateWorkspace' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId]
+      ["/workspaces/", Data.toBS workspaceId]
 
-instance Core.ToQuery UpdateWorkspace where
+instance Data.ToQuery UpdateWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkspaceResponse' smart constructor.
@@ -154,7 +155,7 @@ data UpdateWorkspaceResponse = UpdateWorkspaceResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The date and time of the current update.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -181,7 +182,7 @@ newUpdateWorkspaceResponse
     UpdateWorkspaceResponse'
       { httpStatus = pHttpStatus_,
         updateDateTime =
-          Core._Time Lens.# pUpdateDateTime_
+          Data._Time Lens.# pUpdateDateTime_
       }
 
 -- | The response's http status code.
@@ -190,7 +191,7 @@ updateWorkspaceResponse_httpStatus = Lens.lens (\UpdateWorkspaceResponse' {httpS
 
 -- | The date and time of the current update.
 updateWorkspaceResponse_updateDateTime :: Lens.Lens' UpdateWorkspaceResponse Prelude.UTCTime
-updateWorkspaceResponse_updateDateTime = Lens.lens (\UpdateWorkspaceResponse' {updateDateTime} -> updateDateTime) (\s@UpdateWorkspaceResponse' {} a -> s {updateDateTime = a} :: UpdateWorkspaceResponse) Prelude.. Core._Time
+updateWorkspaceResponse_updateDateTime = Lens.lens (\UpdateWorkspaceResponse' {updateDateTime} -> updateDateTime) (\s@UpdateWorkspaceResponse' {} a -> s {updateDateTime = a} :: UpdateWorkspaceResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateWorkspaceResponse where
   rnf UpdateWorkspaceResponse' {..} =

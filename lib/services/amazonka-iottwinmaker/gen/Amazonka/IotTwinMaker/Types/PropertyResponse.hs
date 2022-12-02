@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataValue
 import Amazonka.IotTwinMaker.Types.PropertyDefinitionResponse
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ propertyResponse_definition = Lens.lens (\PropertyResponse' {definition} -> defi
 propertyResponse_value :: Lens.Lens' PropertyResponse (Prelude.Maybe DataValue)
 propertyResponse_value = Lens.lens (\PropertyResponse' {value} -> value) (\s@PropertyResponse' {} a -> s {value = a} :: PropertyResponse)
 
-instance Core.FromJSON PropertyResponse where
+instance Data.FromJSON PropertyResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyResponse"
       ( \x ->
           PropertyResponse'
-            Prelude.<$> (x Core..:? "definition")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "definition")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable PropertyResponse where

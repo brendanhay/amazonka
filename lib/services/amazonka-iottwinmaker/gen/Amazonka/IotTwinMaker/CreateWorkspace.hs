@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest CreateWorkspace where
       ( \s h x ->
           CreateWorkspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "creationDateTime")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "creationDateTime")
       )
 
 instance Prelude.Hashable CreateWorkspace where
@@ -154,34 +155,34 @@ instance Prelude.NFData CreateWorkspace where
       `Prelude.seq` Prelude.rnf s3Location
       `Prelude.seq` Prelude.rnf role'
 
-instance Core.ToHeaders CreateWorkspace where
+instance Data.ToHeaders CreateWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkspace where
+instance Data.ToJSON CreateWorkspace where
   toJSON CreateWorkspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("s3Location" Core..= s3Location),
-            Prelude.Just ("role" Core..= role')
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("s3Location" Data..= s3Location),
+            Prelude.Just ("role" Data..= role')
           ]
       )
 
-instance Core.ToPath CreateWorkspace where
+instance Data.ToPath CreateWorkspace where
   toPath CreateWorkspace' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId]
+      ["/workspaces/", Data.toBS workspaceId]
 
-instance Core.ToQuery CreateWorkspace where
+instance Data.ToQuery CreateWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkspaceResponse' smart constructor.
@@ -191,7 +192,7 @@ data CreateWorkspaceResponse = CreateWorkspaceResponse'
     -- | The ARN of the workspace.
     arn :: Prelude.Text,
     -- | The date and time when the workspace was created.
-    creationDateTime :: Core.POSIX
+    creationDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -224,7 +225,7 @@ newCreateWorkspaceResponse
       { httpStatus = pHttpStatus_,
         arn = pArn_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_
+          Data._Time Lens.# pCreationDateTime_
       }
 
 -- | The response's http status code.
@@ -237,7 +238,7 @@ createWorkspaceResponse_arn = Lens.lens (\CreateWorkspaceResponse' {arn} -> arn)
 
 -- | The date and time when the workspace was created.
 createWorkspaceResponse_creationDateTime :: Lens.Lens' CreateWorkspaceResponse Prelude.UTCTime
-createWorkspaceResponse_creationDateTime = Lens.lens (\CreateWorkspaceResponse' {creationDateTime} -> creationDateTime) (\s@CreateWorkspaceResponse' {} a -> s {creationDateTime = a} :: CreateWorkspaceResponse) Prelude.. Core._Time
+createWorkspaceResponse_creationDateTime = Lens.lens (\CreateWorkspaceResponse' {creationDateTime} -> creationDateTime) (\s@CreateWorkspaceResponse' {} a -> s {creationDateTime = a} :: CreateWorkspaceResponse) Prelude.. Data._Time
 
 instance Prelude.NFData CreateWorkspaceResponse where
   rnf CreateWorkspaceResponse' {..} =

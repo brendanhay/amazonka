@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.DataValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,12 +84,12 @@ instance Prelude.NFData PropertyFilter where
       `Prelude.seq` Prelude.rnf propertyName
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON PropertyFilter where
+instance Data.ToJSON PropertyFilter where
   toJSON PropertyFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("operator" Core..=) Prelude.<$> operator,
-            ("propertyName" Core..=) Prelude.<$> propertyName,
-            ("value" Core..=) Prelude.<$> value
+          [ ("operator" Data..=) Prelude.<$> operator,
+            ("propertyName" Data..=) Prelude.<$> propertyName,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

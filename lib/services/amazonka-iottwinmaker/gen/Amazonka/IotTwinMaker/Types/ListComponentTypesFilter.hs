@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ListComponentTypesFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that filters items in a list of component types.
@@ -88,12 +89,12 @@ instance Prelude.NFData ListComponentTypesFilter where
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf extendsFrom
 
-instance Core.ToJSON ListComponentTypesFilter where
+instance Data.ToJSON ListComponentTypesFilter where
   toJSON ListComponentTypesFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("isAbstract" Core..=) Prelude.<$> isAbstract,
-            ("namespace" Core..=) Prelude.<$> namespace,
-            ("extendsFrom" Core..=) Prelude.<$> extendsFrom
+          [ ("isAbstract" Data..=) Prelude.<$> isAbstract,
+            ("namespace" Data..=) Prelude.<$> namespace,
+            ("extendsFrom" Data..=) Prelude.<$> extendsFrom
           ]
       )

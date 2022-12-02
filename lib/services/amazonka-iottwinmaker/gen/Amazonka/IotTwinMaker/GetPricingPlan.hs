@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,9 +69,9 @@ instance Core.AWSRequest GetPricingPlan where
     Response.receiveJSON
       ( \s h x ->
           GetPricingPlanResponse'
-            Prelude.<$> (x Core..?> "pendingPricingPlan")
+            Prelude.<$> (x Data..?> "pendingPricingPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "currentPricingPlan")
+            Prelude.<*> (x Data..:> "currentPricingPlan")
       )
 
 instance Prelude.Hashable GetPricingPlan where
@@ -80,21 +81,21 @@ instance Prelude.Hashable GetPricingPlan where
 instance Prelude.NFData GetPricingPlan where
   rnf _ = ()
 
-instance Core.ToHeaders GetPricingPlan where
+instance Data.ToHeaders GetPricingPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetPricingPlan where
+instance Data.ToPath GetPricingPlan where
   toPath = Prelude.const "/pricingplan"
 
-instance Core.ToQuery GetPricingPlan where
+instance Data.ToQuery GetPricingPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPricingPlanResponse' smart constructor.

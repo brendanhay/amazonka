@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,7 +130,7 @@ instance Core.AWSRequest UpdateScene where
       ( \s h x ->
           UpdateSceneResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "updateDateTime")
+            Prelude.<*> (x Data..:> "updateDateTime")
       )
 
 instance Prelude.Hashable UpdateScene where
@@ -148,38 +149,38 @@ instance Prelude.NFData UpdateScene where
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId
 
-instance Core.ToHeaders UpdateScene where
+instance Data.ToHeaders UpdateScene where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateScene where
+instance Data.ToJSON UpdateScene where
   toJSON UpdateScene' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("contentLocation" Core..=)
+          [ ("contentLocation" Data..=)
               Prelude.<$> contentLocation,
-            ("description" Core..=) Prelude.<$> description,
-            ("capabilities" Core..=) Prelude.<$> capabilities
+            ("description" Data..=) Prelude.<$> description,
+            ("capabilities" Data..=) Prelude.<$> capabilities
           ]
       )
 
-instance Core.ToPath UpdateScene where
+instance Data.ToPath UpdateScene where
   toPath UpdateScene' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/scenes/",
-        Core.toBS sceneId
+        Data.toBS sceneId
       ]
 
-instance Core.ToQuery UpdateScene where
+instance Data.ToQuery UpdateScene where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSceneResponse' smart constructor.
@@ -187,7 +188,7 @@ data UpdateSceneResponse = UpdateSceneResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The date and time when the scene was last updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -211,7 +212,7 @@ newUpdateSceneResponse ::
 newUpdateSceneResponse pHttpStatus_ pUpdateDateTime_ =
   UpdateSceneResponse'
     { httpStatus = pHttpStatus_,
-      updateDateTime = Core._Time Lens.# pUpdateDateTime_
+      updateDateTime = Data._Time Lens.# pUpdateDateTime_
     }
 
 -- | The response's http status code.
@@ -220,7 +221,7 @@ updateSceneResponse_httpStatus = Lens.lens (\UpdateSceneResponse' {httpStatus} -
 
 -- | The date and time when the scene was last updated.
 updateSceneResponse_updateDateTime :: Lens.Lens' UpdateSceneResponse Prelude.UTCTime
-updateSceneResponse_updateDateTime = Lens.lens (\UpdateSceneResponse' {updateDateTime} -> updateDateTime) (\s@UpdateSceneResponse' {} a -> s {updateDateTime = a} :: UpdateSceneResponse) Prelude.. Core._Time
+updateSceneResponse_updateDateTime = Lens.lens (\UpdateSceneResponse' {updateDateTime} -> updateDateTime) (\s@UpdateSceneResponse' {} a -> s {updateDateTime = a} :: UpdateSceneResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateSceneResponse where
   rnf UpdateSceneResponse' {..} =

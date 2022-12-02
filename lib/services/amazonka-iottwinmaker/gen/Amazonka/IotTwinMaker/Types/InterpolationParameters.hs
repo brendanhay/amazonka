@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.InterpolationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.InterpolationType
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,13 +74,13 @@ instance Prelude.NFData InterpolationParameters where
     Prelude.rnf interpolationType
       `Prelude.seq` Prelude.rnf intervalInSeconds
 
-instance Core.ToJSON InterpolationParameters where
+instance Data.ToJSON InterpolationParameters where
   toJSON InterpolationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("interpolationType" Core..=)
+          [ ("interpolationType" Data..=)
               Prelude.<$> interpolationType,
-            ("intervalInSeconds" Core..=)
+            ("intervalInSeconds" Data..=)
               Prelude.<$> intervalInSeconds
           ]
       )

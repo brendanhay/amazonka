@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ComponentResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.ComponentPropertyGroupResponse
 import Amazonka.IotTwinMaker.Types.PropertyResponse
 import Amazonka.IotTwinMaker.Types.Status
@@ -113,19 +114,19 @@ componentResponse_propertyGroups = Lens.lens (\ComponentResponse' {propertyGroup
 componentResponse_componentTypeId :: Lens.Lens' ComponentResponse (Prelude.Maybe Prelude.Text)
 componentResponse_componentTypeId = Lens.lens (\ComponentResponse' {componentTypeId} -> componentTypeId) (\s@ComponentResponse' {} a -> s {componentTypeId = a} :: ComponentResponse)
 
-instance Core.FromJSON ComponentResponse where
+instance Data.FromJSON ComponentResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComponentResponse"
       ( \x ->
           ComponentResponse'
-            Prelude.<$> (x Core..:? "componentName")
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "definedIn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "propertyGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "componentTypeId")
+            Prelude.<$> (x Data..:? "componentName")
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "definedIn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "propertyGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "componentTypeId")
       )
 
 instance Prelude.Hashable ComponentResponse where

@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.EntityPropertyReference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that uniquely identifies an entity property.
@@ -85,18 +86,18 @@ entityPropertyReference_externalIdProperty = Lens.lens (\EntityPropertyReference
 entityPropertyReference_propertyName :: Lens.Lens' EntityPropertyReference Prelude.Text
 entityPropertyReference_propertyName = Lens.lens (\EntityPropertyReference' {propertyName} -> propertyName) (\s@EntityPropertyReference' {} a -> s {propertyName = a} :: EntityPropertyReference)
 
-instance Core.FromJSON EntityPropertyReference where
+instance Data.FromJSON EntityPropertyReference where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityPropertyReference"
       ( \x ->
           EntityPropertyReference'
-            Prelude.<$> (x Core..:? "entityId")
-            Prelude.<*> (x Core..:? "componentName")
-            Prelude.<*> ( x Core..:? "externalIdProperty"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "entityId")
+            Prelude.<*> (x Data..:? "componentName")
+            Prelude.<*> ( x Data..:? "externalIdProperty"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "propertyName")
+            Prelude.<*> (x Data..: "propertyName")
       )
 
 instance Prelude.Hashable EntityPropertyReference where
@@ -113,14 +114,14 @@ instance Prelude.NFData EntityPropertyReference where
       `Prelude.seq` Prelude.rnf externalIdProperty
       `Prelude.seq` Prelude.rnf propertyName
 
-instance Core.ToJSON EntityPropertyReference where
+instance Data.ToJSON EntityPropertyReference where
   toJSON EntityPropertyReference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("entityId" Core..=) Prelude.<$> entityId,
-            ("componentName" Core..=) Prelude.<$> componentName,
-            ("externalIdProperty" Core..=)
+          [ ("entityId" Data..=) Prelude.<$> entityId,
+            ("componentName" Data..=) Prelude.<$> componentName,
+            ("externalIdProperty" Data..=)
               Prelude.<$> externalIdProperty,
-            Prelude.Just ("propertyName" Core..= propertyName)
+            Prelude.Just ("propertyName" Data..= propertyName)
           ]
       )

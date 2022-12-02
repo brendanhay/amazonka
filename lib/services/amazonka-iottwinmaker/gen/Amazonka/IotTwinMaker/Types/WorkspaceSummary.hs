@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.WorkspaceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about a workspace.
@@ -34,9 +35,9 @@ data WorkspaceSummary = WorkspaceSummary'
     -- | The ARN of the workspace.
     arn :: Prelude.Text,
     -- | The date and time when the workspace was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The date and time when the workspace was last updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,8 +78,8 @@ newWorkspaceSummary
         workspaceId = pWorkspaceId_,
         arn = pArn_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_
+          Data._Time Lens.# pCreationDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
 -- | The description of the workspace.
@@ -95,23 +96,23 @@ workspaceSummary_arn = Lens.lens (\WorkspaceSummary' {arn} -> arn) (\s@Workspace
 
 -- | The date and time when the workspace was created.
 workspaceSummary_creationDateTime :: Lens.Lens' WorkspaceSummary Prelude.UTCTime
-workspaceSummary_creationDateTime = Lens.lens (\WorkspaceSummary' {creationDateTime} -> creationDateTime) (\s@WorkspaceSummary' {} a -> s {creationDateTime = a} :: WorkspaceSummary) Prelude.. Core._Time
+workspaceSummary_creationDateTime = Lens.lens (\WorkspaceSummary' {creationDateTime} -> creationDateTime) (\s@WorkspaceSummary' {} a -> s {creationDateTime = a} :: WorkspaceSummary) Prelude.. Data._Time
 
 -- | The date and time when the workspace was last updated.
 workspaceSummary_updateDateTime :: Lens.Lens' WorkspaceSummary Prelude.UTCTime
-workspaceSummary_updateDateTime = Lens.lens (\WorkspaceSummary' {updateDateTime} -> updateDateTime) (\s@WorkspaceSummary' {} a -> s {updateDateTime = a} :: WorkspaceSummary) Prelude.. Core._Time
+workspaceSummary_updateDateTime = Lens.lens (\WorkspaceSummary' {updateDateTime} -> updateDateTime) (\s@WorkspaceSummary' {} a -> s {updateDateTime = a} :: WorkspaceSummary) Prelude.. Data._Time
 
-instance Core.FromJSON WorkspaceSummary where
+instance Data.FromJSON WorkspaceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceSummary"
       ( \x ->
           WorkspaceSummary'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..: "workspaceId")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "creationDateTime")
-            Prelude.<*> (x Core..: "updateDateTime")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..: "workspaceId")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "creationDateTime")
+            Prelude.<*> (x Data..: "updateDateTime")
       )
 
 instance Prelude.Hashable WorkspaceSummary where

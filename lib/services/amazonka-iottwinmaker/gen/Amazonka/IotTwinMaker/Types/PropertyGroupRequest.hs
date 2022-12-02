@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyGroupRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.GroupType
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,11 +74,11 @@ instance Prelude.NFData PropertyGroupRequest where
     Prelude.rnf propertyNames
       `Prelude.seq` Prelude.rnf groupType
 
-instance Core.ToJSON PropertyGroupRequest where
+instance Data.ToJSON PropertyGroupRequest where
   toJSON PropertyGroupRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyNames" Core..=) Prelude.<$> propertyNames,
-            ("groupType" Core..=) Prelude.<$> groupType
+          [ ("propertyNames" Data..=) Prelude.<$> propertyNames,
+            ("groupType" Data..=) Prelude.<$> groupType
           ]
       )

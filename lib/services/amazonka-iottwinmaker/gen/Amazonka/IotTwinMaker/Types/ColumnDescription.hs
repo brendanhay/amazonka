@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.ColumnDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.ColumnType
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,13 +63,13 @@ columnDescription_name = Lens.lens (\ColumnDescription' {name} -> name) (\s@Colu
 columnDescription_type :: Lens.Lens' ColumnDescription (Prelude.Maybe ColumnType)
 columnDescription_type = Lens.lens (\ColumnDescription' {type'} -> type') (\s@ColumnDescription' {} a -> s {type' = a} :: ColumnDescription)
 
-instance Core.FromJSON ColumnDescription where
+instance Data.FromJSON ColumnDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnDescription"
       ( \x ->
           ColumnDescription'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable ColumnDescription where

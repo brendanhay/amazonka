@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.Commit where
 import Amazonka.CodeCommit.Types.UserInfo
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a specific commit.
@@ -140,19 +141,19 @@ commit_treeId = Lens.lens (\Commit' {treeId} -> treeId) (\s@Commit' {} a -> s {t
 commit_additionalData :: Lens.Lens' Commit (Prelude.Maybe Prelude.Text)
 commit_additionalData = Lens.lens (\Commit' {additionalData} -> additionalData) (\s@Commit' {} a -> s {additionalData = a} :: Commit)
 
-instance Core.FromJSON Commit where
+instance Data.FromJSON Commit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Commit"
       ( \x ->
           Commit'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "author")
-            Prelude.<*> (x Core..:? "commitId")
-            Prelude.<*> (x Core..:? "parents" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "committer")
-            Prelude.<*> (x Core..:? "treeId")
-            Prelude.<*> (x Core..:? "additionalData")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "author")
+            Prelude.<*> (x Data..:? "commitId")
+            Prelude.<*> (x Data..:? "parents" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "committer")
+            Prelude.<*> (x Data..:? "treeId")
+            Prelude.<*> (x Data..:? "additionalData")
       )
 
 instance Prelude.Hashable Commit where

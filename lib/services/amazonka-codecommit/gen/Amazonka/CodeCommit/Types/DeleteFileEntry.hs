@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.DeleteFileEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A file that is deleted as part of a commit.
@@ -59,9 +60,9 @@ instance Prelude.Hashable DeleteFileEntry where
 instance Prelude.NFData DeleteFileEntry where
   rnf DeleteFileEntry' {..} = Prelude.rnf filePath
 
-instance Core.ToJSON DeleteFileEntry where
+instance Data.ToJSON DeleteFileEntry where
   toJSON DeleteFileEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("filePath" Core..= filePath)]
+          [Prelude.Just ("filePath" Data..= filePath)]
       )

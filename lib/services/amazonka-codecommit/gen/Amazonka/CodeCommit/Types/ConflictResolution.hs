@@ -24,6 +24,7 @@ import Amazonka.CodeCommit.Types.ReplaceContentEntry
 import Amazonka.CodeCommit.Types.SetFileModeEntry
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
@@ -87,13 +88,13 @@ instance Prelude.NFData ConflictResolution where
       `Prelude.seq` Prelude.rnf setFileModes
       `Prelude.seq` Prelude.rnf deleteFiles
 
-instance Core.ToJSON ConflictResolution where
+instance Data.ToJSON ConflictResolution where
   toJSON ConflictResolution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("replaceContents" Core..=)
+          [ ("replaceContents" Data..=)
               Prelude.<$> replaceContents,
-            ("setFileModes" Core..=) Prelude.<$> setFileModes,
-            ("deleteFiles" Core..=) Prelude.<$> deleteFiles
+            ("setFileModes" Data..=) Prelude.<$> setFileModes,
+            ("deleteFiles" Data..=) Prelude.<$> deleteFiles
           ]
       )

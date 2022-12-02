@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.PullRequestTarget where
 import Amazonka.CodeCommit.Types.MergeMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a pull request target.
@@ -134,19 +135,19 @@ pullRequestTarget_mergeBase = Lens.lens (\PullRequestTarget' {mergeBase} -> merg
 pullRequestTarget_destinationCommit :: Lens.Lens' PullRequestTarget (Prelude.Maybe Prelude.Text)
 pullRequestTarget_destinationCommit = Lens.lens (\PullRequestTarget' {destinationCommit} -> destinationCommit) (\s@PullRequestTarget' {} a -> s {destinationCommit = a} :: PullRequestTarget)
 
-instance Core.FromJSON PullRequestTarget where
+instance Data.FromJSON PullRequestTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PullRequestTarget"
       ( \x ->
           PullRequestTarget'
-            Prelude.<$> (x Core..:? "mergeMetadata")
-            Prelude.<*> (x Core..:? "sourceReference")
-            Prelude.<*> (x Core..:? "sourceCommit")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "destinationReference")
-            Prelude.<*> (x Core..:? "mergeBase")
-            Prelude.<*> (x Core..:? "destinationCommit")
+            Prelude.<$> (x Data..:? "mergeMetadata")
+            Prelude.<*> (x Data..:? "sourceReference")
+            Prelude.<*> (x Data..:? "sourceCommit")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "destinationReference")
+            Prelude.<*> (x Data..:? "mergeBase")
+            Prelude.<*> (x Data..:? "destinationCommit")
       )
 
 instance Prelude.Hashable PullRequestTarget where

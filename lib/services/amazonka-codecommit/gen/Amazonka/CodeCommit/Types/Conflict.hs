@@ -23,6 +23,7 @@ import Amazonka.CodeCommit.Types.ConflictMetadata
 import Amazonka.CodeCommit.Types.MergeHunk
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about conflicts in a merge operation.
@@ -66,14 +67,14 @@ conflict_mergeHunks = Lens.lens (\Conflict' {mergeHunks} -> mergeHunks) (\s@Conf
 conflict_conflictMetadata :: Lens.Lens' Conflict (Prelude.Maybe ConflictMetadata)
 conflict_conflictMetadata = Lens.lens (\Conflict' {conflictMetadata} -> conflictMetadata) (\s@Conflict' {} a -> s {conflictMetadata = a} :: Conflict)
 
-instance Core.FromJSON Conflict where
+instance Data.FromJSON Conflict where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Conflict"
       ( \x ->
           Conflict'
-            Prelude.<$> (x Core..:? "mergeHunks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "conflictMetadata")
+            Prelude.<$> (x Data..:? "mergeHunks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "conflictMetadata")
       )
 
 instance Prelude.Hashable Conflict where

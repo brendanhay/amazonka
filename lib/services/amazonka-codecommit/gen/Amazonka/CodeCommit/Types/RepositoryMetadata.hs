@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.RepositoryMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a repository.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRepositoryMetadata' smart constructor.
 data RepositoryMetadata = RepositoryMetadata'
   { -- | The date and time the repository was last modified, in timestamp format.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The repository\'s name.
     repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the repository.
@@ -36,7 +37,7 @@ data RepositoryMetadata = RepositoryMetadata'
     -- | The repository\'s default branch name.
     defaultBranch :: Prelude.Maybe Prelude.Text,
     -- | The date and time the repository was created, in timestamp format.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the AWS account associated with the repository.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The URL to use for cloning the repository over HTTPS.
@@ -96,7 +97,7 @@ newRepositoryMetadata =
 
 -- | The date and time the repository was last modified, in timestamp format.
 repositoryMetadata_lastModifiedDate :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.UTCTime)
-repositoryMetadata_lastModifiedDate = Lens.lens (\RepositoryMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@RepositoryMetadata' {} a -> s {lastModifiedDate = a} :: RepositoryMetadata) Prelude.. Lens.mapping Core._Time
+repositoryMetadata_lastModifiedDate = Lens.lens (\RepositoryMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@RepositoryMetadata' {} a -> s {lastModifiedDate = a} :: RepositoryMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The repository\'s name.
 repositoryMetadata_repositoryName :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.Text)
@@ -112,7 +113,7 @@ repositoryMetadata_defaultBranch = Lens.lens (\RepositoryMetadata' {defaultBranc
 
 -- | The date and time the repository was created, in timestamp format.
 repositoryMetadata_creationDate :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.UTCTime)
-repositoryMetadata_creationDate = Lens.lens (\RepositoryMetadata' {creationDate} -> creationDate) (\s@RepositoryMetadata' {} a -> s {creationDate = a} :: RepositoryMetadata) Prelude.. Lens.mapping Core._Time
+repositoryMetadata_creationDate = Lens.lens (\RepositoryMetadata' {creationDate} -> creationDate) (\s@RepositoryMetadata' {} a -> s {creationDate = a} :: RepositoryMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the AWS account associated with the repository.
 repositoryMetadata_accountId :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.Text)
@@ -134,22 +135,22 @@ repositoryMetadata_repositoryId = Lens.lens (\RepositoryMetadata' {repositoryId}
 repositoryMetadata_cloneUrlSsh :: Lens.Lens' RepositoryMetadata (Prelude.Maybe Prelude.Text)
 repositoryMetadata_cloneUrlSsh = Lens.lens (\RepositoryMetadata' {cloneUrlSsh} -> cloneUrlSsh) (\s@RepositoryMetadata' {} a -> s {cloneUrlSsh = a} :: RepositoryMetadata)
 
-instance Core.FromJSON RepositoryMetadata where
+instance Data.FromJSON RepositoryMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryMetadata"
       ( \x ->
           RepositoryMetadata'
-            Prelude.<$> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "defaultBranch")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "cloneUrlHttp")
-            Prelude.<*> (x Core..:? "repositoryDescription")
-            Prelude.<*> (x Core..:? "repositoryId")
-            Prelude.<*> (x Core..:? "cloneUrlSsh")
+            Prelude.<$> (x Data..:? "lastModifiedDate")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "defaultBranch")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "cloneUrlHttp")
+            Prelude.<*> (x Data..:? "repositoryDescription")
+            Prelude.<*> (x Data..:? "repositoryId")
+            Prelude.<*> (x Data..:? "cloneUrlSsh")
       )
 
 instance Prelude.Hashable RepositoryMetadata where

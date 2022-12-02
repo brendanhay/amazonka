@@ -44,6 +44,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest PutRepositoryTriggers where
     Response.receiveJSON
       ( \s h x ->
           PutRepositoryTriggersResponse'
-            Prelude.<$> (x Core..?> "configurationId")
+            Prelude.<$> (x Data..?> "configurationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,35 +117,35 @@ instance Prelude.NFData PutRepositoryTriggers where
     Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf triggers
 
-instance Core.ToHeaders PutRepositoryTriggers where
+instance Data.ToHeaders PutRepositoryTriggers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.PutRepositoryTriggers" ::
+              Data.=# ( "CodeCommit_20150413.PutRepositoryTriggers" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRepositoryTriggers where
+instance Data.ToJSON PutRepositoryTriggers where
   toJSON PutRepositoryTriggers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("triggers" Core..= triggers)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("triggers" Data..= triggers)
           ]
       )
 
-instance Core.ToPath PutRepositoryTriggers where
+instance Data.ToPath PutRepositoryTriggers where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutRepositoryTriggers where
+instance Data.ToQuery PutRepositoryTriggers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a put repository triggers operation.

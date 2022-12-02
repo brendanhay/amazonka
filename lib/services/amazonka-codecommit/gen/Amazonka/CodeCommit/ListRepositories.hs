@@ -47,6 +47,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,8 +140,8 @@ instance Core.AWSRequest ListRepositories where
     Response.receiveJSON
       ( \s h x ->
           ListRepositoriesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "repositories" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "repositories" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,35 +157,35 @@ instance Prelude.NFData ListRepositories where
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf order
 
-instance Core.ToHeaders ListRepositories where
+instance Data.ToHeaders ListRepositories where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.ListRepositories" ::
+              Data.=# ( "CodeCommit_20150413.ListRepositories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRepositories where
+instance Data.ToJSON ListRepositories where
   toJSON ListRepositories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("order" Core..=) Prelude.<$> order
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("order" Data..=) Prelude.<$> order
           ]
       )
 
-instance Core.ToPath ListRepositories where
+instance Data.ToPath ListRepositories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRepositories where
+instance Data.ToQuery ListRepositories where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a list repositories operation.

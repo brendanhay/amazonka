@@ -55,6 +55,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -202,14 +203,14 @@ instance Core.AWSRequest PostCommentForPullRequest where
     Response.receiveJSON
       ( \s h x ->
           PostCommentForPullRequestResponse'
-            Prelude.<$> (x Core..?> "beforeBlobId")
-            Prelude.<*> (x Core..?> "afterCommitId")
-            Prelude.<*> (x Core..?> "pullRequestId")
-            Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "beforeCommitId")
-            Prelude.<*> (x Core..?> "location")
-            Prelude.<*> (x Core..?> "comment")
-            Prelude.<*> (x Core..?> "afterBlobId")
+            Prelude.<$> (x Data..?> "beforeBlobId")
+            Prelude.<*> (x Data..?> "afterCommitId")
+            Prelude.<*> (x Data..?> "pullRequestId")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "beforeCommitId")
+            Prelude.<*> (x Data..?> "location")
+            Prelude.<*> (x Data..?> "comment")
+            Prelude.<*> (x Data..?> "afterBlobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -233,42 +234,42 @@ instance Prelude.NFData PostCommentForPullRequest where
       `Prelude.seq` Prelude.rnf afterCommitId
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders PostCommentForPullRequest where
+instance Data.ToHeaders PostCommentForPullRequest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.PostCommentForPullRequest" ::
+              Data.=# ( "CodeCommit_20150413.PostCommentForPullRequest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PostCommentForPullRequest where
+instance Data.ToJSON PostCommentForPullRequest where
   toJSON PostCommentForPullRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("location" Core..=) Prelude.<$> location,
-            Prelude.Just ("pullRequestId" Core..= pullRequestId),
+            ("location" Data..=) Prelude.<$> location,
+            Prelude.Just ("pullRequestId" Data..= pullRequestId),
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
-              ("beforeCommitId" Core..= beforeCommitId),
-            Prelude.Just ("afterCommitId" Core..= afterCommitId),
-            Prelude.Just ("content" Core..= content)
+              ("beforeCommitId" Data..= beforeCommitId),
+            Prelude.Just ("afterCommitId" Data..= afterCommitId),
+            Prelude.Just ("content" Data..= content)
           ]
       )
 
-instance Core.ToPath PostCommentForPullRequest where
+instance Data.ToPath PostCommentForPullRequest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PostCommentForPullRequest where
+instance Data.ToQuery PostCommentForPullRequest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPostCommentForPullRequestResponse' smart constructor.

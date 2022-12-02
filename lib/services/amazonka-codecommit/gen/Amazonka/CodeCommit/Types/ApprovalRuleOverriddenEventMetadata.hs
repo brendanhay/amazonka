@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata where
 import Amazonka.CodeCommit.Types.OverrideStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an override event for approval rules for a
@@ -65,16 +66,16 @@ approvalRuleOverriddenEventMetadata_overrideStatus :: Lens.Lens' ApprovalRuleOve
 approvalRuleOverriddenEventMetadata_overrideStatus = Lens.lens (\ApprovalRuleOverriddenEventMetadata' {overrideStatus} -> overrideStatus) (\s@ApprovalRuleOverriddenEventMetadata' {} a -> s {overrideStatus = a} :: ApprovalRuleOverriddenEventMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ApprovalRuleOverriddenEventMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApprovalRuleOverriddenEventMetadata"
       ( \x ->
           ApprovalRuleOverriddenEventMetadata'
-            Prelude.<$> (x Core..:? "revisionId")
-            Prelude.<*> (x Core..:? "overrideStatus")
+            Prelude.<$> (x Data..:? "revisionId")
+            Prelude.<*> (x Data..:? "overrideStatus")
       )
 
 instance

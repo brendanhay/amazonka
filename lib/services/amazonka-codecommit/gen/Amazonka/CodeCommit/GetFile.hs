@@ -50,6 +50,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,12 +128,12 @@ instance Core.AWSRequest GetFile where
       ( \s h x ->
           GetFileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "commitId")
-            Prelude.<*> (x Core..:> "blobId")
-            Prelude.<*> (x Core..:> "filePath")
-            Prelude.<*> (x Core..:> "fileMode")
-            Prelude.<*> (x Core..:> "fileSize")
-            Prelude.<*> (x Core..:> "fileContent")
+            Prelude.<*> (x Data..:> "commitId")
+            Prelude.<*> (x Data..:> "blobId")
+            Prelude.<*> (x Data..:> "filePath")
+            Prelude.<*> (x Data..:> "fileMode")
+            Prelude.<*> (x Data..:> "fileSize")
+            Prelude.<*> (x Data..:> "fileContent")
       )
 
 instance Prelude.Hashable GetFile where
@@ -147,37 +148,37 @@ instance Prelude.NFData GetFile where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf filePath
 
-instance Core.ToHeaders GetFile where
+instance Data.ToHeaders GetFile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.GetFile" ::
+              Data.=# ( "CodeCommit_20150413.GetFile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetFile where
+instance Data.ToJSON GetFile where
   toJSON GetFile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("commitSpecifier" Core..=)
+          [ ("commitSpecifier" Data..=)
               Prelude.<$> commitSpecifier,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("filePath" Core..= filePath)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("filePath" Data..= filePath)
           ]
       )
 
-instance Core.ToPath GetFile where
+instance Data.ToPath GetFile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetFile where
+instance Data.ToQuery GetFile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetFileResponse' smart constructor.
@@ -203,7 +204,7 @@ data GetFileResponse = GetFileResponse'
     fileSize :: Prelude.Integer,
     -- | The base-64 encoded binary data object that represents the content of
     -- the file.
-    fileContent :: Core.Base64
+    fileContent :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -271,7 +272,7 @@ newGetFileResponse
         filePath = pFilePath_,
         fileMode = pFileMode_,
         fileSize = pFileSize_,
-        fileContent = Core._Base64 Lens.# pFileContent_
+        fileContent = Data._Base64 Lens.# pFileContent_
       }
 
 -- | The response's http status code.
@@ -312,7 +313,7 @@ getFileResponse_fileSize = Lens.lens (\GetFileResponse' {fileSize} -> fileSize) 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getFileResponse_fileContent :: Lens.Lens' GetFileResponse Prelude.ByteString
-getFileResponse_fileContent = Lens.lens (\GetFileResponse' {fileContent} -> fileContent) (\s@GetFileResponse' {} a -> s {fileContent = a} :: GetFileResponse) Prelude.. Core._Base64
+getFileResponse_fileContent = Lens.lens (\GetFileResponse' {fileContent} -> fileContent) (\s@GetFileResponse' {} a -> s {fileContent = a} :: GetFileResponse) Prelude.. Data._Base64
 
 instance Prelude.NFData GetFileResponse where
   rnf GetFileResponse' {..} =

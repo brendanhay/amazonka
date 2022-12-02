@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.SubModule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a submodule reference in a repository folder.
@@ -76,15 +77,15 @@ subModule_commitId = Lens.lens (\SubModule' {commitId} -> commitId) (\s@SubModul
 subModule_relativePath :: Lens.Lens' SubModule (Prelude.Maybe Prelude.Text)
 subModule_relativePath = Lens.lens (\SubModule' {relativePath} -> relativePath) (\s@SubModule' {} a -> s {relativePath = a} :: SubModule)
 
-instance Core.FromJSON SubModule where
+instance Data.FromJSON SubModule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubModule"
       ( \x ->
           SubModule'
-            Prelude.<$> (x Core..:? "absolutePath")
-            Prelude.<*> (x Core..:? "commitId")
-            Prelude.<*> (x Core..:? "relativePath")
+            Prelude.<$> (x Data..:? "absolutePath")
+            Prelude.<*> (x Data..:? "commitId")
+            Prelude.<*> (x Data..:? "relativePath")
       )
 
 instance Prelude.Hashable SubModule where

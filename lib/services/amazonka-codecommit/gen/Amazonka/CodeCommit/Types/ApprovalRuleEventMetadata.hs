@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.ApprovalRuleEventMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an event for an approval rule.
@@ -71,15 +72,15 @@ approvalRuleEventMetadata_approvalRuleContent = Lens.lens (\ApprovalRuleEventMet
 approvalRuleEventMetadata_approvalRuleId :: Lens.Lens' ApprovalRuleEventMetadata (Prelude.Maybe Prelude.Text)
 approvalRuleEventMetadata_approvalRuleId = Lens.lens (\ApprovalRuleEventMetadata' {approvalRuleId} -> approvalRuleId) (\s@ApprovalRuleEventMetadata' {} a -> s {approvalRuleId = a} :: ApprovalRuleEventMetadata)
 
-instance Core.FromJSON ApprovalRuleEventMetadata where
+instance Data.FromJSON ApprovalRuleEventMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApprovalRuleEventMetadata"
       ( \x ->
           ApprovalRuleEventMetadata'
-            Prelude.<$> (x Core..:? "approvalRuleName")
-            Prelude.<*> (x Core..:? "approvalRuleContent")
-            Prelude.<*> (x Core..:? "approvalRuleId")
+            Prelude.<$> (x Data..:? "approvalRuleName")
+            Prelude.<*> (x Data..:? "approvalRuleContent")
+            Prelude.<*> (x Data..:? "approvalRuleId")
       )
 
 instance Prelude.Hashable ApprovalRuleEventMetadata where

@@ -44,6 +44,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance Core.AWSRequest DeleteApprovalRuleTemplate where
       ( \s h x ->
           DeleteApprovalRuleTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "approvalRuleTemplateId")
+            Prelude.<*> (x Data..:> "approvalRuleTemplateId")
       )
 
 instance Prelude.Hashable DeleteApprovalRuleTemplate where
@@ -102,36 +103,36 @@ instance Prelude.NFData DeleteApprovalRuleTemplate where
   rnf DeleteApprovalRuleTemplate' {..} =
     Prelude.rnf approvalRuleTemplateName
 
-instance Core.ToHeaders DeleteApprovalRuleTemplate where
+instance Data.ToHeaders DeleteApprovalRuleTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.DeleteApprovalRuleTemplate" ::
+              Data.=# ( "CodeCommit_20150413.DeleteApprovalRuleTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteApprovalRuleTemplate where
+instance Data.ToJSON DeleteApprovalRuleTemplate where
   toJSON DeleteApprovalRuleTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "approvalRuleTemplateName"
-                  Core..= approvalRuleTemplateName
+                  Data..= approvalRuleTemplateName
               )
           ]
       )
 
-instance Core.ToPath DeleteApprovalRuleTemplate where
+instance Data.ToPath DeleteApprovalRuleTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteApprovalRuleTemplate where
+instance Data.ToQuery DeleteApprovalRuleTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteApprovalRuleTemplateResponse' smart constructor.

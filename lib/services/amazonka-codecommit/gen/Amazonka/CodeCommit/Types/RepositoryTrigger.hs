@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.RepositoryTrigger where
 import Amazonka.CodeCommit.Types.RepositoryTriggerEventEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a trigger for a repository.
@@ -120,17 +121,17 @@ repositoryTrigger_destinationArn = Lens.lens (\RepositoryTrigger' {destinationAr
 repositoryTrigger_events :: Lens.Lens' RepositoryTrigger [RepositoryTriggerEventEnum]
 repositoryTrigger_events = Lens.lens (\RepositoryTrigger' {events} -> events) (\s@RepositoryTrigger' {} a -> s {events = a} :: RepositoryTrigger) Prelude.. Lens.coerced
 
-instance Core.FromJSON RepositoryTrigger where
+instance Data.FromJSON RepositoryTrigger where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryTrigger"
       ( \x ->
           RepositoryTrigger'
-            Prelude.<$> (x Core..:? "branches" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "customData")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "destinationArn")
-            Prelude.<*> (x Core..:? "events" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "branches" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "customData")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "destinationArn")
+            Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RepositoryTrigger where
@@ -149,15 +150,15 @@ instance Prelude.NFData RepositoryTrigger where
       `Prelude.seq` Prelude.rnf destinationArn
       `Prelude.seq` Prelude.rnf events
 
-instance Core.ToJSON RepositoryTrigger where
+instance Data.ToJSON RepositoryTrigger where
   toJSON RepositoryTrigger' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("branches" Core..=) Prelude.<$> branches,
-            ("customData" Core..=) Prelude.<$> customData,
-            Prelude.Just ("name" Core..= name),
+          [ ("branches" Data..=) Prelude.<$> branches,
+            ("customData" Data..=) Prelude.<$> customData,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("destinationArn" Core..= destinationArn),
-            Prelude.Just ("events" Core..= events)
+              ("destinationArn" Data..= destinationArn),
+            Prelude.Just ("events" Data..= events)
           ]
       )

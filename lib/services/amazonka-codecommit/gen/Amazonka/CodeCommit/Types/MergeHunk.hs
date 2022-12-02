@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.MergeHunk where
 import Amazonka.CodeCommit.Types.MergeHunkDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about merge hunks in a merge or pull request operation.
@@ -101,16 +102,16 @@ mergeHunk_base = Lens.lens (\MergeHunk' {base} -> base) (\s@MergeHunk' {} a -> s
 mergeHunk_source :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
 mergeHunk_source = Lens.lens (\MergeHunk' {source} -> source) (\s@MergeHunk' {} a -> s {source = a} :: MergeHunk)
 
-instance Core.FromJSON MergeHunk where
+instance Data.FromJSON MergeHunk where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MergeHunk"
       ( \x ->
           MergeHunk'
-            Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "isConflict")
-            Prelude.<*> (x Core..:? "base")
-            Prelude.<*> (x Core..:? "source")
+            Prelude.<$> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "isConflict")
+            Prelude.<*> (x Data..:? "base")
+            Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable MergeHunk where

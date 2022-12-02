@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.FileMetadata where
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A file to be added, updated, or deleted as part of a commit.
@@ -77,15 +78,15 @@ fileMetadata_absolutePath = Lens.lens (\FileMetadata' {absolutePath} -> absolute
 fileMetadata_blobId :: Lens.Lens' FileMetadata (Prelude.Maybe Prelude.Text)
 fileMetadata_blobId = Lens.lens (\FileMetadata' {blobId} -> blobId) (\s@FileMetadata' {} a -> s {blobId = a} :: FileMetadata)
 
-instance Core.FromJSON FileMetadata where
+instance Data.FromJSON FileMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileMetadata"
       ( \x ->
           FileMetadata'
-            Prelude.<$> (x Core..:? "fileMode")
-            Prelude.<*> (x Core..:? "absolutePath")
-            Prelude.<*> (x Core..:? "blobId")
+            Prelude.<$> (x Data..:? "fileMode")
+            Prelude.<*> (x Data..:? "absolutePath")
+            Prelude.<*> (x Data..:? "blobId")
       )
 
 instance Prelude.Hashable FileMetadata where

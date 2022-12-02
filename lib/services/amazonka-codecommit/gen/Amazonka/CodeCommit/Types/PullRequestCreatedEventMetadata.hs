@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.PullRequestCreatedEventMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata about the pull request that is used when comparing the pull
@@ -91,18 +92,18 @@ pullRequestCreatedEventMetadata_destinationCommitId :: Lens.Lens' PullRequestCre
 pullRequestCreatedEventMetadata_destinationCommitId = Lens.lens (\PullRequestCreatedEventMetadata' {destinationCommitId} -> destinationCommitId) (\s@PullRequestCreatedEventMetadata' {} a -> s {destinationCommitId = a} :: PullRequestCreatedEventMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PullRequestCreatedEventMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PullRequestCreatedEventMetadata"
       ( \x ->
           PullRequestCreatedEventMetadata'
-            Prelude.<$> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "mergeBase")
-            Prelude.<*> (x Core..:? "sourceCommitId")
-            Prelude.<*> (x Core..:? "destinationCommitId")
+            Prelude.<$> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "mergeBase")
+            Prelude.<*> (x Data..:? "sourceCommitId")
+            Prelude.<*> (x Data..:? "destinationCommitId")
       )
 
 instance

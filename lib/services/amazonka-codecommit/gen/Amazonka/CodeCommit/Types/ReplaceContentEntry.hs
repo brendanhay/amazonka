@@ -23,6 +23,7 @@ import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import Amazonka.CodeCommit.Types.ReplacementTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a replacement content entry in the conflict of a merge
@@ -34,7 +35,7 @@ data ReplaceContentEntry = ReplaceContentEntry'
     fileMode :: Prelude.Maybe FileModeTypeEnum,
     -- | The base-64 encoded content to use when the replacement type is
     -- USE_NEW_CONTENT.
-    content :: Prelude.Maybe Core.Base64,
+    content :: Prelude.Maybe Data.Base64,
     -- | The path of the conflicting file.
     filePath :: Prelude.Text,
     -- | The replacement type to use when determining how to resolve the
@@ -89,7 +90,7 @@ replaceContentEntry_fileMode = Lens.lens (\ReplaceContentEntry' {fileMode} -> fi
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 replaceContentEntry_content :: Lens.Lens' ReplaceContentEntry (Prelude.Maybe Prelude.ByteString)
-replaceContentEntry_content = Lens.lens (\ReplaceContentEntry' {content} -> content) (\s@ReplaceContentEntry' {} a -> s {content = a} :: ReplaceContentEntry) Prelude.. Lens.mapping Core._Base64
+replaceContentEntry_content = Lens.lens (\ReplaceContentEntry' {content} -> content) (\s@ReplaceContentEntry' {} a -> s {content = a} :: ReplaceContentEntry) Prelude.. Lens.mapping Data._Base64
 
 -- | The path of the conflicting file.
 replaceContentEntry_filePath :: Lens.Lens' ReplaceContentEntry Prelude.Text
@@ -114,14 +115,14 @@ instance Prelude.NFData ReplaceContentEntry where
       `Prelude.seq` Prelude.rnf filePath
       `Prelude.seq` Prelude.rnf replacementType
 
-instance Core.ToJSON ReplaceContentEntry where
+instance Data.ToJSON ReplaceContentEntry where
   toJSON ReplaceContentEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fileMode" Core..=) Prelude.<$> fileMode,
-            ("content" Core..=) Prelude.<$> content,
-            Prelude.Just ("filePath" Core..= filePath),
+          [ ("fileMode" Data..=) Prelude.<$> fileMode,
+            ("content" Data..=) Prelude.<$> content,
+            Prelude.Just ("filePath" Data..= filePath),
             Prelude.Just
-              ("replacementType" Core..= replacementType)
+              ("replacementType" Data..= replacementType)
           ]
       )

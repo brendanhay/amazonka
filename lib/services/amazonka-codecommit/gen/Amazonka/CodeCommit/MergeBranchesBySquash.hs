@@ -53,6 +53,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -240,8 +241,8 @@ instance Core.AWSRequest MergeBranchesBySquash where
     Response.receiveJSON
       ( \s h x ->
           MergeBranchesBySquashResponse'
-            Prelude.<$> (x Core..?> "commitId")
-            Prelude.<*> (x Core..?> "treeId")
+            Prelude.<$> (x Data..?> "commitId")
+            Prelude.<*> (x Data..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -273,54 +274,54 @@ instance Prelude.NFData MergeBranchesBySquash where
       `Prelude.seq` Prelude.rnf sourceCommitSpecifier
       `Prelude.seq` Prelude.rnf destinationCommitSpecifier
 
-instance Core.ToHeaders MergeBranchesBySquash where
+instance Data.ToHeaders MergeBranchesBySquash where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.MergeBranchesBySquash" ::
+              Data.=# ( "CodeCommit_20150413.MergeBranchesBySquash" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MergeBranchesBySquash where
+instance Data.ToJSON MergeBranchesBySquash where
   toJSON MergeBranchesBySquash' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keepEmptyFolders" Core..=)
+          [ ("keepEmptyFolders" Data..=)
               Prelude.<$> keepEmptyFolders,
-            ("targetBranch" Core..=) Prelude.<$> targetBranch,
-            ("conflictResolution" Core..=)
+            ("targetBranch" Data..=) Prelude.<$> targetBranch,
+            ("conflictResolution" Data..=)
               Prelude.<$> conflictResolution,
-            ("email" Core..=) Prelude.<$> email,
-            ("authorName" Core..=) Prelude.<$> authorName,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("conflictResolutionStrategy" Core..=)
+            ("email" Data..=) Prelude.<$> email,
+            ("authorName" Data..=) Prelude.<$> authorName,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
+            ("conflictResolutionStrategy" Data..=)
               Prelude.<$> conflictResolutionStrategy,
-            ("conflictDetailLevel" Core..=)
+            ("conflictDetailLevel" Data..=)
               Prelude.<$> conflictDetailLevel,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
               ( "sourceCommitSpecifier"
-                  Core..= sourceCommitSpecifier
+                  Data..= sourceCommitSpecifier
               ),
             Prelude.Just
               ( "destinationCommitSpecifier"
-                  Core..= destinationCommitSpecifier
+                  Data..= destinationCommitSpecifier
               )
           ]
       )
 
-instance Core.ToPath MergeBranchesBySquash where
+instance Data.ToPath MergeBranchesBySquash where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MergeBranchesBySquash where
+instance Data.ToQuery MergeBranchesBySquash where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergeBranchesBySquashResponse' smart constructor.

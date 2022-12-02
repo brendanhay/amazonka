@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.Location where
 import Amazonka.CodeCommit.Types.RelativeFileVersionEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the location of a change or comment in the
@@ -78,15 +79,15 @@ location_filePosition = Lens.lens (\Location' {filePosition} -> filePosition) (\
 location_relativeFileVersion :: Lens.Lens' Location (Prelude.Maybe RelativeFileVersionEnum)
 location_relativeFileVersion = Lens.lens (\Location' {relativeFileVersion} -> relativeFileVersion) (\s@Location' {} a -> s {relativeFileVersion = a} :: Location)
 
-instance Core.FromJSON Location where
+instance Data.FromJSON Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Location"
       ( \x ->
           Location'
-            Prelude.<$> (x Core..:? "filePath")
-            Prelude.<*> (x Core..:? "filePosition")
-            Prelude.<*> (x Core..:? "relativeFileVersion")
+            Prelude.<$> (x Data..:? "filePath")
+            Prelude.<*> (x Data..:? "filePosition")
+            Prelude.<*> (x Data..:? "relativeFileVersion")
       )
 
 instance Prelude.Hashable Location where
@@ -101,13 +102,13 @@ instance Prelude.NFData Location where
       `Prelude.seq` Prelude.rnf filePosition
       `Prelude.seq` Prelude.rnf relativeFileVersion
 
-instance Core.ToJSON Location where
+instance Data.ToJSON Location where
   toJSON Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("filePath" Core..=) Prelude.<$> filePath,
-            ("filePosition" Core..=) Prelude.<$> filePosition,
-            ("relativeFileVersion" Core..=)
+          [ ("filePath" Data..=) Prelude.<$> filePath,
+            ("filePosition" Data..=) Prelude.<$> filePosition,
+            ("relativeFileVersion" Data..=)
               Prelude.<$> relativeFileVersion
           ]
       )

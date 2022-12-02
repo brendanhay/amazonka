@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.OriginApprovalRuleTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the template that created the approval rule
@@ -63,14 +64,14 @@ originApprovalRuleTemplate_approvalRuleTemplateName = Lens.lens (\OriginApproval
 originApprovalRuleTemplate_approvalRuleTemplateId :: Lens.Lens' OriginApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
 originApprovalRuleTemplate_approvalRuleTemplateId = Lens.lens (\OriginApprovalRuleTemplate' {approvalRuleTemplateId} -> approvalRuleTemplateId) (\s@OriginApprovalRuleTemplate' {} a -> s {approvalRuleTemplateId = a} :: OriginApprovalRuleTemplate)
 
-instance Core.FromJSON OriginApprovalRuleTemplate where
+instance Data.FromJSON OriginApprovalRuleTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OriginApprovalRuleTemplate"
       ( \x ->
           OriginApprovalRuleTemplate'
-            Prelude.<$> (x Core..:? "approvalRuleTemplateName")
-            Prelude.<*> (x Core..:? "approvalRuleTemplateId")
+            Prelude.<$> (x Data..:? "approvalRuleTemplateName")
+            Prelude.<*> (x Data..:? "approvalRuleTemplateId")
       )
 
 instance Prelude.Hashable OriginApprovalRuleTemplate where

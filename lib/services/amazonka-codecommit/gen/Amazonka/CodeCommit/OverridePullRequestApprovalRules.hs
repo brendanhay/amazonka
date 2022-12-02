@@ -41,6 +41,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,40 +153,40 @@ instance
       `Prelude.seq` Prelude.rnf overrideStatus
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     OverridePullRequestApprovalRules
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.OverridePullRequestApprovalRules" ::
+              Data.=# ( "CodeCommit_20150413.OverridePullRequestApprovalRules" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON OverridePullRequestApprovalRules where
+instance Data.ToJSON OverridePullRequestApprovalRules where
   toJSON OverridePullRequestApprovalRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("pullRequestId" Core..= pullRequestId),
-            Prelude.Just ("revisionId" Core..= revisionId),
+              ("pullRequestId" Data..= pullRequestId),
+            Prelude.Just ("revisionId" Data..= revisionId),
             Prelude.Just
-              ("overrideStatus" Core..= overrideStatus)
+              ("overrideStatus" Data..= overrideStatus)
           ]
       )
 
-instance Core.ToPath OverridePullRequestApprovalRules where
+instance Data.ToPath OverridePullRequestApprovalRules where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     OverridePullRequestApprovalRules
   where
   toQuery = Prelude.const Prelude.mempty

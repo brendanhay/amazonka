@@ -54,6 +54,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -231,7 +232,7 @@ instance Core.AWSRequest MergePullRequestBySquash where
     Response.receiveJSON
       ( \s h x ->
           MergePullRequestBySquashResponse'
-            Prelude.<$> (x Core..?> "pullRequest")
+            Prelude.<$> (x Data..?> "pullRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,48 +262,48 @@ instance Prelude.NFData MergePullRequestBySquash where
       `Prelude.seq` Prelude.rnf pullRequestId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders MergePullRequestBySquash where
+instance Data.ToHeaders MergePullRequestBySquash where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.MergePullRequestBySquash" ::
+              Data.=# ( "CodeCommit_20150413.MergePullRequestBySquash" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MergePullRequestBySquash where
+instance Data.ToJSON MergePullRequestBySquash where
   toJSON MergePullRequestBySquash' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("keepEmptyFolders" Core..=)
+          [ ("keepEmptyFolders" Data..=)
               Prelude.<$> keepEmptyFolders,
-            ("conflictResolution" Core..=)
+            ("conflictResolution" Data..=)
               Prelude.<$> conflictResolution,
-            ("email" Core..=) Prelude.<$> email,
-            ("sourceCommitId" Core..=)
+            ("email" Data..=) Prelude.<$> email,
+            ("sourceCommitId" Data..=)
               Prelude.<$> sourceCommitId,
-            ("authorName" Core..=) Prelude.<$> authorName,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("conflictResolutionStrategy" Core..=)
+            ("authorName" Data..=) Prelude.<$> authorName,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
+            ("conflictResolutionStrategy" Data..=)
               Prelude.<$> conflictResolutionStrategy,
-            ("conflictDetailLevel" Core..=)
+            ("conflictDetailLevel" Data..=)
               Prelude.<$> conflictDetailLevel,
-            Prelude.Just ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just ("pullRequestId" Data..= pullRequestId),
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath MergePullRequestBySquash where
+instance Data.ToPath MergePullRequestBySquash where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MergePullRequestBySquash where
+instance Data.ToQuery MergePullRequestBySquash where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergePullRequestBySquashResponse' smart constructor.

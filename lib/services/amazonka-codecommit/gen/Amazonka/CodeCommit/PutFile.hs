@@ -53,6 +53,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ data PutFile = PutFile'
     -- is an empty repository, this branch is created.
     branchName :: Prelude.Text,
     -- | The content of the file, in binary object format.
-    fileContent :: Core.Base64,
+    fileContent :: Data.Base64,
     -- | The name of the file you want to add or update, including the relative
     -- path to the file in the repository.
     --
@@ -164,7 +165,7 @@ newPutFile
         commitMessage = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         branchName = pBranchName_,
-        fileContent = Core._Base64 Lens.# pFileContent_,
+        fileContent = Data._Base64 Lens.# pFileContent_,
         filePath = pFilePath_
       }
 
@@ -214,7 +215,7 @@ putFile_branchName = Lens.lens (\PutFile' {branchName} -> branchName) (\s@PutFil
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 putFile_fileContent :: Lens.Lens' PutFile Prelude.ByteString
-putFile_fileContent = Lens.lens (\PutFile' {fileContent} -> fileContent) (\s@PutFile' {} a -> s {fileContent = a} :: PutFile) Prelude.. Core._Base64
+putFile_fileContent = Lens.lens (\PutFile' {fileContent} -> fileContent) (\s@PutFile' {} a -> s {fileContent = a} :: PutFile) Prelude.. Data._Base64
 
 -- | The name of the file you want to add or update, including the relative
 -- path to the file in the repository.
@@ -233,9 +234,9 @@ instance Core.AWSRequest PutFile where
       ( \s h x ->
           PutFileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "commitId")
-            Prelude.<*> (x Core..:> "blobId")
-            Prelude.<*> (x Core..:> "treeId")
+            Prelude.<*> (x Data..:> "commitId")
+            Prelude.<*> (x Data..:> "blobId")
+            Prelude.<*> (x Data..:> "treeId")
       )
 
 instance Prelude.Hashable PutFile where
@@ -262,43 +263,43 @@ instance Prelude.NFData PutFile where
       `Prelude.seq` Prelude.rnf fileContent
       `Prelude.seq` Prelude.rnf filePath
 
-instance Core.ToHeaders PutFile where
+instance Data.ToHeaders PutFile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.PutFile" ::
+              Data.=# ( "CodeCommit_20150413.PutFile" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutFile where
+instance Data.ToJSON PutFile where
   toJSON PutFile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fileMode" Core..=) Prelude.<$> fileMode,
-            ("parentCommitId" Core..=)
+          [ ("fileMode" Data..=) Prelude.<$> fileMode,
+            ("parentCommitId" Data..=)
               Prelude.<$> parentCommitId,
-            ("name" Core..=) Prelude.<$> name,
-            ("email" Core..=) Prelude.<$> email,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
+            ("name" Data..=) Prelude.<$> name,
+            ("email" Data..=) Prelude.<$> email,
+            ("commitMessage" Data..=) Prelude.<$> commitMessage,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("branchName" Core..= branchName),
-            Prelude.Just ("fileContent" Core..= fileContent),
-            Prelude.Just ("filePath" Core..= filePath)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("branchName" Data..= branchName),
+            Prelude.Just ("fileContent" Data..= fileContent),
+            Prelude.Just ("filePath" Data..= filePath)
           ]
       )
 
-instance Core.ToPath PutFile where
+instance Data.ToPath PutFile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutFile where
+instance Data.ToQuery PutFile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutFileResponse' smart constructor.

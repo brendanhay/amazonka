@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.SymbolicLink where
 import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a symbolic link in a repository folder.
@@ -86,16 +87,16 @@ symbolicLink_blobId = Lens.lens (\SymbolicLink' {blobId} -> blobId) (\s@Symbolic
 symbolicLink_relativePath :: Lens.Lens' SymbolicLink (Prelude.Maybe Prelude.Text)
 symbolicLink_relativePath = Lens.lens (\SymbolicLink' {relativePath} -> relativePath) (\s@SymbolicLink' {} a -> s {relativePath = a} :: SymbolicLink)
 
-instance Core.FromJSON SymbolicLink where
+instance Data.FromJSON SymbolicLink where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SymbolicLink"
       ( \x ->
           SymbolicLink'
-            Prelude.<$> (x Core..:? "fileMode")
-            Prelude.<*> (x Core..:? "absolutePath")
-            Prelude.<*> (x Core..:? "blobId")
-            Prelude.<*> (x Core..:? "relativePath")
+            Prelude.<$> (x Data..:? "fileMode")
+            Prelude.<*> (x Data..:? "absolutePath")
+            Prelude.<*> (x Data..:? "blobId")
+            Prelude.<*> (x Data..:? "relativePath")
       )
 
 instance Prelude.Hashable SymbolicLink where

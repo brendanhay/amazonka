@@ -54,6 +54,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,8 +173,8 @@ instance Core.AWSRequest GetCommentsForComparedCommit where
     Response.receiveJSON
       ( \s h x ->
           GetCommentsForComparedCommitResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "commentsForComparedCommitData"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "commentsForComparedCommitData"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -198,40 +199,40 @@ instance Prelude.NFData GetCommentsForComparedCommit where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf afterCommitId
 
-instance Core.ToHeaders GetCommentsForComparedCommit where
+instance Data.ToHeaders GetCommentsForComparedCommit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.GetCommentsForComparedCommit" ::
+              Data.=# ( "CodeCommit_20150413.GetCommentsForComparedCommit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCommentsForComparedCommit where
+instance Data.ToJSON GetCommentsForComparedCommit where
   toJSON GetCommentsForComparedCommit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("beforeCommitId" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("beforeCommitId" Data..=)
               Prelude.<$> beforeCommitId,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
-              ("afterCommitId" Core..= afterCommitId)
+              ("afterCommitId" Data..= afterCommitId)
           ]
       )
 
-instance Core.ToPath GetCommentsForComparedCommit where
+instance Data.ToPath GetCommentsForComparedCommit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCommentsForComparedCommit where
+instance Data.ToQuery GetCommentsForComparedCommit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCommentsForComparedCommitResponse' smart constructor.

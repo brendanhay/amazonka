@@ -24,6 +24,7 @@ import Amazonka.CodeCommit.Types.PullRequestStatusEnum
 import Amazonka.CodeCommit.Types.PullRequestTarget
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a pull request.
@@ -48,14 +49,14 @@ data PullRequest = PullRequest'
     pullRequestTargets :: Prelude.Maybe [PullRequestTarget],
     -- | The date and time the pull request was originally created, in timestamp
     -- format.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The user-defined description of the pull request. This description can
     -- be used to clarify what should be reviewed and other details of the
     -- request.
     description :: Prelude.Maybe Prelude.Text,
     -- | The day and time of the last user or system activity on the pull
     -- request, in timestamp format.
-    lastActivityDate :: Prelude.Maybe Core.POSIX,
+    lastActivityDate :: Prelude.Maybe Data.POSIX,
     -- | The user-defined title of the pull request. This title is displayed in
     -- the list of pull requests to other repository users.
     title :: Prelude.Maybe Prelude.Text,
@@ -152,7 +153,7 @@ pullRequest_pullRequestTargets = Lens.lens (\PullRequest' {pullRequestTargets} -
 -- | The date and time the pull request was originally created, in timestamp
 -- format.
 pullRequest_creationDate :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.UTCTime)
-pullRequest_creationDate = Lens.lens (\PullRequest' {creationDate} -> creationDate) (\s@PullRequest' {} a -> s {creationDate = a} :: PullRequest) Prelude.. Lens.mapping Core._Time
+pullRequest_creationDate = Lens.lens (\PullRequest' {creationDate} -> creationDate) (\s@PullRequest' {} a -> s {creationDate = a} :: PullRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The user-defined description of the pull request. This description can
 -- be used to clarify what should be reviewed and other details of the
@@ -163,7 +164,7 @@ pullRequest_description = Lens.lens (\PullRequest' {description} -> description)
 -- | The day and time of the last user or system activity on the pull
 -- request, in timestamp format.
 pullRequest_lastActivityDate :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.UTCTime)
-pullRequest_lastActivityDate = Lens.lens (\PullRequest' {lastActivityDate} -> lastActivityDate) (\s@PullRequest' {} a -> s {lastActivityDate = a} :: PullRequest) Prelude.. Lens.mapping Core._Time
+pullRequest_lastActivityDate = Lens.lens (\PullRequest' {lastActivityDate} -> lastActivityDate) (\s@PullRequest' {} a -> s {lastActivityDate = a} :: PullRequest) Prelude.. Lens.mapping Data._Time
 
 -- | The user-defined title of the pull request. This title is displayed in
 -- the list of pull requests to other repository users.
@@ -178,25 +179,25 @@ pullRequest_revisionId = Lens.lens (\PullRequest' {revisionId} -> revisionId) (\
 pullRequest_authorArn :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.Text)
 pullRequest_authorArn = Lens.lens (\PullRequest' {authorArn} -> authorArn) (\s@PullRequest' {} a -> s {authorArn = a} :: PullRequest)
 
-instance Core.FromJSON PullRequest where
+instance Data.FromJSON PullRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PullRequest"
       ( \x ->
           PullRequest'
-            Prelude.<$> (x Core..:? "approvalRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "clientRequestToken")
-            Prelude.<*> (x Core..:? "pullRequestId")
-            Prelude.<*> (x Core..:? "pullRequestStatus")
-            Prelude.<*> ( x Core..:? "pullRequestTargets"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "approvalRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "clientRequestToken")
+            Prelude.<*> (x Data..:? "pullRequestId")
+            Prelude.<*> (x Data..:? "pullRequestStatus")
+            Prelude.<*> ( x Data..:? "pullRequestTargets"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastActivityDate")
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "revisionId")
-            Prelude.<*> (x Core..:? "authorArn")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastActivityDate")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "revisionId")
+            Prelude.<*> (x Data..:? "authorArn")
       )
 
 instance Prelude.Hashable PullRequest where

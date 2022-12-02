@@ -23,6 +23,7 @@ import Amazonka.CodeCommit.Types.FileModeTypeEnum
 import Amazonka.CodeCommit.Types.SourceFileSpecifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a file added or updated as part of a commit.
@@ -37,7 +38,7 @@ data PutFileEntry = PutFileEntry'
     -- directly.
     sourceFile :: Prelude.Maybe SourceFileSpecifier,
     -- | The content of the file, if a source file is not specified.
-    fileContent :: Prelude.Maybe Core.Base64,
+    fileContent :: Prelude.Maybe Data.Base64,
     -- | The full path to the file in the repository, including the name of the
     -- file.
     filePath :: Prelude.Text
@@ -96,7 +97,7 @@ putFileEntry_sourceFile = Lens.lens (\PutFileEntry' {sourceFile} -> sourceFile) 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 putFileEntry_fileContent :: Lens.Lens' PutFileEntry (Prelude.Maybe Prelude.ByteString)
-putFileEntry_fileContent = Lens.lens (\PutFileEntry' {fileContent} -> fileContent) (\s@PutFileEntry' {} a -> s {fileContent = a} :: PutFileEntry) Prelude.. Lens.mapping Core._Base64
+putFileEntry_fileContent = Lens.lens (\PutFileEntry' {fileContent} -> fileContent) (\s@PutFileEntry' {} a -> s {fileContent = a} :: PutFileEntry) Prelude.. Lens.mapping Data._Base64
 
 -- | The full path to the file in the repository, including the name of the
 -- file.
@@ -117,13 +118,13 @@ instance Prelude.NFData PutFileEntry where
       `Prelude.seq` Prelude.rnf fileContent
       `Prelude.seq` Prelude.rnf filePath
 
-instance Core.ToJSON PutFileEntry where
+instance Data.ToJSON PutFileEntry where
   toJSON PutFileEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fileMode" Core..=) Prelude.<$> fileMode,
-            ("sourceFile" Core..=) Prelude.<$> sourceFile,
-            ("fileContent" Core..=) Prelude.<$> fileContent,
-            Prelude.Just ("filePath" Core..= filePath)
+          [ ("fileMode" Data..=) Prelude.<$> fileMode,
+            ("sourceFile" Data..=) Prelude.<$> sourceFile,
+            ("fileContent" Data..=) Prelude.<$> fileContent,
+            Prelude.Just ("filePath" Data..= filePath)
           ]
       )

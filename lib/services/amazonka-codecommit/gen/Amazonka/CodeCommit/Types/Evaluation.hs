@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.Evaluation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the approval rules applied to a pull request
@@ -83,20 +84,20 @@ evaluation_approvalRulesSatisfied = Lens.lens (\Evaluation' {approvalRulesSatisf
 evaluation_approved :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Bool)
 evaluation_approved = Lens.lens (\Evaluation' {approved} -> approved) (\s@Evaluation' {} a -> s {approved = a} :: Evaluation)
 
-instance Core.FromJSON Evaluation where
+instance Data.FromJSON Evaluation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Evaluation"
       ( \x ->
           Evaluation'
-            Prelude.<$> (x Core..:? "overridden")
-            Prelude.<*> ( x Core..:? "approvalRulesNotSatisfied"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "overridden")
+            Prelude.<*> ( x Data..:? "approvalRulesNotSatisfied"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "approvalRulesSatisfied"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "approvalRulesSatisfied"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "approved")
+            Prelude.<*> (x Data..:? "approved")
       )
 
 instance Prelude.Hashable Evaluation where

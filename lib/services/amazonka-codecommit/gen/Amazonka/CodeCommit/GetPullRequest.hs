@@ -42,6 +42,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetPullRequest where
       ( \s h x ->
           GetPullRequestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "pullRequest")
+            Prelude.<*> (x Data..:> "pullRequest")
       )
 
 instance Prelude.Hashable GetPullRequest where
@@ -97,34 +98,34 @@ instance Prelude.Hashable GetPullRequest where
 instance Prelude.NFData GetPullRequest where
   rnf GetPullRequest' {..} = Prelude.rnf pullRequestId
 
-instance Core.ToHeaders GetPullRequest where
+instance Data.ToHeaders GetPullRequest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.GetPullRequest" ::
+              Data.=# ( "CodeCommit_20150413.GetPullRequest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPullRequest where
+instance Data.ToJSON GetPullRequest where
   toJSON GetPullRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("pullRequestId" Core..= pullRequestId)
+              ("pullRequestId" Data..= pullRequestId)
           ]
       )
 
-instance Core.ToPath GetPullRequest where
+instance Data.ToPath GetPullRequest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetPullRequest where
+instance Data.ToQuery GetPullRequest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPullRequestResponse' smart constructor.

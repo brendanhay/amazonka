@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.Folder where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a folder in a repository.
@@ -76,15 +77,15 @@ folder_relativePath = Lens.lens (\Folder' {relativePath} -> relativePath) (\s@Fo
 folder_treeId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_treeId = Lens.lens (\Folder' {treeId} -> treeId) (\s@Folder' {} a -> s {treeId = a} :: Folder)
 
-instance Core.FromJSON Folder where
+instance Data.FromJSON Folder where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Folder"
       ( \x ->
           Folder'
-            Prelude.<$> (x Core..:? "absolutePath")
-            Prelude.<*> (x Core..:? "relativePath")
-            Prelude.<*> (x Core..:? "treeId")
+            Prelude.<$> (x Data..:? "absolutePath")
+            Prelude.<*> (x Data..:? "relativePath")
+            Prelude.<*> (x Data..:? "treeId")
       )
 
 instance Prelude.Hashable Folder where

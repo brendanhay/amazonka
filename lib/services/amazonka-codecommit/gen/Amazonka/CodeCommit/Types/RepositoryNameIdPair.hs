@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.RepositoryNameIdPair where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a repository name and ID.
@@ -62,14 +63,14 @@ repositoryNameIdPair_repositoryName = Lens.lens (\RepositoryNameIdPair' {reposit
 repositoryNameIdPair_repositoryId :: Lens.Lens' RepositoryNameIdPair (Prelude.Maybe Prelude.Text)
 repositoryNameIdPair_repositoryId = Lens.lens (\RepositoryNameIdPair' {repositoryId} -> repositoryId) (\s@RepositoryNameIdPair' {} a -> s {repositoryId = a} :: RepositoryNameIdPair)
 
-instance Core.FromJSON RepositoryNameIdPair where
+instance Data.FromJSON RepositoryNameIdPair where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryNameIdPair"
       ( \x ->
           RepositoryNameIdPair'
-            Prelude.<$> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "repositoryId")
+            Prelude.<$> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "repositoryId")
       )
 
 instance Prelude.Hashable RepositoryNameIdPair where

@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.MergeMetadata where
 import Amazonka.CodeCommit.Types.MergeOptionTypeEnum
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a merge or potential merge between a source
@@ -81,16 +82,16 @@ mergeMetadata_isMerged = Lens.lens (\MergeMetadata' {isMerged} -> isMerged) (\s@
 mergeMetadata_mergedBy :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Text)
 mergeMetadata_mergedBy = Lens.lens (\MergeMetadata' {mergedBy} -> mergedBy) (\s@MergeMetadata' {} a -> s {mergedBy = a} :: MergeMetadata)
 
-instance Core.FromJSON MergeMetadata where
+instance Data.FromJSON MergeMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MergeMetadata"
       ( \x ->
           MergeMetadata'
-            Prelude.<$> (x Core..:? "mergeOption")
-            Prelude.<*> (x Core..:? "mergeCommitId")
-            Prelude.<*> (x Core..:? "isMerged")
-            Prelude.<*> (x Core..:? "mergedBy")
+            Prelude.<$> (x Data..:? "mergeOption")
+            Prelude.<*> (x Data..:? "mergeCommitId")
+            Prelude.<*> (x Data..:? "isMerged")
+            Prelude.<*> (x Data..:? "mergedBy")
       )
 
 instance Prelude.Hashable MergeMetadata where

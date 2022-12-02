@@ -58,6 +58,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -231,13 +232,13 @@ instance Core.AWSRequest BatchDescribeMergeConflicts where
     Response.receiveJSON
       ( \s h x ->
           BatchDescribeMergeConflictsResponse'
-            Prelude.<$> (x Core..?> "baseCommitId")
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "baseCommitId")
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "conflicts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "destinationCommitId")
-            Prelude.<*> (x Core..:> "sourceCommitId")
+            Prelude.<*> (x Data..?> "conflicts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "destinationCommitId")
+            Prelude.<*> (x Data..:> "sourceCommitId")
       )
 
 instance Prelude.Hashable BatchDescribeMergeConflicts where
@@ -266,52 +267,52 @@ instance Prelude.NFData BatchDescribeMergeConflicts where
       `Prelude.seq` Prelude.rnf sourceCommitSpecifier
       `Prelude.seq` Prelude.rnf mergeOption
 
-instance Core.ToHeaders BatchDescribeMergeConflicts where
+instance Data.ToHeaders BatchDescribeMergeConflicts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.BatchDescribeMergeConflicts" ::
+              Data.=# ( "CodeCommit_20150413.BatchDescribeMergeConflicts" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchDescribeMergeConflicts where
+instance Data.ToJSON BatchDescribeMergeConflicts where
   toJSON BatchDescribeMergeConflicts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filePaths" Core..=) Prelude.<$> filePaths,
-            ("maxMergeHunks" Core..=) Prelude.<$> maxMergeHunks,
-            ("conflictResolutionStrategy" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filePaths" Data..=) Prelude.<$> filePaths,
+            ("maxMergeHunks" Data..=) Prelude.<$> maxMergeHunks,
+            ("conflictResolutionStrategy" Data..=)
               Prelude.<$> conflictResolutionStrategy,
-            ("maxConflictFiles" Core..=)
+            ("maxConflictFiles" Data..=)
               Prelude.<$> maxConflictFiles,
-            ("conflictDetailLevel" Core..=)
+            ("conflictDetailLevel" Data..=)
               Prelude.<$> conflictDetailLevel,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
               ( "destinationCommitSpecifier"
-                  Core..= destinationCommitSpecifier
+                  Data..= destinationCommitSpecifier
               ),
             Prelude.Just
               ( "sourceCommitSpecifier"
-                  Core..= sourceCommitSpecifier
+                  Data..= sourceCommitSpecifier
               ),
-            Prelude.Just ("mergeOption" Core..= mergeOption)
+            Prelude.Just ("mergeOption" Data..= mergeOption)
           ]
       )
 
-instance Core.ToPath BatchDescribeMergeConflicts where
+instance Data.ToPath BatchDescribeMergeConflicts where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDescribeMergeConflicts where
+instance Data.ToQuery BatchDescribeMergeConflicts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDescribeMergeConflictsResponse' smart constructor.

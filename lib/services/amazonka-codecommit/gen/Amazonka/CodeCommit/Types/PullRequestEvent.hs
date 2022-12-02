@@ -29,6 +29,7 @@ import Amazonka.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
 import Amazonka.CodeCommit.Types.PullRequestStatusChangedEventMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a pull request event.
@@ -48,7 +49,7 @@ data PullRequestEvent = PullRequestEvent'
     -- | Information about an approval state change for a pull request.
     approvalStateChangedEventMetadata :: Prelude.Maybe ApprovalStateChangedEventMetadata,
     -- | The day and time of the pull request event, in timestamp format.
-    eventDate :: Prelude.Maybe Core.POSIX,
+    eventDate :: Prelude.Maybe Data.POSIX,
     -- | Information about the change in status for the pull request event.
     pullRequestStatusChangedEventMetadata :: Prelude.Maybe PullRequestStatusChangedEventMetadata,
     -- | Information about a pull request event.
@@ -146,7 +147,7 @@ pullRequestEvent_approvalStateChangedEventMetadata = Lens.lens (\PullRequestEven
 
 -- | The day and time of the pull request event, in timestamp format.
 pullRequestEvent_eventDate :: Lens.Lens' PullRequestEvent (Prelude.Maybe Prelude.UTCTime)
-pullRequestEvent_eventDate = Lens.lens (\PullRequestEvent' {eventDate} -> eventDate) (\s@PullRequestEvent' {} a -> s {eventDate = a} :: PullRequestEvent) Prelude.. Lens.mapping Core._Time
+pullRequestEvent_eventDate = Lens.lens (\PullRequestEvent' {eventDate} -> eventDate) (\s@PullRequestEvent' {} a -> s {eventDate = a} :: PullRequestEvent) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the change in status for the pull request event.
 pullRequestEvent_pullRequestStatusChangedEventMetadata :: Lens.Lens' PullRequestEvent (Prelude.Maybe PullRequestStatusChangedEventMetadata)
@@ -172,27 +173,27 @@ pullRequestEvent_actorArn = Lens.lens (\PullRequestEvent' {actorArn} -> actorArn
 pullRequestEvent_pullRequestEventType :: Lens.Lens' PullRequestEvent (Prelude.Maybe PullRequestEventType)
 pullRequestEvent_pullRequestEventType = Lens.lens (\PullRequestEvent' {pullRequestEventType} -> pullRequestEventType) (\s@PullRequestEvent' {} a -> s {pullRequestEventType = a} :: PullRequestEvent)
 
-instance Core.FromJSON PullRequestEvent where
+instance Data.FromJSON PullRequestEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PullRequestEvent"
       ( \x ->
           PullRequestEvent'
             Prelude.<$> ( x
-                            Core..:? "pullRequestMergedStateChangedEventMetadata"
+                            Data..:? "pullRequestMergedStateChangedEventMetadata"
                         )
-            Prelude.<*> (x Core..:? "pullRequestId")
-            Prelude.<*> (x Core..:? "approvalRuleOverriddenEventMetadata")
-            Prelude.<*> (x Core..:? "pullRequestCreatedEventMetadata")
-            Prelude.<*> (x Core..:? "approvalStateChangedEventMetadata")
-            Prelude.<*> (x Core..:? "eventDate")
-            Prelude.<*> (x Core..:? "pullRequestStatusChangedEventMetadata")
-            Prelude.<*> (x Core..:? "approvalRuleEventMetadata")
+            Prelude.<*> (x Data..:? "pullRequestId")
+            Prelude.<*> (x Data..:? "approvalRuleOverriddenEventMetadata")
+            Prelude.<*> (x Data..:? "pullRequestCreatedEventMetadata")
+            Prelude.<*> (x Data..:? "approvalStateChangedEventMetadata")
+            Prelude.<*> (x Data..:? "eventDate")
+            Prelude.<*> (x Data..:? "pullRequestStatusChangedEventMetadata")
+            Prelude.<*> (x Data..:? "approvalRuleEventMetadata")
             Prelude.<*> ( x
-                            Core..:? "pullRequestSourceReferenceUpdatedEventMetadata"
+                            Data..:? "pullRequestSourceReferenceUpdatedEventMetadata"
                         )
-            Prelude.<*> (x Core..:? "actorArn")
-            Prelude.<*> (x Core..:? "pullRequestEventType")
+            Prelude.<*> (x Data..:? "actorArn")
+            Prelude.<*> (x Data..:? "pullRequestEventType")
       )
 
 instance Prelude.Hashable PullRequestEvent where

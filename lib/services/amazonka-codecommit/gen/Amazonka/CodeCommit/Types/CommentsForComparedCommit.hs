@@ -23,6 +23,7 @@ import Amazonka.CodeCommit.Types.Comment
 import Amazonka.CodeCommit.Types.Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about comments on the comparison between two
@@ -131,19 +132,19 @@ commentsForComparedCommit_location = Lens.lens (\CommentsForComparedCommit' {loc
 commentsForComparedCommit_afterBlobId :: Lens.Lens' CommentsForComparedCommit (Prelude.Maybe Prelude.Text)
 commentsForComparedCommit_afterBlobId = Lens.lens (\CommentsForComparedCommit' {afterBlobId} -> afterBlobId) (\s@CommentsForComparedCommit' {} a -> s {afterBlobId = a} :: CommentsForComparedCommit)
 
-instance Core.FromJSON CommentsForComparedCommit where
+instance Data.FromJSON CommentsForComparedCommit where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CommentsForComparedCommit"
       ( \x ->
           CommentsForComparedCommit'
-            Prelude.<$> (x Core..:? "beforeBlobId")
-            Prelude.<*> (x Core..:? "afterCommitId")
-            Prelude.<*> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "beforeCommitId")
-            Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "afterBlobId")
+            Prelude.<$> (x Data..:? "beforeBlobId")
+            Prelude.<*> (x Data..:? "afterCommitId")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "beforeCommitId")
+            Prelude.<*> (x Data..:? "comments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "afterBlobId")
       )
 
 instance Prelude.Hashable CommentsForComparedCommit where

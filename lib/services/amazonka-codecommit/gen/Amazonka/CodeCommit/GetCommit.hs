@@ -44,6 +44,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,7 +100,7 @@ instance Core.AWSRequest GetCommit where
       ( \s h x ->
           GetCommitResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "commit")
+            Prelude.<*> (x Data..:> "commit")
       )
 
 instance Prelude.Hashable GetCommit where
@@ -112,35 +113,35 @@ instance Prelude.NFData GetCommit where
     Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf commitId
 
-instance Core.ToHeaders GetCommit where
+instance Data.ToHeaders GetCommit where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.GetCommit" ::
+              Data.=# ( "CodeCommit_20150413.GetCommit" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCommit where
+instance Data.ToJSON GetCommit where
   toJSON GetCommit' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("repositoryName" Core..= repositoryName),
-            Prelude.Just ("commitId" Core..= commitId)
+              ("repositoryName" Data..= repositoryName),
+            Prelude.Just ("commitId" Data..= commitId)
           ]
       )
 
-instance Core.ToPath GetCommit where
+instance Data.ToPath GetCommit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCommit where
+instance Data.ToQuery GetCommit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a get commit operation.

@@ -22,6 +22,7 @@ module Amazonka.CodeCommit.Types.ReactionForComment where
 import Amazonka.CodeCommit.Types.ReactionValueFormats
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the reaction values provided by users on a comment.
@@ -84,15 +85,15 @@ reactionForComment_reactionUsers = Lens.lens (\ReactionForComment' {reactionUser
 reactionForComment_reaction :: Lens.Lens' ReactionForComment (Prelude.Maybe ReactionValueFormats)
 reactionForComment_reaction = Lens.lens (\ReactionForComment' {reaction} -> reaction) (\s@ReactionForComment' {} a -> s {reaction = a} :: ReactionForComment)
 
-instance Core.FromJSON ReactionForComment where
+instance Data.FromJSON ReactionForComment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReactionForComment"
       ( \x ->
           ReactionForComment'
-            Prelude.<$> (x Core..:? "reactionsFromDeletedUsersCount")
-            Prelude.<*> (x Core..:? "reactionUsers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "reaction")
+            Prelude.<$> (x Data..:? "reactionsFromDeletedUsersCount")
+            Prelude.<*> (x Data..:? "reactionUsers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "reaction")
       )
 
 instance Prelude.Hashable ReactionForComment where

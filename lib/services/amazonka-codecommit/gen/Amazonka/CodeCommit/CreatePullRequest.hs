@@ -45,6 +45,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -150,7 +151,7 @@ instance Core.AWSRequest CreatePullRequest where
       ( \s h x ->
           CreatePullRequestResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "pullRequest")
+            Prelude.<*> (x Data..:> "pullRequest")
       )
 
 instance Prelude.Hashable CreatePullRequest where
@@ -167,37 +168,37 @@ instance Prelude.NFData CreatePullRequest where
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf targets
 
-instance Core.ToHeaders CreatePullRequest where
+instance Data.ToHeaders CreatePullRequest where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.CreatePullRequest" ::
+              Data.=# ( "CodeCommit_20150413.CreatePullRequest" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePullRequest where
+instance Data.ToJSON CreatePullRequest where
   toJSON CreatePullRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Core..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("title" Core..= title),
-            Prelude.Just ("targets" Core..= targets)
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("title" Data..= title),
+            Prelude.Just ("targets" Data..= targets)
           ]
       )
 
-instance Core.ToPath CreatePullRequest where
+instance Data.ToPath CreatePullRequest where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreatePullRequest where
+instance Data.ToQuery CreatePullRequest where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePullRequestResponse' smart constructor.

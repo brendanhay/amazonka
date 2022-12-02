@@ -47,6 +47,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -128,7 +129,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           MergePullRequestByFastForwardResponse'
-            Prelude.<$> (x Core..?> "pullRequest")
+            Prelude.<$> (x Data..?> "pullRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,37 +148,37 @@ instance Prelude.NFData MergePullRequestByFastForward where
       `Prelude.seq` Prelude.rnf pullRequestId
       `Prelude.seq` Prelude.rnf repositoryName
 
-instance Core.ToHeaders MergePullRequestByFastForward where
+instance Data.ToHeaders MergePullRequestByFastForward where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.MergePullRequestByFastForward" ::
+              Data.=# ( "CodeCommit_20150413.MergePullRequestByFastForward" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON MergePullRequestByFastForward where
+instance Data.ToJSON MergePullRequestByFastForward where
   toJSON MergePullRequestByFastForward' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceCommitId" Core..=)
+          [ ("sourceCommitId" Data..=)
               Prelude.<$> sourceCommitId,
-            Prelude.Just ("pullRequestId" Core..= pullRequestId),
+            Prelude.Just ("pullRequestId" Data..= pullRequestId),
             Prelude.Just
-              ("repositoryName" Core..= repositoryName)
+              ("repositoryName" Data..= repositoryName)
           ]
       )
 
-instance Core.ToPath MergePullRequestByFastForward where
+instance Data.ToPath MergePullRequestByFastForward where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery MergePullRequestByFastForward where
+instance Data.ToQuery MergePullRequestByFastForward where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newMergePullRequestByFastForwardResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -232,7 +233,7 @@ instance Core.AWSRequest CreateApprovalRuleTemplate where
       ( \s h x ->
           CreateApprovalRuleTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "approvalRuleTemplate")
+            Prelude.<*> (x Data..:> "approvalRuleTemplate")
       )
 
 instance Prelude.Hashable CreateApprovalRuleTemplate where
@@ -248,42 +249,42 @@ instance Prelude.NFData CreateApprovalRuleTemplate where
       `Prelude.seq` Prelude.rnf approvalRuleTemplateName
       `Prelude.seq` Prelude.rnf approvalRuleTemplateContent
 
-instance Core.ToHeaders CreateApprovalRuleTemplate where
+instance Data.ToHeaders CreateApprovalRuleTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.CreateApprovalRuleTemplate" ::
+              Data.=# ( "CodeCommit_20150413.CreateApprovalRuleTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateApprovalRuleTemplate where
+instance Data.ToJSON CreateApprovalRuleTemplate where
   toJSON CreateApprovalRuleTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("approvalRuleTemplateDescription" Core..=)
+          [ ("approvalRuleTemplateDescription" Data..=)
               Prelude.<$> approvalRuleTemplateDescription,
             Prelude.Just
               ( "approvalRuleTemplateName"
-                  Core..= approvalRuleTemplateName
+                  Data..= approvalRuleTemplateName
               ),
             Prelude.Just
               ( "approvalRuleTemplateContent"
-                  Core..= approvalRuleTemplateContent
+                  Data..= approvalRuleTemplateContent
               )
           ]
       )
 
-instance Core.ToPath CreateApprovalRuleTemplate where
+instance Data.ToPath CreateApprovalRuleTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateApprovalRuleTemplate where
+instance Data.ToQuery CreateApprovalRuleTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateApprovalRuleTemplateResponse' smart constructor.

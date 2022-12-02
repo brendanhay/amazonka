@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.UserInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the user who made a specified commit.
@@ -73,15 +74,15 @@ userInfo_email = Lens.lens (\UserInfo' {email} -> email) (\s@UserInfo' {} a -> s
 userInfo_date :: Lens.Lens' UserInfo (Prelude.Maybe Prelude.Text)
 userInfo_date = Lens.lens (\UserInfo' {date} -> date) (\s@UserInfo' {} a -> s {date = a} :: UserInfo)
 
-instance Core.FromJSON UserInfo where
+instance Data.FromJSON UserInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserInfo"
       ( \x ->
           UserInfo'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "email")
-            Prelude.<*> (x Core..:? "date")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "email")
+            Prelude.<*> (x Data..:? "date")
       )
 
 instance Prelude.Hashable UserInfo where

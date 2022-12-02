@@ -45,6 +45,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,10 +118,10 @@ instance
       ( \s h x ->
           BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..?> "associatedRepositoryNames"
+              Prelude.<*> ( x Data..?> "associatedRepositoryNames"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -144,48 +145,48 @@ instance
         `Prelude.seq` Prelude.rnf repositoryNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories" ::
+              Data.=# ( "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
   toJSON
     BatchAssociateApprovalRuleTemplateWithRepositories' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
                 ( "approvalRuleTemplateName"
-                    Core..= approvalRuleTemplateName
+                    Data..= approvalRuleTemplateName
                 ),
               Prelude.Just
-                ("repositoryNames" Core..= repositoryNames)
+                ("repositoryNames" Data..= repositoryNames)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
   toQuery = Prelude.const Prelude.mempty

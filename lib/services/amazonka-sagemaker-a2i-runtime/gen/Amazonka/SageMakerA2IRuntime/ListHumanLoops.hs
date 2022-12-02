@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,7 +65,7 @@ data ListHumanLoops = ListHumanLoops'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The timestamp of the date before which you want the human
     -- loops to begin in ISO 8601 format. For example, @2020-02-24@.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The total number of items to return. If the total number of available
     -- items is more than the value specified in @MaxResults@, then a
     -- @NextToken@ is returned in the output. You can use this token to display
@@ -72,7 +73,7 @@ data ListHumanLoops = ListHumanLoops'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | (Optional) The timestamp of the date when you want the human loops to
     -- begin in ISO 8601 format. For example, @2020-02-24@.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of a flow definition.
     flowDefinitionArn :: Prelude.Text
   }
@@ -129,7 +130,7 @@ listHumanLoops_nextToken = Lens.lens (\ListHumanLoops' {nextToken} -> nextToken)
 -- | (Optional) The timestamp of the date before which you want the human
 -- loops to begin in ISO 8601 format. For example, @2020-02-24@.
 listHumanLoops_creationTimeBefore :: Lens.Lens' ListHumanLoops (Prelude.Maybe Prelude.UTCTime)
-listHumanLoops_creationTimeBefore = Lens.lens (\ListHumanLoops' {creationTimeBefore} -> creationTimeBefore) (\s@ListHumanLoops' {} a -> s {creationTimeBefore = a} :: ListHumanLoops) Prelude.. Lens.mapping Core._Time
+listHumanLoops_creationTimeBefore = Lens.lens (\ListHumanLoops' {creationTimeBefore} -> creationTimeBefore) (\s@ListHumanLoops' {} a -> s {creationTimeBefore = a} :: ListHumanLoops) Prelude.. Lens.mapping Data._Time
 
 -- | The total number of items to return. If the total number of available
 -- items is more than the value specified in @MaxResults@, then a
@@ -141,7 +142,7 @@ listHumanLoops_maxResults = Lens.lens (\ListHumanLoops' {maxResults} -> maxResul
 -- | (Optional) The timestamp of the date when you want the human loops to
 -- begin in ISO 8601 format. For example, @2020-02-24@.
 listHumanLoops_creationTimeAfter :: Lens.Lens' ListHumanLoops (Prelude.Maybe Prelude.UTCTime)
-listHumanLoops_creationTimeAfter = Lens.lens (\ListHumanLoops' {creationTimeAfter} -> creationTimeAfter) (\s@ListHumanLoops' {} a -> s {creationTimeAfter = a} :: ListHumanLoops) Prelude.. Lens.mapping Core._Time
+listHumanLoops_creationTimeAfter = Lens.lens (\ListHumanLoops' {creationTimeAfter} -> creationTimeAfter) (\s@ListHumanLoops' {} a -> s {creationTimeAfter = a} :: ListHumanLoops) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of a flow definition.
 listHumanLoops_flowDefinitionArn :: Lens.Lens' ListHumanLoops Prelude.Text
@@ -177,9 +178,9 @@ instance Core.AWSRequest ListHumanLoops where
     Response.receiveJSON
       ( \s h x ->
           ListHumanLoopsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "HumanLoopSummaries"
+            Prelude.<*> ( x Data..?> "HumanLoopSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -202,21 +203,21 @@ instance Prelude.NFData ListHumanLoops where
       `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf flowDefinitionArn
 
-instance Core.ToHeaders ListHumanLoops where
+instance Data.ToHeaders ListHumanLoops where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListHumanLoops where
+instance Data.ToPath ListHumanLoops where
   toPath = Prelude.const "/human-loops"
 
-instance Core.ToQuery ListHumanLoops where
+instance Data.ToQuery ListHumanLoops where
   toQuery ListHumanLoops' {..} =
     Prelude.mconcat
-      [ "SortOrder" Core.=: sortOrder,
-        "NextToken" Core.=: nextToken,
-        "CreationTimeBefore" Core.=: creationTimeBefore,
-        "MaxResults" Core.=: maxResults,
-        "CreationTimeAfter" Core.=: creationTimeAfter,
-        "FlowDefinitionArn" Core.=: flowDefinitionArn
+      [ "SortOrder" Data.=: sortOrder,
+        "NextToken" Data.=: nextToken,
+        "CreationTimeBefore" Data.=: creationTimeBefore,
+        "MaxResults" Data.=: maxResults,
+        "CreationTimeAfter" Data.=: creationTimeAfter,
+        "FlowDefinitionArn" Data.=: flowDefinitionArn
       ]
 
 -- | /See:/ 'newListHumanLoopsResponse' smart constructor.

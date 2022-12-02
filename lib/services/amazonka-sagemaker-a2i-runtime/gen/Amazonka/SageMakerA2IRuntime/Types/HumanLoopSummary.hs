@@ -21,6 +21,7 @@ module Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus
 
@@ -36,7 +37,7 @@ data HumanLoopSummary = HumanLoopSummary'
     -- the human loop.
     flowDefinitionArn :: Prelude.Maybe Prelude.Text,
     -- | When Amazon Augmented AI created the human loop.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The reason why the human loop failed. A failure reason is returned when
     -- the status of the human loop is @Failed@.
     failureReason :: Prelude.Maybe Prelude.Text
@@ -89,24 +90,24 @@ humanLoopSummary_flowDefinitionArn = Lens.lens (\HumanLoopSummary' {flowDefiniti
 
 -- | When Amazon Augmented AI created the human loop.
 humanLoopSummary_creationTime :: Lens.Lens' HumanLoopSummary (Prelude.Maybe Prelude.UTCTime)
-humanLoopSummary_creationTime = Lens.lens (\HumanLoopSummary' {creationTime} -> creationTime) (\s@HumanLoopSummary' {} a -> s {creationTime = a} :: HumanLoopSummary) Prelude.. Lens.mapping Core._Time
+humanLoopSummary_creationTime = Lens.lens (\HumanLoopSummary' {creationTime} -> creationTime) (\s@HumanLoopSummary' {} a -> s {creationTime = a} :: HumanLoopSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The reason why the human loop failed. A failure reason is returned when
 -- the status of the human loop is @Failed@.
 humanLoopSummary_failureReason :: Lens.Lens' HumanLoopSummary (Prelude.Maybe Prelude.Text)
 humanLoopSummary_failureReason = Lens.lens (\HumanLoopSummary' {failureReason} -> failureReason) (\s@HumanLoopSummary' {} a -> s {failureReason = a} :: HumanLoopSummary)
 
-instance Core.FromJSON HumanLoopSummary where
+instance Data.FromJSON HumanLoopSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HumanLoopSummary"
       ( \x ->
           HumanLoopSummary'
-            Prelude.<$> (x Core..:? "HumanLoopStatus")
-            Prelude.<*> (x Core..:? "HumanLoopName")
-            Prelude.<*> (x Core..:? "FlowDefinitionArn")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "HumanLoopStatus")
+            Prelude.<*> (x Data..:? "HumanLoopName")
+            Prelude.<*> (x Data..:? "FlowDefinitionArn")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable HumanLoopSummary where

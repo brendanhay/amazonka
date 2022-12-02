@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,15 +96,15 @@ instance Prelude.Hashable DeleteHumanLoop where
 instance Prelude.NFData DeleteHumanLoop where
   rnf DeleteHumanLoop' {..} = Prelude.rnf humanLoopName
 
-instance Core.ToHeaders DeleteHumanLoop where
+instance Data.ToHeaders DeleteHumanLoop where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteHumanLoop where
+instance Data.ToPath DeleteHumanLoop where
   toPath DeleteHumanLoop' {..} =
     Prelude.mconcat
-      ["/human-loops/", Core.toBS humanLoopName]
+      ["/human-loops/", Data.toBS humanLoopName]
 
-instance Core.ToQuery DeleteHumanLoop where
+instance Data.ToQuery DeleteHumanLoop where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteHumanLoopResponse' smart constructor.

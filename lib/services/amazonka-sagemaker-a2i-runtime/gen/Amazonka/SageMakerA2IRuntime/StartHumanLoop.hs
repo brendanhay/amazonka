@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,7 +133,7 @@ instance Core.AWSRequest StartHumanLoop where
     Response.receiveJSON
       ( \s h x ->
           StartHumanLoopResponse'
-            Prelude.<$> (x Core..?> "HumanLoopArn")
+            Prelude.<$> (x Data..?> "HumanLoopArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,27 +151,27 @@ instance Prelude.NFData StartHumanLoop where
       `Prelude.seq` Prelude.rnf flowDefinitionArn
       `Prelude.seq` Prelude.rnf humanLoopInput
 
-instance Core.ToHeaders StartHumanLoop where
+instance Data.ToHeaders StartHumanLoop where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartHumanLoop where
+instance Data.ToJSON StartHumanLoop where
   toJSON StartHumanLoop' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DataAttributes" Core..=)
+          [ ("DataAttributes" Data..=)
               Prelude.<$> dataAttributes,
-            Prelude.Just ("HumanLoopName" Core..= humanLoopName),
+            Prelude.Just ("HumanLoopName" Data..= humanLoopName),
             Prelude.Just
-              ("FlowDefinitionArn" Core..= flowDefinitionArn),
+              ("FlowDefinitionArn" Data..= flowDefinitionArn),
             Prelude.Just
-              ("HumanLoopInput" Core..= humanLoopInput)
+              ("HumanLoopInput" Data..= humanLoopInput)
           ]
       )
 
-instance Core.ToPath StartHumanLoop where
+instance Data.ToPath StartHumanLoop where
   toPath = Prelude.const "/human-loops"
 
-instance Core.ToQuery StartHumanLoop where
+instance Data.ToQuery StartHumanLoop where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartHumanLoopResponse' smart constructor.

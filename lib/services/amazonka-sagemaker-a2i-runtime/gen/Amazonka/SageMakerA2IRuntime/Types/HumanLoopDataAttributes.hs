@@ -21,6 +21,7 @@ module Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerA2IRuntime.Types.ContentClassifier
 
@@ -75,11 +76,11 @@ instance Prelude.NFData HumanLoopDataAttributes where
   rnf HumanLoopDataAttributes' {..} =
     Prelude.rnf contentClassifiers
 
-instance Core.ToJSON HumanLoopDataAttributes where
+instance Data.ToJSON HumanLoopDataAttributes where
   toJSON HumanLoopDataAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContentClassifiers" Core..= contentClassifiers)
+              ("ContentClassifiers" Data..= contentClassifiers)
           ]
       )

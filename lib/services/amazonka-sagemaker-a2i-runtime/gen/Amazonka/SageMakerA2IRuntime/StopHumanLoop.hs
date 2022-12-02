@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,22 +93,22 @@ instance Prelude.Hashable StopHumanLoop where
 instance Prelude.NFData StopHumanLoop where
   rnf StopHumanLoop' {..} = Prelude.rnf humanLoopName
 
-instance Core.ToHeaders StopHumanLoop where
+instance Data.ToHeaders StopHumanLoop where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StopHumanLoop where
+instance Data.ToJSON StopHumanLoop where
   toJSON StopHumanLoop' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("HumanLoopName" Core..= humanLoopName)
+              ("HumanLoopName" Data..= humanLoopName)
           ]
       )
 
-instance Core.ToPath StopHumanLoop where
+instance Data.ToPath StopHumanLoop where
   toPath = Prelude.const "/human-loops/stop"
 
-instance Core.ToQuery StopHumanLoop where
+instance Data.ToQuery StopHumanLoop where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopHumanLoopResponse' smart constructor.

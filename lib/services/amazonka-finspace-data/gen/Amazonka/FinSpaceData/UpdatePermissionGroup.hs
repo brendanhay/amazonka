@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -54,11 +55,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdatePermissionGroup' smart constructor.
 data UpdatePermissionGroup = UpdatePermissionGroup'
   { -- | The name of the permission group.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A token that ensures idempotency. This token expires in 10 minutes.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A brief description for the permission group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The permissions that are granted to a specific group for accessing the
     -- FinSpace application.
     --
@@ -150,7 +151,7 @@ newUpdatePermissionGroup pPermissionGroupId_ =
 
 -- | The name of the permission group.
 updatePermissionGroup_name :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
-updatePermissionGroup_name = Lens.lens (\UpdatePermissionGroup' {name} -> name) (\s@UpdatePermissionGroup' {} a -> s {name = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Core._Sensitive
+updatePermissionGroup_name = Lens.lens (\UpdatePermissionGroup' {name} -> name) (\s@UpdatePermissionGroup' {} a -> s {name = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A token that ensures idempotency. This token expires in 10 minutes.
 updatePermissionGroup_clientToken :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
@@ -158,7 +159,7 @@ updatePermissionGroup_clientToken = Lens.lens (\UpdatePermissionGroup' {clientTo
 
 -- | A brief description for the permission group.
 updatePermissionGroup_description :: Lens.Lens' UpdatePermissionGroup (Prelude.Maybe Prelude.Text)
-updatePermissionGroup_description = Lens.lens (\UpdatePermissionGroup' {description} -> description) (\s@UpdatePermissionGroup' {} a -> s {description = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Core._Sensitive
+updatePermissionGroup_description = Lens.lens (\UpdatePermissionGroup' {description} -> description) (\s@UpdatePermissionGroup' {} a -> s {description = a} :: UpdatePermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The permissions that are granted to a specific group for accessing the
 -- FinSpace application.
@@ -204,7 +205,7 @@ instance Core.AWSRequest UpdatePermissionGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdatePermissionGroupResponse'
-            Prelude.<$> (x Core..?> "permissionGroupId")
+            Prelude.<$> (x Data..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,35 +225,35 @@ instance Prelude.NFData UpdatePermissionGroup where
       `Prelude.seq` Prelude.rnf applicationPermissions
       `Prelude.seq` Prelude.rnf permissionGroupId
 
-instance Core.ToHeaders UpdatePermissionGroup where
+instance Data.ToHeaders UpdatePermissionGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePermissionGroup where
+instance Data.ToJSON UpdatePermissionGroup where
   toJSON UpdatePermissionGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            ("applicationPermissions" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            ("applicationPermissions" Data..=)
               Prelude.<$> applicationPermissions
           ]
       )
 
-instance Core.ToPath UpdatePermissionGroup where
+instance Data.ToPath UpdatePermissionGroup where
   toPath UpdatePermissionGroup' {..} =
     Prelude.mconcat
-      ["/permission-group/", Core.toBS permissionGroupId]
+      ["/permission-group/", Data.toBS permissionGroupId]
 
-instance Core.ToQuery UpdatePermissionGroup where
+instance Data.ToQuery UpdatePermissionGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePermissionGroupResponse' smart constructor.

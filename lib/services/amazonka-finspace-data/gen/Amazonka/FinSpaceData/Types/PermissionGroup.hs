@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.PermissionGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ApplicationPermission
 import Amazonka.FinSpaceData.Types.PermissionGroupMembershipStatus
 import qualified Amazonka.Prelude as Prelude
@@ -30,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPermissionGroup' smart constructor.
 data PermissionGroup = PermissionGroup'
   { -- | The name of the permission group.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A brief description for the permission group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Describes the last time the permission group was updated. The value is
     -- determined as epoch time in milliseconds.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
@@ -156,11 +157,11 @@ newPermissionGroup =
 
 -- | The name of the permission group.
 permissionGroup_name :: Lens.Lens' PermissionGroup (Prelude.Maybe Prelude.Text)
-permissionGroup_name = Lens.lens (\PermissionGroup' {name} -> name) (\s@PermissionGroup' {} a -> s {name = a} :: PermissionGroup) Prelude.. Lens.mapping Core._Sensitive
+permissionGroup_name = Lens.lens (\PermissionGroup' {name} -> name) (\s@PermissionGroup' {} a -> s {name = a} :: PermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A brief description for the permission group.
 permissionGroup_description :: Lens.Lens' PermissionGroup (Prelude.Maybe Prelude.Text)
-permissionGroup_description = Lens.lens (\PermissionGroup' {description} -> description) (\s@PermissionGroup' {} a -> s {description = a} :: PermissionGroup) Prelude.. Lens.mapping Core._Sensitive
+permissionGroup_description = Lens.lens (\PermissionGroup' {description} -> description) (\s@PermissionGroup' {} a -> s {description = a} :: PermissionGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Describes the last time the permission group was updated. The value is
 -- determined as epoch time in milliseconds.
@@ -219,21 +220,21 @@ permissionGroup_membershipStatus = Lens.lens (\PermissionGroup' {membershipStatu
 permissionGroup_createTime :: Lens.Lens' PermissionGroup (Prelude.Maybe Prelude.Integer)
 permissionGroup_createTime = Lens.lens (\PermissionGroup' {createTime} -> createTime) (\s@PermissionGroup' {} a -> s {createTime = a} :: PermissionGroup)
 
-instance Core.FromJSON PermissionGroup where
+instance Data.FromJSON PermissionGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PermissionGroup"
       ( \x ->
           PermissionGroup'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastModifiedTime")
-            Prelude.<*> ( x Core..:? "applicationPermissions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastModifiedTime")
+            Prelude.<*> ( x Data..:? "applicationPermissions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "permissionGroupId")
-            Prelude.<*> (x Core..:? "membershipStatus")
-            Prelude.<*> (x Core..:? "createTime")
+            Prelude.<*> (x Data..:? "permissionGroupId")
+            Prelude.<*> (x Data..:? "membershipStatus")
+            Prelude.<*> (x Data..:? "createTime")
       )
 
 instance Prelude.Hashable PermissionGroup where

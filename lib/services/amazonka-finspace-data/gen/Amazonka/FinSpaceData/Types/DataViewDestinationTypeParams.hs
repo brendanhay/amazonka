@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.DataViewDestinationTypeParams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ExportFileFormat
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,17 +115,17 @@ dataViewDestinationTypeParams_s3DestinationExportFileFormatOptions = Lens.lens (
 dataViewDestinationTypeParams_destinationType :: Lens.Lens' DataViewDestinationTypeParams Prelude.Text
 dataViewDestinationTypeParams_destinationType = Lens.lens (\DataViewDestinationTypeParams' {destinationType} -> destinationType) (\s@DataViewDestinationTypeParams' {} a -> s {destinationType = a} :: DataViewDestinationTypeParams)
 
-instance Core.FromJSON DataViewDestinationTypeParams where
+instance Data.FromJSON DataViewDestinationTypeParams where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataViewDestinationTypeParams"
       ( \x ->
           DataViewDestinationTypeParams'
-            Prelude.<$> (x Core..:? "s3DestinationExportFileFormat")
-            Prelude.<*> ( x Core..:? "s3DestinationExportFileFormatOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "s3DestinationExportFileFormat")
+            Prelude.<*> ( x Data..:? "s3DestinationExportFileFormatOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "destinationType")
+            Prelude.<*> (x Data..: "destinationType")
       )
 
 instance
@@ -143,15 +144,15 @@ instance Prelude.NFData DataViewDestinationTypeParams where
       `Prelude.seq` Prelude.rnf s3DestinationExportFileFormatOptions
       `Prelude.seq` Prelude.rnf destinationType
 
-instance Core.ToJSON DataViewDestinationTypeParams where
+instance Data.ToJSON DataViewDestinationTypeParams where
   toJSON DataViewDestinationTypeParams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("s3DestinationExportFileFormat" Core..=)
+          [ ("s3DestinationExportFileFormat" Data..=)
               Prelude.<$> s3DestinationExportFileFormat,
-            ("s3DestinationExportFileFormatOptions" Core..=)
+            ("s3DestinationExportFileFormatOptions" Data..=)
               Prelude.<$> s3DestinationExportFileFormatOptions,
             Prelude.Just
-              ("destinationType" Core..= destinationType)
+              ("destinationType" Data..= destinationType)
           ]
       )

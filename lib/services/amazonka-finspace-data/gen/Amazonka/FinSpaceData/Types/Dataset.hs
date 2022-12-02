@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.Dataset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.DatasetKind
 import Amazonka.FinSpaceData.Types.DatasetOwnerInfo
 import Amazonka.FinSpaceData.Types.SchemaUnion
@@ -160,22 +161,22 @@ dataset_schemaDefinition = Lens.lens (\Dataset' {schemaDefinition} -> schemaDefi
 dataset_ownerInfo :: Lens.Lens' Dataset (Prelude.Maybe DatasetOwnerInfo)
 dataset_ownerInfo = Lens.lens (\Dataset' {ownerInfo} -> ownerInfo) (\s@Dataset' {} a -> s {ownerInfo = a} :: Dataset)
 
-instance Core.FromJSON Dataset where
+instance Data.FromJSON Dataset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Dataset"
       ( \x ->
           Dataset'
-            Prelude.<$> (x Core..:? "alias")
-            Prelude.<*> (x Core..:? "datasetDescription")
-            Prelude.<*> (x Core..:? "datasetTitle")
-            Prelude.<*> (x Core..:? "kind")
-            Prelude.<*> (x Core..:? "datasetArn")
-            Prelude.<*> (x Core..:? "lastModifiedTime")
-            Prelude.<*> (x Core..:? "datasetId")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "schemaDefinition")
-            Prelude.<*> (x Core..:? "ownerInfo")
+            Prelude.<$> (x Data..:? "alias")
+            Prelude.<*> (x Data..:? "datasetDescription")
+            Prelude.<*> (x Data..:? "datasetTitle")
+            Prelude.<*> (x Data..:? "kind")
+            Prelude.<*> (x Data..:? "datasetArn")
+            Prelude.<*> (x Data..:? "lastModifiedTime")
+            Prelude.<*> (x Data..:? "datasetId")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "schemaDefinition")
+            Prelude.<*> (x Data..:? "ownerInfo")
       )
 
 instance Prelude.Hashable Dataset where

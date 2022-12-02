@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.DataViewErrorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ErrorCategory
 import qualified Amazonka.Prelude as Prelude
 
@@ -125,14 +126,14 @@ dataViewErrorInfo_errorCategory = Lens.lens (\DataViewErrorInfo' {errorCategory}
 dataViewErrorInfo_errorMessage :: Lens.Lens' DataViewErrorInfo (Prelude.Maybe Prelude.Text)
 dataViewErrorInfo_errorMessage = Lens.lens (\DataViewErrorInfo' {errorMessage} -> errorMessage) (\s@DataViewErrorInfo' {} a -> s {errorMessage = a} :: DataViewErrorInfo)
 
-instance Core.FromJSON DataViewErrorInfo where
+instance Data.FromJSON DataViewErrorInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataViewErrorInfo"
       ( \x ->
           DataViewErrorInfo'
-            Prelude.<$> (x Core..:? "errorCategory")
-            Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<$> (x Data..:? "errorCategory")
+            Prelude.<*> (x Data..:? "errorMessage")
       )
 
 instance Prelude.Hashable DataViewErrorInfo where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -244,8 +245,8 @@ instance Core.AWSRequest UpdateChangeset where
     Response.receiveJSON
       ( \s h x ->
           UpdateChangesetResponse'
-            Prelude.<$> (x Core..?> "changesetId")
-            Prelude.<*> (x Core..?> "datasetId")
+            Prelude.<$> (x Data..?> "changesetId")
+            Prelude.<*> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -265,37 +266,37 @@ instance Prelude.NFData UpdateChangeset where
       `Prelude.seq` Prelude.rnf sourceParams
       `Prelude.seq` Prelude.rnf formatParams
 
-instance Core.ToHeaders UpdateChangeset where
+instance Data.ToHeaders UpdateChangeset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateChangeset where
+instance Data.ToJSON UpdateChangeset where
   toJSON UpdateChangeset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("sourceParams" Core..= sourceParams),
-            Prelude.Just ("formatParams" Core..= formatParams)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("sourceParams" Data..= sourceParams),
+            Prelude.Just ("formatParams" Data..= formatParams)
           ]
       )
 
-instance Core.ToPath UpdateChangeset where
+instance Data.ToPath UpdateChangeset where
   toPath UpdateChangeset' {..} =
     Prelude.mconcat
       [ "/datasets/",
-        Core.toBS datasetId,
+        Data.toBS datasetId,
         "/changesetsv2/",
-        Core.toBS changesetId
+        Data.toBS changesetId
       ]
 
-instance Core.ToQuery UpdateChangeset where
+instance Data.ToQuery UpdateChangeset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from a update changeset operation.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,36 +138,36 @@ instance
       `Prelude.seq` Prelude.rnf userId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateUserToPermissionGroup
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateUserToPermissionGroup where
+instance Data.ToJSON AssociateUserToPermissionGroup where
   toJSON AssociateUserToPermissionGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("clientToken" Core..=) Prelude.<$> clientToken]
+          [("clientToken" Data..=) Prelude.<$> clientToken]
       )
 
-instance Core.ToPath AssociateUserToPermissionGroup where
+instance Data.ToPath AssociateUserToPermissionGroup where
   toPath AssociateUserToPermissionGroup' {..} =
     Prelude.mconcat
       [ "/permission-group/",
-        Core.toBS permissionGroupId,
+        Data.toBS permissionGroupId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
-instance Core.ToQuery AssociateUserToPermissionGroup where
+instance Data.ToQuery AssociateUserToPermissionGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateUserToPermissionGroupResponse' smart constructor.

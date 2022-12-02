@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.SchemaDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ColumnDefinition
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,15 +63,15 @@ schemaDefinition_columns = Lens.lens (\SchemaDefinition' {columns} -> columns) (
 schemaDefinition_primaryKeyColumns :: Lens.Lens' SchemaDefinition (Prelude.Maybe [Prelude.Text])
 schemaDefinition_primaryKeyColumns = Lens.lens (\SchemaDefinition' {primaryKeyColumns} -> primaryKeyColumns) (\s@SchemaDefinition' {} a -> s {primaryKeyColumns = a} :: SchemaDefinition) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SchemaDefinition where
+instance Data.FromJSON SchemaDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SchemaDefinition"
       ( \x ->
           SchemaDefinition'
-            Prelude.<$> (x Core..:? "columns" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "primaryKeyColumns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "columns" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "primaryKeyColumns"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -84,12 +85,12 @@ instance Prelude.NFData SchemaDefinition where
     Prelude.rnf columns
       `Prelude.seq` Prelude.rnf primaryKeyColumns
 
-instance Core.ToJSON SchemaDefinition where
+instance Data.ToJSON SchemaDefinition where
   toJSON SchemaDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("columns" Core..=) Prelude.<$> columns,
-            ("primaryKeyColumns" Core..=)
+          [ ("columns" Data..=) Prelude.<$> columns,
+            ("primaryKeyColumns" Data..=)
               Prelude.<$> primaryKeyColumns
           ]
       )

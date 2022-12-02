@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.DatasetOwnerInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for Dataset owner info.
@@ -30,7 +31,7 @@ data DatasetOwnerInfo = DatasetOwnerInfo'
   { -- | The name of the Dataset owner.
     name :: Prelude.Maybe Prelude.Text,
     -- | Email address for the Dataset owner.
-    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    email :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Phone number for the Dataset owner.
     phoneNumber :: Prelude.Maybe Prelude.Text
   }
@@ -64,21 +65,21 @@ datasetOwnerInfo_name = Lens.lens (\DatasetOwnerInfo' {name} -> name) (\s@Datase
 
 -- | Email address for the Dataset owner.
 datasetOwnerInfo_email :: Lens.Lens' DatasetOwnerInfo (Prelude.Maybe Prelude.Text)
-datasetOwnerInfo_email = Lens.lens (\DatasetOwnerInfo' {email} -> email) (\s@DatasetOwnerInfo' {} a -> s {email = a} :: DatasetOwnerInfo) Prelude.. Lens.mapping Core._Sensitive
+datasetOwnerInfo_email = Lens.lens (\DatasetOwnerInfo' {email} -> email) (\s@DatasetOwnerInfo' {} a -> s {email = a} :: DatasetOwnerInfo) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Phone number for the Dataset owner.
 datasetOwnerInfo_phoneNumber :: Lens.Lens' DatasetOwnerInfo (Prelude.Maybe Prelude.Text)
 datasetOwnerInfo_phoneNumber = Lens.lens (\DatasetOwnerInfo' {phoneNumber} -> phoneNumber) (\s@DatasetOwnerInfo' {} a -> s {phoneNumber = a} :: DatasetOwnerInfo)
 
-instance Core.FromJSON DatasetOwnerInfo where
+instance Data.FromJSON DatasetOwnerInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetOwnerInfo"
       ( \x ->
           DatasetOwnerInfo'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "email")
-            Prelude.<*> (x Core..:? "phoneNumber")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "email")
+            Prelude.<*> (x Data..:? "phoneNumber")
       )
 
 instance Prelude.Hashable DatasetOwnerInfo where
@@ -93,12 +94,12 @@ instance Prelude.NFData DatasetOwnerInfo where
       `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf phoneNumber
 
-instance Core.ToJSON DatasetOwnerInfo where
+instance Data.ToJSON DatasetOwnerInfo where
   toJSON DatasetOwnerInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("email" Core..=) Prelude.<$> email,
-            ("phoneNumber" Core..=) Prelude.<$> phoneNumber
+          [ ("name" Data..=) Prelude.<$> name,
+            ("email" Data..=) Prelude.<$> email,
+            ("phoneNumber" Data..=) Prelude.<$> phoneNumber
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,8 +103,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetProgrammaticAccessCredentialsResponse'
-            Prelude.<$> (x Core..?> "credentials")
-            Prelude.<*> (x Core..?> "durationInMinutes")
+            Prelude.<$> (x Data..?> "credentials")
+            Prelude.<*> (x Data..?> "durationInMinutes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,30 +127,30 @@ instance
       `Prelude.seq` Prelude.rnf environmentId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetProgrammaticAccessCredentials
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetProgrammaticAccessCredentials where
+instance Data.ToPath GetProgrammaticAccessCredentials where
   toPath = Prelude.const "/credentials/programmatic"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetProgrammaticAccessCredentials
   where
   toQuery GetProgrammaticAccessCredentials' {..} =
     Prelude.mconcat
-      [ "durationInMinutes" Core.=: durationInMinutes,
-        "environmentId" Core.=: environmentId
+      [ "durationInMinutes" Data.=: durationInMinutes,
+        "environmentId" Data.=: environmentId
       ]
 
 -- | Response for GetProgrammaticAccessCredentials operation

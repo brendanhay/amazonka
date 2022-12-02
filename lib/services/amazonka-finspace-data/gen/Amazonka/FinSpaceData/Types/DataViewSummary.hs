@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.DataViewSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.DataViewDestinationTypeParams
 import Amazonka.FinSpaceData.Types.DataViewErrorInfo
 import Amazonka.FinSpaceData.Types.DataViewStatus
@@ -223,26 +224,26 @@ dataViewSummary_errorInfo = Lens.lens (\DataViewSummary' {errorInfo} -> errorInf
 dataViewSummary_destinationTypeProperties :: Lens.Lens' DataViewSummary (Prelude.Maybe DataViewDestinationTypeParams)
 dataViewSummary_destinationTypeProperties = Lens.lens (\DataViewSummary' {destinationTypeProperties} -> destinationTypeProperties) (\s@DataViewSummary' {} a -> s {destinationTypeProperties = a} :: DataViewSummary)
 
-instance Core.FromJSON DataViewSummary where
+instance Data.FromJSON DataViewSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataViewSummary"
       ( \x ->
           DataViewSummary'
-            Prelude.<$> (x Core..:? "sortColumns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "autoUpdate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastModifiedTime")
-            Prelude.<*> (x Core..:? "dataViewArn")
-            Prelude.<*> (x Core..:? "dataViewId")
-            Prelude.<*> ( x Core..:? "partitionColumns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "sortColumns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "autoUpdate")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastModifiedTime")
+            Prelude.<*> (x Data..:? "dataViewArn")
+            Prelude.<*> (x Data..:? "dataViewId")
+            Prelude.<*> ( x Data..:? "partitionColumns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "datasetId")
-            Prelude.<*> (x Core..:? "asOfTimestamp")
-            Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "errorInfo")
-            Prelude.<*> (x Core..:? "destinationTypeProperties")
+            Prelude.<*> (x Data..:? "datasetId")
+            Prelude.<*> (x Data..:? "asOfTimestamp")
+            Prelude.<*> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "errorInfo")
+            Prelude.<*> (x Data..:? "destinationTypeProperties")
       )
 
 instance Prelude.Hashable DataViewSummary where

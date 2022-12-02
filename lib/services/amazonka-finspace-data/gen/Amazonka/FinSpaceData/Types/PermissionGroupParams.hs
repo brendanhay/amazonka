@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.PermissionGroupParams where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ResourcePermission
 import qualified Amazonka.Prelude as Prelude
 
@@ -77,13 +78,13 @@ instance Prelude.NFData PermissionGroupParams where
     Prelude.rnf datasetPermissions
       `Prelude.seq` Prelude.rnf permissionGroupId
 
-instance Core.ToJSON PermissionGroupParams where
+instance Data.ToJSON PermissionGroupParams where
   toJSON PermissionGroupParams' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("datasetPermissions" Core..=)
+          [ ("datasetPermissions" Data..=)
               Prelude.<$> datasetPermissions,
-            ("permissionGroupId" Core..=)
+            ("permissionGroupId" Data..=)
               Prelude.<$> permissionGroupId
           ]
       )

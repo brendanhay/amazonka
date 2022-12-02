@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -176,7 +177,7 @@ instance Core.AWSRequest CreateDataset where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetResponse'
-            Prelude.<$> (x Core..?> "datasetId")
+            Prelude.<$> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,41 +203,41 @@ instance Prelude.NFData CreateDataset where
       `Prelude.seq` Prelude.rnf kind
       `Prelude.seq` Prelude.rnf permissionGroupParams
 
-instance Core.ToHeaders CreateDataset where
+instance Data.ToHeaders CreateDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataset where
+instance Data.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("alias" Core..=) Prelude.<$> alias,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("datasetDescription" Core..=)
+          [ ("alias" Data..=) Prelude.<$> alias,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("datasetDescription" Data..=)
               Prelude.<$> datasetDescription,
-            ("schemaDefinition" Core..=)
+            ("schemaDefinition" Data..=)
               Prelude.<$> schemaDefinition,
-            ("ownerInfo" Core..=) Prelude.<$> ownerInfo,
-            Prelude.Just ("datasetTitle" Core..= datasetTitle),
-            Prelude.Just ("kind" Core..= kind),
+            ("ownerInfo" Data..=) Prelude.<$> ownerInfo,
+            Prelude.Just ("datasetTitle" Data..= datasetTitle),
+            Prelude.Just ("kind" Data..= kind),
             Prelude.Just
               ( "permissionGroupParams"
-                  Core..= permissionGroupParams
+                  Data..= permissionGroupParams
               )
           ]
       )
 
-instance Core.ToPath CreateDataset where
+instance Data.ToPath CreateDataset where
   toPath = Prelude.const "/datasetsv2"
 
-instance Core.ToQuery CreateDataset where
+instance Data.ToQuery CreateDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from a CreateDataset operation

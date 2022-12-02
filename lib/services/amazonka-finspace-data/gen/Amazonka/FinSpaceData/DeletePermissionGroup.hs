@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest DeletePermissionGroup where
     Response.receiveJSON
       ( \s h x ->
           DeletePermissionGroupResponse'
-            Prelude.<$> (x Core..?> "permissionGroupId")
+            Prelude.<$> (x Data..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,25 +111,25 @@ instance Prelude.NFData DeletePermissionGroup where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf permissionGroupId
 
-instance Core.ToHeaders DeletePermissionGroup where
+instance Data.ToHeaders DeletePermissionGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePermissionGroup where
+instance Data.ToPath DeletePermissionGroup where
   toPath DeletePermissionGroup' {..} =
     Prelude.mconcat
-      ["/permission-group/", Core.toBS permissionGroupId]
+      ["/permission-group/", Data.toBS permissionGroupId]
 
-instance Core.ToQuery DeletePermissionGroup where
+instance Data.ToQuery DeletePermissionGroup where
   toQuery DeletePermissionGroup' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDeletePermissionGroupResponse' smart constructor.
 data DeletePermissionGroupResponse = DeletePermissionGroupResponse'

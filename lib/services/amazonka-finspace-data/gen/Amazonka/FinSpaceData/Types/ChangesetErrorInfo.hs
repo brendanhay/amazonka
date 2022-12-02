@@ -21,6 +21,7 @@ module Amazonka.FinSpaceData.Types.ChangesetErrorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types.ErrorCategory
 import qualified Amazonka.Prelude as Prelude
 
@@ -126,14 +127,14 @@ changesetErrorInfo_errorCategory = Lens.lens (\ChangesetErrorInfo' {errorCategor
 changesetErrorInfo_errorMessage :: Lens.Lens' ChangesetErrorInfo (Prelude.Maybe Prelude.Text)
 changesetErrorInfo_errorMessage = Lens.lens (\ChangesetErrorInfo' {errorMessage} -> errorMessage) (\s@ChangesetErrorInfo' {} a -> s {errorMessage = a} :: ChangesetErrorInfo)
 
-instance Core.FromJSON ChangesetErrorInfo where
+instance Data.FromJSON ChangesetErrorInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChangesetErrorInfo"
       ( \x ->
           ChangesetErrorInfo'
-            Prelude.<$> (x Core..:? "errorCategory")
-            Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<$> (x Data..:? "errorCategory")
+            Prelude.<*> (x Data..:? "errorMessage")
       )
 
 instance Prelude.Hashable ChangesetErrorInfo where

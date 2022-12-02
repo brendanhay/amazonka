@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -163,7 +164,7 @@ instance Core.AWSRequest UpdateDataset where
     Response.receiveJSON
       ( \s h x ->
           UpdateDatasetResponse'
-            Prelude.<$> (x Core..?> "datasetId")
+            Prelude.<$> (x Data..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,38 +188,38 @@ instance Prelude.NFData UpdateDataset where
       `Prelude.seq` Prelude.rnf datasetTitle
       `Prelude.seq` Prelude.rnf kind
 
-instance Core.ToHeaders UpdateDataset where
+instance Data.ToHeaders UpdateDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataset where
+instance Data.ToJSON UpdateDataset where
   toJSON UpdateDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("alias" Core..=) Prelude.<$> alias,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("datasetDescription" Core..=)
+          [ ("alias" Data..=) Prelude.<$> alias,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("datasetDescription" Data..=)
               Prelude.<$> datasetDescription,
-            ("schemaDefinition" Core..=)
+            ("schemaDefinition" Data..=)
               Prelude.<$> schemaDefinition,
-            Prelude.Just ("datasetTitle" Core..= datasetTitle),
-            Prelude.Just ("kind" Core..= kind)
+            Prelude.Just ("datasetTitle" Data..= datasetTitle),
+            Prelude.Just ("kind" Data..= kind)
           ]
       )
 
-instance Core.ToPath UpdateDataset where
+instance Data.ToPath UpdateDataset where
   toPath UpdateDataset' {..} =
     Prelude.mconcat
-      ["/datasetsv2/", Core.toBS datasetId]
+      ["/datasetsv2/", Data.toBS datasetId]
 
-instance Core.ToQuery UpdateDataset where
+instance Data.ToQuery UpdateDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response from an UpdateDataset operation

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest DisableUser where
     Response.receiveJSON
       ( \s h x ->
           DisableUserResponse'
-            Prelude.<$> (x Core..?> "userId")
+            Prelude.<$> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,30 +109,30 @@ instance Prelude.NFData DisableUser where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders DisableUser where
+instance Data.ToHeaders DisableUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableUser where
+instance Data.ToJSON DisableUser where
   toJSON DisableUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("clientToken" Core..=) Prelude.<$> clientToken]
+          [("clientToken" Data..=) Prelude.<$> clientToken]
       )
 
-instance Core.ToPath DisableUser where
+instance Data.ToPath DisableUser where
   toPath DisableUser' {..} =
     Prelude.mconcat
-      ["/user/", Core.toBS userId, "/disable"]
+      ["/user/", Data.toBS userId, "/disable"]
 
-instance Core.ToQuery DisableUser where
+instance Data.ToQuery DisableUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisableUserResponse' smart constructor.

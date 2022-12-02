@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,8 +103,8 @@ instance Core.AWSRequest ResetUserPassword where
     Response.receiveJSON
       ( \s h x ->
           ResetUserPasswordResponse'
-            Prelude.<$> (x Core..?> "temporaryPassword")
-            Prelude.<*> (x Core..?> "userId")
+            Prelude.<$> (x Data..?> "temporaryPassword")
+            Prelude.<*> (x Data..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,37 +118,37 @@ instance Prelude.NFData ResetUserPassword where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders ResetUserPassword where
+instance Data.ToHeaders ResetUserPassword where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResetUserPassword where
+instance Data.ToJSON ResetUserPassword where
   toJSON ResetUserPassword' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("clientToken" Core..=) Prelude.<$> clientToken]
+          [("clientToken" Data..=) Prelude.<$> clientToken]
       )
 
-instance Core.ToPath ResetUserPassword where
+instance Data.ToPath ResetUserPassword where
   toPath ResetUserPassword' {..} =
     Prelude.mconcat
-      ["/user/", Core.toBS userId, "/password"]
+      ["/user/", Data.toBS userId, "/password"]
 
-instance Core.ToQuery ResetUserPassword where
+instance Data.ToQuery ResetUserPassword where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResetUserPasswordResponse' smart constructor.
 data ResetUserPasswordResponse = ResetUserPasswordResponse'
   { -- | A randomly generated temporary password for the requested user account.
     -- This password expires in 7 days.
-    temporaryPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    temporaryPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier of the user that a new password is generated for.
     userId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -184,7 +185,7 @@ newResetUserPasswordResponse pHttpStatus_ =
 -- | A randomly generated temporary password for the requested user account.
 -- This password expires in 7 days.
 resetUserPasswordResponse_temporaryPassword :: Lens.Lens' ResetUserPasswordResponse (Prelude.Maybe Prelude.Text)
-resetUserPasswordResponse_temporaryPassword = Lens.lens (\ResetUserPasswordResponse' {temporaryPassword} -> temporaryPassword) (\s@ResetUserPasswordResponse' {} a -> s {temporaryPassword = a} :: ResetUserPasswordResponse) Prelude.. Lens.mapping Core._Sensitive
+resetUserPasswordResponse_temporaryPassword = Lens.lens (\ResetUserPasswordResponse' {temporaryPassword} -> temporaryPassword) (\s@ResetUserPasswordResponse' {} a -> s {temporaryPassword = a} :: ResetUserPasswordResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The unique identifier of the user that a new password is generated for.
 resetUserPasswordResponse_userId :: Lens.Lens' ResetUserPasswordResponse (Prelude.Maybe Prelude.Text)

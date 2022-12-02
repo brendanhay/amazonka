@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,37 +138,37 @@ instance
       `Prelude.seq` Prelude.rnf userId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateUserFromPermissionGroup
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateUserFromPermissionGroup
   where
   toPath DisassociateUserFromPermissionGroup' {..} =
     Prelude.mconcat
       [ "/permission-group/",
-        Core.toBS permissionGroupId,
+        Data.toBS permissionGroupId,
         "/users/",
-        Core.toBS userId
+        Data.toBS userId
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateUserFromPermissionGroup
   where
   toQuery DisassociateUserFromPermissionGroup' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDisassociateUserFromPermissionGroupResponse' smart constructor.
 data DisassociateUserFromPermissionGroupResponse = DisassociateUserFromPermissionGroupResponse'

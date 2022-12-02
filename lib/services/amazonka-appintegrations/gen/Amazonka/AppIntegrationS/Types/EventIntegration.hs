@@ -22,6 +22,7 @@ module Amazonka.AppIntegrationS.Types.EventIntegration where
 import Amazonka.AppIntegrationS.Types.EventFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event integration.
@@ -98,18 +99,18 @@ eventIntegration_description = Lens.lens (\EventIntegration' {description} -> de
 eventIntegration_eventIntegrationArn :: Lens.Lens' EventIntegration (Prelude.Maybe Prelude.Text)
 eventIntegration_eventIntegrationArn = Lens.lens (\EventIntegration' {eventIntegrationArn} -> eventIntegrationArn) (\s@EventIntegration' {} a -> s {eventIntegrationArn = a} :: EventIntegration)
 
-instance Core.FromJSON EventIntegration where
+instance Data.FromJSON EventIntegration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventIntegration"
       ( \x ->
           EventIntegration'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EventBridgeBus")
-            Prelude.<*> (x Core..:? "EventFilter")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "EventIntegrationArn")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "EventBridgeBus")
+            Prelude.<*> (x Data..:? "EventFilter")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "EventIntegrationArn")
       )
 
 instance Prelude.Hashable EventIntegration where

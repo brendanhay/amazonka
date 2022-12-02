@@ -46,6 +46,7 @@ where
 import Amazonka.AppIntegrationS.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,8 +120,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListEventIntegrationAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "EventIntegrationAssociations")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "EventIntegrationAssociations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,35 +146,35 @@ instance
       `Prelude.seq` Prelude.rnf eventIntegrationName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListEventIntegrationAssociations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListEventIntegrationAssociations where
+instance Data.ToPath ListEventIntegrationAssociations where
   toPath ListEventIntegrationAssociations' {..} =
     Prelude.mconcat
       [ "/eventIntegrations/",
-        Core.toBS eventIntegrationName,
+        Data.toBS eventIntegrationName,
         "/associations"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListEventIntegrationAssociations
   where
   toQuery ListEventIntegrationAssociations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListEventIntegrationAssociationsResponse' smart constructor.

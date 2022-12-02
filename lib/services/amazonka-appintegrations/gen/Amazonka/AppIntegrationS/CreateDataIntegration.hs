@@ -60,6 +60,7 @@ where
 import Amazonka.AppIntegrationS.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,15 +161,15 @@ instance Core.AWSRequest CreateDataIntegration where
     Response.receiveJSON
       ( \s h x ->
           CreateDataIntegrationResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ClientToken")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "SourceURI")
-            Prelude.<*> (x Core..?> "ScheduleConfiguration")
-            Prelude.<*> (x Core..?> "KmsKey")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Description")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ClientToken")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "SourceURI")
+            Prelude.<*> (x Data..?> "ScheduleConfiguration")
+            Prelude.<*> (x Data..?> "KmsKey")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,36 +193,36 @@ instance Prelude.NFData CreateDataIntegration where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateDataIntegration where
+instance Data.ToHeaders CreateDataIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataIntegration where
+instance Data.ToJSON CreateDataIntegration where
   toJSON CreateDataIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("SourceURI" Core..=) Prelude.<$> sourceURI,
-            ("ScheduleConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("SourceURI" Data..=) Prelude.<$> sourceURI,
+            ("ScheduleConfig" Data..=)
               Prelude.<$> scheduleConfig,
-            ("KmsKey" Core..=) Prelude.<$> kmsKey,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name)
+            ("KmsKey" Data..=) Prelude.<$> kmsKey,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateDataIntegration where
+instance Data.ToPath CreateDataIntegration where
   toPath = Prelude.const "/dataIntegrations"
 
-instance Core.ToQuery CreateDataIntegration where
+instance Data.ToQuery CreateDataIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDataIntegrationResponse' smart constructor.

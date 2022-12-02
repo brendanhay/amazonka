@@ -42,6 +42,7 @@ where
 import Amazonka.AppIntegrationS.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,30 +109,30 @@ instance Prelude.NFData UpdateEventIntegration where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateEventIntegration where
+instance Data.ToHeaders UpdateEventIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEventIntegration where
+instance Data.ToJSON UpdateEventIntegration where
   toJSON UpdateEventIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Description" Core..=) Prelude.<$> description]
+          [("Description" Data..=) Prelude.<$> description]
       )
 
-instance Core.ToPath UpdateEventIntegration where
+instance Data.ToPath UpdateEventIntegration where
   toPath UpdateEventIntegration' {..} =
     Prelude.mconcat
-      ["/eventIntegrations/", Core.toBS name]
+      ["/eventIntegrations/", Data.toBS name]
 
-instance Core.ToQuery UpdateEventIntegration where
+instance Data.ToQuery UpdateEventIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEventIntegrationResponse' smart constructor.

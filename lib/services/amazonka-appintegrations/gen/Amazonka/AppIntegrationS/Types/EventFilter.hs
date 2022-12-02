@@ -21,6 +21,7 @@ module Amazonka.AppIntegrationS.Types.EventFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The event filter.
@@ -52,12 +53,12 @@ newEventFilter pSource_ =
 eventFilter_source :: Lens.Lens' EventFilter Prelude.Text
 eventFilter_source = Lens.lens (\EventFilter' {source} -> source) (\s@EventFilter' {} a -> s {source = a} :: EventFilter)
 
-instance Core.FromJSON EventFilter where
+instance Data.FromJSON EventFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventFilter"
       ( \x ->
-          EventFilter' Prelude.<$> (x Core..: "Source")
+          EventFilter' Prelude.<$> (x Data..: "Source")
       )
 
 instance Prelude.Hashable EventFilter where
@@ -67,9 +68,9 @@ instance Prelude.Hashable EventFilter where
 instance Prelude.NFData EventFilter where
   rnf EventFilter' {..} = Prelude.rnf source
 
-instance Core.ToJSON EventFilter where
+instance Data.ToJSON EventFilter where
   toJSON EventFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Source" Core..= source)]
+          [Prelude.Just ("Source" Data..= source)]
       )

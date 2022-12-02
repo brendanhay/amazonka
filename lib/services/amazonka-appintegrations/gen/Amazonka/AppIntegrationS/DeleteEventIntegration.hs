@@ -42,6 +42,7 @@ where
 import Amazonka.AppIntegrationS.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,23 +94,23 @@ instance Prelude.Hashable DeleteEventIntegration where
 instance Prelude.NFData DeleteEventIntegration where
   rnf DeleteEventIntegration' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteEventIntegration where
+instance Data.ToHeaders DeleteEventIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteEventIntegration where
+instance Data.ToPath DeleteEventIntegration where
   toPath DeleteEventIntegration' {..} =
     Prelude.mconcat
-      ["/eventIntegrations/", Core.toBS name]
+      ["/eventIntegrations/", Data.toBS name]
 
-instance Core.ToQuery DeleteEventIntegration where
+instance Data.ToQuery DeleteEventIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEventIntegrationResponse' smart constructor.

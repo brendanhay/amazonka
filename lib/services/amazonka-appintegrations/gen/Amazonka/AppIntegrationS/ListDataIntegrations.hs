@@ -50,6 +50,7 @@ where
 import Amazonka.AppIntegrationS.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,8 +107,8 @@ instance Core.AWSRequest ListDataIntegrations where
     Response.receiveJSON
       ( \s h x ->
           ListDataIntegrationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DataIntegrations")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "DataIntegrations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,25 +122,25 @@ instance Prelude.NFData ListDataIntegrations where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListDataIntegrations where
+instance Data.ToHeaders ListDataIntegrations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDataIntegrations where
+instance Data.ToPath ListDataIntegrations where
   toPath = Prelude.const "/dataIntegrations"
 
-instance Core.ToQuery ListDataIntegrations where
+instance Data.ToQuery ListDataIntegrations where
   toQuery ListDataIntegrations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDataIntegrationsResponse' smart constructor.

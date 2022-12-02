@@ -21,6 +21,7 @@ module Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about the DataIntegration association.
@@ -76,17 +77,17 @@ dataIntegrationAssociationSummary_dataIntegrationAssociationArn :: Lens.Lens' Da
 dataIntegrationAssociationSummary_dataIntegrationAssociationArn = Lens.lens (\DataIntegrationAssociationSummary' {dataIntegrationAssociationArn} -> dataIntegrationAssociationArn) (\s@DataIntegrationAssociationSummary' {} a -> s {dataIntegrationAssociationArn = a} :: DataIntegrationAssociationSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DataIntegrationAssociationSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataIntegrationAssociationSummary"
       ( \x ->
           DataIntegrationAssociationSummary'
-            Prelude.<$> (x Core..:? "ClientId")
-            Prelude.<*> (x Core..:? "DataIntegrationArn")
-            Prelude.<*> (x Core..:? "DataIntegrationAssociationArn")
+            Prelude.<$> (x Data..:? "ClientId")
+            Prelude.<*> (x Data..:? "DataIntegrationArn")
+            Prelude.<*> (x Data..:? "DataIntegrationAssociationArn")
       )
 
 instance

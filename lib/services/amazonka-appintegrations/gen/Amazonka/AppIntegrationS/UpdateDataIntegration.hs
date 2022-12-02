@@ -49,6 +49,7 @@ where
 import Amazonka.AppIntegrationS.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -125,32 +126,32 @@ instance Prelude.NFData UpdateDataIntegration where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf identifier
 
-instance Core.ToHeaders UpdateDataIntegration where
+instance Data.ToHeaders UpdateDataIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDataIntegration where
+instance Data.ToJSON UpdateDataIntegration where
   toJSON UpdateDataIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateDataIntegration where
+instance Data.ToPath UpdateDataIntegration where
   toPath UpdateDataIntegration' {..} =
     Prelude.mconcat
-      ["/dataIntegrations/", Core.toBS identifier]
+      ["/dataIntegrations/", Data.toBS identifier]
 
-instance Core.ToQuery UpdateDataIntegration where
+instance Data.ToQuery UpdateDataIntegration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDataIntegrationResponse' smart constructor.

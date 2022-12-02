@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,8 +138,8 @@ instance Core.AWSRequest DescribeSavingsPlans where
     Response.receiveJSON
       ( \s h x ->
           DescribeSavingsPlansResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "savingsPlans" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "savingsPlans" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,36 +161,36 @@ instance Prelude.NFData DescribeSavingsPlans where
       `Prelude.seq` Prelude.rnf savingsPlanIds
       `Prelude.seq` Prelude.rnf states
 
-instance Core.ToHeaders DescribeSavingsPlans where
+instance Data.ToHeaders DescribeSavingsPlans where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeSavingsPlans where
+instance Data.ToJSON DescribeSavingsPlans where
   toJSON DescribeSavingsPlans' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("savingsPlanArns" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("savingsPlanArns" Data..=)
               Prelude.<$> savingsPlanArns,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("savingsPlanIds" Core..=)
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("savingsPlanIds" Data..=)
               Prelude.<$> savingsPlanIds,
-            ("states" Core..=) Prelude.<$> states
+            ("states" Data..=) Prelude.<$> states
           ]
       )
 
-instance Core.ToPath DescribeSavingsPlans where
+instance Data.ToPath DescribeSavingsPlans where
   toPath = Prelude.const "/DescribeSavingsPlans"
 
-instance Core.ToQuery DescribeSavingsPlans where
+instance Data.ToQuery DescribeSavingsPlans where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeSavingsPlansResponse' smart constructor.

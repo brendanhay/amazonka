@@ -21,6 +21,7 @@ module Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a property.
@@ -63,15 +64,15 @@ savingsPlanOfferingRateProperty_value :: Lens.Lens' SavingsPlanOfferingRatePrope
 savingsPlanOfferingRateProperty_value = Lens.lens (\SavingsPlanOfferingRateProperty' {value} -> value) (\s@SavingsPlanOfferingRateProperty' {} a -> s {value = a} :: SavingsPlanOfferingRateProperty)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SavingsPlanOfferingRateProperty
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlanOfferingRateProperty"
       ( \x ->
           SavingsPlanOfferingRateProperty'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance

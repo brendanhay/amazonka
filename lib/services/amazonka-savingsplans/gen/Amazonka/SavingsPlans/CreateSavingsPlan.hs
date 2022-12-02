@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -64,7 +65,7 @@ data CreateSavingsPlan = CreateSavingsPlan'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The time at which to purchase the Savings Plan, in UTC format
     -- (YYYY-MM-DDTHH:MM:SSZ).
-    purchaseTime :: Prelude.Maybe Core.POSIX,
+    purchaseTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the offering.
     savingsPlanOfferingId :: Prelude.Text,
     -- | The hourly commitment, in USD. This is a value between 0.001 and 1
@@ -135,7 +136,7 @@ createSavingsPlan_clientToken = Lens.lens (\CreateSavingsPlan' {clientToken} -> 
 -- | The time at which to purchase the Savings Plan, in UTC format
 -- (YYYY-MM-DDTHH:MM:SSZ).
 createSavingsPlan_purchaseTime :: Lens.Lens' CreateSavingsPlan (Prelude.Maybe Prelude.UTCTime)
-createSavingsPlan_purchaseTime = Lens.lens (\CreateSavingsPlan' {purchaseTime} -> purchaseTime) (\s@CreateSavingsPlan' {} a -> s {purchaseTime = a} :: CreateSavingsPlan) Prelude.. Lens.mapping Core._Time
+createSavingsPlan_purchaseTime = Lens.lens (\CreateSavingsPlan' {purchaseTime} -> purchaseTime) (\s@CreateSavingsPlan' {} a -> s {purchaseTime = a} :: CreateSavingsPlan) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the offering.
 createSavingsPlan_savingsPlanOfferingId :: Lens.Lens' CreateSavingsPlan Prelude.Text
@@ -157,7 +158,7 @@ instance Core.AWSRequest CreateSavingsPlan where
     Response.receiveJSON
       ( \s h x ->
           CreateSavingsPlanResponse'
-            Prelude.<$> (x Core..?> "savingsPlanId")
+            Prelude.<$> (x Data..?> "savingsPlanId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,38 +180,38 @@ instance Prelude.NFData CreateSavingsPlan where
       `Prelude.seq` Prelude.rnf savingsPlanOfferingId
       `Prelude.seq` Prelude.rnf commitment
 
-instance Core.ToHeaders CreateSavingsPlan where
+instance Data.ToHeaders CreateSavingsPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSavingsPlan where
+instance Data.ToJSON CreateSavingsPlan where
   toJSON CreateSavingsPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("upfrontPaymentAmount" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("upfrontPaymentAmount" Data..=)
               Prelude.<$> upfrontPaymentAmount,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("purchaseTime" Core..=) Prelude.<$> purchaseTime,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("purchaseTime" Data..=) Prelude.<$> purchaseTime,
             Prelude.Just
               ( "savingsPlanOfferingId"
-                  Core..= savingsPlanOfferingId
+                  Data..= savingsPlanOfferingId
               ),
-            Prelude.Just ("commitment" Core..= commitment)
+            Prelude.Just ("commitment" Data..= commitment)
           ]
       )
 
-instance Core.ToPath CreateSavingsPlan where
+instance Data.ToPath CreateSavingsPlan where
   toPath = Prelude.const "/CreateSavingsPlan"
 
-instance Core.ToQuery CreateSavingsPlan where
+instance Data.ToQuery CreateSavingsPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSavingsPlanResponse' smart constructor.

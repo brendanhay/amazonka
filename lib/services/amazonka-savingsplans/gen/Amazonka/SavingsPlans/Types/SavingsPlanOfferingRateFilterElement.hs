@@ -21,6 +21,7 @@ module Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute
 
@@ -81,13 +82,13 @@ instance
     Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     SavingsPlanOfferingRateFilterElement
   where
   toJSON SavingsPlanOfferingRateFilterElement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("values" Core..=) Prelude.<$> values
+          [ ("name" Data..=) Prelude.<$> name,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

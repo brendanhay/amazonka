@@ -21,6 +21,7 @@ module Amazonka.SavingsPlans.Types.SavingsPlan where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SavingsPlans.Types.CurrencyCode
 import Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption
@@ -210,30 +211,30 @@ savingsPlan_savingsPlanArn = Lens.lens (\SavingsPlan' {savingsPlanArn} -> saving
 savingsPlan_paymentOption :: Lens.Lens' SavingsPlan (Prelude.Maybe SavingsPlanPaymentOption)
 savingsPlan_paymentOption = Lens.lens (\SavingsPlan' {paymentOption} -> paymentOption) (\s@SavingsPlan' {} a -> s {paymentOption = a} :: SavingsPlan)
 
-instance Core.FromJSON SavingsPlan where
+instance Data.FromJSON SavingsPlan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlan"
       ( \x ->
           SavingsPlan'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "upfrontPaymentAmount")
-            Prelude.<*> (x Core..:? "productTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "recurringPaymentAmount")
-            Prelude.<*> (x Core..:? "savingsPlanId")
-            Prelude.<*> (x Core..:? "start")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "commitment")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "end")
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "ec2InstanceFamily")
-            Prelude.<*> (x Core..:? "savingsPlanType")
-            Prelude.<*> (x Core..:? "currency")
-            Prelude.<*> (x Core..:? "termDurationInSeconds")
-            Prelude.<*> (x Core..:? "offeringId")
-            Prelude.<*> (x Core..:? "savingsPlanArn")
-            Prelude.<*> (x Core..:? "paymentOption")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "upfrontPaymentAmount")
+            Prelude.<*> (x Data..:? "productTypes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "recurringPaymentAmount")
+            Prelude.<*> (x Data..:? "savingsPlanId")
+            Prelude.<*> (x Data..:? "start")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "commitment")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "end")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "ec2InstanceFamily")
+            Prelude.<*> (x Data..:? "savingsPlanType")
+            Prelude.<*> (x Data..:? "currency")
+            Prelude.<*> (x Data..:? "termDurationInSeconds")
+            Prelude.<*> (x Data..:? "offeringId")
+            Prelude.<*> (x Data..:? "savingsPlanArn")
+            Prelude.<*> (x Data..:? "paymentOption")
       )
 
 instance Prelude.Hashable SavingsPlan where

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -271,8 +272,8 @@ instance Core.AWSRequest GetResourceShareAssociations where
     Response.receiveJSON
       ( \s h x ->
           GetResourceShareAssociationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "resourceShareAssociations"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "resourceShareAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -301,39 +302,39 @@ instance Prelude.NFData GetResourceShareAssociations where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf associationType
 
-instance Core.ToHeaders GetResourceShareAssociations where
+instance Data.ToHeaders GetResourceShareAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourceShareAssociations where
+instance Data.ToJSON GetResourceShareAssociations where
   toJSON GetResourceShareAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("principal" Core..=) Prelude.<$> principal,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("associationStatus" Core..=)
+          [ ("principal" Data..=) Prelude.<$> principal,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("associationStatus" Data..=)
               Prelude.<$> associationStatus,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("resourceShareArns" Core..=)
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("resourceShareArns" Data..=)
               Prelude.<$> resourceShareArns,
-            ("resourceArn" Core..=) Prelude.<$> resourceArn,
+            ("resourceArn" Data..=) Prelude.<$> resourceArn,
             Prelude.Just
-              ("associationType" Core..= associationType)
+              ("associationType" Data..= associationType)
           ]
       )
 
-instance Core.ToPath GetResourceShareAssociations where
+instance Data.ToPath GetResourceShareAssociations where
   toPath =
     Prelude.const "/getresourceshareassociations"
 
-instance Core.ToQuery GetResourceShareAssociations where
+instance Data.ToQuery GetResourceShareAssociations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceShareAssociationsResponse' smart constructor.

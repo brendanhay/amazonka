@@ -21,6 +21,7 @@ module Amazonka.RAM.Types.TagFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A tag key and optional list of possible values that you can use to
@@ -75,11 +76,11 @@ instance Prelude.NFData TagFilter where
     Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf tagKey
 
-instance Core.ToJSON TagFilter where
+instance Data.ToJSON TagFilter where
   toJSON TagFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tagValues" Core..=) Prelude.<$> tagValues,
-            ("tagKey" Core..=) Prelude.<$> tagKey
+          [ ("tagValues" Data..=) Prelude.<$> tagValues,
+            ("tagKey" Data..=) Prelude.<$> tagKey
           ]
       )

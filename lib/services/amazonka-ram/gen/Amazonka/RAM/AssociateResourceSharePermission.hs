@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -228,8 +229,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateResourceSharePermissionResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "returnValue")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "returnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -258,40 +259,40 @@ instance
       `Prelude.seq` Prelude.rnf permissionArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateResourceSharePermission
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateResourceSharePermission where
+instance Data.ToJSON AssociateResourceSharePermission where
   toJSON AssociateResourceSharePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("permissionVersion" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("permissionVersion" Data..=)
               Prelude.<$> permissionVersion,
-            ("replace" Core..=) Prelude.<$> replace,
+            ("replace" Data..=) Prelude.<$> replace,
             Prelude.Just
-              ("resourceShareArn" Core..= resourceShareArn),
+              ("resourceShareArn" Data..= resourceShareArn),
             Prelude.Just
-              ("permissionArn" Core..= permissionArn)
+              ("permissionArn" Data..= permissionArn)
           ]
       )
 
-instance Core.ToPath AssociateResourceSharePermission where
+instance Data.ToPath AssociateResourceSharePermission where
   toPath =
     Prelude.const "/associateresourcesharepermission"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateResourceSharePermission
   where
   toQuery = Prelude.const Prelude.mempty

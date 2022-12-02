@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -323,8 +324,8 @@ instance Core.AWSRequest ListPrincipals where
     Response.receiveJSON
       ( \s h x ->
           ListPrincipalsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "principals" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -348,37 +349,37 @@ instance Prelude.NFData ListPrincipals where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf resourceOwner
 
-instance Core.ToHeaders ListPrincipals where
+instance Data.ToHeaders ListPrincipals where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPrincipals where
+instance Data.ToJSON ListPrincipals where
   toJSON ListPrincipals' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("resourceType" Core..=) Prelude.<$> resourceType,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("principals" Core..=) Prelude.<$> principals,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("resourceShareArns" Core..=)
+          [ ("resourceType" Data..=) Prelude.<$> resourceType,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("principals" Data..=) Prelude.<$> principals,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("resourceShareArns" Data..=)
               Prelude.<$> resourceShareArns,
-            ("resourceArn" Core..=) Prelude.<$> resourceArn,
+            ("resourceArn" Data..=) Prelude.<$> resourceArn,
             Prelude.Just
-              ("resourceOwner" Core..= resourceOwner)
+              ("resourceOwner" Data..= resourceOwner)
           ]
       )
 
-instance Core.ToPath ListPrincipals where
+instance Data.ToPath ListPrincipals where
   toPath = Prelude.const "/listprincipals"
 
-instance Core.ToQuery ListPrincipals where
+instance Data.ToQuery ListPrincipals where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPrincipalsResponse' smart constructor.

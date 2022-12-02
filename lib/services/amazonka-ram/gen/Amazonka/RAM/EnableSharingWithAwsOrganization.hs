@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -81,7 +82,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           EnableSharingWithAwsOrganizationResponse'
-            Prelude.<$> (x Core..?> "returnValue")
+            Prelude.<$> (x Data..?> "returnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,28 +100,28 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     EnableSharingWithAwsOrganization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EnableSharingWithAwsOrganization where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON EnableSharingWithAwsOrganization where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath EnableSharingWithAwsOrganization where
+instance Data.ToPath EnableSharingWithAwsOrganization where
   toPath =
     Prelude.const "/enablesharingwithawsorganization"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     EnableSharingWithAwsOrganization
   where
   toQuery = Prelude.const Prelude.mempty

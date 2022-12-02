@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -119,7 +120,7 @@ instance Core.AWSRequest GetPermission where
     Response.receiveJSON
       ( \s h x ->
           GetPermissionResponse'
-            Prelude.<$> (x Core..?> "permission")
+            Prelude.<$> (x Data..?> "permission")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,32 +134,32 @@ instance Prelude.NFData GetPermission where
     Prelude.rnf permissionVersion
       `Prelude.seq` Prelude.rnf permissionArn
 
-instance Core.ToHeaders GetPermission where
+instance Data.ToHeaders GetPermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetPermission where
+instance Data.ToJSON GetPermission where
   toJSON GetPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("permissionVersion" Core..=)
+          [ ("permissionVersion" Data..=)
               Prelude.<$> permissionVersion,
             Prelude.Just
-              ("permissionArn" Core..= permissionArn)
+              ("permissionArn" Data..= permissionArn)
           ]
       )
 
-instance Core.ToPath GetPermission where
+instance Data.ToPath GetPermission where
   toPath = Prelude.const "/getpermission"
 
-instance Core.ToQuery GetPermission where
+instance Data.ToQuery GetPermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetPermissionResponse' smart constructor.

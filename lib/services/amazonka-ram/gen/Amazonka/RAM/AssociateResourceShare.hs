@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -247,8 +248,8 @@ instance Core.AWSRequest AssociateResourceShare where
     Response.receiveJSON
       ( \s h x ->
           AssociateResourceShareResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> ( x Core..?> "resourceShareAssociations"
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> ( x Data..?> "resourceShareAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -268,33 +269,33 @@ instance Prelude.NFData AssociateResourceShare where
       `Prelude.seq` Prelude.rnf resourceArns
       `Prelude.seq` Prelude.rnf resourceShareArn
 
-instance Core.ToHeaders AssociateResourceShare where
+instance Data.ToHeaders AssociateResourceShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateResourceShare where
+instance Data.ToJSON AssociateResourceShare where
   toJSON AssociateResourceShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("principals" Core..=) Prelude.<$> principals,
-            ("resourceArns" Core..=) Prelude.<$> resourceArns,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("principals" Data..=) Prelude.<$> principals,
+            ("resourceArns" Data..=) Prelude.<$> resourceArns,
             Prelude.Just
-              ("resourceShareArn" Core..= resourceShareArn)
+              ("resourceShareArn" Data..= resourceShareArn)
           ]
       )
 
-instance Core.ToPath AssociateResourceShare where
+instance Data.ToPath AssociateResourceShare where
   toPath = Prelude.const "/associateresourceshare"
 
-instance Core.ToQuery AssociateResourceShare where
+instance Data.ToQuery AssociateResourceShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateResourceShareResponse' smart constructor.

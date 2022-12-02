@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -208,8 +209,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPendingInvitationResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,39 +237,39 @@ instance
       `Prelude.seq` Prelude.rnf resourceShareInvitationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListPendingInvitationResources
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPendingInvitationResources where
+instance Data.ToJSON ListPendingInvitationResources where
   toJSON ListPendingInvitationResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceRegionScope" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceRegionScope" Data..=)
               Prelude.<$> resourceRegionScope,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "resourceShareInvitationArn"
-                  Core..= resourceShareInvitationArn
+                  Data..= resourceShareInvitationArn
               )
           ]
       )
 
-instance Core.ToPath ListPendingInvitationResources where
+instance Data.ToPath ListPendingInvitationResources where
   toPath =
     Prelude.const "/listpendinginvitationresources"
 
-instance Core.ToQuery ListPendingInvitationResources where
+instance Data.ToQuery ListPendingInvitationResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPendingInvitationResourcesResponse' smart constructor.

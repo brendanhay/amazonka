@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -159,8 +160,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociateResourceSharePermissionResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-              Prelude.<*> (x Core..?> "returnValue")
+            Prelude.<$> (x Data..?> "clientToken")
+              Prelude.<*> (x Data..?> "returnValue")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,36 +186,36 @@ instance
       `Prelude.seq` Prelude.rnf permissionArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateResourceSharePermission
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateResourceSharePermission
   where
   toJSON DisassociateResourceSharePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
-              ("resourceShareArn" Core..= resourceShareArn),
+              ("resourceShareArn" Data..= resourceShareArn),
             Prelude.Just
-              ("permissionArn" Core..= permissionArn)
+              ("permissionArn" Data..= permissionArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateResourceSharePermission
   where
   toPath =
@@ -222,7 +223,7 @@ instance
       "/disassociateresourcesharepermission"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateResourceSharePermission
   where
   toQuery = Prelude.const Prelude.mempty

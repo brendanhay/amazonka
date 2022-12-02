@@ -21,6 +21,7 @@ module Amazonka.RAM.Types.ResourceShareInvitation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceShareAssociation
 import Amazonka.RAM.Types.ResourceShareInvitationStatus
@@ -40,7 +41,7 @@ data ResourceShareInvitation = ResourceShareInvitation'
     -- invitation, use ListPendingInvitationResources.
     resourceShareAssociations :: Prelude.Maybe [ResourceShareAssociation],
     -- | The date and time when the invitation was sent.
-    invitationTimestamp :: Prelude.Maybe Core.POSIX,
+    invitationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ID of the Amazon Web Services account that sent the invitation.
     senderAccountId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that received the invitation.
@@ -123,7 +124,7 @@ resourceShareInvitation_resourceShareAssociations = Lens.lens (\ResourceShareInv
 
 -- | The date and time when the invitation was sent.
 resourceShareInvitation_invitationTimestamp :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.UTCTime)
-resourceShareInvitation_invitationTimestamp = Lens.lens (\ResourceShareInvitation' {invitationTimestamp} -> invitationTimestamp) (\s@ResourceShareInvitation' {} a -> s {invitationTimestamp = a} :: ResourceShareInvitation) Prelude.. Lens.mapping Core._Time
+resourceShareInvitation_invitationTimestamp = Lens.lens (\ResourceShareInvitation' {invitationTimestamp} -> invitationTimestamp) (\s@ResourceShareInvitation' {} a -> s {invitationTimestamp = a} :: ResourceShareInvitation) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the Amazon Web Services account that sent the invitation.
 resourceShareInvitation_senderAccountId :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
@@ -149,23 +150,23 @@ resourceShareInvitation_resourceShareInvitationArn = Lens.lens (\ResourceShareIn
 resourceShareInvitation_resourceShareName :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
 resourceShareInvitation_resourceShareName = Lens.lens (\ResourceShareInvitation' {resourceShareName} -> resourceShareName) (\s@ResourceShareInvitation' {} a -> s {resourceShareName = a} :: ResourceShareInvitation)
 
-instance Core.FromJSON ResourceShareInvitation where
+instance Data.FromJSON ResourceShareInvitation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceShareInvitation"
       ( \x ->
           ResourceShareInvitation'
-            Prelude.<$> (x Core..:? "resourceShareArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> ( x Core..:? "resourceShareAssociations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "resourceShareArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> ( x Data..:? "resourceShareAssociations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "invitationTimestamp")
-            Prelude.<*> (x Core..:? "senderAccountId")
-            Prelude.<*> (x Core..:? "receiverAccountId")
-            Prelude.<*> (x Core..:? "receiverArn")
-            Prelude.<*> (x Core..:? "resourceShareInvitationArn")
-            Prelude.<*> (x Core..:? "resourceShareName")
+            Prelude.<*> (x Data..:? "invitationTimestamp")
+            Prelude.<*> (x Data..:? "senderAccountId")
+            Prelude.<*> (x Data..:? "receiverAccountId")
+            Prelude.<*> (x Data..:? "receiverArn")
+            Prelude.<*> (x Data..:? "resourceShareInvitationArn")
+            Prelude.<*> (x Data..:? "resourceShareName")
       )
 
 instance Prelude.Hashable ResourceShareInvitation where

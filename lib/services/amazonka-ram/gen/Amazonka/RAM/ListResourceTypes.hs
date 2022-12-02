@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -179,8 +180,8 @@ instance Core.AWSRequest ListResourceTypes where
     Response.receiveJSON
       ( \s h x ->
           ListResourceTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "resourceTypes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "resourceTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,32 +197,32 @@ instance Prelude.NFData ListResourceTypes where
       `Prelude.seq` Prelude.rnf resourceRegionScope
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListResourceTypes where
+instance Data.ToHeaders ListResourceTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourceTypes where
+instance Data.ToJSON ListResourceTypes where
   toJSON ListResourceTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceRegionScope" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceRegionScope" Data..=)
               Prelude.<$> resourceRegionScope,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListResourceTypes where
+instance Data.ToPath ListResourceTypes where
   toPath = Prelude.const "/listresourcetypes"
 
-instance Core.ToQuery ListResourceTypes where
+instance Data.ToQuery ListResourceTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceTypesResponse' smart constructor.

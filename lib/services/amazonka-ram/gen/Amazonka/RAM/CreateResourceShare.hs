@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -296,8 +297,8 @@ instance Core.AWSRequest CreateResourceShare where
     Response.receiveJSON
       ( \s h x ->
           CreateResourceShareResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "resourceShare")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "resourceShare")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -321,37 +322,37 @@ instance Prelude.NFData CreateResourceShare where
       `Prelude.seq` Prelude.rnf allowExternalPrincipals
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateResourceShare where
+instance Data.ToHeaders CreateResourceShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResourceShare where
+instance Data.ToJSON CreateResourceShare where
   toJSON CreateResourceShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("permissionArns" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("permissionArns" Data..=)
               Prelude.<$> permissionArns,
-            ("principals" Core..=) Prelude.<$> principals,
-            ("resourceArns" Core..=) Prelude.<$> resourceArns,
-            ("allowExternalPrincipals" Core..=)
+            ("principals" Data..=) Prelude.<$> principals,
+            ("resourceArns" Data..=) Prelude.<$> resourceArns,
+            ("allowExternalPrincipals" Data..=)
               Prelude.<$> allowExternalPrincipals,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateResourceShare where
+instance Data.ToPath CreateResourceShare where
   toPath = Prelude.const "/createresourceshare"
 
-instance Core.ToQuery CreateResourceShare where
+instance Data.ToQuery CreateResourceShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceShareResponse' smart constructor.

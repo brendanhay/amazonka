@@ -21,6 +21,7 @@ module Amazonka.RAM.Types.Principal where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a principal for use with Resource Access Manager.
@@ -36,12 +37,12 @@ data Principal = Principal'
     -- of a resource share the principal is associated with.
     resourceShareArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the association was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the principal.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the principal was associated with the resource
     -- share.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,7 +93,7 @@ principal_resourceShareArn = Lens.lens (\Principal' {resourceShareArn} -> resour
 
 -- | The date and time when the association was last updated.
 principal_lastUpdatedTime :: Lens.Lens' Principal (Prelude.Maybe Prelude.UTCTime)
-principal_lastUpdatedTime = Lens.lens (\Principal' {lastUpdatedTime} -> lastUpdatedTime) (\s@Principal' {} a -> s {lastUpdatedTime = a} :: Principal) Prelude.. Lens.mapping Core._Time
+principal_lastUpdatedTime = Lens.lens (\Principal' {lastUpdatedTime} -> lastUpdatedTime) (\s@Principal' {} a -> s {lastUpdatedTime = a} :: Principal) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the principal.
 principal_id :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
@@ -101,19 +102,19 @@ principal_id = Lens.lens (\Principal' {id} -> id) (\s@Principal' {} a -> s {id =
 -- | The date and time when the principal was associated with the resource
 -- share.
 principal_creationTime :: Lens.Lens' Principal (Prelude.Maybe Prelude.UTCTime)
-principal_creationTime = Lens.lens (\Principal' {creationTime} -> creationTime) (\s@Principal' {} a -> s {creationTime = a} :: Principal) Prelude.. Lens.mapping Core._Time
+principal_creationTime = Lens.lens (\Principal' {creationTime} -> creationTime) (\s@Principal' {} a -> s {creationTime = a} :: Principal) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Principal where
+instance Data.FromJSON Principal where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Core..:? "external")
-            Prelude.<*> (x Core..:? "resourceShareArn")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "external")
+            Prelude.<*> (x Data..:? "resourceShareArn")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable Principal where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -191,10 +192,10 @@ instance Core.AWSRequest GetResourceShareInvitations where
     Response.receiveJSON
       ( \s h x ->
           GetResourceShareInvitationsResponse'
-            Prelude.<$> ( x Core..?> "resourceShareInvitations"
+            Prelude.<$> ( x Data..?> "resourceShareInvitations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,34 +213,34 @@ instance Prelude.NFData GetResourceShareInvitations where
       `Prelude.seq` Prelude.rnf resourceShareArns
       `Prelude.seq` Prelude.rnf resourceShareInvitationArns
 
-instance Core.ToHeaders GetResourceShareInvitations where
+instance Data.ToHeaders GetResourceShareInvitations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourceShareInvitations where
+instance Data.ToJSON GetResourceShareInvitations where
   toJSON GetResourceShareInvitations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("resourceShareArns" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("resourceShareArns" Data..=)
               Prelude.<$> resourceShareArns,
-            ("resourceShareInvitationArns" Core..=)
+            ("resourceShareInvitationArns" Data..=)
               Prelude.<$> resourceShareInvitationArns
           ]
       )
 
-instance Core.ToPath GetResourceShareInvitations where
+instance Data.ToPath GetResourceShareInvitations where
   toPath = Prelude.const "/getresourceshareinvitations"
 
-instance Core.ToQuery GetResourceShareInvitations where
+instance Data.ToQuery GetResourceShareInvitations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceShareInvitationsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.RAM.Types.ResourceShare where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceShareFeatureSet
 import Amazonka.RAM.Types.ResourceShareStatus
@@ -41,7 +42,7 @@ data ResourceShare = ResourceShare'
     -- | The current status of the resource share.
     status :: Prelude.Maybe ResourceShareStatus,
     -- | The date and time when the resource share was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates how the resource share was created. Possible values include:
     --
     -- -   @CREATED_FROM_POLICY@ - Indicates that the resource share was
@@ -61,7 +62,7 @@ data ResourceShare = ResourceShare'
     --     resource shares in RAM using the console or APIs.
     featureSet :: Prelude.Maybe ResourceShareFeatureSet,
     -- | The date and time when the resource share was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A message about the status of the resource share.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that owns the resource share.
@@ -154,7 +155,7 @@ resourceShare_status = Lens.lens (\ResourceShare' {status} -> status) (\s@Resour
 
 -- | The date and time when the resource share was last updated.
 resourceShare_lastUpdatedTime :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.UTCTime)
-resourceShare_lastUpdatedTime = Lens.lens (\ResourceShare' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShare' {} a -> s {lastUpdatedTime = a} :: ResourceShare) Prelude.. Lens.mapping Core._Time
+resourceShare_lastUpdatedTime = Lens.lens (\ResourceShare' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShare' {} a -> s {lastUpdatedTime = a} :: ResourceShare) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates how the resource share was created. Possible values include:
 --
@@ -178,7 +179,7 @@ resourceShare_featureSet = Lens.lens (\ResourceShare' {featureSet} -> featureSet
 
 -- | The date and time when the resource share was created.
 resourceShare_creationTime :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.UTCTime)
-resourceShare_creationTime = Lens.lens (\ResourceShare' {creationTime} -> creationTime) (\s@ResourceShare' {} a -> s {creationTime = a} :: ResourceShare) Prelude.. Lens.mapping Core._Time
+resourceShare_creationTime = Lens.lens (\ResourceShare' {creationTime} -> creationTime) (\s@ResourceShare' {} a -> s {creationTime = a} :: ResourceShare) Prelude.. Lens.mapping Data._Time
 
 -- | A message about the status of the resource share.
 resourceShare_statusMessage :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.Text)
@@ -193,22 +194,22 @@ resourceShare_owningAccountId = Lens.lens (\ResourceShare' {owningAccountId} -> 
 resourceShare_allowExternalPrincipals :: Lens.Lens' ResourceShare (Prelude.Maybe Prelude.Bool)
 resourceShare_allowExternalPrincipals = Lens.lens (\ResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@ResourceShare' {} a -> s {allowExternalPrincipals = a} :: ResourceShare)
 
-instance Core.FromJSON ResourceShare where
+instance Data.FromJSON ResourceShare where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceShare"
       ( \x ->
           ResourceShare'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "resourceShareArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "featureSet")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "owningAccountId")
-            Prelude.<*> (x Core..:? "allowExternalPrincipals")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "resourceShareArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "featureSet")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "owningAccountId")
+            Prelude.<*> (x Data..:? "allowExternalPrincipals")
       )
 
 instance Prelude.Hashable ResourceShare where

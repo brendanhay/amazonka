@@ -21,6 +21,7 @@ module Amazonka.RAM.Types.ResourceShareAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceShareAssociationStatus
 import Amazonka.RAM.Types.ResourceShareAssociationType
@@ -63,9 +64,9 @@ data ResourceShareAssociation = ResourceShareAssociation'
     -- | The current status of the association.
     status :: Prelude.Maybe ResourceShareAssociationStatus,
     -- | The date and time when the association was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the association was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A message about the status of the association.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource share.
@@ -180,11 +181,11 @@ resourceShareAssociation_status = Lens.lens (\ResourceShareAssociation' {status}
 
 -- | The date and time when the association was last updated.
 resourceShareAssociation_lastUpdatedTime :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.UTCTime)
-resourceShareAssociation_lastUpdatedTime = Lens.lens (\ResourceShareAssociation' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShareAssociation' {} a -> s {lastUpdatedTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Core._Time
+resourceShareAssociation_lastUpdatedTime = Lens.lens (\ResourceShareAssociation' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShareAssociation' {} a -> s {lastUpdatedTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the association was created.
 resourceShareAssociation_creationTime :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.UTCTime)
-resourceShareAssociation_creationTime = Lens.lens (\ResourceShareAssociation' {creationTime} -> creationTime) (\s@ResourceShareAssociation' {} a -> s {creationTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Core._Time
+resourceShareAssociation_creationTime = Lens.lens (\ResourceShareAssociation' {creationTime} -> creationTime) (\s@ResourceShareAssociation' {} a -> s {creationTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | A message about the status of the association.
 resourceShareAssociation_statusMessage :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
@@ -194,21 +195,21 @@ resourceShareAssociation_statusMessage = Lens.lens (\ResourceShareAssociation' {
 resourceShareAssociation_resourceShareName :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
 resourceShareAssociation_resourceShareName = Lens.lens (\ResourceShareAssociation' {resourceShareName} -> resourceShareName) (\s@ResourceShareAssociation' {} a -> s {resourceShareName = a} :: ResourceShareAssociation)
 
-instance Core.FromJSON ResourceShareAssociation where
+instance Data.FromJSON ResourceShareAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceShareAssociation"
       ( \x ->
           ResourceShareAssociation'
-            Prelude.<$> (x Core..:? "external")
-            Prelude.<*> (x Core..:? "associationType")
-            Prelude.<*> (x Core..:? "associatedEntity")
-            Prelude.<*> (x Core..:? "resourceShareArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "resourceShareName")
+            Prelude.<$> (x Data..:? "external")
+            Prelude.<*> (x Data..:? "associationType")
+            Prelude.<*> (x Data..:? "associatedEntity")
+            Prelude.<*> (x Data..:? "resourceShareArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "resourceShareName")
       )
 
 instance Prelude.Hashable ResourceShareAssociation where

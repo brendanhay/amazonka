@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -155,8 +156,8 @@ instance Core.AWSRequest UpdateResourceShare where
     Response.receiveJSON
       ( \s h x ->
           UpdateResourceShareResponse'
-            Prelude.<$> (x Core..?> "clientToken")
-            Prelude.<*> (x Core..?> "resourceShare")
+            Prelude.<$> (x Data..?> "clientToken")
+            Prelude.<*> (x Data..?> "resourceShare")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,34 +175,34 @@ instance Prelude.NFData UpdateResourceShare where
       `Prelude.seq` Prelude.rnf allowExternalPrincipals
       `Prelude.seq` Prelude.rnf resourceShareArn
 
-instance Core.ToHeaders UpdateResourceShare where
+instance Data.ToHeaders UpdateResourceShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResourceShare where
+instance Data.ToJSON UpdateResourceShare where
   toJSON UpdateResourceShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("allowExternalPrincipals" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("allowExternalPrincipals" Data..=)
               Prelude.<$> allowExternalPrincipals,
             Prelude.Just
-              ("resourceShareArn" Core..= resourceShareArn)
+              ("resourceShareArn" Data..= resourceShareArn)
           ]
       )
 
-instance Core.ToPath UpdateResourceShare where
+instance Data.ToPath UpdateResourceShare where
   toPath = Prelude.const "/updateresourceshare"
 
-instance Core.ToQuery UpdateResourceShare where
+instance Data.ToQuery UpdateResourceShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResourceShareResponse' smart constructor.

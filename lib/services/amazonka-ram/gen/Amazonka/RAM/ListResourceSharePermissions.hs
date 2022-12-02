@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -155,8 +156,8 @@ instance Core.AWSRequest ListResourceSharePermissions where
     Response.receiveJSON
       ( \s h x ->
           ListResourceSharePermissionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,33 +176,33 @@ instance Prelude.NFData ListResourceSharePermissions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceShareArn
 
-instance Core.ToHeaders ListResourceSharePermissions where
+instance Data.ToHeaders ListResourceSharePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourceSharePermissions where
+instance Data.ToJSON ListResourceSharePermissions where
   toJSON ListResourceSharePermissions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("resourceShareArn" Core..= resourceShareArn)
+              ("resourceShareArn" Data..= resourceShareArn)
           ]
       )
 
-instance Core.ToPath ListResourceSharePermissions where
+instance Data.ToPath ListResourceSharePermissions where
   toPath =
     Prelude.const "/listresourcesharepermissions"
 
-instance Core.ToQuery ListResourceSharePermissions where
+instance Data.ToQuery ListResourceSharePermissions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceSharePermissionsResponse' smart constructor.

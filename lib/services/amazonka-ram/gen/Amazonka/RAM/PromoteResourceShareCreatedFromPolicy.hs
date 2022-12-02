@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PromoteResourceShareCreatedFromPolicyResponse'
-            Prelude.<$> (x Core..?> "returnValue")
+            Prelude.<$> (x Data..?> "returnValue")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,27 +127,27 @@ instance
     Prelude.rnf resourceShareArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PromoteResourceShareCreatedFromPolicy
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     PromoteResourceShareCreatedFromPolicy
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     PromoteResourceShareCreatedFromPolicy
   where
   toPath =
@@ -154,12 +155,12 @@ instance
       "/promoteresourcesharecreatedfrompolicy"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PromoteResourceShareCreatedFromPolicy
   where
   toQuery PromoteResourceShareCreatedFromPolicy' {..} =
     Prelude.mconcat
-      ["resourceShareArn" Core.=: resourceShareArn]
+      ["resourceShareArn" Data.=: resourceShareArn]
 
 -- | /See:/ 'newPromoteResourceShareCreatedFromPolicyResponse' smart constructor.
 data PromoteResourceShareCreatedFromPolicyResponse = PromoteResourceShareCreatedFromPolicyResponse'

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest GetServiceTemplateVersion where
       ( \s h x ->
           GetServiceTemplateVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceTemplateVersion")
+            Prelude.<*> (x Data..:> "serviceTemplateVersion")
       )
 
 instance Prelude.Hashable GetServiceTemplateVersion where
@@ -138,35 +139,35 @@ instance Prelude.NFData GetServiceTemplateVersion where
       `Prelude.seq` Prelude.rnf minorVersion
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders GetServiceTemplateVersion where
+instance Data.ToHeaders GetServiceTemplateVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetServiceTemplateVersion" ::
+              Data.=# ( "AwsProton20200720.GetServiceTemplateVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetServiceTemplateVersion where
+instance Data.ToJSON GetServiceTemplateVersion where
   toJSON GetServiceTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("majorVersion" Core..= majorVersion),
-            Prelude.Just ("minorVersion" Core..= minorVersion),
-            Prelude.Just ("templateName" Core..= templateName)
+          [ Prelude.Just ("majorVersion" Data..= majorVersion),
+            Prelude.Just ("minorVersion" Data..= minorVersion),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath GetServiceTemplateVersion where
+instance Data.ToPath GetServiceTemplateVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetServiceTemplateVersion where
+instance Data.ToQuery GetServiceTemplateVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceTemplateVersionResponse' smart constructor.

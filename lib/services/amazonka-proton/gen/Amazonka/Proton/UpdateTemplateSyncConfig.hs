@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -156,7 +157,7 @@ instance Core.AWSRequest UpdateTemplateSyncConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateTemplateSyncConfigResponse'
-            Prelude.<$> (x Core..?> "templateSyncConfig")
+            Prelude.<$> (x Data..?> "templateSyncConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,40 +179,40 @@ instance Prelude.NFData UpdateTemplateSyncConfig where
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf templateType
 
-instance Core.ToHeaders UpdateTemplateSyncConfig where
+instance Data.ToHeaders UpdateTemplateSyncConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateTemplateSyncConfig" ::
+              Data.=# ( "AwsProton20200720.UpdateTemplateSyncConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTemplateSyncConfig where
+instance Data.ToJSON UpdateTemplateSyncConfig where
   toJSON UpdateTemplateSyncConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("subdirectory" Core..=) Prelude.<$> subdirectory,
-            Prelude.Just ("branch" Core..= branch),
+          [ ("subdirectory" Data..=) Prelude.<$> subdirectory,
+            Prelude.Just ("branch" Data..= branch),
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
-              ("repositoryProvider" Core..= repositoryProvider),
-            Prelude.Just ("templateName" Core..= templateName),
-            Prelude.Just ("templateType" Core..= templateType)
+              ("repositoryProvider" Data..= repositoryProvider),
+            Prelude.Just ("templateName" Data..= templateName),
+            Prelude.Just ("templateType" Data..= templateType)
           ]
       )
 
-instance Core.ToPath UpdateTemplateSyncConfig where
+instance Data.ToPath UpdateTemplateSyncConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTemplateSyncConfig where
+instance Data.ToQuery UpdateTemplateSyncConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTemplateSyncConfigResponse' smart constructor.

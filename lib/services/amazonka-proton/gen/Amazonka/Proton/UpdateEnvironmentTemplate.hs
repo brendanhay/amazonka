@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -52,9 +53,9 @@ import qualified Amazonka.Response as Response
 data UpdateEnvironmentTemplate = UpdateEnvironmentTemplate'
   { -- | The name of the environment template to update as displayed in the
     -- developer interface.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the environment template update.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the environment template to update.
     name :: Prelude.Text
   }
@@ -89,11 +90,11 @@ newUpdateEnvironmentTemplate pName_ =
 -- | The name of the environment template to update as displayed in the
 -- developer interface.
 updateEnvironmentTemplate_displayName :: Lens.Lens' UpdateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
-updateEnvironmentTemplate_displayName = Lens.lens (\UpdateEnvironmentTemplate' {displayName} -> displayName) (\s@UpdateEnvironmentTemplate' {} a -> s {displayName = a} :: UpdateEnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
+updateEnvironmentTemplate_displayName = Lens.lens (\UpdateEnvironmentTemplate' {displayName} -> displayName) (\s@UpdateEnvironmentTemplate' {} a -> s {displayName = a} :: UpdateEnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description of the environment template update.
 updateEnvironmentTemplate_description :: Lens.Lens' UpdateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
-updateEnvironmentTemplate_description = Lens.lens (\UpdateEnvironmentTemplate' {description} -> description) (\s@UpdateEnvironmentTemplate' {} a -> s {description = a} :: UpdateEnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
+updateEnvironmentTemplate_description = Lens.lens (\UpdateEnvironmentTemplate' {description} -> description) (\s@UpdateEnvironmentTemplate' {} a -> s {description = a} :: UpdateEnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the environment template to update.
 updateEnvironmentTemplate_name :: Lens.Lens' UpdateEnvironmentTemplate Prelude.Text
@@ -110,7 +111,7 @@ instance Core.AWSRequest UpdateEnvironmentTemplate where
       ( \s h x ->
           UpdateEnvironmentTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentTemplate")
+            Prelude.<*> (x Data..:> "environmentTemplate")
       )
 
 instance Prelude.Hashable UpdateEnvironmentTemplate where
@@ -125,35 +126,35 @@ instance Prelude.NFData UpdateEnvironmentTemplate where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateEnvironmentTemplate where
+instance Data.ToHeaders UpdateEnvironmentTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateEnvironmentTemplate" ::
+              Data.=# ( "AwsProton20200720.UpdateEnvironmentTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEnvironmentTemplate where
+instance Data.ToJSON UpdateEnvironmentTemplate where
   toJSON UpdateEnvironmentTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("displayName" Core..=) Prelude.<$> displayName,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name)
+          [ ("displayName" Data..=) Prelude.<$> displayName,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateEnvironmentTemplate where
+instance Data.ToPath UpdateEnvironmentTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEnvironmentTemplate where
+instance Data.ToQuery UpdateEnvironmentTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEnvironmentTemplateResponse' smart constructor.

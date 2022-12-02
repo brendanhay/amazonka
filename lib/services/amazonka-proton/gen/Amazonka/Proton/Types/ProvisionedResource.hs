@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ProvisionedResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.ProvisionedResourceEngine
 
@@ -90,15 +91,15 @@ provisionedResource_name = Lens.lens (\ProvisionedResource' {name} -> name) (\s@
 provisionedResource_identifier :: Lens.Lens' ProvisionedResource (Prelude.Maybe Prelude.Text)
 provisionedResource_identifier = Lens.lens (\ProvisionedResource' {identifier} -> identifier) (\s@ProvisionedResource' {} a -> s {identifier = a} :: ProvisionedResource)
 
-instance Core.FromJSON ProvisionedResource where
+instance Data.FromJSON ProvisionedResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedResource"
       ( \x ->
           ProvisionedResource'
-            Prelude.<$> (x Core..:? "provisioningEngine")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "identifier")
+            Prelude.<$> (x Data..:? "provisioningEngine")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "identifier")
       )
 
 instance Prelude.Hashable ProvisionedResource where

@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.EnvironmentTemplateFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A search filter for environment templates.
@@ -78,11 +79,11 @@ instance Prelude.NFData EnvironmentTemplateFilter where
     Prelude.rnf majorVersion
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToJSON EnvironmentTemplateFilter where
+instance Data.ToJSON EnvironmentTemplateFilter where
   toJSON EnvironmentTemplateFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("majorVersion" Core..= majorVersion),
-            Prelude.Just ("templateName" Core..= templateName)
+          [ Prelude.Just ("majorVersion" Data..= majorVersion),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )

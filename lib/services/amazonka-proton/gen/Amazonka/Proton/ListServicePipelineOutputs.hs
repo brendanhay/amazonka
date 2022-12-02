@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -123,9 +124,9 @@ instance Core.AWSRequest ListServicePipelineOutputs where
     Response.receiveJSON
       ( \s h x ->
           ListServicePipelineOutputsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListServicePipelineOutputs where
@@ -138,34 +139,34 @@ instance Prelude.NFData ListServicePipelineOutputs where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders ListServicePipelineOutputs where
+instance Data.ToHeaders ListServicePipelineOutputs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListServicePipelineOutputs" ::
+              Data.=# ( "AwsProton20200720.ListServicePipelineOutputs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListServicePipelineOutputs where
+instance Data.ToJSON ListServicePipelineOutputs where
   toJSON ListServicePipelineOutputs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("serviceName" Core..= serviceName)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath ListServicePipelineOutputs where
+instance Data.ToPath ListServicePipelineOutputs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServicePipelineOutputs where
+instance Data.ToQuery ListServicePipelineOutputs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServicePipelineOutputsResponse' smart constructor.
@@ -176,7 +177,7 @@ data ListServicePipelineOutputsResponse = ListServicePipelineOutputsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | An array of service pipeline Infrastructure as Code (IaC) outputs.
-    outputs :: [Core.Sensitive Output]
+    outputs :: [Data.Sensitive Output]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

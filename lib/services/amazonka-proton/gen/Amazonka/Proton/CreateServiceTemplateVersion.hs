@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ data CreateServiceTemplateVersion = CreateServiceTemplateVersion'
     -- in the /Proton User Guide/.
     supportedComponentSources :: Prelude.Maybe [ServiceTemplateSupportedComponentSourceType],
     -- | A description of the new version of a service template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An array of environment template objects that are compatible with the
     -- new service template version. A service instance based on this service
     -- template version can run in environments based on compatible templates.
@@ -201,7 +202,7 @@ createServiceTemplateVersion_supportedComponentSources = Lens.lens (\CreateServi
 
 -- | A description of the new version of a service template.
 createServiceTemplateVersion_description :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-createServiceTemplateVersion_description = Lens.lens (\CreateServiceTemplateVersion' {description} -> description) (\s@CreateServiceTemplateVersion' {} a -> s {description = a} :: CreateServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+createServiceTemplateVersion_description = Lens.lens (\CreateServiceTemplateVersion' {description} -> description) (\s@CreateServiceTemplateVersion' {} a -> s {description = a} :: CreateServiceTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An array of environment template objects that are compatible with the
 -- new service template version. A service instance based on this service
@@ -229,7 +230,7 @@ instance Core.AWSRequest CreateServiceTemplateVersion where
       ( \s h x ->
           CreateServiceTemplateVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceTemplateVersion")
+            Prelude.<*> (x Data..:> "serviceTemplateVersion")
       )
 
 instance
@@ -257,44 +258,44 @@ instance Prelude.NFData CreateServiceTemplateVersion where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders CreateServiceTemplateVersion where
+instance Data.ToHeaders CreateServiceTemplateVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateServiceTemplateVersion" ::
+              Data.=# ( "AwsProton20200720.CreateServiceTemplateVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateServiceTemplateVersion where
+instance Data.ToJSON CreateServiceTemplateVersion where
   toJSON CreateServiceTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("majorVersion" Core..=) Prelude.<$> majorVersion,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("supportedComponentSources" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("majorVersion" Data..=) Prelude.<$> majorVersion,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("supportedComponentSources" Data..=)
               Prelude.<$> supportedComponentSources,
-            ("description" Core..=) Prelude.<$> description,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just
               ( "compatibleEnvironmentTemplates"
-                  Core..= compatibleEnvironmentTemplates
+                  Data..= compatibleEnvironmentTemplates
               ),
-            Prelude.Just ("source" Core..= source),
-            Prelude.Just ("templateName" Core..= templateName)
+            Prelude.Just ("source" Data..= source),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath CreateServiceTemplateVersion where
+instance Data.ToPath CreateServiceTemplateVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateServiceTemplateVersion where
+instance Data.ToQuery CreateServiceTemplateVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServiceTemplateVersionResponse' smart constructor.

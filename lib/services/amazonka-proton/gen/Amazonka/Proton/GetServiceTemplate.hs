@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetServiceTemplate where
       ( \s h x ->
           GetServiceTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceTemplate")
+            Prelude.<*> (x Data..:> "serviceTemplate")
       )
 
 instance Prelude.Hashable GetServiceTemplate where
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetServiceTemplate where
 instance Prelude.NFData GetServiceTemplate where
   rnf GetServiceTemplate' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetServiceTemplate where
+instance Data.ToHeaders GetServiceTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetServiceTemplate" ::
+              Data.=# ( "AwsProton20200720.GetServiceTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetServiceTemplate where
+instance Data.ToJSON GetServiceTemplate where
   toJSON GetServiceTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetServiceTemplate where
+instance Data.ToPath GetServiceTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetServiceTemplate where
+instance Data.ToQuery GetServiceTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceTemplateResponse' smart constructor.

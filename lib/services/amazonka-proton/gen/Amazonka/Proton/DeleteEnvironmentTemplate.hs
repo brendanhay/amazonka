@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteEnvironmentTemplate where
     Response.receiveJSON
       ( \s h x ->
           DeleteEnvironmentTemplateResponse'
-            Prelude.<$> (x Core..?> "environmentTemplate")
+            Prelude.<$> (x Data..?> "environmentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable DeleteEnvironmentTemplate where
 instance Prelude.NFData DeleteEnvironmentTemplate where
   rnf DeleteEnvironmentTemplate' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteEnvironmentTemplate where
+instance Data.ToHeaders DeleteEnvironmentTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.DeleteEnvironmentTemplate" ::
+              Data.=# ( "AwsProton20200720.DeleteEnvironmentTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteEnvironmentTemplate where
+instance Data.ToJSON DeleteEnvironmentTemplate where
   toJSON DeleteEnvironmentTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteEnvironmentTemplate where
+instance Data.ToPath DeleteEnvironmentTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEnvironmentTemplate where
+instance Data.ToQuery DeleteEnvironmentTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteEnvironmentTemplateResponse' smart constructor.

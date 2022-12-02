@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.S3ObjectSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Template bundle S3 bucket data.
@@ -71,11 +72,11 @@ instance Prelude.NFData S3ObjectSource where
   rnf S3ObjectSource' {..} =
     Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON S3ObjectSource where
+instance Data.ToJSON S3ObjectSource where
   toJSON S3ObjectSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("bucket" Core..= bucket),
-            Prelude.Just ("key" Core..= key)
+          [ Prelude.Just ("bucket" Data..= bucket),
+            Prelude.Just ("key" Data..= key)
           ]
       )

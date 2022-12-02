@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -124,9 +125,9 @@ instance Core.AWSRequest ListEnvironmentOutputs where
     Response.receiveJSON
       ( \s h x ->
           ListEnvironmentOutputsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListEnvironmentOutputs where
@@ -139,35 +140,35 @@ instance Prelude.NFData ListEnvironmentOutputs where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf environmentName
 
-instance Core.ToHeaders ListEnvironmentOutputs where
+instance Data.ToHeaders ListEnvironmentOutputs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListEnvironmentOutputs" ::
+              Data.=# ( "AwsProton20200720.ListEnvironmentOutputs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEnvironmentOutputs where
+instance Data.ToJSON ListEnvironmentOutputs where
   toJSON ListEnvironmentOutputs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
-              ("environmentName" Core..= environmentName)
+              ("environmentName" Data..= environmentName)
           ]
       )
 
-instance Core.ToPath ListEnvironmentOutputs where
+instance Data.ToPath ListEnvironmentOutputs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEnvironmentOutputs where
+instance Data.ToQuery ListEnvironmentOutputs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEnvironmentOutputsResponse' smart constructor.
@@ -179,7 +180,7 @@ data ListEnvironmentOutputsResponse = ListEnvironmentOutputsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | An array of environment outputs with detail data.
-    outputs :: [Core.Sensitive Output]
+    outputs :: [Data.Sensitive Output]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

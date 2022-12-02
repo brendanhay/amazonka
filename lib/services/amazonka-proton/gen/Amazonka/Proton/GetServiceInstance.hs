@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest GetServiceInstance where
       ( \s h x ->
           GetServiceInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceInstance")
+            Prelude.<*> (x Data..:> "serviceInstance")
       )
 
 instance Prelude.Hashable GetServiceInstance where
@@ -115,34 +116,34 @@ instance Prelude.NFData GetServiceInstance where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders GetServiceInstance where
+instance Data.ToHeaders GetServiceInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetServiceInstance" ::
+              Data.=# ( "AwsProton20200720.GetServiceInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetServiceInstance where
+instance Data.ToJSON GetServiceInstance where
   toJSON GetServiceInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("serviceName" Core..= serviceName)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath GetServiceInstance where
+instance Data.ToPath GetServiceInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetServiceInstance where
+instance Data.ToQuery GetServiceInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceInstanceResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -191,9 +192,9 @@ instance Core.AWSRequest ListServiceInstances where
     Response.receiveJSON
       ( \s h x ->
           ListServiceInstancesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "serviceInstances"
+            Prelude.<*> ( x Data..?> "serviceInstances"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -216,38 +217,38 @@ instance Prelude.NFData ListServiceInstances where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders ListServiceInstances where
+instance Data.ToHeaders ListServiceInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListServiceInstances" ::
+              Data.=# ( "AwsProton20200720.ListServiceInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListServiceInstances where
+instance Data.ToJSON ListServiceInstances where
   toJSON ListServiceInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("sortBy" Core..=) Prelude.<$> sortBy,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("serviceName" Core..=) Prelude.<$> serviceName
+          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("serviceName" Data..=) Prelude.<$> serviceName
           ]
       )
 
-instance Core.ToPath ListServiceInstances where
+instance Data.ToPath ListServiceInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListServiceInstances where
+instance Data.ToQuery ListServiceInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListServiceInstancesResponse' smart constructor.

@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -250,7 +251,7 @@ instance
       ( \s h x ->
           CreateEnvironmentAccountConnectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "environmentAccountConnection")
+              Prelude.<*> (x Data..:> "environmentAccountConnection")
       )
 
 instance
@@ -282,52 +283,52 @@ instance
       `Prelude.seq` Prelude.rnf roleArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreateEnvironmentAccountConnection
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateEnvironmentAccountConnection" ::
+              Data.=# ( "AwsProton20200720.CreateEnvironmentAccountConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateEnvironmentAccountConnection
   where
   toJSON CreateEnvironmentAccountConnection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("codebuildRoleArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("codebuildRoleArn" Data..=)
               Prelude.<$> codebuildRoleArn,
-            ("componentRoleArn" Core..=)
+            ("componentRoleArn" Data..=)
               Prelude.<$> componentRoleArn,
             Prelude.Just
-              ("environmentName" Core..= environmentName),
+              ("environmentName" Data..= environmentName),
             Prelude.Just
-              ("managementAccountId" Core..= managementAccountId),
-            Prelude.Just ("roleArn" Core..= roleArn)
+              ("managementAccountId" Data..= managementAccountId),
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     CreateEnvironmentAccountConnection
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreateEnvironmentAccountConnection
   where
   toQuery = Prelude.const Prelude.mempty

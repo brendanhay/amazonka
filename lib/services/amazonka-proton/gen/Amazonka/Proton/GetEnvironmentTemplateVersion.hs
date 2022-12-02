@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -127,7 +128,7 @@ instance
       ( \s h x ->
           GetEnvironmentTemplateVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentTemplateVersion")
+            Prelude.<*> (x Data..:> "environmentTemplateVersion")
       )
 
 instance
@@ -145,35 +146,35 @@ instance Prelude.NFData GetEnvironmentTemplateVersion where
       `Prelude.seq` Prelude.rnf minorVersion
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders GetEnvironmentTemplateVersion where
+instance Data.ToHeaders GetEnvironmentTemplateVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetEnvironmentTemplateVersion" ::
+              Data.=# ( "AwsProton20200720.GetEnvironmentTemplateVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEnvironmentTemplateVersion where
+instance Data.ToJSON GetEnvironmentTemplateVersion where
   toJSON GetEnvironmentTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("majorVersion" Core..= majorVersion),
-            Prelude.Just ("minorVersion" Core..= minorVersion),
-            Prelude.Just ("templateName" Core..= templateName)
+          [ Prelude.Just ("majorVersion" Data..= majorVersion),
+            Prelude.Just ("minorVersion" Data..= minorVersion),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath GetEnvironmentTemplateVersion where
+instance Data.ToPath GetEnvironmentTemplateVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEnvironmentTemplateVersion where
+instance Data.ToQuery GetEnvironmentTemplateVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEnvironmentTemplateVersionResponse' smart constructor.

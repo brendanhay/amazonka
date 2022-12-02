@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ data CreateEnvironment = CreateEnvironment'
     -- @protonServiceRoleArn@ parameters.
     provisioningRepository :: Prelude.Maybe RepositoryBranchInput,
     -- | A description of the environment that\'s being created and deployed.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The minor version of the environment template.
     templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Proton service role that allows
@@ -140,7 +141,7 @@ data CreateEnvironment = CreateEnvironment'
     -- environment template bundle schema file. For more information, see
     -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html Environments>
     -- in the /Proton User Guide/.
-    spec :: Core.Sensitive Prelude.Text,
+    spec :: Data.Sensitive Prelude.Text,
     -- | The major version of the environment template.
     templateMajorVersion :: Prelude.Text,
     -- | The name of the environment template. For more information, see
@@ -253,7 +254,7 @@ newCreateEnvironment
         componentRoleArn = Prelude.Nothing,
         environmentAccountConnectionId = Prelude.Nothing,
         name = pName_,
-        spec = Core._Sensitive Lens.# pSpec_,
+        spec = Data._Sensitive Lens.# pSpec_,
         templateMajorVersion = pTemplateMajorVersion_,
         templateName = pTemplateName_
       }
@@ -290,7 +291,7 @@ createEnvironment_provisioningRepository = Lens.lens (\CreateEnvironment' {provi
 
 -- | A description of the environment that\'s being created and deployed.
 createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment) Prelude.. Lens.mapping Core._Sensitive
+createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The minor version of the environment template.
 createEnvironment_templateMinorVersion :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
@@ -341,7 +342,7 @@ createEnvironment_name = Lens.lens (\CreateEnvironment' {name} -> name) (\s@Crea
 -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html Environments>
 -- in the /Proton User Guide/.
 createEnvironment_spec :: Lens.Lens' CreateEnvironment Prelude.Text
-createEnvironment_spec = Lens.lens (\CreateEnvironment' {spec} -> spec) (\s@CreateEnvironment' {} a -> s {spec = a} :: CreateEnvironment) Prelude.. Core._Sensitive
+createEnvironment_spec = Lens.lens (\CreateEnvironment' {spec} -> spec) (\s@CreateEnvironment' {} a -> s {spec = a} :: CreateEnvironment) Prelude.. Data._Sensitive
 
 -- | The major version of the environment template.
 createEnvironment_templateMajorVersion :: Lens.Lens' CreateEnvironment Prelude.Text
@@ -364,7 +365,7 @@ instance Core.AWSRequest CreateEnvironment where
       ( \s h x ->
           CreateEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environment")
+            Prelude.<*> (x Data..:> "environment")
       )
 
 instance Prelude.Hashable CreateEnvironment where
@@ -397,53 +398,53 @@ instance Prelude.NFData CreateEnvironment where
       `Prelude.seq` Prelude.rnf templateMajorVersion
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders CreateEnvironment where
+instance Data.ToHeaders CreateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateEnvironment" ::
+              Data.=# ( "AwsProton20200720.CreateEnvironment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEnvironment where
+instance Data.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("codebuildRoleArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("codebuildRoleArn" Data..=)
               Prelude.<$> codebuildRoleArn,
-            ("provisioningRepository" Core..=)
+            ("provisioningRepository" Data..=)
               Prelude.<$> provisioningRepository,
-            ("description" Core..=) Prelude.<$> description,
-            ("templateMinorVersion" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("templateMinorVersion" Data..=)
               Prelude.<$> templateMinorVersion,
-            ("protonServiceRoleArn" Core..=)
+            ("protonServiceRoleArn" Data..=)
               Prelude.<$> protonServiceRoleArn,
-            ("componentRoleArn" Core..=)
+            ("componentRoleArn" Data..=)
               Prelude.<$> componentRoleArn,
-            ("environmentAccountConnectionId" Core..=)
+            ("environmentAccountConnectionId" Data..=)
               Prelude.<$> environmentAccountConnectionId,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("spec" Core..= spec),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("spec" Data..= spec),
             Prelude.Just
               ( "templateMajorVersion"
-                  Core..= templateMajorVersion
+                  Data..= templateMajorVersion
               ),
-            Prelude.Just ("templateName" Core..= templateName)
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath CreateEnvironment where
+instance Data.ToPath CreateEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEnvironment where
+instance Data.ToQuery CreateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEnvironmentResponse' smart constructor.

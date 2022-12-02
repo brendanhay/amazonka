@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.Repository where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
@@ -101,17 +102,17 @@ repository_name = Lens.lens (\Repository' {name} -> name) (\s@Repository' {} a -
 repository_provider :: Lens.Lens' Repository RepositoryProvider
 repository_provider = Lens.lens (\Repository' {provider} -> provider) (\s@Repository' {} a -> s {provider = a} :: Repository)
 
-instance Core.FromJSON Repository where
+instance Data.FromJSON Repository where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Repository"
       ( \x ->
           Repository'
-            Prelude.<$> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "connectionArn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "provider")
+            Prelude.<$> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "connectionArn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "provider")
       )
 
 instance Prelude.Hashable Repository where

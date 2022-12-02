@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ServicePipeline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.DeploymentStatus
 
@@ -29,19 +30,19 @@ import Amazonka.Proton.Types.DeploymentStatus
 -- /See:/ 'newServicePipeline' smart constructor.
 data ServicePipeline = ServicePipeline'
   { -- | A service pipeline deployment status message.
-    deploymentStatusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    deploymentStatusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service spec that was used to create the service pipeline.
-    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the service pipeline.
     arn :: Prelude.Text,
     -- | The time when the service pipeline was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The deployment status of the service pipeline.
     deploymentStatus :: DeploymentStatus,
     -- | The time when a deployment of the service pipeline was last attempted.
-    lastDeploymentAttemptedAt :: Core.POSIX,
+    lastDeploymentAttemptedAt :: Data.POSIX,
     -- | The time when the service pipeline was last deployed successfully.
-    lastDeploymentSucceededAt :: Core.POSIX,
+    lastDeploymentSucceededAt :: Data.POSIX,
     -- | The major version of the service template that was used to create the
     -- service pipeline.
     templateMajorVersion :: Prelude.Text,
@@ -116,12 +117,12 @@ newServicePipeline
           Prelude.Nothing,
         spec = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         deploymentStatus = pDeploymentStatus_,
         lastDeploymentAttemptedAt =
-          Core._Time Lens.# pLastDeploymentAttemptedAt_,
+          Data._Time Lens.# pLastDeploymentAttemptedAt_,
         lastDeploymentSucceededAt =
-          Core._Time Lens.# pLastDeploymentSucceededAt_,
+          Data._Time Lens.# pLastDeploymentSucceededAt_,
         templateMajorVersion = pTemplateMajorVersion_,
         templateMinorVersion = pTemplateMinorVersion_,
         templateName = pTemplateName_
@@ -129,11 +130,11 @@ newServicePipeline
 
 -- | A service pipeline deployment status message.
 servicePipeline_deploymentStatusMessage :: Lens.Lens' ServicePipeline (Prelude.Maybe Prelude.Text)
-servicePipeline_deploymentStatusMessage = Lens.lens (\ServicePipeline' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@ServicePipeline' {} a -> s {deploymentStatusMessage = a} :: ServicePipeline) Prelude.. Lens.mapping Core._Sensitive
+servicePipeline_deploymentStatusMessage = Lens.lens (\ServicePipeline' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@ServicePipeline' {} a -> s {deploymentStatusMessage = a} :: ServicePipeline) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service spec that was used to create the service pipeline.
 servicePipeline_spec :: Lens.Lens' ServicePipeline (Prelude.Maybe Prelude.Text)
-servicePipeline_spec = Lens.lens (\ServicePipeline' {spec} -> spec) (\s@ServicePipeline' {} a -> s {spec = a} :: ServicePipeline) Prelude.. Lens.mapping Core._Sensitive
+servicePipeline_spec = Lens.lens (\ServicePipeline' {spec} -> spec) (\s@ServicePipeline' {} a -> s {spec = a} :: ServicePipeline) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the service pipeline.
 servicePipeline_arn :: Lens.Lens' ServicePipeline Prelude.Text
@@ -141,7 +142,7 @@ servicePipeline_arn = Lens.lens (\ServicePipeline' {arn} -> arn) (\s@ServicePipe
 
 -- | The time when the service pipeline was created.
 servicePipeline_createdAt :: Lens.Lens' ServicePipeline Prelude.UTCTime
-servicePipeline_createdAt = Lens.lens (\ServicePipeline' {createdAt} -> createdAt) (\s@ServicePipeline' {} a -> s {createdAt = a} :: ServicePipeline) Prelude.. Core._Time
+servicePipeline_createdAt = Lens.lens (\ServicePipeline' {createdAt} -> createdAt) (\s@ServicePipeline' {} a -> s {createdAt = a} :: ServicePipeline) Prelude.. Data._Time
 
 -- | The deployment status of the service pipeline.
 servicePipeline_deploymentStatus :: Lens.Lens' ServicePipeline DeploymentStatus
@@ -149,11 +150,11 @@ servicePipeline_deploymentStatus = Lens.lens (\ServicePipeline' {deploymentStatu
 
 -- | The time when a deployment of the service pipeline was last attempted.
 servicePipeline_lastDeploymentAttemptedAt :: Lens.Lens' ServicePipeline Prelude.UTCTime
-servicePipeline_lastDeploymentAttemptedAt = Lens.lens (\ServicePipeline' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@ServicePipeline' {} a -> s {lastDeploymentAttemptedAt = a} :: ServicePipeline) Prelude.. Core._Time
+servicePipeline_lastDeploymentAttemptedAt = Lens.lens (\ServicePipeline' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@ServicePipeline' {} a -> s {lastDeploymentAttemptedAt = a} :: ServicePipeline) Prelude.. Data._Time
 
 -- | The time when the service pipeline was last deployed successfully.
 servicePipeline_lastDeploymentSucceededAt :: Lens.Lens' ServicePipeline Prelude.UTCTime
-servicePipeline_lastDeploymentSucceededAt = Lens.lens (\ServicePipeline' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@ServicePipeline' {} a -> s {lastDeploymentSucceededAt = a} :: ServicePipeline) Prelude.. Core._Time
+servicePipeline_lastDeploymentSucceededAt = Lens.lens (\ServicePipeline' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@ServicePipeline' {} a -> s {lastDeploymentSucceededAt = a} :: ServicePipeline) Prelude.. Data._Time
 
 -- | The major version of the service template that was used to create the
 -- service pipeline.
@@ -170,22 +171,22 @@ servicePipeline_templateMinorVersion = Lens.lens (\ServicePipeline' {templateMin
 servicePipeline_templateName :: Lens.Lens' ServicePipeline Prelude.Text
 servicePipeline_templateName = Lens.lens (\ServicePipeline' {templateName} -> templateName) (\s@ServicePipeline' {} a -> s {templateName = a} :: ServicePipeline)
 
-instance Core.FromJSON ServicePipeline where
+instance Data.FromJSON ServicePipeline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServicePipeline"
       ( \x ->
           ServicePipeline'
-            Prelude.<$> (x Core..:? "deploymentStatusMessage")
-            Prelude.<*> (x Core..:? "spec")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "deploymentStatus")
-            Prelude.<*> (x Core..: "lastDeploymentAttemptedAt")
-            Prelude.<*> (x Core..: "lastDeploymentSucceededAt")
-            Prelude.<*> (x Core..: "templateMajorVersion")
-            Prelude.<*> (x Core..: "templateMinorVersion")
-            Prelude.<*> (x Core..: "templateName")
+            Prelude.<$> (x Data..:? "deploymentStatusMessage")
+            Prelude.<*> (x Data..:? "spec")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "deploymentStatus")
+            Prelude.<*> (x Data..: "lastDeploymentAttemptedAt")
+            Prelude.<*> (x Data..: "lastDeploymentSucceededAt")
+            Prelude.<*> (x Data..: "templateMajorVersion")
+            Prelude.<*> (x Data..: "templateMinorVersion")
+            Prelude.<*> (x Data..: "templateName")
       )
 
 instance Prelude.Hashable ServicePipeline where

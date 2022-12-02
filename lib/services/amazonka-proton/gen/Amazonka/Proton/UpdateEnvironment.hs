@@ -117,6 +117,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -136,11 +137,11 @@ data UpdateEnvironment = UpdateEnvironment'
     -- see CreateRepository.
     provisioningRepository :: Prelude.Maybe RepositoryBranchInput,
     -- | A description of the environment update.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The minor version of the environment to update.
     templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The formatted specification that defines the update.
-    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the Proton service role that allows
     -- Proton to make API calls to other services your behalf.
     protonServiceRoleArn :: Prelude.Maybe Prelude.Text,
@@ -323,7 +324,7 @@ updateEnvironment_provisioningRepository = Lens.lens (\UpdateEnvironment' {provi
 
 -- | A description of the environment update.
 updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
+updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The minor version of the environment to update.
 updateEnvironment_templateMinorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
@@ -331,7 +332,7 @@ updateEnvironment_templateMinorVersion = Lens.lens (\UpdateEnvironment' {templat
 
 -- | The formatted specification that defines the update.
 updateEnvironment_spec :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_spec = Lens.lens (\UpdateEnvironment' {spec} -> spec) (\s@UpdateEnvironment' {} a -> s {spec = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
+updateEnvironment_spec = Lens.lens (\UpdateEnvironment' {spec} -> spec) (\s@UpdateEnvironment' {} a -> s {spec = a} :: UpdateEnvironment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the Proton service role that allows
 -- Proton to make API calls to other services your behalf.
@@ -411,7 +412,7 @@ instance Core.AWSRequest UpdateEnvironment where
       ( \s h x ->
           UpdateEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environment")
+            Prelude.<*> (x Data..:> "environment")
       )
 
 instance Prelude.Hashable UpdateEnvironment where
@@ -442,51 +443,51 @@ instance Prelude.NFData UpdateEnvironment where
       `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateEnvironment where
+instance Data.ToHeaders UpdateEnvironment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateEnvironment" ::
+              Data.=# ( "AwsProton20200720.UpdateEnvironment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateEnvironment where
+instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("templateMajorVersion" Core..=)
+          [ ("templateMajorVersion" Data..=)
               Prelude.<$> templateMajorVersion,
-            ("codebuildRoleArn" Core..=)
+            ("codebuildRoleArn" Data..=)
               Prelude.<$> codebuildRoleArn,
-            ("provisioningRepository" Core..=)
+            ("provisioningRepository" Data..=)
               Prelude.<$> provisioningRepository,
-            ("description" Core..=) Prelude.<$> description,
-            ("templateMinorVersion" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("templateMinorVersion" Data..=)
               Prelude.<$> templateMinorVersion,
-            ("spec" Core..=) Prelude.<$> spec,
-            ("protonServiceRoleArn" Core..=)
+            ("spec" Data..=) Prelude.<$> spec,
+            ("protonServiceRoleArn" Data..=)
               Prelude.<$> protonServiceRoleArn,
-            ("componentRoleArn" Core..=)
+            ("componentRoleArn" Data..=)
               Prelude.<$> componentRoleArn,
-            ("environmentAccountConnectionId" Core..=)
+            ("environmentAccountConnectionId" Data..=)
               Prelude.<$> environmentAccountConnectionId,
             Prelude.Just
-              ("deploymentType" Core..= deploymentType),
-            Prelude.Just ("name" Core..= name)
+              ("deploymentType" Data..= deploymentType),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateEnvironment where
+instance Data.ToPath UpdateEnvironment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateEnvironment where
+instance Data.ToQuery UpdateEnvironment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateEnvironmentResponse' smart constructor.

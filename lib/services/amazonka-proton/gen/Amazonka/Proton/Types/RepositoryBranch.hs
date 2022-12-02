@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.RepositoryBranch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
@@ -88,16 +89,16 @@ repositoryBranch_name = Lens.lens (\RepositoryBranch' {name} -> name) (\s@Reposi
 repositoryBranch_provider :: Lens.Lens' RepositoryBranch RepositoryProvider
 repositoryBranch_provider = Lens.lens (\RepositoryBranch' {provider} -> provider) (\s@RepositoryBranch' {} a -> s {provider = a} :: RepositoryBranch)
 
-instance Core.FromJSON RepositoryBranch where
+instance Data.FromJSON RepositoryBranch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryBranch"
       ( \x ->
           RepositoryBranch'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "branch")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "provider")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "branch")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "provider")
       )
 
 instance Prelude.Hashable RepositoryBranch where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -168,9 +169,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListEnvironmentTemplateVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "templateVersions"
+            Prelude.<*> ( x Data..?> "templateVersions"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -198,38 +199,38 @@ instance
       `Prelude.seq` Prelude.rnf templateName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListEnvironmentTemplateVersions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListEnvironmentTemplateVersions" ::
+              Data.=# ( "AwsProton20200720.ListEnvironmentTemplateVersions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEnvironmentTemplateVersions where
+instance Data.ToJSON ListEnvironmentTemplateVersions where
   toJSON ListEnvironmentTemplateVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("majorVersion" Core..=) Prelude.<$> majorVersion,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("templateName" Core..= templateName)
+          [ ("majorVersion" Data..=) Prelude.<$> majorVersion,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath ListEnvironmentTemplateVersions where
+instance Data.ToPath ListEnvironmentTemplateVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListEnvironmentTemplateVersions where
+instance Data.ToQuery ListEnvironmentTemplateVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEnvironmentTemplateVersionsResponse' smart constructor.

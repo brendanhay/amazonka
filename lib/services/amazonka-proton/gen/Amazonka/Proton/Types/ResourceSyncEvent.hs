@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ResourceSyncEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detail data for a resource sync event.
@@ -32,7 +33,7 @@ data ResourceSyncEvent = ResourceSyncEvent'
     -- | A resource sync event.
     event :: Prelude.Text,
     -- | The time when the event occurred.
-    time :: Core.POSIX,
+    time :: Data.POSIX,
     -- | The type of event.
     type' :: Prelude.Text
   }
@@ -65,7 +66,7 @@ newResourceSyncEvent pEvent_ pTime_ pType_ =
   ResourceSyncEvent'
     { externalId = Prelude.Nothing,
       event = pEvent_,
-      time = Core._Time Lens.# pTime_,
+      time = Data._Time Lens.# pTime_,
       type' = pType_
     }
 
@@ -79,22 +80,22 @@ resourceSyncEvent_event = Lens.lens (\ResourceSyncEvent' {event} -> event) (\s@R
 
 -- | The time when the event occurred.
 resourceSyncEvent_time :: Lens.Lens' ResourceSyncEvent Prelude.UTCTime
-resourceSyncEvent_time = Lens.lens (\ResourceSyncEvent' {time} -> time) (\s@ResourceSyncEvent' {} a -> s {time = a} :: ResourceSyncEvent) Prelude.. Core._Time
+resourceSyncEvent_time = Lens.lens (\ResourceSyncEvent' {time} -> time) (\s@ResourceSyncEvent' {} a -> s {time = a} :: ResourceSyncEvent) Prelude.. Data._Time
 
 -- | The type of event.
 resourceSyncEvent_type :: Lens.Lens' ResourceSyncEvent Prelude.Text
 resourceSyncEvent_type = Lens.lens (\ResourceSyncEvent' {type'} -> type') (\s@ResourceSyncEvent' {} a -> s {type' = a} :: ResourceSyncEvent)
 
-instance Core.FromJSON ResourceSyncEvent where
+instance Data.FromJSON ResourceSyncEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceSyncEvent"
       ( \x ->
           ResourceSyncEvent'
-            Prelude.<$> (x Core..:? "externalId")
-            Prelude.<*> (x Core..: "event")
-            Prelude.<*> (x Core..: "time")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "externalId")
+            Prelude.<*> (x Data..: "event")
+            Prelude.<*> (x Data..: "time")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ResourceSyncEvent where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -97,7 +98,7 @@ instance Core.AWSRequest DeleteRepository where
     Response.receiveJSON
       ( \s h x ->
           DeleteRepositoryResponse'
-            Prelude.<$> (x Core..?> "repository")
+            Prelude.<$> (x Data..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,34 +111,34 @@ instance Prelude.NFData DeleteRepository where
   rnf DeleteRepository' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf provider
 
-instance Core.ToHeaders DeleteRepository where
+instance Data.ToHeaders DeleteRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.DeleteRepository" ::
+              Data.=# ( "AwsProton20200720.DeleteRepository" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteRepository where
+instance Data.ToJSON DeleteRepository where
   toJSON DeleteRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("provider" Core..= provider)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("provider" Data..= provider)
           ]
       )
 
-instance Core.ToPath DeleteRepository where
+instance Data.ToPath DeleteRepository where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteRepository where
+instance Data.ToQuery DeleteRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteRepositoryResponse' smart constructor.

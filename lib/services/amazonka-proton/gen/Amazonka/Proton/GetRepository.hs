@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetRepository where
       ( \s h x ->
           GetRepositoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "repository")
+            Prelude.<*> (x Data..:> "repository")
       )
 
 instance Prelude.Hashable GetRepository where
@@ -110,34 +111,34 @@ instance Prelude.NFData GetRepository where
   rnf GetRepository' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf provider
 
-instance Core.ToHeaders GetRepository where
+instance Data.ToHeaders GetRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetRepository" ::
+              Data.=# ( "AwsProton20200720.GetRepository" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRepository where
+instance Data.ToJSON GetRepository where
   toJSON GetRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("provider" Core..= provider)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("provider" Data..= provider)
           ]
       )
 
-instance Core.ToPath GetRepository where
+instance Data.ToPath GetRepository where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRepository where
+instance Data.ToQuery GetRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRepositoryResponse' smart constructor.

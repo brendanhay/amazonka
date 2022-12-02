@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance
       ( \s h x ->
           CancelServicePipelineDeploymentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "pipeline")
+            Prelude.<*> (x Data..:> "pipeline")
       )
 
 instance
@@ -126,34 +127,34 @@ instance
     Prelude.rnf serviceName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CancelServicePipelineDeployment
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CancelServicePipelineDeployment" ::
+              Data.=# ( "AwsProton20200720.CancelServicePipelineDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelServicePipelineDeployment where
+instance Data.ToJSON CancelServicePipelineDeployment where
   toJSON CancelServicePipelineDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("serviceName" Core..= serviceName)]
+          [Prelude.Just ("serviceName" Data..= serviceName)]
       )
 
-instance Core.ToPath CancelServicePipelineDeployment where
+instance Data.ToPath CancelServicePipelineDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelServicePipelineDeployment where
+instance Data.ToQuery CancelServicePipelineDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelServicePipelineDeploymentResponse' smart constructor.

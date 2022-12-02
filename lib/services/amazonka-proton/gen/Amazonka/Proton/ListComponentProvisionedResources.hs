@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -136,9 +137,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListComponentProvisionedResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..?> "provisionedResources"
+              Prelude.<*> ( x Data..?> "provisionedResources"
                               Core..!@ Prelude.mempty
                           )
       )
@@ -162,44 +163,44 @@ instance
       `Prelude.seq` Prelude.rnf componentName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListComponentProvisionedResources
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListComponentProvisionedResources" ::
+              Data.=# ( "AwsProton20200720.ListComponentProvisionedResources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListComponentProvisionedResources
   where
   toJSON ListComponentProvisionedResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
-              ("componentName" Core..= componentName)
+              ("componentName" Data..= componentName)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListComponentProvisionedResources
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListComponentProvisionedResources
   where
   toQuery = Prelude.const Prelude.mempty

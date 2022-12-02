@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -172,9 +173,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListEnvironmentAccountConnectionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..?> "environmentAccountConnections"
+              Prelude.<*> ( x Data..?> "environmentAccountConnections"
                               Core..!@ Prelude.mempty
                           )
       )
@@ -204,47 +205,47 @@ instance
       `Prelude.seq` Prelude.rnf requestedBy
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListEnvironmentAccountConnections
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListEnvironmentAccountConnections" ::
+              Data.=# ( "AwsProton20200720.ListEnvironmentAccountConnections" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListEnvironmentAccountConnections
   where
   toJSON ListEnvironmentAccountConnections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("environmentName" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("environmentName" Data..=)
               Prelude.<$> environmentName,
-            ("statuses" Core..=) Prelude.<$> statuses,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("requestedBy" Core..= requestedBy)
+            ("statuses" Data..=) Prelude.<$> statuses,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("requestedBy" Data..= requestedBy)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListEnvironmentAccountConnections
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListEnvironmentAccountConnections
   where
   toQuery = Prelude.const Prelude.mempty

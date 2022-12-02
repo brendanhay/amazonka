@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -75,9 +76,9 @@ data CreateComponent = CreateComponent'
     -- | The service spec that you want the component to use to access service
     -- inputs. Set this only when you attach the component to a service
     -- instance.
-    serviceSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    serviceSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An optional customer-provided description of the component.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the service that @serviceInstanceName@ is associated with.
     -- If you don\'t specify this, the component isn\'t attached to any service
     -- instance. Specify both @serviceInstanceName@ and @serviceName@ or
@@ -91,7 +92,7 @@ data CreateComponent = CreateComponent'
     -- | A path to a manifest file that lists the Infrastructure as Code (IaC)
     -- file, template language, and rendering engine for infrastructure that a
     -- custom component provisions.
-    manifest :: Core.Sensitive Prelude.Text,
+    manifest :: Data.Sensitive Prelude.Text,
     -- | The customer-provided name of the component.
     name :: Prelude.Text,
     -- | A path to the Infrastructure as Code (IaC) file describing
@@ -99,7 +100,7 @@ data CreateComponent = CreateComponent'
     --
     -- Components support a single IaC file, even if you use Terraform as your
     -- template language.
-    templateFile :: Core.Sensitive Prelude.Text
+    templateFile :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -165,9 +166,9 @@ newCreateComponent pManifest_ pName_ pTemplateFile_ =
       description = Prelude.Nothing,
       serviceName = Prelude.Nothing,
       serviceInstanceName = Prelude.Nothing,
-      manifest = Core._Sensitive Lens.# pManifest_,
+      manifest = Data._Sensitive Lens.# pManifest_,
       name = pName_,
-      templateFile = Core._Sensitive Lens.# pTemplateFile_
+      templateFile = Data._Sensitive Lens.# pTemplateFile_
     }
 
 -- | An optional list of metadata items that you can associate with the
@@ -189,11 +190,11 @@ createComponent_environmentName = Lens.lens (\CreateComponent' {environmentName}
 -- inputs. Set this only when you attach the component to a service
 -- instance.
 createComponent_serviceSpec :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
-createComponent_serviceSpec = Lens.lens (\CreateComponent' {serviceSpec} -> serviceSpec) (\s@CreateComponent' {} a -> s {serviceSpec = a} :: CreateComponent) Prelude.. Lens.mapping Core._Sensitive
+createComponent_serviceSpec = Lens.lens (\CreateComponent' {serviceSpec} -> serviceSpec) (\s@CreateComponent' {} a -> s {serviceSpec = a} :: CreateComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An optional customer-provided description of the component.
 createComponent_description :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
-createComponent_description = Lens.lens (\CreateComponent' {description} -> description) (\s@CreateComponent' {} a -> s {description = a} :: CreateComponent) Prelude.. Lens.mapping Core._Sensitive
+createComponent_description = Lens.lens (\CreateComponent' {description} -> description) (\s@CreateComponent' {} a -> s {description = a} :: CreateComponent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the service that @serviceInstanceName@ is associated with.
 -- If you don\'t specify this, the component isn\'t attached to any service
@@ -213,7 +214,7 @@ createComponent_serviceInstanceName = Lens.lens (\CreateComponent' {serviceInsta
 -- file, template language, and rendering engine for infrastructure that a
 -- custom component provisions.
 createComponent_manifest :: Lens.Lens' CreateComponent Prelude.Text
-createComponent_manifest = Lens.lens (\CreateComponent' {manifest} -> manifest) (\s@CreateComponent' {} a -> s {manifest = a} :: CreateComponent) Prelude.. Core._Sensitive
+createComponent_manifest = Lens.lens (\CreateComponent' {manifest} -> manifest) (\s@CreateComponent' {} a -> s {manifest = a} :: CreateComponent) Prelude.. Data._Sensitive
 
 -- | The customer-provided name of the component.
 createComponent_name :: Lens.Lens' CreateComponent Prelude.Text
@@ -225,7 +226,7 @@ createComponent_name = Lens.lens (\CreateComponent' {name} -> name) (\s@CreateCo
 -- Components support a single IaC file, even if you use Terraform as your
 -- template language.
 createComponent_templateFile :: Lens.Lens' CreateComponent Prelude.Text
-createComponent_templateFile = Lens.lens (\CreateComponent' {templateFile} -> templateFile) (\s@CreateComponent' {} a -> s {templateFile = a} :: CreateComponent) Prelude.. Core._Sensitive
+createComponent_templateFile = Lens.lens (\CreateComponent' {templateFile} -> templateFile) (\s@CreateComponent' {} a -> s {templateFile = a} :: CreateComponent) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateComponent where
   type
@@ -238,7 +239,7 @@ instance Core.AWSRequest CreateComponent where
       ( \s h x ->
           CreateComponentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "component")
+            Prelude.<*> (x Data..:> "component")
       )
 
 instance Prelude.Hashable CreateComponent where
@@ -265,43 +266,43 @@ instance Prelude.NFData CreateComponent where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf templateFile
 
-instance Core.ToHeaders CreateComponent where
+instance Data.ToHeaders CreateComponent where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateComponent" ::
+              Data.=# ( "AwsProton20200720.CreateComponent" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateComponent where
+instance Data.ToJSON CreateComponent where
   toJSON CreateComponent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("environmentName" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("environmentName" Data..=)
               Prelude.<$> environmentName,
-            ("serviceSpec" Core..=) Prelude.<$> serviceSpec,
-            ("description" Core..=) Prelude.<$> description,
-            ("serviceName" Core..=) Prelude.<$> serviceName,
-            ("serviceInstanceName" Core..=)
+            ("serviceSpec" Data..=) Prelude.<$> serviceSpec,
+            ("description" Data..=) Prelude.<$> description,
+            ("serviceName" Data..=) Prelude.<$> serviceName,
+            ("serviceInstanceName" Data..=)
               Prelude.<$> serviceInstanceName,
-            Prelude.Just ("manifest" Core..= manifest),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("templateFile" Core..= templateFile)
+            Prelude.Just ("manifest" Data..= manifest),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("templateFile" Data..= templateFile)
           ]
       )
 
-instance Core.ToPath CreateComponent where
+instance Data.ToPath CreateComponent where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateComponent where
+instance Data.ToQuery CreateComponent where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateComponentResponse' smart constructor.

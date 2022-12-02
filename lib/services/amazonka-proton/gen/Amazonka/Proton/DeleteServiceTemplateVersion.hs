@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -124,7 +125,7 @@ instance Core.AWSRequest DeleteServiceTemplateVersion where
     Response.receiveJSON
       ( \s h x ->
           DeleteServiceTemplateVersionResponse'
-            Prelude.<$> (x Core..?> "serviceTemplateVersion")
+            Prelude.<$> (x Data..?> "serviceTemplateVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,35 +144,35 @@ instance Prelude.NFData DeleteServiceTemplateVersion where
       `Prelude.seq` Prelude.rnf minorVersion
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders DeleteServiceTemplateVersion where
+instance Data.ToHeaders DeleteServiceTemplateVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.DeleteServiceTemplateVersion" ::
+              Data.=# ( "AwsProton20200720.DeleteServiceTemplateVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteServiceTemplateVersion where
+instance Data.ToJSON DeleteServiceTemplateVersion where
   toJSON DeleteServiceTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("majorVersion" Core..= majorVersion),
-            Prelude.Just ("minorVersion" Core..= minorVersion),
-            Prelude.Just ("templateName" Core..= templateName)
+          [ Prelude.Just ("majorVersion" Data..= majorVersion),
+            Prelude.Just ("minorVersion" Data..= minorVersion),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath DeleteServiceTemplateVersion where
+instance Data.ToPath DeleteServiceTemplateVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteServiceTemplateVersion where
+instance Data.ToQuery DeleteServiceTemplateVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServiceTemplateVersionResponse' smart constructor.

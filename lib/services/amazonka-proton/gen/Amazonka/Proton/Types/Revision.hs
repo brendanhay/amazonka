@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.Revision where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
@@ -107,17 +108,17 @@ revision_repositoryProvider = Lens.lens (\Revision' {repositoryProvider} -> repo
 revision_sha :: Lens.Lens' Revision Prelude.Text
 revision_sha = Lens.lens (\Revision' {sha} -> sha) (\s@Revision' {} a -> s {sha = a} :: Revision)
 
-instance Core.FromJSON Revision where
+instance Data.FromJSON Revision where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Revision"
       ( \x ->
           Revision'
-            Prelude.<$> (x Core..: "branch")
-            Prelude.<*> (x Core..: "directory")
-            Prelude.<*> (x Core..: "repositoryName")
-            Prelude.<*> (x Core..: "repositoryProvider")
-            Prelude.<*> (x Core..: "sha")
+            Prelude.<$> (x Data..: "branch")
+            Prelude.<*> (x Data..: "directory")
+            Prelude.<*> (x Data..: "repositoryName")
+            Prelude.<*> (x Data..: "repositoryProvider")
+            Prelude.<*> (x Data..: "sha")
       )
 
 instance Prelude.Hashable Revision where

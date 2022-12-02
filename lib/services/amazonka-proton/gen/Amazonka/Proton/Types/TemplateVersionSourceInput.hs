@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.TemplateVersionSourceInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.S3ObjectSource
 
@@ -61,7 +62,7 @@ instance Prelude.Hashable TemplateVersionSourceInput where
 instance Prelude.NFData TemplateVersionSourceInput where
   rnf TemplateVersionSourceInput' {..} = Prelude.rnf s3
 
-instance Core.ToJSON TemplateVersionSourceInput where
+instance Data.ToJSON TemplateVersionSourceInput where
   toJSON TemplateVersionSourceInput' {..} =
-    Core.object
-      (Prelude.catMaybes [("s3" Core..=) Prelude.<$> s3])
+    Data.object
+      (Prelude.catMaybes [("s3" Data..=) Prelude.<$> s3])

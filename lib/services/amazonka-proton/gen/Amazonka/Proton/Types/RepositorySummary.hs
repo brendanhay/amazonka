@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.RepositorySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryProvider
 
@@ -78,15 +79,15 @@ repositorySummary_name = Lens.lens (\RepositorySummary' {name} -> name) (\s@Repo
 repositorySummary_provider :: Lens.Lens' RepositorySummary RepositoryProvider
 repositorySummary_provider = Lens.lens (\RepositorySummary' {provider} -> provider) (\s@RepositorySummary' {} a -> s {provider = a} :: RepositorySummary)
 
-instance Core.FromJSON RepositorySummary where
+instance Data.FromJSON RepositorySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositorySummary"
       ( \x ->
           RepositorySummary'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "provider")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "provider")
       )
 
 instance Prelude.Hashable RepositorySummary where

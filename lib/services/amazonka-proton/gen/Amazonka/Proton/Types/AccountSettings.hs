@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.AccountSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositoryBranch
 
@@ -97,15 +98,15 @@ accountSettings_pipelineServiceRoleArn = Lens.lens (\AccountSettings' {pipelineS
 accountSettings_pipelineCodebuildRoleArn :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
 accountSettings_pipelineCodebuildRoleArn = Lens.lens (\AccountSettings' {pipelineCodebuildRoleArn} -> pipelineCodebuildRoleArn) (\s@AccountSettings' {} a -> s {pipelineCodebuildRoleArn = a} :: AccountSettings)
 
-instance Core.FromJSON AccountSettings where
+instance Data.FromJSON AccountSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountSettings"
       ( \x ->
           AccountSettings'
-            Prelude.<$> (x Core..:? "pipelineProvisioningRepository")
-            Prelude.<*> (x Core..:? "pipelineServiceRoleArn")
-            Prelude.<*> (x Core..:? "pipelineCodebuildRoleArn")
+            Prelude.<$> (x Data..:? "pipelineProvisioningRepository")
+            Prelude.<*> (x Data..:? "pipelineServiceRoleArn")
+            Prelude.<*> (x Data..:? "pipelineCodebuildRoleArn")
       )
 
 instance Prelude.Hashable AccountSettings where

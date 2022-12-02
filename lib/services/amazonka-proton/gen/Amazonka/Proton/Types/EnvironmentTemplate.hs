@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.EnvironmentTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.Provisioning
 
@@ -35,17 +36,17 @@ data EnvironmentTemplate = EnvironmentTemplate'
     provisioning :: Prelude.Maybe Provisioning,
     -- | The name of the environment template as displayed in the developer
     -- interface.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the environment template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The customer provided encryption key for the environment template.
     encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the environment template.
     arn :: Prelude.Text,
     -- | The time when the environment template was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the environment template was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The name of the environment template.
     name :: Prelude.Text
   }
@@ -101,8 +102,8 @@ newEnvironmentTemplate
         description = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastModifiedAt = Core._Time Lens.# pLastModifiedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
         name = pName_
       }
 
@@ -118,11 +119,11 @@ environmentTemplate_provisioning = Lens.lens (\EnvironmentTemplate' {provisionin
 -- | The name of the environment template as displayed in the developer
 -- interface.
 environmentTemplate_displayName :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
-environmentTemplate_displayName = Lens.lens (\EnvironmentTemplate' {displayName} -> displayName) (\s@EnvironmentTemplate' {} a -> s {displayName = a} :: EnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
+environmentTemplate_displayName = Lens.lens (\EnvironmentTemplate' {displayName} -> displayName) (\s@EnvironmentTemplate' {} a -> s {displayName = a} :: EnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description of the environment template.
 environmentTemplate_description :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
-environmentTemplate_description = Lens.lens (\EnvironmentTemplate' {description} -> description) (\s@EnvironmentTemplate' {} a -> s {description = a} :: EnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
+environmentTemplate_description = Lens.lens (\EnvironmentTemplate' {description} -> description) (\s@EnvironmentTemplate' {} a -> s {description = a} :: EnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The customer provided encryption key for the environment template.
 environmentTemplate_encryptionKey :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
@@ -134,31 +135,31 @@ environmentTemplate_arn = Lens.lens (\EnvironmentTemplate' {arn} -> arn) (\s@Env
 
 -- | The time when the environment template was created.
 environmentTemplate_createdAt :: Lens.Lens' EnvironmentTemplate Prelude.UTCTime
-environmentTemplate_createdAt = Lens.lens (\EnvironmentTemplate' {createdAt} -> createdAt) (\s@EnvironmentTemplate' {} a -> s {createdAt = a} :: EnvironmentTemplate) Prelude.. Core._Time
+environmentTemplate_createdAt = Lens.lens (\EnvironmentTemplate' {createdAt} -> createdAt) (\s@EnvironmentTemplate' {} a -> s {createdAt = a} :: EnvironmentTemplate) Prelude.. Data._Time
 
 -- | The time when the environment template was last modified.
 environmentTemplate_lastModifiedAt :: Lens.Lens' EnvironmentTemplate Prelude.UTCTime
-environmentTemplate_lastModifiedAt = Lens.lens (\EnvironmentTemplate' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentTemplate' {} a -> s {lastModifiedAt = a} :: EnvironmentTemplate) Prelude.. Core._Time
+environmentTemplate_lastModifiedAt = Lens.lens (\EnvironmentTemplate' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentTemplate' {} a -> s {lastModifiedAt = a} :: EnvironmentTemplate) Prelude.. Data._Time
 
 -- | The name of the environment template.
 environmentTemplate_name :: Lens.Lens' EnvironmentTemplate Prelude.Text
 environmentTemplate_name = Lens.lens (\EnvironmentTemplate' {name} -> name) (\s@EnvironmentTemplate' {} a -> s {name = a} :: EnvironmentTemplate)
 
-instance Core.FromJSON EnvironmentTemplate where
+instance Data.FromJSON EnvironmentTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentTemplate"
       ( \x ->
           EnvironmentTemplate'
-            Prelude.<$> (x Core..:? "recommendedVersion")
-            Prelude.<*> (x Core..:? "provisioning")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "recommendedVersion")
+            Prelude.<*> (x Data..:? "provisioning")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable EnvironmentTemplate where

@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.RepositorySyncEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Repository sync event detail data for a sync attempt.
@@ -32,7 +33,7 @@ data RepositorySyncEvent = RepositorySyncEvent'
     -- | Event detail for a repository sync attempt.
     event :: Prelude.Text,
     -- | The time that the sync event occurred.
-    time :: Core.POSIX,
+    time :: Data.POSIX,
     -- | The type of event.
     type' :: Prelude.Text
   }
@@ -65,7 +66,7 @@ newRepositorySyncEvent pEvent_ pTime_ pType_ =
   RepositorySyncEvent'
     { externalId = Prelude.Nothing,
       event = pEvent_,
-      time = Core._Time Lens.# pTime_,
+      time = Data._Time Lens.# pTime_,
       type' = pType_
     }
 
@@ -79,22 +80,22 @@ repositorySyncEvent_event = Lens.lens (\RepositorySyncEvent' {event} -> event) (
 
 -- | The time that the sync event occurred.
 repositorySyncEvent_time :: Lens.Lens' RepositorySyncEvent Prelude.UTCTime
-repositorySyncEvent_time = Lens.lens (\RepositorySyncEvent' {time} -> time) (\s@RepositorySyncEvent' {} a -> s {time = a} :: RepositorySyncEvent) Prelude.. Core._Time
+repositorySyncEvent_time = Lens.lens (\RepositorySyncEvent' {time} -> time) (\s@RepositorySyncEvent' {} a -> s {time = a} :: RepositorySyncEvent) Prelude.. Data._Time
 
 -- | The type of event.
 repositorySyncEvent_type :: Lens.Lens' RepositorySyncEvent Prelude.Text
 repositorySyncEvent_type = Lens.lens (\RepositorySyncEvent' {type'} -> type') (\s@RepositorySyncEvent' {} a -> s {type' = a} :: RepositorySyncEvent)
 
-instance Core.FromJSON RepositorySyncEvent where
+instance Data.FromJSON RepositorySyncEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositorySyncEvent"
       ( \x ->
           RepositorySyncEvent'
-            Prelude.<$> (x Core..:? "externalId")
-            Prelude.<*> (x Core..: "event")
-            Prelude.<*> (x Core..: "time")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "externalId")
+            Prelude.<*> (x Data..: "event")
+            Prelude.<*> (x Data..: "time")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable RepositorySyncEvent where

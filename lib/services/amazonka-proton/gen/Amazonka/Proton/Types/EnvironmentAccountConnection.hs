@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.EnvironmentAccountConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.EnvironmentAccountConnectionStatus
 
@@ -57,12 +58,12 @@ data EnvironmentAccountConnection = EnvironmentAccountConnection'
     -- | The ID of the environment account connection.
     id :: Prelude.Text,
     -- | The time when the environment account connection was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The ID of the management account that\'s connected to the environment
     -- account connection.
     managementAccountId :: Prelude.Text,
     -- | The time when the environment account connection request was made.
-    requestedAt :: Core.POSIX,
+    requestedAt :: Data.POSIX,
     -- | The IAM service role that\'s associated with the environment account
     -- connection.
     roleArn :: Prelude.Text,
@@ -157,9 +158,9 @@ newEnvironmentAccountConnection
         environmentName = pEnvironmentName_,
         id = pId_,
         lastModifiedAt =
-          Core._Time Lens.# pLastModifiedAt_,
+          Data._Time Lens.# pLastModifiedAt_,
         managementAccountId = pManagementAccountId_,
-        requestedAt = Core._Time Lens.# pRequestedAt_,
+        requestedAt = Data._Time Lens.# pRequestedAt_,
         roleArn = pRoleArn_,
         status = pStatus_
       }
@@ -206,7 +207,7 @@ environmentAccountConnection_id = Lens.lens (\EnvironmentAccountConnection' {id}
 
 -- | The time when the environment account connection was last modified.
 environmentAccountConnection_lastModifiedAt :: Lens.Lens' EnvironmentAccountConnection Prelude.UTCTime
-environmentAccountConnection_lastModifiedAt = Lens.lens (\EnvironmentAccountConnection' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentAccountConnection' {} a -> s {lastModifiedAt = a} :: EnvironmentAccountConnection) Prelude.. Core._Time
+environmentAccountConnection_lastModifiedAt = Lens.lens (\EnvironmentAccountConnection' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentAccountConnection' {} a -> s {lastModifiedAt = a} :: EnvironmentAccountConnection) Prelude.. Data._Time
 
 -- | The ID of the management account that\'s connected to the environment
 -- account connection.
@@ -215,7 +216,7 @@ environmentAccountConnection_managementAccountId = Lens.lens (\EnvironmentAccoun
 
 -- | The time when the environment account connection request was made.
 environmentAccountConnection_requestedAt :: Lens.Lens' EnvironmentAccountConnection Prelude.UTCTime
-environmentAccountConnection_requestedAt = Lens.lens (\EnvironmentAccountConnection' {requestedAt} -> requestedAt) (\s@EnvironmentAccountConnection' {} a -> s {requestedAt = a} :: EnvironmentAccountConnection) Prelude.. Core._Time
+environmentAccountConnection_requestedAt = Lens.lens (\EnvironmentAccountConnection' {requestedAt} -> requestedAt) (\s@EnvironmentAccountConnection' {} a -> s {requestedAt = a} :: EnvironmentAccountConnection) Prelude.. Data._Time
 
 -- | The IAM service role that\'s associated with the environment account
 -- connection.
@@ -226,23 +227,23 @@ environmentAccountConnection_roleArn = Lens.lens (\EnvironmentAccountConnection'
 environmentAccountConnection_status :: Lens.Lens' EnvironmentAccountConnection EnvironmentAccountConnectionStatus
 environmentAccountConnection_status = Lens.lens (\EnvironmentAccountConnection' {status} -> status) (\s@EnvironmentAccountConnection' {} a -> s {status = a} :: EnvironmentAccountConnection)
 
-instance Core.FromJSON EnvironmentAccountConnection where
+instance Data.FromJSON EnvironmentAccountConnection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentAccountConnection"
       ( \x ->
           EnvironmentAccountConnection'
-            Prelude.<$> (x Core..:? "codebuildRoleArn")
-            Prelude.<*> (x Core..:? "componentRoleArn")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "environmentAccountId")
-            Prelude.<*> (x Core..: "environmentName")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "managementAccountId")
-            Prelude.<*> (x Core..: "requestedAt")
-            Prelude.<*> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "codebuildRoleArn")
+            Prelude.<*> (x Data..:? "componentRoleArn")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "environmentAccountId")
+            Prelude.<*> (x Data..: "environmentName")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "managementAccountId")
+            Prelude.<*> (x Data..: "requestedAt")
+            Prelude.<*> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance

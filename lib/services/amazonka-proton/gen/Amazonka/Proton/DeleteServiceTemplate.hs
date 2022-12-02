@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteServiceTemplate where
     Response.receiveJSON
       ( \s h x ->
           DeleteServiceTemplateResponse'
-            Prelude.<$> (x Core..?> "serviceTemplate")
+            Prelude.<$> (x Data..?> "serviceTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable DeleteServiceTemplate where
 instance Prelude.NFData DeleteServiceTemplate where
   rnf DeleteServiceTemplate' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DeleteServiceTemplate where
+instance Data.ToHeaders DeleteServiceTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.DeleteServiceTemplate" ::
+              Data.=# ( "AwsProton20200720.DeleteServiceTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteServiceTemplate where
+instance Data.ToJSON DeleteServiceTemplate where
   toJSON DeleteServiceTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath DeleteServiceTemplate where
+instance Data.ToPath DeleteServiceTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteServiceTemplate where
+instance Data.ToQuery DeleteServiceTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServiceTemplateResponse' smart constructor.

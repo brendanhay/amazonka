@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.EnvironmentTemplateVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.TemplateVersionStatus
 
@@ -29,18 +30,18 @@ import Amazonka.Proton.Types.TemplateVersionStatus
 -- /See:/ 'newEnvironmentTemplateVersionSummary' smart constructor.
 data EnvironmentTemplateVersionSummary = EnvironmentTemplateVersionSummary'
   { -- | A description of the version of an environment template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The recommended minor version of the environment template.
     recommendedMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The status message of the version of an environment template.
-    statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the version of an environment
     -- template.
     arn :: Prelude.Text,
     -- | The time when the version of an environment template was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the version of an environment template was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The latest major version that\'s associated with the version of an
     -- environment template.
     majorVersion :: Prelude.Text,
@@ -114,9 +115,9 @@ newEnvironmentTemplateVersionSummary
         statusMessage = Prelude.Nothing,
         arn = pArn_,
         createdAt =
-          Core._Time Lens.# pCreatedAt_,
+          Data._Time Lens.# pCreatedAt_,
         lastModifiedAt =
-          Core._Time Lens.# pLastModifiedAt_,
+          Data._Time Lens.# pLastModifiedAt_,
         majorVersion = pMajorVersion_,
         minorVersion = pMinorVersion_,
         status = pStatus_,
@@ -125,7 +126,7 @@ newEnvironmentTemplateVersionSummary
 
 -- | A description of the version of an environment template.
 environmentTemplateVersionSummary_description :: Lens.Lens' EnvironmentTemplateVersionSummary (Prelude.Maybe Prelude.Text)
-environmentTemplateVersionSummary_description = Lens.lens (\EnvironmentTemplateVersionSummary' {description} -> description) (\s@EnvironmentTemplateVersionSummary' {} a -> s {description = a} :: EnvironmentTemplateVersionSummary) Prelude.. Lens.mapping Core._Sensitive
+environmentTemplateVersionSummary_description = Lens.lens (\EnvironmentTemplateVersionSummary' {description} -> description) (\s@EnvironmentTemplateVersionSummary' {} a -> s {description = a} :: EnvironmentTemplateVersionSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The recommended minor version of the environment template.
 environmentTemplateVersionSummary_recommendedMinorVersion :: Lens.Lens' EnvironmentTemplateVersionSummary (Prelude.Maybe Prelude.Text)
@@ -133,7 +134,7 @@ environmentTemplateVersionSummary_recommendedMinorVersion = Lens.lens (\Environm
 
 -- | The status message of the version of an environment template.
 environmentTemplateVersionSummary_statusMessage :: Lens.Lens' EnvironmentTemplateVersionSummary (Prelude.Maybe Prelude.Text)
-environmentTemplateVersionSummary_statusMessage = Lens.lens (\EnvironmentTemplateVersionSummary' {statusMessage} -> statusMessage) (\s@EnvironmentTemplateVersionSummary' {} a -> s {statusMessage = a} :: EnvironmentTemplateVersionSummary) Prelude.. Lens.mapping Core._Sensitive
+environmentTemplateVersionSummary_statusMessage = Lens.lens (\EnvironmentTemplateVersionSummary' {statusMessage} -> statusMessage) (\s@EnvironmentTemplateVersionSummary' {} a -> s {statusMessage = a} :: EnvironmentTemplateVersionSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the version of an environment
 -- template.
@@ -142,11 +143,11 @@ environmentTemplateVersionSummary_arn = Lens.lens (\EnvironmentTemplateVersionSu
 
 -- | The time when the version of an environment template was created.
 environmentTemplateVersionSummary_createdAt :: Lens.Lens' EnvironmentTemplateVersionSummary Prelude.UTCTime
-environmentTemplateVersionSummary_createdAt = Lens.lens (\EnvironmentTemplateVersionSummary' {createdAt} -> createdAt) (\s@EnvironmentTemplateVersionSummary' {} a -> s {createdAt = a} :: EnvironmentTemplateVersionSummary) Prelude.. Core._Time
+environmentTemplateVersionSummary_createdAt = Lens.lens (\EnvironmentTemplateVersionSummary' {createdAt} -> createdAt) (\s@EnvironmentTemplateVersionSummary' {} a -> s {createdAt = a} :: EnvironmentTemplateVersionSummary) Prelude.. Data._Time
 
 -- | The time when the version of an environment template was last modified.
 environmentTemplateVersionSummary_lastModifiedAt :: Lens.Lens' EnvironmentTemplateVersionSummary Prelude.UTCTime
-environmentTemplateVersionSummary_lastModifiedAt = Lens.lens (\EnvironmentTemplateVersionSummary' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentTemplateVersionSummary' {} a -> s {lastModifiedAt = a} :: EnvironmentTemplateVersionSummary) Prelude.. Core._Time
+environmentTemplateVersionSummary_lastModifiedAt = Lens.lens (\EnvironmentTemplateVersionSummary' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentTemplateVersionSummary' {} a -> s {lastModifiedAt = a} :: EnvironmentTemplateVersionSummary) Prelude.. Data._Time
 
 -- | The latest major version that\'s associated with the version of an
 -- environment template.
@@ -166,24 +167,24 @@ environmentTemplateVersionSummary_templateName :: Lens.Lens' EnvironmentTemplate
 environmentTemplateVersionSummary_templateName = Lens.lens (\EnvironmentTemplateVersionSummary' {templateName} -> templateName) (\s@EnvironmentTemplateVersionSummary' {} a -> s {templateName = a} :: EnvironmentTemplateVersionSummary)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EnvironmentTemplateVersionSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentTemplateVersionSummary"
       ( \x ->
           EnvironmentTemplateVersionSummary'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "recommendedMinorVersion")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "majorVersion")
-            Prelude.<*> (x Core..: "minorVersion")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "templateName")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "recommendedMinorVersion")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "majorVersion")
+            Prelude.<*> (x Data..: "minorVersion")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "templateName")
       )
 
 instance

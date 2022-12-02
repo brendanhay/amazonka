@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -69,7 +70,7 @@ data UpdateServiceTemplateVersion = UpdateServiceTemplateVersion'
     -- | The status of the service template minor version to update.
     status :: Prelude.Maybe TemplateVersionStatus,
     -- | A description of a service template version to update.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An array of environment template objects that are compatible with this
     -- service template version. A service instance based on this service
     -- template version can run in environments based on compatible templates.
@@ -162,7 +163,7 @@ updateServiceTemplateVersion_status = Lens.lens (\UpdateServiceTemplateVersion' 
 
 -- | A description of a service template version to update.
 updateServiceTemplateVersion_description :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-updateServiceTemplateVersion_description = Lens.lens (\UpdateServiceTemplateVersion' {description} -> description) (\s@UpdateServiceTemplateVersion' {} a -> s {description = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+updateServiceTemplateVersion_description = Lens.lens (\UpdateServiceTemplateVersion' {description} -> description) (\s@UpdateServiceTemplateVersion' {} a -> s {description = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An array of environment template objects that are compatible with this
 -- service template version. A service instance based on this service
@@ -194,7 +195,7 @@ instance Core.AWSRequest UpdateServiceTemplateVersion where
       ( \s h x ->
           UpdateServiceTemplateVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceTemplateVersion")
+            Prelude.<*> (x Data..:> "serviceTemplateVersion")
       )
 
 instance
@@ -221,41 +222,41 @@ instance Prelude.NFData UpdateServiceTemplateVersion where
       `Prelude.seq` Prelude.rnf minorVersion
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToHeaders UpdateServiceTemplateVersion where
+instance Data.ToHeaders UpdateServiceTemplateVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateServiceTemplateVersion" ::
+              Data.=# ( "AwsProton20200720.UpdateServiceTemplateVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServiceTemplateVersion where
+instance Data.ToJSON UpdateServiceTemplateVersion where
   toJSON UpdateServiceTemplateVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("supportedComponentSources" Core..=)
+          [ ("supportedComponentSources" Data..=)
               Prelude.<$> supportedComponentSources,
-            ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            ("compatibleEnvironmentTemplates" Core..=)
+            ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            ("compatibleEnvironmentTemplates" Data..=)
               Prelude.<$> compatibleEnvironmentTemplates,
-            Prelude.Just ("majorVersion" Core..= majorVersion),
-            Prelude.Just ("minorVersion" Core..= minorVersion),
-            Prelude.Just ("templateName" Core..= templateName)
+            Prelude.Just ("majorVersion" Data..= majorVersion),
+            Prelude.Just ("minorVersion" Data..= minorVersion),
+            Prelude.Just ("templateName" Data..= templateName)
           ]
       )
 
-instance Core.ToPath UpdateServiceTemplateVersion where
+instance Data.ToPath UpdateServiceTemplateVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServiceTemplateVersion where
+instance Data.ToQuery UpdateServiceTemplateVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceTemplateVersionResponse' smart constructor.

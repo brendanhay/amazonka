@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.Environment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.DeploymentStatus
 import Amazonka.Proton.Types.Provisioning
@@ -44,11 +45,11 @@ data Environment = Environment'
     -- see CreateRepository.
     provisioningRepository :: Prelude.Maybe RepositoryBranch,
     -- | The description of the environment.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An environment deployment status message.
-    deploymentStatusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    deploymentStatusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The environment spec.
-    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the Proton service role that allows
     -- Proton to make calls to other services on your behalf.
     protonServiceRoleArn :: Prelude.Maybe Prelude.Text,
@@ -72,13 +73,13 @@ data Environment = Environment'
     -- | The Amazon Resource Name (ARN) of the environment.
     arn :: Prelude.Text,
     -- | The time when the environment was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The environment deployment status.
     deploymentStatus :: DeploymentStatus,
     -- | The time when a deployment of the environment was last attempted.
-    lastDeploymentAttemptedAt :: Core.POSIX,
+    lastDeploymentAttemptedAt :: Data.POSIX,
     -- | The time when the environment was last deployed successfully.
-    lastDeploymentSucceededAt :: Core.POSIX,
+    lastDeploymentSucceededAt :: Data.POSIX,
     -- | The name of the environment.
     name :: Prelude.Text,
     -- | The major version of the environment template.
@@ -195,12 +196,12 @@ newEnvironment
         componentRoleArn = Prelude.Nothing,
         environmentAccountConnectionId = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         deploymentStatus = pDeploymentStatus_,
         lastDeploymentAttemptedAt =
-          Core._Time Lens.# pLastDeploymentAttemptedAt_,
+          Data._Time Lens.# pLastDeploymentAttemptedAt_,
         lastDeploymentSucceededAt =
-          Core._Time Lens.# pLastDeploymentSucceededAt_,
+          Data._Time Lens.# pLastDeploymentSucceededAt_,
         name = pName_,
         templateMajorVersion = pTemplateMajorVersion_,
         templateMinorVersion = pTemplateMinorVersion_,
@@ -227,15 +228,15 @@ environment_provisioningRepository = Lens.lens (\Environment' {provisioningRepos
 
 -- | The description of the environment.
 environment_description :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
-environment_description = Lens.lens (\Environment' {description} -> description) (\s@Environment' {} a -> s {description = a} :: Environment) Prelude.. Lens.mapping Core._Sensitive
+environment_description = Lens.lens (\Environment' {description} -> description) (\s@Environment' {} a -> s {description = a} :: Environment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An environment deployment status message.
 environment_deploymentStatusMessage :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
-environment_deploymentStatusMessage = Lens.lens (\Environment' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@Environment' {} a -> s {deploymentStatusMessage = a} :: Environment) Prelude.. Lens.mapping Core._Sensitive
+environment_deploymentStatusMessage = Lens.lens (\Environment' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@Environment' {} a -> s {deploymentStatusMessage = a} :: Environment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The environment spec.
 environment_spec :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
-environment_spec = Lens.lens (\Environment' {spec} -> spec) (\s@Environment' {} a -> s {spec = a} :: Environment) Prelude.. Lens.mapping Core._Sensitive
+environment_spec = Lens.lens (\Environment' {spec} -> spec) (\s@Environment' {} a -> s {spec = a} :: Environment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the Proton service role that allows
 -- Proton to make calls to other services on your behalf.
@@ -271,7 +272,7 @@ environment_arn = Lens.lens (\Environment' {arn} -> arn) (\s@Environment' {} a -
 
 -- | The time when the environment was created.
 environment_createdAt :: Lens.Lens' Environment Prelude.UTCTime
-environment_createdAt = Lens.lens (\Environment' {createdAt} -> createdAt) (\s@Environment' {} a -> s {createdAt = a} :: Environment) Prelude.. Core._Time
+environment_createdAt = Lens.lens (\Environment' {createdAt} -> createdAt) (\s@Environment' {} a -> s {createdAt = a} :: Environment) Prelude.. Data._Time
 
 -- | The environment deployment status.
 environment_deploymentStatus :: Lens.Lens' Environment DeploymentStatus
@@ -279,11 +280,11 @@ environment_deploymentStatus = Lens.lens (\Environment' {deploymentStatus} -> de
 
 -- | The time when a deployment of the environment was last attempted.
 environment_lastDeploymentAttemptedAt :: Lens.Lens' Environment Prelude.UTCTime
-environment_lastDeploymentAttemptedAt = Lens.lens (\Environment' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@Environment' {} a -> s {lastDeploymentAttemptedAt = a} :: Environment) Prelude.. Core._Time
+environment_lastDeploymentAttemptedAt = Lens.lens (\Environment' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@Environment' {} a -> s {lastDeploymentAttemptedAt = a} :: Environment) Prelude.. Data._Time
 
 -- | The time when the environment was last deployed successfully.
 environment_lastDeploymentSucceededAt :: Lens.Lens' Environment Prelude.UTCTime
-environment_lastDeploymentSucceededAt = Lens.lens (\Environment' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@Environment' {} a -> s {lastDeploymentSucceededAt = a} :: Environment) Prelude.. Core._Time
+environment_lastDeploymentSucceededAt = Lens.lens (\Environment' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@Environment' {} a -> s {lastDeploymentSucceededAt = a} :: Environment) Prelude.. Data._Time
 
 -- | The name of the environment.
 environment_name :: Lens.Lens' Environment Prelude.Text
@@ -301,31 +302,31 @@ environment_templateMinorVersion = Lens.lens (\Environment' {templateMinorVersio
 environment_templateName :: Lens.Lens' Environment Prelude.Text
 environment_templateName = Lens.lens (\Environment' {templateName} -> templateName) (\s@Environment' {} a -> s {templateName = a} :: Environment)
 
-instance Core.FromJSON Environment where
+instance Data.FromJSON Environment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Environment"
       ( \x ->
           Environment'
-            Prelude.<$> (x Core..:? "provisioning")
-            Prelude.<*> (x Core..:? "codebuildRoleArn")
-            Prelude.<*> (x Core..:? "provisioningRepository")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "deploymentStatusMessage")
-            Prelude.<*> (x Core..:? "spec")
-            Prelude.<*> (x Core..:? "protonServiceRoleArn")
-            Prelude.<*> (x Core..:? "environmentAccountId")
-            Prelude.<*> (x Core..:? "componentRoleArn")
-            Prelude.<*> (x Core..:? "environmentAccountConnectionId")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "deploymentStatus")
-            Prelude.<*> (x Core..: "lastDeploymentAttemptedAt")
-            Prelude.<*> (x Core..: "lastDeploymentSucceededAt")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "templateMajorVersion")
-            Prelude.<*> (x Core..: "templateMinorVersion")
-            Prelude.<*> (x Core..: "templateName")
+            Prelude.<$> (x Data..:? "provisioning")
+            Prelude.<*> (x Data..:? "codebuildRoleArn")
+            Prelude.<*> (x Data..:? "provisioningRepository")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "deploymentStatusMessage")
+            Prelude.<*> (x Data..:? "spec")
+            Prelude.<*> (x Data..:? "protonServiceRoleArn")
+            Prelude.<*> (x Data..:? "environmentAccountId")
+            Prelude.<*> (x Data..:? "componentRoleArn")
+            Prelude.<*> (x Data..:? "environmentAccountConnectionId")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "deploymentStatus")
+            Prelude.<*> (x Data..: "lastDeploymentAttemptedAt")
+            Prelude.<*> (x Data..: "lastDeploymentSucceededAt")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "templateMajorVersion")
+            Prelude.<*> (x Data..: "templateMinorVersion")
+            Prelude.<*> (x Data..: "templateName")
       )
 
 instance Prelude.Hashable Environment where

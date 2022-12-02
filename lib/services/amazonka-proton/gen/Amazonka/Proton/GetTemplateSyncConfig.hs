@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetTemplateSyncConfig where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateSyncConfigResponse'
-            Prelude.<$> (x Core..?> "templateSyncConfig")
+            Prelude.<$> (x Data..?> "templateSyncConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,34 +115,34 @@ instance Prelude.NFData GetTemplateSyncConfig where
     Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf templateType
 
-instance Core.ToHeaders GetTemplateSyncConfig where
+instance Data.ToHeaders GetTemplateSyncConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetTemplateSyncConfig" ::
+              Data.=# ( "AwsProton20200720.GetTemplateSyncConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTemplateSyncConfig where
+instance Data.ToJSON GetTemplateSyncConfig where
   toJSON GetTemplateSyncConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("templateName" Core..= templateName),
-            Prelude.Just ("templateType" Core..= templateType)
+          [ Prelude.Just ("templateName" Data..= templateName),
+            Prelude.Just ("templateType" Data..= templateType)
           ]
       )
 
-instance Core.ToPath GetTemplateSyncConfig where
+instance Data.ToPath GetTemplateSyncConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTemplateSyncConfig where
+instance Data.ToQuery GetTemplateSyncConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTemplateSyncConfigResponse' smart constructor.

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest CancelComponentDeployment where
       ( \s h x ->
           CancelComponentDeploymentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "component")
+            Prelude.<*> (x Data..:> "component")
       )
 
 instance Prelude.Hashable CancelComponentDeployment where
@@ -103,34 +104,34 @@ instance Prelude.NFData CancelComponentDeployment where
   rnf CancelComponentDeployment' {..} =
     Prelude.rnf componentName
 
-instance Core.ToHeaders CancelComponentDeployment where
+instance Data.ToHeaders CancelComponentDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CancelComponentDeployment" ::
+              Data.=# ( "AwsProton20200720.CancelComponentDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelComponentDeployment where
+instance Data.ToJSON CancelComponentDeployment where
   toJSON CancelComponentDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("componentName" Core..= componentName)
+              ("componentName" Data..= componentName)
           ]
       )
 
-instance Core.ToPath CancelComponentDeployment where
+instance Data.ToPath CancelComponentDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelComponentDeployment where
+instance Data.ToQuery CancelComponentDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelComponentDeploymentResponse' smart constructor.

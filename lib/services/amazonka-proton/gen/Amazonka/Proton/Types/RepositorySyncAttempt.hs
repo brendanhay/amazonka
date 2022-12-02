@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.RepositorySyncAttempt where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.RepositorySyncEvent
 import Amazonka.Proton.Types.RepositorySyncStatus
@@ -33,7 +34,7 @@ data RepositorySyncAttempt = RepositorySyncAttempt'
   { -- | Detail data for sync attempt events.
     events :: [RepositorySyncEvent],
     -- | The time when the sync attempt started.
-    startedAt :: Core.POSIX,
+    startedAt :: Data.POSIX,
     -- | The sync attempt status.
     status :: RepositorySyncStatus
   }
@@ -61,7 +62,7 @@ newRepositorySyncAttempt ::
 newRepositorySyncAttempt pStartedAt_ pStatus_ =
   RepositorySyncAttempt'
     { events = Prelude.mempty,
-      startedAt = Core._Time Lens.# pStartedAt_,
+      startedAt = Data._Time Lens.# pStartedAt_,
       status = pStatus_
     }
 
@@ -71,21 +72,21 @@ repositorySyncAttempt_events = Lens.lens (\RepositorySyncAttempt' {events} -> ev
 
 -- | The time when the sync attempt started.
 repositorySyncAttempt_startedAt :: Lens.Lens' RepositorySyncAttempt Prelude.UTCTime
-repositorySyncAttempt_startedAt = Lens.lens (\RepositorySyncAttempt' {startedAt} -> startedAt) (\s@RepositorySyncAttempt' {} a -> s {startedAt = a} :: RepositorySyncAttempt) Prelude.. Core._Time
+repositorySyncAttempt_startedAt = Lens.lens (\RepositorySyncAttempt' {startedAt} -> startedAt) (\s@RepositorySyncAttempt' {} a -> s {startedAt = a} :: RepositorySyncAttempt) Prelude.. Data._Time
 
 -- | The sync attempt status.
 repositorySyncAttempt_status :: Lens.Lens' RepositorySyncAttempt RepositorySyncStatus
 repositorySyncAttempt_status = Lens.lens (\RepositorySyncAttempt' {status} -> status) (\s@RepositorySyncAttempt' {} a -> s {status = a} :: RepositorySyncAttempt)
 
-instance Core.FromJSON RepositorySyncAttempt where
+instance Data.FromJSON RepositorySyncAttempt where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositorySyncAttempt"
       ( \x ->
           RepositorySyncAttempt'
-            Prelude.<$> (x Core..:? "events" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "startedAt")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "startedAt")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable RepositorySyncAttempt where

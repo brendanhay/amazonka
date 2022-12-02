@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -124,9 +125,9 @@ instance Core.AWSRequest ListComponentOutputs where
     Response.receiveJSON
       ( \s h x ->
           ListComponentOutputsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListComponentOutputs where
@@ -139,35 +140,35 @@ instance Prelude.NFData ListComponentOutputs where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf componentName
 
-instance Core.ToHeaders ListComponentOutputs where
+instance Data.ToHeaders ListComponentOutputs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListComponentOutputs" ::
+              Data.=# ( "AwsProton20200720.ListComponentOutputs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListComponentOutputs where
+instance Data.ToJSON ListComponentOutputs where
   toJSON ListComponentOutputs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
-              ("componentName" Core..= componentName)
+              ("componentName" Data..= componentName)
           ]
       )
 
-instance Core.ToPath ListComponentOutputs where
+instance Data.ToPath ListComponentOutputs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListComponentOutputs where
+instance Data.ToQuery ListComponentOutputs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComponentOutputsResponse' smart constructor.
@@ -178,7 +179,7 @@ data ListComponentOutputsResponse = ListComponentOutputsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | An array of component Infrastructure as Code (IaC) outputs.
-    outputs :: [Core.Sensitive Output]
+    outputs :: [Data.Sensitive Output]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 

@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ data UpdateServiceInstance = UpdateServiceInstance'
     -- | The minor version of the service template to update.
     templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The formatted specification that defines the service instance update.
-    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The deployment type. It defines the mode for updating a service
     -- instance, as follows:
     --
@@ -193,7 +194,7 @@ updateServiceInstance_templateMinorVersion = Lens.lens (\UpdateServiceInstance' 
 
 -- | The formatted specification that defines the service instance update.
 updateServiceInstance_spec :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
-updateServiceInstance_spec = Lens.lens (\UpdateServiceInstance' {spec} -> spec) (\s@UpdateServiceInstance' {} a -> s {spec = a} :: UpdateServiceInstance) Prelude.. Lens.mapping Core._Sensitive
+updateServiceInstance_spec = Lens.lens (\UpdateServiceInstance' {spec} -> spec) (\s@UpdateServiceInstance' {} a -> s {spec = a} :: UpdateServiceInstance) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The deployment type. It defines the mode for updating a service
 -- instance, as follows:
@@ -250,7 +251,7 @@ instance Core.AWSRequest UpdateServiceInstance where
       ( \s h x ->
           UpdateServiceInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceInstance")
+            Prelude.<*> (x Data..:> "serviceInstance")
       )
 
 instance Prelude.Hashable UpdateServiceInstance where
@@ -271,41 +272,41 @@ instance Prelude.NFData UpdateServiceInstance where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf serviceName
 
-instance Core.ToHeaders UpdateServiceInstance where
+instance Data.ToHeaders UpdateServiceInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.UpdateServiceInstance" ::
+              Data.=# ( "AwsProton20200720.UpdateServiceInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateServiceInstance where
+instance Data.ToJSON UpdateServiceInstance where
   toJSON UpdateServiceInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("templateMajorVersion" Core..=)
+          [ ("templateMajorVersion" Data..=)
               Prelude.<$> templateMajorVersion,
-            ("templateMinorVersion" Core..=)
+            ("templateMinorVersion" Data..=)
               Prelude.<$> templateMinorVersion,
-            ("spec" Core..=) Prelude.<$> spec,
+            ("spec" Data..=) Prelude.<$> spec,
             Prelude.Just
-              ("deploymentType" Core..= deploymentType),
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("serviceName" Core..= serviceName)
+              ("deploymentType" Data..= deploymentType),
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("serviceName" Data..= serviceName)
           ]
       )
 
-instance Core.ToPath UpdateServiceInstance where
+instance Data.ToPath UpdateServiceInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateServiceInstance where
+instance Data.ToQuery UpdateServiceInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateServiceInstanceResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -70,9 +71,9 @@ data CreateServiceTemplate = CreateServiceTemplate'
     tags :: Prelude.Maybe [Tag],
     -- | The name of the service template as displayed in the developer
     -- interface.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the service template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | By default, Proton provides a service pipeline for your service. When
     -- this parameter is included, it indicates that an Proton service pipeline
     -- /isn\'t/ provided for your service. After it\'s included, it /can\'t/ be
@@ -143,11 +144,11 @@ createServiceTemplate_tags = Lens.lens (\CreateServiceTemplate' {tags} -> tags) 
 -- | The name of the service template as displayed in the developer
 -- interface.
 createServiceTemplate_displayName :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Prelude.Text)
-createServiceTemplate_displayName = Lens.lens (\CreateServiceTemplate' {displayName} -> displayName) (\s@CreateServiceTemplate' {} a -> s {displayName = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
+createServiceTemplate_displayName = Lens.lens (\CreateServiceTemplate' {displayName} -> displayName) (\s@CreateServiceTemplate' {} a -> s {displayName = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description of the service template.
 createServiceTemplate_description :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Prelude.Text)
-createServiceTemplate_description = Lens.lens (\CreateServiceTemplate' {description} -> description) (\s@CreateServiceTemplate' {} a -> s {description = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
+createServiceTemplate_description = Lens.lens (\CreateServiceTemplate' {description} -> description) (\s@CreateServiceTemplate' {} a -> s {description = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | By default, Proton provides a service pipeline for your service. When
 -- this parameter is included, it indicates that an Proton service pipeline
@@ -177,7 +178,7 @@ instance Core.AWSRequest CreateServiceTemplate where
       ( \s h x ->
           CreateServiceTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "serviceTemplate")
+            Prelude.<*> (x Data..:> "serviceTemplate")
       )
 
 instance Prelude.Hashable CreateServiceTemplate where
@@ -198,39 +199,39 @@ instance Prelude.NFData CreateServiceTemplate where
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateServiceTemplate where
+instance Data.ToHeaders CreateServiceTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.CreateServiceTemplate" ::
+              Data.=# ( "AwsProton20200720.CreateServiceTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateServiceTemplate where
+instance Data.ToJSON CreateServiceTemplate where
   toJSON CreateServiceTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("description" Core..=) Prelude.<$> description,
-            ("pipelineProvisioning" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("description" Data..=) Prelude.<$> description,
+            ("pipelineProvisioning" Data..=)
               Prelude.<$> pipelineProvisioning,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
-            Prelude.Just ("name" Core..= name)
+            ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateServiceTemplate where
+instance Data.ToPath CreateServiceTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateServiceTemplate where
+instance Data.ToQuery CreateServiceTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServiceTemplateResponse' smart constructor.

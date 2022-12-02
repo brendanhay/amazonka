@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -167,9 +168,9 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "components" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "components" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListComponents where
@@ -188,39 +189,39 @@ instance Prelude.NFData ListComponents where
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf serviceInstanceName
 
-instance Core.ToHeaders ListComponents where
+instance Data.ToHeaders ListComponents where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.ListComponents" ::
+              Data.=# ( "AwsProton20200720.ListComponents" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListComponents where
+instance Data.ToJSON ListComponents where
   toJSON ListComponents' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("environmentName" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("environmentName" Data..=)
               Prelude.<$> environmentName,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("serviceName" Core..=) Prelude.<$> serviceName,
-            ("serviceInstanceName" Core..=)
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("serviceName" Data..=) Prelude.<$> serviceName,
+            ("serviceInstanceName" Data..=)
               Prelude.<$> serviceInstanceName
           ]
       )
 
-instance Core.ToPath ListComponents where
+instance Data.ToPath ListComponents where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListComponents where
+instance Data.ToQuery ListComponents where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.

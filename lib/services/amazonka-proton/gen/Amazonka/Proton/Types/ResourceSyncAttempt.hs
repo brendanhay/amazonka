@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ResourceSyncAttempt where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.ResourceSyncEvent
 import Amazonka.Proton.Types.ResourceSyncStatus
@@ -36,7 +37,7 @@ data ResourceSyncAttempt = ResourceSyncAttempt'
     -- | Detail data for the initial repository commit, path and push.
     initialRevision :: Revision,
     -- | The time when the sync attempt started.
-    startedAt :: Core.POSIX,
+    startedAt :: Data.POSIX,
     -- | The status of the sync attempt.
     status :: ResourceSyncStatus,
     -- | The resource that is synced to.
@@ -86,7 +87,7 @@ newResourceSyncAttempt
     ResourceSyncAttempt'
       { events = Prelude.mempty,
         initialRevision = pInitialRevision_,
-        startedAt = Core._Time Lens.# pStartedAt_,
+        startedAt = Data._Time Lens.# pStartedAt_,
         status = pStatus_,
         target = pTarget_,
         targetRevision = pTargetRevision_
@@ -102,7 +103,7 @@ resourceSyncAttempt_initialRevision = Lens.lens (\ResourceSyncAttempt' {initialR
 
 -- | The time when the sync attempt started.
 resourceSyncAttempt_startedAt :: Lens.Lens' ResourceSyncAttempt Prelude.UTCTime
-resourceSyncAttempt_startedAt = Lens.lens (\ResourceSyncAttempt' {startedAt} -> startedAt) (\s@ResourceSyncAttempt' {} a -> s {startedAt = a} :: ResourceSyncAttempt) Prelude.. Core._Time
+resourceSyncAttempt_startedAt = Lens.lens (\ResourceSyncAttempt' {startedAt} -> startedAt) (\s@ResourceSyncAttempt' {} a -> s {startedAt = a} :: ResourceSyncAttempt) Prelude.. Data._Time
 
 -- | The status of the sync attempt.
 resourceSyncAttempt_status :: Lens.Lens' ResourceSyncAttempt ResourceSyncStatus
@@ -116,18 +117,18 @@ resourceSyncAttempt_target = Lens.lens (\ResourceSyncAttempt' {target} -> target
 resourceSyncAttempt_targetRevision :: Lens.Lens' ResourceSyncAttempt Revision
 resourceSyncAttempt_targetRevision = Lens.lens (\ResourceSyncAttempt' {targetRevision} -> targetRevision) (\s@ResourceSyncAttempt' {} a -> s {targetRevision = a} :: ResourceSyncAttempt)
 
-instance Core.FromJSON ResourceSyncAttempt where
+instance Data.FromJSON ResourceSyncAttempt where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceSyncAttempt"
       ( \x ->
           ResourceSyncAttempt'
-            Prelude.<$> (x Core..:? "events" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "initialRevision")
-            Prelude.<*> (x Core..: "startedAt")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "target")
-            Prelude.<*> (x Core..: "targetRevision")
+            Prelude.<$> (x Data..:? "events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "initialRevision")
+            Prelude.<*> (x Data..: "startedAt")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "target")
+            Prelude.<*> (x Data..: "targetRevision")
       )
 
 instance Prelude.Hashable ResourceSyncAttempt where

@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance
       ( \s h x ->
           GetEnvironmentAccountConnectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentAccountConnection")
+            Prelude.<*> (x Data..:> "environmentAccountConnection")
       )
 
 instance
@@ -115,32 +116,32 @@ instance
     Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetEnvironmentAccountConnection
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetEnvironmentAccountConnection" ::
+              Data.=# ( "AwsProton20200720.GetEnvironmentAccountConnection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEnvironmentAccountConnection where
+instance Data.ToJSON GetEnvironmentAccountConnection where
   toJSON GetEnvironmentAccountConnection' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])
 
-instance Core.ToPath GetEnvironmentAccountConnection where
+instance Data.ToPath GetEnvironmentAccountConnection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEnvironmentAccountConnection where
+instance Data.ToQuery GetEnvironmentAccountConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEnvironmentAccountConnectionResponse' smart constructor.

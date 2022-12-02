@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -67,7 +68,7 @@ instance Core.AWSRequest GetAccountSettings where
     Response.receiveJSON
       ( \s h x ->
           GetAccountSettingsResponse'
-            Prelude.<$> (x Core..?> "accountSettings")
+            Prelude.<$> (x Data..?> "accountSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -78,28 +79,28 @@ instance Prelude.Hashable GetAccountSettings where
 instance Prelude.NFData GetAccountSettings where
   rnf _ = ()
 
-instance Core.ToHeaders GetAccountSettings where
+instance Data.ToHeaders GetAccountSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetAccountSettings" ::
+              Data.=# ( "AwsProton20200720.GetAccountSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAccountSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetAccountSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetAccountSettings where
+instance Data.ToPath GetAccountSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccountSettings where
+instance Data.ToQuery GetAccountSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAccountSettingsResponse' smart constructor.

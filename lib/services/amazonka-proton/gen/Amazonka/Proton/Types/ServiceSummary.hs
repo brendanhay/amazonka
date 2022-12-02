@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ServiceSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.ServiceStatus
 
@@ -29,15 +30,15 @@ import Amazonka.Proton.Types.ServiceStatus
 -- /See:/ 'newServiceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'
   { -- | A description of the service.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A service status message.
-    statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the service.
     arn :: Prelude.Text,
     -- | The time when the service was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the service was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The name of the service.
     name :: Prelude.Text,
     -- | The status of the service.
@@ -95,8 +96,8 @@ newServiceSummary
       { description = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastModifiedAt = Core._Time Lens.# pLastModifiedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
         name = pName_,
         status = pStatus_,
         templateName = pTemplateName_
@@ -104,11 +105,11 @@ newServiceSummary
 
 -- | A description of the service.
 serviceSummary_description :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
-serviceSummary_description = Lens.lens (\ServiceSummary' {description} -> description) (\s@ServiceSummary' {} a -> s {description = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Sensitive
+serviceSummary_description = Lens.lens (\ServiceSummary' {description} -> description) (\s@ServiceSummary' {} a -> s {description = a} :: ServiceSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A service status message.
 serviceSummary_statusMessage :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
-serviceSummary_statusMessage = Lens.lens (\ServiceSummary' {statusMessage} -> statusMessage) (\s@ServiceSummary' {} a -> s {statusMessage = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Sensitive
+serviceSummary_statusMessage = Lens.lens (\ServiceSummary' {statusMessage} -> statusMessage) (\s@ServiceSummary' {} a -> s {statusMessage = a} :: ServiceSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the service.
 serviceSummary_arn :: Lens.Lens' ServiceSummary Prelude.Text
@@ -116,11 +117,11 @@ serviceSummary_arn = Lens.lens (\ServiceSummary' {arn} -> arn) (\s@ServiceSummar
 
 -- | The time when the service was created.
 serviceSummary_createdAt :: Lens.Lens' ServiceSummary Prelude.UTCTime
-serviceSummary_createdAt = Lens.lens (\ServiceSummary' {createdAt} -> createdAt) (\s@ServiceSummary' {} a -> s {createdAt = a} :: ServiceSummary) Prelude.. Core._Time
+serviceSummary_createdAt = Lens.lens (\ServiceSummary' {createdAt} -> createdAt) (\s@ServiceSummary' {} a -> s {createdAt = a} :: ServiceSummary) Prelude.. Data._Time
 
 -- | The time when the service was last modified.
 serviceSummary_lastModifiedAt :: Lens.Lens' ServiceSummary Prelude.UTCTime
-serviceSummary_lastModifiedAt = Lens.lens (\ServiceSummary' {lastModifiedAt} -> lastModifiedAt) (\s@ServiceSummary' {} a -> s {lastModifiedAt = a} :: ServiceSummary) Prelude.. Core._Time
+serviceSummary_lastModifiedAt = Lens.lens (\ServiceSummary' {lastModifiedAt} -> lastModifiedAt) (\s@ServiceSummary' {} a -> s {lastModifiedAt = a} :: ServiceSummary) Prelude.. Data._Time
 
 -- | The name of the service.
 serviceSummary_name :: Lens.Lens' ServiceSummary Prelude.Text
@@ -134,20 +135,20 @@ serviceSummary_status = Lens.lens (\ServiceSummary' {status} -> status) (\s@Serv
 serviceSummary_templateName :: Lens.Lens' ServiceSummary Prelude.Text
 serviceSummary_templateName = Lens.lens (\ServiceSummary' {templateName} -> templateName) (\s@ServiceSummary' {} a -> s {templateName = a} :: ServiceSummary)
 
-instance Core.FromJSON ServiceSummary where
+instance Data.FromJSON ServiceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceSummary"
       ( \x ->
           ServiceSummary'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "templateName")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "templateName")
       )
 
 instance Prelude.Hashable ServiceSummary where

@@ -42,6 +42,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetAnalyzer where
       ( \s h x ->
           GetAnalyzerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "analyzer")
+            Prelude.<*> (x Data..:> "analyzer")
       )
 
 instance Prelude.Hashable GetAnalyzer where
@@ -94,23 +95,23 @@ instance Prelude.Hashable GetAnalyzer where
 instance Prelude.NFData GetAnalyzer where
   rnf GetAnalyzer' {..} = Prelude.rnf analyzerName
 
-instance Core.ToHeaders GetAnalyzer where
+instance Data.ToHeaders GetAnalyzer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAnalyzer where
+instance Data.ToPath GetAnalyzer where
   toPath GetAnalyzer' {..} =
     Prelude.mconcat
-      ["/analyzer/", Core.toBS analyzerName]
+      ["/analyzer/", Data.toBS analyzerName]
 
-instance Core.ToQuery GetAnalyzer where
+instance Data.ToQuery GetAnalyzer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to the request.

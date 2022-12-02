@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.KmsGrantConstraints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this structure to propose allowing
@@ -95,17 +96,17 @@ kmsGrantConstraints_encryptionContextSubset = Lens.lens (\KmsGrantConstraints' {
 kmsGrantConstraints_encryptionContextEquals :: Lens.Lens' KmsGrantConstraints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 kmsGrantConstraints_encryptionContextEquals = Lens.lens (\KmsGrantConstraints' {encryptionContextEquals} -> encryptionContextEquals) (\s@KmsGrantConstraints' {} a -> s {encryptionContextEquals = a} :: KmsGrantConstraints) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON KmsGrantConstraints where
+instance Data.FromJSON KmsGrantConstraints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KmsGrantConstraints"
       ( \x ->
           KmsGrantConstraints'
-            Prelude.<$> ( x Core..:? "encryptionContextSubset"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "encryptionContextSubset"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "encryptionContextEquals"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "encryptionContextEquals"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -120,13 +121,13 @@ instance Prelude.NFData KmsGrantConstraints where
     Prelude.rnf encryptionContextSubset
       `Prelude.seq` Prelude.rnf encryptionContextEquals
 
-instance Core.ToJSON KmsGrantConstraints where
+instance Data.ToJSON KmsGrantConstraints where
   toJSON KmsGrantConstraints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionContextSubset" Core..=)
+          [ ("encryptionContextSubset" Data..=)
               Prelude.<$> encryptionContextSubset,
-            ("encryptionContextEquals" Core..=)
+            ("encryptionContextEquals" Data..=)
               Prelude.<$> encryptionContextEquals
           ]
       )

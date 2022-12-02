@@ -24,6 +24,7 @@ import Amazonka.AccessAnalyzer.Types.FindingStatus
 import Amazonka.AccessAnalyzer.Types.ResourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a finding.
@@ -54,11 +55,11 @@ data Finding = Finding'
     -- finding.
     condition :: Prelude.HashMap Prelude.Text Prelude.Text,
     -- | The time at which the finding was generated.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time at which the resource was analyzed.
-    analyzedAt :: Core.POSIX,
+    analyzedAt :: Data.POSIX,
     -- | The time at which the finding was updated.
-    updatedAt :: Core.POSIX,
+    updatedAt :: Data.POSIX,
     -- | The current status of the finding.
     status :: FindingStatus,
     -- | The Amazon Web Services account ID that owns the resource.
@@ -140,9 +141,9 @@ newFinding
         id = pId_,
         resourceType = pResourceType_,
         condition = Prelude.mempty,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        analyzedAt = Core._Time Lens.# pAnalyzedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        analyzedAt = Data._Time Lens.# pAnalyzedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         status = pStatus_,
         resourceOwnerAccount = pResourceOwnerAccount_
       }
@@ -190,15 +191,15 @@ finding_condition = Lens.lens (\Finding' {condition} -> condition) (\s@Finding' 
 
 -- | The time at which the finding was generated.
 finding_createdAt :: Lens.Lens' Finding Prelude.UTCTime
-finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' {} a -> s {createdAt = a} :: Finding) Prelude.. Core._Time
+finding_createdAt = Lens.lens (\Finding' {createdAt} -> createdAt) (\s@Finding' {} a -> s {createdAt = a} :: Finding) Prelude.. Data._Time
 
 -- | The time at which the resource was analyzed.
 finding_analyzedAt :: Lens.Lens' Finding Prelude.UTCTime
-finding_analyzedAt = Lens.lens (\Finding' {analyzedAt} -> analyzedAt) (\s@Finding' {} a -> s {analyzedAt = a} :: Finding) Prelude.. Core._Time
+finding_analyzedAt = Lens.lens (\Finding' {analyzedAt} -> analyzedAt) (\s@Finding' {} a -> s {analyzedAt = a} :: Finding) Prelude.. Data._Time
 
 -- | The time at which the finding was updated.
 finding_updatedAt :: Lens.Lens' Finding Prelude.UTCTime
-finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Core._Time
+finding_updatedAt = Lens.lens (\Finding' {updatedAt} -> updatedAt) (\s@Finding' {} a -> s {updatedAt = a} :: Finding) Prelude.. Data._Time
 
 -- | The current status of the finding.
 finding_status :: Lens.Lens' Finding FindingStatus
@@ -208,26 +209,26 @@ finding_status = Lens.lens (\Finding' {status} -> status) (\s@Finding' {} a -> s
 finding_resourceOwnerAccount :: Lens.Lens' Finding Prelude.Text
 finding_resourceOwnerAccount = Lens.lens (\Finding' {resourceOwnerAccount} -> resourceOwnerAccount) (\s@Finding' {} a -> s {resourceOwnerAccount = a} :: Finding)
 
-instance Core.FromJSON Finding where
+instance Data.FromJSON Finding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Core..:? "principal" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "sources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "isPublic")
-            Prelude.<*> (x Core..:? "action" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "error")
-            Prelude.<*> (x Core..:? "resource")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "resourceType")
-            Prelude.<*> (x Core..:? "condition" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "analyzedAt")
-            Prelude.<*> (x Core..: "updatedAt")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "resourceOwnerAccount")
+            Prelude.<$> (x Data..:? "principal" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "isPublic")
+            Prelude.<*> (x Data..:? "action" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "resource")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "resourceType")
+            Prelude.<*> (x Data..:? "condition" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "analyzedAt")
+            Prelude.<*> (x Data..: "updatedAt")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "resourceOwnerAccount")
       )
 
 instance Prelude.Hashable Finding where

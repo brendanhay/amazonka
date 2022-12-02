@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.GeneratedPolicy
 import Amazonka.AccessAnalyzer.Types.GeneratedPolicyProperties
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the text for the generated policy and its details.
@@ -78,16 +79,16 @@ generatedPolicyResult_generatedPolicies = Lens.lens (\GeneratedPolicyResult' {ge
 generatedPolicyResult_properties :: Lens.Lens' GeneratedPolicyResult GeneratedPolicyProperties
 generatedPolicyResult_properties = Lens.lens (\GeneratedPolicyResult' {properties} -> properties) (\s@GeneratedPolicyResult' {} a -> s {properties = a} :: GeneratedPolicyResult)
 
-instance Core.FromJSON GeneratedPolicyResult where
+instance Data.FromJSON GeneratedPolicyResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeneratedPolicyResult"
       ( \x ->
           GeneratedPolicyResult'
-            Prelude.<$> ( x Core..:? "generatedPolicies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "generatedPolicies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "properties")
+            Prelude.<*> (x Data..: "properties")
       )
 
 instance Prelude.Hashable GeneratedPolicyResult where

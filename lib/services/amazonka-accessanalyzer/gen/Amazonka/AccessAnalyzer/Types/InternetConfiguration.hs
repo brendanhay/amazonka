@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.InternetConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This configuration sets the network origin for the Amazon S3 access
@@ -40,9 +41,9 @@ newInternetConfiguration ::
   InternetConfiguration
 newInternetConfiguration = InternetConfiguration'
 
-instance Core.FromJSON InternetConfiguration where
+instance Data.FromJSON InternetConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InternetConfiguration"
       (\x -> Prelude.pure InternetConfiguration')
 
@@ -53,5 +54,5 @@ instance Prelude.Hashable InternetConfiguration where
 instance Prelude.NFData InternetConfiguration where
   rnf _ = ()
 
-instance Core.ToJSON InternetConfiguration where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON InternetConfiguration where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

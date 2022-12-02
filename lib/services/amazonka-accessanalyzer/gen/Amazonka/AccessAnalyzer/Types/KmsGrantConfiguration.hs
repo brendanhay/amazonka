@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.KmsGrantConstraints
 import Amazonka.AccessAnalyzer.Types.KmsGrantOperation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A proposed grant configuration for a KMS key. For more information, see
@@ -122,17 +123,17 @@ kmsGrantConfiguration_granteePrincipal = Lens.lens (\KmsGrantConfiguration' {gra
 kmsGrantConfiguration_issuingAccount :: Lens.Lens' KmsGrantConfiguration Prelude.Text
 kmsGrantConfiguration_issuingAccount = Lens.lens (\KmsGrantConfiguration' {issuingAccount} -> issuingAccount) (\s@KmsGrantConfiguration' {} a -> s {issuingAccount = a} :: KmsGrantConfiguration)
 
-instance Core.FromJSON KmsGrantConfiguration where
+instance Data.FromJSON KmsGrantConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KmsGrantConfiguration"
       ( \x ->
           KmsGrantConfiguration'
-            Prelude.<$> (x Core..:? "constraints")
-            Prelude.<*> (x Core..:? "retiringPrincipal")
-            Prelude.<*> (x Core..:? "operations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "granteePrincipal")
-            Prelude.<*> (x Core..: "issuingAccount")
+            Prelude.<$> (x Data..:? "constraints")
+            Prelude.<*> (x Data..:? "retiringPrincipal")
+            Prelude.<*> (x Data..:? "operations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "granteePrincipal")
+            Prelude.<*> (x Data..: "issuingAccount")
       )
 
 instance Prelude.Hashable KmsGrantConfiguration where
@@ -151,17 +152,17 @@ instance Prelude.NFData KmsGrantConfiguration where
       `Prelude.seq` Prelude.rnf granteePrincipal
       `Prelude.seq` Prelude.rnf issuingAccount
 
-instance Core.ToJSON KmsGrantConfiguration where
+instance Data.ToJSON KmsGrantConfiguration where
   toJSON KmsGrantConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("constraints" Core..=) Prelude.<$> constraints,
-            ("retiringPrincipal" Core..=)
+          [ ("constraints" Data..=) Prelude.<$> constraints,
+            ("retiringPrincipal" Data..=)
               Prelude.<$> retiringPrincipal,
-            Prelude.Just ("operations" Core..= operations),
+            Prelude.Just ("operations" Data..= operations),
             Prelude.Just
-              ("granteePrincipal" Core..= granteePrincipal),
+              ("granteePrincipal" Data..= granteePrincipal),
             Prelude.Just
-              ("issuingAccount" Core..= issuingAccount)
+              ("issuingAccount" Data..= issuingAccount)
           ]
       )

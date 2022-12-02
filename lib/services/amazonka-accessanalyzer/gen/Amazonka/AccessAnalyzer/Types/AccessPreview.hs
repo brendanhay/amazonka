@@ -24,6 +24,7 @@ import Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason
 import Amazonka.AccessAnalyzer.Types.Configuration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an access preview.
@@ -43,7 +44,7 @@ data AccessPreview = AccessPreview'
     -- | A map of resource ARNs for the proposed resource configuration.
     configurations :: Prelude.HashMap Prelude.Text Configuration,
     -- | The time at which the access preview was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The status of the access preview.
     --
     -- -   @Creating@ - The access preview creation is in progress.
@@ -106,7 +107,7 @@ newAccessPreview
         id = pId_,
         analyzerArn = pAnalyzerArn_,
         configurations = Prelude.mempty,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         status = pStatus_
       }
 
@@ -132,7 +133,7 @@ accessPreview_configurations = Lens.lens (\AccessPreview' {configurations} -> co
 
 -- | The time at which the access preview was created.
 accessPreview_createdAt :: Lens.Lens' AccessPreview Prelude.UTCTime
-accessPreview_createdAt = Lens.lens (\AccessPreview' {createdAt} -> createdAt) (\s@AccessPreview' {} a -> s {createdAt = a} :: AccessPreview) Prelude.. Core._Time
+accessPreview_createdAt = Lens.lens (\AccessPreview' {createdAt} -> createdAt) (\s@AccessPreview' {} a -> s {createdAt = a} :: AccessPreview) Prelude.. Data._Time
 
 -- | The status of the access preview.
 --
@@ -145,18 +146,18 @@ accessPreview_createdAt = Lens.lens (\AccessPreview' {createdAt} -> createdAt) (
 accessPreview_status :: Lens.Lens' AccessPreview AccessPreviewStatus
 accessPreview_status = Lens.lens (\AccessPreview' {status} -> status) (\s@AccessPreview' {} a -> s {status = a} :: AccessPreview)
 
-instance Core.FromJSON AccessPreview where
+instance Data.FromJSON AccessPreview where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessPreview"
       ( \x ->
           AccessPreview'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "analyzerArn")
-            Prelude.<*> (x Core..:? "configurations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "analyzerArn")
+            Prelude.<*> (x Data..:? "configurations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable AccessPreview where

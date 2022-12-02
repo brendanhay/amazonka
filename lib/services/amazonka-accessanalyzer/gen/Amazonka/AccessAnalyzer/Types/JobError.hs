@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.JobError where
 import Amazonka.AccessAnalyzer.Types.JobErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details about the policy generation error.
@@ -66,13 +67,13 @@ jobError_code = Lens.lens (\JobError' {code} -> code) (\s@JobError' {} a -> s {c
 jobError_message :: Lens.Lens' JobError Prelude.Text
 jobError_message = Lens.lens (\JobError' {message} -> message) (\s@JobError' {} a -> s {message = a} :: JobError)
 
-instance Core.FromJSON JobError where
+instance Data.FromJSON JobError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobError"
       ( \x ->
           JobError'
-            Prelude.<$> (x Core..: "code") Prelude.<*> (x Core..: "message")
+            Prelude.<$> (x Data..: "code") Prelude.<*> (x Data..: "message")
       )
 
 instance Prelude.Hashable JobError where

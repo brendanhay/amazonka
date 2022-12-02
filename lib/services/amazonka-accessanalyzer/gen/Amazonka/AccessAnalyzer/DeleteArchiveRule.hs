@@ -40,6 +40,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,29 +120,29 @@ instance Prelude.NFData DeleteArchiveRule where
       `Prelude.seq` Prelude.rnf analyzerName
       `Prelude.seq` Prelude.rnf ruleName
 
-instance Core.ToHeaders DeleteArchiveRule where
+instance Data.ToHeaders DeleteArchiveRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteArchiveRule where
+instance Data.ToPath DeleteArchiveRule where
   toPath DeleteArchiveRule' {..} =
     Prelude.mconcat
       [ "/analyzer/",
-        Core.toBS analyzerName,
+        Data.toBS analyzerName,
         "/archive-rule/",
-        Core.toBS ruleName
+        Data.toBS ruleName
       ]
 
-instance Core.ToQuery DeleteArchiveRule where
+instance Data.ToQuery DeleteArchiveRule where
   toQuery DeleteArchiveRule' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDeleteArchiveRuleResponse' smart constructor.
 data DeleteArchiveRuleResponse = DeleteArchiveRuleResponse'

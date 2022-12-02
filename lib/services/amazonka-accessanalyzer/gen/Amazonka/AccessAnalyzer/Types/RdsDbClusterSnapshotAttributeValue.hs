@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.RdsDbClusterSnapshotAttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The values for a manual Amazon RDS DB cluster snapshot attribute.
@@ -105,15 +106,15 @@ rdsDbClusterSnapshotAttributeValue_accountIds :: Lens.Lens' RdsDbClusterSnapshot
 rdsDbClusterSnapshotAttributeValue_accountIds = Lens.lens (\RdsDbClusterSnapshotAttributeValue' {accountIds} -> accountIds) (\s@RdsDbClusterSnapshotAttributeValue' {} a -> s {accountIds = a} :: RdsDbClusterSnapshotAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RdsDbClusterSnapshotAttributeValue
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RdsDbClusterSnapshotAttributeValue"
       ( \x ->
           RdsDbClusterSnapshotAttributeValue'
-            Prelude.<$> (x Core..:? "accountIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "accountIds" Data..!= Prelude.mempty)
       )
 
 instance
@@ -133,11 +134,11 @@ instance
     Prelude.rnf accountIds
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RdsDbClusterSnapshotAttributeValue
   where
   toJSON RdsDbClusterSnapshotAttributeValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("accountIds" Core..=) Prelude.<$> accountIds]
+          [("accountIds" Data..=) Prelude.<$> accountIds]
       )

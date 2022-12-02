@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.Trail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about the CloudTrail trail being analyzed to generate a
@@ -97,13 +98,13 @@ instance Prelude.NFData Trail where
       `Prelude.seq` Prelude.rnf allRegions
       `Prelude.seq` Prelude.rnf cloudTrailArn
 
-instance Core.ToJSON Trail where
+instance Data.ToJSON Trail where
   toJSON Trail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("regions" Core..=) Prelude.<$> regions,
-            ("allRegions" Core..=) Prelude.<$> allRegions,
+          [ ("regions" Data..=) Prelude.<$> regions,
+            ("allRegions" Data..=) Prelude.<$> allRegions,
             Prelude.Just
-              ("cloudTrailArn" Core..= cloudTrailArn)
+              ("cloudTrailArn" Data..= cloudTrailArn)
           ]
       )

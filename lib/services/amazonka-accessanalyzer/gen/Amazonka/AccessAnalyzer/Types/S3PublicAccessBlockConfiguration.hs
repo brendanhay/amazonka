@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The @PublicAccessBlock@ configuration to apply to this Amazon S3 bucket.
@@ -84,16 +85,16 @@ s3PublicAccessBlockConfiguration_restrictPublicBuckets :: Lens.Lens' S3PublicAcc
 s3PublicAccessBlockConfiguration_restrictPublicBuckets = Lens.lens (\S3PublicAccessBlockConfiguration' {restrictPublicBuckets} -> restrictPublicBuckets) (\s@S3PublicAccessBlockConfiguration' {} a -> s {restrictPublicBuckets = a} :: S3PublicAccessBlockConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     S3PublicAccessBlockConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3PublicAccessBlockConfiguration"
       ( \x ->
           S3PublicAccessBlockConfiguration'
-            Prelude.<$> (x Core..: "ignorePublicAcls")
-            Prelude.<*> (x Core..: "restrictPublicBuckets")
+            Prelude.<$> (x Data..: "ignorePublicAcls")
+            Prelude.<*> (x Data..: "restrictPublicBuckets")
       )
 
 instance
@@ -114,15 +115,15 @@ instance
     Prelude.rnf ignorePublicAcls
       `Prelude.seq` Prelude.rnf restrictPublicBuckets
 
-instance Core.ToJSON S3PublicAccessBlockConfiguration where
+instance Data.ToJSON S3PublicAccessBlockConfiguration where
   toJSON S3PublicAccessBlockConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ignorePublicAcls" Core..= ignorePublicAcls),
+              ("ignorePublicAcls" Data..= ignorePublicAcls),
             Prelude.Just
               ( "restrictPublicBuckets"
-                  Core..= restrictPublicBuckets
+                  Data..= restrictPublicBuckets
               )
           ]
       )

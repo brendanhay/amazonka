@@ -24,6 +24,7 @@ import Amazonka.AccessAnalyzer.Types.StatusReason
 import Amazonka.AccessAnalyzer.Types.Type
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the analyzer.
@@ -33,7 +34,7 @@ data AnalyzerSummary = AnalyzerSummary'
   { -- | The tags added to the analyzer.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time at which the most recently analyzed resource was analyzed.
-    lastResourceAnalyzedAt :: Prelude.Maybe Core.POSIX,
+    lastResourceAnalyzedAt :: Prelude.Maybe Data.POSIX,
     -- | The resource that was most recently analyzed by the analyzer.
     lastResourceAnalyzed :: Prelude.Maybe Prelude.Text,
     -- | The @statusReason@ provides more details about the current status of the
@@ -51,7 +52,7 @@ data AnalyzerSummary = AnalyzerSummary'
     -- the analyzer.
     type' :: Type,
     -- | A timestamp for the time at which the analyzer was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The status of the analyzer. An @Active@ analyzer successfully monitors
     -- supported resources and generates new findings. The analyzer is
     -- @Disabled@ when a user action, such as removing trusted access for
@@ -126,7 +127,7 @@ newAnalyzerSummary
         arn = pArn_,
         name = pName_,
         type' = pType_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         status = pStatus_
       }
 
@@ -136,7 +137,7 @@ analyzerSummary_tags = Lens.lens (\AnalyzerSummary' {tags} -> tags) (\s@Analyzer
 
 -- | The time at which the most recently analyzed resource was analyzed.
 analyzerSummary_lastResourceAnalyzedAt :: Lens.Lens' AnalyzerSummary (Prelude.Maybe Prelude.UTCTime)
-analyzerSummary_lastResourceAnalyzedAt = Lens.lens (\AnalyzerSummary' {lastResourceAnalyzedAt} -> lastResourceAnalyzedAt) (\s@AnalyzerSummary' {} a -> s {lastResourceAnalyzedAt = a} :: AnalyzerSummary) Prelude.. Lens.mapping Core._Time
+analyzerSummary_lastResourceAnalyzedAt = Lens.lens (\AnalyzerSummary' {lastResourceAnalyzedAt} -> lastResourceAnalyzedAt) (\s@AnalyzerSummary' {} a -> s {lastResourceAnalyzedAt = a} :: AnalyzerSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The resource that was most recently analyzed by the analyzer.
 analyzerSummary_lastResourceAnalyzed :: Lens.Lens' AnalyzerSummary (Prelude.Maybe Prelude.Text)
@@ -166,7 +167,7 @@ analyzerSummary_type = Lens.lens (\AnalyzerSummary' {type'} -> type') (\s@Analyz
 
 -- | A timestamp for the time at which the analyzer was created.
 analyzerSummary_createdAt :: Lens.Lens' AnalyzerSummary Prelude.UTCTime
-analyzerSummary_createdAt = Lens.lens (\AnalyzerSummary' {createdAt} -> createdAt) (\s@AnalyzerSummary' {} a -> s {createdAt = a} :: AnalyzerSummary) Prelude.. Core._Time
+analyzerSummary_createdAt = Lens.lens (\AnalyzerSummary' {createdAt} -> createdAt) (\s@AnalyzerSummary' {} a -> s {createdAt = a} :: AnalyzerSummary) Prelude.. Data._Time
 
 -- | The status of the analyzer. An @Active@ analyzer successfully monitors
 -- supported resources and generates new findings. The analyzer is
@@ -178,21 +179,21 @@ analyzerSummary_createdAt = Lens.lens (\AnalyzerSummary' {createdAt} -> createdA
 analyzerSummary_status :: Lens.Lens' AnalyzerSummary AnalyzerStatus
 analyzerSummary_status = Lens.lens (\AnalyzerSummary' {status} -> status) (\s@AnalyzerSummary' {} a -> s {status = a} :: AnalyzerSummary)
 
-instance Core.FromJSON AnalyzerSummary where
+instance Data.FromJSON AnalyzerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnalyzerSummary"
       ( \x ->
           AnalyzerSummary'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lastResourceAnalyzedAt")
-            Prelude.<*> (x Core..:? "lastResourceAnalyzed")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lastResourceAnalyzedAt")
+            Prelude.<*> (x Data..:? "lastResourceAnalyzed")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable AnalyzerSummary where

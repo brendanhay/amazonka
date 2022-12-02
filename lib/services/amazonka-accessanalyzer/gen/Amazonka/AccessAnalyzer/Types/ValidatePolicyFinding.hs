@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.Location
 import Amazonka.AccessAnalyzer.Types.ValidatePolicyFindingType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A finding in a policy. Each finding is an actionable recommendation that
@@ -149,17 +150,17 @@ validatePolicyFinding_learnMoreLink = Lens.lens (\ValidatePolicyFinding' {learnM
 validatePolicyFinding_locations :: Lens.Lens' ValidatePolicyFinding [Location]
 validatePolicyFinding_locations = Lens.lens (\ValidatePolicyFinding' {locations} -> locations) (\s@ValidatePolicyFinding' {} a -> s {locations = a} :: ValidatePolicyFinding) Prelude.. Lens.coerced
 
-instance Core.FromJSON ValidatePolicyFinding where
+instance Data.FromJSON ValidatePolicyFinding where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ValidatePolicyFinding"
       ( \x ->
           ValidatePolicyFinding'
-            Prelude.<$> (x Core..: "findingDetails")
-            Prelude.<*> (x Core..: "findingType")
-            Prelude.<*> (x Core..: "issueCode")
-            Prelude.<*> (x Core..: "learnMoreLink")
-            Prelude.<*> (x Core..:? "locations" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "findingDetails")
+            Prelude.<*> (x Data..: "findingType")
+            Prelude.<*> (x Data..: "issueCode")
+            Prelude.<*> (x Data..: "learnMoreLink")
+            Prelude.<*> (x Data..:? "locations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ValidatePolicyFinding where

@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.EfsFileSystemConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed access control configuration for an Amazon EFS file system.
@@ -74,13 +75,13 @@ newEfsFileSystemConfiguration =
 efsFileSystemConfiguration_fileSystemPolicy :: Lens.Lens' EfsFileSystemConfiguration (Prelude.Maybe Prelude.Text)
 efsFileSystemConfiguration_fileSystemPolicy = Lens.lens (\EfsFileSystemConfiguration' {fileSystemPolicy} -> fileSystemPolicy) (\s@EfsFileSystemConfiguration' {} a -> s {fileSystemPolicy = a} :: EfsFileSystemConfiguration)
 
-instance Core.FromJSON EfsFileSystemConfiguration where
+instance Data.FromJSON EfsFileSystemConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EfsFileSystemConfiguration"
       ( \x ->
           EfsFileSystemConfiguration'
-            Prelude.<$> (x Core..:? "fileSystemPolicy")
+            Prelude.<$> (x Data..:? "fileSystemPolicy")
       )
 
 instance Prelude.Hashable EfsFileSystemConfiguration where
@@ -91,11 +92,11 @@ instance Prelude.NFData EfsFileSystemConfiguration where
   rnf EfsFileSystemConfiguration' {..} =
     Prelude.rnf fileSystemPolicy
 
-instance Core.ToJSON EfsFileSystemConfiguration where
+instance Data.ToJSON EfsFileSystemConfiguration where
   toJSON EfsFileSystemConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("fileSystemPolicy" Core..=)
+          [ ("fileSystemPolicy" Data..=)
               Prelude.<$> fileSystemPolicy
           ]
       )

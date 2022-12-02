@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.Position where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A position in a policy.
@@ -79,15 +80,15 @@ position_column = Lens.lens (\Position' {column} -> column) (\s@Position' {} a -
 position_offset :: Lens.Lens' Position Prelude.Int
 position_offset = Lens.lens (\Position' {offset} -> offset) (\s@Position' {} a -> s {offset = a} :: Position)
 
-instance Core.FromJSON Position where
+instance Data.FromJSON Position where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Position"
       ( \x ->
           Position'
-            Prelude.<$> (x Core..: "line")
-            Prelude.<*> (x Core..: "column")
-            Prelude.<*> (x Core..: "offset")
+            Prelude.<$> (x Data..: "line")
+            Prelude.<*> (x Data..: "column")
+            Prelude.<*> (x Data..: "offset")
       )
 
 instance Prelude.Hashable Position where

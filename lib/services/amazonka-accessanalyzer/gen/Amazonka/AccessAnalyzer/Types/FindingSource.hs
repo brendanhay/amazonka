@@ -23,6 +23,7 @@ import Amazonka.AccessAnalyzer.Types.FindingSourceDetail
 import Amazonka.AccessAnalyzer.Types.FindingSourceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source of the finding. This indicates how the access that generated
@@ -69,13 +70,13 @@ findingSource_detail = Lens.lens (\FindingSource' {detail} -> detail) (\s@Findin
 findingSource_type :: Lens.Lens' FindingSource FindingSourceType
 findingSource_type = Lens.lens (\FindingSource' {type'} -> type') (\s@FindingSource' {} a -> s {type' = a} :: FindingSource)
 
-instance Core.FromJSON FindingSource where
+instance Data.FromJSON FindingSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingSource"
       ( \x ->
           FindingSource'
-            Prelude.<$> (x Core..:? "detail") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "detail") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable FindingSource where

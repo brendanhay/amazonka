@@ -46,6 +46,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -141,7 +142,7 @@ instance Core.AWSRequest CreateAnalyzer where
     Response.receiveJSON
       ( \s h x ->
           CreateAnalyzerResponse'
-            Prelude.<$> (x Core..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,33 +162,33 @@ instance Prelude.NFData CreateAnalyzer where
       `Prelude.seq` Prelude.rnf analyzerName
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateAnalyzer where
+instance Data.ToHeaders CreateAnalyzer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAnalyzer where
+instance Data.ToJSON CreateAnalyzer where
   toJSON CreateAnalyzer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("archiveRules" Core..=) Prelude.<$> archiveRules,
-            Prelude.Just ("analyzerName" Core..= analyzerName),
-            Prelude.Just ("type" Core..= type')
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("archiveRules" Data..=) Prelude.<$> archiveRules,
+            Prelude.Just ("analyzerName" Data..= analyzerName),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateAnalyzer where
+instance Data.ToPath CreateAnalyzer where
   toPath = Prelude.const "/analyzer"
 
-instance Core.ToQuery CreateAnalyzer where
+instance Data.ToQuery CreateAnalyzer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to the request to create an analyzer.

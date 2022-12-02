@@ -32,6 +32,7 @@ import Amazonka.AccessAnalyzer.Types.SnsTopicConfiguration
 import Amazonka.AccessAnalyzer.Types.SqsQueueConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Access control configuration structures for your resource. You specify
@@ -158,23 +159,23 @@ configuration_secretsManagerSecret = Lens.lens (\Configuration' {secretsManagerS
 configuration_ebsSnapshot :: Lens.Lens' Configuration (Prelude.Maybe EbsSnapshotConfiguration)
 configuration_ebsSnapshot = Lens.lens (\Configuration' {ebsSnapshot} -> ebsSnapshot) (\s@Configuration' {} a -> s {ebsSnapshot = a} :: Configuration)
 
-instance Core.FromJSON Configuration where
+instance Data.FromJSON Configuration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Configuration"
       ( \x ->
           Configuration'
-            Prelude.<$> (x Core..:? "ecrRepository")
-            Prelude.<*> (x Core..:? "s3Bucket")
-            Prelude.<*> (x Core..:? "iamRole")
-            Prelude.<*> (x Core..:? "snsTopic")
-            Prelude.<*> (x Core..:? "kmsKey")
-            Prelude.<*> (x Core..:? "rdsDbSnapshot")
-            Prelude.<*> (x Core..:? "rdsDbClusterSnapshot")
-            Prelude.<*> (x Core..:? "efsFileSystem")
-            Prelude.<*> (x Core..:? "sqsQueue")
-            Prelude.<*> (x Core..:? "secretsManagerSecret")
-            Prelude.<*> (x Core..:? "ebsSnapshot")
+            Prelude.<$> (x Data..:? "ecrRepository")
+            Prelude.<*> (x Data..:? "s3Bucket")
+            Prelude.<*> (x Data..:? "iamRole")
+            Prelude.<*> (x Data..:? "snsTopic")
+            Prelude.<*> (x Data..:? "kmsKey")
+            Prelude.<*> (x Data..:? "rdsDbSnapshot")
+            Prelude.<*> (x Data..:? "rdsDbClusterSnapshot")
+            Prelude.<*> (x Data..:? "efsFileSystem")
+            Prelude.<*> (x Data..:? "sqsQueue")
+            Prelude.<*> (x Data..:? "secretsManagerSecret")
+            Prelude.<*> (x Data..:? "ebsSnapshot")
       )
 
 instance Prelude.Hashable Configuration where
@@ -205,22 +206,22 @@ instance Prelude.NFData Configuration where
       `Prelude.seq` Prelude.rnf secretsManagerSecret
       `Prelude.seq` Prelude.rnf ebsSnapshot
 
-instance Core.ToJSON Configuration where
+instance Data.ToJSON Configuration where
   toJSON Configuration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ecrRepository" Core..=) Prelude.<$> ecrRepository,
-            ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("iamRole" Core..=) Prelude.<$> iamRole,
-            ("snsTopic" Core..=) Prelude.<$> snsTopic,
-            ("kmsKey" Core..=) Prelude.<$> kmsKey,
-            ("rdsDbSnapshot" Core..=) Prelude.<$> rdsDbSnapshot,
-            ("rdsDbClusterSnapshot" Core..=)
+          [ ("ecrRepository" Data..=) Prelude.<$> ecrRepository,
+            ("s3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("iamRole" Data..=) Prelude.<$> iamRole,
+            ("snsTopic" Data..=) Prelude.<$> snsTopic,
+            ("kmsKey" Data..=) Prelude.<$> kmsKey,
+            ("rdsDbSnapshot" Data..=) Prelude.<$> rdsDbSnapshot,
+            ("rdsDbClusterSnapshot" Data..=)
               Prelude.<$> rdsDbClusterSnapshot,
-            ("efsFileSystem" Core..=) Prelude.<$> efsFileSystem,
-            ("sqsQueue" Core..=) Prelude.<$> sqsQueue,
-            ("secretsManagerSecret" Core..=)
+            ("efsFileSystem" Data..=) Prelude.<$> efsFileSystem,
+            ("sqsQueue" Data..=) Prelude.<$> sqsQueue,
+            ("secretsManagerSecret" Data..=)
               Prelude.<$> secretsManagerSecret,
-            ("ebsSnapshot" Core..=) Prelude.<$> ebsSnapshot
+            ("ebsSnapshot" Data..=) Prelude.<$> ebsSnapshot
           ]
       )

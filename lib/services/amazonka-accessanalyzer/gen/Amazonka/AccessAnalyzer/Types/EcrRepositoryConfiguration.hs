@@ -21,6 +21,7 @@ module Amazonka.AccessAnalyzer.Types.EcrRepositoryConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The proposed access control configuration for an Amazon ECR repository.
@@ -77,13 +78,13 @@ newEcrRepositoryConfiguration =
 ecrRepositoryConfiguration_repositoryPolicy :: Lens.Lens' EcrRepositoryConfiguration (Prelude.Maybe Prelude.Text)
 ecrRepositoryConfiguration_repositoryPolicy = Lens.lens (\EcrRepositoryConfiguration' {repositoryPolicy} -> repositoryPolicy) (\s@EcrRepositoryConfiguration' {} a -> s {repositoryPolicy = a} :: EcrRepositoryConfiguration)
 
-instance Core.FromJSON EcrRepositoryConfiguration where
+instance Data.FromJSON EcrRepositoryConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EcrRepositoryConfiguration"
       ( \x ->
           EcrRepositoryConfiguration'
-            Prelude.<$> (x Core..:? "repositoryPolicy")
+            Prelude.<$> (x Data..:? "repositoryPolicy")
       )
 
 instance Prelude.Hashable EcrRepositoryConfiguration where
@@ -94,11 +95,11 @@ instance Prelude.NFData EcrRepositoryConfiguration where
   rnf EcrRepositoryConfiguration' {..} =
     Prelude.rnf repositoryPolicy
 
-instance Core.ToJSON EcrRepositoryConfiguration where
+instance Data.ToJSON EcrRepositoryConfiguration where
   toJSON EcrRepositoryConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("repositoryPolicy" Core..=)
+          [ ("repositoryPolicy" Data..=)
               Prelude.<$> repositoryPolicy
           ]
       )

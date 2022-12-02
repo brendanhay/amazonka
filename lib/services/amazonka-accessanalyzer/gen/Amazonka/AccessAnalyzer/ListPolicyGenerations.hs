@@ -47,6 +47,7 @@ where
 import Amazonka.AccessAnalyzer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,9 +134,9 @@ instance Core.AWSRequest ListPolicyGenerations where
     Response.receiveJSON
       ( \s h x ->
           ListPolicyGenerationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "policyGenerations"
+            Prelude.<*> ( x Data..?> "policyGenerations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -152,26 +153,26 @@ instance Prelude.NFData ListPolicyGenerations where
       `Prelude.seq` Prelude.rnf principalArn
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListPolicyGenerations where
+instance Data.ToHeaders ListPolicyGenerations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListPolicyGenerations where
+instance Data.ToPath ListPolicyGenerations where
   toPath = Prelude.const "/policy/generation"
 
-instance Core.ToQuery ListPolicyGenerations where
+instance Data.ToQuery ListPolicyGenerations where
   toQuery ListPolicyGenerations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "principalArn" Core.=: principalArn,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "principalArn" Data.=: principalArn,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListPolicyGenerationsResponse' smart constructor.

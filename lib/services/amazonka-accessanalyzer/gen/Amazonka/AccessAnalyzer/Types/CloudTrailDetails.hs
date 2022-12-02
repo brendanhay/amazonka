@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.CloudTrailDetails where
 import Amazonka.AccessAnalyzer.Types.Trail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about CloudTrail access.
@@ -32,7 +33,7 @@ data CloudTrailDetails = CloudTrailDetails'
     -- CloudTrail events. Events with a timestamp after this time are not
     -- considered to generate a policy. If this is not included in the request,
     -- the default value is the current time.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | A @Trail@ object that contains settings for a trail.
     trails :: [Trail],
     -- | The ARN of the service role that IAM Access Analyzer uses to access your
@@ -41,7 +42,7 @@ data CloudTrailDetails = CloudTrailDetails'
     -- | The start of the time range for which IAM Access Analyzer reviews your
     -- CloudTrail events. Events with a timestamp before this time are not
     -- considered to generate a policy.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +78,7 @@ newCloudTrailDetails pAccessRole_ pStartTime_ =
     { endTime = Prelude.Nothing,
       trails = Prelude.mempty,
       accessRole = pAccessRole_,
-      startTime = Core._Time Lens.# pStartTime_
+      startTime = Data._Time Lens.# pStartTime_
     }
 
 -- | The end of the time range for which IAM Access Analyzer reviews your
@@ -85,7 +86,7 @@ newCloudTrailDetails pAccessRole_ pStartTime_ =
 -- considered to generate a policy. If this is not included in the request,
 -- the default value is the current time.
 cloudTrailDetails_endTime :: Lens.Lens' CloudTrailDetails (Prelude.Maybe Prelude.UTCTime)
-cloudTrailDetails_endTime = Lens.lens (\CloudTrailDetails' {endTime} -> endTime) (\s@CloudTrailDetails' {} a -> s {endTime = a} :: CloudTrailDetails) Prelude.. Lens.mapping Core._Time
+cloudTrailDetails_endTime = Lens.lens (\CloudTrailDetails' {endTime} -> endTime) (\s@CloudTrailDetails' {} a -> s {endTime = a} :: CloudTrailDetails) Prelude.. Lens.mapping Data._Time
 
 -- | A @Trail@ object that contains settings for a trail.
 cloudTrailDetails_trails :: Lens.Lens' CloudTrailDetails [Trail]
@@ -100,7 +101,7 @@ cloudTrailDetails_accessRole = Lens.lens (\CloudTrailDetails' {accessRole} -> ac
 -- CloudTrail events. Events with a timestamp before this time are not
 -- considered to generate a policy.
 cloudTrailDetails_startTime :: Lens.Lens' CloudTrailDetails Prelude.UTCTime
-cloudTrailDetails_startTime = Lens.lens (\CloudTrailDetails' {startTime} -> startTime) (\s@CloudTrailDetails' {} a -> s {startTime = a} :: CloudTrailDetails) Prelude.. Core._Time
+cloudTrailDetails_startTime = Lens.lens (\CloudTrailDetails' {startTime} -> startTime) (\s@CloudTrailDetails' {} a -> s {startTime = a} :: CloudTrailDetails) Prelude.. Data._Time
 
 instance Prelude.Hashable CloudTrailDetails where
   hashWithSalt _salt CloudTrailDetails' {..} =
@@ -116,13 +117,13 @@ instance Prelude.NFData CloudTrailDetails where
       `Prelude.seq` Prelude.rnf accessRole
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON CloudTrailDetails where
+instance Data.ToJSON CloudTrailDetails where
   toJSON CloudTrailDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("endTime" Core..=) Prelude.<$> endTime,
-            Prelude.Just ("trails" Core..= trails),
-            Prelude.Just ("accessRole" Core..= accessRole),
-            Prelude.Just ("startTime" Core..= startTime)
+          [ ("endTime" Data..=) Prelude.<$> endTime,
+            Prelude.Just ("trails" Data..= trails),
+            Prelude.Just ("accessRole" Data..= accessRole),
+            Prelude.Just ("startTime" Data..= startTime)
           ]
       )

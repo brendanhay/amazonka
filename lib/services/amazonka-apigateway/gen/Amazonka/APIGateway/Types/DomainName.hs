@@ -25,6 +25,7 @@ import Amazonka.APIGateway.Types.MutualTlsAuthentication
 import Amazonka.APIGateway.Types.SecurityPolicy
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a custom domain name as a user-friendly host name of an API
@@ -88,7 +89,7 @@ data DomainName = DomainName'
     distributionDomainName :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the certificate that was used by edge-optimized
     -- endpoint for this domain name was uploaded.
-    certificateUploadDate :: Prelude.Maybe Core.POSIX,
+    certificateUploadDate :: Prelude.Maybe Data.POSIX,
     -- | The endpoint configuration of this DomainName showing the endpoint types
     -- of the domain name.
     endpointConfiguration :: Prelude.Maybe EndpointConfiguration,
@@ -285,7 +286,7 @@ domainName_distributionDomainName = Lens.lens (\DomainName' {distributionDomainN
 -- | The timestamp when the certificate that was used by edge-optimized
 -- endpoint for this domain name was uploaded.
 domainName_certificateUploadDate :: Lens.Lens' DomainName (Prelude.Maybe Prelude.UTCTime)
-domainName_certificateUploadDate = Lens.lens (\DomainName' {certificateUploadDate} -> certificateUploadDate) (\s@DomainName' {} a -> s {certificateUploadDate = a} :: DomainName) Prelude.. Lens.mapping Core._Time
+domainName_certificateUploadDate = Lens.lens (\DomainName' {certificateUploadDate} -> certificateUploadDate) (\s@DomainName' {} a -> s {certificateUploadDate = a} :: DomainName) Prelude.. Lens.mapping Data._Time
 
 -- | The endpoint configuration of this DomainName showing the endpoint types
 -- of the domain name.
@@ -304,29 +305,29 @@ domainName_distributionHostedZoneId = Lens.lens (\DomainName' {distributionHoste
 domainName_securityPolicy :: Lens.Lens' DomainName (Prelude.Maybe SecurityPolicy)
 domainName_securityPolicy = Lens.lens (\DomainName' {securityPolicy} -> securityPolicy) (\s@DomainName' {} a -> s {securityPolicy = a} :: DomainName)
 
-instance Core.FromJSON DomainName where
+instance Data.FromJSON DomainName where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainName"
       ( \x ->
           DomainName'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "domainNameStatus")
-            Prelude.<*> (x Core..:? "mutualTlsAuthentication")
-            Prelude.<*> (x Core..:? "regionalCertificateName")
-            Prelude.<*> (x Core..:? "regionalDomainName")
-            Prelude.<*> (x Core..:? "domainName")
-            Prelude.<*> (x Core..:? "ownershipVerificationCertificateArn")
-            Prelude.<*> (x Core..:? "regionalCertificateArn")
-            Prelude.<*> (x Core..:? "regionalHostedZoneId")
-            Prelude.<*> (x Core..:? "certificateName")
-            Prelude.<*> (x Core..:? "domainNameStatusMessage")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "distributionDomainName")
-            Prelude.<*> (x Core..:? "certificateUploadDate")
-            Prelude.<*> (x Core..:? "endpointConfiguration")
-            Prelude.<*> (x Core..:? "distributionHostedZoneId")
-            Prelude.<*> (x Core..:? "securityPolicy")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "domainNameStatus")
+            Prelude.<*> (x Data..:? "mutualTlsAuthentication")
+            Prelude.<*> (x Data..:? "regionalCertificateName")
+            Prelude.<*> (x Data..:? "regionalDomainName")
+            Prelude.<*> (x Data..:? "domainName")
+            Prelude.<*> (x Data..:? "ownershipVerificationCertificateArn")
+            Prelude.<*> (x Data..:? "regionalCertificateArn")
+            Prelude.<*> (x Data..:? "regionalHostedZoneId")
+            Prelude.<*> (x Data..:? "certificateName")
+            Prelude.<*> (x Data..:? "domainNameStatusMessage")
+            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "distributionDomainName")
+            Prelude.<*> (x Data..:? "certificateUploadDate")
+            Prelude.<*> (x Data..:? "endpointConfiguration")
+            Prelude.<*> (x Data..:? "distributionHostedZoneId")
+            Prelude.<*> (x Data..:? "securityPolicy")
       )
 
 instance Prelude.Hashable DomainName where

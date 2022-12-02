@@ -39,6 +39,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,25 +109,25 @@ instance Prelude.NFData DeleteDocumentationVersion where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf documentationVersion
 
-instance Core.ToHeaders DeleteDocumentationVersion where
+instance Data.ToHeaders DeleteDocumentationVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteDocumentationVersion where
+instance Data.ToPath DeleteDocumentationVersion where
   toPath DeleteDocumentationVersion' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/documentation/versions/",
-        Core.toBS documentationVersion
+        Data.toBS documentationVersion
       ]
 
-instance Core.ToQuery DeleteDocumentationVersion where
+instance Data.ToQuery DeleteDocumentationVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDocumentationVersionResponse' smart constructor.

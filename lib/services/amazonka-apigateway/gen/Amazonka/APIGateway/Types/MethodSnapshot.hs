@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.MethodSnapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a summary of a Method resource, given a particular date and
@@ -71,14 +72,14 @@ methodSnapshot_apiKeyRequired = Lens.lens (\MethodSnapshot' {apiKeyRequired} -> 
 methodSnapshot_authorizationType :: Lens.Lens' MethodSnapshot (Prelude.Maybe Prelude.Text)
 methodSnapshot_authorizationType = Lens.lens (\MethodSnapshot' {authorizationType} -> authorizationType) (\s@MethodSnapshot' {} a -> s {authorizationType = a} :: MethodSnapshot)
 
-instance Core.FromJSON MethodSnapshot where
+instance Data.FromJSON MethodSnapshot where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MethodSnapshot"
       ( \x ->
           MethodSnapshot'
-            Prelude.<$> (x Core..:? "apiKeyRequired")
-            Prelude.<*> (x Core..:? "authorizationType")
+            Prelude.<$> (x Data..:? "apiKeyRequired")
+            Prelude.<*> (x Data..:? "authorizationType")
       )
 
 instance Prelude.Hashable MethodSnapshot where

@@ -46,6 +46,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,8 +119,8 @@ instance Core.AWSRequest GetRestApis where
     Response.receiveJSON
       ( \s h x ->
           GetRestApisResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,22 +134,22 @@ instance Prelude.NFData GetRestApis where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf position
 
-instance Core.ToHeaders GetRestApis where
+instance Data.ToHeaders GetRestApis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetRestApis where
+instance Data.ToPath GetRestApis where
   toPath = Prelude.const "/restapis"
 
-instance Core.ToQuery GetRestApis where
+instance Data.ToQuery GetRestApis where
   toQuery GetRestApis' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "position" Core.=: position]
+      ["limit" Data.=: limit, "position" Data.=: position]
 
 -- | Contains references to your APIs and links that guide you in how to
 -- interact with your collection. A collection offers a paginated view of

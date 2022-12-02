@@ -48,6 +48,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetUsagePlan where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetUsagePlan where
   hashWithSalt _salt GetUsagePlan' {..} =
@@ -96,19 +97,19 @@ instance Prelude.Hashable GetUsagePlan where
 instance Prelude.NFData GetUsagePlan where
   rnf GetUsagePlan' {..} = Prelude.rnf usagePlanId
 
-instance Core.ToHeaders GetUsagePlan where
+instance Data.ToHeaders GetUsagePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetUsagePlan where
+instance Data.ToPath GetUsagePlan where
   toPath GetUsagePlan' {..} =
     Prelude.mconcat
-      ["/usageplans/", Core.toBS usagePlanId]
+      ["/usageplans/", Data.toBS usagePlanId]
 
-instance Core.ToQuery GetUsagePlan where
+instance Data.ToQuery GetUsagePlan where
   toQuery = Prelude.const Prelude.mempty

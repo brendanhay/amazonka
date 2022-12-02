@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.DocumentationPartLocation where
 import Amazonka.APIGateway.Types.DocumentationPartType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the target API entity to which the documentation applies.
@@ -172,17 +173,17 @@ documentationPartLocation_statusCode = Lens.lens (\DocumentationPartLocation' {s
 documentationPartLocation_type :: Lens.Lens' DocumentationPartLocation DocumentationPartType
 documentationPartLocation_type = Lens.lens (\DocumentationPartLocation' {type'} -> type') (\s@DocumentationPartLocation' {} a -> s {type' = a} :: DocumentationPartLocation)
 
-instance Core.FromJSON DocumentationPartLocation where
+instance Data.FromJSON DocumentationPartLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentationPartLocation"
       ( \x ->
           DocumentationPartLocation'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "method")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "method")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable DocumentationPartLocation where
@@ -201,14 +202,14 @@ instance Prelude.NFData DocumentationPartLocation where
       `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON DocumentationPartLocation where
+instance Data.ToJSON DocumentationPartLocation where
   toJSON DocumentationPartLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("method" Core..=) Prelude.<$> method,
-            ("path" Core..=) Prelude.<$> path,
-            ("statusCode" Core..=) Prelude.<$> statusCode,
-            Prelude.Just ("type" Core..= type')
+          [ ("name" Data..=) Prelude.<$> name,
+            ("method" Data..=) Prelude.<$> method,
+            ("path" Data..=) Prelude.<$> path,
+            ("statusCode" Data..=) Prelude.<$> statusCode,
+            Prelude.Just ("type" Data..= type')
           ]
       )

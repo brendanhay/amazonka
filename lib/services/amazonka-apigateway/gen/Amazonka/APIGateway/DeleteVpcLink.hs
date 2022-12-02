@@ -38,6 +38,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,20 +91,20 @@ instance Prelude.Hashable DeleteVpcLink where
 instance Prelude.NFData DeleteVpcLink where
   rnf DeleteVpcLink' {..} = Prelude.rnf vpcLinkId
 
-instance Core.ToHeaders DeleteVpcLink where
+instance Data.ToHeaders DeleteVpcLink where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteVpcLink where
+instance Data.ToPath DeleteVpcLink where
   toPath DeleteVpcLink' {..} =
-    Prelude.mconcat ["/vpclinks/", Core.toBS vpcLinkId]
+    Prelude.mconcat ["/vpclinks/", Data.toBS vpcLinkId]
 
-instance Core.ToQuery DeleteVpcLink where
+instance Data.ToQuery DeleteVpcLink where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVpcLinkResponse' smart constructor.

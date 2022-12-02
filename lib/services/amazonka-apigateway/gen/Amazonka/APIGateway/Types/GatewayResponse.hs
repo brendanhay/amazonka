@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.GatewayResponse where
 import Amazonka.APIGateway.Types.GatewayResponseType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A gateway response of a given response type and status code, with
@@ -105,21 +106,21 @@ gatewayResponse_responseTemplates = Lens.lens (\GatewayResponse' {responseTempla
 gatewayResponse_statusCode :: Lens.Lens' GatewayResponse (Prelude.Maybe Prelude.Text)
 gatewayResponse_statusCode = Lens.lens (\GatewayResponse' {statusCode} -> statusCode) (\s@GatewayResponse' {} a -> s {statusCode = a} :: GatewayResponse)
 
-instance Core.FromJSON GatewayResponse where
+instance Data.FromJSON GatewayResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatewayResponse"
       ( \x ->
           GatewayResponse'
-            Prelude.<$> (x Core..:? "responseType")
-            Prelude.<*> (x Core..:? "defaultResponse")
-            Prelude.<*> ( x Core..:? "responseParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "responseType")
+            Prelude.<*> (x Data..:? "defaultResponse")
+            Prelude.<*> ( x Data..:? "responseParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "responseTemplates"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "responseTemplates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "statusCode")
+            Prelude.<*> (x Data..:? "statusCode")
       )
 
 instance Prelude.Hashable GatewayResponse where

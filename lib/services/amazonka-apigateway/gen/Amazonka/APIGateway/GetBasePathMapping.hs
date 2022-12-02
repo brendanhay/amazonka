@@ -44,6 +44,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -105,7 +106,7 @@ instance Core.AWSRequest GetBasePathMapping where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetBasePathMapping where
   hashWithSalt _salt GetBasePathMapping' {..} =
@@ -117,23 +118,23 @@ instance Prelude.NFData GetBasePathMapping where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf basePath
 
-instance Core.ToHeaders GetBasePathMapping where
+instance Data.ToHeaders GetBasePathMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetBasePathMapping where
+instance Data.ToPath GetBasePathMapping where
   toPath GetBasePathMapping' {..} =
     Prelude.mconcat
       [ "/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/basepathmappings/",
-        Core.toBS basePath
+        Data.toBS basePath
       ]
 
-instance Core.ToQuery GetBasePathMapping where
+instance Data.ToQuery GetBasePathMapping where
   toQuery = Prelude.const Prelude.mempty

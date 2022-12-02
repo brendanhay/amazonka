@@ -24,6 +24,7 @@ import Amazonka.APIGateway.Types.QuotaSettings
 import Amazonka.APIGateway.Types.ThrottleSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a usage plan used to specify who can assess associated API
@@ -137,20 +138,20 @@ usagePlan_throttle = Lens.lens (\UsagePlan' {throttle} -> throttle) (\s@UsagePla
 usagePlan_apiStages :: Lens.Lens' UsagePlan (Prelude.Maybe [ApiStage])
 usagePlan_apiStages = Lens.lens (\UsagePlan' {apiStages} -> apiStages) (\s@UsagePlan' {} a -> s {apiStages = a} :: UsagePlan) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON UsagePlan where
+instance Data.FromJSON UsagePlan where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UsagePlan"
       ( \x ->
           UsagePlan'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "quota")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "productCode")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "throttle")
-            Prelude.<*> (x Core..:? "apiStages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "quota")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "productCode")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "throttle")
+            Prelude.<*> (x Data..:? "apiStages" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UsagePlan where

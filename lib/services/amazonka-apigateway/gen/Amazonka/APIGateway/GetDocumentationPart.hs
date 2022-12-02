@@ -44,6 +44,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetDocumentationPart where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetDocumentationPart where
   hashWithSalt _salt GetDocumentationPart' {..} =
@@ -112,23 +113,23 @@ instance Prelude.NFData GetDocumentationPart where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf documentationPartId
 
-instance Core.ToHeaders GetDocumentationPart where
+instance Data.ToHeaders GetDocumentationPart where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetDocumentationPart where
+instance Data.ToPath GetDocumentationPart where
   toPath GetDocumentationPart' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/documentation/parts/",
-        Core.toBS documentationPartId
+        Data.toBS documentationPartId
       ]
 
-instance Core.ToQuery GetDocumentationPart where
+instance Data.ToQuery GetDocumentationPart where
   toQuery = Prelude.const Prelude.mempty

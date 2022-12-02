@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.Resource where
 import Amazonka.APIGateway.Types.Method
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an API resource.
@@ -89,18 +90,18 @@ resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a}
 resource_resourceMethods :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Method))
 resource_resourceMethods = Lens.lens (\Resource' {resourceMethods} -> resourceMethods) (\s@Resource' {} a -> s {resourceMethods = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Resource where
+instance Data.FromJSON Resource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "pathPart")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "parentId")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> ( x Core..:? "resourceMethods"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "pathPart")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "parentId")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> ( x Data..:? "resourceMethods"
+                            Data..!= Prelude.mempty
                         )
       )
 

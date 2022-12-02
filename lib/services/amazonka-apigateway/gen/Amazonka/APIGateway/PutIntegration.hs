@@ -71,6 +71,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -422,7 +423,7 @@ instance Core.AWSRequest PutIntegration where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =
@@ -464,56 +465,56 @@ instance Prelude.NFData PutIntegration where
       `Prelude.seq` Prelude.rnf httpMethod
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders PutIntegration where
+instance Data.ToHeaders PutIntegration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON PutIntegration where
+instance Data.ToJSON PutIntegration where
   toJSON PutIntegration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cacheKeyParameters" Core..=)
+          [ ("cacheKeyParameters" Data..=)
               Prelude.<$> cacheKeyParameters,
-            ("requestParameters" Core..=)
+            ("requestParameters" Data..=)
               Prelude.<$> requestParameters,
-            ("httpMethod" Core..=)
+            ("httpMethod" Data..=)
               Prelude.<$> integrationHttpMethod,
-            ("connectionType" Core..=)
+            ("connectionType" Data..=)
               Prelude.<$> connectionType,
-            ("tlsConfig" Core..=) Prelude.<$> tlsConfig,
-            ("cacheNamespace" Core..=)
+            ("tlsConfig" Data..=) Prelude.<$> tlsConfig,
+            ("cacheNamespace" Data..=)
               Prelude.<$> cacheNamespace,
-            ("uri" Core..=) Prelude.<$> uri,
-            ("connectionId" Core..=) Prelude.<$> connectionId,
-            ("credentials" Core..=) Prelude.<$> credentials,
-            ("timeoutInMillis" Core..=)
+            ("uri" Data..=) Prelude.<$> uri,
+            ("connectionId" Data..=) Prelude.<$> connectionId,
+            ("credentials" Data..=) Prelude.<$> credentials,
+            ("timeoutInMillis" Data..=)
               Prelude.<$> timeoutInMillis,
-            ("contentHandling" Core..=)
+            ("contentHandling" Data..=)
               Prelude.<$> contentHandling,
-            ("requestTemplates" Core..=)
+            ("requestTemplates" Data..=)
               Prelude.<$> requestTemplates,
-            ("passthroughBehavior" Core..=)
+            ("passthroughBehavior" Data..=)
               Prelude.<$> passthroughBehavior,
-            Prelude.Just ("type" Core..= type')
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath PutIntegration where
+instance Data.ToPath PutIntegration where
   toPath PutIntegration' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/methods/",
-        Core.toBS httpMethod,
+        Data.toBS httpMethod,
         "/integration"
       ]
 
-instance Core.ToQuery PutIntegration where
+instance Data.ToQuery PutIntegration where
   toQuery = Prelude.const Prelude.mempty

@@ -43,6 +43,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ instance Core.AWSRequest GetStages where
     Response.receiveJSON
       ( \s h x ->
           GetStagesResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,24 +111,24 @@ instance Prelude.NFData GetStages where
     Prelude.rnf deploymentId
       `Prelude.seq` Prelude.rnf restApiId
 
-instance Core.ToHeaders GetStages where
+instance Data.ToHeaders GetStages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetStages where
+instance Data.ToPath GetStages where
   toPath GetStages' {..} =
     Prelude.mconcat
-      ["/restapis/", Core.toBS restApiId, "/stages"]
+      ["/restapis/", Data.toBS restApiId, "/stages"]
 
-instance Core.ToQuery GetStages where
+instance Data.ToQuery GetStages where
   toQuery GetStages' {..} =
     Prelude.mconcat
-      ["deploymentId" Core.=: deploymentId]
+      ["deploymentId" Data.=: deploymentId]
 
 -- | A list of Stage resources that are associated with the ApiKey resource.
 --

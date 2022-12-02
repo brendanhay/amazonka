@@ -46,6 +46,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance Core.AWSRequest CreateBasePathMapping where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateBasePathMapping where
   hashWithSalt _salt CreateBasePathMapping' {..} =
@@ -149,32 +150,32 @@ instance Prelude.NFData CreateBasePathMapping where
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf restApiId
 
-instance Core.ToHeaders CreateBasePathMapping where
+instance Data.ToHeaders CreateBasePathMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateBasePathMapping where
+instance Data.ToJSON CreateBasePathMapping where
   toJSON CreateBasePathMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stage" Core..=) Prelude.<$> stage,
-            ("basePath" Core..=) Prelude.<$> basePath,
-            Prelude.Just ("restApiId" Core..= restApiId)
+          [ ("stage" Data..=) Prelude.<$> stage,
+            ("basePath" Data..=) Prelude.<$> basePath,
+            Prelude.Just ("restApiId" Data..= restApiId)
           ]
       )
 
-instance Core.ToPath CreateBasePathMapping where
+instance Data.ToPath CreateBasePathMapping where
   toPath CreateBasePathMapping' {..} =
     Prelude.mconcat
       [ "/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/basepathmappings"
       ]
 
-instance Core.ToQuery CreateBasePathMapping where
+instance Data.ToQuery CreateBasePathMapping where
   toQuery = Prelude.const Prelude.mempty

@@ -46,6 +46,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,7 +116,7 @@ instance Core.AWSRequest UpdateRequestValidator where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateRequestValidator where
   hashWithSalt _salt UpdateRequestValidator' {..} =
@@ -129,32 +130,32 @@ instance Prelude.NFData UpdateRequestValidator where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf requestValidatorId
 
-instance Core.ToHeaders UpdateRequestValidator where
+instance Data.ToHeaders UpdateRequestValidator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateRequestValidator where
+instance Data.ToJSON UpdateRequestValidator where
   toJSON UpdateRequestValidator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateRequestValidator where
+instance Data.ToPath UpdateRequestValidator where
   toPath UpdateRequestValidator' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/requestvalidators/",
-        Core.toBS requestValidatorId
+        Data.toBS requestValidatorId
       ]
 
-instance Core.ToQuery UpdateRequestValidator where
+instance Data.ToQuery UpdateRequestValidator where
   toQuery = Prelude.const Prelude.mempty

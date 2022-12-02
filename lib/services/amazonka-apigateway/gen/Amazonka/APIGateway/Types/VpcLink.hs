@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.VpcLink where
 import Amazonka.APIGateway.Types.VpcLinkStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An API Gateway VPC link for a RestApi to access resources in an Amazon
@@ -126,19 +127,19 @@ vpcLink_targetArns = Lens.lens (\VpcLink' {targetArns} -> targetArns) (\s@VpcLin
 vpcLink_statusMessage :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
 vpcLink_statusMessage = Lens.lens (\VpcLink' {statusMessage} -> statusMessage) (\s@VpcLink' {} a -> s {statusMessage = a} :: VpcLink)
 
-instance Core.FromJSON VpcLink where
+instance Data.FromJSON VpcLink where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcLink"
       ( \x ->
           VpcLink'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "targetArns" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "statusMessage")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "targetArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "statusMessage")
       )
 
 instance Prelude.Hashable VpcLink where

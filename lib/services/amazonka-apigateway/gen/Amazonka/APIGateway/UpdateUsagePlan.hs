@@ -49,6 +49,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,7 +103,7 @@ instance Core.AWSRequest UpdateUsagePlan where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateUsagePlan where
   hashWithSalt _salt UpdateUsagePlan' {..} =
@@ -114,28 +115,28 @@ instance Prelude.NFData UpdateUsagePlan where
     Prelude.rnf patchOperations
       `Prelude.seq` Prelude.rnf usagePlanId
 
-instance Core.ToHeaders UpdateUsagePlan where
+instance Data.ToHeaders UpdateUsagePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateUsagePlan where
+instance Data.ToJSON UpdateUsagePlan where
   toJSON UpdateUsagePlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateUsagePlan where
+instance Data.ToPath UpdateUsagePlan where
   toPath UpdateUsagePlan' {..} =
     Prelude.mconcat
-      ["/usageplans/", Core.toBS usagePlanId]
+      ["/usageplans/", Data.toBS usagePlanId]
 
-instance Core.ToQuery UpdateUsagePlan where
+instance Data.ToQuery UpdateUsagePlan where
   toQuery = Prelude.const Prelude.mempty

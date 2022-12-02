@@ -47,6 +47,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,7 +112,7 @@ instance Core.AWSRequest UpdateModel where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateModel where
   hashWithSalt _salt UpdateModel' {..} =
@@ -125,32 +126,32 @@ instance Prelude.NFData UpdateModel where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf modelName
 
-instance Core.ToHeaders UpdateModel where
+instance Data.ToHeaders UpdateModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateModel where
+instance Data.ToJSON UpdateModel where
   toJSON UpdateModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateModel where
+instance Data.ToPath UpdateModel where
   toPath UpdateModel' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/models/",
-        Core.toBS modelName
+        Data.toBS modelName
       ]
 
-instance Core.ToQuery UpdateModel where
+instance Data.ToQuery UpdateModel where
   toQuery = Prelude.const Prelude.mempty

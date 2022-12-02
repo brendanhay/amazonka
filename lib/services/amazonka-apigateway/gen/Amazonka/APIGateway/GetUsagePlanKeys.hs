@@ -49,6 +49,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -152,8 +153,8 @@ instance Core.AWSRequest GetUsagePlanKeys where
     Response.receiveJSON
       ( \s h x ->
           GetUsagePlanKeysResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,26 +172,26 @@ instance Prelude.NFData GetUsagePlanKeys where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf usagePlanId
 
-instance Core.ToHeaders GetUsagePlanKeys where
+instance Data.ToHeaders GetUsagePlanKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetUsagePlanKeys where
+instance Data.ToPath GetUsagePlanKeys where
   toPath GetUsagePlanKeys' {..} =
     Prelude.mconcat
-      ["/usageplans/", Core.toBS usagePlanId, "/keys"]
+      ["/usageplans/", Data.toBS usagePlanId, "/keys"]
 
-instance Core.ToQuery GetUsagePlanKeys where
+instance Data.ToQuery GetUsagePlanKeys where
   toQuery GetUsagePlanKeys' {..} =
     Prelude.mconcat
-      [ "limit" Core.=: limit,
-        "name" Core.=: nameQuery,
-        "position" Core.=: position
+      [ "limit" Data.=: limit,
+        "name" Data.=: nameQuery,
+        "position" Data.=: position
       ]
 
 -- | Represents the collection of usage plan keys added to usage plans for

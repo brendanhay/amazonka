@@ -52,6 +52,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -160,7 +161,7 @@ instance Core.AWSRequest GetUsage where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetUsage where
   hashWithSalt _salt GetUsage' {..} =
@@ -180,26 +181,26 @@ instance Prelude.NFData GetUsage where
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf endDate
 
-instance Core.ToHeaders GetUsage where
+instance Data.ToHeaders GetUsage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetUsage where
+instance Data.ToPath GetUsage where
   toPath GetUsage' {..} =
     Prelude.mconcat
-      ["/usageplans/", Core.toBS usagePlanId, "/usage"]
+      ["/usageplans/", Data.toBS usagePlanId, "/usage"]
 
-instance Core.ToQuery GetUsage where
+instance Data.ToQuery GetUsage where
   toQuery GetUsage' {..} =
     Prelude.mconcat
-      [ "limit" Core.=: limit,
-        "keyId" Core.=: keyId,
-        "position" Core.=: position,
-        "startDate" Core.=: startDate,
-        "endDate" Core.=: endDate
+      [ "limit" Data.=: limit,
+        "keyId" Data.=: keyId,
+        "position" Data.=: position,
+        "startDate" Data.=: startDate,
+        "endDate" Data.=: endDate
       ]

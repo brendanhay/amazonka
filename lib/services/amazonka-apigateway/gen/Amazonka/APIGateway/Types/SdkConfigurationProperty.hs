@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.SdkConfigurationProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration property of an SDK type.
@@ -94,17 +95,17 @@ sdkConfigurationProperty_description = Lens.lens (\SdkConfigurationProperty' {de
 sdkConfigurationProperty_friendlyName :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
 sdkConfigurationProperty_friendlyName = Lens.lens (\SdkConfigurationProperty' {friendlyName} -> friendlyName) (\s@SdkConfigurationProperty' {} a -> s {friendlyName = a} :: SdkConfigurationProperty)
 
-instance Core.FromJSON SdkConfigurationProperty where
+instance Data.FromJSON SdkConfigurationProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SdkConfigurationProperty"
       ( \x ->
           SdkConfigurationProperty'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "friendlyName")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "friendlyName")
       )
 
 instance Prelude.Hashable SdkConfigurationProperty where

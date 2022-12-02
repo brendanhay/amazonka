@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.EndpointConfiguration where
 import Amazonka.APIGateway.Types.EndpointType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint configuration to indicate the types of endpoints an API
@@ -79,14 +80,14 @@ endpointConfiguration_vpcEndpointIds = Lens.lens (\EndpointConfiguration' {vpcEn
 endpointConfiguration_types :: Lens.Lens' EndpointConfiguration (Prelude.Maybe [EndpointType])
 endpointConfiguration_types = Lens.lens (\EndpointConfiguration' {types} -> types) (\s@EndpointConfiguration' {} a -> s {types = a} :: EndpointConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON EndpointConfiguration where
+instance Data.FromJSON EndpointConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointConfiguration"
       ( \x ->
           EndpointConfiguration'
-            Prelude.<$> (x Core..:? "vpcEndpointIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "types" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "vpcEndpointIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "types" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EndpointConfiguration where
@@ -99,12 +100,12 @@ instance Prelude.NFData EndpointConfiguration where
     Prelude.rnf vpcEndpointIds
       `Prelude.seq` Prelude.rnf types
 
-instance Core.ToJSON EndpointConfiguration where
+instance Data.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpcEndpointIds" Core..=)
+          [ ("vpcEndpointIds" Data..=)
               Prelude.<$> vpcEndpointIds,
-            ("types" Core..=) Prelude.<$> types
+            ("types" Data..=) Prelude.<$> types
           ]
       )

@@ -63,6 +63,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -245,7 +246,7 @@ instance Core.AWSRequest CreateRestApi where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateRestApi where
   hashWithSalt _salt CreateRestApi' {..} =
@@ -275,39 +276,39 @@ instance Prelude.NFData CreateRestApi where
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateRestApi where
+instance Data.ToHeaders CreateRestApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateRestApi where
+instance Data.ToJSON CreateRestApi where
   toJSON CreateRestApi' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("policy" Core..=) Prelude.<$> policy,
-            ("cloneFrom" Core..=) Prelude.<$> cloneFrom,
-            ("description" Core..=) Prelude.<$> description,
-            ("binaryMediaTypes" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("policy" Data..=) Prelude.<$> policy,
+            ("cloneFrom" Data..=) Prelude.<$> cloneFrom,
+            ("description" Data..=) Prelude.<$> description,
+            ("binaryMediaTypes" Data..=)
               Prelude.<$> binaryMediaTypes,
-            ("disableExecuteApiEndpoint" Core..=)
+            ("disableExecuteApiEndpoint" Data..=)
               Prelude.<$> disableExecuteApiEndpoint,
-            ("endpointConfiguration" Core..=)
+            ("endpointConfiguration" Data..=)
               Prelude.<$> endpointConfiguration,
-            ("apiKeySource" Core..=) Prelude.<$> apiKeySource,
-            ("minimumCompressionSize" Core..=)
+            ("apiKeySource" Data..=) Prelude.<$> apiKeySource,
+            ("minimumCompressionSize" Data..=)
               Prelude.<$> minimumCompressionSize,
-            ("version" Core..=) Prelude.<$> version,
-            Prelude.Just ("name" Core..= name)
+            ("version" Data..=) Prelude.<$> version,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateRestApi where
+instance Data.ToPath CreateRestApi where
   toPath = Prelude.const "/restapis"
 
-instance Core.ToQuery CreateRestApi where
+instance Data.ToQuery CreateRestApi where
   toQuery = Prelude.const Prelude.mempty

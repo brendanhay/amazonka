@@ -48,6 +48,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,8 +166,8 @@ instance Core.AWSRequest GetExport where
       ( \s h x ->
           GetExportResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Core..#? "Content-Disposition")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Data..#? "Content-Disposition")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,31 +187,31 @@ instance Prelude.NFData GetExport where
       `Prelude.seq` Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf exportType
 
-instance Core.ToHeaders GetExport where
+instance Data.ToHeaders GetExport where
   toHeaders GetExport' {..} =
     Prelude.mconcat
-      [ "Accept" Core.=# accepts,
+      [ "Accept" Data.=# accepts,
         "Accept"
-          Core.=# ("application/json" :: Prelude.ByteString)
+          Data.=# ("application/json" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath GetExport where
+instance Data.ToPath GetExport where
   toPath GetExport' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/stages/",
-        Core.toBS stageName,
+        Data.toBS stageName,
         "/exports/",
-        Core.toBS exportType
+        Data.toBS exportType
       ]
 
-instance Core.ToQuery GetExport where
+instance Data.ToQuery GetExport where
   toQuery GetExport' {..} =
     Prelude.mconcat
       [ "parameters"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "key" "value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> parameters
             )
       ]

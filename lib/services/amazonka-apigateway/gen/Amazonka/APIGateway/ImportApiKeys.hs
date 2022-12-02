@@ -45,6 +45,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,8 +121,8 @@ instance Core.AWSRequest ImportApiKeys where
     Response.receiveJSON
       ( \s h x ->
           ImportApiKeysResponse'
-            Prelude.<$> (x Core..?> "ids" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,26 +138,26 @@ instance Prelude.NFData ImportApiKeys where
       `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf format
 
-instance Core.ToBody ImportApiKeys where
-  toBody ImportApiKeys' {..} = Core.toBody body
+instance Data.ToBody ImportApiKeys where
+  toBody ImportApiKeys' {..} = Data.toBody body
 
-instance Core.ToHeaders ImportApiKeys where
+instance Data.ToHeaders ImportApiKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath ImportApiKeys where
+instance Data.ToPath ImportApiKeys where
   toPath = Prelude.const "/apikeys"
 
-instance Core.ToQuery ImportApiKeys where
+instance Data.ToQuery ImportApiKeys where
   toQuery ImportApiKeys' {..} =
     Prelude.mconcat
-      [ "failonwarnings" Core.=: failOnWarnings,
-        "format" Core.=: format,
+      [ "failonwarnings" Data.=: failOnWarnings,
+        "format" Data.=: format,
         "mode=import"
       ]
 

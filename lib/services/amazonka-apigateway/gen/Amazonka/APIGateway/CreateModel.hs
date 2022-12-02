@@ -49,6 +49,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -133,7 +134,7 @@ instance Core.AWSRequest CreateModel where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =
@@ -151,30 +152,30 @@ instance Prelude.NFData CreateModel where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf contentType
 
-instance Core.ToHeaders CreateModel where
+instance Data.ToHeaders CreateModel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateModel where
+instance Data.ToJSON CreateModel where
   toJSON CreateModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("schema" Core..=) Prelude.<$> schema,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("contentType" Core..= contentType)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("schema" Data..=) Prelude.<$> schema,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("contentType" Data..= contentType)
           ]
       )
 
-instance Core.ToPath CreateModel where
+instance Data.ToPath CreateModel where
   toPath CreateModel' {..} =
     Prelude.mconcat
-      ["/restapis/", Core.toBS restApiId, "/models"]
+      ["/restapis/", Data.toBS restApiId, "/models"]
 
-instance Core.ToQuery CreateModel where
+instance Data.ToQuery CreateModel where
   toQuery = Prelude.const Prelude.mempty

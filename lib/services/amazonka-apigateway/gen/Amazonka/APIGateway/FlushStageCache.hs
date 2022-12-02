@@ -39,6 +39,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,26 +105,26 @@ instance Prelude.NFData FlushStageCache where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf stageName
 
-instance Core.ToHeaders FlushStageCache where
+instance Data.ToHeaders FlushStageCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath FlushStageCache where
+instance Data.ToPath FlushStageCache where
   toPath FlushStageCache' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/stages/",
-        Core.toBS stageName,
+        Data.toBS stageName,
         "/cache/data"
       ]
 
-instance Core.ToQuery FlushStageCache where
+instance Data.ToQuery FlushStageCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newFlushStageCacheResponse' smart constructor.

@@ -54,6 +54,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -148,7 +149,7 @@ instance Core.AWSRequest CreateUsagePlan where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateUsagePlan where
   hashWithSalt _salt CreateUsagePlan' {..} =
@@ -168,30 +169,30 @@ instance Prelude.NFData CreateUsagePlan where
       `Prelude.seq` Prelude.rnf apiStages
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateUsagePlan where
+instance Data.ToHeaders CreateUsagePlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateUsagePlan where
+instance Data.ToJSON CreateUsagePlan where
   toJSON CreateUsagePlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("quota" Core..=) Prelude.<$> quota,
-            ("description" Core..=) Prelude.<$> description,
-            ("throttle" Core..=) Prelude.<$> throttle,
-            ("apiStages" Core..=) Prelude.<$> apiStages,
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("quota" Data..=) Prelude.<$> quota,
+            ("description" Data..=) Prelude.<$> description,
+            ("throttle" Data..=) Prelude.<$> throttle,
+            ("apiStages" Data..=) Prelude.<$> apiStages,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateUsagePlan where
+instance Data.ToPath CreateUsagePlan where
   toPath = Prelude.const "/usageplans"
 
-instance Core.ToQuery CreateUsagePlan where
+instance Data.ToQuery CreateUsagePlan where
   toQuery = Prelude.const Prelude.mempty

@@ -23,6 +23,7 @@ import Amazonka.APIGateway.Types.ApiKeySourceType
 import Amazonka.APIGateway.Types.EndpointConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a REST API.
@@ -58,7 +59,7 @@ data RestApi = RestApi'
     -- the API.
     endpointConfiguration :: Prelude.Maybe EndpointConfiguration,
     -- | The timestamp when the API was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The source of the API key for metering requests according to a usage
     -- plan. Valid values are: >@HEADER@ to read the API key from the
     -- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
@@ -194,7 +195,7 @@ restApi_endpointConfiguration = Lens.lens (\RestApi' {endpointConfiguration} -> 
 
 -- | The timestamp when the API was created.
 restApi_createdDate :: Lens.Lens' RestApi (Prelude.Maybe Prelude.UTCTime)
-restApi_createdDate = Lens.lens (\RestApi' {createdDate} -> createdDate) (\s@RestApi' {} a -> s {createdDate = a} :: RestApi) Prelude.. Lens.mapping Core._Time
+restApi_createdDate = Lens.lens (\RestApi' {createdDate} -> createdDate) (\s@RestApi' {} a -> s {createdDate = a} :: RestApi) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the API key for metering requests according to a usage
 -- plan. Valid values are: >@HEADER@ to read the API key from the
@@ -216,27 +217,27 @@ restApi_minimumCompressionSize = Lens.lens (\RestApi' {minimumCompressionSize} -
 restApi_version :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Text)
 restApi_version = Lens.lens (\RestApi' {version} -> version) (\s@RestApi' {} a -> s {version = a} :: RestApi)
 
-instance Core.FromJSON RestApi where
+instance Data.FromJSON RestApi where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RestApi"
       ( \x ->
           RestApi'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "policy")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> ( x Core..:? "binaryMediaTypes"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "policy")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> ( x Data..:? "binaryMediaTypes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "warnings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "disableExecuteApiEndpoint")
-            Prelude.<*> (x Core..:? "endpointConfiguration")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "apiKeySource")
-            Prelude.<*> (x Core..:? "minimumCompressionSize")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Data..:? "warnings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "disableExecuteApiEndpoint")
+            Prelude.<*> (x Data..:? "endpointConfiguration")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "apiKeySource")
+            Prelude.<*> (x Data..:? "minimumCompressionSize")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable RestApi where

@@ -47,6 +47,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest GenerateClientCertificate where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GenerateClientCertificate where
   hashWithSalt _salt GenerateClientCertificate' {..} =
@@ -115,26 +116,26 @@ instance Prelude.NFData GenerateClientCertificate where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders GenerateClientCertificate where
+instance Data.ToHeaders GenerateClientCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON GenerateClientCertificate where
+instance Data.ToJSON GenerateClientCertificate where
   toJSON GenerateClientCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath GenerateClientCertificate where
+instance Data.ToPath GenerateClientCertificate where
   toPath = Prelude.const "/clientcertificates"
 
-instance Core.ToQuery GenerateClientCertificate where
+instance Data.ToQuery GenerateClientCertificate where
   toQuery = Prelude.const Prelude.mempty

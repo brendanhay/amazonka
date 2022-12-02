@@ -47,6 +47,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,7 +111,7 @@ instance Core.AWSRequest CreateResource where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =
@@ -124,30 +125,30 @@ instance Prelude.NFData CreateResource where
       `Prelude.seq` Prelude.rnf parentId
       `Prelude.seq` Prelude.rnf pathPart
 
-instance Core.ToHeaders CreateResource where
+instance Data.ToHeaders CreateResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateResource where
+instance Data.ToJSON CreateResource where
   toJSON CreateResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("pathPart" Core..= pathPart)]
+          [Prelude.Just ("pathPart" Data..= pathPart)]
       )
 
-instance Core.ToPath CreateResource where
+instance Data.ToPath CreateResource where
   toPath CreateResource' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/resources/",
-        Core.toBS parentId
+        Data.toBS parentId
       ]
 
-instance Core.ToQuery CreateResource where
+instance Data.ToQuery CreateResource where
   toQuery = Prelude.const Prelude.mempty

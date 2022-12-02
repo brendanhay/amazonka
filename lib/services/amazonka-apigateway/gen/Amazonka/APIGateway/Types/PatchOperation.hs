@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.PatchOperation where
 import Amazonka.APIGateway.Types.Op
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | For more information about supported patch operations, see
@@ -158,13 +159,13 @@ instance Prelude.NFData PatchOperation where
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON PatchOperation where
+instance Data.ToJSON PatchOperation where
   toJSON PatchOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("from" Core..=) Prelude.<$> from,
-            ("op" Core..=) Prelude.<$> op,
-            ("path" Core..=) Prelude.<$> path,
-            ("value" Core..=) Prelude.<$> value
+          [ ("from" Data..=) Prelude.<$> from,
+            ("op" Data..=) Prelude.<$> op,
+            ("path" Data..=) Prelude.<$> path,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

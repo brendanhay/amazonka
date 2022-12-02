@@ -48,6 +48,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -187,7 +188,7 @@ instance Core.AWSRequest PutMethodResponse where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutMethodResponse where
   hashWithSalt _salt PutMethodResponse' {..} =
@@ -207,38 +208,38 @@ instance Prelude.NFData PutMethodResponse where
       `Prelude.seq` Prelude.rnf httpMethod
       `Prelude.seq` Prelude.rnf statusCode
 
-instance Core.ToHeaders PutMethodResponse where
+instance Data.ToHeaders PutMethodResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON PutMethodResponse where
+instance Data.ToJSON PutMethodResponse where
   toJSON PutMethodResponse' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("responseParameters" Core..=)
+          [ ("responseParameters" Data..=)
               Prelude.<$> responseParameters,
-            ("responseModels" Core..=)
+            ("responseModels" Data..=)
               Prelude.<$> responseModels
           ]
       )
 
-instance Core.ToPath PutMethodResponse where
+instance Data.ToPath PutMethodResponse where
   toPath PutMethodResponse' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/methods/",
-        Core.toBS httpMethod,
+        Data.toBS httpMethod,
         "/responses/",
-        Core.toBS statusCode
+        Data.toBS statusCode
       ]
 
-instance Core.ToQuery PutMethodResponse where
+instance Data.ToQuery PutMethodResponse where
   toQuery = Prelude.const Prelude.mempty

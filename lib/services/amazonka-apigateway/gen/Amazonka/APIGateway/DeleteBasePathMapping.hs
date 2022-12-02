@@ -39,6 +39,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,25 +111,25 @@ instance Prelude.NFData DeleteBasePathMapping where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf basePath
 
-instance Core.ToHeaders DeleteBasePathMapping where
+instance Data.ToHeaders DeleteBasePathMapping where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteBasePathMapping where
+instance Data.ToPath DeleteBasePathMapping where
   toPath DeleteBasePathMapping' {..} =
     Prelude.mconcat
       [ "/domainnames/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/basepathmappings/",
-        Core.toBS basePath
+        Data.toBS basePath
       ]
 
-instance Core.ToQuery DeleteBasePathMapping where
+instance Data.ToQuery DeleteBasePathMapping where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBasePathMappingResponse' smart constructor.

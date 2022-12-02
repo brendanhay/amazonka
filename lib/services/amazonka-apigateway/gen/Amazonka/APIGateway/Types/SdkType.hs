@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.SdkType where
 import Amazonka.APIGateway.Types.SdkConfigurationProperty
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A type of SDK that API Gateway can generate.
@@ -80,17 +81,17 @@ sdkType_friendlyName = Lens.lens (\SdkType' {friendlyName} -> friendlyName) (\s@
 sdkType_configurationProperties :: Lens.Lens' SdkType (Prelude.Maybe [SdkConfigurationProperty])
 sdkType_configurationProperties = Lens.lens (\SdkType' {configurationProperties} -> configurationProperties) (\s@SdkType' {} a -> s {configurationProperties = a} :: SdkType) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SdkType where
+instance Data.FromJSON SdkType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SdkType"
       ( \x ->
           SdkType'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "friendlyName")
-            Prelude.<*> ( x Core..:? "configurationProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "friendlyName")
+            Prelude.<*> ( x Data..:? "configurationProperties"
+                            Data..!= Prelude.mempty
                         )
       )
 

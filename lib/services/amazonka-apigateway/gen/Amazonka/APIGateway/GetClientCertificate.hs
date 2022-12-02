@@ -46,6 +46,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,7 +92,7 @@ instance Core.AWSRequest GetClientCertificate where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetClientCertificate where
   hashWithSalt _salt GetClientCertificate' {..} =
@@ -101,21 +102,21 @@ instance Prelude.NFData GetClientCertificate where
   rnf GetClientCertificate' {..} =
     Prelude.rnf clientCertificateId
 
-instance Core.ToHeaders GetClientCertificate where
+instance Data.ToHeaders GetClientCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetClientCertificate where
+instance Data.ToPath GetClientCertificate where
   toPath GetClientCertificate' {..} =
     Prelude.mconcat
       [ "/clientcertificates/",
-        Core.toBS clientCertificateId
+        Data.toBS clientCertificateId
       ]
 
-instance Core.ToQuery GetClientCertificate where
+instance Data.ToQuery GetClientCertificate where
   toQuery = Prelude.const Prelude.mempty

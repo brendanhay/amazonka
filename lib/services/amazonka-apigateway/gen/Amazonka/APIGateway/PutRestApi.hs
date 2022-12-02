@@ -60,6 +60,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -164,7 +165,7 @@ instance Core.AWSRequest PutRestApi where
     Request.putBody (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutRestApi where
   hashWithSalt _salt PutRestApi' {..} =
@@ -182,30 +183,30 @@ instance Prelude.NFData PutRestApi where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf body
 
-instance Core.ToBody PutRestApi where
-  toBody PutRestApi' {..} = Core.toBody body
+instance Data.ToBody PutRestApi where
+  toBody PutRestApi' {..} = Data.toBody body
 
-instance Core.ToHeaders PutRestApi where
+instance Data.ToHeaders PutRestApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath PutRestApi where
+instance Data.ToPath PutRestApi where
   toPath PutRestApi' {..} =
-    Prelude.mconcat ["/restapis/", Core.toBS restApiId]
+    Prelude.mconcat ["/restapis/", Data.toBS restApiId]
 
-instance Core.ToQuery PutRestApi where
+instance Data.ToQuery PutRestApi where
   toQuery PutRestApi' {..} =
     Prelude.mconcat
-      [ "failonwarnings" Core.=: failOnWarnings,
-        "mode" Core.=: mode,
+      [ "failonwarnings" Data.=: failOnWarnings,
+        "mode" Data.=: mode,
         "parameters"
-          Core.=: Core.toQuery
-            ( Core.toQueryMap "entry" "key" "value"
+          Data.=: Data.toQuery
+            ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> parameters
             )
       ]

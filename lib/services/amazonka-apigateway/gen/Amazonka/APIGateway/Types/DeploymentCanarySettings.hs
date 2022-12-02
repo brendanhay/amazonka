@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.DeploymentCanarySettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The input configuration for a canary deployment.
@@ -95,14 +96,14 @@ instance Prelude.NFData DeploymentCanarySettings where
       `Prelude.seq` Prelude.rnf stageVariableOverrides
       `Prelude.seq` Prelude.rnf percentTraffic
 
-instance Core.ToJSON DeploymentCanarySettings where
+instance Data.ToJSON DeploymentCanarySettings where
   toJSON DeploymentCanarySettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("useStageCache" Core..=) Prelude.<$> useStageCache,
-            ("stageVariableOverrides" Core..=)
+          [ ("useStageCache" Data..=) Prelude.<$> useStageCache,
+            ("stageVariableOverrides" Data..=)
               Prelude.<$> stageVariableOverrides,
-            ("percentTraffic" Core..=)
+            ("percentTraffic" Data..=)
               Prelude.<$> percentTraffic
           ]
       )

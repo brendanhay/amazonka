@@ -47,6 +47,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest UpdateClientCertificate where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateClientCertificate where
   hashWithSalt _salt UpdateClientCertificate' {..} =
@@ -115,30 +116,30 @@ instance Prelude.NFData UpdateClientCertificate where
     Prelude.rnf patchOperations
       `Prelude.seq` Prelude.rnf clientCertificateId
 
-instance Core.ToHeaders UpdateClientCertificate where
+instance Data.ToHeaders UpdateClientCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON UpdateClientCertificate where
+instance Data.ToJSON UpdateClientCertificate where
   toJSON UpdateClientCertificate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("patchOperations" Core..=)
+          [ ("patchOperations" Data..=)
               Prelude.<$> patchOperations
           ]
       )
 
-instance Core.ToPath UpdateClientCertificate where
+instance Data.ToPath UpdateClientCertificate where
   toPath UpdateClientCertificate' {..} =
     Prelude.mconcat
       [ "/clientcertificates/",
-        Core.toBS clientCertificateId
+        Data.toBS clientCertificateId
       ]
 
-instance Core.ToQuery UpdateClientCertificate where
+instance Data.ToQuery UpdateClientCertificate where
   toQuery = Prelude.const Prelude.mempty

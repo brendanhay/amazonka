@@ -40,6 +40,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,25 +107,25 @@ instance Prelude.NFData DeleteGatewayResponse where
     Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf responseType
 
-instance Core.ToHeaders DeleteGatewayResponse where
+instance Data.ToHeaders DeleteGatewayResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteGatewayResponse where
+instance Data.ToPath DeleteGatewayResponse where
   toPath DeleteGatewayResponse' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/gatewayresponses/",
-        Core.toBS responseType
+        Data.toBS responseType
       ]
 
-instance Core.ToQuery DeleteGatewayResponse where
+instance Data.ToQuery DeleteGatewayResponse where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGatewayResponseResponse' smart constructor.

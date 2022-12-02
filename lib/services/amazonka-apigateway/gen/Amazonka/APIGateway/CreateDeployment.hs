@@ -53,6 +53,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -184,7 +185,7 @@ instance Core.AWSRequest CreateDeployment where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =
@@ -210,39 +211,39 @@ instance Prelude.NFData CreateDeployment where
       `Prelude.seq` Prelude.rnf stageDescription
       `Prelude.seq` Prelude.rnf restApiId
 
-instance Core.ToHeaders CreateDeployment where
+instance Data.ToHeaders CreateDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateDeployment where
+instance Data.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stageName" Core..=) Prelude.<$> stageName,
-            ("cacheClusterEnabled" Core..=)
+          [ ("stageName" Data..=) Prelude.<$> stageName,
+            ("cacheClusterEnabled" Data..=)
               Prelude.<$> cacheClusterEnabled,
-            ("description" Core..=) Prelude.<$> description,
-            ("tracingEnabled" Core..=)
+            ("description" Data..=) Prelude.<$> description,
+            ("tracingEnabled" Data..=)
               Prelude.<$> tracingEnabled,
-            ("cacheClusterSize" Core..=)
+            ("cacheClusterSize" Data..=)
               Prelude.<$> cacheClusterSize,
-            ("canarySettings" Core..=)
+            ("canarySettings" Data..=)
               Prelude.<$> canarySettings,
-            ("variables" Core..=) Prelude.<$> variables,
-            ("stageDescription" Core..=)
+            ("variables" Data..=) Prelude.<$> variables,
+            ("stageDescription" Data..=)
               Prelude.<$> stageDescription
           ]
       )
 
-instance Core.ToPath CreateDeployment where
+instance Data.ToPath CreateDeployment where
   toPath CreateDeployment' {..} =
     Prelude.mconcat
-      ["/restapis/", Core.toBS restApiId, "/deployments"]
+      ["/restapis/", Data.toBS restApiId, "/deployments"]
 
-instance Core.ToQuery CreateDeployment where
+instance Data.ToQuery CreateDeployment where
   toQuery = Prelude.const Prelude.mempty

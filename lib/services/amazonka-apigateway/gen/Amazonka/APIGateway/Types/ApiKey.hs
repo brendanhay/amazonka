@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.ApiKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that can be distributed to callers for executing Method
@@ -39,7 +40,7 @@ data ApiKey = ApiKey'
     -- | The name of the API Key.
     name :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the API Key was last updated.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the API Key.
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of Stage resources that are associated with the ApiKey resource.
@@ -49,7 +50,7 @@ data ApiKey = ApiKey'
     -- | Specifies whether the API Key can be used by callers.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The timestamp when the API Key was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The value of the API Key.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -116,7 +117,7 @@ apiKey_name = Lens.lens (\ApiKey' {name} -> name) (\s@ApiKey' {} a -> s {name = 
 
 -- | The timestamp when the API Key was last updated.
 apiKey_lastUpdatedDate :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.UTCTime)
-apiKey_lastUpdatedDate = Lens.lens (\ApiKey' {lastUpdatedDate} -> lastUpdatedDate) (\s@ApiKey' {} a -> s {lastUpdatedDate = a} :: ApiKey) Prelude.. Lens.mapping Core._Time
+apiKey_lastUpdatedDate = Lens.lens (\ApiKey' {lastUpdatedDate} -> lastUpdatedDate) (\s@ApiKey' {} a -> s {lastUpdatedDate = a} :: ApiKey) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the API Key.
 apiKey_description :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
@@ -136,28 +137,28 @@ apiKey_enabled = Lens.lens (\ApiKey' {enabled} -> enabled) (\s@ApiKey' {} a -> s
 
 -- | The timestamp when the API Key was created.
 apiKey_createdDate :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.UTCTime)
-apiKey_createdDate = Lens.lens (\ApiKey' {createdDate} -> createdDate) (\s@ApiKey' {} a -> s {createdDate = a} :: ApiKey) Prelude.. Lens.mapping Core._Time
+apiKey_createdDate = Lens.lens (\ApiKey' {createdDate} -> createdDate) (\s@ApiKey' {} a -> s {createdDate = a} :: ApiKey) Prelude.. Lens.mapping Data._Time
 
 -- | The value of the API Key.
 apiKey_value :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_value = Lens.lens (\ApiKey' {value} -> value) (\s@ApiKey' {} a -> s {value = a} :: ApiKey)
 
-instance Core.FromJSON ApiKey where
+instance Data.FromJSON ApiKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiKey"
       ( \x ->
           ApiKey'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "customerId")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "stageKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "customerId")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lastUpdatedDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "stageKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ApiKey where

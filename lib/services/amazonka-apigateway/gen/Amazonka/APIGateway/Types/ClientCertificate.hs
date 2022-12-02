@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.ClientCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a client certificate used to configure client-side SSL
@@ -39,9 +40,9 @@ data ClientCertificate = ClientCertificate'
     -- | The identifier of the client certificate.
     clientCertificateId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the client certificate was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The timestamp when the client certificate will expire.
-    expirationDate :: Prelude.Maybe Core.POSIX
+    expirationDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,24 +99,24 @@ clientCertificate_clientCertificateId = Lens.lens (\ClientCertificate' {clientCe
 
 -- | The timestamp when the client certificate was created.
 clientCertificate_createdDate :: Lens.Lens' ClientCertificate (Prelude.Maybe Prelude.UTCTime)
-clientCertificate_createdDate = Lens.lens (\ClientCertificate' {createdDate} -> createdDate) (\s@ClientCertificate' {} a -> s {createdDate = a} :: ClientCertificate) Prelude.. Lens.mapping Core._Time
+clientCertificate_createdDate = Lens.lens (\ClientCertificate' {createdDate} -> createdDate) (\s@ClientCertificate' {} a -> s {createdDate = a} :: ClientCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp when the client certificate will expire.
 clientCertificate_expirationDate :: Lens.Lens' ClientCertificate (Prelude.Maybe Prelude.UTCTime)
-clientCertificate_expirationDate = Lens.lens (\ClientCertificate' {expirationDate} -> expirationDate) (\s@ClientCertificate' {} a -> s {expirationDate = a} :: ClientCertificate) Prelude.. Lens.mapping Core._Time
+clientCertificate_expirationDate = Lens.lens (\ClientCertificate' {expirationDate} -> expirationDate) (\s@ClientCertificate' {} a -> s {expirationDate = a} :: ClientCertificate) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ClientCertificate where
+instance Data.FromJSON ClientCertificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClientCertificate"
       ( \x ->
           ClientCertificate'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "pemEncodedCertificate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "clientCertificateId")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "expirationDate")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "pemEncodedCertificate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "clientCertificateId")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "expirationDate")
       )
 
 instance Prelude.Hashable ClientCertificate where

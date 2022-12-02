@@ -40,6 +40,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,25 +110,25 @@ instance Prelude.NFData DeleteUsagePlanKey where
     Prelude.rnf usagePlanId
       `Prelude.seq` Prelude.rnf keyId
 
-instance Core.ToHeaders DeleteUsagePlanKey where
+instance Data.ToHeaders DeleteUsagePlanKey where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath DeleteUsagePlanKey where
+instance Data.ToPath DeleteUsagePlanKey where
   toPath DeleteUsagePlanKey' {..} =
     Prelude.mconcat
       [ "/usageplans/",
-        Core.toBS usagePlanId,
+        Data.toBS usagePlanId,
         "/keys/",
-        Core.toBS keyId
+        Data.toBS keyId
       ]
 
-instance Core.ToQuery DeleteUsagePlanKey where
+instance Data.ToQuery DeleteUsagePlanKey where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteUsagePlanKeyResponse' smart constructor.

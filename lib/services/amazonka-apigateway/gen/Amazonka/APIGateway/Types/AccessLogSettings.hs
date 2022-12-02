@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.AccessLogSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Access log settings, including the access log format and access log
@@ -77,14 +78,14 @@ accessLogSettings_format = Lens.lens (\AccessLogSettings' {format} -> format) (\
 accessLogSettings_destinationArn :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
 accessLogSettings_destinationArn = Lens.lens (\AccessLogSettings' {destinationArn} -> destinationArn) (\s@AccessLogSettings' {} a -> s {destinationArn = a} :: AccessLogSettings)
 
-instance Core.FromJSON AccessLogSettings where
+instance Data.FromJSON AccessLogSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessLogSettings"
       ( \x ->
           AccessLogSettings'
-            Prelude.<$> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "destinationArn")
+            Prelude.<$> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "destinationArn")
       )
 
 instance Prelude.Hashable AccessLogSettings where

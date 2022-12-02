@@ -23,6 +23,7 @@ import Amazonka.APIGateway.Types.Integration
 import Amazonka.APIGateway.Types.MethodResponse
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a client-facing interface by which the client calls the API
@@ -232,29 +233,29 @@ method_operationName = Lens.lens (\Method' {operationName} -> operationName) (\s
 method_authorizerId :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
 method_authorizerId = Lens.lens (\Method' {authorizerId} -> authorizerId) (\s@Method' {} a -> s {authorizerId = a} :: Method)
 
-instance Core.FromJSON Method where
+instance Data.FromJSON Method where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Method"
       ( \x ->
           Method'
-            Prelude.<$> (x Core..:? "requestModels" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "requestParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "requestModels" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "requestParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "methodResponses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "methodResponses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "apiKeyRequired")
-            Prelude.<*> (x Core..:? "requestValidatorId")
-            Prelude.<*> (x Core..:? "httpMethod")
-            Prelude.<*> (x Core..:? "methodIntegration")
-            Prelude.<*> ( x Core..:? "authorizationScopes"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "apiKeyRequired")
+            Prelude.<*> (x Data..:? "requestValidatorId")
+            Prelude.<*> (x Data..:? "httpMethod")
+            Prelude.<*> (x Data..:? "methodIntegration")
+            Prelude.<*> ( x Data..:? "authorizationScopes"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "authorizationType")
-            Prelude.<*> (x Core..:? "operationName")
-            Prelude.<*> (x Core..:? "authorizerId")
+            Prelude.<*> (x Data..:? "authorizationType")
+            Prelude.<*> (x Data..:? "operationName")
+            Prelude.<*> (x Data..:? "authorizerId")
       )
 
 instance Prelude.Hashable Method where

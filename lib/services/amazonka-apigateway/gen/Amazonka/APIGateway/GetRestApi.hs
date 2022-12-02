@@ -53,6 +53,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance Core.AWSRequest GetRestApi where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetRestApi where
   hashWithSalt _salt GetRestApi' {..} =
@@ -101,18 +102,18 @@ instance Prelude.Hashable GetRestApi where
 instance Prelude.NFData GetRestApi where
   rnf GetRestApi' {..} = Prelude.rnf restApiId
 
-instance Core.ToHeaders GetRestApi where
+instance Data.ToHeaders GetRestApi where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetRestApi where
+instance Data.ToPath GetRestApi where
   toPath GetRestApi' {..} =
-    Prelude.mconcat ["/restapis/", Core.toBS restApiId]
+    Prelude.mconcat ["/restapis/", Data.toBS restApiId]
 
-instance Core.ToQuery GetRestApi where
+instance Data.ToQuery GetRestApi where
   toQuery = Prelude.const Prelude.mempty

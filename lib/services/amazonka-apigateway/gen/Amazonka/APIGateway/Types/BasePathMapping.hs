@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.BasePathMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the base path that callers of the API must provide as part of
@@ -74,15 +75,15 @@ basePathMapping_stage = Lens.lens (\BasePathMapping' {stage} -> stage) (\s@BaseP
 basePathMapping_basePath :: Lens.Lens' BasePathMapping (Prelude.Maybe Prelude.Text)
 basePathMapping_basePath = Lens.lens (\BasePathMapping' {basePath} -> basePath) (\s@BasePathMapping' {} a -> s {basePath = a} :: BasePathMapping)
 
-instance Core.FromJSON BasePathMapping where
+instance Data.FromJSON BasePathMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BasePathMapping"
       ( \x ->
           BasePathMapping'
-            Prelude.<$> (x Core..:? "restApiId")
-            Prelude.<*> (x Core..:? "stage")
-            Prelude.<*> (x Core..:? "basePath")
+            Prelude.<$> (x Data..:? "restApiId")
+            Prelude.<*> (x Data..:? "stage")
+            Prelude.<*> (x Data..:? "basePath")
       )
 
 instance Prelude.Hashable BasePathMapping where

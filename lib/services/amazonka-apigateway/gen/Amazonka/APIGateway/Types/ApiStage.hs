@@ -22,6 +22,7 @@ module Amazonka.APIGateway.Types.ApiStage where
 import Amazonka.APIGateway.Types.ThrottleSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | API stage name of the associated API stage in a usage plan.
@@ -74,15 +75,15 @@ apiStage_throttle = Lens.lens (\ApiStage' {throttle} -> throttle) (\s@ApiStage' 
 apiStage_stage :: Lens.Lens' ApiStage (Prelude.Maybe Prelude.Text)
 apiStage_stage = Lens.lens (\ApiStage' {stage} -> stage) (\s@ApiStage' {} a -> s {stage = a} :: ApiStage)
 
-instance Core.FromJSON ApiStage where
+instance Data.FromJSON ApiStage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApiStage"
       ( \x ->
           ApiStage'
-            Prelude.<$> (x Core..:? "apiId")
-            Prelude.<*> (x Core..:? "throttle" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stage")
+            Prelude.<$> (x Data..:? "apiId")
+            Prelude.<*> (x Data..:? "throttle" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "stage")
       )
 
 instance Prelude.Hashable ApiStage where
@@ -97,12 +98,12 @@ instance Prelude.NFData ApiStage where
       `Prelude.seq` Prelude.rnf throttle
       `Prelude.seq` Prelude.rnf stage
 
-instance Core.ToJSON ApiStage where
+instance Data.ToJSON ApiStage where
   toJSON ApiStage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("apiId" Core..=) Prelude.<$> apiId,
-            ("throttle" Core..=) Prelude.<$> throttle,
-            ("stage" Core..=) Prelude.<$> stage
+          [ ("apiId" Data..=) Prelude.<$> apiId,
+            ("throttle" Data..=) Prelude.<$> throttle,
+            ("stage" Data..=) Prelude.<$> stage
           ]
       )

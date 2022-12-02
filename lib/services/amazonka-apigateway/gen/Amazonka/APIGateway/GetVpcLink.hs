@@ -47,6 +47,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,7 +90,7 @@ instance Core.AWSRequest GetVpcLink where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetVpcLink where
   hashWithSalt _salt GetVpcLink' {..} =
@@ -98,18 +99,18 @@ instance Prelude.Hashable GetVpcLink where
 instance Prelude.NFData GetVpcLink where
   rnf GetVpcLink' {..} = Prelude.rnf vpcLinkId
 
-instance Core.ToHeaders GetVpcLink where
+instance Data.ToHeaders GetVpcLink where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetVpcLink where
+instance Data.ToPath GetVpcLink where
   toPath GetVpcLink' {..} =
-    Prelude.mconcat ["/vpclinks/", Core.toBS vpcLinkId]
+    Prelude.mconcat ["/vpclinks/", Data.toBS vpcLinkId]
 
-instance Core.ToQuery GetVpcLink where
+instance Data.ToQuery GetVpcLink where
   toQuery = Prelude.const Prelude.mempty

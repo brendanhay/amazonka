@@ -45,6 +45,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,7 +123,7 @@ instance Core.AWSRequest CreateDocumentationPart where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateDocumentationPart where
   hashWithSalt _salt CreateDocumentationPart' {..} =
@@ -136,31 +137,31 @@ instance Prelude.NFData CreateDocumentationPart where
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf properties
 
-instance Core.ToHeaders CreateDocumentationPart where
+instance Data.ToHeaders CreateDocumentationPart where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateDocumentationPart where
+instance Data.ToJSON CreateDocumentationPart where
   toJSON CreateDocumentationPart' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("location" Core..= location),
-            Prelude.Just ("properties" Core..= properties)
+          [ Prelude.Just ("location" Data..= location),
+            Prelude.Just ("properties" Data..= properties)
           ]
       )
 
-instance Core.ToPath CreateDocumentationPart where
+instance Data.ToPath CreateDocumentationPart where
   toPath CreateDocumentationPart' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/documentation/parts"
       ]
 
-instance Core.ToQuery CreateDocumentationPart where
+instance Data.ToQuery CreateDocumentationPart where
   toQuery = Prelude.const Prelude.mempty

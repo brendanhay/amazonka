@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.Usage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the usage data of a usage plan.
@@ -102,17 +103,17 @@ usage_usagePlanId = Lens.lens (\Usage' {usagePlanId} -> usagePlanId) (\s@Usage' 
 usage_position :: Lens.Lens' Usage (Prelude.Maybe Prelude.Text)
 usage_position = Lens.lens (\Usage' {position} -> position) (\s@Usage' {} a -> s {position = a} :: Usage)
 
-instance Core.FromJSON Usage where
+instance Data.FromJSON Usage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Usage"
       ( \x ->
           Usage'
-            Prelude.<$> (x Core..:? "values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "endDate")
-            Prelude.<*> (x Core..:? "startDate")
-            Prelude.<*> (x Core..:? "usagePlanId")
-            Prelude.<*> (x Core..:? "position")
+            Prelude.<$> (x Data..:? "values" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "endDate")
+            Prelude.<*> (x Data..:? "startDate")
+            Prelude.<*> (x Data..:? "usagePlanId")
+            Prelude.<*> (x Data..:? "position")
       )
 
 instance Prelude.Hashable Usage where

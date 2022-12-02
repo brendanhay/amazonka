@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.MethodResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a method response of a given HTTP status code returned to the
@@ -119,18 +120,18 @@ methodResponse_statusCode = Lens.lens (\MethodResponse' {statusCode} -> statusCo
 methodResponse_responseModels :: Lens.Lens' MethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 methodResponse_responseModels = Lens.lens (\MethodResponse' {responseModels} -> responseModels) (\s@MethodResponse' {} a -> s {responseModels = a} :: MethodResponse) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MethodResponse where
+instance Data.FromJSON MethodResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MethodResponse"
       ( \x ->
           MethodResponse'
-            Prelude.<$> ( x Core..:? "responseParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "responseParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "statusCode")
-            Prelude.<*> ( x Core..:? "responseModels"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "statusCode")
+            Prelude.<*> ( x Data..:? "responseModels"
+                            Data..!= Prelude.mempty
                         )
       )
 

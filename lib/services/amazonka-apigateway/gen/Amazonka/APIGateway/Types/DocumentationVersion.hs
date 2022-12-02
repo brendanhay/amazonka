@@ -21,6 +21,7 @@ module Amazonka.APIGateway.Types.DocumentationVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A snapshot of the documentation of an API.
@@ -30,7 +31,7 @@ data DocumentationVersion = DocumentationVersion'
   { -- | The description of the API documentation snapshot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date when the API documentation snapshot is created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The version identifier of the API documentation snapshot.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -65,21 +66,21 @@ documentationVersion_description = Lens.lens (\DocumentationVersion' {descriptio
 
 -- | The date when the API documentation snapshot is created.
 documentationVersion_createdDate :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.UTCTime)
-documentationVersion_createdDate = Lens.lens (\DocumentationVersion' {createdDate} -> createdDate) (\s@DocumentationVersion' {} a -> s {createdDate = a} :: DocumentationVersion) Prelude.. Lens.mapping Core._Time
+documentationVersion_createdDate = Lens.lens (\DocumentationVersion' {createdDate} -> createdDate) (\s@DocumentationVersion' {} a -> s {createdDate = a} :: DocumentationVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The version identifier of the API documentation snapshot.
 documentationVersion_version :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.Text)
 documentationVersion_version = Lens.lens (\DocumentationVersion' {version} -> version) (\s@DocumentationVersion' {} a -> s {version = a} :: DocumentationVersion)
 
-instance Core.FromJSON DocumentationVersion where
+instance Data.FromJSON DocumentationVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentationVersion"
       ( \x ->
           DocumentationVersion'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable DocumentationVersion where

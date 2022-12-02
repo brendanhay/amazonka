@@ -47,6 +47,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,8 +133,8 @@ instance Core.AWSRequest GetDeployments where
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentsResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,24 +150,24 @@ instance Prelude.NFData GetDeployments where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf restApiId
 
-instance Core.ToHeaders GetDeployments where
+instance Data.ToHeaders GetDeployments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetDeployments where
+instance Data.ToPath GetDeployments where
   toPath GetDeployments' {..} =
     Prelude.mconcat
-      ["/restapis/", Core.toBS restApiId, "/deployments"]
+      ["/restapis/", Data.toBS restApiId, "/deployments"]
 
-instance Core.ToQuery GetDeployments where
+instance Data.ToQuery GetDeployments where
   toQuery GetDeployments' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "position" Core.=: position]
+      ["limit" Data.=: limit, "position" Data.=: position]
 
 -- | Represents a collection resource that contains zero or more references
 -- to your existing deployments, and links that guide you on how to

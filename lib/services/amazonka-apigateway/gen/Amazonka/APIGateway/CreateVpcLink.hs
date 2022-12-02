@@ -53,6 +53,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest CreateVpcLink where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateVpcLink where
   hashWithSalt _salt CreateVpcLink' {..} =
@@ -152,28 +153,28 @@ instance Prelude.NFData CreateVpcLink where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf targetArns
 
-instance Core.ToHeaders CreateVpcLink where
+instance Data.ToHeaders CreateVpcLink where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateVpcLink where
+instance Data.ToJSON CreateVpcLink where
   toJSON CreateVpcLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("targetArns" Core..= targetArns)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("targetArns" Data..= targetArns)
           ]
       )
 
-instance Core.ToPath CreateVpcLink where
+instance Data.ToPath CreateVpcLink where
   toPath = Prelude.const "/vpclinks"
 
-instance Core.ToQuery CreateVpcLink where
+instance Data.ToQuery CreateVpcLink where
   toQuery = Prelude.const Prelude.mempty

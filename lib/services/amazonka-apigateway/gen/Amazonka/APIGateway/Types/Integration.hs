@@ -26,6 +26,7 @@ import Amazonka.APIGateway.Types.IntegrationType
 import Amazonka.APIGateway.Types.TlsConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.
@@ -423,35 +424,35 @@ integration_requestTemplates = Lens.lens (\Integration' {requestTemplates} -> re
 integration_passthroughBehavior :: Lens.Lens' Integration (Prelude.Maybe Prelude.Text)
 integration_passthroughBehavior = Lens.lens (\Integration' {passthroughBehavior} -> passthroughBehavior) (\s@Integration' {} a -> s {passthroughBehavior = a} :: Integration)
 
-instance Core.FromJSON Integration where
+instance Data.FromJSON Integration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Integration"
       ( \x ->
           Integration'
-            Prelude.<$> ( x Core..:? "cacheKeyParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "cacheKeyParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "requestParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "requestParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "connectionType")
-            Prelude.<*> (x Core..:? "tlsConfig")
-            Prelude.<*> (x Core..:? "cacheNamespace")
-            Prelude.<*> (x Core..:? "uri")
-            Prelude.<*> (x Core..:? "connectionId")
-            Prelude.<*> (x Core..:? "httpMethod")
-            Prelude.<*> (x Core..:? "credentials")
-            Prelude.<*> ( x Core..:? "integrationResponses"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "connectionType")
+            Prelude.<*> (x Data..:? "tlsConfig")
+            Prelude.<*> (x Data..:? "cacheNamespace")
+            Prelude.<*> (x Data..:? "uri")
+            Prelude.<*> (x Data..:? "connectionId")
+            Prelude.<*> (x Data..:? "httpMethod")
+            Prelude.<*> (x Data..:? "credentials")
+            Prelude.<*> ( x Data..:? "integrationResponses"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "timeoutInMillis")
-            Prelude.<*> (x Core..:? "contentHandling")
-            Prelude.<*> ( x Core..:? "requestTemplates"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "timeoutInMillis")
+            Prelude.<*> (x Data..:? "contentHandling")
+            Prelude.<*> ( x Data..:? "requestTemplates"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "passthroughBehavior")
+            Prelude.<*> (x Data..:? "passthroughBehavior")
       )
 
 instance Prelude.Hashable Integration where

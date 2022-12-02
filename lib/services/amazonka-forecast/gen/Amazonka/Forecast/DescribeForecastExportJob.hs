@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,15 +108,15 @@ instance Core.AWSRequest DescribeForecastExportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeForecastExportJobResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "Destination")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "ForecastExportJobName")
-            Prelude.<*> (x Core..?> "Format")
-            Prelude.<*> (x Core..?> "ForecastExportJobArn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ForecastArn")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Destination")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "ForecastExportJobName")
+            Prelude.<*> (x Data..?> "Format")
+            Prelude.<*> (x Data..?> "ForecastExportJobArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ForecastArn")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,36 +128,36 @@ instance Prelude.NFData DescribeForecastExportJob where
   rnf DescribeForecastExportJob' {..} =
     Prelude.rnf forecastExportJobArn
 
-instance Core.ToHeaders DescribeForecastExportJob where
+instance Data.ToHeaders DescribeForecastExportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeForecastExportJob" ::
+              Data.=# ( "AmazonForecast.DescribeForecastExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeForecastExportJob where
+instance Data.ToJSON DescribeForecastExportJob where
   toJSON DescribeForecastExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ForecastExportJobArn"
-                  Core..= forecastExportJobArn
+                  Data..= forecastExportJobArn
               )
           ]
       )
 
-instance Core.ToPath DescribeForecastExportJob where
+instance Data.ToPath DescribeForecastExportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeForecastExportJob where
+instance Data.ToQuery DescribeForecastExportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeForecastExportJobResponse' smart constructor.
@@ -173,7 +174,7 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
     -- the forecast is exported.
     destination :: Prelude.Maybe DataDestination,
@@ -201,7 +202,7 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
     -- | The Amazon Resource Name (ARN) of the exported forecast.
     forecastArn :: Prelude.Maybe Prelude.Text,
     -- | When the forecast export job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -289,7 +290,7 @@ newDescribeForecastExportJobResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeForecastExportJobResponse_lastModificationTime :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeForecastExportJobResponse_lastModificationTime = Lens.lens (\DescribeForecastExportJobResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {lastModificationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Core._Time
+describeForecastExportJobResponse_lastModificationTime = Lens.lens (\DescribeForecastExportJobResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {lastModificationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
 -- the forecast is exported.
@@ -333,7 +334,7 @@ describeForecastExportJobResponse_forecastArn = Lens.lens (\DescribeForecastExpo
 
 -- | When the forecast export job was created.
 describeForecastExportJobResponse_creationTime :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeForecastExportJobResponse_creationTime = Lens.lens (\DescribeForecastExportJobResponse' {creationTime} -> creationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {creationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Core._Time
+describeForecastExportJobResponse_creationTime = Lens.lens (\DescribeForecastExportJobResponse' {creationTime} -> creationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {creationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeForecastExportJobResponse_httpStatus :: Lens.Lens' DescribeForecastExportJobResponse Prelude.Int

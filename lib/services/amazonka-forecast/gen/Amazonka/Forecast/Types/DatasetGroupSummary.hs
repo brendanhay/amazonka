@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.DatasetGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the dataset group properties used in the
@@ -36,11 +37,11 @@ data DatasetGroupSummary = DatasetGroupSummary'
     -- operation. While the dataset group is being updated,
     -- @LastModificationTime@ is the current time of the @ListDatasetGroups@
     -- call.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the dataset group.
     datasetGroupName :: Prelude.Maybe Prelude.Text,
     -- | When the dataset group was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the dataset group.
     datasetGroupArn :: Prelude.Maybe Prelude.Text
   }
@@ -82,7 +83,7 @@ newDatasetGroupSummary =
 -- @LastModificationTime@ is the current time of the @ListDatasetGroups@
 -- call.
 datasetGroupSummary_lastModificationTime :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.UTCTime)
-datasetGroupSummary_lastModificationTime = Lens.lens (\DatasetGroupSummary' {lastModificationTime} -> lastModificationTime) (\s@DatasetGroupSummary' {} a -> s {lastModificationTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Core._Time
+datasetGroupSummary_lastModificationTime = Lens.lens (\DatasetGroupSummary' {lastModificationTime} -> lastModificationTime) (\s@DatasetGroupSummary' {} a -> s {lastModificationTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the dataset group.
 datasetGroupSummary_datasetGroupName :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.Text)
@@ -90,22 +91,22 @@ datasetGroupSummary_datasetGroupName = Lens.lens (\DatasetGroupSummary' {dataset
 
 -- | When the dataset group was created.
 datasetGroupSummary_creationTime :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.UTCTime)
-datasetGroupSummary_creationTime = Lens.lens (\DatasetGroupSummary' {creationTime} -> creationTime) (\s@DatasetGroupSummary' {} a -> s {creationTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Core._Time
+datasetGroupSummary_creationTime = Lens.lens (\DatasetGroupSummary' {creationTime} -> creationTime) (\s@DatasetGroupSummary' {} a -> s {creationTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the dataset group.
 datasetGroupSummary_datasetGroupArn :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.Text)
 datasetGroupSummary_datasetGroupArn = Lens.lens (\DatasetGroupSummary' {datasetGroupArn} -> datasetGroupArn) (\s@DatasetGroupSummary' {} a -> s {datasetGroupArn = a} :: DatasetGroupSummary)
 
-instance Core.FromJSON DatasetGroupSummary where
+instance Data.FromJSON DatasetGroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetGroupSummary"
       ( \x ->
           DatasetGroupSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "DatasetGroupName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DatasetGroupArn")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "DatasetGroupName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DatasetGroupArn")
       )
 
 instance Prelude.Hashable DatasetGroupSummary where

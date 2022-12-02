@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.TimeSeriesCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.Condition
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,15 +94,15 @@ timeSeriesCondition_attributeValue = Lens.lens (\TimeSeriesCondition' {attribute
 timeSeriesCondition_condition :: Lens.Lens' TimeSeriesCondition Condition
 timeSeriesCondition_condition = Lens.lens (\TimeSeriesCondition' {condition} -> condition) (\s@TimeSeriesCondition' {} a -> s {condition = a} :: TimeSeriesCondition)
 
-instance Core.FromJSON TimeSeriesCondition where
+instance Data.FromJSON TimeSeriesCondition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesCondition"
       ( \x ->
           TimeSeriesCondition'
-            Prelude.<$> (x Core..: "AttributeName")
-            Prelude.<*> (x Core..: "AttributeValue")
-            Prelude.<*> (x Core..: "Condition")
+            Prelude.<$> (x Data..: "AttributeName")
+            Prelude.<*> (x Data..: "AttributeValue")
+            Prelude.<*> (x Data..: "Condition")
       )
 
 instance Prelude.Hashable TimeSeriesCondition where
@@ -116,14 +117,14 @@ instance Prelude.NFData TimeSeriesCondition where
       `Prelude.seq` Prelude.rnf attributeValue
       `Prelude.seq` Prelude.rnf condition
 
-instance Core.ToJSON TimeSeriesCondition where
+instance Data.ToJSON TimeSeriesCondition where
   toJSON TimeSeriesCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AttributeName" Core..= attributeName),
+              ("AttributeName" Data..= attributeName),
             Prelude.Just
-              ("AttributeValue" Core..= attributeValue),
-            Prelude.Just ("Condition" Core..= condition)
+              ("AttributeValue" Data..= attributeValue),
+            Prelude.Just ("Condition" Data..= condition)
           ]
       )

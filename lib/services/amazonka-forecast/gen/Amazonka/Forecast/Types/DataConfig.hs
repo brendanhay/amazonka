@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.DataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.AdditionalDataset
 import Amazonka.Forecast.Types.AttributeConfig
 import qualified Amazonka.Prelude as Prelude
@@ -75,15 +76,15 @@ dataConfig_attributeConfigs = Lens.lens (\DataConfig' {attributeConfigs} -> attr
 dataConfig_datasetGroupArn :: Lens.Lens' DataConfig Prelude.Text
 dataConfig_datasetGroupArn = Lens.lens (\DataConfig' {datasetGroupArn} -> datasetGroupArn) (\s@DataConfig' {} a -> s {datasetGroupArn = a} :: DataConfig)
 
-instance Core.FromJSON DataConfig where
+instance Data.FromJSON DataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataConfig"
       ( \x ->
           DataConfig'
-            Prelude.<$> (x Core..:? "AdditionalDatasets")
-            Prelude.<*> (x Core..:? "AttributeConfigs")
-            Prelude.<*> (x Core..: "DatasetGroupArn")
+            Prelude.<$> (x Data..:? "AdditionalDatasets")
+            Prelude.<*> (x Data..:? "AttributeConfigs")
+            Prelude.<*> (x Data..: "DatasetGroupArn")
       )
 
 instance Prelude.Hashable DataConfig where
@@ -98,15 +99,15 @@ instance Prelude.NFData DataConfig where
       `Prelude.seq` Prelude.rnf attributeConfigs
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
-instance Core.ToJSON DataConfig where
+instance Data.ToJSON DataConfig where
   toJSON DataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdditionalDatasets" Core..=)
+          [ ("AdditionalDatasets" Data..=)
               Prelude.<$> additionalDatasets,
-            ("AttributeConfigs" Core..=)
+            ("AttributeConfigs" Data..=)
               Prelude.<$> attributeConfigs,
             Prelude.Just
-              ("DatasetGroupArn" Core..= datasetGroupArn)
+              ("DatasetGroupArn" Data..= datasetGroupArn)
           ]
       )

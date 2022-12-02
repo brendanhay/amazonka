@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,32 +110,32 @@ instance Prelude.Hashable DeleteResourceTree where
 instance Prelude.NFData DeleteResourceTree where
   rnf DeleteResourceTree' {..} = Prelude.rnf resourceArn
 
-instance Core.ToHeaders DeleteResourceTree where
+instance Data.ToHeaders DeleteResourceTree where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DeleteResourceTree" ::
+              Data.=# ( "AmazonForecast.DeleteResourceTree" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResourceTree where
+instance Data.ToJSON DeleteResourceTree where
   toJSON DeleteResourceTree' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath DeleteResourceTree where
+instance Data.ToPath DeleteResourceTree where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteResourceTree where
+instance Data.ToQuery DeleteResourceTree where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourceTreeResponse' smart constructor.

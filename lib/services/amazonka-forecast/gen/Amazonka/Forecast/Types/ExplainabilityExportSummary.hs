@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ExplainabilityExportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.DataDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data ExplainabilityExportSummary = ExplainabilityExportSummary'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     destination :: Prelude.Maybe DataDestination,
     -- | The name of the Explainability export
     explainabilityExportName :: Prelude.Maybe Prelude.Text,
@@ -63,7 +64,7 @@ data ExplainabilityExportSummary = ExplainabilityExportSummary'
     -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
     status :: Prelude.Maybe Prelude.Text,
     -- | When the Explainability was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -135,7 +136,7 @@ newExplainabilityExportSummary =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 explainabilityExportSummary_lastModificationTime :: Lens.Lens' ExplainabilityExportSummary (Prelude.Maybe Prelude.UTCTime)
-explainabilityExportSummary_lastModificationTime = Lens.lens (\ExplainabilityExportSummary' {lastModificationTime} -> lastModificationTime) (\s@ExplainabilityExportSummary' {} a -> s {lastModificationTime = a} :: ExplainabilityExportSummary) Prelude.. Lens.mapping Core._Time
+explainabilityExportSummary_lastModificationTime = Lens.lens (\ExplainabilityExportSummary' {lastModificationTime} -> lastModificationTime) (\s@ExplainabilityExportSummary' {} a -> s {lastModificationTime = a} :: ExplainabilityExportSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 explainabilityExportSummary_destination :: Lens.Lens' ExplainabilityExportSummary (Prelude.Maybe DataDestination)
@@ -168,21 +169,21 @@ explainabilityExportSummary_status = Lens.lens (\ExplainabilityExportSummary' {s
 
 -- | When the Explainability was created.
 explainabilityExportSummary_creationTime :: Lens.Lens' ExplainabilityExportSummary (Prelude.Maybe Prelude.UTCTime)
-explainabilityExportSummary_creationTime = Lens.lens (\ExplainabilityExportSummary' {creationTime} -> creationTime) (\s@ExplainabilityExportSummary' {} a -> s {creationTime = a} :: ExplainabilityExportSummary) Prelude.. Lens.mapping Core._Time
+explainabilityExportSummary_creationTime = Lens.lens (\ExplainabilityExportSummary' {creationTime} -> creationTime) (\s@ExplainabilityExportSummary' {} a -> s {creationTime = a} :: ExplainabilityExportSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ExplainabilityExportSummary where
+instance Data.FromJSON ExplainabilityExportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExplainabilityExportSummary"
       ( \x ->
           ExplainabilityExportSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "ExplainabilityExportName")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ExplainabilityExportArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "ExplainabilityExportName")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ExplainabilityExportArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable ExplainabilityExportSummary where

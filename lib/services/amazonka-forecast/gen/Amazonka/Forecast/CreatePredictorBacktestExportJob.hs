@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -233,7 +234,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreatePredictorBacktestExportJobResponse'
-            Prelude.<$> (x Core..?> "PredictorBacktestExportJobArn")
+            Prelude.<$> (x Data..?> "PredictorBacktestExportJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -262,43 +263,43 @@ instance
       `Prelude.seq` Prelude.rnf destination
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     CreatePredictorBacktestExportJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreatePredictorBacktestExportJob" ::
+              Data.=# ( "AmazonForecast.CreatePredictorBacktestExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePredictorBacktestExportJob where
+instance Data.ToJSON CreatePredictorBacktestExportJob where
   toJSON CreatePredictorBacktestExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Format" Core..=) Prelude.<$> format,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Format" Data..=) Prelude.<$> format,
             Prelude.Just
               ( "PredictorBacktestExportJobName"
-                  Core..= predictorBacktestExportJobName
+                  Data..= predictorBacktestExportJobName
               ),
-            Prelude.Just ("PredictorArn" Core..= predictorArn),
-            Prelude.Just ("Destination" Core..= destination)
+            Prelude.Just ("PredictorArn" Data..= predictorArn),
+            Prelude.Just ("Destination" Data..= destination)
           ]
       )
 
-instance Core.ToPath CreatePredictorBacktestExportJob where
+instance Data.ToPath CreatePredictorBacktestExportJob where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     CreatePredictorBacktestExportJob
   where
   toQuery = Prelude.const Prelude.mempty

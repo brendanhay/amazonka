@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ForecastExportJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.DataDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data ForecastExportJobSummary = ForecastExportJobSummary'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
     -- the forecast is exported.
     destination :: Prelude.Maybe DataDestination,
@@ -67,7 +68,7 @@ data ForecastExportJobSummary = ForecastExportJobSummary'
     -- access the forecast in your S3 bucket.
     status :: Prelude.Maybe Prelude.Text,
     -- | When the forecast export job was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,7 +143,7 @@ newForecastExportJobSummary =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 forecastExportJobSummary_lastModificationTime :: Lens.Lens' ForecastExportJobSummary (Prelude.Maybe Prelude.UTCTime)
-forecastExportJobSummary_lastModificationTime = Lens.lens (\ForecastExportJobSummary' {lastModificationTime} -> lastModificationTime) (\s@ForecastExportJobSummary' {} a -> s {lastModificationTime = a} :: ForecastExportJobSummary) Prelude.. Lens.mapping Core._Time
+forecastExportJobSummary_lastModificationTime = Lens.lens (\ForecastExportJobSummary' {lastModificationTime} -> lastModificationTime) (\s@ForecastExportJobSummary' {} a -> s {lastModificationTime = a} :: ForecastExportJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
 -- the forecast is exported.
@@ -178,21 +179,21 @@ forecastExportJobSummary_status = Lens.lens (\ForecastExportJobSummary' {status}
 
 -- | When the forecast export job was created.
 forecastExportJobSummary_creationTime :: Lens.Lens' ForecastExportJobSummary (Prelude.Maybe Prelude.UTCTime)
-forecastExportJobSummary_creationTime = Lens.lens (\ForecastExportJobSummary' {creationTime} -> creationTime) (\s@ForecastExportJobSummary' {} a -> s {creationTime = a} :: ForecastExportJobSummary) Prelude.. Lens.mapping Core._Time
+forecastExportJobSummary_creationTime = Lens.lens (\ForecastExportJobSummary' {creationTime} -> creationTime) (\s@ForecastExportJobSummary' {} a -> s {creationTime = a} :: ForecastExportJobSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ForecastExportJobSummary where
+instance Data.FromJSON ForecastExportJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ForecastExportJobSummary"
       ( \x ->
           ForecastExportJobSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ForecastExportJobName")
-            Prelude.<*> (x Core..:? "ForecastExportJobArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "ForecastExportJobName")
+            Prelude.<*> (x Data..:? "ForecastExportJobArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable ForecastExportJobSummary where

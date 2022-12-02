@@ -85,6 +85,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,34 +131,34 @@ instance Core.AWSRequest DescribePredictor where
     Response.receiveJSON
       ( \s h x ->
           DescribePredictorResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "EncryptionConfig")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "PerformAutoML")
-            Prelude.<*> (x Core..?> "PerformHPO")
-            Prelude.<*> (x Core..?> "OptimizationMetric")
-            Prelude.<*> (x Core..?> "EvaluationParameters")
-            Prelude.<*> (x Core..?> "IsAutoPredictor")
-            Prelude.<*> (x Core..?> "ForecastTypes")
-            Prelude.<*> (x Core..?> "PredictorName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "AlgorithmArn")
-            Prelude.<*> (x Core..?> "FeaturizationConfig")
-            Prelude.<*> (x Core..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Core..?> "ForecastHorizon")
-            Prelude.<*> (x Core..?> "PredictorArn")
-            Prelude.<*> ( x Core..?> "DatasetImportJobArns"
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "EncryptionConfig")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "PerformAutoML")
+            Prelude.<*> (x Data..?> "PerformHPO")
+            Prelude.<*> (x Data..?> "OptimizationMetric")
+            Prelude.<*> (x Data..?> "EvaluationParameters")
+            Prelude.<*> (x Data..?> "IsAutoPredictor")
+            Prelude.<*> (x Data..?> "ForecastTypes")
+            Prelude.<*> (x Data..?> "PredictorName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "AlgorithmArn")
+            Prelude.<*> (x Data..?> "FeaturizationConfig")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "ForecastHorizon")
+            Prelude.<*> (x Data..?> "PredictorArn")
+            Prelude.<*> ( x Data..?> "DatasetImportJobArns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "PredictorExecutionDetails")
-            Prelude.<*> (x Core..?> "AutoMLOverrideStrategy")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> ( x Core..?> "AutoMLAlgorithmArns"
+            Prelude.<*> (x Data..?> "PredictorExecutionDetails")
+            Prelude.<*> (x Data..?> "AutoMLOverrideStrategy")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> ( x Data..?> "AutoMLAlgorithmArns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "InputDataConfig")
-            Prelude.<*> (x Core..?> "HPOConfig")
-            Prelude.<*> ( x Core..?> "TrainingParameters"
+            Prelude.<*> (x Data..?> "InputDataConfig")
+            Prelude.<*> (x Data..?> "HPOConfig")
+            Prelude.<*> ( x Data..?> "TrainingParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,32 +171,32 @@ instance Prelude.Hashable DescribePredictor where
 instance Prelude.NFData DescribePredictor where
   rnf DescribePredictor' {..} = Prelude.rnf predictorArn
 
-instance Core.ToHeaders DescribePredictor where
+instance Data.ToHeaders DescribePredictor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribePredictor" ::
+              Data.=# ( "AmazonForecast.DescribePredictor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribePredictor where
+instance Data.ToJSON DescribePredictor where
   toJSON DescribePredictor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PredictorArn" Core..= predictorArn)]
+          [Prelude.Just ("PredictorArn" Data..= predictorArn)]
       )
 
-instance Core.ToPath DescribePredictor where
+instance Data.ToPath DescribePredictor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePredictor where
+instance Data.ToQuery DescribePredictor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribePredictorResponse' smart constructor.
@@ -212,7 +213,7 @@ data DescribePredictorResponse = DescribePredictorResponse'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
     -- Management (IAM) role that Amazon Forecast can assume to access the key.
     encryptionConfig :: Prelude.Maybe EncryptionConfig,
@@ -280,7 +281,7 @@ data DescribePredictorResponse = DescribePredictorResponse'
     -- This parameter is only valid for predictors trained using AutoML.
     autoMLOverrideStrategy :: Prelude.Maybe AutoMLOverrideStrategy,
     -- | When the model training task was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | When @PerformAutoML@ is specified, the ARN of the chosen algorithm.
     autoMLAlgorithmArns :: Prelude.Maybe [Prelude.Text],
     -- | Describes the dataset group that contains the data to use to train the
@@ -448,7 +449,7 @@ newDescribePredictorResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describePredictorResponse_lastModificationTime :: Lens.Lens' DescribePredictorResponse (Prelude.Maybe Prelude.UTCTime)
-describePredictorResponse_lastModificationTime = Lens.lens (\DescribePredictorResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribePredictorResponse' {} a -> s {lastModificationTime = a} :: DescribePredictorResponse) Prelude.. Lens.mapping Core._Time
+describePredictorResponse_lastModificationTime = Lens.lens (\DescribePredictorResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribePredictorResponse' {} a -> s {lastModificationTime = a} :: DescribePredictorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
@@ -554,7 +555,7 @@ describePredictorResponse_autoMLOverrideStrategy = Lens.lens (\DescribePredictor
 
 -- | When the model training task was created.
 describePredictorResponse_creationTime :: Lens.Lens' DescribePredictorResponse (Prelude.Maybe Prelude.UTCTime)
-describePredictorResponse_creationTime = Lens.lens (\DescribePredictorResponse' {creationTime} -> creationTime) (\s@DescribePredictorResponse' {} a -> s {creationTime = a} :: DescribePredictorResponse) Prelude.. Lens.mapping Core._Time
+describePredictorResponse_creationTime = Lens.lens (\DescribePredictorResponse' {creationTime} -> creationTime) (\s@DescribePredictorResponse' {} a -> s {creationTime = a} :: DescribePredictorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | When @PerformAutoML@ is specified, the ARN of the chosen algorithm.
 describePredictorResponse_autoMLAlgorithmArns :: Lens.Lens' DescribePredictorResponse (Prelude.Maybe [Prelude.Text])

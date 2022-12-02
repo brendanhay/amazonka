@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,15 +111,15 @@ instance Core.AWSRequest DescribeWhatIfAnalysis where
     Response.receiveJSON
       ( \s h x ->
           DescribeWhatIfAnalysisResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "WhatIfAnalysisArn")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "WhatIfAnalysisName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Core..?> "ForecastArn")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "TimeSeriesSelector")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "WhatIfAnalysisArn")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "WhatIfAnalysisName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "ForecastArn")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "TimeSeriesSelector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,34 +131,34 @@ instance Prelude.NFData DescribeWhatIfAnalysis where
   rnf DescribeWhatIfAnalysis' {..} =
     Prelude.rnf whatIfAnalysisArn
 
-instance Core.ToHeaders DescribeWhatIfAnalysis where
+instance Data.ToHeaders DescribeWhatIfAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeWhatIfAnalysis" ::
+              Data.=# ( "AmazonForecast.DescribeWhatIfAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWhatIfAnalysis where
+instance Data.ToJSON DescribeWhatIfAnalysis where
   toJSON DescribeWhatIfAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("WhatIfAnalysisArn" Core..= whatIfAnalysisArn)
+              ("WhatIfAnalysisArn" Data..= whatIfAnalysisArn)
           ]
       )
 
-instance Core.ToPath DescribeWhatIfAnalysis where
+instance Data.ToPath DescribeWhatIfAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWhatIfAnalysis where
+instance Data.ToQuery DescribeWhatIfAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWhatIfAnalysisResponse' smart constructor.
@@ -174,7 +175,7 @@ data DescribeWhatIfAnalysisResponse = DescribeWhatIfAnalysisResponse'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the what-if analysis.
     whatIfAnalysisArn :: Prelude.Maybe Prelude.Text,
     -- | If an error occurred, an informational message about the error.
@@ -200,7 +201,7 @@ data DescribeWhatIfAnalysisResponse = DescribeWhatIfAnalysisResponse'
     -- | The Amazon Resource Name (ARN) of the what-if forecast.
     forecastArn :: Prelude.Maybe Prelude.Text,
     -- | When the what-if analysis was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     timeSeriesSelector :: Prelude.Maybe TimeSeriesSelector,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -290,7 +291,7 @@ newDescribeWhatIfAnalysisResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeWhatIfAnalysisResponse_lastModificationTime :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.UTCTime)
-describeWhatIfAnalysisResponse_lastModificationTime = Lens.lens (\DescribeWhatIfAnalysisResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {lastModificationTime = a} :: DescribeWhatIfAnalysisResponse) Prelude.. Lens.mapping Core._Time
+describeWhatIfAnalysisResponse_lastModificationTime = Lens.lens (\DescribeWhatIfAnalysisResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {lastModificationTime = a} :: DescribeWhatIfAnalysisResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the what-if analysis.
 describeWhatIfAnalysisResponse_whatIfAnalysisArn :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
@@ -330,7 +331,7 @@ describeWhatIfAnalysisResponse_forecastArn = Lens.lens (\DescribeWhatIfAnalysisR
 
 -- | When the what-if analysis was created.
 describeWhatIfAnalysisResponse_creationTime :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.UTCTime)
-describeWhatIfAnalysisResponse_creationTime = Lens.lens (\DescribeWhatIfAnalysisResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {creationTime = a} :: DescribeWhatIfAnalysisResponse) Prelude.. Lens.mapping Core._Time
+describeWhatIfAnalysisResponse_creationTime = Lens.lens (\DescribeWhatIfAnalysisResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {creationTime = a} :: DescribeWhatIfAnalysisResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeWhatIfAnalysisResponse_timeSeriesSelector :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe TimeSeriesSelector)

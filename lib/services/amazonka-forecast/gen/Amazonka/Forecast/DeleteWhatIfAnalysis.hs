@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,34 +99,34 @@ instance Prelude.NFData DeleteWhatIfAnalysis where
   rnf DeleteWhatIfAnalysis' {..} =
     Prelude.rnf whatIfAnalysisArn
 
-instance Core.ToHeaders DeleteWhatIfAnalysis where
+instance Data.ToHeaders DeleteWhatIfAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DeleteWhatIfAnalysis" ::
+              Data.=# ( "AmazonForecast.DeleteWhatIfAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteWhatIfAnalysis where
+instance Data.ToJSON DeleteWhatIfAnalysis where
   toJSON DeleteWhatIfAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("WhatIfAnalysisArn" Core..= whatIfAnalysisArn)
+              ("WhatIfAnalysisArn" Data..= whatIfAnalysisArn)
           ]
       )
 
-instance Core.ToPath DeleteWhatIfAnalysis where
+instance Data.ToPath DeleteWhatIfAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteWhatIfAnalysis where
+instance Data.ToQuery DeleteWhatIfAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteWhatIfAnalysisResponse' smart constructor.

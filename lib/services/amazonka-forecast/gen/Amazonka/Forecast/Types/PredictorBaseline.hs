@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.PredictorBaseline where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.BaselineMetric
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,14 +65,14 @@ newPredictorBaseline =
 predictorBaseline_baselineMetrics :: Lens.Lens' PredictorBaseline (Prelude.Maybe [BaselineMetric])
 predictorBaseline_baselineMetrics = Lens.lens (\PredictorBaseline' {baselineMetrics} -> baselineMetrics) (\s@PredictorBaseline' {} a -> s {baselineMetrics = a} :: PredictorBaseline) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PredictorBaseline where
+instance Data.FromJSON PredictorBaseline where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictorBaseline"
       ( \x ->
           PredictorBaseline'
-            Prelude.<$> ( x Core..:? "BaselineMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "BaselineMetrics"
+                            Data..!= Prelude.mempty
                         )
       )
 

@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.EvaluationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.WindowSummary
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,14 +70,14 @@ evaluationResult_testWindows = Lens.lens (\EvaluationResult' {testWindows} -> te
 evaluationResult_algorithmArn :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Text)
 evaluationResult_algorithmArn = Lens.lens (\EvaluationResult' {algorithmArn} -> algorithmArn) (\s@EvaluationResult' {} a -> s {algorithmArn = a} :: EvaluationResult)
 
-instance Core.FromJSON EvaluationResult where
+instance Data.FromJSON EvaluationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Core..:? "TestWindows" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AlgorithmArn")
+            Prelude.<$> (x Data..:? "TestWindows" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AlgorithmArn")
       )
 
 instance Prelude.Hashable EvaluationResult where

@@ -123,6 +123,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -352,7 +353,7 @@ instance Core.AWSRequest CreateExplainability where
     Response.receiveJSON
       ( \s h x ->
           CreateExplainabilityResponse'
-            Prelude.<$> (x Core..?> "ExplainabilityArn")
+            Prelude.<$> (x Data..?> "ExplainabilityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -380,46 +381,46 @@ instance Prelude.NFData CreateExplainability where
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf explainabilityConfig
 
-instance Core.ToHeaders CreateExplainability where
+instance Data.ToHeaders CreateExplainability where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateExplainability" ::
+              Data.=# ( "AmazonForecast.CreateExplainability" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExplainability where
+instance Data.ToJSON CreateExplainability where
   toJSON CreateExplainability' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EnableVisualization" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EnableVisualization" Data..=)
               Prelude.<$> enableVisualization,
-            ("StartDateTime" Core..=) Prelude.<$> startDateTime,
-            ("Schema" Core..=) Prelude.<$> schema,
-            ("DataSource" Core..=) Prelude.<$> dataSource,
-            ("EndDateTime" Core..=) Prelude.<$> endDateTime,
+            ("StartDateTime" Data..=) Prelude.<$> startDateTime,
+            ("Schema" Data..=) Prelude.<$> schema,
+            ("DataSource" Data..=) Prelude.<$> dataSource,
+            ("EndDateTime" Data..=) Prelude.<$> endDateTime,
             Prelude.Just
-              ("ExplainabilityName" Core..= explainabilityName),
-            Prelude.Just ("ResourceArn" Core..= resourceArn),
+              ("ExplainabilityName" Data..= explainabilityName),
+            Prelude.Just ("ResourceArn" Data..= resourceArn),
             Prelude.Just
               ( "ExplainabilityConfig"
-                  Core..= explainabilityConfig
+                  Data..= explainabilityConfig
               )
           ]
       )
 
-instance Core.ToPath CreateExplainability where
+instance Data.ToPath CreateExplainability where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateExplainability where
+instance Data.ToQuery CreateExplainability where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExplainabilityResponse' smart constructor.

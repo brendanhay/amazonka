@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -414,7 +415,7 @@ instance Core.AWSRequest CreateDatasetImportJob where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetImportJobResponse'
-            Prelude.<$> (x Core..?> "DatasetImportJobArn")
+            Prelude.<$> (x Data..?> "DatasetImportJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -442,47 +443,47 @@ instance Prelude.NFData CreateDatasetImportJob where
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf dataSource
 
-instance Core.ToHeaders CreateDatasetImportJob where
+instance Data.ToHeaders CreateDatasetImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateDatasetImportJob" ::
+              Data.=# ( "AmazonForecast.CreateDatasetImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDatasetImportJob where
+instance Data.ToJSON CreateDatasetImportJob where
   toJSON CreateDatasetImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Format" Core..=) Prelude.<$> format,
-            ("TimeZone" Core..=) Prelude.<$> timeZone,
-            ("UseGeolocationForTimeZone" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Format" Data..=) Prelude.<$> format,
+            ("TimeZone" Data..=) Prelude.<$> timeZone,
+            ("UseGeolocationForTimeZone" Data..=)
               Prelude.<$> useGeolocationForTimeZone,
-            ("TimestampFormat" Core..=)
+            ("TimestampFormat" Data..=)
               Prelude.<$> timestampFormat,
-            ("GeolocationFormat" Core..=)
+            ("GeolocationFormat" Data..=)
               Prelude.<$> geolocationFormat,
             Prelude.Just
               ( "DatasetImportJobName"
-                  Core..= datasetImportJobName
+                  Data..= datasetImportJobName
               ),
-            Prelude.Just ("DatasetArn" Core..= datasetArn),
-            Prelude.Just ("DataSource" Core..= dataSource)
+            Prelude.Just ("DatasetArn" Data..= datasetArn),
+            Prelude.Just ("DataSource" Data..= dataSource)
           ]
       )
 
-instance Core.ToPath CreateDatasetImportJob where
+instance Data.ToPath CreateDatasetImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDatasetImportJob where
+instance Data.ToQuery CreateDatasetImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetImportJobResponse' smart constructor.

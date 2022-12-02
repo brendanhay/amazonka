@@ -67,6 +67,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,19 +110,19 @@ instance Core.AWSRequest DescribeMonitor where
     Response.receiveJSON
       ( \s h x ->
           DescribeMonitorResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "MonitorArn")
-            Prelude.<*> (x Core..?> "Baseline")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "MonitorArn")
+            Prelude.<*> (x Data..?> "Baseline")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> ( x
-                            Core..?> "EstimatedEvaluationTimeRemainingInMinutes"
+                            Data..?> "EstimatedEvaluationTimeRemainingInMinutes"
                         )
-            Prelude.<*> (x Core..?> "LastEvaluationTime")
-            Prelude.<*> (x Core..?> "LastEvaluationState")
-            Prelude.<*> (x Core..?> "MonitorName")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "LastEvaluationTime")
+            Prelude.<*> (x Data..?> "LastEvaluationState")
+            Prelude.<*> (x Data..?> "MonitorName")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "ResourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,38 +133,38 @@ instance Prelude.Hashable DescribeMonitor where
 instance Prelude.NFData DescribeMonitor where
   rnf DescribeMonitor' {..} = Prelude.rnf monitorArn
 
-instance Core.ToHeaders DescribeMonitor where
+instance Data.ToHeaders DescribeMonitor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeMonitor" ::
+              Data.=# ( "AmazonForecast.DescribeMonitor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMonitor where
+instance Data.ToJSON DescribeMonitor where
   toJSON DescribeMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MonitorArn" Core..= monitorArn)]
+          [Prelude.Just ("MonitorArn" Data..= monitorArn)]
       )
 
-instance Core.ToPath DescribeMonitor where
+instance Data.ToPath DescribeMonitor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMonitor where
+instance Data.ToQuery DescribeMonitor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMonitorResponse' smart constructor.
 data DescribeMonitorResponse = DescribeMonitorResponse'
   { -- | The timestamp of the latest modification to the monitor.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | An error message, if any, for the monitor.
     message :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the monitor resource described.
@@ -177,13 +178,13 @@ data DescribeMonitorResponse = DescribeMonitorResponse'
     -- finishes its current evaluation.
     estimatedEvaluationTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
     -- | The timestamp of the latest evaluation completed by the monitor.
-    lastEvaluationTime :: Prelude.Maybe Core.POSIX,
+    lastEvaluationTime :: Prelude.Maybe Data.POSIX,
     -- | The state of the monitor\'s latest evaluation.
     lastEvaluationState :: Prelude.Maybe Prelude.Text,
     -- | The name of the monitor.
     monitorName :: Prelude.Maybe Prelude.Text,
     -- | The timestamp for when the monitor resource was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the auto predictor being monitored.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -248,7 +249,7 @@ newDescribeMonitorResponse pHttpStatus_ =
 
 -- | The timestamp of the latest modification to the monitor.
 describeMonitorResponse_lastModificationTime :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.UTCTime)
-describeMonitorResponse_lastModificationTime = Lens.lens (\DescribeMonitorResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeMonitorResponse' {} a -> s {lastModificationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Core._Time
+describeMonitorResponse_lastModificationTime = Lens.lens (\DescribeMonitorResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeMonitorResponse' {} a -> s {lastModificationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An error message, if any, for the monitor.
 describeMonitorResponse_message :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
@@ -274,7 +275,7 @@ describeMonitorResponse_estimatedEvaluationTimeRemainingInMinutes = Lens.lens (\
 
 -- | The timestamp of the latest evaluation completed by the monitor.
 describeMonitorResponse_lastEvaluationTime :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.UTCTime)
-describeMonitorResponse_lastEvaluationTime = Lens.lens (\DescribeMonitorResponse' {lastEvaluationTime} -> lastEvaluationTime) (\s@DescribeMonitorResponse' {} a -> s {lastEvaluationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Core._Time
+describeMonitorResponse_lastEvaluationTime = Lens.lens (\DescribeMonitorResponse' {lastEvaluationTime} -> lastEvaluationTime) (\s@DescribeMonitorResponse' {} a -> s {lastEvaluationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the monitor\'s latest evaluation.
 describeMonitorResponse_lastEvaluationState :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)
@@ -286,7 +287,7 @@ describeMonitorResponse_monitorName = Lens.lens (\DescribeMonitorResponse' {moni
 
 -- | The timestamp for when the monitor resource was created.
 describeMonitorResponse_creationTime :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.UTCTime)
-describeMonitorResponse_creationTime = Lens.lens (\DescribeMonitorResponse' {creationTime} -> creationTime) (\s@DescribeMonitorResponse' {} a -> s {creationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Core._Time
+describeMonitorResponse_creationTime = Lens.lens (\DescribeMonitorResponse' {creationTime} -> creationTime) (\s@DescribeMonitorResponse' {} a -> s {creationTime = a} :: DescribeMonitorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the auto predictor being monitored.
 describeMonitorResponse_resourceArn :: Lens.Lens' DescribeMonitorResponse (Prelude.Maybe Prelude.Text)

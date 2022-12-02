@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.PredictorBacktestExportJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.DataDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data PredictorBacktestExportJobSummary = PredictorBacktestExportJobSummary'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     destination :: Prelude.Maybe DataDestination,
     -- | Information about any errors that may have occurred during the backtest
     -- export.
@@ -63,7 +64,7 @@ data PredictorBacktestExportJobSummary = PredictorBacktestExportJobSummary'
     -- | The Amazon Resource Name (ARN) of the predictor backtest export job.
     predictorBacktestExportJobArn :: Prelude.Maybe Prelude.Text,
     -- | When the predictor backtest export job was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -137,7 +138,7 @@ newPredictorBacktestExportJobSummary =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 predictorBacktestExportJobSummary_lastModificationTime :: Lens.Lens' PredictorBacktestExportJobSummary (Prelude.Maybe Prelude.UTCTime)
-predictorBacktestExportJobSummary_lastModificationTime = Lens.lens (\PredictorBacktestExportJobSummary' {lastModificationTime} -> lastModificationTime) (\s@PredictorBacktestExportJobSummary' {} a -> s {lastModificationTime = a} :: PredictorBacktestExportJobSummary) Prelude.. Lens.mapping Core._Time
+predictorBacktestExportJobSummary_lastModificationTime = Lens.lens (\PredictorBacktestExportJobSummary' {lastModificationTime} -> lastModificationTime) (\s@PredictorBacktestExportJobSummary' {} a -> s {lastModificationTime = a} :: PredictorBacktestExportJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 predictorBacktestExportJobSummary_destination :: Lens.Lens' PredictorBacktestExportJobSummary (Prelude.Maybe DataDestination)
@@ -170,24 +171,24 @@ predictorBacktestExportJobSummary_predictorBacktestExportJobArn = Lens.lens (\Pr
 
 -- | When the predictor backtest export job was created.
 predictorBacktestExportJobSummary_creationTime :: Lens.Lens' PredictorBacktestExportJobSummary (Prelude.Maybe Prelude.UTCTime)
-predictorBacktestExportJobSummary_creationTime = Lens.lens (\PredictorBacktestExportJobSummary' {creationTime} -> creationTime) (\s@PredictorBacktestExportJobSummary' {} a -> s {creationTime = a} :: PredictorBacktestExportJobSummary) Prelude.. Lens.mapping Core._Time
+predictorBacktestExportJobSummary_creationTime = Lens.lens (\PredictorBacktestExportJobSummary' {creationTime} -> creationTime) (\s@PredictorBacktestExportJobSummary' {} a -> s {creationTime = a} :: PredictorBacktestExportJobSummary) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PredictorBacktestExportJobSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictorBacktestExportJobSummary"
       ( \x ->
           PredictorBacktestExportJobSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "PredictorBacktestExportJobName")
-            Prelude.<*> (x Core..:? "PredictorBacktestExportJobArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "PredictorBacktestExportJobName")
+            Prelude.<*> (x Data..:? "PredictorBacktestExportJobArn")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance

@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,18 +113,18 @@ instance Core.AWSRequest DescribeWhatIfForecastExport where
     Response.receiveJSON
       ( \s h x ->
           DescribeWhatIfForecastExportResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "Destination")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "WhatIfForecastExportName")
-            Prelude.<*> (x Core..?> "Format")
-            Prelude.<*> ( x Core..?> "WhatIfForecastArns"
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Destination")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "WhatIfForecastExportName")
+            Prelude.<*> (x Data..?> "Format")
+            Prelude.<*> ( x Data..?> "WhatIfForecastArns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "WhatIfForecastExportArn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Data..?> "WhatIfForecastExportArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,36 +140,36 @@ instance Prelude.NFData DescribeWhatIfForecastExport where
   rnf DescribeWhatIfForecastExport' {..} =
     Prelude.rnf whatIfForecastExportArn
 
-instance Core.ToHeaders DescribeWhatIfForecastExport where
+instance Data.ToHeaders DescribeWhatIfForecastExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeWhatIfForecastExport" ::
+              Data.=# ( "AmazonForecast.DescribeWhatIfForecastExport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeWhatIfForecastExport where
+instance Data.ToJSON DescribeWhatIfForecastExport where
   toJSON DescribeWhatIfForecastExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "WhatIfForecastExportArn"
-                  Core..= whatIfForecastExportArn
+                  Data..= whatIfForecastExportArn
               )
           ]
       )
 
-instance Core.ToPath DescribeWhatIfForecastExport where
+instance Data.ToPath DescribeWhatIfForecastExport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeWhatIfForecastExport where
+instance Data.ToQuery DescribeWhatIfForecastExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeWhatIfForecastExportResponse' smart constructor.
@@ -185,7 +186,7 @@ data DescribeWhatIfForecastExportResponse = DescribeWhatIfForecastExportResponse
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     destination :: Prelude.Maybe DataDestination,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
@@ -215,7 +216,7 @@ data DescribeWhatIfForecastExportResponse = DescribeWhatIfForecastExportResponse
     -- in minutes.
     estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
     -- | When the what-if forecast export was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -310,7 +311,7 @@ newDescribeWhatIfForecastExportResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeWhatIfForecastExportResponse_lastModificationTime :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.UTCTime)
-describeWhatIfForecastExportResponse_lastModificationTime = Lens.lens (\DescribeWhatIfForecastExportResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {lastModificationTime = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Core._Time
+describeWhatIfForecastExportResponse_lastModificationTime = Lens.lens (\DescribeWhatIfForecastExportResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {lastModificationTime = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeWhatIfForecastExportResponse_destination :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe DataDestination)
@@ -359,7 +360,7 @@ describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes = Lens.lens
 
 -- | When the what-if forecast export was created.
 describeWhatIfForecastExportResponse_creationTime :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.UTCTime)
-describeWhatIfForecastExportResponse_creationTime = Lens.lens (\DescribeWhatIfForecastExportResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {creationTime = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Core._Time
+describeWhatIfForecastExportResponse_creationTime = Lens.lens (\DescribeWhatIfForecastExportResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {creationTime = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeWhatIfForecastExportResponse_httpStatus :: Lens.Lens' DescribeWhatIfForecastExportResponse Prelude.Int

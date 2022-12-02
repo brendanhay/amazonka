@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.AttributeConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the method used to transform attributes.
@@ -169,15 +170,15 @@ attributeConfig_attributeName = Lens.lens (\AttributeConfig' {attributeName} -> 
 attributeConfig_transformations :: Lens.Lens' AttributeConfig (Prelude.HashMap Prelude.Text Prelude.Text)
 attributeConfig_transformations = Lens.lens (\AttributeConfig' {transformations} -> transformations) (\s@AttributeConfig' {} a -> s {transformations = a} :: AttributeConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON AttributeConfig where
+instance Data.FromJSON AttributeConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttributeConfig"
       ( \x ->
           AttributeConfig'
-            Prelude.<$> (x Core..: "AttributeName")
-            Prelude.<*> ( x Core..:? "Transformations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "AttributeName")
+            Prelude.<*> ( x Data..:? "Transformations"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -191,13 +192,13 @@ instance Prelude.NFData AttributeConfig where
     Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf transformations
 
-instance Core.ToJSON AttributeConfig where
+instance Data.ToJSON AttributeConfig where
   toJSON AttributeConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AttributeName" Core..= attributeName),
+              ("AttributeName" Data..= attributeName),
             Prelude.Just
-              ("Transformations" Core..= transformations)
+              ("Transformations" Data..= transformations)
           ]
       )

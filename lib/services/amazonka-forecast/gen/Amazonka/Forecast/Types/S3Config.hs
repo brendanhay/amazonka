@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.S3Config where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The path to the file(s) in an Amazon Simple Storage Service (Amazon S3)
@@ -103,15 +104,15 @@ s3Config_path = Lens.lens (\S3Config' {path} -> path) (\s@S3Config' {} a -> s {p
 s3Config_roleArn :: Lens.Lens' S3Config Prelude.Text
 s3Config_roleArn = Lens.lens (\S3Config' {roleArn} -> roleArn) (\s@S3Config' {} a -> s {roleArn = a} :: S3Config)
 
-instance Core.FromJSON S3Config where
+instance Data.FromJSON S3Config where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Config"
       ( \x ->
           S3Config'
-            Prelude.<$> (x Core..:? "KMSKeyArn")
-            Prelude.<*> (x Core..: "Path")
-            Prelude.<*> (x Core..: "RoleArn")
+            Prelude.<$> (x Data..:? "KMSKeyArn")
+            Prelude.<*> (x Data..: "Path")
+            Prelude.<*> (x Data..: "RoleArn")
       )
 
 instance Prelude.Hashable S3Config where
@@ -126,12 +127,12 @@ instance Prelude.NFData S3Config where
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToJSON S3Config where
+instance Data.ToJSON S3Config where
   toJSON S3Config' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("KMSKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("Path" Core..= path),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+          [ ("KMSKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            Prelude.Just ("Path" Data..= path),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )

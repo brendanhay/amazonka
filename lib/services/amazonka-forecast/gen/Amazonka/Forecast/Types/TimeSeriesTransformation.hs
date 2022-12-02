@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.TimeSeriesTransformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.Action
 import Amazonka.Forecast.Types.TimeSeriesCondition
 import qualified Amazonka.Prelude as Prelude
@@ -78,16 +79,16 @@ timeSeriesTransformation_timeSeriesConditions = Lens.lens (\TimeSeriesTransforma
 timeSeriesTransformation_action :: Lens.Lens' TimeSeriesTransformation (Prelude.Maybe Action)
 timeSeriesTransformation_action = Lens.lens (\TimeSeriesTransformation' {action} -> action) (\s@TimeSeriesTransformation' {} a -> s {action = a} :: TimeSeriesTransformation)
 
-instance Core.FromJSON TimeSeriesTransformation where
+instance Data.FromJSON TimeSeriesTransformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeSeriesTransformation"
       ( \x ->
           TimeSeriesTransformation'
-            Prelude.<$> ( x Core..:? "TimeSeriesConditions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "TimeSeriesConditions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance Prelude.Hashable TimeSeriesTransformation where
@@ -100,12 +101,12 @@ instance Prelude.NFData TimeSeriesTransformation where
     Prelude.rnf timeSeriesConditions
       `Prelude.seq` Prelude.rnf action
 
-instance Core.ToJSON TimeSeriesTransformation where
+instance Data.ToJSON TimeSeriesTransformation where
   toJSON TimeSeriesTransformation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TimeSeriesConditions" Core..=)
+          [ ("TimeSeriesConditions" Data..=)
               Prelude.<$> timeSeriesConditions,
-            ("Action" Core..=) Prelude.<$> action
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

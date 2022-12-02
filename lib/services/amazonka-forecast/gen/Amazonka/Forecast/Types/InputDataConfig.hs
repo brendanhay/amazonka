@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.InputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.SupplementaryFeature
 import qualified Amazonka.Prelude as Prelude
 
@@ -73,14 +74,14 @@ inputDataConfig_supplementaryFeatures = Lens.lens (\InputDataConfig' {supplement
 inputDataConfig_datasetGroupArn :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_datasetGroupArn = Lens.lens (\InputDataConfig' {datasetGroupArn} -> datasetGroupArn) (\s@InputDataConfig' {} a -> s {datasetGroupArn = a} :: InputDataConfig)
 
-instance Core.FromJSON InputDataConfig where
+instance Data.FromJSON InputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Prelude.<$> (x Core..:? "SupplementaryFeatures")
-            Prelude.<*> (x Core..: "DatasetGroupArn")
+            Prelude.<$> (x Data..:? "SupplementaryFeatures")
+            Prelude.<*> (x Data..: "DatasetGroupArn")
       )
 
 instance Prelude.Hashable InputDataConfig where
@@ -93,13 +94,13 @@ instance Prelude.NFData InputDataConfig where
     Prelude.rnf supplementaryFeatures
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
-instance Core.ToJSON InputDataConfig where
+instance Data.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SupplementaryFeatures" Core..=)
+          [ ("SupplementaryFeatures" Data..=)
               Prelude.<$> supplementaryFeatures,
             Prelude.Just
-              ("DatasetGroupArn" Core..= datasetGroupArn)
+              ("DatasetGroupArn" Data..= datasetGroupArn)
           ]
       )

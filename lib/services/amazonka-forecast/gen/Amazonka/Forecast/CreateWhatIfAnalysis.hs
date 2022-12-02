@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,7 +181,7 @@ instance Core.AWSRequest CreateWhatIfAnalysis where
     Response.receiveJSON
       ( \s h x ->
           CreateWhatIfAnalysisResponse'
-            Prelude.<$> (x Core..?> "WhatIfAnalysisArn")
+            Prelude.<$> (x Data..?> "WhatIfAnalysisArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,38 +199,38 @@ instance Prelude.NFData CreateWhatIfAnalysis where
       `Prelude.seq` Prelude.rnf whatIfAnalysisName
       `Prelude.seq` Prelude.rnf forecastArn
 
-instance Core.ToHeaders CreateWhatIfAnalysis where
+instance Data.ToHeaders CreateWhatIfAnalysis where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateWhatIfAnalysis" ::
+              Data.=# ( "AmazonForecast.CreateWhatIfAnalysis" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWhatIfAnalysis where
+instance Data.ToJSON CreateWhatIfAnalysis where
   toJSON CreateWhatIfAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("TimeSeriesSelector" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("TimeSeriesSelector" Data..=)
               Prelude.<$> timeSeriesSelector,
             Prelude.Just
-              ("WhatIfAnalysisName" Core..= whatIfAnalysisName),
-            Prelude.Just ("ForecastArn" Core..= forecastArn)
+              ("WhatIfAnalysisName" Data..= whatIfAnalysisName),
+            Prelude.Just ("ForecastArn" Data..= forecastArn)
           ]
       )
 
-instance Core.ToPath CreateWhatIfAnalysis where
+instance Data.ToPath CreateWhatIfAnalysis where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWhatIfAnalysis where
+instance Data.ToQuery CreateWhatIfAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWhatIfAnalysisResponse' smart constructor.

@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,27 +105,27 @@ instance Core.AWSRequest DescribeAutoPredictor where
     Response.receiveJSON
       ( \s h x ->
           DescribeAutoPredictorResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "EncryptionConfig")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "ExplainabilityInfo")
-            Prelude.<*> (x Core..?> "ForecastDimensions")
-            Prelude.<*> (x Core..?> "OptimizationMetric")
-            Prelude.<*> (x Core..?> "MonitorInfo")
-            Prelude.<*> (x Core..?> "ForecastTypes")
-            Prelude.<*> (x Core..?> "PredictorName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Core..?> "ForecastHorizon")
-            Prelude.<*> (x Core..?> "PredictorArn")
-            Prelude.<*> ( x Core..?> "DatasetImportJobArns"
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "EncryptionConfig")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "ExplainabilityInfo")
+            Prelude.<*> (x Data..?> "ForecastDimensions")
+            Prelude.<*> (x Data..?> "OptimizationMetric")
+            Prelude.<*> (x Data..?> "MonitorInfo")
+            Prelude.<*> (x Data..?> "ForecastTypes")
+            Prelude.<*> (x Data..?> "PredictorName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "ForecastHorizon")
+            Prelude.<*> (x Data..?> "PredictorArn")
+            Prelude.<*> ( x Data..?> "DatasetImportJobArns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "DataConfig")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "TimeAlignmentBoundary")
-            Prelude.<*> (x Core..?> "ReferencePredictorSummary")
-            Prelude.<*> (x Core..?> "ForecastFrequency")
+            Prelude.<*> (x Data..?> "DataConfig")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "TimeAlignmentBoundary")
+            Prelude.<*> (x Data..?> "ReferencePredictorSummary")
+            Prelude.<*> (x Data..?> "ForecastFrequency")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,32 +137,32 @@ instance Prelude.NFData DescribeAutoPredictor where
   rnf DescribeAutoPredictor' {..} =
     Prelude.rnf predictorArn
 
-instance Core.ToHeaders DescribeAutoPredictor where
+instance Data.ToHeaders DescribeAutoPredictor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeAutoPredictor" ::
+              Data.=# ( "AmazonForecast.DescribeAutoPredictor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAutoPredictor where
+instance Data.ToJSON DescribeAutoPredictor where
   toJSON DescribeAutoPredictor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("PredictorArn" Core..= predictorArn)]
+          [Prelude.Just ("PredictorArn" Data..= predictorArn)]
       )
 
-instance Core.ToPath DescribeAutoPredictor where
+instance Data.ToPath DescribeAutoPredictor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAutoPredictor where
+instance Data.ToQuery DescribeAutoPredictor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAutoPredictorResponse' smart constructor.
@@ -178,7 +179,7 @@ data DescribeAutoPredictorResponse = DescribeAutoPredictorResponse'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     encryptionConfig :: Prelude.Maybe EncryptionConfig,
     -- | In the event of an error, a message detailing the cause of the error.
     message :: Prelude.Maybe Prelude.Text,
@@ -222,7 +223,7 @@ data DescribeAutoPredictorResponse = DescribeAutoPredictorResponse'
     -- datasets.
     dataConfig :: Prelude.Maybe DataConfig,
     -- | The timestamp of the CreateAutoPredictor request.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time boundary Forecast uses when aggregating data.
     timeAlignmentBoundary :: Prelude.Maybe TimeAlignmentBoundary,
     -- | The ARN and state of the reference predictor. This parameter is only
@@ -362,7 +363,7 @@ newDescribeAutoPredictorResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeAutoPredictorResponse_lastModificationTime :: Lens.Lens' DescribeAutoPredictorResponse (Prelude.Maybe Prelude.UTCTime)
-describeAutoPredictorResponse_lastModificationTime = Lens.lens (\DescribeAutoPredictorResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeAutoPredictorResponse' {} a -> s {lastModificationTime = a} :: DescribeAutoPredictorResponse) Prelude.. Lens.mapping Core._Time
+describeAutoPredictorResponse_lastModificationTime = Lens.lens (\DescribeAutoPredictorResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeAutoPredictorResponse' {} a -> s {lastModificationTime = a} :: DescribeAutoPredictorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeAutoPredictorResponse_encryptionConfig :: Lens.Lens' DescribeAutoPredictorResponse (Prelude.Maybe EncryptionConfig)
@@ -437,7 +438,7 @@ describeAutoPredictorResponse_dataConfig = Lens.lens (\DescribeAutoPredictorResp
 
 -- | The timestamp of the CreateAutoPredictor request.
 describeAutoPredictorResponse_creationTime :: Lens.Lens' DescribeAutoPredictorResponse (Prelude.Maybe Prelude.UTCTime)
-describeAutoPredictorResponse_creationTime = Lens.lens (\DescribeAutoPredictorResponse' {creationTime} -> creationTime) (\s@DescribeAutoPredictorResponse' {} a -> s {creationTime = a} :: DescribeAutoPredictorResponse) Prelude.. Lens.mapping Core._Time
+describeAutoPredictorResponse_creationTime = Lens.lens (\DescribeAutoPredictorResponse' {creationTime} -> creationTime) (\s@DescribeAutoPredictorResponse' {} a -> s {creationTime = a} :: DescribeAutoPredictorResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time boundary Forecast uses when aggregating data.
 describeAutoPredictorResponse_timeAlignmentBoundary :: Lens.Lens' DescribeAutoPredictorResponse (Prelude.Maybe TimeAlignmentBoundary)

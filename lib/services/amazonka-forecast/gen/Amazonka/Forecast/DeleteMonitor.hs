@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,32 +88,32 @@ instance Prelude.Hashable DeleteMonitor where
 instance Prelude.NFData DeleteMonitor where
   rnf DeleteMonitor' {..} = Prelude.rnf monitorArn
 
-instance Core.ToHeaders DeleteMonitor where
+instance Data.ToHeaders DeleteMonitor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DeleteMonitor" ::
+              Data.=# ( "AmazonForecast.DeleteMonitor" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteMonitor where
+instance Data.ToJSON DeleteMonitor where
   toJSON DeleteMonitor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MonitorArn" Core..= monitorArn)]
+          [Prelude.Just ("MonitorArn" Data..= monitorArn)]
       )
 
-instance Core.ToPath DeleteMonitor where
+instance Data.ToPath DeleteMonitor where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteMonitor where
+instance Data.ToQuery DeleteMonitor where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMonitorResponse' smart constructor.

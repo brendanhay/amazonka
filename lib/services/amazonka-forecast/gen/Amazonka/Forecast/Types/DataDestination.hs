@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.DataDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.S3Config
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,12 +59,12 @@ newDataDestination pS3Config_ =
 dataDestination_s3Config :: Lens.Lens' DataDestination S3Config
 dataDestination_s3Config = Lens.lens (\DataDestination' {s3Config} -> s3Config) (\s@DataDestination' {} a -> s {s3Config = a} :: DataDestination)
 
-instance Core.FromJSON DataDestination where
+instance Data.FromJSON DataDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataDestination"
       ( \x ->
-          DataDestination' Prelude.<$> (x Core..: "S3Config")
+          DataDestination' Prelude.<$> (x Data..: "S3Config")
       )
 
 instance Prelude.Hashable DataDestination where
@@ -73,9 +74,9 @@ instance Prelude.Hashable DataDestination where
 instance Prelude.NFData DataDestination where
   rnf DataDestination' {..} = Prelude.rnf s3Config
 
-instance Core.ToJSON DataDestination where
+instance Data.ToJSON DataDestination where
   toJSON DataDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3Config" Core..= s3Config)]
+          [Prelude.Just ("S3Config" Data..= s3Config)]
       )

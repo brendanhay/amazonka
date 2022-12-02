@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.DataSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.S3Config
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,12 +59,12 @@ newDataSource pS3Config_ =
 dataSource_s3Config :: Lens.Lens' DataSource S3Config
 dataSource_s3Config = Lens.lens (\DataSource' {s3Config} -> s3Config) (\s@DataSource' {} a -> s {s3Config = a} :: DataSource)
 
-instance Core.FromJSON DataSource where
+instance Data.FromJSON DataSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSource"
       ( \x ->
-          DataSource' Prelude.<$> (x Core..: "S3Config")
+          DataSource' Prelude.<$> (x Data..: "S3Config")
       )
 
 instance Prelude.Hashable DataSource where
@@ -73,9 +74,9 @@ instance Prelude.Hashable DataSource where
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} = Prelude.rnf s3Config
 
-instance Core.ToJSON DataSource where
+instance Data.ToJSON DataSource where
   toJSON DataSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3Config" Core..= s3Config)]
+          [Prelude.Just ("S3Config" Data..= s3Config)]
       )

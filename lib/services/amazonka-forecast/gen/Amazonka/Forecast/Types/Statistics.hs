@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.Statistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides statistics for each data field imported into to an Amazon
@@ -178,24 +179,24 @@ statistics_stddev = Lens.lens (\Statistics' {stddev} -> stddev) (\s@Statistics' 
 statistics_countDistinct :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Int)
 statistics_countDistinct = Lens.lens (\Statistics' {countDistinct} -> countDistinct) (\s@Statistics' {} a -> s {countDistinct = a} :: Statistics)
 
-instance Core.FromJSON Statistics where
+instance Data.FromJSON Statistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Statistics"
       ( \x ->
           Statistics'
-            Prelude.<$> (x Core..:? "CountNanLong")
-            Prelude.<*> (x Core..:? "CountNullLong")
-            Prelude.<*> (x Core..:? "CountNull")
-            Prelude.<*> (x Core..:? "Max")
-            Prelude.<*> (x Core..:? "CountLong")
-            Prelude.<*> (x Core..:? "CountDistinctLong")
-            Prelude.<*> (x Core..:? "Avg")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Min")
-            Prelude.<*> (x Core..:? "CountNan")
-            Prelude.<*> (x Core..:? "Stddev")
-            Prelude.<*> (x Core..:? "CountDistinct")
+            Prelude.<$> (x Data..:? "CountNanLong")
+            Prelude.<*> (x Data..:? "CountNullLong")
+            Prelude.<*> (x Data..:? "CountNull")
+            Prelude.<*> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "CountLong")
+            Prelude.<*> (x Data..:? "CountDistinctLong")
+            Prelude.<*> (x Data..:? "Avg")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Min")
+            Prelude.<*> (x Data..:? "CountNan")
+            Prelude.<*> (x Data..:? "Stddev")
+            Prelude.<*> (x Data..:? "CountDistinct")
       )
 
 instance Prelude.Hashable Statistics where

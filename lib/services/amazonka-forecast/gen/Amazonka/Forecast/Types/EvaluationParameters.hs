@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.EvaluationParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Parameters that define how to split a dataset into training data and
@@ -92,14 +93,14 @@ evaluationParameters_numberOfBacktestWindows = Lens.lens (\EvaluationParameters'
 evaluationParameters_backTestWindowOffset :: Lens.Lens' EvaluationParameters (Prelude.Maybe Prelude.Int)
 evaluationParameters_backTestWindowOffset = Lens.lens (\EvaluationParameters' {backTestWindowOffset} -> backTestWindowOffset) (\s@EvaluationParameters' {} a -> s {backTestWindowOffset = a} :: EvaluationParameters)
 
-instance Core.FromJSON EvaluationParameters where
+instance Data.FromJSON EvaluationParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EvaluationParameters"
       ( \x ->
           EvaluationParameters'
-            Prelude.<$> (x Core..:? "NumberOfBacktestWindows")
-            Prelude.<*> (x Core..:? "BackTestWindowOffset")
+            Prelude.<$> (x Data..:? "NumberOfBacktestWindows")
+            Prelude.<*> (x Data..:? "BackTestWindowOffset")
       )
 
 instance Prelude.Hashable EvaluationParameters where
@@ -113,13 +114,13 @@ instance Prelude.NFData EvaluationParameters where
     Prelude.rnf numberOfBacktestWindows
       `Prelude.seq` Prelude.rnf backTestWindowOffset
 
-instance Core.ToJSON EvaluationParameters where
+instance Data.ToJSON EvaluationParameters where
   toJSON EvaluationParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NumberOfBacktestWindows" Core..=)
+          [ ("NumberOfBacktestWindows" Data..=)
               Prelude.<$> numberOfBacktestWindows,
-            ("BackTestWindowOffset" Core..=)
+            ("BackTestWindowOffset" Data..=)
               Prelude.<$> backTestWindowOffset
           ]
       )

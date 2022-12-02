@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,16 +104,16 @@ instance Core.AWSRequest DescribeDataset where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "EncryptionConfig")
-            Prelude.<*> (x Core..?> "Domain")
-            Prelude.<*> (x Core..?> "DatasetType")
-            Prelude.<*> (x Core..?> "DatasetName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "DataFrequency")
-            Prelude.<*> (x Core..?> "DatasetArn")
-            Prelude.<*> (x Core..?> "Schema")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "EncryptionConfig")
+            Prelude.<*> (x Data..?> "Domain")
+            Prelude.<*> (x Data..?> "DatasetType")
+            Prelude.<*> (x Data..?> "DatasetName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "DataFrequency")
+            Prelude.<*> (x Data..?> "DatasetArn")
+            Prelude.<*> (x Data..?> "Schema")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,32 +124,32 @@ instance Prelude.Hashable DescribeDataset where
 instance Prelude.NFData DescribeDataset where
   rnf DescribeDataset' {..} = Prelude.rnf datasetArn
 
-instance Core.ToHeaders DescribeDataset where
+instance Data.ToHeaders DescribeDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeDataset" ::
+              Data.=# ( "AmazonForecast.DescribeDataset" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDataset where
+instance Data.ToJSON DescribeDataset where
   toJSON DescribeDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DatasetArn" Core..= datasetArn)]
+          [Prelude.Just ("DatasetArn" Data..= datasetArn)]
       )
 
-instance Core.ToPath DescribeDataset where
+instance Data.ToPath DescribeDataset where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDataset where
+instance Data.ToQuery DescribeDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeDatasetResponse' smart constructor.
@@ -160,7 +161,7 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
     -- operation has finished, @LastModificationTime@ is when the import job
     -- completed or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
     -- Management (IAM) role that Amazon Forecast can assume to access the key.
     encryptionConfig :: Prelude.Maybe EncryptionConfig,
@@ -203,7 +204,7 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- Each @SchemaAttribute@ specifies the name and data type of a field.
     schema :: Prelude.Maybe Schema,
     -- | When the dataset was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -297,7 +298,7 @@ newDescribeDatasetResponse pHttpStatus_ =
 -- operation has finished, @LastModificationTime@ is when the import job
 -- completed or failed.
 describeDatasetResponse_lastModificationTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_lastModificationTime = Lens.lens (\DescribeDatasetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetResponse_lastModificationTime = Lens.lens (\DescribeDatasetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
@@ -358,7 +359,7 @@ describeDatasetResponse_schema = Lens.lens (\DescribeDatasetResponse' {schema} -
 
 -- | When the dataset was created.
 describeDatasetResponse_creationTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_creationTime = Lens.lens (\DescribeDatasetResponse' {creationTime} -> creationTime) (\s@DescribeDatasetResponse' {} a -> s {creationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+describeDatasetResponse_creationTime = Lens.lens (\DescribeDatasetResponse' {creationTime} -> creationTime) (\s@DescribeDatasetResponse' {} a -> s {creationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Prelude.Int

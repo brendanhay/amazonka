@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -180,8 +181,8 @@ instance Core.AWSRequest ListExplainabilities where
     Response.receiveJSON
       ( \s h x ->
           ListExplainabilitiesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "Explainabilities"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "Explainabilities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,35 +200,35 @@ instance Prelude.NFData ListExplainabilities where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListExplainabilities where
+instance Data.ToHeaders ListExplainabilities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.ListExplainabilities" ::
+              Data.=# ( "AmazonForecast.ListExplainabilities" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListExplainabilities where
+instance Data.ToJSON ListExplainabilities where
   toJSON ListExplainabilities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListExplainabilities where
+instance Data.ToPath ListExplainabilities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListExplainabilities where
+instance Data.ToQuery ListExplainabilities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListExplainabilitiesResponse' smart constructor.

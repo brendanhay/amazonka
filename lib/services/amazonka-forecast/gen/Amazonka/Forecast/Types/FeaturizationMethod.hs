@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.FeaturizationMethod where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.FeaturizationMethodName
 import qualified Amazonka.Prelude as Prelude
 
@@ -168,16 +169,16 @@ featurizationMethod_featurizationMethodParameters = Lens.lens (\FeaturizationMet
 featurizationMethod_featurizationMethodName :: Lens.Lens' FeaturizationMethod FeaturizationMethodName
 featurizationMethod_featurizationMethodName = Lens.lens (\FeaturizationMethod' {featurizationMethodName} -> featurizationMethodName) (\s@FeaturizationMethod' {} a -> s {featurizationMethodName = a} :: FeaturizationMethod)
 
-instance Core.FromJSON FeaturizationMethod where
+instance Data.FromJSON FeaturizationMethod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeaturizationMethod"
       ( \x ->
           FeaturizationMethod'
-            Prelude.<$> ( x Core..:? "FeaturizationMethodParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "FeaturizationMethodParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "FeaturizationMethodName")
+            Prelude.<*> (x Data..: "FeaturizationMethodName")
       )
 
 instance Prelude.Hashable FeaturizationMethod where
@@ -191,15 +192,15 @@ instance Prelude.NFData FeaturizationMethod where
     Prelude.rnf featurizationMethodParameters
       `Prelude.seq` Prelude.rnf featurizationMethodName
 
-instance Core.ToJSON FeaturizationMethod where
+instance Data.ToJSON FeaturizationMethod where
   toJSON FeaturizationMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FeaturizationMethodParameters" Core..=)
+          [ ("FeaturizationMethodParameters" Data..=)
               Prelude.<$> featurizationMethodParameters,
             Prelude.Just
               ( "FeaturizationMethodName"
-                  Core..= featurizationMethodName
+                  Data..= featurizationMethodName
               )
           ]
       )

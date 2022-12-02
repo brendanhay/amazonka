@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.ContinuousParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.ScalingType
 import qualified Amazonka.Prelude as Prelude
 
@@ -172,16 +173,16 @@ continuousParameterRange_maxValue = Lens.lens (\ContinuousParameterRange' {maxVa
 continuousParameterRange_minValue :: Lens.Lens' ContinuousParameterRange Prelude.Double
 continuousParameterRange_minValue = Lens.lens (\ContinuousParameterRange' {minValue} -> minValue) (\s@ContinuousParameterRange' {} a -> s {minValue = a} :: ContinuousParameterRange)
 
-instance Core.FromJSON ContinuousParameterRange where
+instance Data.FromJSON ContinuousParameterRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContinuousParameterRange"
       ( \x ->
           ContinuousParameterRange'
-            Prelude.<$> (x Core..:? "ScalingType")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "MaxValue")
-            Prelude.<*> (x Core..: "MinValue")
+            Prelude.<$> (x Data..:? "ScalingType")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "MaxValue")
+            Prelude.<*> (x Data..: "MinValue")
       )
 
 instance Prelude.Hashable ContinuousParameterRange where
@@ -198,13 +199,13 @@ instance Prelude.NFData ContinuousParameterRange where
       `Prelude.seq` Prelude.rnf maxValue
       `Prelude.seq` Prelude.rnf minValue
 
-instance Core.ToJSON ContinuousParameterRange where
+instance Data.ToJSON ContinuousParameterRange where
   toJSON ContinuousParameterRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScalingType" Core..=) Prelude.<$> scalingType,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("MaxValue" Core..= maxValue),
-            Prelude.Just ("MinValue" Core..= minValue)
+          [ ("ScalingType" Data..=) Prelude.<$> scalingType,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("MaxValue" Data..= maxValue),
+            Prelude.Just ("MinValue" Data..= minValue)
           ]
       )

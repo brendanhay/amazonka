@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.FeaturizationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.Featurization
 import qualified Amazonka.Prelude as Prelude
 
@@ -160,15 +161,15 @@ featurizationConfig_featurizations = Lens.lens (\FeaturizationConfig' {featuriza
 featurizationConfig_forecastFrequency :: Lens.Lens' FeaturizationConfig Prelude.Text
 featurizationConfig_forecastFrequency = Lens.lens (\FeaturizationConfig' {forecastFrequency} -> forecastFrequency) (\s@FeaturizationConfig' {} a -> s {forecastFrequency = a} :: FeaturizationConfig)
 
-instance Core.FromJSON FeaturizationConfig where
+instance Data.FromJSON FeaturizationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FeaturizationConfig"
       ( \x ->
           FeaturizationConfig'
-            Prelude.<$> (x Core..:? "ForecastDimensions")
-            Prelude.<*> (x Core..:? "Featurizations")
-            Prelude.<*> (x Core..: "ForecastFrequency")
+            Prelude.<$> (x Data..:? "ForecastDimensions")
+            Prelude.<*> (x Data..:? "Featurizations")
+            Prelude.<*> (x Data..: "ForecastFrequency")
       )
 
 instance Prelude.Hashable FeaturizationConfig where
@@ -183,15 +184,15 @@ instance Prelude.NFData FeaturizationConfig where
       `Prelude.seq` Prelude.rnf featurizations
       `Prelude.seq` Prelude.rnf forecastFrequency
 
-instance Core.ToJSON FeaturizationConfig where
+instance Data.ToJSON FeaturizationConfig where
   toJSON FeaturizationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ForecastDimensions" Core..=)
+          [ ("ForecastDimensions" Data..=)
               Prelude.<$> forecastDimensions,
-            ("Featurizations" Core..=)
+            ("Featurizations" Data..=)
               Prelude.<$> featurizations,
             Prelude.Just
-              ("ForecastFrequency" Core..= forecastFrequency)
+              ("ForecastFrequency" Data..= forecastFrequency)
           ]
       )

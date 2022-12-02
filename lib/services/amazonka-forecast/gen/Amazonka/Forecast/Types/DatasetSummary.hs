@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.DatasetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.DatasetType
 import Amazonka.Forecast.Types.Domain
 import qualified Amazonka.Prelude as Prelude
@@ -40,7 +41,7 @@ data DatasetSummary = DatasetSummary'
     -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
     -- operation has finished, @LastModificationTime@ is when the import job
     -- completed or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The domain associated with the dataset.
     domain :: Prelude.Maybe Domain,
     -- | The dataset type.
@@ -50,7 +51,7 @@ data DatasetSummary = DatasetSummary'
     -- | The Amazon Resource Name (ARN) of the dataset.
     datasetArn :: Prelude.Maybe Prelude.Text,
     -- | When the dataset was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,7 +101,7 @@ newDatasetSummary =
 -- operation has finished, @LastModificationTime@ is when the import job
 -- completed or failed.
 datasetSummary_lastModificationTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_lastModificationTime = Lens.lens (\DatasetSummary' {lastModificationTime} -> lastModificationTime) (\s@DatasetSummary' {} a -> s {lastModificationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+datasetSummary_lastModificationTime = Lens.lens (\DatasetSummary' {lastModificationTime} -> lastModificationTime) (\s@DatasetSummary' {} a -> s {lastModificationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The domain associated with the dataset.
 datasetSummary_domain :: Lens.Lens' DatasetSummary (Prelude.Maybe Domain)
@@ -120,20 +121,20 @@ datasetSummary_datasetArn = Lens.lens (\DatasetSummary' {datasetArn} -> datasetA
 
 -- | When the dataset was created.
 datasetSummary_creationTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_creationTime = Lens.lens (\DatasetSummary' {creationTime} -> creationTime) (\s@DatasetSummary' {} a -> s {creationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+datasetSummary_creationTime = Lens.lens (\DatasetSummary' {creationTime} -> creationTime) (\s@DatasetSummary' {} a -> s {creationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DatasetSummary where
+instance Data.FromJSON DatasetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetSummary"
       ( \x ->
           DatasetSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "DatasetType")
-            Prelude.<*> (x Core..:? "DatasetName")
-            Prelude.<*> (x Core..:? "DatasetArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Domain")
+            Prelude.<*> (x Data..:? "DatasetType")
+            Prelude.<*> (x Data..:? "DatasetName")
+            Prelude.<*> (x Data..:? "DatasetArn")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable DatasetSummary where

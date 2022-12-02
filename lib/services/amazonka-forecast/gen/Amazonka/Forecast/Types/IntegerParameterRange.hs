@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.IntegerParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.ScalingType
 import qualified Amazonka.Prelude as Prelude
 
@@ -166,16 +167,16 @@ integerParameterRange_maxValue = Lens.lens (\IntegerParameterRange' {maxValue} -
 integerParameterRange_minValue :: Lens.Lens' IntegerParameterRange Prelude.Int
 integerParameterRange_minValue = Lens.lens (\IntegerParameterRange' {minValue} -> minValue) (\s@IntegerParameterRange' {} a -> s {minValue = a} :: IntegerParameterRange)
 
-instance Core.FromJSON IntegerParameterRange where
+instance Data.FromJSON IntegerParameterRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntegerParameterRange"
       ( \x ->
           IntegerParameterRange'
-            Prelude.<$> (x Core..:? "ScalingType")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "MaxValue")
-            Prelude.<*> (x Core..: "MinValue")
+            Prelude.<$> (x Data..:? "ScalingType")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "MaxValue")
+            Prelude.<*> (x Data..: "MinValue")
       )
 
 instance Prelude.Hashable IntegerParameterRange where
@@ -192,13 +193,13 @@ instance Prelude.NFData IntegerParameterRange where
       `Prelude.seq` Prelude.rnf maxValue
       `Prelude.seq` Prelude.rnf minValue
 
-instance Core.ToJSON IntegerParameterRange where
+instance Data.ToJSON IntegerParameterRange where
   toJSON IntegerParameterRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ScalingType" Core..=) Prelude.<$> scalingType,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("MaxValue" Core..= maxValue),
-            Prelude.Just ("MinValue" Core..= minValue)
+          [ ("ScalingType" Data..=) Prelude.<$> scalingType,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("MaxValue" Data..= maxValue),
+            Prelude.Just ("MinValue" Data..= minValue)
           ]
       )

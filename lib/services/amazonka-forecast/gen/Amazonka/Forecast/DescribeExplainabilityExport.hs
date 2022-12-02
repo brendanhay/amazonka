@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,15 +97,15 @@ instance Core.AWSRequest DescribeExplainabilityExport where
     Response.receiveJSON
       ( \s h x ->
           DescribeExplainabilityExportResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "Destination")
-            Prelude.<*> (x Core..?> "ExplainabilityExportName")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "Format")
-            Prelude.<*> (x Core..?> "ExplainabilityExportArn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ExplainabilityArn")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Destination")
+            Prelude.<*> (x Data..?> "ExplainabilityExportName")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Format")
+            Prelude.<*> (x Data..?> "ExplainabilityExportArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ExplainabilityArn")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,36 +121,36 @@ instance Prelude.NFData DescribeExplainabilityExport where
   rnf DescribeExplainabilityExport' {..} =
     Prelude.rnf explainabilityExportArn
 
-instance Core.ToHeaders DescribeExplainabilityExport where
+instance Data.ToHeaders DescribeExplainabilityExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribeExplainabilityExport" ::
+              Data.=# ( "AmazonForecast.DescribeExplainabilityExport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeExplainabilityExport where
+instance Data.ToJSON DescribeExplainabilityExport where
   toJSON DescribeExplainabilityExport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ExplainabilityExportArn"
-                  Core..= explainabilityExportArn
+                  Data..= explainabilityExportArn
               )
           ]
       )
 
-instance Core.ToPath DescribeExplainabilityExport where
+instance Data.ToPath DescribeExplainabilityExport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeExplainabilityExport where
+instance Data.ToQuery DescribeExplainabilityExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeExplainabilityExportResponse' smart constructor.
@@ -166,7 +167,7 @@ data DescribeExplainabilityExportResponse = DescribeExplainabilityExportResponse
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     destination :: Prelude.Maybe DataDestination,
     -- | The name of the Explainability export.
     explainabilityExportName :: Prelude.Maybe Prelude.Text,
@@ -189,7 +190,7 @@ data DescribeExplainabilityExportResponse = DescribeExplainabilityExportResponse
     -- | The Amazon Resource Name (ARN) of the Explainability export.
     explainabilityArn :: Prelude.Maybe Prelude.Text,
     -- | When the Explainability export was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,7 +276,7 @@ newDescribeExplainabilityExportResponse pHttpStatus_ =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describeExplainabilityExportResponse_lastModificationTime :: Lens.Lens' DescribeExplainabilityExportResponse (Prelude.Maybe Prelude.UTCTime)
-describeExplainabilityExportResponse_lastModificationTime = Lens.lens (\DescribeExplainabilityExportResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeExplainabilityExportResponse' {} a -> s {lastModificationTime = a} :: DescribeExplainabilityExportResponse) Prelude.. Lens.mapping Core._Time
+describeExplainabilityExportResponse_lastModificationTime = Lens.lens (\DescribeExplainabilityExportResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeExplainabilityExportResponse' {} a -> s {lastModificationTime = a} :: DescribeExplainabilityExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeExplainabilityExportResponse_destination :: Lens.Lens' DescribeExplainabilityExportResponse (Prelude.Maybe DataDestination)
@@ -315,7 +316,7 @@ describeExplainabilityExportResponse_explainabilityArn = Lens.lens (\DescribeExp
 
 -- | When the Explainability export was created.
 describeExplainabilityExportResponse_creationTime :: Lens.Lens' DescribeExplainabilityExportResponse (Prelude.Maybe Prelude.UTCTime)
-describeExplainabilityExportResponse_creationTime = Lens.lens (\DescribeExplainabilityExportResponse' {creationTime} -> creationTime) (\s@DescribeExplainabilityExportResponse' {} a -> s {creationTime = a} :: DescribeExplainabilityExportResponse) Prelude.. Lens.mapping Core._Time
+describeExplainabilityExportResponse_creationTime = Lens.lens (\DescribeExplainabilityExportResponse' {creationTime} -> creationTime) (\s@DescribeExplainabilityExportResponse' {} a -> s {creationTime = a} :: DescribeExplainabilityExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeExplainabilityExportResponse_httpStatus :: Lens.Lens' DescribeExplainabilityExportResponse Prelude.Int

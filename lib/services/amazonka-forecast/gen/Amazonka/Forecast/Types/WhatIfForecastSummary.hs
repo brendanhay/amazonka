@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.WhatIfForecastSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the what-if forecast properties used in the
@@ -42,7 +43,7 @@ data WhatIfForecastSummary = WhatIfForecastSummary'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the what-if analysis that contains
     -- this what-if forecast.
     whatIfAnalysisArn :: Prelude.Maybe Prelude.Text,
@@ -66,7 +67,7 @@ data WhatIfForecastSummary = WhatIfForecastSummary'
     -- access the analysis.
     status :: Prelude.Maybe Prelude.Text,
     -- | When the what-if forecast was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -141,7 +142,7 @@ newWhatIfForecastSummary =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 whatIfForecastSummary_lastModificationTime :: Lens.Lens' WhatIfForecastSummary (Prelude.Maybe Prelude.UTCTime)
-whatIfForecastSummary_lastModificationTime = Lens.lens (\WhatIfForecastSummary' {lastModificationTime} -> lastModificationTime) (\s@WhatIfForecastSummary' {} a -> s {lastModificationTime = a} :: WhatIfForecastSummary) Prelude.. Lens.mapping Core._Time
+whatIfForecastSummary_lastModificationTime = Lens.lens (\WhatIfForecastSummary' {lastModificationTime} -> lastModificationTime) (\s@WhatIfForecastSummary' {} a -> s {lastModificationTime = a} :: WhatIfForecastSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the what-if analysis that contains
 -- this what-if forecast.
@@ -177,21 +178,21 @@ whatIfForecastSummary_status = Lens.lens (\WhatIfForecastSummary' {status} -> st
 
 -- | When the what-if forecast was created.
 whatIfForecastSummary_creationTime :: Lens.Lens' WhatIfForecastSummary (Prelude.Maybe Prelude.UTCTime)
-whatIfForecastSummary_creationTime = Lens.lens (\WhatIfForecastSummary' {creationTime} -> creationTime) (\s@WhatIfForecastSummary' {} a -> s {creationTime = a} :: WhatIfForecastSummary) Prelude.. Lens.mapping Core._Time
+whatIfForecastSummary_creationTime = Lens.lens (\WhatIfForecastSummary' {creationTime} -> creationTime) (\s@WhatIfForecastSummary' {} a -> s {creationTime = a} :: WhatIfForecastSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON WhatIfForecastSummary where
+instance Data.FromJSON WhatIfForecastSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WhatIfForecastSummary"
       ( \x ->
           WhatIfForecastSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "WhatIfAnalysisArn")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "WhatIfForecastName")
-            Prelude.<*> (x Core..:? "WhatIfForecastArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "WhatIfAnalysisArn")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "WhatIfForecastName")
+            Prelude.<*> (x Data..:? "WhatIfForecastArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable WhatIfForecastSummary where

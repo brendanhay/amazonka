@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.Featurization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.FeaturizationMethod
 import qualified Amazonka.Prelude as Prelude
 
@@ -103,14 +104,14 @@ featurization_featurizationPipeline = Lens.lens (\Featurization' {featurizationP
 featurization_attributeName :: Lens.Lens' Featurization Prelude.Text
 featurization_attributeName = Lens.lens (\Featurization' {attributeName} -> attributeName) (\s@Featurization' {} a -> s {attributeName = a} :: Featurization)
 
-instance Core.FromJSON Featurization where
+instance Data.FromJSON Featurization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Featurization"
       ( \x ->
           Featurization'
-            Prelude.<$> (x Core..:? "FeaturizationPipeline")
-            Prelude.<*> (x Core..: "AttributeName")
+            Prelude.<$> (x Data..:? "FeaturizationPipeline")
+            Prelude.<*> (x Data..: "AttributeName")
       )
 
 instance Prelude.Hashable Featurization where
@@ -123,13 +124,13 @@ instance Prelude.NFData Featurization where
     Prelude.rnf featurizationPipeline
       `Prelude.seq` Prelude.rnf attributeName
 
-instance Core.ToJSON Featurization where
+instance Data.ToJSON Featurization where
   toJSON Featurization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FeaturizationPipeline" Core..=)
+          [ ("FeaturizationPipeline" Data..=)
               Prelude.<$> featurizationPipeline,
             Prelude.Just
-              ("AttributeName" Core..= attributeName)
+              ("AttributeName" Data..= attributeName)
           ]
       )

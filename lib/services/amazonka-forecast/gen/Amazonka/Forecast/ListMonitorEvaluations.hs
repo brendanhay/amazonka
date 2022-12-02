@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -212,8 +213,8 @@ instance Core.AWSRequest ListMonitorEvaluations where
     Response.receiveJSON
       ( \s h x ->
           ListMonitorEvaluationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PredictorMonitorEvaluations"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "PredictorMonitorEvaluations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -233,36 +234,36 @@ instance Prelude.NFData ListMonitorEvaluations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf monitorArn
 
-instance Core.ToHeaders ListMonitorEvaluations where
+instance Data.ToHeaders ListMonitorEvaluations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.ListMonitorEvaluations" ::
+              Data.=# ( "AmazonForecast.ListMonitorEvaluations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMonitorEvaluations where
+instance Data.ToJSON ListMonitorEvaluations where
   toJSON ListMonitorEvaluations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("MonitorArn" Core..= monitorArn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("MonitorArn" Data..= monitorArn)
           ]
       )
 
-instance Core.ToPath ListMonitorEvaluations where
+instance Data.ToPath ListMonitorEvaluations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMonitorEvaluations where
+instance Data.ToQuery ListMonitorEvaluations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMonitorEvaluationsResponse' smart constructor.

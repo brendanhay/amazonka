@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.WhatIfForecastExportSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.DataDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,7 +44,7 @@ data WhatIfForecastExportSummary = WhatIfForecastExportSummary'
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
     -- the forecast is exported.
     destination :: Prelude.Maybe DataDestination,
@@ -70,7 +71,7 @@ data WhatIfForecastExportSummary = WhatIfForecastExportSummary'
     -- access the analysis.
     status :: Prelude.Maybe Prelude.Text,
     -- | When the what-if forecast export was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -149,7 +150,7 @@ newWhatIfForecastExportSummary =
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 whatIfForecastExportSummary_lastModificationTime :: Lens.Lens' WhatIfForecastExportSummary (Prelude.Maybe Prelude.UTCTime)
-whatIfForecastExportSummary_lastModificationTime = Lens.lens (\WhatIfForecastExportSummary' {lastModificationTime} -> lastModificationTime) (\s@WhatIfForecastExportSummary' {} a -> s {lastModificationTime = a} :: WhatIfForecastExportSummary) Prelude.. Lens.mapping Core._Time
+whatIfForecastExportSummary_lastModificationTime = Lens.lens (\WhatIfForecastExportSummary' {lastModificationTime} -> lastModificationTime) (\s@WhatIfForecastExportSummary' {} a -> s {lastModificationTime = a} :: WhatIfForecastExportSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
 -- the forecast is exported.
@@ -190,22 +191,22 @@ whatIfForecastExportSummary_status = Lens.lens (\WhatIfForecastExportSummary' {s
 
 -- | When the what-if forecast export was created.
 whatIfForecastExportSummary_creationTime :: Lens.Lens' WhatIfForecastExportSummary (Prelude.Maybe Prelude.UTCTime)
-whatIfForecastExportSummary_creationTime = Lens.lens (\WhatIfForecastExportSummary' {creationTime} -> creationTime) (\s@WhatIfForecastExportSummary' {} a -> s {creationTime = a} :: WhatIfForecastExportSummary) Prelude.. Lens.mapping Core._Time
+whatIfForecastExportSummary_creationTime = Lens.lens (\WhatIfForecastExportSummary' {creationTime} -> creationTime) (\s@WhatIfForecastExportSummary' {} a -> s {creationTime = a} :: WhatIfForecastExportSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON WhatIfForecastExportSummary where
+instance Data.FromJSON WhatIfForecastExportSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WhatIfForecastExportSummary"
       ( \x ->
           WhatIfForecastExportSummary'
-            Prelude.<$> (x Core..:? "LastModificationTime")
-            Prelude.<*> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "WhatIfForecastExportName")
-            Prelude.<*> (x Core..:? "WhatIfForecastArns")
-            Prelude.<*> (x Core..:? "WhatIfForecastExportArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Destination")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "WhatIfForecastExportName")
+            Prelude.<*> (x Data..:? "WhatIfForecastArns")
+            Prelude.<*> (x Data..:? "WhatIfForecastExportArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable WhatIfForecastExportSummary where

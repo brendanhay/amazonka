@@ -21,6 +21,7 @@ module Amazonka.Forecast.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.Operation
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,15 +115,15 @@ action_operation = Lens.lens (\Action' {operation} -> operation) (\s@Action' {} 
 action_value :: Lens.Lens' Action Prelude.Double
 action_value = Lens.lens (\Action' {value} -> value) (\s@Action' {} a -> s {value = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..: "AttributeName")
-            Prelude.<*> (x Core..: "Operation")
-            Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "AttributeName")
+            Prelude.<*> (x Data..: "Operation")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable Action where
@@ -137,13 +138,13 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AttributeName" Core..= attributeName),
-            Prelude.Just ("Operation" Core..= operation),
-            Prelude.Just ("Value" Core..= value)
+              ("AttributeName" Data..= attributeName),
+            Prelude.Just ("Operation" Data..= operation),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

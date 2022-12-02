@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.SourceData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The data field of the trust anchor depending on its type.
@@ -73,14 +74,14 @@ sourceData_acmPcaArn = Lens.lens (\SourceData' {acmPcaArn} -> acmPcaArn) (\s@Sou
 sourceData_x509CertificateData :: Lens.Lens' SourceData (Prelude.Maybe Prelude.Text)
 sourceData_x509CertificateData = Lens.lens (\SourceData' {x509CertificateData} -> x509CertificateData) (\s@SourceData' {} a -> s {x509CertificateData = a} :: SourceData)
 
-instance Core.FromJSON SourceData where
+instance Data.FromJSON SourceData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceData"
       ( \x ->
           SourceData'
-            Prelude.<$> (x Core..:? "acmPcaArn")
-            Prelude.<*> (x Core..:? "x509CertificateData")
+            Prelude.<$> (x Data..:? "acmPcaArn")
+            Prelude.<*> (x Data..:? "x509CertificateData")
       )
 
 instance Prelude.Hashable SourceData where
@@ -93,12 +94,12 @@ instance Prelude.NFData SourceData where
     Prelude.rnf acmPcaArn
       `Prelude.seq` Prelude.rnf x509CertificateData
 
-instance Core.ToJSON SourceData where
+instance Data.ToJSON SourceData where
   toJSON SourceData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("acmPcaArn" Core..=) Prelude.<$> acmPcaArn,
-            ("x509CertificateData" Core..=)
+          [ ("acmPcaArn" Data..=) Prelude.<$> acmPcaArn,
+            ("x509CertificateData" Data..=)
               Prelude.<$> x509CertificateData
           ]
       )

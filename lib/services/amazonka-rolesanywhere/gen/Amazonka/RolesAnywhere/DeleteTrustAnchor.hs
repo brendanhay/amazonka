@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,7 +83,7 @@ instance Core.AWSRequest DeleteTrustAnchor where
     Request.delete (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DeleteTrustAnchor where
   hashWithSalt _salt DeleteTrustAnchor' {..} =
@@ -92,21 +93,21 @@ instance Prelude.NFData DeleteTrustAnchor where
   rnf DeleteTrustAnchor' {..} =
     Prelude.rnf trustAnchorId
 
-instance Core.ToHeaders DeleteTrustAnchor where
+instance Data.ToHeaders DeleteTrustAnchor where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteTrustAnchor where
+instance Data.ToPath DeleteTrustAnchor where
   toPath DeleteTrustAnchor' {..} =
     Prelude.mconcat
-      ["/trustanchor/", Core.toBS trustAnchorId]
+      ["/trustanchor/", Data.toBS trustAnchorId]
 
-instance Core.ToQuery DeleteTrustAnchor where
+instance Data.ToQuery DeleteTrustAnchor where
   toQuery = Prelude.const Prelude.mempty

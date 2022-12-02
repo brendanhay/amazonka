@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.CrlDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The state of the certificate revocation list (CRL) after a read or write
@@ -36,7 +37,7 @@ data CrlDetail = CrlDetail'
     name :: Prelude.Maybe Prelude.Text,
     -- | The state of the certificate revocation list (CRL) after a read or write
     -- operation.
-    crlData :: Prelude.Maybe Core.Base64,
+    crlData :: Prelude.Maybe Data.Base64,
     -- | Indicates whether the certificate revocation list (CRL) is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the TrustAnchor the certificate revocation list (CRL) will
@@ -44,10 +45,10 @@ data CrlDetail = CrlDetail'
     trustAnchorArn :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
     -- last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ crlDetail_name = Lens.lens (\CrlDetail' {name} -> name) (\s@CrlDetail' {} a -> s
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 crlDetail_crlData :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.ByteString)
-crlDetail_crlData = Lens.lens (\CrlDetail' {crlData} -> crlData) (\s@CrlDetail' {} a -> s {crlData = a} :: CrlDetail) Prelude.. Lens.mapping Core._Base64
+crlDetail_crlData = Lens.lens (\CrlDetail' {crlData} -> crlData) (\s@CrlDetail' {} a -> s {crlData = a} :: CrlDetail) Prelude.. Lens.mapping Data._Base64
 
 -- | Indicates whether the certificate revocation list (CRL) is enabled.
 crlDetail_enabled :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.Bool)
@@ -129,27 +130,27 @@ crlDetail_trustAnchorArn = Lens.lens (\CrlDetail' {trustAnchorArn} -> trustAncho
 -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
 -- created.
 crlDetail_createdAt :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.UTCTime)
-crlDetail_createdAt = Lens.lens (\CrlDetail' {createdAt} -> createdAt) (\s@CrlDetail' {} a -> s {createdAt = a} :: CrlDetail) Prelude.. Lens.mapping Core._Time
+crlDetail_createdAt = Lens.lens (\CrlDetail' {createdAt} -> createdAt) (\s@CrlDetail' {} a -> s {createdAt = a} :: CrlDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
 -- last updated.
 crlDetail_updatedAt :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.UTCTime)
-crlDetail_updatedAt = Lens.lens (\CrlDetail' {updatedAt} -> updatedAt) (\s@CrlDetail' {} a -> s {updatedAt = a} :: CrlDetail) Prelude.. Lens.mapping Core._Time
+crlDetail_updatedAt = Lens.lens (\CrlDetail' {updatedAt} -> updatedAt) (\s@CrlDetail' {} a -> s {updatedAt = a} :: CrlDetail) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CrlDetail where
+instance Data.FromJSON CrlDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrlDetail"
       ( \x ->
           CrlDetail'
-            Prelude.<$> (x Core..:? "crlArn")
-            Prelude.<*> (x Core..:? "crlId")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "crlData")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "trustAnchorArn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
+            Prelude.<$> (x Data..:? "crlArn")
+            Prelude.<*> (x Data..:? "crlId")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "crlData")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "trustAnchorArn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable CrlDetail where

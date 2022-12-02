@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,8 +123,8 @@ instance Core.AWSRequest ListProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListProfilesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "profiles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "profiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,25 +138,25 @@ instance Prelude.NFData ListProfiles where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToHeaders ListProfiles where
+instance Data.ToHeaders ListProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListProfiles where
+instance Data.ToPath ListProfiles where
   toPath = Prelude.const "/profiles"
 
-instance Core.ToQuery ListProfiles where
+instance Data.ToQuery ListProfiles where
   toQuery ListProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "pageSize" Core.=: pageSize
+      [ "nextToken" Data.=: nextToken,
+        "pageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newListProfilesResponse' smart constructor.

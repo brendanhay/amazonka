@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -57,7 +58,7 @@ data UpdateCrl = UpdateCrl'
   { -- | The name of the Crl.
     name :: Prelude.Maybe Prelude.Text,
     -- | The x509 v3 specified certificate revocation list
-    crlData :: Prelude.Maybe Core.Base64,
+    crlData :: Prelude.Maybe Data.Base64,
     -- | The unique identifier of the certificate revocation list (CRL).
     crlId :: Prelude.Text
   }
@@ -101,7 +102,7 @@ updateCrl_name = Lens.lens (\UpdateCrl' {name} -> name) (\s@UpdateCrl' {} a -> s
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateCrl_crlData :: Lens.Lens' UpdateCrl (Prelude.Maybe Prelude.ByteString)
-updateCrl_crlData = Lens.lens (\UpdateCrl' {crlData} -> crlData) (\s@UpdateCrl' {} a -> s {crlData = a} :: UpdateCrl) Prelude.. Lens.mapping Core._Base64
+updateCrl_crlData = Lens.lens (\UpdateCrl' {crlData} -> crlData) (\s@UpdateCrl' {} a -> s {crlData = a} :: UpdateCrl) Prelude.. Lens.mapping Data._Base64
 
 -- | The unique identifier of the certificate revocation list (CRL).
 updateCrl_crlId :: Lens.Lens' UpdateCrl Prelude.Text
@@ -113,7 +114,7 @@ instance Core.AWSRequest UpdateCrl where
     Request.patchJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable UpdateCrl where
   hashWithSalt _salt UpdateCrl' {..} =
@@ -127,29 +128,29 @@ instance Prelude.NFData UpdateCrl where
       `Prelude.seq` Prelude.rnf crlData
       `Prelude.seq` Prelude.rnf crlId
 
-instance Core.ToHeaders UpdateCrl where
+instance Data.ToHeaders UpdateCrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCrl where
+instance Data.ToJSON UpdateCrl where
   toJSON UpdateCrl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("crlData" Core..=) Prelude.<$> crlData
+          [ ("name" Data..=) Prelude.<$> name,
+            ("crlData" Data..=) Prelude.<$> crlData
           ]
       )
 
-instance Core.ToPath UpdateCrl where
+instance Data.ToPath UpdateCrl where
   toPath UpdateCrl' {..} =
-    Prelude.mconcat ["/crl/", Core.toBS crlId]
+    Prelude.mconcat ["/crl/", Data.toBS crlId]
 
-instance Core.ToQuery UpdateCrl where
+instance Data.ToQuery UpdateCrl where
   toQuery = Prelude.const Prelude.mempty

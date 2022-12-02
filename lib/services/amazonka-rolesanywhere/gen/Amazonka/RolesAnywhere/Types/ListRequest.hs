@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.ListRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newListRequest' smart constructor.
@@ -75,11 +76,11 @@ instance Prelude.NFData ListRequest where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
 
-instance Core.ToJSON ListRequest where
+instance Data.ToJSON ListRequest where
   toJSON ListRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("pageSize" Core..=) Prelude.<$> pageSize
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("pageSize" Data..=) Prelude.<$> pageSize
           ]
       )

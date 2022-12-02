@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DisableProfile where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable DisableProfile where
   hashWithSalt _salt DisableProfile' {..} =
@@ -93,24 +94,24 @@ instance Prelude.Hashable DisableProfile where
 instance Prelude.NFData DisableProfile where
   rnf DisableProfile' {..} = Prelude.rnf profileId
 
-instance Core.ToHeaders DisableProfile where
+instance Data.ToHeaders DisableProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisableProfile where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON DisableProfile where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath DisableProfile where
+instance Data.ToPath DisableProfile where
   toPath DisableProfile' {..} =
     Prelude.mconcat
-      ["/profile/", Core.toBS profileId, "/disable"]
+      ["/profile/", Data.toBS profileId, "/disable"]
 
-instance Core.ToQuery DisableProfile where
+instance Data.ToQuery DisableProfile where
   toQuery = Prelude.const Prelude.mempty

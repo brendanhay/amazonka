@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.Source where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RolesAnywhere.Types.SourceData
 import Amazonka.RolesAnywhere.Types.TrustAnchorType
@@ -63,14 +64,14 @@ source_sourceType = Lens.lens (\Source' {sourceType} -> sourceType) (\s@Source' 
 source_sourceData :: Lens.Lens' Source (Prelude.Maybe SourceData)
 source_sourceData = Lens.lens (\Source' {sourceData} -> sourceData) (\s@Source' {} a -> s {sourceData = a} :: Source)
 
-instance Core.FromJSON Source where
+instance Data.FromJSON Source where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> (x Core..:? "sourceType")
-            Prelude.<*> (x Core..:? "sourceData")
+            Prelude.<$> (x Data..:? "sourceType")
+            Prelude.<*> (x Data..:? "sourceData")
       )
 
 instance Prelude.Hashable Source where
@@ -83,11 +84,11 @@ instance Prelude.NFData Source where
     Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceData
 
-instance Core.ToJSON Source where
+instance Data.ToJSON Source where
   toJSON Source' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sourceType" Core..=) Prelude.<$> sourceType,
-            ("sourceData" Core..=) Prelude.<$> sourceData
+          [ ("sourceType" Data..=) Prelude.<$> sourceType,
+            ("sourceData" Data..=) Prelude.<$> sourceData
           ]
       )

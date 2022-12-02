@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.ScalarCrlRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newScalarCrlRequest' smart constructor.
@@ -57,9 +58,9 @@ instance Prelude.Hashable ScalarCrlRequest where
 instance Prelude.NFData ScalarCrlRequest where
   rnf ScalarCrlRequest' {..} = Prelude.rnf crlId
 
-instance Core.ToJSON ScalarCrlRequest where
+instance Data.ToJSON ScalarCrlRequest where
   toJSON ScalarCrlRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("crlId" Core..= crlId)]
+          [Prelude.Just ("crlId" Data..= crlId)]
       )

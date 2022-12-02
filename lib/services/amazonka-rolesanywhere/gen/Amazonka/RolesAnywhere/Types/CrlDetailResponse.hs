@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.CrlDetailResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RolesAnywhere.Types.CrlDetail
 
@@ -54,12 +55,12 @@ newCrlDetailResponse pCrl_ =
 crlDetailResponse_crl :: Lens.Lens' CrlDetailResponse CrlDetail
 crlDetailResponse_crl = Lens.lens (\CrlDetailResponse' {crl} -> crl) (\s@CrlDetailResponse' {} a -> s {crl = a} :: CrlDetailResponse)
 
-instance Core.FromJSON CrlDetailResponse where
+instance Data.FromJSON CrlDetailResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CrlDetailResponse"
       ( \x ->
-          CrlDetailResponse' Prelude.<$> (x Core..: "crl")
+          CrlDetailResponse' Prelude.<$> (x Data..: "crl")
       )
 
 instance Prelude.Hashable CrlDetailResponse where

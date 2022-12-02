@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -61,7 +62,7 @@ data ImportCrl = ImportCrl'
     -- | Specifies whether the certificate revocation list (CRL) is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The x509 v3 specified certificate revocation list
-    crlData :: Core.Base64,
+    crlData :: Data.Base64,
     -- | The name of the certificate revocation list (CRL).
     name :: Prelude.Text,
     -- | The ARN of the TrustAnchor the certificate revocation list (CRL) will
@@ -104,7 +105,7 @@ newImportCrl pCrlData_ pName_ pTrustAnchorArn_ =
   ImportCrl'
     { tags = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      crlData = Core._Base64 Lens.# pCrlData_,
+      crlData = Data._Base64 Lens.# pCrlData_,
       name = pName_,
       trustAnchorArn = pTrustAnchorArn_
     }
@@ -123,7 +124,7 @@ importCrl_enabled = Lens.lens (\ImportCrl' {enabled} -> enabled) (\s@ImportCrl' 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importCrl_crlData :: Lens.Lens' ImportCrl Prelude.ByteString
-importCrl_crlData = Lens.lens (\ImportCrl' {crlData} -> crlData) (\s@ImportCrl' {} a -> s {crlData = a} :: ImportCrl) Prelude.. Core._Base64
+importCrl_crlData = Lens.lens (\ImportCrl' {crlData} -> crlData) (\s@ImportCrl' {} a -> s {crlData = a} :: ImportCrl) Prelude.. Data._Base64
 
 -- | The name of the certificate revocation list (CRL).
 importCrl_name :: Lens.Lens' ImportCrl Prelude.Text
@@ -140,7 +141,7 @@ instance Core.AWSRequest ImportCrl where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable ImportCrl where
   hashWithSalt _salt ImportCrl' {..} =
@@ -158,32 +159,32 @@ instance Prelude.NFData ImportCrl where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf trustAnchorArn
 
-instance Core.ToHeaders ImportCrl where
+instance Data.ToHeaders ImportCrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportCrl where
+instance Data.ToJSON ImportCrl where
   toJSON ImportCrl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            Prelude.Just ("crlData" Core..= crlData),
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("enabled" Data..=) Prelude.<$> enabled,
+            Prelude.Just ("crlData" Data..= crlData),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("trustAnchorArn" Core..= trustAnchorArn)
+              ("trustAnchorArn" Data..= trustAnchorArn)
           ]
       )
 
-instance Core.ToPath ImportCrl where
+instance Data.ToPath ImportCrl where
   toPath = Prelude.const "/crls"
 
-instance Core.ToQuery ImportCrl where
+instance Data.ToQuery ImportCrl where
   toQuery = Prelude.const Prelude.mempty

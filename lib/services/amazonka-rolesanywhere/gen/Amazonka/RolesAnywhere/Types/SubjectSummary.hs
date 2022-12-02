@@ -21,6 +21,7 @@ module Amazonka.RolesAnywhere.Types.SubjectSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary representation of Subject resources returned in read
@@ -39,13 +40,13 @@ data SubjectSummary = SubjectSummary'
     -- | The ISO-8601 time stamp of when the certificate was first used in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 timestamp when the subject was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 time stamp of when the certificate was last used in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
-    lastSeenAt :: Prelude.Maybe Core.POSIX
+    lastSeenAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,31 +108,31 @@ subjectSummary_x509Subject = Lens.lens (\SubjectSummary' {x509Subject} -> x509Su
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation.
 subjectSummary_createdAt :: Lens.Lens' SubjectSummary (Prelude.Maybe Prelude.UTCTime)
-subjectSummary_createdAt = Lens.lens (\SubjectSummary' {createdAt} -> createdAt) (\s@SubjectSummary' {} a -> s {createdAt = a} :: SubjectSummary) Prelude.. Lens.mapping Core._Time
+subjectSummary_createdAt = Lens.lens (\SubjectSummary' {createdAt} -> createdAt) (\s@SubjectSummary' {} a -> s {createdAt = a} :: SubjectSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 timestamp when the subject was last updated.
 subjectSummary_updatedAt :: Lens.Lens' SubjectSummary (Prelude.Maybe Prelude.UTCTime)
-subjectSummary_updatedAt = Lens.lens (\SubjectSummary' {updatedAt} -> updatedAt) (\s@SubjectSummary' {} a -> s {updatedAt = a} :: SubjectSummary) Prelude.. Lens.mapping Core._Time
+subjectSummary_updatedAt = Lens.lens (\SubjectSummary' {updatedAt} -> updatedAt) (\s@SubjectSummary' {} a -> s {updatedAt = a} :: SubjectSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 time stamp of when the certificate was last used in a
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation.
 subjectSummary_lastSeenAt :: Lens.Lens' SubjectSummary (Prelude.Maybe Prelude.UTCTime)
-subjectSummary_lastSeenAt = Lens.lens (\SubjectSummary' {lastSeenAt} -> lastSeenAt) (\s@SubjectSummary' {} a -> s {lastSeenAt = a} :: SubjectSummary) Prelude.. Lens.mapping Core._Time
+subjectSummary_lastSeenAt = Lens.lens (\SubjectSummary' {lastSeenAt} -> lastSeenAt) (\s@SubjectSummary' {} a -> s {lastSeenAt = a} :: SubjectSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SubjectSummary where
+instance Data.FromJSON SubjectSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubjectSummary"
       ( \x ->
           SubjectSummary'
-            Prelude.<$> (x Core..:? "subjectId")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "subjectArn")
-            Prelude.<*> (x Core..:? "x509Subject")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "updatedAt")
-            Prelude.<*> (x Core..:? "lastSeenAt")
+            Prelude.<$> (x Data..:? "subjectId")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "subjectArn")
+            Prelude.<*> (x Data..:? "x509Subject")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "updatedAt")
+            Prelude.<*> (x Data..:? "lastSeenAt")
       )
 
 instance Prelude.Hashable SubjectSummary where

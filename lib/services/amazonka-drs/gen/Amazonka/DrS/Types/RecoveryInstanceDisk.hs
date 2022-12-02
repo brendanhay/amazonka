@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.RecoveryInstanceDisk where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a block storage device on the Recovery Instance.
@@ -73,15 +74,15 @@ recoveryInstanceDisk_internalDeviceName = Lens.lens (\RecoveryInstanceDisk' {int
 recoveryInstanceDisk_ebsVolumeID :: Lens.Lens' RecoveryInstanceDisk (Prelude.Maybe Prelude.Text)
 recoveryInstanceDisk_ebsVolumeID = Lens.lens (\RecoveryInstanceDisk' {ebsVolumeID} -> ebsVolumeID) (\s@RecoveryInstanceDisk' {} a -> s {ebsVolumeID = a} :: RecoveryInstanceDisk)
 
-instance Core.FromJSON RecoveryInstanceDisk where
+instance Data.FromJSON RecoveryInstanceDisk where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryInstanceDisk"
       ( \x ->
           RecoveryInstanceDisk'
-            Prelude.<$> (x Core..:? "bytes")
-            Prelude.<*> (x Core..:? "internalDeviceName")
-            Prelude.<*> (x Core..:? "ebsVolumeID")
+            Prelude.<$> (x Data..:? "bytes")
+            Prelude.<*> (x Data..:? "internalDeviceName")
+            Prelude.<*> (x Data..:? "ebsVolumeID")
       )
 
 instance Prelude.Hashable RecoveryInstanceDisk where

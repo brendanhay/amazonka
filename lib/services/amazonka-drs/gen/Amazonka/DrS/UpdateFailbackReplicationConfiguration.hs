@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,37 +149,37 @@ instance
       `Prelude.seq` Prelude.rnf recoveryInstanceID
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateFailbackReplicationConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateFailbackReplicationConfiguration
   where
   toJSON UpdateFailbackReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bandwidthThrottling" Core..=)
+          [ ("bandwidthThrottling" Data..=)
               Prelude.<$> bandwidthThrottling,
-            ("name" Core..=) Prelude.<$> name,
-            ("usePrivateIP" Core..=) Prelude.<$> usePrivateIP,
+            ("name" Data..=) Prelude.<$> name,
+            ("usePrivateIP" Data..=) Prelude.<$> usePrivateIP,
             Prelude.Just
-              ("recoveryInstanceID" Core..= recoveryInstanceID)
+              ("recoveryInstanceID" Data..= recoveryInstanceID)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateFailbackReplicationConfiguration
   where
   toPath =
@@ -186,7 +187,7 @@ instance
       "/UpdateFailbackReplicationConfiguration"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateFailbackReplicationConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

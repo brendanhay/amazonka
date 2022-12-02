@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.LaunchConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.LaunchDisposition
 import Amazonka.DrS.Types.Licensing
 import Amazonka.DrS.Types.TargetInstanceTypeRightSizingMethod
@@ -129,20 +130,20 @@ launchConfiguration_licensing = Lens.lens (\LaunchConfiguration' {licensing} -> 
 launchConfiguration_copyPrivateIp :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Bool)
 launchConfiguration_copyPrivateIp = Lens.lens (\LaunchConfiguration' {copyPrivateIp} -> copyPrivateIp) (\s@LaunchConfiguration' {} a -> s {copyPrivateIp = a} :: LaunchConfiguration)
 
-instance Core.FromJSON LaunchConfiguration where
+instance Data.FromJSON LaunchConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchConfiguration"
       ( \x ->
           LaunchConfiguration'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "targetInstanceTypeRightSizingMethod")
-            Prelude.<*> (x Core..:? "copyTags")
-            Prelude.<*> (x Core..:? "launchDisposition")
-            Prelude.<*> (x Core..:? "ec2LaunchTemplateID")
-            Prelude.<*> (x Core..:? "sourceServerID")
-            Prelude.<*> (x Core..:? "licensing")
-            Prelude.<*> (x Core..:? "copyPrivateIp")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "targetInstanceTypeRightSizingMethod")
+            Prelude.<*> (x Data..:? "copyTags")
+            Prelude.<*> (x Data..:? "launchDisposition")
+            Prelude.<*> (x Data..:? "ec2LaunchTemplateID")
+            Prelude.<*> (x Data..:? "sourceServerID")
+            Prelude.<*> (x Data..:? "licensing")
+            Prelude.<*> (x Data..:? "copyPrivateIp")
       )
 
 instance Prelude.Hashable LaunchConfiguration where

@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.StagingSourceServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Source server in staging account that extended source server connected
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStagingSourceServer' smart constructor.
 data StagingSourceServer = StagingSourceServer'
   { -- | A list of tags associated with the staging source server.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The ARN of the source server.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Hostname of staging source server.
@@ -61,7 +62,7 @@ newStagingSourceServer =
 
 -- | A list of tags associated with the staging source server.
 stagingSourceServer_tags :: Lens.Lens' StagingSourceServer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-stagingSourceServer_tags = Lens.lens (\StagingSourceServer' {tags} -> tags) (\s@StagingSourceServer' {} a -> s {tags = a} :: StagingSourceServer) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+stagingSourceServer_tags = Lens.lens (\StagingSourceServer' {tags} -> tags) (\s@StagingSourceServer' {} a -> s {tags = a} :: StagingSourceServer) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The ARN of the source server.
 stagingSourceServer_arn :: Lens.Lens' StagingSourceServer (Prelude.Maybe Prelude.Text)
@@ -71,15 +72,15 @@ stagingSourceServer_arn = Lens.lens (\StagingSourceServer' {arn} -> arn) (\s@Sta
 stagingSourceServer_hostname :: Lens.Lens' StagingSourceServer (Prelude.Maybe Prelude.Text)
 stagingSourceServer_hostname = Lens.lens (\StagingSourceServer' {hostname} -> hostname) (\s@StagingSourceServer' {} a -> s {hostname = a} :: StagingSourceServer)
 
-instance Core.FromJSON StagingSourceServer where
+instance Data.FromJSON StagingSourceServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StagingSourceServer"
       ( \x ->
           StagingSourceServer'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "hostname")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "hostname")
       )
 
 instance Prelude.Hashable StagingSourceServer where

@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.ConversionProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Properties of a conversion job
@@ -92,21 +93,21 @@ conversionProperties_volumeToConversionMap = Lens.lens (\ConversionProperties' {
 conversionProperties_forceUefi :: Lens.Lens' ConversionProperties (Prelude.Maybe Prelude.Bool)
 conversionProperties_forceUefi = Lens.lens (\ConversionProperties' {forceUefi} -> forceUefi) (\s@ConversionProperties' {} a -> s {forceUefi = a} :: ConversionProperties)
 
-instance Core.FromJSON ConversionProperties where
+instance Data.FromJSON ConversionProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConversionProperties"
       ( \x ->
           ConversionProperties'
-            Prelude.<$> ( x Core..:? "volumeToVolumeSize"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "volumeToVolumeSize"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "rootVolumeName")
-            Prelude.<*> (x Core..:? "dataTimestamp")
-            Prelude.<*> ( x Core..:? "volumeToConversionMap"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "rootVolumeName")
+            Prelude.<*> (x Data..:? "dataTimestamp")
+            Prelude.<*> ( x Data..:? "volumeToConversionMap"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "forceUefi")
+            Prelude.<*> (x Data..:? "forceUefi")
       )
 
 instance Prelude.Hashable ConversionProperties where

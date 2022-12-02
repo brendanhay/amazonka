@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.PITPolicyRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.PITPolicyRuleUnits
 import qualified Amazonka.Prelude as Prelude
 
@@ -99,17 +100,17 @@ pITPolicyRule_retentionDuration = Lens.lens (\PITPolicyRule' {retentionDuration}
 pITPolicyRule_units :: Lens.Lens' PITPolicyRule PITPolicyRuleUnits
 pITPolicyRule_units = Lens.lens (\PITPolicyRule' {units} -> units) (\s@PITPolicyRule' {} a -> s {units = a} :: PITPolicyRule)
 
-instance Core.FromJSON PITPolicyRule where
+instance Data.FromJSON PITPolicyRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PITPolicyRule"
       ( \x ->
           PITPolicyRule'
-            Prelude.<$> (x Core..:? "ruleID")
-            Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..: "interval")
-            Prelude.<*> (x Core..: "retentionDuration")
-            Prelude.<*> (x Core..: "units")
+            Prelude.<$> (x Data..:? "ruleID")
+            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..: "interval")
+            Prelude.<*> (x Data..: "retentionDuration")
+            Prelude.<*> (x Data..: "units")
       )
 
 instance Prelude.Hashable PITPolicyRule where
@@ -128,15 +129,15 @@ instance Prelude.NFData PITPolicyRule where
       `Prelude.seq` Prelude.rnf retentionDuration
       `Prelude.seq` Prelude.rnf units
 
-instance Core.ToJSON PITPolicyRule where
+instance Data.ToJSON PITPolicyRule where
   toJSON PITPolicyRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ruleID" Core..=) Prelude.<$> ruleID,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            Prelude.Just ("interval" Core..= interval),
+          [ ("ruleID" Data..=) Prelude.<$> ruleID,
+            ("enabled" Data..=) Prelude.<$> enabled,
+            Prelude.Just ("interval" Data..= interval),
             Prelude.Just
-              ("retentionDuration" Core..= retentionDuration),
-            Prelude.Just ("units" Core..= units)
+              ("retentionDuration" Data..= retentionDuration),
+            Prelude.Just ("units" Data..= units)
           ]
       )

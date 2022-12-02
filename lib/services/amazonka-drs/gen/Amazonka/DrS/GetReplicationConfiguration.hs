@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -98,7 +99,7 @@ instance Core.AWSRequest GetReplicationConfiguration where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetReplicationConfiguration where
   hashWithSalt _salt GetReplicationConfiguration' {..} =
@@ -108,28 +109,28 @@ instance Prelude.NFData GetReplicationConfiguration where
   rnf GetReplicationConfiguration' {..} =
     Prelude.rnf sourceServerID
 
-instance Core.ToHeaders GetReplicationConfiguration where
+instance Data.ToHeaders GetReplicationConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetReplicationConfiguration where
+instance Data.ToJSON GetReplicationConfiguration where
   toJSON GetReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
-instance Core.ToPath GetReplicationConfiguration where
+instance Data.ToPath GetReplicationConfiguration where
   toPath = Prelude.const "/GetReplicationConfiguration"
 
-instance Core.ToQuery GetReplicationConfiguration where
+instance Data.ToQuery GetReplicationConfiguration where
   toQuery = Prelude.const Prelude.mempty

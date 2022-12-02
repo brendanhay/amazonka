@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.RecoveryInstanceFailback where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.FailbackState
 import qualified Amazonka.Prelude as Prelude
 
@@ -140,23 +141,23 @@ recoveryInstanceFailback_firstByteDateTime = Lens.lens (\RecoveryInstanceFailbac
 recoveryInstanceFailback_failbackInitiationTime :: Lens.Lens' RecoveryInstanceFailback (Prelude.Maybe Prelude.Text)
 recoveryInstanceFailback_failbackInitiationTime = Lens.lens (\RecoveryInstanceFailback' {failbackInitiationTime} -> failbackInitiationTime) (\s@RecoveryInstanceFailback' {} a -> s {failbackInitiationTime = a} :: RecoveryInstanceFailback)
 
-instance Core.FromJSON RecoveryInstanceFailback where
+instance Data.FromJSON RecoveryInstanceFailback where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryInstanceFailback"
       ( \x ->
           RecoveryInstanceFailback'
-            Prelude.<$> (x Core..:? "failbackToOriginalServer")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "failbackClientID")
-            Prelude.<*> (x Core..:? "elapsedReplicationDuration")
-            Prelude.<*> (x Core..:? "agentLastSeenByServiceDateTime")
-            Prelude.<*> (x Core..:? "failbackJobID")
+            Prelude.<$> (x Data..:? "failbackToOriginalServer")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "failbackClientID")
+            Prelude.<*> (x Data..:? "elapsedReplicationDuration")
+            Prelude.<*> (x Data..:? "agentLastSeenByServiceDateTime")
+            Prelude.<*> (x Data..:? "failbackJobID")
             Prelude.<*> ( x
-                            Core..:? "failbackClientLastSeenByServiceDateTime"
+                            Data..:? "failbackClientLastSeenByServiceDateTime"
                         )
-            Prelude.<*> (x Core..:? "firstByteDateTime")
-            Prelude.<*> (x Core..:? "failbackInitiationTime")
+            Prelude.<*> (x Data..:? "firstByteDateTime")
+            Prelude.<*> (x Data..:? "failbackInitiationTime")
       )
 
 instance Prelude.Hashable RecoveryInstanceFailback where

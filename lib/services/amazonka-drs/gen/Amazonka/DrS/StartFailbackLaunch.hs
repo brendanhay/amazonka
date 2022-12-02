@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -53,7 +54,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartFailbackLaunch' smart constructor.
 data StartFailbackLaunch = StartFailbackLaunch'
   { -- | The tags to be associated with the failback launch Job.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The IDs of the Recovery Instance whose failback launch we want to
     -- request.
     recoveryInstanceIDs :: Prelude.NonEmpty Prelude.Text
@@ -85,7 +86,7 @@ newStartFailbackLaunch pRecoveryInstanceIDs_ =
 
 -- | The tags to be associated with the failback launch Job.
 startFailbackLaunch_tags :: Lens.Lens' StartFailbackLaunch (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startFailbackLaunch_tags = Lens.lens (\StartFailbackLaunch' {tags} -> tags) (\s@StartFailbackLaunch' {} a -> s {tags = a} :: StartFailbackLaunch) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+startFailbackLaunch_tags = Lens.lens (\StartFailbackLaunch' {tags} -> tags) (\s@StartFailbackLaunch' {} a -> s {tags = a} :: StartFailbackLaunch) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The IDs of the Recovery Instance whose failback launch we want to
 -- request.
@@ -102,7 +103,7 @@ instance Core.AWSRequest StartFailbackLaunch where
     Response.receiveJSON
       ( \s h x ->
           StartFailbackLaunchResponse'
-            Prelude.<$> (x Core..?> "job")
+            Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,31 +117,31 @@ instance Prelude.NFData StartFailbackLaunch where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf recoveryInstanceIDs
 
-instance Core.ToHeaders StartFailbackLaunch where
+instance Data.ToHeaders StartFailbackLaunch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartFailbackLaunch where
+instance Data.ToJSON StartFailbackLaunch where
   toJSON StartFailbackLaunch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("recoveryInstanceIDs" Core..= recoveryInstanceIDs)
+              ("recoveryInstanceIDs" Data..= recoveryInstanceIDs)
           ]
       )
 
-instance Core.ToPath StartFailbackLaunch where
+instance Data.ToPath StartFailbackLaunch where
   toPath = Prelude.const "/StartFailbackLaunch"
 
-instance Core.ToQuery StartFailbackLaunch where
+instance Data.ToQuery StartFailbackLaunch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFailbackLaunchResponse' smart constructor.

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -151,8 +152,8 @@ instance Core.AWSRequest DescribeRecoverySnapshots where
     Response.receiveJSON
       ( \s h x ->
           DescribeRecoverySnapshotsResponse'
-            Prelude.<$> (x Core..?> "items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,34 +173,34 @@ instance Prelude.NFData DescribeRecoverySnapshots where
       `Prelude.seq` Prelude.rnf order
       `Prelude.seq` Prelude.rnf sourceServerID
 
-instance Core.ToHeaders DescribeRecoverySnapshots where
+instance Data.ToHeaders DescribeRecoverySnapshots where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRecoverySnapshots where
+instance Data.ToJSON DescribeRecoverySnapshots where
   toJSON DescribeRecoverySnapshots' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("order" Core..=) Prelude.<$> order,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("order" Data..=) Prelude.<$> order,
             Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
-instance Core.ToPath DescribeRecoverySnapshots where
+instance Data.ToPath DescribeRecoverySnapshots where
   toPath = Prelude.const "/DescribeRecoverySnapshots"
 
-instance Core.ToQuery DescribeRecoverySnapshots where
+instance Data.ToQuery DescribeRecoverySnapshots where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRecoverySnapshotsResponse' smart constructor.

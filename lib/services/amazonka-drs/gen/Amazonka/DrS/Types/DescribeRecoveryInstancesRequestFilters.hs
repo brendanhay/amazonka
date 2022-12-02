@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.DescribeRecoveryInstancesRequestFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of filters by which to return Recovery Instances.
@@ -87,15 +88,15 @@ instance
       `Prelude.seq` Prelude.rnf sourceServerIDs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeRecoveryInstancesRequestFilters
   where
   toJSON DescribeRecoveryInstancesRequestFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("recoveryInstanceIDs" Core..=)
+          [ ("recoveryInstanceIDs" Data..=)
               Prelude.<$> recoveryInstanceIDs,
-            ("sourceServerIDs" Core..=)
+            ("sourceServerIDs" Data..=)
               Prelude.<$> sourceServerIDs
           ]
       )

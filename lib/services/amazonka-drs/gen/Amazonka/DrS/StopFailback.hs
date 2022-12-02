@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,30 +89,30 @@ instance Prelude.NFData StopFailback where
   rnf StopFailback' {..} =
     Prelude.rnf recoveryInstanceID
 
-instance Core.ToHeaders StopFailback where
+instance Data.ToHeaders StopFailback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopFailback where
+instance Data.ToJSON StopFailback where
   toJSON StopFailback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recoveryInstanceID" Core..= recoveryInstanceID)
+              ("recoveryInstanceID" Data..= recoveryInstanceID)
           ]
       )
 
-instance Core.ToPath StopFailback where
+instance Data.ToPath StopFailback where
   toPath = Prelude.const "/StopFailback"
 
-instance Core.ToQuery StopFailback where
+instance Data.ToQuery StopFailback where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopFailbackResponse' smart constructor.

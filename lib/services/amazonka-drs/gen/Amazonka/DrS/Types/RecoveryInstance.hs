@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.RecoveryInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.EC2InstanceState
 import Amazonka.DrS.Types.RecoveryInstanceDataReplicationInfo
 import Amazonka.DrS.Types.RecoveryInstanceFailback
@@ -32,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRecoveryInstance' smart constructor.
 data RecoveryInstance = RecoveryInstance'
   { -- | An array of tags that are associated with the Recovery Instance.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The EC2 instance ID of the Recovery Instance.
     ec2InstanceID :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Recovery Instance.
@@ -115,7 +116,7 @@ newRecoveryInstance =
 
 -- | An array of tags that are associated with the Recovery Instance.
 recoveryInstance_tags :: Lens.Lens' RecoveryInstance (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-recoveryInstance_tags = Lens.lens (\RecoveryInstance' {tags} -> tags) (\s@RecoveryInstance' {} a -> s {tags = a} :: RecoveryInstance) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+recoveryInstance_tags = Lens.lens (\RecoveryInstance' {tags} -> tags) (\s@RecoveryInstance' {} a -> s {tags = a} :: RecoveryInstance) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The EC2 instance ID of the Recovery Instance.
 recoveryInstance_ec2InstanceID :: Lens.Lens' RecoveryInstance (Prelude.Maybe Prelude.Text)
@@ -164,24 +165,24 @@ recoveryInstance_failback = Lens.lens (\RecoveryInstance' {failback} -> failback
 recoveryInstance_isDrill :: Lens.Lens' RecoveryInstance (Prelude.Maybe Prelude.Bool)
 recoveryInstance_isDrill = Lens.lens (\RecoveryInstance' {isDrill} -> isDrill) (\s@RecoveryInstance' {} a -> s {isDrill = a} :: RecoveryInstance)
 
-instance Core.FromJSON RecoveryInstance where
+instance Data.FromJSON RecoveryInstance where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryInstance"
       ( \x ->
           RecoveryInstance'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ec2InstanceID")
-            Prelude.<*> (x Core..:? "recoveryInstanceID")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "jobID")
-            Prelude.<*> (x Core..:? "pointInTimeSnapshotDateTime")
-            Prelude.<*> (x Core..:? "ec2InstanceState")
-            Prelude.<*> (x Core..:? "dataReplicationInfo")
-            Prelude.<*> (x Core..:? "recoveryInstanceProperties")
-            Prelude.<*> (x Core..:? "sourceServerID")
-            Prelude.<*> (x Core..:? "failback")
-            Prelude.<*> (x Core..:? "isDrill")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ec2InstanceID")
+            Prelude.<*> (x Data..:? "recoveryInstanceID")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "jobID")
+            Prelude.<*> (x Data..:? "pointInTimeSnapshotDateTime")
+            Prelude.<*> (x Data..:? "ec2InstanceState")
+            Prelude.<*> (x Data..:? "dataReplicationInfo")
+            Prelude.<*> (x Data..:? "recoveryInstanceProperties")
+            Prelude.<*> (x Data..:? "sourceServerID")
+            Prelude.<*> (x Data..:? "failback")
+            Prelude.<*> (x Data..:? "isDrill")
       )
 
 instance Prelude.Hashable RecoveryInstance where

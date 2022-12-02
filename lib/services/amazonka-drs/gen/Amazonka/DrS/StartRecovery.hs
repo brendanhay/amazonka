@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -53,7 +54,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartRecovery' smart constructor.
 data StartRecovery = StartRecovery'
   { -- | The tags to be associated with the Recovery Job.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Whether this Source Server Recovery operation is a drill or not.
     isDrill :: Prelude.Maybe Prelude.Bool,
     -- | The Source Servers that we want to start a Recovery Job for.
@@ -87,7 +88,7 @@ newStartRecovery pSourceServers_ =
 
 -- | The tags to be associated with the Recovery Job.
 startRecovery_tags :: Lens.Lens' StartRecovery (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startRecovery_tags = Lens.lens (\StartRecovery' {tags} -> tags) (\s@StartRecovery' {} a -> s {tags = a} :: StartRecovery) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+startRecovery_tags = Lens.lens (\StartRecovery' {tags} -> tags) (\s@StartRecovery' {} a -> s {tags = a} :: StartRecovery) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Whether this Source Server Recovery operation is a drill or not.
 startRecovery_isDrill :: Lens.Lens' StartRecovery (Prelude.Maybe Prelude.Bool)
@@ -107,7 +108,7 @@ instance Core.AWSRequest StartRecovery where
     Response.receiveJSON
       ( \s h x ->
           StartRecoveryResponse'
-            Prelude.<$> (x Core..?> "job")
+            Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,32 +124,32 @@ instance Prelude.NFData StartRecovery where
       `Prelude.seq` Prelude.rnf isDrill
       `Prelude.seq` Prelude.rnf sourceServers
 
-instance Core.ToHeaders StartRecovery where
+instance Data.ToHeaders StartRecovery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartRecovery where
+instance Data.ToJSON StartRecovery where
   toJSON StartRecovery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("isDrill" Core..=) Prelude.<$> isDrill,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("isDrill" Data..=) Prelude.<$> isDrill,
             Prelude.Just
-              ("sourceServers" Core..= sourceServers)
+              ("sourceServers" Data..= sourceServers)
           ]
       )
 
-instance Core.ToPath StartRecovery where
+instance Data.ToPath StartRecovery where
   toPath = Prelude.const "/StartRecovery"
 
-instance Core.ToQuery StartRecovery where
+instance Data.ToQuery StartRecovery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartRecoveryResponse' smart constructor.

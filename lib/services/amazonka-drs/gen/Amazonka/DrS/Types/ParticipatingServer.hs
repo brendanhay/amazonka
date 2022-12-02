@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.ParticipatingServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.LaunchStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ participatingServer_recoveryInstanceID = Lens.lens (\ParticipatingServer' {recov
 participatingServer_sourceServerID :: Lens.Lens' ParticipatingServer (Prelude.Maybe Prelude.Text)
 participatingServer_sourceServerID = Lens.lens (\ParticipatingServer' {sourceServerID} -> sourceServerID) (\s@ParticipatingServer' {} a -> s {sourceServerID = a} :: ParticipatingServer)
 
-instance Core.FromJSON ParticipatingServer where
+instance Data.FromJSON ParticipatingServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParticipatingServer"
       ( \x ->
           ParticipatingServer'
-            Prelude.<$> (x Core..:? "launchStatus")
-            Prelude.<*> (x Core..:? "recoveryInstanceID")
-            Prelude.<*> (x Core..:? "sourceServerID")
+            Prelude.<$> (x Data..:? "launchStatus")
+            Prelude.<*> (x Data..:? "recoveryInstanceID")
+            Prelude.<*> (x Data..:? "sourceServerID")
       )
 
 instance Prelude.Hashable ParticipatingServer where

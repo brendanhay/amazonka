@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest TerminateRecoveryInstances where
     Response.receiveJSON
       ( \s h x ->
           TerminateRecoveryInstancesResponse'
-            Prelude.<$> (x Core..?> "job")
+            Prelude.<$> (x Data..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,30 +101,30 @@ instance Prelude.NFData TerminateRecoveryInstances where
   rnf TerminateRecoveryInstances' {..} =
     Prelude.rnf recoveryInstanceIDs
 
-instance Core.ToHeaders TerminateRecoveryInstances where
+instance Data.ToHeaders TerminateRecoveryInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TerminateRecoveryInstances where
+instance Data.ToJSON TerminateRecoveryInstances where
   toJSON TerminateRecoveryInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("recoveryInstanceIDs" Core..= recoveryInstanceIDs)
+              ("recoveryInstanceIDs" Data..= recoveryInstanceIDs)
           ]
       )
 
-instance Core.ToPath TerminateRecoveryInstances where
+instance Data.ToPath TerminateRecoveryInstances where
   toPath = Prelude.const "/TerminateRecoveryInstances"
 
-instance Core.ToQuery TerminateRecoveryInstances where
+instance Data.ToQuery TerminateRecoveryInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTerminateRecoveryInstancesResponse' smart constructor.

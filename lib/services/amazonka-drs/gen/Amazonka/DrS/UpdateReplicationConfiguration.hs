@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ data UpdateReplicationConfiguration = UpdateReplicationConfiguration'
     -- | A set of tags to be associated with all resources created in the
     -- replication staging area: EC2 replication server, EBS volumes, EBS
     -- snapshots, etc.
-    stagingAreaTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    stagingAreaTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Whether to associate the default Elastic Disaster Recovery Security
     -- group with the Replication Configuration.
     associateDefaultSecurityGroup :: Prelude.Maybe Prelude.Bool,
@@ -210,7 +211,7 @@ updateReplicationConfiguration_replicationServerInstanceType = Lens.lens (\Updat
 -- replication staging area: EC2 replication server, EBS volumes, EBS
 -- snapshots, etc.
 updateReplicationConfiguration_stagingAreaTags :: Lens.Lens' UpdateReplicationConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateReplicationConfiguration_stagingAreaTags = Lens.lens (\UpdateReplicationConfiguration' {stagingAreaTags} -> stagingAreaTags) (\s@UpdateReplicationConfiguration' {} a -> s {stagingAreaTags = a} :: UpdateReplicationConfiguration) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateReplicationConfiguration_stagingAreaTags = Lens.lens (\UpdateReplicationConfiguration' {stagingAreaTags} -> stagingAreaTags) (\s@UpdateReplicationConfiguration' {} a -> s {stagingAreaTags = a} :: UpdateReplicationConfiguration) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Whether to associate the default Elastic Disaster Recovery Security
 -- group with the Replication Configuration.
@@ -274,7 +275,7 @@ instance
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance
   Prelude.Hashable
@@ -324,58 +325,58 @@ instance
       `Prelude.seq` Prelude.rnf sourceServerID
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateReplicationConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateReplicationConfiguration where
+instance Data.ToJSON UpdateReplicationConfiguration where
   toJSON UpdateReplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bandwidthThrottling" Core..=)
+          [ ("bandwidthThrottling" Data..=)
               Prelude.<$> bandwidthThrottling,
-            ("name" Core..=) Prelude.<$> name,
-            ("replicationServerInstanceType" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("replicationServerInstanceType" Data..=)
               Prelude.<$> replicationServerInstanceType,
-            ("stagingAreaTags" Core..=)
+            ("stagingAreaTags" Data..=)
               Prelude.<$> stagingAreaTags,
-            ("associateDefaultSecurityGroup" Core..=)
+            ("associateDefaultSecurityGroup" Data..=)
               Prelude.<$> associateDefaultSecurityGroup,
-            ("defaultLargeStagingDiskType" Core..=)
+            ("defaultLargeStagingDiskType" Data..=)
               Prelude.<$> defaultLargeStagingDiskType,
-            ("stagingAreaSubnetId" Core..=)
+            ("stagingAreaSubnetId" Data..=)
               Prelude.<$> stagingAreaSubnetId,
-            ("createPublicIP" Core..=)
+            ("createPublicIP" Data..=)
               Prelude.<$> createPublicIP,
-            ("dataPlaneRouting" Core..=)
+            ("dataPlaneRouting" Data..=)
               Prelude.<$> dataPlaneRouting,
-            ("ebsEncryption" Core..=) Prelude.<$> ebsEncryption,
-            ("replicatedDisks" Core..=)
+            ("ebsEncryption" Data..=) Prelude.<$> ebsEncryption,
+            ("replicatedDisks" Data..=)
               Prelude.<$> replicatedDisks,
-            ("pitPolicy" Core..=) Prelude.<$> pitPolicy,
-            ("useDedicatedReplicationServer" Core..=)
+            ("pitPolicy" Data..=) Prelude.<$> pitPolicy,
+            ("useDedicatedReplicationServer" Data..=)
               Prelude.<$> useDedicatedReplicationServer,
-            ("replicationServersSecurityGroupsIDs" Core..=)
+            ("replicationServersSecurityGroupsIDs" Data..=)
               Prelude.<$> replicationServersSecurityGroupsIDs,
-            ("ebsEncryptionKeyArn" Core..=)
+            ("ebsEncryptionKeyArn" Data..=)
               Prelude.<$> ebsEncryptionKeyArn,
             Prelude.Just
-              ("sourceServerID" Core..= sourceServerID)
+              ("sourceServerID" Data..= sourceServerID)
           ]
       )
 
-instance Core.ToPath UpdateReplicationConfiguration where
+instance Data.ToPath UpdateReplicationConfiguration where
   toPath =
     Prelude.const "/UpdateReplicationConfiguration"
 
-instance Core.ToQuery UpdateReplicationConfiguration where
+instance Data.ToQuery UpdateReplicationConfiguration where
   toQuery = Prelude.const Prelude.mempty

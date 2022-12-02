@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.CPU where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a server\'s CPU.
@@ -61,14 +62,14 @@ cpu_cores = Lens.lens (\CPU' {cores} -> cores) (\s@CPU' {} a -> s {cores = a} ::
 cpu_modelName :: Lens.Lens' CPU (Prelude.Maybe Prelude.Text)
 cpu_modelName = Lens.lens (\CPU' {modelName} -> modelName) (\s@CPU' {} a -> s {modelName = a} :: CPU)
 
-instance Core.FromJSON CPU where
+instance Data.FromJSON CPU where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CPU"
       ( \x ->
           CPU'
-            Prelude.<$> (x Core..:? "cores")
-            Prelude.<*> (x Core..:? "modelName")
+            Prelude.<$> (x Data..:? "cores")
+            Prelude.<*> (x Data..:? "modelName")
       )
 
 instance Prelude.Hashable CPU where

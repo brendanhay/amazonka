@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.DescribeSourceServersRequestFilters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A set of filters by which to return Source Servers.
@@ -101,16 +102,16 @@ instance
       `Prelude.seq` Prelude.rnf stagingAccountIDs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeSourceServersRequestFilters
   where
   toJSON DescribeSourceServersRequestFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hardwareId" Core..=) Prelude.<$> hardwareId,
-            ("sourceServerIDs" Core..=)
+          [ ("hardwareId" Data..=) Prelude.<$> hardwareId,
+            ("sourceServerIDs" Data..=)
               Prelude.<$> sourceServerIDs,
-            ("stagingAccountIDs" Core..=)
+            ("stagingAccountIDs" Data..=)
               Prelude.<$> stagingAccountIDs
           ]
       )

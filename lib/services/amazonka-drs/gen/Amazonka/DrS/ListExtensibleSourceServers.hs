@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance Core.AWSRequest ListExtensibleSourceServers where
     Response.receiveJSON
       ( \s h x ->
           ListExtensibleSourceServersResponse'
-            Prelude.<$> (x Core..?> "items" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "items" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,32 +155,32 @@ instance Prelude.NFData ListExtensibleSourceServers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf stagingAccountID
 
-instance Core.ToHeaders ListExtensibleSourceServers where
+instance Data.ToHeaders ListExtensibleSourceServers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListExtensibleSourceServers where
+instance Data.ToJSON ListExtensibleSourceServers where
   toJSON ListExtensibleSourceServers' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("stagingAccountID" Core..= stagingAccountID)
+              ("stagingAccountID" Data..= stagingAccountID)
           ]
       )
 
-instance Core.ToPath ListExtensibleSourceServers where
+instance Data.ToPath ListExtensibleSourceServers where
   toPath = Prelude.const "/ListExtensibleSourceServers"
 
-instance Core.ToQuery ListExtensibleSourceServers where
+instance Data.ToQuery ListExtensibleSourceServers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListExtensibleSourceServersResponse' smart constructor.

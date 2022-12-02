@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.SourceServer where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.DataReplicationInfo
 import Amazonka.DrS.Types.LastLaunchResult
 import Amazonka.DrS.Types.LifeCycle
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | /See:/ 'newSourceServer' smart constructor.
 data SourceServer = SourceServer'
   { -- | The tags associated with the Source Server.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The lifecycle information of this Source Server.
     lifeCycle :: Prelude.Maybe LifeCycle,
     -- | The ID of the Recovery Instance associated with this Source Server.
@@ -93,7 +94,7 @@ newSourceServer =
 
 -- | The tags associated with the Source Server.
 sourceServer_tags :: Lens.Lens' SourceServer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-sourceServer_tags = Lens.lens (\SourceServer' {tags} -> tags) (\s@SourceServer' {} a -> s {tags = a} :: SourceServer) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+sourceServer_tags = Lens.lens (\SourceServer' {tags} -> tags) (\s@SourceServer' {} a -> s {tags = a} :: SourceServer) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The lifecycle information of this Source Server.
 sourceServer_lifeCycle :: Lens.Lens' SourceServer (Prelude.Maybe LifeCycle)
@@ -127,21 +128,21 @@ sourceServer_sourceServerID = Lens.lens (\SourceServer' {sourceServerID} -> sour
 sourceServer_sourceProperties :: Lens.Lens' SourceServer (Prelude.Maybe SourceProperties)
 sourceServer_sourceProperties = Lens.lens (\SourceServer' {sourceProperties} -> sourceProperties) (\s@SourceServer' {} a -> s {sourceProperties = a} :: SourceServer)
 
-instance Core.FromJSON SourceServer where
+instance Data.FromJSON SourceServer where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceServer"
       ( \x ->
           SourceServer'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "lifeCycle")
-            Prelude.<*> (x Core..:? "recoveryInstanceId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "lastLaunchResult")
-            Prelude.<*> (x Core..:? "dataReplicationInfo")
-            Prelude.<*> (x Core..:? "stagingArea")
-            Prelude.<*> (x Core..:? "sourceServerID")
-            Prelude.<*> (x Core..:? "sourceProperties")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "lifeCycle")
+            Prelude.<*> (x Data..:? "recoveryInstanceId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "lastLaunchResult")
+            Prelude.<*> (x Data..:? "dataReplicationInfo")
+            Prelude.<*> (x Data..:? "stagingArea")
+            Prelude.<*> (x Data..:? "sourceServerID")
+            Prelude.<*> (x Data..:? "sourceProperties")
       )
 
 instance Prelude.Hashable SourceServer where

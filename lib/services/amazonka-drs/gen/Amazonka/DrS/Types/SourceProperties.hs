@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.SourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.CPU
 import Amazonka.DrS.Types.Disk
 import Amazonka.DrS.Types.IdentificationHints
@@ -123,21 +124,21 @@ sourceProperties_lastUpdatedDateTime = Lens.lens (\SourceProperties' {lastUpdate
 sourceProperties_networkInterfaces :: Lens.Lens' SourceProperties (Prelude.Maybe [NetworkInterface])
 sourceProperties_networkInterfaces = Lens.lens (\SourceProperties' {networkInterfaces} -> networkInterfaces) (\s@SourceProperties' {} a -> s {networkInterfaces = a} :: SourceProperties) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SourceProperties where
+instance Data.FromJSON SourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceProperties"
       ( \x ->
           SourceProperties'
-            Prelude.<$> (x Core..:? "os")
-            Prelude.<*> (x Core..:? "cpus" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ramBytes")
-            Prelude.<*> (x Core..:? "disks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "identificationHints")
-            Prelude.<*> (x Core..:? "recommendedInstanceType")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> ( x Core..:? "networkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "os")
+            Prelude.<*> (x Data..:? "cpus" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ramBytes")
+            Prelude.<*> (x Data..:? "disks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "identificationHints")
+            Prelude.<*> (x Data..:? "recommendedInstanceType")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> ( x Data..:? "networkInterfaces"
+                            Data..!= Prelude.mempty
                         )
       )
 

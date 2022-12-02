@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.DataReplicationInfoReplicatedDisk where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A disk that should be replicated.
@@ -90,19 +91,19 @@ dataReplicationInfoReplicatedDisk_replicatedStorageBytes :: Lens.Lens' DataRepli
 dataReplicationInfoReplicatedDisk_replicatedStorageBytes = Lens.lens (\DataReplicationInfoReplicatedDisk' {replicatedStorageBytes} -> replicatedStorageBytes) (\s@DataReplicationInfoReplicatedDisk' {} a -> s {replicatedStorageBytes = a} :: DataReplicationInfoReplicatedDisk)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DataReplicationInfoReplicatedDisk
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataReplicationInfoReplicatedDisk"
       ( \x ->
           DataReplicationInfoReplicatedDisk'
-            Prelude.<$> (x Core..:? "rescannedStorageBytes")
-            Prelude.<*> (x Core..:? "backloggedStorageBytes")
-            Prelude.<*> (x Core..:? "deviceName")
-            Prelude.<*> (x Core..:? "totalStorageBytes")
-            Prelude.<*> (x Core..:? "replicatedStorageBytes")
+            Prelude.<$> (x Data..:? "rescannedStorageBytes")
+            Prelude.<*> (x Data..:? "backloggedStorageBytes")
+            Prelude.<*> (x Data..:? "deviceName")
+            Prelude.<*> (x Data..:? "totalStorageBytes")
+            Prelude.<*> (x Data..:? "replicatedStorageBytes")
       )
 
 instance

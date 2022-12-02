@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.ReplicationConfigurationReplicatedDisk where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
 import qualified Amazonka.Prelude as Prelude
 
@@ -107,20 +108,20 @@ replicationConfigurationReplicatedDisk_iops :: Lens.Lens' ReplicationConfigurati
 replicationConfigurationReplicatedDisk_iops = Lens.lens (\ReplicationConfigurationReplicatedDisk' {iops} -> iops) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {iops = a} :: ReplicationConfigurationReplicatedDisk)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ReplicationConfigurationReplicatedDisk
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationConfigurationReplicatedDisk"
       ( \x ->
           ReplicationConfigurationReplicatedDisk'
-            Prelude.<$> (x Core..:? "isBootDisk")
-            Prelude.<*> (x Core..:? "deviceName")
-            Prelude.<*> (x Core..:? "optimizedStagingDiskType")
-            Prelude.<*> (x Core..:? "stagingDiskType")
-            Prelude.<*> (x Core..:? "throughput")
-            Prelude.<*> (x Core..:? "iops")
+            Prelude.<$> (x Data..:? "isBootDisk")
+            Prelude.<*> (x Data..:? "deviceName")
+            Prelude.<*> (x Data..:? "optimizedStagingDiskType")
+            Prelude.<*> (x Data..:? "stagingDiskType")
+            Prelude.<*> (x Data..:? "throughput")
+            Prelude.<*> (x Data..:? "iops")
       )
 
 instance
@@ -150,19 +151,19 @@ instance
       `Prelude.seq` Prelude.rnf iops
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ReplicationConfigurationReplicatedDisk
   where
   toJSON ReplicationConfigurationReplicatedDisk' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("isBootDisk" Core..=) Prelude.<$> isBootDisk,
-            ("deviceName" Core..=) Prelude.<$> deviceName,
-            ("optimizedStagingDiskType" Core..=)
+          [ ("isBootDisk" Data..=) Prelude.<$> isBootDisk,
+            ("deviceName" Data..=) Prelude.<$> deviceName,
+            ("optimizedStagingDiskType" Data..=)
               Prelude.<$> optimizedStagingDiskType,
-            ("stagingDiskType" Core..=)
+            ("stagingDiskType" Data..=)
               Prelude.<$> stagingDiskType,
-            ("throughput" Core..=) Prelude.<$> throughput,
-            ("iops" Core..=) Prelude.<$> iops
+            ("throughput" Data..=) Prelude.<$> throughput,
+            ("iops" Data..=) Prelude.<$> iops
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.DataReplicationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.DataReplicationError
 import Amazonka.DrS.Types.DataReplicationInfoReplicatedDisk
 import Amazonka.DrS.Types.DataReplicationInitiation
@@ -102,20 +103,20 @@ dataReplicationInfo_dataReplicationState = Lens.lens (\DataReplicationInfo' {dat
 dataReplicationInfo_etaDateTime :: Lens.Lens' DataReplicationInfo (Prelude.Maybe Prelude.Text)
 dataReplicationInfo_etaDateTime = Lens.lens (\DataReplicationInfo' {etaDateTime} -> etaDateTime) (\s@DataReplicationInfo' {} a -> s {etaDateTime = a} :: DataReplicationInfo)
 
-instance Core.FromJSON DataReplicationInfo where
+instance Data.FromJSON DataReplicationInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataReplicationInfo"
       ( \x ->
           DataReplicationInfo'
-            Prelude.<$> (x Core..:? "dataReplicationError")
-            Prelude.<*> (x Core..:? "lagDuration")
-            Prelude.<*> (x Core..:? "dataReplicationInitiation")
-            Prelude.<*> ( x Core..:? "replicatedDisks"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "dataReplicationError")
+            Prelude.<*> (x Data..:? "lagDuration")
+            Prelude.<*> (x Data..:? "dataReplicationInitiation")
+            Prelude.<*> ( x Data..:? "replicatedDisks"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "dataReplicationState")
-            Prelude.<*> (x Core..:? "etaDateTime")
+            Prelude.<*> (x Data..:? "dataReplicationState")
+            Prelude.<*> (x Data..:? "etaDateTime")
       )
 
 instance Prelude.Hashable DataReplicationInfo where

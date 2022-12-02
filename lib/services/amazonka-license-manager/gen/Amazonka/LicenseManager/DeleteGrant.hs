@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,9 +108,9 @@ instance Core.AWSRequest DeleteGrant where
     Response.receiveJSON
       ( \s h x ->
           DeleteGrantResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "GrantArn")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "GrantArn")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,35 +126,35 @@ instance Prelude.NFData DeleteGrant where
       `Prelude.seq` Prelude.rnf grantArn
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToHeaders DeleteGrant where
+instance Data.ToHeaders DeleteGrant where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.DeleteGrant" ::
+              Data.=# ( "AWSLicenseManager.DeleteGrant" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteGrant where
+instance Data.ToJSON DeleteGrant where
   toJSON DeleteGrant' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StatusReason" Core..=) Prelude.<$> statusReason,
-            Prelude.Just ("GrantArn" Core..= grantArn),
-            Prelude.Just ("Version" Core..= version)
+          [ ("StatusReason" Data..=) Prelude.<$> statusReason,
+            Prelude.Just ("GrantArn" Data..= grantArn),
+            Prelude.Just ("Version" Data..= version)
           ]
       )
 
-instance Core.ToPath DeleteGrant where
+instance Data.ToPath DeleteGrant where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteGrant where
+instance Data.ToQuery DeleteGrant where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGrantResponse' smart constructor.

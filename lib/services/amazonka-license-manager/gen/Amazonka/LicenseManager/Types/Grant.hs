@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.Grant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.AllowedOperation
 import Amazonka.LicenseManager.Types.GrantStatus
 import qualified Amazonka.Prelude as Prelude
@@ -163,22 +164,22 @@ grant_version = Lens.lens (\Grant' {version} -> version) (\s@Grant' {} a -> s {v
 grant_grantedOperations :: Lens.Lens' Grant (Prelude.NonEmpty AllowedOperation)
 grant_grantedOperations = Lens.lens (\Grant' {grantedOperations} -> grantedOperations) (\s@Grant' {} a -> s {grantedOperations = a} :: Grant) Prelude.. Lens.coerced
 
-instance Core.FromJSON Grant where
+instance Data.FromJSON Grant where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Grant"
       ( \x ->
           Grant'
-            Prelude.<$> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..: "GrantArn")
-            Prelude.<*> (x Core..: "GrantName")
-            Prelude.<*> (x Core..: "ParentArn")
-            Prelude.<*> (x Core..: "LicenseArn")
-            Prelude.<*> (x Core..: "GranteePrincipalArn")
-            Prelude.<*> (x Core..: "HomeRegion")
-            Prelude.<*> (x Core..: "GrantStatus")
-            Prelude.<*> (x Core..: "Version")
-            Prelude.<*> (x Core..: "GrantedOperations")
+            Prelude.<$> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..: "GrantArn")
+            Prelude.<*> (x Data..: "GrantName")
+            Prelude.<*> (x Data..: "ParentArn")
+            Prelude.<*> (x Data..: "LicenseArn")
+            Prelude.<*> (x Data..: "GranteePrincipalArn")
+            Prelude.<*> (x Data..: "HomeRegion")
+            Prelude.<*> (x Data..: "GrantStatus")
+            Prelude.<*> (x Data..: "Version")
+            Prelude.<*> (x Data..: "GrantedOperations")
       )
 
 instance Prelude.Hashable Grant where

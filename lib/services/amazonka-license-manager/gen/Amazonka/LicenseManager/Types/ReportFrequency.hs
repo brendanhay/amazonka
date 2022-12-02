@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ReportFrequency where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.ReportFrequencyType
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ reportFrequency_period = Lens.lens (\ReportFrequency' {period} -> period) (\s@Re
 reportFrequency_value :: Lens.Lens' ReportFrequency (Prelude.Maybe Prelude.Int)
 reportFrequency_value = Lens.lens (\ReportFrequency' {value} -> value) (\s@ReportFrequency' {} a -> s {value = a} :: ReportFrequency)
 
-instance Core.FromJSON ReportFrequency where
+instance Data.FromJSON ReportFrequency where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportFrequency"
       ( \x ->
           ReportFrequency'
-            Prelude.<$> (x Core..:? "period")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "period")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ReportFrequency where
@@ -87,11 +88,11 @@ instance Prelude.NFData ReportFrequency where
   rnf ReportFrequency' {..} =
     Prelude.rnf period `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ReportFrequency where
+instance Data.ToJSON ReportFrequency where
   toJSON ReportFrequency' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("period" Core..=) Prelude.<$> period,
-            ("value" Core..=) Prelude.<$> value
+          [ ("period" Data..=) Prelude.<$> period,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

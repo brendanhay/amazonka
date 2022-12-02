@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -236,9 +237,9 @@ instance Core.AWSRequest CreateLicenseVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateLicenseVersionResponse'
-            Prelude.<$> (x Core..?> "LicenseArn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Version")
+            Prelude.<$> (x Data..?> "LicenseArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -272,48 +273,48 @@ instance Prelude.NFData CreateLicenseVersion where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateLicenseVersion where
+instance Data.ToHeaders CreateLicenseVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.CreateLicenseVersion" ::
+              Data.=# ( "AWSLicenseManager.CreateLicenseVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLicenseVersion where
+instance Data.ToJSON CreateLicenseVersion where
   toJSON CreateLicenseVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LicenseMetadata" Core..=)
+          [ ("LicenseMetadata" Data..=)
               Prelude.<$> licenseMetadata,
-            ("SourceVersion" Core..=) Prelude.<$> sourceVersion,
-            Prelude.Just ("LicenseArn" Core..= licenseArn),
-            Prelude.Just ("LicenseName" Core..= licenseName),
-            Prelude.Just ("ProductName" Core..= productName),
-            Prelude.Just ("Issuer" Core..= issuer),
-            Prelude.Just ("HomeRegion" Core..= homeRegion),
-            Prelude.Just ("Validity" Core..= validity),
-            Prelude.Just ("Entitlements" Core..= entitlements),
+            ("SourceVersion" Data..=) Prelude.<$> sourceVersion,
+            Prelude.Just ("LicenseArn" Data..= licenseArn),
+            Prelude.Just ("LicenseName" Data..= licenseName),
+            Prelude.Just ("ProductName" Data..= productName),
+            Prelude.Just ("Issuer" Data..= issuer),
+            Prelude.Just ("HomeRegion" Data..= homeRegion),
+            Prelude.Just ("Validity" Data..= validity),
+            Prelude.Just ("Entitlements" Data..= entitlements),
             Prelude.Just
               ( "ConsumptionConfiguration"
-                  Core..= consumptionConfiguration
+                  Data..= consumptionConfiguration
               ),
-            Prelude.Just ("Status" Core..= status),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+            Prelude.Just ("Status" Data..= status),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateLicenseVersion where
+instance Data.ToPath CreateLicenseVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLicenseVersion where
+instance Data.ToQuery CreateLicenseVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLicenseVersionResponse' smart constructor.

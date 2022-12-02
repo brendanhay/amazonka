@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ConsumedLicenseSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ consumedLicenseSummary_resourceType = Lens.lens (\ConsumedLicenseSummary' {resou
 consumedLicenseSummary_consumedLicenses :: Lens.Lens' ConsumedLicenseSummary (Prelude.Maybe Prelude.Integer)
 consumedLicenseSummary_consumedLicenses = Lens.lens (\ConsumedLicenseSummary' {consumedLicenses} -> consumedLicenses) (\s@ConsumedLicenseSummary' {} a -> s {consumedLicenses = a} :: ConsumedLicenseSummary)
 
-instance Core.FromJSON ConsumedLicenseSummary where
+instance Data.FromJSON ConsumedLicenseSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConsumedLicenseSummary"
       ( \x ->
           ConsumedLicenseSummary'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ConsumedLicenses")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ConsumedLicenses")
       )
 
 instance Prelude.Hashable ConsumedLicenseSummary where

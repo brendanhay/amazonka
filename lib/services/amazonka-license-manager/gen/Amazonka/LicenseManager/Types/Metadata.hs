@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.Metadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes key\/value pairs.
@@ -61,13 +62,13 @@ metadata_name = Lens.lens (\Metadata' {name} -> name) (\s@Metadata' {} a -> s {n
 metadata_value :: Lens.Lens' Metadata (Prelude.Maybe Prelude.Text)
 metadata_value = Lens.lens (\Metadata' {value} -> value) (\s@Metadata' {} a -> s {value = a} :: Metadata)
 
-instance Core.FromJSON Metadata where
+instance Data.FromJSON Metadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Metadata"
       ( \x ->
           Metadata'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Metadata where
@@ -79,11 +80,11 @@ instance Prelude.NFData Metadata where
   rnf Metadata' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Metadata where
+instance Data.ToJSON Metadata where
   toJSON Metadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

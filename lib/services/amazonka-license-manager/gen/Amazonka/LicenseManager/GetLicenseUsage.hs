@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest GetLicenseUsage where
     Response.receiveJSON
       ( \s h x ->
           GetLicenseUsageResponse'
-            Prelude.<$> (x Core..?> "LicenseUsage")
+            Prelude.<$> (x Data..?> "LicenseUsage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable GetLicenseUsage where
 instance Prelude.NFData GetLicenseUsage where
   rnf GetLicenseUsage' {..} = Prelude.rnf licenseArn
 
-instance Core.ToHeaders GetLicenseUsage where
+instance Data.ToHeaders GetLicenseUsage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.GetLicenseUsage" ::
+              Data.=# ( "AWSLicenseManager.GetLicenseUsage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLicenseUsage where
+instance Data.ToJSON GetLicenseUsage where
   toJSON GetLicenseUsage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("LicenseArn" Core..= licenseArn)]
+          [Prelude.Just ("LicenseArn" Data..= licenseArn)]
       )
 
-instance Core.ToPath GetLicenseUsage where
+instance Data.ToPath GetLicenseUsage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLicenseUsage where
+instance Data.ToQuery GetLicenseUsage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLicenseUsageResponse' smart constructor.

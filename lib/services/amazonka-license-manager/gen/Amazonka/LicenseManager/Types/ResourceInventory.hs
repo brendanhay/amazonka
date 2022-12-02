@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ResourceInventory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,18 +99,18 @@ resourceInventory_platformVersion = Lens.lens (\ResourceInventory' {platformVers
 resourceInventory_resourceArn :: Lens.Lens' ResourceInventory (Prelude.Maybe Prelude.Text)
 resourceInventory_resourceArn = Lens.lens (\ResourceInventory' {resourceArn} -> resourceArn) (\s@ResourceInventory' {} a -> s {resourceArn = a} :: ResourceInventory)
 
-instance Core.FromJSON ResourceInventory where
+instance Data.FromJSON ResourceInventory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceInventory"
       ( \x ->
           ResourceInventory'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "ResourceOwningAccountId")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "PlatformVersion")
-            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceOwningAccountId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Platform")
+            Prelude.<*> (x Data..:? "PlatformVersion")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable ResourceInventory where

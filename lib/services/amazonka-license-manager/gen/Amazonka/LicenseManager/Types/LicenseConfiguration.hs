@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.LicenseConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.AutomatedDiscoveryInformation
 import Amazonka.LicenseManager.Types.ConsumedLicenseSummary
 import Amazonka.LicenseManager.Types.LicenseCountingType
@@ -198,33 +199,33 @@ licenseConfiguration_automatedDiscoveryInformation = Lens.lens (\LicenseConfigur
 licenseConfiguration_consumedLicenseSummaryList :: Lens.Lens' LicenseConfiguration (Prelude.Maybe [ConsumedLicenseSummary])
 licenseConfiguration_consumedLicenseSummaryList = Lens.lens (\LicenseConfiguration' {consumedLicenseSummaryList} -> consumedLicenseSummaryList) (\s@LicenseConfiguration' {} a -> s {consumedLicenseSummaryList = a} :: LicenseConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON LicenseConfiguration where
+instance Data.FromJSON LicenseConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LicenseConfiguration"
       ( \x ->
           LicenseConfiguration'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> ( x Core..:? "ProductInformationList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> ( x Data..:? "ProductInformationList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LicenseCountingType")
-            Prelude.<*> (x Core..:? "LicenseRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConsumedLicenses")
-            Prelude.<*> (x Core..:? "LicenseConfigurationArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LicenseConfigurationId")
-            Prelude.<*> ( x Core..:? "ManagedResourceSummaryList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "LicenseCountingType")
+            Prelude.<*> (x Data..:? "LicenseRules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ConsumedLicenses")
+            Prelude.<*> (x Data..:? "LicenseConfigurationArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LicenseConfigurationId")
+            Prelude.<*> ( x Data..:? "ManagedResourceSummaryList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "LicenseCount")
-            Prelude.<*> (x Core..:? "LicenseCountHardLimit")
-            Prelude.<*> (x Core..:? "DisassociateWhenNotFound")
-            Prelude.<*> (x Core..:? "AutomatedDiscoveryInformation")
-            Prelude.<*> ( x Core..:? "ConsumedLicenseSummaryList"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "OwnerAccountId")
+            Prelude.<*> (x Data..:? "LicenseCount")
+            Prelude.<*> (x Data..:? "LicenseCountHardLimit")
+            Prelude.<*> (x Data..:? "DisassociateWhenNotFound")
+            Prelude.<*> (x Data..:? "AutomatedDiscoveryInformation")
+            Prelude.<*> ( x Data..:? "ConsumedLicenseSummaryList"
+                            Data..!= Prelude.mempty
                         )
       )
 

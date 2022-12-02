@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,37 +109,37 @@ instance Prelude.NFData CheckInLicense where
     Prelude.rnf beneficiary
       `Prelude.seq` Prelude.rnf licenseConsumptionToken
 
-instance Core.ToHeaders CheckInLicense where
+instance Data.ToHeaders CheckInLicense where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.CheckInLicense" ::
+              Data.=# ( "AWSLicenseManager.CheckInLicense" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CheckInLicense where
+instance Data.ToJSON CheckInLicense where
   toJSON CheckInLicense' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Beneficiary" Core..=) Prelude.<$> beneficiary,
+          [ ("Beneficiary" Data..=) Prelude.<$> beneficiary,
             Prelude.Just
               ( "LicenseConsumptionToken"
-                  Core..= licenseConsumptionToken
+                  Data..= licenseConsumptionToken
               )
           ]
       )
 
-instance Core.ToPath CheckInLicense where
+instance Data.ToPath CheckInLicense where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CheckInLicense where
+instance Data.ToQuery CheckInLicense where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCheckInLicenseResponse' smart constructor.

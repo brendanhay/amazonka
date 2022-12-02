@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.LicenseSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for associating a license configuration with a resource.
@@ -64,14 +65,14 @@ licenseSpecification_amiAssociationScope = Lens.lens (\LicenseSpecification' {am
 licenseSpecification_licenseConfigurationArn :: Lens.Lens' LicenseSpecification Prelude.Text
 licenseSpecification_licenseConfigurationArn = Lens.lens (\LicenseSpecification' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LicenseSpecification' {} a -> s {licenseConfigurationArn = a} :: LicenseSpecification)
 
-instance Core.FromJSON LicenseSpecification where
+instance Data.FromJSON LicenseSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LicenseSpecification"
       ( \x ->
           LicenseSpecification'
-            Prelude.<$> (x Core..:? "AmiAssociationScope")
-            Prelude.<*> (x Core..: "LicenseConfigurationArn")
+            Prelude.<$> (x Data..:? "AmiAssociationScope")
+            Prelude.<*> (x Data..: "LicenseConfigurationArn")
       )
 
 instance Prelude.Hashable LicenseSpecification where
@@ -84,15 +85,15 @@ instance Prelude.NFData LicenseSpecification where
     Prelude.rnf amiAssociationScope
       `Prelude.seq` Prelude.rnf licenseConfigurationArn
 
-instance Core.ToJSON LicenseSpecification where
+instance Data.ToJSON LicenseSpecification where
   toJSON LicenseSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AmiAssociationScope" Core..=)
+          [ ("AmiAssociationScope" Data..=)
               Prelude.<$> amiAssociationScope,
             Prelude.Just
               ( "LicenseConfigurationArn"
-                  Core..= licenseConfigurationArn
+                  Data..= licenseConfigurationArn
               )
           ]
       )

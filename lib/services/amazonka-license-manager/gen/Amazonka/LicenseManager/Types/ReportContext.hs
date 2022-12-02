@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ReportContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details of the license configuration that this generator reports on.
@@ -56,14 +57,14 @@ newReportContext =
 reportContext_licenseConfigurationArns :: Lens.Lens' ReportContext [Prelude.Text]
 reportContext_licenseConfigurationArns = Lens.lens (\ReportContext' {licenseConfigurationArns} -> licenseConfigurationArns) (\s@ReportContext' {} a -> s {licenseConfigurationArns = a} :: ReportContext) Prelude.. Lens.coerced
 
-instance Core.FromJSON ReportContext where
+instance Data.FromJSON ReportContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReportContext"
       ( \x ->
           ReportContext'
-            Prelude.<$> ( x Core..:? "licenseConfigurationArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "licenseConfigurationArns"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -76,13 +77,13 @@ instance Prelude.NFData ReportContext where
   rnf ReportContext' {..} =
     Prelude.rnf licenseConfigurationArns
 
-instance Core.ToJSON ReportContext where
+instance Data.ToJSON ReportContext where
   toJSON ReportContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "licenseConfigurationArns"
-                  Core..= licenseConfigurationArns
+                  Data..= licenseConfigurationArns
               )
           ]
       )

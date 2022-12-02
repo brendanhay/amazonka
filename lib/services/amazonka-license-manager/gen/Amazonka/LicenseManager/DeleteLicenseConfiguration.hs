@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,36 +101,36 @@ instance Prelude.NFData DeleteLicenseConfiguration where
   rnf DeleteLicenseConfiguration' {..} =
     Prelude.rnf licenseConfigurationArn
 
-instance Core.ToHeaders DeleteLicenseConfiguration where
+instance Data.ToHeaders DeleteLicenseConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.DeleteLicenseConfiguration" ::
+              Data.=# ( "AWSLicenseManager.DeleteLicenseConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteLicenseConfiguration where
+instance Data.ToJSON DeleteLicenseConfiguration where
   toJSON DeleteLicenseConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "LicenseConfigurationArn"
-                  Core..= licenseConfigurationArn
+                  Data..= licenseConfigurationArn
               )
           ]
       )
 
-instance Core.ToPath DeleteLicenseConfiguration where
+instance Data.ToPath DeleteLicenseConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteLicenseConfiguration where
+instance Data.ToQuery DeleteLicenseConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLicenseConfigurationResponse' smart constructor.

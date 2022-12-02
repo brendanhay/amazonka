@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -71,11 +72,11 @@ instance Core.AWSRequest GetServiceSettings where
     Response.receiveJSON
       ( \s h x ->
           GetServiceSettingsResponse'
-            Prelude.<$> (x Core..?> "OrganizationConfiguration")
-            Prelude.<*> (x Core..?> "LicenseManagerResourceShareArn")
-            Prelude.<*> (x Core..?> "SnsTopicArn")
-            Prelude.<*> (x Core..?> "EnableCrossAccountsDiscovery")
-            Prelude.<*> (x Core..?> "S3BucketArn")
+            Prelude.<$> (x Data..?> "OrganizationConfiguration")
+            Prelude.<*> (x Data..?> "LicenseManagerResourceShareArn")
+            Prelude.<*> (x Data..?> "SnsTopicArn")
+            Prelude.<*> (x Data..?> "EnableCrossAccountsDiscovery")
+            Prelude.<*> (x Data..?> "S3BucketArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -86,28 +87,28 @@ instance Prelude.Hashable GetServiceSettings where
 instance Prelude.NFData GetServiceSettings where
   rnf _ = ()
 
-instance Core.ToHeaders GetServiceSettings where
+instance Data.ToHeaders GetServiceSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.GetServiceSettings" ::
+              Data.=# ( "AWSLicenseManager.GetServiceSettings" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetServiceSettings where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetServiceSettings where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetServiceSettings where
+instance Data.ToPath GetServiceSettings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetServiceSettings where
+instance Data.ToQuery GetServiceSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetServiceSettingsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.BorrowConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a borrow configuration.
@@ -68,14 +69,14 @@ borrowConfiguration_allowEarlyCheckIn = Lens.lens (\BorrowConfiguration' {allowE
 borrowConfiguration_maxTimeToLiveInMinutes :: Lens.Lens' BorrowConfiguration Prelude.Int
 borrowConfiguration_maxTimeToLiveInMinutes = Lens.lens (\BorrowConfiguration' {maxTimeToLiveInMinutes} -> maxTimeToLiveInMinutes) (\s@BorrowConfiguration' {} a -> s {maxTimeToLiveInMinutes = a} :: BorrowConfiguration)
 
-instance Core.FromJSON BorrowConfiguration where
+instance Data.FromJSON BorrowConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BorrowConfiguration"
       ( \x ->
           BorrowConfiguration'
-            Prelude.<$> (x Core..: "AllowEarlyCheckIn")
-            Prelude.<*> (x Core..: "MaxTimeToLiveInMinutes")
+            Prelude.<$> (x Data..: "AllowEarlyCheckIn")
+            Prelude.<*> (x Data..: "MaxTimeToLiveInMinutes")
       )
 
 instance Prelude.Hashable BorrowConfiguration where
@@ -88,15 +89,15 @@ instance Prelude.NFData BorrowConfiguration where
     Prelude.rnf allowEarlyCheckIn
       `Prelude.seq` Prelude.rnf maxTimeToLiveInMinutes
 
-instance Core.ToJSON BorrowConfiguration where
+instance Data.ToJSON BorrowConfiguration where
   toJSON BorrowConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AllowEarlyCheckIn" Core..= allowEarlyCheckIn),
+              ("AllowEarlyCheckIn" Data..= allowEarlyCheckIn),
             Prelude.Just
               ( "MaxTimeToLiveInMinutes"
-                  Core..= maxTimeToLiveInMinutes
+                  Data..= maxTimeToLiveInMinutes
               )
           ]
       )

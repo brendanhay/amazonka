@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,8 +114,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFailuresForLicenseConfigurationOperationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "LicenseOperationFailureList"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "LicenseOperationFailureList"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,48 +143,48 @@ instance
         `Prelude.seq` Prelude.rnf licenseConfigurationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListFailuresForLicenseConfigurationOperations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations" ::
+              Data.=# ( "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListFailuresForLicenseConfigurationOperations
   where
   toJSON
     ListFailuresForLicenseConfigurationOperations' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("MaxResults" Core..=) Prelude.<$> maxResults,
+            [ ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("MaxResults" Data..=) Prelude.<$> maxResults,
               Prelude.Just
                 ( "LicenseConfigurationArn"
-                    Core..= licenseConfigurationArn
+                    Data..= licenseConfigurationArn
                 )
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListFailuresForLicenseConfigurationOperations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListFailuresForLicenseConfigurationOperations
   where
   toQuery = Prelude.const Prelude.mempty

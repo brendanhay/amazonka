@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.ProductInformationFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes product information filters.
@@ -79,17 +80,17 @@ productInformationFilter_productInformationFilterName = Lens.lens (\ProductInfor
 productInformationFilter_productInformationFilterComparator :: Lens.Lens' ProductInformationFilter Prelude.Text
 productInformationFilter_productInformationFilterComparator = Lens.lens (\ProductInformationFilter' {productInformationFilterComparator} -> productInformationFilterComparator) (\s@ProductInformationFilter' {} a -> s {productInformationFilterComparator = a} :: ProductInformationFilter)
 
-instance Core.FromJSON ProductInformationFilter where
+instance Data.FromJSON ProductInformationFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProductInformationFilter"
       ( \x ->
           ProductInformationFilter'
-            Prelude.<$> ( x Core..:? "ProductInformationFilterValue"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ProductInformationFilterValue"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "ProductInformationFilterName")
-            Prelude.<*> (x Core..: "ProductInformationFilterComparator")
+            Prelude.<*> (x Data..: "ProductInformationFilterName")
+            Prelude.<*> (x Data..: "ProductInformationFilterComparator")
       )
 
 instance Prelude.Hashable ProductInformationFilter where
@@ -105,19 +106,19 @@ instance Prelude.NFData ProductInformationFilter where
       `Prelude.seq` Prelude.rnf productInformationFilterName
       `Prelude.seq` Prelude.rnf productInformationFilterComparator
 
-instance Core.ToJSON ProductInformationFilter where
+instance Data.ToJSON ProductInformationFilter where
   toJSON ProductInformationFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProductInformationFilterValue" Core..=)
+          [ ("ProductInformationFilterValue" Data..=)
               Prelude.<$> productInformationFilterValue,
             Prelude.Just
               ( "ProductInformationFilterName"
-                  Core..= productInformationFilterName
+                  Data..= productInformationFilterName
               ),
             Prelude.Just
               ( "ProductInformationFilterComparator"
-                  Core..= productInformationFilterComparator
+                  Data..= productInformationFilterComparator
               )
           ]
       )

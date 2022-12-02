@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.GrantedLicense where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.ConsumptionConfiguration
 import Amazonka.LicenseManager.Types.DatetimeRange
 import Amazonka.LicenseManager.Types.Entitlement
@@ -188,29 +189,29 @@ grantedLicense_validity = Lens.lens (\GrantedLicense' {validity} -> validity) (\
 grantedLicense_version :: Lens.Lens' GrantedLicense (Prelude.Maybe Prelude.Text)
 grantedLicense_version = Lens.lens (\GrantedLicense' {version} -> version) (\s@GrantedLicense' {} a -> s {version = a} :: GrantedLicense)
 
-instance Core.FromJSON GrantedLicense where
+instance Data.FromJSON GrantedLicense where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GrantedLicense"
       ( \x ->
           GrantedLicense'
-            Prelude.<$> (x Core..:? "ProductName")
-            Prelude.<*> (x Core..:? "Issuer")
-            Prelude.<*> (x Core..:? "LicenseName")
-            Prelude.<*> ( x Core..:? "LicenseMetadata"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ProductName")
+            Prelude.<*> (x Data..:? "Issuer")
+            Prelude.<*> (x Data..:? "LicenseName")
+            Prelude.<*> ( x Data..:? "LicenseMetadata"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LicenseArn")
-            Prelude.<*> (x Core..:? "ConsumptionConfiguration")
-            Prelude.<*> (x Core..:? "Entitlements" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ReceivedMetadata")
-            Prelude.<*> (x Core..:? "HomeRegion")
-            Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> (x Core..:? "ProductSKU")
-            Prelude.<*> (x Core..:? "Beneficiary")
-            Prelude.<*> (x Core..:? "Validity")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Data..:? "LicenseArn")
+            Prelude.<*> (x Data..:? "ConsumptionConfiguration")
+            Prelude.<*> (x Data..:? "Entitlements" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ReceivedMetadata")
+            Prelude.<*> (x Data..:? "HomeRegion")
+            Prelude.<*> (x Data..:? "CreateTime")
+            Prelude.<*> (x Data..:? "ProductSKU")
+            Prelude.<*> (x Data..:? "Beneficiary")
+            Prelude.<*> (x Data..:? "Validity")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable GrantedLicense where

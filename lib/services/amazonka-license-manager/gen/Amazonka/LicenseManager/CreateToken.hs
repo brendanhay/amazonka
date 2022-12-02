@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,9 +145,9 @@ instance Core.AWSRequest CreateToken where
     Response.receiveJSON
       ( \s h x ->
           CreateTokenResponse'
-            Prelude.<$> (x Core..?> "TokenId")
-            Prelude.<*> (x Core..?> "TokenType")
-            Prelude.<*> (x Core..?> "Token")
+            Prelude.<$> (x Data..?> "TokenId")
+            Prelude.<*> (x Data..?> "TokenType")
+            Prelude.<*> (x Data..?> "Token")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,39 +167,39 @@ instance Prelude.NFData CreateToken where
       `Prelude.seq` Prelude.rnf licenseArn
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CreateToken where
+instance Data.ToHeaders CreateToken where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.CreateToken" ::
+              Data.=# ( "AWSLicenseManager.CreateToken" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateToken where
+instance Data.ToJSON CreateToken where
   toJSON CreateToken' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleArns" Core..=) Prelude.<$> roleArns,
-            ("ExpirationInDays" Core..=)
+          [ ("RoleArns" Data..=) Prelude.<$> roleArns,
+            ("ExpirationInDays" Data..=)
               Prelude.<$> expirationInDays,
-            ("TokenProperties" Core..=)
+            ("TokenProperties" Data..=)
               Prelude.<$> tokenProperties,
-            Prelude.Just ("LicenseArn" Core..= licenseArn),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+            Prelude.Just ("LicenseArn" Data..= licenseArn),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CreateToken where
+instance Data.ToPath CreateToken where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateToken where
+instance Data.ToQuery CreateToken where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTokenResponse' smart constructor.

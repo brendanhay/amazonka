@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,46 +143,46 @@ instance
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateLicenseSpecificationsForResource
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.UpdateLicenseSpecificationsForResource" ::
+              Data.=# ( "AWSLicenseManager.UpdateLicenseSpecificationsForResource" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateLicenseSpecificationsForResource
   where
   toJSON UpdateLicenseSpecificationsForResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AddLicenseSpecifications" Core..=)
+          [ ("AddLicenseSpecifications" Data..=)
               Prelude.<$> addLicenseSpecifications,
-            ("RemoveLicenseSpecifications" Core..=)
+            ("RemoveLicenseSpecifications" Data..=)
               Prelude.<$> removeLicenseSpecifications,
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateLicenseSpecificationsForResource
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateLicenseSpecificationsForResource
   where
   toQuery = Prelude.const Prelude.mempty

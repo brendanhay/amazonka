@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,27 +103,27 @@ instance Core.AWSRequest GetLicenseConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetLicenseConfigurationResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> ( x Core..?> "ProductInformationList"
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> ( x Data..?> "ProductInformationList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LicenseCountingType")
-            Prelude.<*> (x Core..?> "LicenseRules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ConsumedLicenses")
-            Prelude.<*> (x Core..?> "LicenseConfigurationArn")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LicenseConfigurationId")
-            Prelude.<*> ( x Core..?> "ManagedResourceSummaryList"
+            Prelude.<*> (x Data..?> "LicenseCountingType")
+            Prelude.<*> (x Data..?> "LicenseRules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ConsumedLicenses")
+            Prelude.<*> (x Data..?> "LicenseConfigurationArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LicenseConfigurationId")
+            Prelude.<*> ( x Data..?> "ManagedResourceSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "OwnerAccountId")
-            Prelude.<*> (x Core..?> "LicenseCount")
-            Prelude.<*> (x Core..?> "LicenseCountHardLimit")
-            Prelude.<*> (x Core..?> "DisassociateWhenNotFound")
-            Prelude.<*> (x Core..?> "AutomatedDiscoveryInformation")
-            Prelude.<*> ( x Core..?> "ConsumedLicenseSummaryList"
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> (x Data..?> "LicenseCount")
+            Prelude.<*> (x Data..?> "LicenseCountHardLimit")
+            Prelude.<*> (x Data..?> "DisassociateWhenNotFound")
+            Prelude.<*> (x Data..?> "AutomatedDiscoveryInformation")
+            Prelude.<*> ( x Data..?> "ConsumedLicenseSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,36 +138,36 @@ instance Prelude.NFData GetLicenseConfiguration where
   rnf GetLicenseConfiguration' {..} =
     Prelude.rnf licenseConfigurationArn
 
-instance Core.ToHeaders GetLicenseConfiguration where
+instance Data.ToHeaders GetLicenseConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.GetLicenseConfiguration" ::
+              Data.=# ( "AWSLicenseManager.GetLicenseConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLicenseConfiguration where
+instance Data.ToJSON GetLicenseConfiguration where
   toJSON GetLicenseConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "LicenseConfigurationArn"
-                  Core..= licenseConfigurationArn
+                  Data..= licenseConfigurationArn
               )
           ]
       )
 
-instance Core.ToPath GetLicenseConfiguration where
+instance Data.ToPath GetLicenseConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetLicenseConfiguration where
+instance Data.ToQuery GetLicenseConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLicenseConfigurationResponse' smart constructor.

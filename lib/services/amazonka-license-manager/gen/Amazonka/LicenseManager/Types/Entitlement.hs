@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.Entitlement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.EntitlementUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -102,18 +103,18 @@ entitlement_name = Lens.lens (\Entitlement' {name} -> name) (\s@Entitlement' {} 
 entitlement_unit :: Lens.Lens' Entitlement EntitlementUnit
 entitlement_unit = Lens.lens (\Entitlement' {unit} -> unit) (\s@Entitlement' {} a -> s {unit = a} :: Entitlement)
 
-instance Core.FromJSON Entitlement where
+instance Data.FromJSON Entitlement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Entitlement"
       ( \x ->
           Entitlement'
-            Prelude.<$> (x Core..:? "AllowCheckIn")
-            Prelude.<*> (x Core..:? "MaxCount")
-            Prelude.<*> (x Core..:? "Overage")
-            Prelude.<*> (x Core..:? "Value")
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Unit")
+            Prelude.<$> (x Data..:? "AllowCheckIn")
+            Prelude.<*> (x Data..:? "MaxCount")
+            Prelude.<*> (x Data..:? "Overage")
+            Prelude.<*> (x Data..:? "Value")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Unit")
       )
 
 instance Prelude.Hashable Entitlement where
@@ -134,15 +135,15 @@ instance Prelude.NFData Entitlement where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON Entitlement where
+instance Data.ToJSON Entitlement where
   toJSON Entitlement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowCheckIn" Core..=) Prelude.<$> allowCheckIn,
-            ("MaxCount" Core..=) Prelude.<$> maxCount,
-            ("Overage" Core..=) Prelude.<$> overage,
-            ("Value" Core..=) Prelude.<$> value,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Unit" Core..= unit)
+          [ ("AllowCheckIn" Data..=) Prelude.<$> allowCheckIn,
+            ("MaxCount" Data..=) Prelude.<$> maxCount,
+            ("Overage" Data..=) Prelude.<$> overage,
+            ("Value" Data..=) Prelude.<$> value,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Unit" Data..= unit)
           ]
       )

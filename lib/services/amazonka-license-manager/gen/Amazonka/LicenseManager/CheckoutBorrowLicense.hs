@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -161,18 +162,18 @@ instance Core.AWSRequest CheckoutBorrowLicense where
     Response.receiveJSON
       ( \s h x ->
           CheckoutBorrowLicenseResponse'
-            Prelude.<$> (x Core..?> "NodeId")
-            Prelude.<*> (x Core..?> "LicenseArn")
-            Prelude.<*> (x Core..?> "Expiration")
-            Prelude.<*> (x Core..?> "LicenseConsumptionToken")
-            Prelude.<*> (x Core..?> "SignedToken")
-            Prelude.<*> ( x Core..?> "CheckoutMetadata"
+            Prelude.<$> (x Data..?> "NodeId")
+            Prelude.<*> (x Data..?> "LicenseArn")
+            Prelude.<*> (x Data..?> "Expiration")
+            Prelude.<*> (x Data..?> "LicenseConsumptionToken")
+            Prelude.<*> (x Data..?> "SignedToken")
+            Prelude.<*> ( x Data..?> "CheckoutMetadata"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "EntitlementsAllowed"
+            Prelude.<*> ( x Data..?> "EntitlementsAllowed"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "IssuedAt")
+            Prelude.<*> (x Data..?> "IssuedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,42 +195,42 @@ instance Prelude.NFData CheckoutBorrowLicense where
       `Prelude.seq` Prelude.rnf digitalSignatureMethod
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CheckoutBorrowLicense where
+instance Data.ToHeaders CheckoutBorrowLicense where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.CheckoutBorrowLicense" ::
+              Data.=# ( "AWSLicenseManager.CheckoutBorrowLicense" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CheckoutBorrowLicense where
+instance Data.ToJSON CheckoutBorrowLicense where
   toJSON CheckoutBorrowLicense' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NodeId" Core..=) Prelude.<$> nodeId,
-            ("CheckoutMetadata" Core..=)
+          [ ("NodeId" Data..=) Prelude.<$> nodeId,
+            ("CheckoutMetadata" Data..=)
               Prelude.<$> checkoutMetadata,
-            Prelude.Just ("LicenseArn" Core..= licenseArn),
-            Prelude.Just ("Entitlements" Core..= entitlements),
+            Prelude.Just ("LicenseArn" Data..= licenseArn),
+            Prelude.Just ("Entitlements" Data..= entitlements),
             Prelude.Just
               ( "DigitalSignatureMethod"
-                  Core..= digitalSignatureMethod
+                  Data..= digitalSignatureMethod
               ),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CheckoutBorrowLicense where
+instance Data.ToPath CheckoutBorrowLicense where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CheckoutBorrowLicense where
+instance Data.ToQuery CheckoutBorrowLicense where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCheckoutBorrowLicenseResponse' smart constructor.

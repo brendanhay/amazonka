@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,8 +104,8 @@ instance Core.AWSRequest ExtendLicenseConsumption where
     Response.receiveJSON
       ( \s h x ->
           ExtendLicenseConsumptionResponse'
-            Prelude.<$> (x Core..?> "Expiration")
-            Prelude.<*> (x Core..?> "LicenseConsumptionToken")
+            Prelude.<$> (x Data..?> "Expiration")
+            Prelude.<*> (x Data..?> "LicenseConsumptionToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,37 +119,37 @@ instance Prelude.NFData ExtendLicenseConsumption where
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf licenseConsumptionToken
 
-instance Core.ToHeaders ExtendLicenseConsumption where
+instance Data.ToHeaders ExtendLicenseConsumption where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.ExtendLicenseConsumption" ::
+              Data.=# ( "AWSLicenseManager.ExtendLicenseConsumption" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ExtendLicenseConsumption where
+instance Data.ToJSON ExtendLicenseConsumption where
   toJSON ExtendLicenseConsumption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DryRun" Core..=) Prelude.<$> dryRun,
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
             Prelude.Just
               ( "LicenseConsumptionToken"
-                  Core..= licenseConsumptionToken
+                  Data..= licenseConsumptionToken
               )
           ]
       )
 
-instance Core.ToPath ExtendLicenseConsumption where
+instance Data.ToPath ExtendLicenseConsumption where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ExtendLicenseConsumption where
+instance Data.ToQuery ExtendLicenseConsumption where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newExtendLicenseConsumptionResponse' smart constructor.

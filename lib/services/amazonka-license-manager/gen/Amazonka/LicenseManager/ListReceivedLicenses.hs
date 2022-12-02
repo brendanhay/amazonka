@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListReceivedLicenses where
     Response.receiveJSON
       ( \s h x ->
           ListReceivedLicensesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Licenses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Licenses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,36 +164,36 @@ instance Prelude.NFData ListReceivedLicenses where
       `Prelude.seq` Prelude.rnf licenseArns
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListReceivedLicenses where
+instance Data.ToHeaders ListReceivedLicenses where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.ListReceivedLicenses" ::
+              Data.=# ( "AWSLicenseManager.ListReceivedLicenses" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListReceivedLicenses where
+instance Data.ToJSON ListReceivedLicenses where
   toJSON ListReceivedLicenses' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("LicenseArns" Core..=) Prelude.<$> licenseArns,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("LicenseArns" Data..=) Prelude.<$> licenseArns,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListReceivedLicenses where
+instance Data.ToPath ListReceivedLicenses where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListReceivedLicenses where
+instance Data.ToQuery ListReceivedLicenses where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListReceivedLicensesResponse' smart constructor.

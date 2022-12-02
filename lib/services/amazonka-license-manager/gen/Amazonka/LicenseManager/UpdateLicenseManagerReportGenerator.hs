@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -219,53 +220,53 @@ instance
       `Prelude.seq` Prelude.rnf clientToken
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateLicenseManagerReportGenerator
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.UpdateLicenseManagerReportGenerator" ::
+              Data.=# ( "AWSLicenseManager.UpdateLicenseManagerReportGenerator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateLicenseManagerReportGenerator
   where
   toJSON UpdateLicenseManagerReportGenerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
               ( "LicenseManagerReportGeneratorArn"
-                  Core..= licenseManagerReportGeneratorArn
+                  Data..= licenseManagerReportGeneratorArn
               ),
             Prelude.Just
-              ("ReportGeneratorName" Core..= reportGeneratorName),
-            Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("ReportContext" Core..= reportContext),
+              ("ReportGeneratorName" Data..= reportGeneratorName),
+            Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("ReportContext" Data..= reportContext),
             Prelude.Just
-              ("ReportFrequency" Core..= reportFrequency),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("ReportFrequency" Data..= reportFrequency),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateLicenseManagerReportGenerator
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateLicenseManagerReportGenerator
   where
   toQuery = Prelude.const Prelude.mempty

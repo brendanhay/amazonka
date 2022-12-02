@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.LicenseOperationFailure where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.Metadata
 import Amazonka.LicenseManager.Types.ResourceType
 import qualified Amazonka.Prelude as Prelude
@@ -36,7 +37,7 @@ data LicenseOperationFailure = LicenseOperationFailure'
     -- | Error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | Failure time.
-    failureTime :: Prelude.Maybe Core.POSIX,
+    failureTime :: Prelude.Maybe Data.POSIX,
     -- | The requester is \"License Manager Automated Discovery\".
     operationRequestedBy :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the resource.
@@ -100,7 +101,7 @@ licenseOperationFailure_errorMessage = Lens.lens (\LicenseOperationFailure' {err
 
 -- | Failure time.
 licenseOperationFailure_failureTime :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.UTCTime)
-licenseOperationFailure_failureTime = Lens.lens (\LicenseOperationFailure' {failureTime} -> failureTime) (\s@LicenseOperationFailure' {} a -> s {failureTime = a} :: LicenseOperationFailure) Prelude.. Lens.mapping Core._Time
+licenseOperationFailure_failureTime = Lens.lens (\LicenseOperationFailure' {failureTime} -> failureTime) (\s@LicenseOperationFailure' {} a -> s {failureTime = a} :: LicenseOperationFailure) Prelude.. Lens.mapping Data._Time
 
 -- | The requester is \"License Manager Automated Discovery\".
 licenseOperationFailure_operationRequestedBy :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.Text)
@@ -118,20 +119,20 @@ licenseOperationFailure_metadataList = Lens.lens (\LicenseOperationFailure' {met
 licenseOperationFailure_operationName :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.Text)
 licenseOperationFailure_operationName = Lens.lens (\LicenseOperationFailure' {operationName} -> operationName) (\s@LicenseOperationFailure' {} a -> s {operationName = a} :: LicenseOperationFailure)
 
-instance Core.FromJSON LicenseOperationFailure where
+instance Data.FromJSON LicenseOperationFailure where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LicenseOperationFailure"
       ( \x ->
           LicenseOperationFailure'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ResourceOwnerId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "FailureTime")
-            Prelude.<*> (x Core..:? "OperationRequestedBy")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "MetadataList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OperationName")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ResourceOwnerId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "FailureTime")
+            Prelude.<*> (x Data..:? "OperationRequestedBy")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "MetadataList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OperationName")
       )
 
 instance Prelude.Hashable LicenseOperationFailure where

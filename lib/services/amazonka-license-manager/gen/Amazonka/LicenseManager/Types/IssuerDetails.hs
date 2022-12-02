@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.IssuerDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details associated with the issuer of a license.
@@ -76,15 +77,15 @@ issuerDetails_keyFingerprint = Lens.lens (\IssuerDetails' {keyFingerprint} -> ke
 issuerDetails_signKey :: Lens.Lens' IssuerDetails (Prelude.Maybe Prelude.Text)
 issuerDetails_signKey = Lens.lens (\IssuerDetails' {signKey} -> signKey) (\s@IssuerDetails' {} a -> s {signKey = a} :: IssuerDetails)
 
-instance Core.FromJSON IssuerDetails where
+instance Data.FromJSON IssuerDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IssuerDetails"
       ( \x ->
           IssuerDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "KeyFingerprint")
-            Prelude.<*> (x Core..:? "SignKey")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "KeyFingerprint")
+            Prelude.<*> (x Data..:? "SignKey")
       )
 
 instance Prelude.Hashable IssuerDetails where

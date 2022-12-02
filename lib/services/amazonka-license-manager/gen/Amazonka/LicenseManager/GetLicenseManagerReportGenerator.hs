@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetLicenseManagerReportGeneratorResponse'
-            Prelude.<$> (x Core..?> "ReportGenerator")
+            Prelude.<$> (x Data..?> "ReportGenerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,39 +113,39 @@ instance
     Prelude.rnf licenseManagerReportGeneratorArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetLicenseManagerReportGenerator
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.GetLicenseManagerReportGenerator" ::
+              Data.=# ( "AWSLicenseManager.GetLicenseManagerReportGenerator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetLicenseManagerReportGenerator where
+instance Data.ToJSON GetLicenseManagerReportGenerator where
   toJSON GetLicenseManagerReportGenerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "LicenseManagerReportGeneratorArn"
-                  Core..= licenseManagerReportGeneratorArn
+                  Data..= licenseManagerReportGeneratorArn
               )
           ]
       )
 
-instance Core.ToPath GetLicenseManagerReportGenerator where
+instance Data.ToPath GetLicenseManagerReportGenerator where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetLicenseManagerReportGenerator
   where
   toQuery = Prelude.const Prelude.mempty

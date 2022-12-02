@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -240,7 +241,7 @@ instance Core.AWSRequest CreateLicenseConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateLicenseConfigurationResponse'
-            Prelude.<$> (x Core..?> "LicenseConfigurationArn")
+            Prelude.<$> (x Data..?> "LicenseConfigurationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -268,45 +269,45 @@ instance Prelude.NFData CreateLicenseConfiguration where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf licenseCountingType
 
-instance Core.ToHeaders CreateLicenseConfiguration where
+instance Data.ToHeaders CreateLicenseConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.CreateLicenseConfiguration" ::
+              Data.=# ( "AWSLicenseManager.CreateLicenseConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLicenseConfiguration where
+instance Data.ToJSON CreateLicenseConfiguration where
   toJSON CreateLicenseConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ProductInformationList" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ProductInformationList" Data..=)
               Prelude.<$> productInformationList,
-            ("LicenseRules" Core..=) Prelude.<$> licenseRules,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LicenseCount" Core..=) Prelude.<$> licenseCount,
-            ("LicenseCountHardLimit" Core..=)
+            ("LicenseRules" Data..=) Prelude.<$> licenseRules,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LicenseCount" Data..=) Prelude.<$> licenseCount,
+            ("LicenseCountHardLimit" Data..=)
               Prelude.<$> licenseCountHardLimit,
-            ("DisassociateWhenNotFound" Core..=)
+            ("DisassociateWhenNotFound" Data..=)
               Prelude.<$> disassociateWhenNotFound,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("LicenseCountingType" Core..= licenseCountingType)
+              ("LicenseCountingType" Data..= licenseCountingType)
           ]
       )
 
-instance Core.ToPath CreateLicenseConfiguration where
+instance Data.ToPath CreateLicenseConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateLicenseConfiguration where
+instance Data.ToQuery CreateLicenseConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLicenseConfigurationResponse' smart constructor.

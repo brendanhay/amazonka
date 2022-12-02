@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,16 +169,16 @@ instance Core.AWSRequest CheckoutLicense where
     Response.receiveJSON
       ( \s h x ->
           CheckoutLicenseResponse'
-            Prelude.<$> (x Core..?> "NodeId")
-            Prelude.<*> (x Core..?> "LicenseArn")
-            Prelude.<*> (x Core..?> "Expiration")
-            Prelude.<*> (x Core..?> "LicenseConsumptionToken")
-            Prelude.<*> (x Core..?> "CheckoutType")
-            Prelude.<*> (x Core..?> "SignedToken")
-            Prelude.<*> ( x Core..?> "EntitlementsAllowed"
+            Prelude.<$> (x Data..?> "NodeId")
+            Prelude.<*> (x Data..?> "LicenseArn")
+            Prelude.<*> (x Data..?> "Expiration")
+            Prelude.<*> (x Data..?> "LicenseConsumptionToken")
+            Prelude.<*> (x Data..?> "CheckoutType")
+            Prelude.<*> (x Data..?> "SignedToken")
+            Prelude.<*> ( x Data..?> "EntitlementsAllowed"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "IssuedAt")
+            Prelude.<*> (x Data..?> "IssuedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,40 +202,40 @@ instance Prelude.NFData CheckoutLicense where
       `Prelude.seq` Prelude.rnf entitlements
       `Prelude.seq` Prelude.rnf clientToken
 
-instance Core.ToHeaders CheckoutLicense where
+instance Data.ToHeaders CheckoutLicense where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.CheckoutLicense" ::
+              Data.=# ( "AWSLicenseManager.CheckoutLicense" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CheckoutLicense where
+instance Data.ToJSON CheckoutLicense where
   toJSON CheckoutLicense' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NodeId" Core..=) Prelude.<$> nodeId,
-            ("Beneficiary" Core..=) Prelude.<$> beneficiary,
-            Prelude.Just ("ProductSKU" Core..= productSKU),
-            Prelude.Just ("CheckoutType" Core..= checkoutType),
+          [ ("NodeId" Data..=) Prelude.<$> nodeId,
+            ("Beneficiary" Data..=) Prelude.<$> beneficiary,
+            Prelude.Just ("ProductSKU" Data..= productSKU),
+            Prelude.Just ("CheckoutType" Data..= checkoutType),
             Prelude.Just
-              ("KeyFingerprint" Core..= keyFingerprint),
-            Prelude.Just ("Entitlements" Core..= entitlements),
-            Prelude.Just ("ClientToken" Core..= clientToken)
+              ("KeyFingerprint" Data..= keyFingerprint),
+            Prelude.Just ("Entitlements" Data..= entitlements),
+            Prelude.Just ("ClientToken" Data..= clientToken)
           ]
       )
 
-instance Core.ToPath CheckoutLicense where
+instance Data.ToPath CheckoutLicense where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CheckoutLicense where
+instance Data.ToQuery CheckoutLicense where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCheckoutLicenseResponse' smart constructor.

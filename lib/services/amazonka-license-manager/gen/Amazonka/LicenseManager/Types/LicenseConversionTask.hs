@@ -21,6 +21,7 @@ module Amazonka.LicenseManager.Types.LicenseConversionTask where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types.LicenseConversionContext
 import Amazonka.LicenseManager.Types.LicenseConversionTaskStatus
 import qualified Amazonka.Prelude as Prelude
@@ -32,11 +33,11 @@ data LicenseConversionTask = LicenseConversionTask'
   { -- | Information about the license type this conversion task converted from.
     sourceLicenseContext :: Prelude.Maybe LicenseConversionContext,
     -- | The time the usage operation value of the resource was changed.
-    licenseConversionTime :: Prelude.Maybe Core.POSIX,
+    licenseConversionTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the conversion task.
     status :: Prelude.Maybe LicenseConversionTaskStatus,
     -- | The time the conversion task was completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Information about the license type this conversion task converted to.
     destinationLicenseContext :: Prelude.Maybe LicenseConversionContext,
     -- | The Amazon Resource Name (ARN) of the resource associated with the
@@ -47,7 +48,7 @@ data LicenseConversionTask = LicenseConversionTask'
     -- | The status message for the conversion task.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The time the conversion task was started at.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,7 +100,7 @@ licenseConversionTask_sourceLicenseContext = Lens.lens (\LicenseConversionTask' 
 
 -- | The time the usage operation value of the resource was changed.
 licenseConversionTask_licenseConversionTime :: Lens.Lens' LicenseConversionTask (Prelude.Maybe Prelude.UTCTime)
-licenseConversionTask_licenseConversionTime = Lens.lens (\LicenseConversionTask' {licenseConversionTime} -> licenseConversionTime) (\s@LicenseConversionTask' {} a -> s {licenseConversionTime = a} :: LicenseConversionTask) Prelude.. Lens.mapping Core._Time
+licenseConversionTask_licenseConversionTime = Lens.lens (\LicenseConversionTask' {licenseConversionTime} -> licenseConversionTime) (\s@LicenseConversionTask' {} a -> s {licenseConversionTime = a} :: LicenseConversionTask) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the conversion task.
 licenseConversionTask_status :: Lens.Lens' LicenseConversionTask (Prelude.Maybe LicenseConversionTaskStatus)
@@ -107,7 +108,7 @@ licenseConversionTask_status = Lens.lens (\LicenseConversionTask' {status} -> st
 
 -- | The time the conversion task was completed.
 licenseConversionTask_endTime :: Lens.Lens' LicenseConversionTask (Prelude.Maybe Prelude.UTCTime)
-licenseConversionTask_endTime = Lens.lens (\LicenseConversionTask' {endTime} -> endTime) (\s@LicenseConversionTask' {} a -> s {endTime = a} :: LicenseConversionTask) Prelude.. Lens.mapping Core._Time
+licenseConversionTask_endTime = Lens.lens (\LicenseConversionTask' {endTime} -> endTime) (\s@LicenseConversionTask' {} a -> s {endTime = a} :: LicenseConversionTask) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the license type this conversion task converted to.
 licenseConversionTask_destinationLicenseContext :: Lens.Lens' LicenseConversionTask (Prelude.Maybe LicenseConversionContext)
@@ -128,23 +129,23 @@ licenseConversionTask_statusMessage = Lens.lens (\LicenseConversionTask' {status
 
 -- | The time the conversion task was started at.
 licenseConversionTask_startTime :: Lens.Lens' LicenseConversionTask (Prelude.Maybe Prelude.UTCTime)
-licenseConversionTask_startTime = Lens.lens (\LicenseConversionTask' {startTime} -> startTime) (\s@LicenseConversionTask' {} a -> s {startTime = a} :: LicenseConversionTask) Prelude.. Lens.mapping Core._Time
+licenseConversionTask_startTime = Lens.lens (\LicenseConversionTask' {startTime} -> startTime) (\s@LicenseConversionTask' {} a -> s {startTime = a} :: LicenseConversionTask) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LicenseConversionTask where
+instance Data.FromJSON LicenseConversionTask where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LicenseConversionTask"
       ( \x ->
           LicenseConversionTask'
-            Prelude.<$> (x Core..:? "SourceLicenseContext")
-            Prelude.<*> (x Core..:? "LicenseConversionTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "DestinationLicenseContext")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "LicenseConversionTaskId")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "SourceLicenseContext")
+            Prelude.<*> (x Data..:? "LicenseConversionTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "DestinationLicenseContext")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "LicenseConversionTaskId")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable LicenseConversionTask where

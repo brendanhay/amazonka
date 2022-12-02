@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest ListLicenseConversionTasks where
     Response.receiveJSON
       ( \s h x ->
           ListLicenseConversionTasksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LicenseConversionTasks"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "LicenseConversionTasks"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -127,35 +128,35 @@ instance Prelude.NFData ListLicenseConversionTasks where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListLicenseConversionTasks where
+instance Data.ToHeaders ListLicenseConversionTasks where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.ListLicenseConversionTasks" ::
+              Data.=# ( "AWSLicenseManager.ListLicenseConversionTasks" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLicenseConversionTasks where
+instance Data.ToJSON ListLicenseConversionTasks where
   toJSON ListLicenseConversionTasks' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListLicenseConversionTasks where
+instance Data.ToPath ListLicenseConversionTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListLicenseConversionTasks where
+instance Data.ToQuery ListLicenseConversionTasks where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListLicenseConversionTasksResponse' smart constructor.

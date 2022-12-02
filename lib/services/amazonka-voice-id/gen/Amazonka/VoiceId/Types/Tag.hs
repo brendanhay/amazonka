@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.Tag where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The tags used to organize, track, or control access for this resource.
@@ -31,11 +32,11 @@ data Tag = Tag'
   { -- | The first part of a key:value pair that forms a tag associated with a
     -- given resource. For example, in the tag \'Department\':\'Sales\', the
     -- key is \'Department\'.
-    key :: Core.Sensitive Prelude.Text,
+    key :: Data.Sensitive Prelude.Text,
     -- | The second part of a key:value pair that forms a tag associated with a
     -- given resource. For example, in the tag \'Department\':\'Sales\', the
     -- value is \'Sales\'.
-    value :: Core.Sensitive Prelude.Text
+    value :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,29 +63,29 @@ newTag ::
   Tag
 newTag pKey_ pValue_ =
   Tag'
-    { key = Core._Sensitive Lens.# pKey_,
-      value = Core._Sensitive Lens.# pValue_
+    { key = Data._Sensitive Lens.# pKey_,
+      value = Data._Sensitive Lens.# pValue_
     }
 
 -- | The first part of a key:value pair that forms a tag associated with a
 -- given resource. For example, in the tag \'Department\':\'Sales\', the
 -- key is \'Department\'.
 tag_key :: Lens.Lens' Tag Prelude.Text
-tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag) Prelude.. Core._Sensitive
+tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag) Prelude.. Data._Sensitive
 
 -- | The second part of a key:value pair that forms a tag associated with a
 -- given resource. For example, in the tag \'Department\':\'Sales\', the
 -- value is \'Sales\'.
 tag_value :: Lens.Lens' Tag Prelude.Text
-tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag) Prelude.. Core._Sensitive
+tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag) Prelude.. Data._Sensitive
 
-instance Core.FromJSON Tag where
+instance Data.FromJSON Tag where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
+            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable Tag where
@@ -96,11 +97,11 @@ instance Prelude.NFData Tag where
   rnf Tag' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON Tag where
+instance Data.ToJSON Tag where
   toJSON Tag' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Core..= key),
-            Prelude.Just ("Value" Core..= value)
+          [ Prelude.Just ("Key" Data..= key),
+            Prelude.Just ("Value" Data..= value)
           ]
       )

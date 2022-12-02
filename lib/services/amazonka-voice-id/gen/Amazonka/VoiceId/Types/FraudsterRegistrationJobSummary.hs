@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.FailureDetails
 import Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus
@@ -33,9 +34,9 @@ data FraudsterRegistrationJobSummary = FraudsterRegistrationJobSummary'
   { -- | The current status of the fraudster registration job.
     jobStatus :: Prelude.Maybe FraudsterRegistrationJobStatus,
     -- | The client-provided name for the fraudster registration job.
-    jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A timestamp showing when the fraudster registration job ended.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | The service-generated identifier for the fraudster registration job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | Contains details that are populated when an entire batch job fails. In
@@ -50,7 +51,7 @@ data FraudsterRegistrationJobSummary = FraudsterRegistrationJobSummary'
     -- input file.
     jobProgress :: Prelude.Maybe JobProgress,
     -- | A timestamp showing when the fraudster registration job is created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -103,11 +104,11 @@ fraudsterRegistrationJobSummary_jobStatus = Lens.lens (\FraudsterRegistrationJob
 
 -- | The client-provided name for the fraudster registration job.
 fraudsterRegistrationJobSummary_jobName :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.Text)
-fraudsterRegistrationJobSummary_jobName = Lens.lens (\FraudsterRegistrationJobSummary' {jobName} -> jobName) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobName = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Core._Sensitive
+fraudsterRegistrationJobSummary_jobName = Lens.lens (\FraudsterRegistrationJobSummary' {jobName} -> jobName) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobName = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A timestamp showing when the fraudster registration job ended.
 fraudsterRegistrationJobSummary_endedAt :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.UTCTime)
-fraudsterRegistrationJobSummary_endedAt = Lens.lens (\FraudsterRegistrationJobSummary' {endedAt} -> endedAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {endedAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Core._Time
+fraudsterRegistrationJobSummary_endedAt = Lens.lens (\FraudsterRegistrationJobSummary' {endedAt} -> endedAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {endedAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The service-generated identifier for the fraudster registration job.
 fraudsterRegistrationJobSummary_jobId :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.Text)
@@ -132,25 +133,25 @@ fraudsterRegistrationJobSummary_jobProgress = Lens.lens (\FraudsterRegistrationJ
 
 -- | A timestamp showing when the fraudster registration job is created.
 fraudsterRegistrationJobSummary_createdAt :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.UTCTime)
-fraudsterRegistrationJobSummary_createdAt = Lens.lens (\FraudsterRegistrationJobSummary' {createdAt} -> createdAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {createdAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Core._Time
+fraudsterRegistrationJobSummary_createdAt = Lens.lens (\FraudsterRegistrationJobSummary' {createdAt} -> createdAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {createdAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Data._Time
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     FraudsterRegistrationJobSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FraudsterRegistrationJobSummary"
       ( \x ->
           FraudsterRegistrationJobSummary'
-            Prelude.<$> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "EndedAt")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "JobProgress")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "EndedAt")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "JobProgress")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance

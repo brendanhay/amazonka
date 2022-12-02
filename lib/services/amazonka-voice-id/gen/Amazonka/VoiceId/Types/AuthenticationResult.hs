@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.AuthenticationResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.AuthenticationConfiguration
 import Amazonka.VoiceId.Types.AuthenticationDecision
@@ -32,7 +33,7 @@ import Amazonka.VoiceId.Types.AuthenticationDecision
 data AuthenticationResult = AuthenticationResult'
   { -- | A timestamp indicating when audio aggregation ended for this
     -- authentication result.
-    audioAggregationEndedAt :: Prelude.Maybe Core.POSIX,
+    audioAggregationEndedAt :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for this authentication result. Because there can
     -- be multiple authentications for a given session, this field helps to
     -- identify if the returned result is from a previous streaming activity or
@@ -53,13 +54,13 @@ data AuthenticationResult = AuthenticationResult'
     -- | The client-provided identifier for the speaker whose authentication
     -- result is produced. Only present if a @SpeakerId@ is provided for the
     -- session.
-    customerSpeakerId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    customerSpeakerId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service-generated identifier for the speaker whose authentication
     -- result is produced.
     generatedSpeakerId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp indicating when audio aggregation started for this
     -- authentication result.
-    audioAggregationStartedAt :: Prelude.Maybe Core.POSIX
+    audioAggregationStartedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -118,7 +119,7 @@ newAuthenticationResult =
 -- | A timestamp indicating when audio aggregation ended for this
 -- authentication result.
 authenticationResult_audioAggregationEndedAt :: Lens.Lens' AuthenticationResult (Prelude.Maybe Prelude.UTCTime)
-authenticationResult_audioAggregationEndedAt = Lens.lens (\AuthenticationResult' {audioAggregationEndedAt} -> audioAggregationEndedAt) (\s@AuthenticationResult' {} a -> s {audioAggregationEndedAt = a} :: AuthenticationResult) Prelude.. Lens.mapping Core._Time
+authenticationResult_audioAggregationEndedAt = Lens.lens (\AuthenticationResult' {audioAggregationEndedAt} -> audioAggregationEndedAt) (\s@AuthenticationResult' {} a -> s {audioAggregationEndedAt = a} :: AuthenticationResult) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for this authentication result. Because there can
 -- be multiple authentications for a given session, this field helps to
@@ -149,7 +150,7 @@ authenticationResult_decision = Lens.lens (\AuthenticationResult' {decision} -> 
 -- result is produced. Only present if a @SpeakerId@ is provided for the
 -- session.
 authenticationResult_customerSpeakerId :: Lens.Lens' AuthenticationResult (Prelude.Maybe Prelude.Text)
-authenticationResult_customerSpeakerId = Lens.lens (\AuthenticationResult' {customerSpeakerId} -> customerSpeakerId) (\s@AuthenticationResult' {} a -> s {customerSpeakerId = a} :: AuthenticationResult) Prelude.. Lens.mapping Core._Sensitive
+authenticationResult_customerSpeakerId = Lens.lens (\AuthenticationResult' {customerSpeakerId} -> customerSpeakerId) (\s@AuthenticationResult' {} a -> s {customerSpeakerId = a} :: AuthenticationResult) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service-generated identifier for the speaker whose authentication
 -- result is produced.
@@ -159,22 +160,22 @@ authenticationResult_generatedSpeakerId = Lens.lens (\AuthenticationResult' {gen
 -- | A timestamp indicating when audio aggregation started for this
 -- authentication result.
 authenticationResult_audioAggregationStartedAt :: Lens.Lens' AuthenticationResult (Prelude.Maybe Prelude.UTCTime)
-authenticationResult_audioAggregationStartedAt = Lens.lens (\AuthenticationResult' {audioAggregationStartedAt} -> audioAggregationStartedAt) (\s@AuthenticationResult' {} a -> s {audioAggregationStartedAt = a} :: AuthenticationResult) Prelude.. Lens.mapping Core._Time
+authenticationResult_audioAggregationStartedAt = Lens.lens (\AuthenticationResult' {audioAggregationStartedAt} -> audioAggregationStartedAt) (\s@AuthenticationResult' {} a -> s {audioAggregationStartedAt = a} :: AuthenticationResult) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AuthenticationResult where
+instance Data.FromJSON AuthenticationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuthenticationResult"
       ( \x ->
           AuthenticationResult'
-            Prelude.<$> (x Core..:? "AudioAggregationEndedAt")
-            Prelude.<*> (x Core..:? "AuthenticationResultId")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "Decision")
-            Prelude.<*> (x Core..:? "CustomerSpeakerId")
-            Prelude.<*> (x Core..:? "GeneratedSpeakerId")
-            Prelude.<*> (x Core..:? "AudioAggregationStartedAt")
+            Prelude.<$> (x Data..:? "AudioAggregationEndedAt")
+            Prelude.<*> (x Data..:? "AuthenticationResultId")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "Decision")
+            Prelude.<*> (x Data..:? "CustomerSpeakerId")
+            Prelude.<*> (x Data..:? "GeneratedSpeakerId")
+            Prelude.<*> (x Data..:? "AudioAggregationStartedAt")
       )
 
 instance Prelude.Hashable AuthenticationResult where

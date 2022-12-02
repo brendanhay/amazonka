@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,12 +107,12 @@ instance Core.AWSRequest EvaluateSession where
     Response.receiveJSON
       ( \s h x ->
           EvaluateSessionResponse'
-            Prelude.<$> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "FraudDetectionResult")
-            Prelude.<*> (x Core..?> "StreamingStatus")
-            Prelude.<*> (x Core..?> "SessionId")
-            Prelude.<*> (x Core..?> "DomainId")
-            Prelude.<*> (x Core..?> "SessionName")
+            Prelude.<$> (x Data..?> "AuthenticationResult")
+            Prelude.<*> (x Data..?> "FraudDetectionResult")
+            Prelude.<*> (x Data..?> "StreamingStatus")
+            Prelude.<*> (x Data..?> "SessionId")
+            Prelude.<*> (x Data..?> "DomainId")
+            Prelude.<*> (x Data..?> "SessionName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,33 +126,33 @@ instance Prelude.NFData EvaluateSession where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf sessionNameOrId
 
-instance Core.ToHeaders EvaluateSession where
+instance Data.ToHeaders EvaluateSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("VoiceID.EvaluateSession" :: Prelude.ByteString),
+              Data.=# ("VoiceID.EvaluateSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EvaluateSession where
+instance Data.ToJSON EvaluateSession where
   toJSON EvaluateSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Core..= domainId),
+          [ Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("SessionNameOrId" Core..= sessionNameOrId)
+              ("SessionNameOrId" Data..= sessionNameOrId)
           ]
       )
 
-instance Core.ToPath EvaluateSession where
+instance Data.ToPath EvaluateSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery EvaluateSession where
+instance Data.ToQuery EvaluateSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEvaluateSessionResponse' smart constructor.

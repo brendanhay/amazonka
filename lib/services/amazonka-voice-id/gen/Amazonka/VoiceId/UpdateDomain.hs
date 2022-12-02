@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,11 +55,11 @@ import Amazonka.VoiceId.Types
 -- | /See:/ 'newUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
   { -- | A brief description of the domain.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The identifier of the domain to be updated.
     domainId :: Prelude.Text,
     -- | The name of the domain.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The configuration, containing the KMS key identifier, to be used by
     -- Voice ID for the server-side encryption of your data. Changing the
     -- domain\'s associated KMS key immediately triggers an asynchronous
@@ -106,14 +107,14 @@ newUpdateDomain
     UpdateDomain'
       { description = Prelude.Nothing,
         domainId = pDomainId_,
-        name = Core._Sensitive Lens.# pName_,
+        name = Data._Sensitive Lens.# pName_,
         serverSideEncryptionConfiguration =
           pServerSideEncryptionConfiguration_
       }
 
 -- | A brief description of the domain.
 updateDomain_description :: Lens.Lens' UpdateDomain (Prelude.Maybe Prelude.Text)
-updateDomain_description = Lens.lens (\UpdateDomain' {description} -> description) (\s@UpdateDomain' {} a -> s {description = a} :: UpdateDomain) Prelude.. Lens.mapping Core._Sensitive
+updateDomain_description = Lens.lens (\UpdateDomain' {description} -> description) (\s@UpdateDomain' {} a -> s {description = a} :: UpdateDomain) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The identifier of the domain to be updated.
 updateDomain_domainId :: Lens.Lens' UpdateDomain Prelude.Text
@@ -121,7 +122,7 @@ updateDomain_domainId = Lens.lens (\UpdateDomain' {domainId} -> domainId) (\s@Up
 
 -- | The name of the domain.
 updateDomain_name :: Lens.Lens' UpdateDomain Prelude.Text
-updateDomain_name = Lens.lens (\UpdateDomain' {name} -> name) (\s@UpdateDomain' {} a -> s {name = a} :: UpdateDomain) Prelude.. Core._Sensitive
+updateDomain_name = Lens.lens (\UpdateDomain' {name} -> name) (\s@UpdateDomain' {} a -> s {name = a} :: UpdateDomain) Prelude.. Data._Sensitive
 
 -- | The configuration, containing the KMS key identifier, to be used by
 -- Voice ID for the server-side encryption of your data. Changing the
@@ -141,7 +142,7 @@ instance Core.AWSRequest UpdateDomain where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainResponse'
-            Prelude.<$> (x Core..?> "Domain")
+            Prelude.<$> (x Data..?> "Domain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,37 +160,37 @@ instance Prelude.NFData UpdateDomain where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
 
-instance Core.ToHeaders UpdateDomain where
+instance Data.ToHeaders UpdateDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("VoiceID.UpdateDomain" :: Prelude.ByteString),
+              Data.=# ("VoiceID.UpdateDomain" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDomain where
+instance Data.ToJSON UpdateDomain where
   toJSON UpdateDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("DomainId" Core..= domainId),
-            Prelude.Just ("Name" Core..= name),
+          [ ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("DomainId" Data..= domainId),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "ServerSideEncryptionConfiguration"
-                  Core..= serverSideEncryptionConfiguration
+                  Data..= serverSideEncryptionConfiguration
               )
           ]
       )
 
-instance Core.ToPath UpdateDomain where
+instance Data.ToPath UpdateDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDomain where
+instance Data.ToQuery UpdateDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDomainResponse' smart constructor.

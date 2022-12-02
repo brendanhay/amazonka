@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.DomainSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.DomainStatus
 import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
@@ -31,7 +32,7 @@ import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
 -- /See:/ 'newDomainSummary' smart constructor.
 data DomainSummary = DomainSummary'
   { -- | The client-provided name for the domain.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Details about the most recent server-side encryption configuration
     -- update. When the server-side encryption configuration is changed,
     -- dependency on the old KMS key is removed through an asynchronous
@@ -44,15 +45,15 @@ data DomainSummary = DomainSummary'
     -- | The Amazon Resource Name (ARN) for the domain.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The client-provided description of the domain.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The current status of the domain.
     domainStatus :: Prelude.Maybe DomainStatus,
     -- | The service-generated identifier for the domain.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp showing when the domain is created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The timestamp showing the domain\'s last update.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -103,7 +104,7 @@ newDomainSummary =
 
 -- | The client-provided name for the domain.
 domainSummary_name :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
-domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummary' {} a -> s {name = a} :: DomainSummary) Prelude.. Lens.mapping Core._Sensitive
+domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummary' {} a -> s {name = a} :: DomainSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Details about the most recent server-side encryption configuration
 -- update. When the server-side encryption configuration is changed,
@@ -124,7 +125,7 @@ domainSummary_arn = Lens.lens (\DomainSummary' {arn} -> arn) (\s@DomainSummary' 
 
 -- | The client-provided description of the domain.
 domainSummary_description :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
-domainSummary_description = Lens.lens (\DomainSummary' {description} -> description) (\s@DomainSummary' {} a -> s {description = a} :: DomainSummary) Prelude.. Lens.mapping Core._Sensitive
+domainSummary_description = Lens.lens (\DomainSummary' {description} -> description) (\s@DomainSummary' {} a -> s {description = a} :: DomainSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The current status of the domain.
 domainSummary_domainStatus :: Lens.Lens' DomainSummary (Prelude.Maybe DomainStatus)
@@ -136,27 +137,27 @@ domainSummary_domainId = Lens.lens (\DomainSummary' {domainId} -> domainId) (\s@
 
 -- | The timestamp showing when the domain is created.
 domainSummary_createdAt :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
-domainSummary_createdAt = Lens.lens (\DomainSummary' {createdAt} -> createdAt) (\s@DomainSummary' {} a -> s {createdAt = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
+domainSummary_createdAt = Lens.lens (\DomainSummary' {createdAt} -> createdAt) (\s@DomainSummary' {} a -> s {createdAt = a} :: DomainSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp showing the domain\'s last update.
 domainSummary_updatedAt :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
-domainSummary_updatedAt = Lens.lens (\DomainSummary' {updatedAt} -> updatedAt) (\s@DomainSummary' {} a -> s {updatedAt = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
+domainSummary_updatedAt = Lens.lens (\DomainSummary' {updatedAt} -> updatedAt) (\s@DomainSummary' {} a -> s {updatedAt = a} :: DomainSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON DomainSummary where
+instance Data.FromJSON DomainSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainSummary"
       ( \x ->
           DomainSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ServerSideEncryptionUpdateDetails")
-            Prelude.<*> (x Core..:? "ServerSideEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DomainStatus")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ServerSideEncryptionUpdateDetails")
+            Prelude.<*> (x Data..:? "ServerSideEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DomainStatus")
+            Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable DomainSummary where

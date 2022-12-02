@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.FailureDetails
 import Amazonka.VoiceId.Types.JobProgress
@@ -33,9 +34,9 @@ data SpeakerEnrollmentJobSummary = SpeakerEnrollmentJobSummary'
   { -- | The current status of the speaker enrollment job.
     jobStatus :: Prelude.Maybe SpeakerEnrollmentJobStatus,
     -- | The client-provided name for the speaker enrollment job.
-    jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A timestamp showing when the speaker enrollment job ended.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | The service-generated identifier for the speaker enrollment job.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | Contains details that are populated when an entire batch job fails. In
@@ -50,7 +51,7 @@ data SpeakerEnrollmentJobSummary = SpeakerEnrollmentJobSummary'
     -- percentage of enrollment requests listed in the input file.
     jobProgress :: Prelude.Maybe JobProgress,
     -- | A timestamp showing the creation time of the speaker enrollment job.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -103,11 +104,11 @@ speakerEnrollmentJobSummary_jobStatus = Lens.lens (\SpeakerEnrollmentJobSummary'
 
 -- | The client-provided name for the speaker enrollment job.
 speakerEnrollmentJobSummary_jobName :: Lens.Lens' SpeakerEnrollmentJobSummary (Prelude.Maybe Prelude.Text)
-speakerEnrollmentJobSummary_jobName = Lens.lens (\SpeakerEnrollmentJobSummary' {jobName} -> jobName) (\s@SpeakerEnrollmentJobSummary' {} a -> s {jobName = a} :: SpeakerEnrollmentJobSummary) Prelude.. Lens.mapping Core._Sensitive
+speakerEnrollmentJobSummary_jobName = Lens.lens (\SpeakerEnrollmentJobSummary' {jobName} -> jobName) (\s@SpeakerEnrollmentJobSummary' {} a -> s {jobName = a} :: SpeakerEnrollmentJobSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A timestamp showing when the speaker enrollment job ended.
 speakerEnrollmentJobSummary_endedAt :: Lens.Lens' SpeakerEnrollmentJobSummary (Prelude.Maybe Prelude.UTCTime)
-speakerEnrollmentJobSummary_endedAt = Lens.lens (\SpeakerEnrollmentJobSummary' {endedAt} -> endedAt) (\s@SpeakerEnrollmentJobSummary' {} a -> s {endedAt = a} :: SpeakerEnrollmentJobSummary) Prelude.. Lens.mapping Core._Time
+speakerEnrollmentJobSummary_endedAt = Lens.lens (\SpeakerEnrollmentJobSummary' {endedAt} -> endedAt) (\s@SpeakerEnrollmentJobSummary' {} a -> s {endedAt = a} :: SpeakerEnrollmentJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The service-generated identifier for the speaker enrollment job.
 speakerEnrollmentJobSummary_jobId :: Lens.Lens' SpeakerEnrollmentJobSummary (Prelude.Maybe Prelude.Text)
@@ -132,22 +133,22 @@ speakerEnrollmentJobSummary_jobProgress = Lens.lens (\SpeakerEnrollmentJobSummar
 
 -- | A timestamp showing the creation time of the speaker enrollment job.
 speakerEnrollmentJobSummary_createdAt :: Lens.Lens' SpeakerEnrollmentJobSummary (Prelude.Maybe Prelude.UTCTime)
-speakerEnrollmentJobSummary_createdAt = Lens.lens (\SpeakerEnrollmentJobSummary' {createdAt} -> createdAt) (\s@SpeakerEnrollmentJobSummary' {} a -> s {createdAt = a} :: SpeakerEnrollmentJobSummary) Prelude.. Lens.mapping Core._Time
+speakerEnrollmentJobSummary_createdAt = Lens.lens (\SpeakerEnrollmentJobSummary' {createdAt} -> createdAt) (\s@SpeakerEnrollmentJobSummary' {} a -> s {createdAt = a} :: SpeakerEnrollmentJobSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SpeakerEnrollmentJobSummary where
+instance Data.FromJSON SpeakerEnrollmentJobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpeakerEnrollmentJobSummary"
       ( \x ->
           SpeakerEnrollmentJobSummary'
-            Prelude.<$> (x Core..:? "JobStatus")
-            Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "EndedAt")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "JobProgress")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Data..:? "JobStatus")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "EndedAt")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "JobProgress")
+            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable SpeakerEnrollmentJobSummary where

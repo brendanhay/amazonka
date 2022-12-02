@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,8 +162,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFraudsterRegistrationJobsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "JobSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,36 +184,36 @@ instance Prelude.NFData ListFraudsterRegistrationJobs where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainId
 
-instance Core.ToHeaders ListFraudsterRegistrationJobs where
+instance Data.ToHeaders ListFraudsterRegistrationJobs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "VoiceID.ListFraudsterRegistrationJobs" ::
+              Data.=# ( "VoiceID.ListFraudsterRegistrationJobs" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFraudsterRegistrationJobs where
+instance Data.ToJSON ListFraudsterRegistrationJobs where
   toJSON ListFraudsterRegistrationJobs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("JobStatus" Core..=) Prelude.<$> jobStatus,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("DomainId" Core..= domainId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("JobStatus" Data..=) Prelude.<$> jobStatus,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("DomainId" Data..= domainId)
           ]
       )
 
-instance Core.ToPath ListFraudsterRegistrationJobs where
+instance Data.ToPath ListFraudsterRegistrationJobs where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFraudsterRegistrationJobs where
+instance Data.ToQuery ListFraudsterRegistrationJobs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFraudsterRegistrationJobsResponse' smart constructor.

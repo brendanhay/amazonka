@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.FraudDetectionResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.FraudDetectionConfiguration
 import Amazonka.VoiceId.Types.FraudDetectionDecision
@@ -34,7 +35,7 @@ import Amazonka.VoiceId.Types.FraudRiskDetails
 data FraudDetectionResult = FraudDetectionResult'
   { -- | A timestamp indicating when audio aggregation ended for this fraud
     -- detection result.
-    audioAggregationEndedAt :: Prelude.Maybe Core.POSIX,
+    audioAggregationEndedAt :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for this fraud detection result. Given there can
     -- be multiple fraud detections for a given session, this field helps in
     -- identifying if the returned result is from previous streaming activity
@@ -53,7 +54,7 @@ data FraudDetectionResult = FraudDetectionResult'
     decision :: Prelude.Maybe FraudDetectionDecision,
     -- | A timestamp indicating when audio aggregation started for this fraud
     -- detection result.
-    audioAggregationStartedAt :: Prelude.Maybe Core.POSIX,
+    audioAggregationStartedAt :: Prelude.Maybe Data.POSIX,
     -- | The reason speaker was flagged by the fraud detection system. This is
     -- only be populated if fraud detection Decision is @HIGH_RISK@, and the
     -- following possible values: @KNOWN_FRAUDSTER@ and @VOICE_SPOOFING@.
@@ -111,7 +112,7 @@ newFraudDetectionResult =
 -- | A timestamp indicating when audio aggregation ended for this fraud
 -- detection result.
 fraudDetectionResult_audioAggregationEndedAt :: Lens.Lens' FraudDetectionResult (Prelude.Maybe Prelude.UTCTime)
-fraudDetectionResult_audioAggregationEndedAt = Lens.lens (\FraudDetectionResult' {audioAggregationEndedAt} -> audioAggregationEndedAt) (\s@FraudDetectionResult' {} a -> s {audioAggregationEndedAt = a} :: FraudDetectionResult) Prelude.. Lens.mapping Core._Time
+fraudDetectionResult_audioAggregationEndedAt = Lens.lens (\FraudDetectionResult' {audioAggregationEndedAt} -> audioAggregationEndedAt) (\s@FraudDetectionResult' {} a -> s {audioAggregationEndedAt = a} :: FraudDetectionResult) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for this fraud detection result. Given there can
 -- be multiple fraud detections for a given session, this field helps in
@@ -140,7 +141,7 @@ fraudDetectionResult_decision = Lens.lens (\FraudDetectionResult' {decision} -> 
 -- | A timestamp indicating when audio aggregation started for this fraud
 -- detection result.
 fraudDetectionResult_audioAggregationStartedAt :: Lens.Lens' FraudDetectionResult (Prelude.Maybe Prelude.UTCTime)
-fraudDetectionResult_audioAggregationStartedAt = Lens.lens (\FraudDetectionResult' {audioAggregationStartedAt} -> audioAggregationStartedAt) (\s@FraudDetectionResult' {} a -> s {audioAggregationStartedAt = a} :: FraudDetectionResult) Prelude.. Lens.mapping Core._Time
+fraudDetectionResult_audioAggregationStartedAt = Lens.lens (\FraudDetectionResult' {audioAggregationStartedAt} -> audioAggregationStartedAt) (\s@FraudDetectionResult' {} a -> s {audioAggregationStartedAt = a} :: FraudDetectionResult) Prelude.. Lens.mapping Data._Time
 
 -- | The reason speaker was flagged by the fraud detection system. This is
 -- only be populated if fraud detection Decision is @HIGH_RISK@, and the
@@ -148,19 +149,19 @@ fraudDetectionResult_audioAggregationStartedAt = Lens.lens (\FraudDetectionResul
 fraudDetectionResult_reasons :: Lens.Lens' FraudDetectionResult (Prelude.Maybe [FraudDetectionReason])
 fraudDetectionResult_reasons = Lens.lens (\FraudDetectionResult' {reasons} -> reasons) (\s@FraudDetectionResult' {} a -> s {reasons = a} :: FraudDetectionResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON FraudDetectionResult where
+instance Data.FromJSON FraudDetectionResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FraudDetectionResult"
       ( \x ->
           FraudDetectionResult'
-            Prelude.<$> (x Core..:? "AudioAggregationEndedAt")
-            Prelude.<*> (x Core..:? "FraudDetectionResultId")
-            Prelude.<*> (x Core..:? "RiskDetails")
-            Prelude.<*> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "Decision")
-            Prelude.<*> (x Core..:? "AudioAggregationStartedAt")
-            Prelude.<*> (x Core..:? "Reasons" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AudioAggregationEndedAt")
+            Prelude.<*> (x Data..:? "FraudDetectionResultId")
+            Prelude.<*> (x Data..:? "RiskDetails")
+            Prelude.<*> (x Data..:? "Configuration")
+            Prelude.<*> (x Data..:? "Decision")
+            Prelude.<*> (x Data..:? "AudioAggregationStartedAt")
+            Prelude.<*> (x Data..:? "Reasons" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FraudDetectionResult where

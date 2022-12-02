@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.FraudRiskDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.KnownFraudsterRisk
 import Amazonka.VoiceId.Types.VoiceSpoofingRisk
@@ -77,14 +78,14 @@ fraudRiskDetails_knownFraudsterRisk = Lens.lens (\FraudRiskDetails' {knownFrauds
 fraudRiskDetails_voiceSpoofingRisk :: Lens.Lens' FraudRiskDetails VoiceSpoofingRisk
 fraudRiskDetails_voiceSpoofingRisk = Lens.lens (\FraudRiskDetails' {voiceSpoofingRisk} -> voiceSpoofingRisk) (\s@FraudRiskDetails' {} a -> s {voiceSpoofingRisk = a} :: FraudRiskDetails)
 
-instance Core.FromJSON FraudRiskDetails where
+instance Data.FromJSON FraudRiskDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FraudRiskDetails"
       ( \x ->
           FraudRiskDetails'
-            Prelude.<$> (x Core..: "KnownFraudsterRisk")
-            Prelude.<*> (x Core..: "VoiceSpoofingRisk")
+            Prelude.<$> (x Data..: "KnownFraudsterRisk")
+            Prelude.<*> (x Data..: "VoiceSpoofingRisk")
       )
 
 instance Prelude.Hashable FraudRiskDetails where

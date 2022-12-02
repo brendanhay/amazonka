@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.FraudDetectionAction
 
@@ -81,16 +82,16 @@ enrollmentJobFraudDetectionConfig_riskThreshold :: Lens.Lens' EnrollmentJobFraud
 enrollmentJobFraudDetectionConfig_riskThreshold = Lens.lens (\EnrollmentJobFraudDetectionConfig' {riskThreshold} -> riskThreshold) (\s@EnrollmentJobFraudDetectionConfig' {} a -> s {riskThreshold = a} :: EnrollmentJobFraudDetectionConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EnrollmentJobFraudDetectionConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnrollmentJobFraudDetectionConfig"
       ( \x ->
           EnrollmentJobFraudDetectionConfig'
-            Prelude.<$> (x Core..:? "FraudDetectionAction")
-            Prelude.<*> (x Core..:? "RiskThreshold")
+            Prelude.<$> (x Data..:? "FraudDetectionAction")
+            Prelude.<*> (x Data..:? "RiskThreshold")
       )
 
 instance
@@ -112,14 +113,14 @@ instance
       `Prelude.seq` Prelude.rnf riskThreshold
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     EnrollmentJobFraudDetectionConfig
   where
   toJSON EnrollmentJobFraudDetectionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FraudDetectionAction" Core..=)
+          [ ("FraudDetectionAction" Data..=)
               Prelude.<$> fraudDetectionAction,
-            ("RiskThreshold" Core..=) Prelude.<$> riskThreshold
+            ("RiskThreshold" Data..=) Prelude.<$> riskThreshold
           ]
       )

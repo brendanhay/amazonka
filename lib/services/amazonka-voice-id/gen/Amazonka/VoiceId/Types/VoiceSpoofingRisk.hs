@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.VoiceSpoofingRisk where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details resulting from \'Voice Spoofing Risk\' analysis of the
@@ -53,13 +54,13 @@ newVoiceSpoofingRisk pRiskScore_ =
 voiceSpoofingRisk_riskScore :: Lens.Lens' VoiceSpoofingRisk Prelude.Natural
 voiceSpoofingRisk_riskScore = Lens.lens (\VoiceSpoofingRisk' {riskScore} -> riskScore) (\s@VoiceSpoofingRisk' {} a -> s {riskScore = a} :: VoiceSpoofingRisk)
 
-instance Core.FromJSON VoiceSpoofingRisk where
+instance Data.FromJSON VoiceSpoofingRisk where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VoiceSpoofingRisk"
       ( \x ->
           VoiceSpoofingRisk'
-            Prelude.<$> (x Core..: "RiskScore")
+            Prelude.<$> (x Data..: "RiskScore")
       )
 
 instance Prelude.Hashable VoiceSpoofingRisk where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,7 +63,7 @@ data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
     -- provided, Amazon Web Services SDK populates this field.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A name for your speaker enrollment job.
-    jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
     -- to access customer\'s buckets to read the input manifest file and write
     -- the job output file. Refer to
@@ -153,7 +154,7 @@ startSpeakerEnrollmentJob_clientToken = Lens.lens (\StartSpeakerEnrollmentJob' {
 
 -- | A name for your speaker enrollment job.
 startSpeakerEnrollmentJob_jobName :: Lens.Lens' StartSpeakerEnrollmentJob (Prelude.Maybe Prelude.Text)
-startSpeakerEnrollmentJob_jobName = Lens.lens (\StartSpeakerEnrollmentJob' {jobName} -> jobName) (\s@StartSpeakerEnrollmentJob' {} a -> s {jobName = a} :: StartSpeakerEnrollmentJob) Prelude.. Lens.mapping Core._Sensitive
+startSpeakerEnrollmentJob_jobName = Lens.lens (\StartSpeakerEnrollmentJob' {jobName} -> jobName) (\s@StartSpeakerEnrollmentJob' {} a -> s {jobName = a} :: StartSpeakerEnrollmentJob) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
 -- to access customer\'s buckets to read the input manifest file and write
@@ -189,7 +190,7 @@ instance Core.AWSRequest StartSpeakerEnrollmentJob where
     Response.receiveJSON
       ( \s h x ->
           StartSpeakerEnrollmentJobResponse'
-            Prelude.<$> (x Core..?> "Job")
+            Prelude.<$> (x Data..?> "Job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,43 +214,43 @@ instance Prelude.NFData StartSpeakerEnrollmentJob where
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
 
-instance Core.ToHeaders StartSpeakerEnrollmentJob where
+instance Data.ToHeaders StartSpeakerEnrollmentJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "VoiceID.StartSpeakerEnrollmentJob" ::
+              Data.=# ( "VoiceID.StartSpeakerEnrollmentJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSpeakerEnrollmentJob where
+instance Data.ToJSON StartSpeakerEnrollmentJob where
   toJSON StartSpeakerEnrollmentJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EnrollmentConfig" Core..=)
+          [ ("EnrollmentConfig" Data..=)
               Prelude.<$> enrollmentConfig,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("JobName" Core..=) Prelude.<$> jobName,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("JobName" Data..=) Prelude.<$> jobName,
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Prelude.Just ("DomainId" Core..= domainId),
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
+            Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig)
+              ("OutputDataConfig" Data..= outputDataConfig)
           ]
       )
 
-instance Core.ToPath StartSpeakerEnrollmentJob where
+instance Data.ToPath StartSpeakerEnrollmentJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartSpeakerEnrollmentJob where
+instance Data.ToQuery StartSpeakerEnrollmentJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSpeakerEnrollmentJobResponse' smart constructor.

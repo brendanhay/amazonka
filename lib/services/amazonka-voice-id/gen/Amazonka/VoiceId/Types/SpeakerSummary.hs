@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.SpeakerSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.SpeakerStatus
 
@@ -31,19 +32,19 @@ data SpeakerSummary = SpeakerSummary'
   { -- | The timestamp when the speaker was last accessed for enrollment,
     -- re-enrollment or a successful authentication. This timestamp is accurate
     -- to one hour.
-    lastAccessedAt :: Prelude.Maybe Core.POSIX,
+    lastAccessedAt :: Prelude.Maybe Data.POSIX,
     -- | The current status of the speaker.
     status :: Prelude.Maybe SpeakerStatus,
     -- | The client-provided identifier for the speaker.
-    customerSpeakerId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    customerSpeakerId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service-generated identifier for the speaker.
     generatedSpeakerId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the domain that contains the speaker.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp showing the speaker\'s creation time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | A timestamp showing the speaker\'s last update.
-    updatedAt :: Prelude.Maybe Core.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -87,7 +88,7 @@ newSpeakerSummary =
 -- re-enrollment or a successful authentication. This timestamp is accurate
 -- to one hour.
 speakerSummary_lastAccessedAt :: Lens.Lens' SpeakerSummary (Prelude.Maybe Prelude.UTCTime)
-speakerSummary_lastAccessedAt = Lens.lens (\SpeakerSummary' {lastAccessedAt} -> lastAccessedAt) (\s@SpeakerSummary' {} a -> s {lastAccessedAt = a} :: SpeakerSummary) Prelude.. Lens.mapping Core._Time
+speakerSummary_lastAccessedAt = Lens.lens (\SpeakerSummary' {lastAccessedAt} -> lastAccessedAt) (\s@SpeakerSummary' {} a -> s {lastAccessedAt = a} :: SpeakerSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the speaker.
 speakerSummary_status :: Lens.Lens' SpeakerSummary (Prelude.Maybe SpeakerStatus)
@@ -95,7 +96,7 @@ speakerSummary_status = Lens.lens (\SpeakerSummary' {status} -> status) (\s@Spea
 
 -- | The client-provided identifier for the speaker.
 speakerSummary_customerSpeakerId :: Lens.Lens' SpeakerSummary (Prelude.Maybe Prelude.Text)
-speakerSummary_customerSpeakerId = Lens.lens (\SpeakerSummary' {customerSpeakerId} -> customerSpeakerId) (\s@SpeakerSummary' {} a -> s {customerSpeakerId = a} :: SpeakerSummary) Prelude.. Lens.mapping Core._Sensitive
+speakerSummary_customerSpeakerId = Lens.lens (\SpeakerSummary' {customerSpeakerId} -> customerSpeakerId) (\s@SpeakerSummary' {} a -> s {customerSpeakerId = a} :: SpeakerSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service-generated identifier for the speaker.
 speakerSummary_generatedSpeakerId :: Lens.Lens' SpeakerSummary (Prelude.Maybe Prelude.Text)
@@ -107,25 +108,25 @@ speakerSummary_domainId = Lens.lens (\SpeakerSummary' {domainId} -> domainId) (\
 
 -- | A timestamp showing the speaker\'s creation time.
 speakerSummary_createdAt :: Lens.Lens' SpeakerSummary (Prelude.Maybe Prelude.UTCTime)
-speakerSummary_createdAt = Lens.lens (\SpeakerSummary' {createdAt} -> createdAt) (\s@SpeakerSummary' {} a -> s {createdAt = a} :: SpeakerSummary) Prelude.. Lens.mapping Core._Time
+speakerSummary_createdAt = Lens.lens (\SpeakerSummary' {createdAt} -> createdAt) (\s@SpeakerSummary' {} a -> s {createdAt = a} :: SpeakerSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp showing the speaker\'s last update.
 speakerSummary_updatedAt :: Lens.Lens' SpeakerSummary (Prelude.Maybe Prelude.UTCTime)
-speakerSummary_updatedAt = Lens.lens (\SpeakerSummary' {updatedAt} -> updatedAt) (\s@SpeakerSummary' {} a -> s {updatedAt = a} :: SpeakerSummary) Prelude.. Lens.mapping Core._Time
+speakerSummary_updatedAt = Lens.lens (\SpeakerSummary' {updatedAt} -> updatedAt) (\s@SpeakerSummary' {} a -> s {updatedAt = a} :: SpeakerSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON SpeakerSummary where
+instance Data.FromJSON SpeakerSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SpeakerSummary"
       ( \x ->
           SpeakerSummary'
-            Prelude.<$> (x Core..:? "LastAccessedAt")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CustomerSpeakerId")
-            Prelude.<*> (x Core..:? "GeneratedSpeakerId")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "LastAccessedAt")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "CustomerSpeakerId")
+            Prelude.<*> (x Data..:? "GeneratedSpeakerId")
+            Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable SpeakerSummary where

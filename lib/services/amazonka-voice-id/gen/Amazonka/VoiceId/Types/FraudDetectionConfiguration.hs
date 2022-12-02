@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.FraudDetectionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration used for performing fraud detection over a speaker
@@ -62,13 +63,13 @@ newFraudDetectionConfiguration pRiskThreshold_ =
 fraudDetectionConfiguration_riskThreshold :: Lens.Lens' FraudDetectionConfiguration Prelude.Natural
 fraudDetectionConfiguration_riskThreshold = Lens.lens (\FraudDetectionConfiguration' {riskThreshold} -> riskThreshold) (\s@FraudDetectionConfiguration' {} a -> s {riskThreshold = a} :: FraudDetectionConfiguration)
 
-instance Core.FromJSON FraudDetectionConfiguration where
+instance Data.FromJSON FraudDetectionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FraudDetectionConfiguration"
       ( \x ->
           FraudDetectionConfiguration'
-            Prelude.<$> (x Core..: "RiskThreshold")
+            Prelude.<$> (x Data..: "RiskThreshold")
       )
 
 instance Prelude.Hashable FraudDetectionConfiguration where

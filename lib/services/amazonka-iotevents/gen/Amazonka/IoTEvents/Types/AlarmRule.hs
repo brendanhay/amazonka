@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AlarmRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.SimpleRule
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,12 +55,12 @@ newAlarmRule =
 alarmRule_simpleRule :: Lens.Lens' AlarmRule (Prelude.Maybe SimpleRule)
 alarmRule_simpleRule = Lens.lens (\AlarmRule' {simpleRule} -> simpleRule) (\s@AlarmRule' {} a -> s {simpleRule = a} :: AlarmRule)
 
-instance Core.FromJSON AlarmRule where
+instance Data.FromJSON AlarmRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmRule"
       ( \x ->
-          AlarmRule' Prelude.<$> (x Core..:? "simpleRule")
+          AlarmRule' Prelude.<$> (x Data..:? "simpleRule")
       )
 
 instance Prelude.Hashable AlarmRule where
@@ -69,9 +70,9 @@ instance Prelude.Hashable AlarmRule where
 instance Prelude.NFData AlarmRule where
   rnf AlarmRule' {..} = Prelude.rnf simpleRule
 
-instance Core.ToJSON AlarmRule where
+instance Data.ToJSON AlarmRule where
   toJSON AlarmRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("simpleRule" Core..=) Prelude.<$> simpleRule]
+          [("simpleRule" Data..=) Prelude.<$> simpleRule]
       )

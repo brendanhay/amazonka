@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -173,7 +174,7 @@ instance Core.AWSRequest CreateDetectorModel where
     Response.receiveJSON
       ( \s h x ->
           CreateDetectorModelResponse'
-            Prelude.<$> (x Core..?> "detectorModelConfiguration")
+            Prelude.<$> (x Data..?> "detectorModelConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,33 +198,33 @@ instance Prelude.NFData CreateDetectorModel where
       `Prelude.seq` Prelude.rnf detectorModelDefinition
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateDetectorModel where
+instance Data.ToHeaders CreateDetectorModel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateDetectorModel where
+instance Data.ToJSON CreateDetectorModel where
   toJSON CreateDetectorModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("key" Core..=) Prelude.<$> key,
-            ("evaluationMethod" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("key" Data..=) Prelude.<$> key,
+            ("evaluationMethod" Data..=)
               Prelude.<$> evaluationMethod,
-            ("detectorModelDescription" Core..=)
+            ("detectorModelDescription" Data..=)
               Prelude.<$> detectorModelDescription,
             Prelude.Just
-              ("detectorModelName" Core..= detectorModelName),
+              ("detectorModelName" Data..= detectorModelName),
             Prelude.Just
               ( "detectorModelDefinition"
-                  Core..= detectorModelDefinition
+                  Data..= detectorModelDefinition
               ),
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateDetectorModel where
+instance Data.ToPath CreateDetectorModel where
   toPath = Prelude.const "/detector-models"
 
-instance Core.ToQuery CreateDetectorModel where
+instance Data.ToQuery CreateDetectorModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDetectorModelResponse' smart constructor.

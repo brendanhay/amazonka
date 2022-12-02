@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest ListDetectorModelVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDetectorModelVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "detectorModelVersionSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "detectorModelVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -127,22 +128,22 @@ instance Prelude.NFData ListDetectorModelVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf detectorModelName
 
-instance Core.ToHeaders ListDetectorModelVersions where
+instance Data.ToHeaders ListDetectorModelVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListDetectorModelVersions where
+instance Data.ToPath ListDetectorModelVersions where
   toPath ListDetectorModelVersions' {..} =
     Prelude.mconcat
       [ "/detector-models/",
-        Core.toBS detectorModelName,
+        Data.toBS detectorModelName,
         "/versions"
       ]
 
-instance Core.ToQuery ListDetectorModelVersions where
+instance Data.ToQuery ListDetectorModelVersions where
   toQuery ListDetectorModelVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListDetectorModelVersionsResponse' smart constructor.

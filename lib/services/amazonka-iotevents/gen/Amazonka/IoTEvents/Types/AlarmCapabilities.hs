@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AlarmCapabilities where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.AcknowledgeFlow
 import Amazonka.IoTEvents.Types.InitializationConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -67,14 +68,14 @@ alarmCapabilities_initializationConfiguration = Lens.lens (\AlarmCapabilities' {
 alarmCapabilities_acknowledgeFlow :: Lens.Lens' AlarmCapabilities (Prelude.Maybe AcknowledgeFlow)
 alarmCapabilities_acknowledgeFlow = Lens.lens (\AlarmCapabilities' {acknowledgeFlow} -> acknowledgeFlow) (\s@AlarmCapabilities' {} a -> s {acknowledgeFlow = a} :: AlarmCapabilities)
 
-instance Core.FromJSON AlarmCapabilities where
+instance Data.FromJSON AlarmCapabilities where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmCapabilities"
       ( \x ->
           AlarmCapabilities'
-            Prelude.<$> (x Core..:? "initializationConfiguration")
-            Prelude.<*> (x Core..:? "acknowledgeFlow")
+            Prelude.<$> (x Data..:? "initializationConfiguration")
+            Prelude.<*> (x Data..:? "acknowledgeFlow")
       )
 
 instance Prelude.Hashable AlarmCapabilities where
@@ -88,13 +89,13 @@ instance Prelude.NFData AlarmCapabilities where
     Prelude.rnf initializationConfiguration
       `Prelude.seq` Prelude.rnf acknowledgeFlow
 
-instance Core.ToJSON AlarmCapabilities where
+instance Data.ToJSON AlarmCapabilities where
   toJSON AlarmCapabilities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("initializationConfiguration" Core..=)
+          [ ("initializationConfiguration" Data..=)
               Prelude.<$> initializationConfiguration,
-            ("acknowledgeFlow" Core..=)
+            ("acknowledgeFlow" Data..=)
               Prelude.<$> acknowledgeFlow
           ]
       )

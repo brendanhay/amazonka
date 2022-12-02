@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AlarmNotification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.NotificationAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newAlarmNotification =
 alarmNotification_notificationActions :: Lens.Lens' AlarmNotification (Prelude.Maybe (Prelude.NonEmpty NotificationAction))
 alarmNotification_notificationActions = Lens.lens (\AlarmNotification' {notificationActions} -> notificationActions) (\s@AlarmNotification' {} a -> s {notificationActions = a} :: AlarmNotification) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AlarmNotification where
+instance Data.FromJSON AlarmNotification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmNotification"
       ( \x ->
           AlarmNotification'
-            Prelude.<$> (x Core..:? "notificationActions")
+            Prelude.<$> (x Data..:? "notificationActions")
       )
 
 instance Prelude.Hashable AlarmNotification where
@@ -74,11 +75,11 @@ instance Prelude.NFData AlarmNotification where
   rnf AlarmNotification' {..} =
     Prelude.rnf notificationActions
 
-instance Core.ToJSON AlarmNotification where
+instance Data.ToJSON AlarmNotification where
   toJSON AlarmNotification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("notificationActions" Core..=)
+          [ ("notificationActions" Data..=)
               Prelude.<$> notificationActions
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.Payload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.PayloadType
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,14 +88,14 @@ payload_contentExpression = Lens.lens (\Payload' {contentExpression} -> contentE
 payload_type :: Lens.Lens' Payload PayloadType
 payload_type = Lens.lens (\Payload' {type'} -> type') (\s@Payload' {} a -> s {type' = a} :: Payload)
 
-instance Core.FromJSON Payload where
+instance Data.FromJSON Payload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Payload"
       ( \x ->
           Payload'
-            Prelude.<$> (x Core..: "contentExpression")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "contentExpression")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable Payload where
@@ -107,12 +108,12 @@ instance Prelude.NFData Payload where
     Prelude.rnf contentExpression
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON Payload where
+instance Data.ToJSON Payload where
   toJSON Payload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("contentExpression" Core..= contentExpression),
-            Prelude.Just ("type" Core..= type')
+              ("contentExpression" Data..= contentExpression),
+            Prelude.Just ("type" Data..= type')
           ]
       )

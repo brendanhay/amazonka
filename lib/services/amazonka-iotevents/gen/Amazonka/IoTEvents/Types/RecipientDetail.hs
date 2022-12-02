@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.RecipientDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.SSOIdentity
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newRecipientDetail =
 recipientDetail_ssoIdentity :: Lens.Lens' RecipientDetail (Prelude.Maybe SSOIdentity)
 recipientDetail_ssoIdentity = Lens.lens (\RecipientDetail' {ssoIdentity} -> ssoIdentity) (\s@RecipientDetail' {} a -> s {ssoIdentity = a} :: RecipientDetail)
 
-instance Core.FromJSON RecipientDetail where
+instance Data.FromJSON RecipientDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecipientDetail"
       ( \x ->
           RecipientDetail'
-            Prelude.<$> (x Core..:? "ssoIdentity")
+            Prelude.<$> (x Data..:? "ssoIdentity")
       )
 
 instance Prelude.Hashable RecipientDetail where
@@ -67,9 +68,9 @@ instance Prelude.Hashable RecipientDetail where
 instance Prelude.NFData RecipientDetail where
   rnf RecipientDetail' {..} = Prelude.rnf ssoIdentity
 
-instance Core.ToJSON RecipientDetail where
+instance Data.ToJSON RecipientDetail where
   toJSON RecipientDetail' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("ssoIdentity" Core..=) Prelude.<$> ssoIdentity]
+          [("ssoIdentity" Data..=) Prelude.<$> ssoIdentity]
       )

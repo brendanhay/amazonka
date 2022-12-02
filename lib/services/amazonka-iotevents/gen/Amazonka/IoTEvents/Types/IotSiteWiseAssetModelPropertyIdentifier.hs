@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.IotSiteWiseAssetModelPropertyIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The asset model property identifer of the input routed from AWS IoT
@@ -88,13 +89,13 @@ instance
       `Prelude.seq` Prelude.rnf propertyId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     IotSiteWiseAssetModelPropertyIdentifier
   where
   toJSON IotSiteWiseAssetModelPropertyIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("assetModelId" Core..= assetModelId),
-            Prelude.Just ("propertyId" Core..= propertyId)
+          [ Prelude.Just ("assetModelId" Data..= assetModelId),
+            Prelude.Just ("propertyId" Data..= propertyId)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.IotTopicPublishAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.Payload
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,14 +75,14 @@ iotTopicPublishAction_payload = Lens.lens (\IotTopicPublishAction' {payload} -> 
 iotTopicPublishAction_mqttTopic :: Lens.Lens' IotTopicPublishAction Prelude.Text
 iotTopicPublishAction_mqttTopic = Lens.lens (\IotTopicPublishAction' {mqttTopic} -> mqttTopic) (\s@IotTopicPublishAction' {} a -> s {mqttTopic = a} :: IotTopicPublishAction)
 
-instance Core.FromJSON IotTopicPublishAction where
+instance Data.FromJSON IotTopicPublishAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IotTopicPublishAction"
       ( \x ->
           IotTopicPublishAction'
-            Prelude.<$> (x Core..:? "payload")
-            Prelude.<*> (x Core..: "mqttTopic")
+            Prelude.<$> (x Data..:? "payload")
+            Prelude.<*> (x Data..: "mqttTopic")
       )
 
 instance Prelude.Hashable IotTopicPublishAction where
@@ -94,11 +95,11 @@ instance Prelude.NFData IotTopicPublishAction where
     Prelude.rnf payload
       `Prelude.seq` Prelude.rnf mqttTopic
 
-instance Core.ToJSON IotTopicPublishAction where
+instance Data.ToJSON IotTopicPublishAction where
   toJSON IotTopicPublishAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("payload" Core..=) Prelude.<$> payload,
-            Prelude.Just ("mqttTopic" Core..= mqttTopic)
+          [ ("payload" Data..=) Prelude.<$> payload,
+            Prelude.Just ("mqttTopic" Data..= mqttTopic)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AlarmModelVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.AlarmModelVersionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,9 +59,9 @@ data AlarmModelVersionSummary = AlarmModelVersionSummary'
     --     your alarm model information and try again.
     status :: Prelude.Maybe AlarmModelVersionStatus,
     -- | The time the alarm model was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the alarm model was last updated, in the Unix epoch format.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | Contains information about the status of the alarm model version.
     statusMessage :: Prelude.Maybe Prelude.Text
   }
@@ -164,30 +165,30 @@ alarmModelVersionSummary_status = Lens.lens (\AlarmModelVersionSummary' {status}
 
 -- | The time the alarm model was created, in the Unix epoch format.
 alarmModelVersionSummary_creationTime :: Lens.Lens' AlarmModelVersionSummary (Prelude.Maybe Prelude.UTCTime)
-alarmModelVersionSummary_creationTime = Lens.lens (\AlarmModelVersionSummary' {creationTime} -> creationTime) (\s@AlarmModelVersionSummary' {} a -> s {creationTime = a} :: AlarmModelVersionSummary) Prelude.. Lens.mapping Core._Time
+alarmModelVersionSummary_creationTime = Lens.lens (\AlarmModelVersionSummary' {creationTime} -> creationTime) (\s@AlarmModelVersionSummary' {} a -> s {creationTime = a} :: AlarmModelVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The time the alarm model was last updated, in the Unix epoch format.
 alarmModelVersionSummary_lastUpdateTime :: Lens.Lens' AlarmModelVersionSummary (Prelude.Maybe Prelude.UTCTime)
-alarmModelVersionSummary_lastUpdateTime = Lens.lens (\AlarmModelVersionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@AlarmModelVersionSummary' {} a -> s {lastUpdateTime = a} :: AlarmModelVersionSummary) Prelude.. Lens.mapping Core._Time
+alarmModelVersionSummary_lastUpdateTime = Lens.lens (\AlarmModelVersionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@AlarmModelVersionSummary' {} a -> s {lastUpdateTime = a} :: AlarmModelVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Contains information about the status of the alarm model version.
 alarmModelVersionSummary_statusMessage :: Lens.Lens' AlarmModelVersionSummary (Prelude.Maybe Prelude.Text)
 alarmModelVersionSummary_statusMessage = Lens.lens (\AlarmModelVersionSummary' {statusMessage} -> statusMessage) (\s@AlarmModelVersionSummary' {} a -> s {statusMessage = a} :: AlarmModelVersionSummary)
 
-instance Core.FromJSON AlarmModelVersionSummary where
+instance Data.FromJSON AlarmModelVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmModelVersionSummary"
       ( \x ->
           AlarmModelVersionSummary'
-            Prelude.<$> (x Core..:? "alarmModelName")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "alarmModelVersion")
-            Prelude.<*> (x Core..:? "alarmModelArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "statusMessage")
+            Prelude.<$> (x Data..:? "alarmModelName")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "alarmModelVersion")
+            Prelude.<*> (x Data..:? "alarmModelArn")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "statusMessage")
       )
 
 instance Prelude.Hashable AlarmModelVersionSummary where

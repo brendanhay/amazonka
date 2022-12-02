@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AlarmModelSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a summary of an alarm model.
@@ -32,7 +33,7 @@ data AlarmModelSummary = AlarmModelSummary'
     -- | The description of the alarm model.
     alarmModelDescription :: Prelude.Maybe Prelude.Text,
     -- | The time the alarm model was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,17 +70,17 @@ alarmModelSummary_alarmModelDescription = Lens.lens (\AlarmModelSummary' {alarmM
 
 -- | The time the alarm model was created, in the Unix epoch format.
 alarmModelSummary_creationTime :: Lens.Lens' AlarmModelSummary (Prelude.Maybe Prelude.UTCTime)
-alarmModelSummary_creationTime = Lens.lens (\AlarmModelSummary' {creationTime} -> creationTime) (\s@AlarmModelSummary' {} a -> s {creationTime = a} :: AlarmModelSummary) Prelude.. Lens.mapping Core._Time
+alarmModelSummary_creationTime = Lens.lens (\AlarmModelSummary' {creationTime} -> creationTime) (\s@AlarmModelSummary' {} a -> s {creationTime = a} :: AlarmModelSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON AlarmModelSummary where
+instance Data.FromJSON AlarmModelSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmModelSummary"
       ( \x ->
           AlarmModelSummary'
-            Prelude.<$> (x Core..:? "alarmModelName")
-            Prelude.<*> (x Core..:? "alarmModelDescription")
-            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<$> (x Data..:? "alarmModelName")
+            Prelude.<*> (x Data..:? "alarmModelDescription")
+            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable AlarmModelSummary where

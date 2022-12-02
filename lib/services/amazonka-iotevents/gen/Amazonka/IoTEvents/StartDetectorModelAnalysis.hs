@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest StartDetectorModelAnalysis where
     Response.receiveJSON
       ( \s h x ->
           StartDetectorModelAnalysisResponse'
-            Prelude.<$> (x Core..?> "analysisId")
+            Prelude.<$> (x Data..?> "analysisId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,24 +102,24 @@ instance Prelude.NFData StartDetectorModelAnalysis where
   rnf StartDetectorModelAnalysis' {..} =
     Prelude.rnf detectorModelDefinition
 
-instance Core.ToHeaders StartDetectorModelAnalysis where
+instance Data.ToHeaders StartDetectorModelAnalysis where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartDetectorModelAnalysis where
+instance Data.ToJSON StartDetectorModelAnalysis where
   toJSON StartDetectorModelAnalysis' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "detectorModelDefinition"
-                  Core..= detectorModelDefinition
+                  Data..= detectorModelDefinition
               )
           ]
       )
 
-instance Core.ToPath StartDetectorModelAnalysis where
+instance Data.ToPath StartDetectorModelAnalysis where
   toPath = Prelude.const "/analysis/detector-models/"
 
-instance Core.ToQuery StartDetectorModelAnalysis where
+instance Data.ToQuery StartDetectorModelAnalysis where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartDetectorModelAnalysisResponse' smart constructor.

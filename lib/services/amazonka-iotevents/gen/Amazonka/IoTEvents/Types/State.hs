@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.State where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.OnEnterLifecycle
 import Amazonka.IoTEvents.Types.OnExitLifecycle
 import Amazonka.IoTEvents.Types.OnInputLifecycle
@@ -93,16 +94,16 @@ state_onExit = Lens.lens (\State' {onExit} -> onExit) (\s@State' {} a -> s {onEx
 state_stateName :: Lens.Lens' State Prelude.Text
 state_stateName = Lens.lens (\State' {stateName} -> stateName) (\s@State' {} a -> s {stateName = a} :: State)
 
-instance Core.FromJSON State where
+instance Data.FromJSON State where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "State"
       ( \x ->
           State'
-            Prelude.<$> (x Core..:? "onInput")
-            Prelude.<*> (x Core..:? "onEnter")
-            Prelude.<*> (x Core..:? "onExit")
-            Prelude.<*> (x Core..: "stateName")
+            Prelude.<$> (x Data..:? "onInput")
+            Prelude.<*> (x Data..:? "onEnter")
+            Prelude.<*> (x Data..:? "onExit")
+            Prelude.<*> (x Data..: "stateName")
       )
 
 instance Prelude.Hashable State where
@@ -119,13 +120,13 @@ instance Prelude.NFData State where
       `Prelude.seq` Prelude.rnf onExit
       `Prelude.seq` Prelude.rnf stateName
 
-instance Core.ToJSON State where
+instance Data.ToJSON State where
   toJSON State' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("onInput" Core..=) Prelude.<$> onInput,
-            ("onEnter" Core..=) Prelude.<$> onEnter,
-            ("onExit" Core..=) Prelude.<$> onExit,
-            Prelude.Just ("stateName" Core..= stateName)
+          [ ("onInput" Data..=) Prelude.<$> onInput,
+            ("onEnter" Data..=) Prelude.<$> onEnter,
+            ("onExit" Data..=) Prelude.<$> onExit,
+            Prelude.Just ("stateName" Data..= stateName)
           ]
       )

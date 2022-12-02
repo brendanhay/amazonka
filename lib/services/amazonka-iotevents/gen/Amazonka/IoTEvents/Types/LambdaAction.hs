@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.LambdaAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.Payload
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ lambdaAction_payload = Lens.lens (\LambdaAction' {payload} -> payload) (\s@Lambd
 lambdaAction_functionArn :: Lens.Lens' LambdaAction Prelude.Text
 lambdaAction_functionArn = Lens.lens (\LambdaAction' {functionArn} -> functionArn) (\s@LambdaAction' {} a -> s {functionArn = a} :: LambdaAction)
 
-instance Core.FromJSON LambdaAction where
+instance Data.FromJSON LambdaAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaAction"
       ( \x ->
           LambdaAction'
-            Prelude.<$> (x Core..:? "payload")
-            Prelude.<*> (x Core..: "functionArn")
+            Prelude.<$> (x Data..:? "payload")
+            Prelude.<*> (x Data..: "functionArn")
       )
 
 instance Prelude.Hashable LambdaAction where
@@ -88,11 +89,11 @@ instance Prelude.NFData LambdaAction where
     Prelude.rnf payload
       `Prelude.seq` Prelude.rnf functionArn
 
-instance Core.ToJSON LambdaAction where
+instance Data.ToJSON LambdaAction where
   toJSON LambdaAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("payload" Core..=) Prelude.<$> payload,
-            Prelude.Just ("functionArn" Core..= functionArn)
+          [ ("payload" Data..=) Prelude.<$> payload,
+            Prelude.Just ("functionArn" Data..= functionArn)
           ]
       )

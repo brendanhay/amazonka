@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -108,8 +109,8 @@ instance Core.AWSRequest ListAlarmModelVersions where
     Response.receiveJSON
       ( \s h x ->
           ListAlarmModelVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "alarmModelVersionSummaries"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "alarmModelVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -127,22 +128,22 @@ instance Prelude.NFData ListAlarmModelVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf alarmModelName
 
-instance Core.ToHeaders ListAlarmModelVersions where
+instance Data.ToHeaders ListAlarmModelVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAlarmModelVersions where
+instance Data.ToPath ListAlarmModelVersions where
   toPath ListAlarmModelVersions' {..} =
     Prelude.mconcat
       [ "/alarm-models/",
-        Core.toBS alarmModelName,
+        Data.toBS alarmModelName,
         "/versions"
       ]
 
-instance Core.ToQuery ListAlarmModelVersions where
+instance Data.ToQuery ListAlarmModelVersions where
   toQuery ListAlarmModelVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAlarmModelVersionsResponse' smart constructor.

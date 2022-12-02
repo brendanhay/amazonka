@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,14 +91,14 @@ instance Prelude.Hashable DeleteInput where
 instance Prelude.NFData DeleteInput where
   rnf DeleteInput' {..} = Prelude.rnf inputName
 
-instance Core.ToHeaders DeleteInput where
+instance Data.ToHeaders DeleteInput where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteInput where
+instance Data.ToPath DeleteInput where
   toPath DeleteInput' {..} =
-    Prelude.mconcat ["/inputs/", Core.toBS inputName]
+    Prelude.mconcat ["/inputs/", Data.toBS inputName]
 
-instance Core.ToQuery DeleteInput where
+instance Data.ToQuery DeleteInput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInputResponse' smart constructor.

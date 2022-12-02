@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.SSOIdentity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about your identity source in AWS Single Sign-On.
@@ -65,14 +66,14 @@ sSOIdentity_userId = Lens.lens (\SSOIdentity' {userId} -> userId) (\s@SSOIdentit
 sSOIdentity_identityStoreId :: Lens.Lens' SSOIdentity Prelude.Text
 sSOIdentity_identityStoreId = Lens.lens (\SSOIdentity' {identityStoreId} -> identityStoreId) (\s@SSOIdentity' {} a -> s {identityStoreId = a} :: SSOIdentity)
 
-instance Core.FromJSON SSOIdentity where
+instance Data.FromJSON SSOIdentity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SSOIdentity"
       ( \x ->
           SSOIdentity'
-            Prelude.<$> (x Core..:? "userId")
-            Prelude.<*> (x Core..: "identityStoreId")
+            Prelude.<$> (x Data..:? "userId")
+            Prelude.<*> (x Data..: "identityStoreId")
       )
 
 instance Prelude.Hashable SSOIdentity where
@@ -85,12 +86,12 @@ instance Prelude.NFData SSOIdentity where
     Prelude.rnf userId
       `Prelude.seq` Prelude.rnf identityStoreId
 
-instance Core.ToJSON SSOIdentity where
+instance Data.ToJSON SSOIdentity where
   toJSON SSOIdentity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("userId" Core..=) Prelude.<$> userId,
+          [ ("userId" Data..=) Prelude.<$> userId,
             Prelude.Just
-              ("identityStoreId" Core..= identityStoreId)
+              ("identityStoreId" Data..= identityStoreId)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.DetectorModelVersionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.DetectorModelVersionStatus
 import Amazonka.IoTEvents.Types.EvaluationMethod
 import qualified Amazonka.Prelude as Prelude
@@ -42,9 +43,9 @@ data DetectorModelVersionSummary = DetectorModelVersionSummary'
     -- | The ID of the detector model version.
     detectorModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The time the detector model version was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the detector model version was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the detector model version.
     detectorModelArn :: Prelude.Maybe Prelude.Text
   }
@@ -114,30 +115,30 @@ detectorModelVersionSummary_detectorModelVersion = Lens.lens (\DetectorModelVers
 
 -- | The time the detector model version was created.
 detectorModelVersionSummary_creationTime :: Lens.Lens' DetectorModelVersionSummary (Prelude.Maybe Prelude.UTCTime)
-detectorModelVersionSummary_creationTime = Lens.lens (\DetectorModelVersionSummary' {creationTime} -> creationTime) (\s@DetectorModelVersionSummary' {} a -> s {creationTime = a} :: DetectorModelVersionSummary) Prelude.. Lens.mapping Core._Time
+detectorModelVersionSummary_creationTime = Lens.lens (\DetectorModelVersionSummary' {creationTime} -> creationTime) (\s@DetectorModelVersionSummary' {} a -> s {creationTime = a} :: DetectorModelVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last time the detector model version was updated.
 detectorModelVersionSummary_lastUpdateTime :: Lens.Lens' DetectorModelVersionSummary (Prelude.Maybe Prelude.UTCTime)
-detectorModelVersionSummary_lastUpdateTime = Lens.lens (\DetectorModelVersionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DetectorModelVersionSummary' {} a -> s {lastUpdateTime = a} :: DetectorModelVersionSummary) Prelude.. Lens.mapping Core._Time
+detectorModelVersionSummary_lastUpdateTime = Lens.lens (\DetectorModelVersionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DetectorModelVersionSummary' {} a -> s {lastUpdateTime = a} :: DetectorModelVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the detector model version.
 detectorModelVersionSummary_detectorModelArn :: Lens.Lens' DetectorModelVersionSummary (Prelude.Maybe Prelude.Text)
 detectorModelVersionSummary_detectorModelArn = Lens.lens (\DetectorModelVersionSummary' {detectorModelArn} -> detectorModelArn) (\s@DetectorModelVersionSummary' {} a -> s {detectorModelArn = a} :: DetectorModelVersionSummary)
 
-instance Core.FromJSON DetectorModelVersionSummary where
+instance Data.FromJSON DetectorModelVersionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectorModelVersionSummary"
       ( \x ->
           DetectorModelVersionSummary'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "evaluationMethod")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "detectorModelName")
-            Prelude.<*> (x Core..:? "detectorModelVersion")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "detectorModelArn")
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "evaluationMethod")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "detectorModelName")
+            Prelude.<*> (x Data..:? "detectorModelVersion")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "detectorModelArn")
       )
 
 instance Prelude.Hashable DetectorModelVersionSummary where

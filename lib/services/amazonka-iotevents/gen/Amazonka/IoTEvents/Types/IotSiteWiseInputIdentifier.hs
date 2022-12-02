@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.IotSiteWiseInputIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.IotSiteWiseAssetModelPropertyIdentifier
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ instance Prelude.NFData IotSiteWiseInputIdentifier where
   rnf IotSiteWiseInputIdentifier' {..} =
     Prelude.rnf iotSiteWiseAssetModelPropertyIdentifier
 
-instance Core.ToJSON IotSiteWiseInputIdentifier where
+instance Data.ToJSON IotSiteWiseInputIdentifier where
   toJSON IotSiteWiseInputIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("iotSiteWiseAssetModelPropertyIdentifier" Core..=)
+          [ ("iotSiteWiseAssetModelPropertyIdentifier" Data..=)
               Prelude.<$> iotSiteWiseAssetModelPropertyIdentifier
           ]
       )

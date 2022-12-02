@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.InputSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.InputStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,9 +34,9 @@ data InputSummary = InputSummary'
     -- | The status of the input.
     status :: Prelude.Maybe InputStatus,
     -- | The time the input was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the input was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | A brief description of the input.
     inputDescription :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the input.
@@ -84,11 +85,11 @@ inputSummary_status = Lens.lens (\InputSummary' {status} -> status) (\s@InputSum
 
 -- | The time the input was created.
 inputSummary_creationTime :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.UTCTime)
-inputSummary_creationTime = Lens.lens (\InputSummary' {creationTime} -> creationTime) (\s@InputSummary' {} a -> s {creationTime = a} :: InputSummary) Prelude.. Lens.mapping Core._Time
+inputSummary_creationTime = Lens.lens (\InputSummary' {creationTime} -> creationTime) (\s@InputSummary' {} a -> s {creationTime = a} :: InputSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The last time the input was updated.
 inputSummary_lastUpdateTime :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.UTCTime)
-inputSummary_lastUpdateTime = Lens.lens (\InputSummary' {lastUpdateTime} -> lastUpdateTime) (\s@InputSummary' {} a -> s {lastUpdateTime = a} :: InputSummary) Prelude.. Lens.mapping Core._Time
+inputSummary_lastUpdateTime = Lens.lens (\InputSummary' {lastUpdateTime} -> lastUpdateTime) (\s@InputSummary' {} a -> s {lastUpdateTime = a} :: InputSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A brief description of the input.
 inputSummary_inputDescription :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.Text)
@@ -98,18 +99,18 @@ inputSummary_inputDescription = Lens.lens (\InputSummary' {inputDescription} -> 
 inputSummary_inputArn :: Lens.Lens' InputSummary (Prelude.Maybe Prelude.Text)
 inputSummary_inputArn = Lens.lens (\InputSummary' {inputArn} -> inputArn) (\s@InputSummary' {} a -> s {inputArn = a} :: InputSummary)
 
-instance Core.FromJSON InputSummary where
+instance Data.FromJSON InputSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputSummary"
       ( \x ->
           InputSummary'
-            Prelude.<$> (x Core..:? "inputName")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
-            Prelude.<*> (x Core..:? "inputDescription")
-            Prelude.<*> (x Core..:? "inputArn")
+            Prelude.<$> (x Data..:? "inputName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "inputDescription")
+            Prelude.<*> (x Data..:? "inputArn")
       )
 
 instance Prelude.Hashable InputSummary where

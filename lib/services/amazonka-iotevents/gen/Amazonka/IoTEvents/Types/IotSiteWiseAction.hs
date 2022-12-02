@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.IotSiteWiseAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.AssetPropertyValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -130,17 +131,17 @@ iotSiteWiseAction_entryId = Lens.lens (\IotSiteWiseAction' {entryId} -> entryId)
 iotSiteWiseAction_propertyId :: Lens.Lens' IotSiteWiseAction (Prelude.Maybe Prelude.Text)
 iotSiteWiseAction_propertyId = Lens.lens (\IotSiteWiseAction' {propertyId} -> propertyId) (\s@IotSiteWiseAction' {} a -> s {propertyId = a} :: IotSiteWiseAction)
 
-instance Core.FromJSON IotSiteWiseAction where
+instance Data.FromJSON IotSiteWiseAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IotSiteWiseAction"
       ( \x ->
           IotSiteWiseAction'
-            Prelude.<$> (x Core..:? "propertyAlias")
-            Prelude.<*> (x Core..:? "propertyValue")
-            Prelude.<*> (x Core..:? "assetId")
-            Prelude.<*> (x Core..:? "entryId")
-            Prelude.<*> (x Core..:? "propertyId")
+            Prelude.<$> (x Data..:? "propertyAlias")
+            Prelude.<*> (x Data..:? "propertyValue")
+            Prelude.<*> (x Data..:? "assetId")
+            Prelude.<*> (x Data..:? "entryId")
+            Prelude.<*> (x Data..:? "propertyId")
       )
 
 instance Prelude.Hashable IotSiteWiseAction where
@@ -159,14 +160,14 @@ instance Prelude.NFData IotSiteWiseAction where
       `Prelude.seq` Prelude.rnf entryId
       `Prelude.seq` Prelude.rnf propertyId
 
-instance Core.ToJSON IotSiteWiseAction where
+instance Data.ToJSON IotSiteWiseAction where
   toJSON IotSiteWiseAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
-            ("propertyValue" Core..=) Prelude.<$> propertyValue,
-            ("assetId" Core..=) Prelude.<$> assetId,
-            ("entryId" Core..=) Prelude.<$> entryId,
-            ("propertyId" Core..=) Prelude.<$> propertyId
+          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
+            ("propertyValue" Data..=) Prelude.<$> propertyValue,
+            ("assetId" Data..=) Prelude.<$> assetId,
+            ("entryId" Data..=) Prelude.<$> entryId,
+            ("propertyId" Data..=) Prelude.<$> propertyId
           ]
       )

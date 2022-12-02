@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,7 +141,7 @@ instance Core.AWSRequest UpdateDetectorModel where
     Response.receiveJSON
       ( \s h x ->
           UpdateDetectorModelResponse'
-            Prelude.<$> (x Core..?> "detectorModelConfiguration")
+            Prelude.<$> (x Data..?> "detectorModelConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,31 +161,31 @@ instance Prelude.NFData UpdateDetectorModel where
       `Prelude.seq` Prelude.rnf detectorModelDefinition
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders UpdateDetectorModel where
+instance Data.ToHeaders UpdateDetectorModel where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateDetectorModel where
+instance Data.ToJSON UpdateDetectorModel where
   toJSON UpdateDetectorModel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("evaluationMethod" Core..=)
+          [ ("evaluationMethod" Data..=)
               Prelude.<$> evaluationMethod,
-            ("detectorModelDescription" Core..=)
+            ("detectorModelDescription" Data..=)
               Prelude.<$> detectorModelDescription,
             Prelude.Just
               ( "detectorModelDefinition"
-                  Core..= detectorModelDefinition
+                  Data..= detectorModelDefinition
               ),
-            Prelude.Just ("roleArn" Core..= roleArn)
+            Prelude.Just ("roleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath UpdateDetectorModel where
+instance Data.ToPath UpdateDetectorModel where
   toPath UpdateDetectorModel' {..} =
     Prelude.mconcat
-      ["/detector-models/", Core.toBS detectorModelName]
+      ["/detector-models/", Data.toBS detectorModelName]
 
-instance Core.ToQuery UpdateDetectorModel where
+instance Data.ToQuery UpdateDetectorModel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDetectorModelResponse' smart constructor.

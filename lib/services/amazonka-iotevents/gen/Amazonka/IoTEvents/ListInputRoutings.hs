@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest ListInputRoutings where
     Response.receiveJSON
       ( \s h x ->
           ListInputRoutingsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "routedResources"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "routedResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,24 +126,24 @@ instance Prelude.NFData ListInputRoutings where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf inputIdentifier
 
-instance Core.ToHeaders ListInputRoutings where
+instance Data.ToHeaders ListInputRoutings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON ListInputRoutings where
+instance Data.ToJSON ListInputRoutings where
   toJSON ListInputRoutings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("inputIdentifier" Core..= inputIdentifier)
+              ("inputIdentifier" Data..= inputIdentifier)
           ]
       )
 
-instance Core.ToPath ListInputRoutings where
+instance Data.ToPath ListInputRoutings where
   toPath = Prelude.const "/input-routings"
 
-instance Core.ToQuery ListInputRoutings where
+instance Data.ToQuery ListInputRoutings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListInputRoutingsResponse' smart constructor.

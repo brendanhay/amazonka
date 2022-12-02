@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.RoutedResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the routed resource.
@@ -67,13 +68,13 @@ routedResource_name = Lens.lens (\RoutedResource' {name} -> name) (\s@RoutedReso
 routedResource_arn :: Lens.Lens' RoutedResource (Prelude.Maybe Prelude.Text)
 routedResource_arn = Lens.lens (\RoutedResource' {arn} -> arn) (\s@RoutedResource' {} a -> s {arn = a} :: RoutedResource)
 
-instance Core.FromJSON RoutedResource where
+instance Data.FromJSON RoutedResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RoutedResource"
       ( \x ->
           RoutedResource'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "arn")
       )
 
 instance Prelude.Hashable RoutedResource where

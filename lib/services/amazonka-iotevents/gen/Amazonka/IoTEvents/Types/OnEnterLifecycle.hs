@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.OnEnterLifecycle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.Event
 import qualified Amazonka.Prelude as Prelude
 
@@ -55,13 +56,13 @@ newOnEnterLifecycle =
 onEnterLifecycle_events :: Lens.Lens' OnEnterLifecycle (Prelude.Maybe [Event])
 onEnterLifecycle_events = Lens.lens (\OnEnterLifecycle' {events} -> events) (\s@OnEnterLifecycle' {} a -> s {events = a} :: OnEnterLifecycle) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OnEnterLifecycle where
+instance Data.FromJSON OnEnterLifecycle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OnEnterLifecycle"
       ( \x ->
           OnEnterLifecycle'
-            Prelude.<$> (x Core..:? "events" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "events" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OnEnterLifecycle where
@@ -71,9 +72,9 @@ instance Prelude.Hashable OnEnterLifecycle where
 instance Prelude.NFData OnEnterLifecycle where
   rnf OnEnterLifecycle' {..} = Prelude.rnf events
 
-instance Core.ToJSON OnEnterLifecycle where
+instance Data.ToJSON OnEnterLifecycle where
   toJSON OnEnterLifecycle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("events" Core..=) Prelude.<$> events]
+          [("events" Data..=) Prelude.<$> events]
       )

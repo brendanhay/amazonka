@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.InputDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.Attribute
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,13 +72,13 @@ newInputDefinition pAttributes_ =
 inputDefinition_attributes :: Lens.Lens' InputDefinition (Prelude.NonEmpty Attribute)
 inputDefinition_attributes = Lens.lens (\InputDefinition' {attributes} -> attributes) (\s@InputDefinition' {} a -> s {attributes = a} :: InputDefinition) Prelude.. Lens.coerced
 
-instance Core.FromJSON InputDefinition where
+instance Data.FromJSON InputDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDefinition"
       ( \x ->
           InputDefinition'
-            Prelude.<$> (x Core..: "attributes")
+            Prelude.<$> (x Data..: "attributes")
       )
 
 instance Prelude.Hashable InputDefinition where
@@ -87,9 +88,9 @@ instance Prelude.Hashable InputDefinition where
 instance Prelude.NFData InputDefinition where
   rnf InputDefinition' {..} = Prelude.rnf attributes
 
-instance Core.ToJSON InputDefinition where
+instance Data.ToJSON InputDefinition where
   toJSON InputDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("attributes" Core..= attributes)]
+          [Prelude.Just ("attributes" Data..= attributes)]
       )

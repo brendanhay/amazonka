@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AnalysisResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.AnalysisResultLevel
 import Amazonka.IoTEvents.Types.AnalysisResultLocation
 import qualified Amazonka.Prelude as Prelude
@@ -210,16 +211,16 @@ analysisResult_level = Lens.lens (\AnalysisResult' {level} -> level) (\s@Analysi
 analysisResult_locations :: Lens.Lens' AnalysisResult (Prelude.Maybe [AnalysisResultLocation])
 analysisResult_locations = Lens.lens (\AnalysisResult' {locations} -> locations) (\s@AnalysisResult' {} a -> s {locations = a} :: AnalysisResult) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AnalysisResult where
+instance Data.FromJSON AnalysisResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnalysisResult"
       ( \x ->
           AnalysisResult'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "level")
-            Prelude.<*> (x Core..:? "locations" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "type")
+            Prelude.<*> (x Data..:? "level")
+            Prelude.<*> (x Data..:? "locations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AnalysisResult where

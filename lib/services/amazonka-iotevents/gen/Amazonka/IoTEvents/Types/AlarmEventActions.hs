@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.AlarmEventActions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.AlarmAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newAlarmEventActions =
 alarmEventActions_alarmActions :: Lens.Lens' AlarmEventActions (Prelude.Maybe [AlarmAction])
 alarmEventActions_alarmActions = Lens.lens (\AlarmEventActions' {alarmActions} -> alarmActions) (\s@AlarmEventActions' {} a -> s {alarmActions = a} :: AlarmEventActions) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AlarmEventActions where
+instance Data.FromJSON AlarmEventActions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlarmEventActions"
       ( \x ->
           AlarmEventActions'
-            Prelude.<$> (x Core..:? "alarmActions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "alarmActions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AlarmEventActions where
@@ -70,9 +71,9 @@ instance Prelude.Hashable AlarmEventActions where
 instance Prelude.NFData AlarmEventActions where
   rnf AlarmEventActions' {..} = Prelude.rnf alarmActions
 
-instance Core.ToJSON AlarmEventActions where
+instance Data.ToJSON AlarmEventActions where
   toJSON AlarmEventActions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("alarmActions" Core..=) Prelude.<$> alarmActions]
+          [("alarmActions" Data..=) Prelude.<$> alarmActions]
       )

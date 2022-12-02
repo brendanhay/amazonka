@@ -16,7 +16,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.DynamoDB.Types.AttributeValue where
 
-import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import Data.Aeson (pairs)
 import Data.Hashable

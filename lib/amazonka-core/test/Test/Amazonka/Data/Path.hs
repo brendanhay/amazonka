@@ -7,7 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Data.Path (tests) where
 
-import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import Test.Tasty
 import Test.Tasty.HUnit

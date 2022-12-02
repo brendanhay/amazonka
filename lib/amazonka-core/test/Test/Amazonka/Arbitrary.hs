@@ -10,6 +10,7 @@
 module Test.Amazonka.Arbitrary where
 
 import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Sign.V4
 import qualified Data.ByteString.Char8 as BS8

@@ -15,6 +15,7 @@ import Data.Conduit
 import qualified Data.Conduit.List as CL
 import Data.Generics.Product
 import Data.List.NonEmpty (NonEmpty (..))
+import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
 import System.IO
@@ -33,7 +34,7 @@ exceptions reg n = do
   let scan = newScan n & field @"attributesToGet" ?~ "foo" :| []
 
   runResourceT $ do
-    sayLn $ "Listing all tables in region " <> toText reg
+    sayLn $ "Listing all tables in region " <> fromRegion reg
     runConduit $
       paginate env newListTables
         .| CL.concatMap (view (field @"tableNames" . _Just))

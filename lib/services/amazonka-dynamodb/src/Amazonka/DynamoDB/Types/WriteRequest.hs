@@ -16,10 +16,17 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.DynamoDB.Types.WriteRequest where
 
-import Amazonka.Core
 import Amazonka.DynamoDB.Types.AttributeValue (AttributeValue)
 import Amazonka.Prelude
-import Data.Aeson (pairs)
+import Data.Aeson
+  ( FromJSON (..),
+    ToJSON (..),
+    object,
+    pairs,
+    withObject,
+    (.:),
+    (.=),
+  )
 import Data.Map (Map)
 
 #if MIN_VERSION_aeson(2,0,0)

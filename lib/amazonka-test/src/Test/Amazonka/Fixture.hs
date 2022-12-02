@@ -19,6 +19,7 @@
 module Test.Amazonka.Fixture where
 
 import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import Control.Monad.Trans.Resource
 import qualified Data.ByteString.Lazy as LBS

@@ -42,6 +42,7 @@ module Amazonka.Request
 where
 
 import Amazonka.Core
+import Amazonka.Data
 import Amazonka.Prelude
 import qualified Data.ByteString.Char8 as B8
 import qualified Network.HTTP.Client as Client

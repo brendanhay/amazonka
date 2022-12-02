@@ -11,45 +11,45 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.EC2.Internal where
 
-import Amazonka.Core
 import Amazonka.Core.Lens.Internal
+import Amazonka.Data
 import Amazonka.Prelude
 
 -- | Custom 'Tag' type which has an optional value component.
 --
 -- /See:/ 'tag' smart constructor.
-data DeleteTag = DeleteTag
-  { _deleteTagKey :: !Text,
-    _deleteTagValue :: !(Maybe Text)
+data DeleteTag = DeleteTag'
+  { key :: !Text,
+    value :: !(Maybe Text)
   }
   deriving (Eq, Read, Show, Generic)
 
-deleteTag ::
-  -- | 'deleteTagKey'
+newDeleteTag ::
+  -- | 'key'
   Text ->
   DeleteTag
-deleteTag k = DeleteTag k Nothing
+newDeleteTag k = DeleteTag' k Nothing
 
 -- | The key of the tag to delete.
 --
 -- Constraints: Tag keys are case-sensitive and accept a maximum of 127
 -- Unicode characters. May not begin with 'aws:'
-deleteTagKey :: Lens' DeleteTag Text
-deleteTagKey = lens _deleteTagKey (\s a -> s {_deleteTagKey = a})
+deleteTag_key :: Lens' DeleteTag Text
+deleteTag_key = lens key (\s a -> s {key = a})
 
 -- | The optional value of the tag to delete.
 --
 -- Constraints: Tag values are case-sensitive and accept a maximum of 255
 -- Unicode characters.
-deleteTagValue :: Lens' DeleteTag (Maybe Text)
-deleteTagValue = lens _deleteTagValue (\s a -> s {_deleteTagValue = a})
+deleteTag_value :: Lens' DeleteTag (Maybe Text)
+deleteTag_value = lens value (\s a -> s {value = a})
 
 instance FromXML DeleteTag where
-  parseXML x = DeleteTag <$> (x .@ "key") <*> (x .@? "value")
+  parseXML x = DeleteTag' <$> (x .@ "key") <*> (x .@? "value")
 
 instance ToQuery DeleteTag where
-  toQuery DeleteTag {..} =
+  toQuery DeleteTag' {..} =
     mconcat
-      [ "Key" =: _deleteTagKey,
-        "Value" =: _deleteTagValue
+      [ "Key" =: key,
+        "Value" =: value
       ]

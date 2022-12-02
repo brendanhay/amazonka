@@ -42,6 +42,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,7 +91,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetInstanceOnboardingJobStatusResponse'
-            Prelude.<$> (x Core..?> "connectInstanceOnboardingJobStatus")
+            Prelude.<$> (x Data..?> "connectInstanceOnboardingJobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,28 +112,28 @@ instance
     Prelude.rnf connectInstanceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetInstanceOnboardingJobStatus
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetInstanceOnboardingJobStatus where
+instance Data.ToPath GetInstanceOnboardingJobStatus where
   toPath GetInstanceOnboardingJobStatus' {..} =
     Prelude.mconcat
       [ "/connect-instance/",
-        Core.toBS connectInstanceId,
+        Data.toBS connectInstanceId,
         "/onboarding"
       ]
 
-instance Core.ToQuery GetInstanceOnboardingJobStatus where
+instance Data.ToQuery GetInstanceOnboardingJobStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | GetInstanceOnboardingJobStatusResponse

@@ -21,6 +21,7 @@ module Amazonka.ConnectCampaigns.Types.SuccessfulRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A successful request identified by the unique client token.
@@ -59,14 +60,14 @@ successfulRequest_clientToken = Lens.lens (\SuccessfulRequest' {clientToken} -> 
 successfulRequest_id :: Lens.Lens' SuccessfulRequest (Prelude.Maybe Prelude.Text)
 successfulRequest_id = Lens.lens (\SuccessfulRequest' {id} -> id) (\s@SuccessfulRequest' {} a -> s {id = a} :: SuccessfulRequest)
 
-instance Core.FromJSON SuccessfulRequest where
+instance Data.FromJSON SuccessfulRequest where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuccessfulRequest"
       ( \x ->
           SuccessfulRequest'
-            Prelude.<$> (x Core..:? "clientToken")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "clientToken")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable SuccessfulRequest where

@@ -39,6 +39,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,26 +93,26 @@ instance Prelude.NFData DeleteInstanceOnboardingJob where
   rnf DeleteInstanceOnboardingJob' {..} =
     Prelude.rnf connectInstanceId
 
-instance Core.ToHeaders DeleteInstanceOnboardingJob where
+instance Data.ToHeaders DeleteInstanceOnboardingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteInstanceOnboardingJob where
+instance Data.ToPath DeleteInstanceOnboardingJob where
   toPath DeleteInstanceOnboardingJob' {..} =
     Prelude.mconcat
       [ "/connect-instance/",
-        Core.toBS connectInstanceId,
+        Data.toBS connectInstanceId,
         "/onboarding"
       ]
 
-instance Core.ToQuery DeleteInstanceOnboardingJob where
+instance Data.ToQuery DeleteInstanceOnboardingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteInstanceOnboardingJobResponse' smart constructor.

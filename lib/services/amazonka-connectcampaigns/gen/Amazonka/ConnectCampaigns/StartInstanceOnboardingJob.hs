@@ -43,6 +43,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest StartInstanceOnboardingJob where
     Response.receiveJSON
       ( \s h x ->
           StartInstanceOnboardingJobResponse'
-            Prelude.<$> (x Core..?> "connectInstanceOnboardingJobStatus")
+            Prelude.<$> (x Data..?> "connectInstanceOnboardingJobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,35 +115,35 @@ instance Prelude.NFData StartInstanceOnboardingJob where
     Prelude.rnf connectInstanceId
       `Prelude.seq` Prelude.rnf encryptionConfig
 
-instance Core.ToHeaders StartInstanceOnboardingJob where
+instance Data.ToHeaders StartInstanceOnboardingJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartInstanceOnboardingJob where
+instance Data.ToJSON StartInstanceOnboardingJob where
   toJSON StartInstanceOnboardingJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("encryptionConfig" Core..= encryptionConfig)
+              ("encryptionConfig" Data..= encryptionConfig)
           ]
       )
 
-instance Core.ToPath StartInstanceOnboardingJob where
+instance Data.ToPath StartInstanceOnboardingJob where
   toPath StartInstanceOnboardingJob' {..} =
     Prelude.mconcat
       [ "/connect-instance/",
-        Core.toBS connectInstanceId,
+        Data.toBS connectInstanceId,
         "/onboarding"
       ]
 
-instance Core.ToQuery StartInstanceOnboardingJob where
+instance Data.ToQuery StartInstanceOnboardingJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response for StartInstanceOnboardingJob API.

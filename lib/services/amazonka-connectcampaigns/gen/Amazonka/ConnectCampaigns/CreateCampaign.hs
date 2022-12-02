@@ -49,6 +49,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,9 +136,9 @@ instance Core.AWSRequest CreateCampaign where
     Response.receiveJSON
       ( \s h x ->
           CreateCampaignResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,35 +158,35 @@ instance Prelude.NFData CreateCampaign where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf outboundCallConfig
 
-instance Core.ToHeaders CreateCampaign where
+instance Data.ToHeaders CreateCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCampaign where
+instance Data.ToJSON CreateCampaign where
   toJSON CreateCampaign' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
-              ("connectInstanceId" Core..= connectInstanceId),
-            Prelude.Just ("dialerConfig" Core..= dialerConfig),
-            Prelude.Just ("name" Core..= name),
+              ("connectInstanceId" Data..= connectInstanceId),
+            Prelude.Just ("dialerConfig" Data..= dialerConfig),
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
-              ("outboundCallConfig" Core..= outboundCallConfig)
+              ("outboundCallConfig" Data..= outboundCallConfig)
           ]
       )
 
-instance Core.ToPath CreateCampaign where
+instance Data.ToPath CreateCampaign where
   toPath = Prelude.const "/campaigns"
 
-instance Core.ToQuery CreateCampaign where
+instance Data.ToQuery CreateCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response for Create Campaign API

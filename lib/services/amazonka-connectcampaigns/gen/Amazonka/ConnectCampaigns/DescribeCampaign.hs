@@ -42,6 +42,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DescribeCampaign where
     Response.receiveJSON
       ( \s h x ->
           DescribeCampaignResponse'
-            Prelude.<$> (x Core..?> "campaign")
+            Prelude.<$> (x Data..?> "campaign")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,22 +96,22 @@ instance Prelude.Hashable DescribeCampaign where
 instance Prelude.NFData DescribeCampaign where
   rnf DescribeCampaign' {..} = Prelude.rnf id
 
-instance Core.ToHeaders DescribeCampaign where
+instance Data.ToHeaders DescribeCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeCampaign where
+instance Data.ToPath DescribeCampaign where
   toPath DescribeCampaign' {..} =
-    Prelude.mconcat ["/campaigns/", Core.toBS id]
+    Prelude.mconcat ["/campaigns/", Data.toBS id]
 
-instance Core.ToQuery DescribeCampaign where
+instance Data.ToQuery DescribeCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeCampaignResponse

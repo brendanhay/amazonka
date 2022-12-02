@@ -38,6 +38,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,26 +86,26 @@ instance Prelude.Hashable PauseCampaign where
 instance Prelude.NFData PauseCampaign where
   rnf PauseCampaign' {..} = Prelude.rnf id
 
-instance Core.ToHeaders PauseCampaign where
+instance Data.ToHeaders PauseCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PauseCampaign where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON PauseCampaign where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath PauseCampaign where
+instance Data.ToPath PauseCampaign where
   toPath PauseCampaign' {..} =
     Prelude.mconcat
-      ["/campaigns/", Core.toBS id, "/pause"]
+      ["/campaigns/", Data.toBS id, "/pause"]
 
-instance Core.ToQuery PauseCampaign where
+instance Data.ToQuery PauseCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPauseCampaignResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.ConnectCampaigns.Types.CampaignFilters where
 import Amazonka.ConnectCampaigns.Types.InstanceIdFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filter model by type
@@ -61,11 +62,11 @@ instance Prelude.NFData CampaignFilters where
   rnf CampaignFilters' {..} =
     Prelude.rnf instanceIdFilter
 
-instance Core.ToJSON CampaignFilters where
+instance Data.ToJSON CampaignFilters where
   toJSON CampaignFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("instanceIdFilter" Core..=)
+          [ ("instanceIdFilter" Data..=)
               Prelude.<$> instanceIdFilter
           ]
       )

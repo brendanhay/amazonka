@@ -39,6 +39,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,30 +99,30 @@ instance Prelude.NFData UpdateCampaignName where
   rnf UpdateCampaignName' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateCampaignName where
+instance Data.ToHeaders UpdateCampaignName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCampaignName where
+instance Data.ToJSON UpdateCampaignName where
   toJSON UpdateCampaignName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath UpdateCampaignName where
+instance Data.ToPath UpdateCampaignName where
   toPath UpdateCampaignName' {..} =
     Prelude.mconcat
-      ["/campaigns/", Core.toBS id, "/name"]
+      ["/campaigns/", Data.toBS id, "/name"]
 
-instance Core.ToQuery UpdateCampaignName where
+instance Data.ToQuery UpdateCampaignName where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCampaignNameResponse' smart constructor.

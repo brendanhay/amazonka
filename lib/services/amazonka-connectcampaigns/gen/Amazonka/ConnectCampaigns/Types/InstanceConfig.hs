@@ -22,6 +22,7 @@ module Amazonka.ConnectCampaigns.Types.InstanceConfig where
 import Amazonka.ConnectCampaigns.Types.EncryptionConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Instance config object
@@ -78,15 +79,15 @@ instanceConfig_encryptionConfig = Lens.lens (\InstanceConfig' {encryptionConfig}
 instanceConfig_serviceLinkedRoleArn :: Lens.Lens' InstanceConfig Prelude.Text
 instanceConfig_serviceLinkedRoleArn = Lens.lens (\InstanceConfig' {serviceLinkedRoleArn} -> serviceLinkedRoleArn) (\s@InstanceConfig' {} a -> s {serviceLinkedRoleArn = a} :: InstanceConfig)
 
-instance Core.FromJSON InstanceConfig where
+instance Data.FromJSON InstanceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceConfig"
       ( \x ->
           InstanceConfig'
-            Prelude.<$> (x Core..: "connectInstanceId")
-            Prelude.<*> (x Core..: "encryptionConfig")
-            Prelude.<*> (x Core..: "serviceLinkedRoleArn")
+            Prelude.<$> (x Data..: "connectInstanceId")
+            Prelude.<*> (x Data..: "encryptionConfig")
+            Prelude.<*> (x Data..: "serviceLinkedRoleArn")
       )
 
 instance Prelude.Hashable InstanceConfig where

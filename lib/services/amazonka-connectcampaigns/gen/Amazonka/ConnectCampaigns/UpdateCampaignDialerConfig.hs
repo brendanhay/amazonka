@@ -39,6 +39,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,30 +105,30 @@ instance Prelude.NFData UpdateCampaignDialerConfig where
     Prelude.rnf dialerConfig
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateCampaignDialerConfig where
+instance Data.ToHeaders UpdateCampaignDialerConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCampaignDialerConfig where
+instance Data.ToJSON UpdateCampaignDialerConfig where
   toJSON UpdateCampaignDialerConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("dialerConfig" Core..= dialerConfig)]
+          [Prelude.Just ("dialerConfig" Data..= dialerConfig)]
       )
 
-instance Core.ToPath UpdateCampaignDialerConfig where
+instance Data.ToPath UpdateCampaignDialerConfig where
   toPath UpdateCampaignDialerConfig' {..} =
     Prelude.mconcat
-      ["/campaigns/", Core.toBS id, "/dialer-config"]
+      ["/campaigns/", Data.toBS id, "/dialer-config"]
 
-instance Core.ToQuery UpdateCampaignDialerConfig where
+instance Data.ToQuery UpdateCampaignDialerConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCampaignDialerConfigResponse' smart constructor.

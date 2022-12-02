@@ -38,6 +38,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,26 +92,26 @@ instance Prelude.NFData DeleteConnectInstanceConfig where
   rnf DeleteConnectInstanceConfig' {..} =
     Prelude.rnf connectInstanceId
 
-instance Core.ToHeaders DeleteConnectInstanceConfig where
+instance Data.ToHeaders DeleteConnectInstanceConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteConnectInstanceConfig where
+instance Data.ToPath DeleteConnectInstanceConfig where
   toPath DeleteConnectInstanceConfig' {..} =
     Prelude.mconcat
       [ "/connect-instance/",
-        Core.toBS connectInstanceId,
+        Data.toBS connectInstanceId,
         "/config"
       ]
 
-instance Core.ToQuery DeleteConnectInstanceConfig where
+instance Data.ToQuery DeleteConnectInstanceConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConnectInstanceConfigResponse' smart constructor.

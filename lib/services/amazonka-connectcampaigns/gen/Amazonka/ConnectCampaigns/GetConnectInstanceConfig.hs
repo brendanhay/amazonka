@@ -42,6 +42,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetConnectInstanceConfig where
     Response.receiveJSON
       ( \s h x ->
           GetConnectInstanceConfigResponse'
-            Prelude.<$> (x Core..?> "connectInstanceConfig")
+            Prelude.<$> (x Data..?> "connectInstanceConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,26 +100,26 @@ instance Prelude.NFData GetConnectInstanceConfig where
   rnf GetConnectInstanceConfig' {..} =
     Prelude.rnf connectInstanceId
 
-instance Core.ToHeaders GetConnectInstanceConfig where
+instance Data.ToHeaders GetConnectInstanceConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetConnectInstanceConfig where
+instance Data.ToPath GetConnectInstanceConfig where
   toPath GetConnectInstanceConfig' {..} =
     Prelude.mconcat
       [ "/connect-instance/",
-        Core.toBS connectInstanceId,
+        Data.toBS connectInstanceId,
         "/config"
       ]
 
-instance Core.ToQuery GetConnectInstanceConfig where
+instance Data.ToQuery GetConnectInstanceConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | GetConnectInstanceConfigResponse

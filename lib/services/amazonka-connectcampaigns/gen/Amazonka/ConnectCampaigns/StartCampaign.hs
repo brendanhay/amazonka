@@ -38,6 +38,7 @@ where
 import Amazonka.ConnectCampaigns.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,26 +86,26 @@ instance Prelude.Hashable StartCampaign where
 instance Prelude.NFData StartCampaign where
   rnf StartCampaign' {..} = Prelude.rnf id
 
-instance Core.ToHeaders StartCampaign where
+instance Data.ToHeaders StartCampaign where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartCampaign where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartCampaign where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartCampaign where
+instance Data.ToPath StartCampaign where
   toPath StartCampaign' {..} =
     Prelude.mconcat
-      ["/campaigns/", Core.toBS id, "/start"]
+      ["/campaigns/", Data.toBS id, "/start"]
 
-instance Core.ToQuery StartCampaign where
+instance Data.ToQuery StartCampaign where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartCampaignResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ConnectCampaigns.Types.CampaignSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Connect campaign summary.
@@ -87,16 +88,16 @@ campaignSummary_id = Lens.lens (\CampaignSummary' {id} -> id) (\s@CampaignSummar
 campaignSummary_name :: Lens.Lens' CampaignSummary Prelude.Text
 campaignSummary_name = Lens.lens (\CampaignSummary' {name} -> name) (\s@CampaignSummary' {} a -> s {name = a} :: CampaignSummary)
 
-instance Core.FromJSON CampaignSummary where
+instance Data.FromJSON CampaignSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CampaignSummary"
       ( \x ->
           CampaignSummary'
-            Prelude.<$> (x Core..: "arn")
-            Prelude.<*> (x Core..: "connectInstanceId")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..: "arn")
+            Prelude.<*> (x Data..: "connectInstanceId")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable CampaignSummary where

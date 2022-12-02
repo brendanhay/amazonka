@@ -22,6 +22,7 @@ module Amazonka.ConnectCampaigns.Types.SuccessfulCampaignStateResponse where
 import Amazonka.ConnectCampaigns.Types.CampaignState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Successful response of campaign state
@@ -62,16 +63,16 @@ successfulCampaignStateResponse_state :: Lens.Lens' SuccessfulCampaignStateRespo
 successfulCampaignStateResponse_state = Lens.lens (\SuccessfulCampaignStateResponse' {state} -> state) (\s@SuccessfulCampaignStateResponse' {} a -> s {state = a} :: SuccessfulCampaignStateResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SuccessfulCampaignStateResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuccessfulCampaignStateResponse"
       ( \x ->
           SuccessfulCampaignStateResponse'
-            Prelude.<$> (x Core..:? "campaignId")
-            Prelude.<*> (x Core..:? "state")
+            Prelude.<$> (x Data..:? "campaignId")
+            Prelude.<*> (x Data..:? "state")
       )
 
 instance

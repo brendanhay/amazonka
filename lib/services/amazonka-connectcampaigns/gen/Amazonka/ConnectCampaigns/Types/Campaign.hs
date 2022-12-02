@@ -23,6 +23,7 @@ import Amazonka.ConnectCampaigns.Types.DialerConfig
 import Amazonka.ConnectCampaigns.Types.OutboundCallConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Connect campaign.
@@ -119,19 +120,19 @@ campaign_name = Lens.lens (\Campaign' {name} -> name) (\s@Campaign' {} a -> s {n
 campaign_outboundCallConfig :: Lens.Lens' Campaign OutboundCallConfig
 campaign_outboundCallConfig = Lens.lens (\Campaign' {outboundCallConfig} -> outboundCallConfig) (\s@Campaign' {} a -> s {outboundCallConfig = a} :: Campaign)
 
-instance Core.FromJSON Campaign where
+instance Data.FromJSON Campaign where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Campaign"
       ( \x ->
           Campaign'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "connectInstanceId")
-            Prelude.<*> (x Core..: "dialerConfig")
-            Prelude.<*> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "outboundCallConfig")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "connectInstanceId")
+            Prelude.<*> (x Data..: "dialerConfig")
+            Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "outboundCallConfig")
       )
 
 instance Prelude.Hashable Campaign where

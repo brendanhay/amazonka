@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -97,8 +98,8 @@ instance Core.AWSRequest DeleteCluster where
     Response.receiveJSON
       ( \s h x ->
           DeleteClusterResponse'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "state")
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> (x Data..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,26 +113,26 @@ instance Prelude.NFData DeleteCluster where
     Prelude.rnf currentVersion
       `Prelude.seq` Prelude.rnf clusterArn
 
-instance Core.ToHeaders DeleteCluster where
+instance Data.ToHeaders DeleteCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteCluster where
+instance Data.ToPath DeleteCluster where
   toPath DeleteCluster' {..} =
     Prelude.mconcat
-      ["/v1/clusters/", Core.toBS clusterArn]
+      ["/v1/clusters/", Data.toBS clusterArn]
 
-instance Core.ToQuery DeleteCluster where
+instance Data.ToQuery DeleteCluster where
   toQuery DeleteCluster' {..} =
     Prelude.mconcat
-      ["currentVersion" Core.=: currentVersion]
+      ["currentVersion" Data.=: currentVersion]
 
 -- | /See:/ 'newDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'

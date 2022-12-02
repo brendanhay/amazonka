@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,13 +90,13 @@ instance Core.AWSRequest GetBootstrapBrokers where
     Response.receiveJSON
       ( \s h x ->
           GetBootstrapBrokersResponse'
-            Prelude.<$> (x Core..?> "bootstrapBrokerStringSaslScram")
-            Prelude.<*> (x Core..?> "bootstrapBrokerString")
-            Prelude.<*> (x Core..?> "bootstrapBrokerStringPublicTls")
-            Prelude.<*> (x Core..?> "bootstrapBrokerStringPublicSaslScram")
-            Prelude.<*> (x Core..?> "bootstrapBrokerStringPublicSaslIam")
-            Prelude.<*> (x Core..?> "bootstrapBrokerStringTls")
-            Prelude.<*> (x Core..?> "bootstrapBrokerStringSaslIam")
+            Prelude.<$> (x Data..?> "bootstrapBrokerStringSaslScram")
+            Prelude.<*> (x Data..?> "bootstrapBrokerString")
+            Prelude.<*> (x Data..?> "bootstrapBrokerStringPublicTls")
+            Prelude.<*> (x Data..?> "bootstrapBrokerStringPublicSaslScram")
+            Prelude.<*> (x Data..?> "bootstrapBrokerStringPublicSaslIam")
+            Prelude.<*> (x Data..?> "bootstrapBrokerStringTls")
+            Prelude.<*> (x Data..?> "bootstrapBrokerStringSaslIam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,26 +107,26 @@ instance Prelude.Hashable GetBootstrapBrokers where
 instance Prelude.NFData GetBootstrapBrokers where
   rnf GetBootstrapBrokers' {..} = Prelude.rnf clusterArn
 
-instance Core.ToHeaders GetBootstrapBrokers where
+instance Data.ToHeaders GetBootstrapBrokers where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetBootstrapBrokers where
+instance Data.ToPath GetBootstrapBrokers where
   toPath GetBootstrapBrokers' {..} =
     Prelude.mconcat
       [ "/v1/clusters/",
-        Core.toBS clusterArn,
+        Data.toBS clusterArn,
         "/bootstrap-brokers"
       ]
 
-instance Core.ToQuery GetBootstrapBrokers where
+instance Data.ToQuery GetBootstrapBrokers where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetBootstrapBrokersResponse' smart constructor.

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,8 +120,8 @@ instance Core.AWSRequest UpdateBrokerType where
     Response.receiveJSON
       ( \s h x ->
           UpdateBrokerTypeResponse'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "clusterOperationArn")
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,37 +137,37 @@ instance Prelude.NFData UpdateBrokerType where
       `Prelude.seq` Prelude.rnf currentVersion
       `Prelude.seq` Prelude.rnf targetInstanceType
 
-instance Core.ToHeaders UpdateBrokerType where
+instance Data.ToHeaders UpdateBrokerType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBrokerType where
+instance Data.ToJSON UpdateBrokerType where
   toJSON UpdateBrokerType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("currentVersion" Core..= currentVersion),
+              ("currentVersion" Data..= currentVersion),
             Prelude.Just
-              ("targetInstanceType" Core..= targetInstanceType)
+              ("targetInstanceType" Data..= targetInstanceType)
           ]
       )
 
-instance Core.ToPath UpdateBrokerType where
+instance Data.ToPath UpdateBrokerType where
   toPath UpdateBrokerType' {..} =
     Prelude.mconcat
       [ "/v1/clusters/",
-        Core.toBS clusterArn,
+        Data.toBS clusterArn,
         "/nodes/type"
       ]
 
-instance Core.ToQuery UpdateBrokerType where
+instance Data.ToQuery UpdateBrokerType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBrokerTypeResponse' smart constructor.

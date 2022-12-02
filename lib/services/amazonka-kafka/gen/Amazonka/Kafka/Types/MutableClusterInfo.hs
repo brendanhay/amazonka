@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.MutableClusterInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.BrokerEBSVolumeInfo
 import Amazonka.Kafka.Types.ClientAuthentication
 import Amazonka.Kafka.Types.ConfigurationInfo
@@ -174,26 +175,26 @@ mutableClusterInfo_kafkaVersion = Lens.lens (\MutableClusterInfo' {kafkaVersion}
 mutableClusterInfo_enhancedMonitoring :: Lens.Lens' MutableClusterInfo (Prelude.Maybe EnhancedMonitoring)
 mutableClusterInfo_enhancedMonitoring = Lens.lens (\MutableClusterInfo' {enhancedMonitoring} -> enhancedMonitoring) (\s@MutableClusterInfo' {} a -> s {enhancedMonitoring = a} :: MutableClusterInfo)
 
-instance Core.FromJSON MutableClusterInfo where
+instance Data.FromJSON MutableClusterInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MutableClusterInfo"
       ( \x ->
           MutableClusterInfo'
-            Prelude.<$> (x Core..:? "openMonitoring")
-            Prelude.<*> (x Core..:? "connectivityInfo")
-            Prelude.<*> (x Core..:? "storageMode")
-            Prelude.<*> (x Core..:? "encryptionInfo")
-            Prelude.<*> (x Core..:? "numberOfBrokerNodes")
-            Prelude.<*> (x Core..:? "clientAuthentication")
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> ( x Core..:? "brokerEBSVolumeInfo"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "openMonitoring")
+            Prelude.<*> (x Data..:? "connectivityInfo")
+            Prelude.<*> (x Data..:? "storageMode")
+            Prelude.<*> (x Data..:? "encryptionInfo")
+            Prelude.<*> (x Data..:? "numberOfBrokerNodes")
+            Prelude.<*> (x Data..:? "clientAuthentication")
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> ( x Data..:? "brokerEBSVolumeInfo"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "loggingInfo")
-            Prelude.<*> (x Core..:? "configurationInfo")
-            Prelude.<*> (x Core..:? "kafkaVersion")
-            Prelude.<*> (x Core..:? "enhancedMonitoring")
+            Prelude.<*> (x Data..:? "loggingInfo")
+            Prelude.<*> (x Data..:? "configurationInfo")
+            Prelude.<*> (x Data..:? "kafkaVersion")
+            Prelude.<*> (x Data..:? "enhancedMonitoring")
       )
 
 instance Prelude.Hashable MutableClusterInfo where

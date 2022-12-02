@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.KafkaVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.KafkaVersionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -58,14 +59,14 @@ kafkaVersion_status = Lens.lens (\KafkaVersion' {status} -> status) (\s@KafkaVer
 kafkaVersion_version :: Lens.Lens' KafkaVersion (Prelude.Maybe Prelude.Text)
 kafkaVersion_version = Lens.lens (\KafkaVersion' {version} -> version) (\s@KafkaVersion' {} a -> s {version = a} :: KafkaVersion)
 
-instance Core.FromJSON KafkaVersion where
+instance Data.FromJSON KafkaVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KafkaVersion"
       ( \x ->
           KafkaVersion'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable KafkaVersion where

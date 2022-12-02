@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Provisioned where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.BrokerNodeGroupInfo
 import Amazonka.Kafka.Types.BrokerSoftwareInfo
 import Amazonka.Kafka.Types.ClientAuthentication
@@ -165,23 +166,23 @@ provisioned_brokerNodeGroupInfo = Lens.lens (\Provisioned' {brokerNodeGroupInfo}
 provisioned_numberOfBrokerNodes :: Lens.Lens' Provisioned Prelude.Natural
 provisioned_numberOfBrokerNodes = Lens.lens (\Provisioned' {numberOfBrokerNodes} -> numberOfBrokerNodes) (\s@Provisioned' {} a -> s {numberOfBrokerNodes = a} :: Provisioned)
 
-instance Core.FromJSON Provisioned where
+instance Data.FromJSON Provisioned where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Provisioned"
       ( \x ->
           Provisioned'
-            Prelude.<$> (x Core..:? "openMonitoring")
-            Prelude.<*> (x Core..:? "storageMode")
-            Prelude.<*> (x Core..:? "encryptionInfo")
-            Prelude.<*> (x Core..:? "clientAuthentication")
-            Prelude.<*> (x Core..:? "zookeeperConnectString")
-            Prelude.<*> (x Core..:? "loggingInfo")
-            Prelude.<*> (x Core..:? "currentBrokerSoftwareInfo")
-            Prelude.<*> (x Core..:? "zookeeperConnectStringTls")
-            Prelude.<*> (x Core..:? "enhancedMonitoring")
-            Prelude.<*> (x Core..: "brokerNodeGroupInfo")
-            Prelude.<*> (x Core..: "numberOfBrokerNodes")
+            Prelude.<$> (x Data..:? "openMonitoring")
+            Prelude.<*> (x Data..:? "storageMode")
+            Prelude.<*> (x Data..:? "encryptionInfo")
+            Prelude.<*> (x Data..:? "clientAuthentication")
+            Prelude.<*> (x Data..:? "zookeeperConnectString")
+            Prelude.<*> (x Data..:? "loggingInfo")
+            Prelude.<*> (x Data..:? "currentBrokerSoftwareInfo")
+            Prelude.<*> (x Data..:? "zookeeperConnectStringTls")
+            Prelude.<*> (x Data..:? "enhancedMonitoring")
+            Prelude.<*> (x Data..: "brokerNodeGroupInfo")
+            Prelude.<*> (x Data..: "numberOfBrokerNodes")
       )
 
 instance Prelude.Hashable Provisioned where

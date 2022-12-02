@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ClusterInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.BrokerNodeGroupInfo
 import Amazonka.Kafka.Types.BrokerSoftwareInfo
 import Amazonka.Kafka.Types.ClientAuthentication
@@ -62,7 +63,7 @@ data ClusterInfo = ClusterInfo'
     -- | The connection string to use to connect to the Apache ZooKeeper cluster.
     zookeeperConnectString :: Prelude.Maybe Prelude.Text,
     -- | The time when the cluster was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Arn of active cluster operation.
     activeOperationArn :: Prelude.Maybe Prelude.Text,
     loggingInfo :: Prelude.Maybe LoggingInfo,
@@ -211,7 +212,7 @@ clusterInfo_zookeeperConnectString = Lens.lens (\ClusterInfo' {zookeeperConnectS
 
 -- | The time when the cluster was created.
 clusterInfo_creationTime :: Lens.Lens' ClusterInfo (Prelude.Maybe Prelude.UTCTime)
-clusterInfo_creationTime = Lens.lens (\ClusterInfo' {creationTime} -> creationTime) (\s@ClusterInfo' {} a -> s {creationTime = a} :: ClusterInfo) Prelude.. Lens.mapping Core._Time
+clusterInfo_creationTime = Lens.lens (\ClusterInfo' {creationTime} -> creationTime) (\s@ClusterInfo' {} a -> s {creationTime = a} :: ClusterInfo) Prelude.. Lens.mapping Data._Time
 
 -- | Arn of active cluster operation.
 clusterInfo_activeOperationArn :: Lens.Lens' ClusterInfo (Prelude.Maybe Prelude.Text)
@@ -243,31 +244,31 @@ clusterInfo_zookeeperConnectStringTls = Lens.lens (\ClusterInfo' {zookeeperConne
 clusterInfo_enhancedMonitoring :: Lens.Lens' ClusterInfo (Prelude.Maybe EnhancedMonitoring)
 clusterInfo_enhancedMonitoring = Lens.lens (\ClusterInfo' {enhancedMonitoring} -> enhancedMonitoring) (\s@ClusterInfo' {} a -> s {enhancedMonitoring = a} :: ClusterInfo)
 
-instance Core.FromJSON ClusterInfo where
+instance Data.FromJSON ClusterInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterInfo"
       ( \x ->
           ClusterInfo'
-            Prelude.<$> (x Core..:? "clusterArn")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "openMonitoring")
-            Prelude.<*> (x Core..:? "storageMode")
-            Prelude.<*> (x Core..:? "encryptionInfo")
-            Prelude.<*> (x Core..:? "stateInfo")
-            Prelude.<*> (x Core..:? "brokerNodeGroupInfo")
-            Prelude.<*> (x Core..:? "numberOfBrokerNodes")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "clientAuthentication")
-            Prelude.<*> (x Core..:? "currentVersion")
-            Prelude.<*> (x Core..:? "zookeeperConnectString")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "activeOperationArn")
-            Prelude.<*> (x Core..:? "loggingInfo")
-            Prelude.<*> (x Core..:? "currentBrokerSoftwareInfo")
-            Prelude.<*> (x Core..:? "clusterName")
-            Prelude.<*> (x Core..:? "zookeeperConnectStringTls")
-            Prelude.<*> (x Core..:? "enhancedMonitoring")
+            Prelude.<$> (x Data..:? "clusterArn")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "openMonitoring")
+            Prelude.<*> (x Data..:? "storageMode")
+            Prelude.<*> (x Data..:? "encryptionInfo")
+            Prelude.<*> (x Data..:? "stateInfo")
+            Prelude.<*> (x Data..:? "brokerNodeGroupInfo")
+            Prelude.<*> (x Data..:? "numberOfBrokerNodes")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "clientAuthentication")
+            Prelude.<*> (x Data..:? "currentVersion")
+            Prelude.<*> (x Data..:? "zookeeperConnectString")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "activeOperationArn")
+            Prelude.<*> (x Data..:? "loggingInfo")
+            Prelude.<*> (x Data..:? "currentBrokerSoftwareInfo")
+            Prelude.<*> (x Data..:? "clusterName")
+            Prelude.<*> (x Data..:? "zookeeperConnectStringTls")
+            Prelude.<*> (x Data..:? "enhancedMonitoring")
       )
 
 instance Prelude.Hashable ClusterInfo where

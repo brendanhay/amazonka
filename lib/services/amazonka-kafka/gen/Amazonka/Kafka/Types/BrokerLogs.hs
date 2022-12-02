@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.BrokerLogs where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.CloudWatchLogs
 import Amazonka.Kafka.Types.Firehose
 import Amazonka.Kafka.Types.S3
@@ -68,15 +69,15 @@ brokerLogs_firehose = Lens.lens (\BrokerLogs' {firehose} -> firehose) (\s@Broker
 brokerLogs_s3 :: Lens.Lens' BrokerLogs (Prelude.Maybe S3)
 brokerLogs_s3 = Lens.lens (\BrokerLogs' {s3} -> s3) (\s@BrokerLogs' {} a -> s {s3 = a} :: BrokerLogs)
 
-instance Core.FromJSON BrokerLogs where
+instance Data.FromJSON BrokerLogs where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerLogs"
       ( \x ->
           BrokerLogs'
-            Prelude.<$> (x Core..:? "cloudWatchLogs")
-            Prelude.<*> (x Core..:? "firehose")
-            Prelude.<*> (x Core..:? "s3")
+            Prelude.<$> (x Data..:? "cloudWatchLogs")
+            Prelude.<*> (x Data..:? "firehose")
+            Prelude.<*> (x Data..:? "s3")
       )
 
 instance Prelude.Hashable BrokerLogs where
@@ -91,13 +92,13 @@ instance Prelude.NFData BrokerLogs where
       `Prelude.seq` Prelude.rnf firehose
       `Prelude.seq` Prelude.rnf s3
 
-instance Core.ToJSON BrokerLogs where
+instance Data.ToJSON BrokerLogs where
   toJSON BrokerLogs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cloudWatchLogs" Core..=)
+          [ ("cloudWatchLogs" Data..=)
               Prelude.<$> cloudWatchLogs,
-            ("firehose" Core..=) Prelude.<$> firehose,
-            ("s3" Core..=) Prelude.<$> s3
+            ("firehose" Data..=) Prelude.<$> firehose,
+            ("s3" Data..=) Prelude.<$> s3
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ErrorInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an error state of the cluster.
@@ -61,14 +62,14 @@ errorInfo_errorString = Lens.lens (\ErrorInfo' {errorString} -> errorString) (\s
 errorInfo_errorCode :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
 errorInfo_errorCode = Lens.lens (\ErrorInfo' {errorCode} -> errorCode) (\s@ErrorInfo' {} a -> s {errorCode = a} :: ErrorInfo)
 
-instance Core.FromJSON ErrorInfo where
+instance Data.FromJSON ErrorInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ErrorInfo"
       ( \x ->
           ErrorInfo'
-            Prelude.<$> (x Core..:? "errorString")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorString")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable ErrorInfo where

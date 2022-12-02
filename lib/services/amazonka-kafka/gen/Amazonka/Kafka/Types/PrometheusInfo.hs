@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.PrometheusInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.JmxExporterInfo
 import Amazonka.Kafka.Types.NodeExporterInfo
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ prometheusInfo_jmxExporter = Lens.lens (\PrometheusInfo' {jmxExporter} -> jmxExp
 prometheusInfo_nodeExporter :: Lens.Lens' PrometheusInfo (Prelude.Maybe NodeExporterInfo)
 prometheusInfo_nodeExporter = Lens.lens (\PrometheusInfo' {nodeExporter} -> nodeExporter) (\s@PrometheusInfo' {} a -> s {nodeExporter = a} :: PrometheusInfo)
 
-instance Core.FromJSON PrometheusInfo where
+instance Data.FromJSON PrometheusInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrometheusInfo"
       ( \x ->
           PrometheusInfo'
-            Prelude.<$> (x Core..:? "jmxExporter")
-            Prelude.<*> (x Core..:? "nodeExporter")
+            Prelude.<$> (x Data..:? "jmxExporter")
+            Prelude.<*> (x Data..:? "nodeExporter")
       )
 
 instance Prelude.Hashable PrometheusInfo where
@@ -83,11 +84,11 @@ instance Prelude.NFData PrometheusInfo where
     Prelude.rnf jmxExporter
       `Prelude.seq` Prelude.rnf nodeExporter
 
-instance Core.ToJSON PrometheusInfo where
+instance Data.ToJSON PrometheusInfo where
   toJSON PrometheusInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jmxExporter" Core..=) Prelude.<$> jmxExporter,
-            ("nodeExporter" Core..=) Prelude.<$> nodeExporter
+          [ ("jmxExporter" Data..=) Prelude.<$> jmxExporter,
+            ("nodeExporter" Data..=) Prelude.<$> nodeExporter
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ClientAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.Sasl
 import Amazonka.Kafka.Types.Tls
 import Amazonka.Kafka.Types.Unauthenticated
@@ -73,15 +74,15 @@ clientAuthentication_tls = Lens.lens (\ClientAuthentication' {tls} -> tls) (\s@C
 clientAuthentication_unauthenticated :: Lens.Lens' ClientAuthentication (Prelude.Maybe Unauthenticated)
 clientAuthentication_unauthenticated = Lens.lens (\ClientAuthentication' {unauthenticated} -> unauthenticated) (\s@ClientAuthentication' {} a -> s {unauthenticated = a} :: ClientAuthentication)
 
-instance Core.FromJSON ClientAuthentication where
+instance Data.FromJSON ClientAuthentication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClientAuthentication"
       ( \x ->
           ClientAuthentication'
-            Prelude.<$> (x Core..:? "sasl")
-            Prelude.<*> (x Core..:? "tls")
-            Prelude.<*> (x Core..:? "unauthenticated")
+            Prelude.<$> (x Data..:? "sasl")
+            Prelude.<*> (x Data..:? "tls")
+            Prelude.<*> (x Data..:? "unauthenticated")
       )
 
 instance Prelude.Hashable ClientAuthentication where
@@ -96,13 +97,13 @@ instance Prelude.NFData ClientAuthentication where
       `Prelude.seq` Prelude.rnf tls
       `Prelude.seq` Prelude.rnf unauthenticated
 
-instance Core.ToJSON ClientAuthentication where
+instance Data.ToJSON ClientAuthentication where
   toJSON ClientAuthentication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("sasl" Core..=) Prelude.<$> sasl,
-            ("tls" Core..=) Prelude.<$> tls,
-            ("unauthenticated" Core..=)
+          [ ("sasl" Data..=) Prelude.<$> sasl,
+            ("tls" Data..=) Prelude.<$> tls,
+            ("unauthenticated" Data..=)
               Prelude.<$> unauthenticated
           ]
       )

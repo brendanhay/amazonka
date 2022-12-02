@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.BrokerSoftwareInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the current software installed on the cluster.
@@ -77,15 +78,15 @@ brokerSoftwareInfo_kafkaVersion = Lens.lens (\BrokerSoftwareInfo' {kafkaVersion}
 brokerSoftwareInfo_configurationRevision :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Integer)
 brokerSoftwareInfo_configurationRevision = Lens.lens (\BrokerSoftwareInfo' {configurationRevision} -> configurationRevision) (\s@BrokerSoftwareInfo' {} a -> s {configurationRevision = a} :: BrokerSoftwareInfo)
 
-instance Core.FromJSON BrokerSoftwareInfo where
+instance Data.FromJSON BrokerSoftwareInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerSoftwareInfo"
       ( \x ->
           BrokerSoftwareInfo'
-            Prelude.<$> (x Core..:? "configurationArn")
-            Prelude.<*> (x Core..:? "kafkaVersion")
-            Prelude.<*> (x Core..:? "configurationRevision")
+            Prelude.<$> (x Data..:? "configurationArn")
+            Prelude.<*> (x Data..:? "kafkaVersion")
+            Prelude.<*> (x Data..:? "configurationRevision")
       )
 
 instance Prelude.Hashable BrokerSoftwareInfo where

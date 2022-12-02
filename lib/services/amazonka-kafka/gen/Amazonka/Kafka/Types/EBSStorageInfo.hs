@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.EBSStorageInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ProvisionedThroughput
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,14 +68,14 @@ eBSStorageInfo_provisionedThroughput = Lens.lens (\EBSStorageInfo' {provisionedT
 eBSStorageInfo_volumeSize :: Lens.Lens' EBSStorageInfo (Prelude.Maybe Prelude.Natural)
 eBSStorageInfo_volumeSize = Lens.lens (\EBSStorageInfo' {volumeSize} -> volumeSize) (\s@EBSStorageInfo' {} a -> s {volumeSize = a} :: EBSStorageInfo)
 
-instance Core.FromJSON EBSStorageInfo where
+instance Data.FromJSON EBSStorageInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EBSStorageInfo"
       ( \x ->
           EBSStorageInfo'
-            Prelude.<$> (x Core..:? "provisionedThroughput")
-            Prelude.<*> (x Core..:? "volumeSize")
+            Prelude.<$> (x Data..:? "provisionedThroughput")
+            Prelude.<*> (x Data..:? "volumeSize")
       )
 
 instance Prelude.Hashable EBSStorageInfo where
@@ -87,12 +88,12 @@ instance Prelude.NFData EBSStorageInfo where
     Prelude.rnf provisionedThroughput
       `Prelude.seq` Prelude.rnf volumeSize
 
-instance Core.ToJSON EBSStorageInfo where
+instance Data.ToJSON EBSStorageInfo where
   toJSON EBSStorageInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("provisionedThroughput" Core..=)
+          [ ("provisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            ("volumeSize" Core..=) Prelude.<$> volumeSize
+            ("volumeSize" Data..=) Prelude.<$> volumeSize
           ]
       )

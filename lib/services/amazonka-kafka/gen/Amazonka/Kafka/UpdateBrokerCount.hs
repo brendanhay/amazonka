@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,8 +121,8 @@ instance Core.AWSRequest UpdateBrokerCount where
     Response.receiveJSON
       ( \s h x ->
           UpdateBrokerCountResponse'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "clusterOperationArn")
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,39 +138,39 @@ instance Prelude.NFData UpdateBrokerCount where
       `Prelude.seq` Prelude.rnf currentVersion
       `Prelude.seq` Prelude.rnf targetNumberOfBrokerNodes
 
-instance Core.ToHeaders UpdateBrokerCount where
+instance Data.ToHeaders UpdateBrokerCount where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBrokerCount where
+instance Data.ToJSON UpdateBrokerCount where
   toJSON UpdateBrokerCount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("currentVersion" Core..= currentVersion),
+              ("currentVersion" Data..= currentVersion),
             Prelude.Just
               ( "targetNumberOfBrokerNodes"
-                  Core..= targetNumberOfBrokerNodes
+                  Data..= targetNumberOfBrokerNodes
               )
           ]
       )
 
-instance Core.ToPath UpdateBrokerCount where
+instance Data.ToPath UpdateBrokerCount where
   toPath UpdateBrokerCount' {..} =
     Prelude.mconcat
       [ "/v1/clusters/",
-        Core.toBS clusterArn,
+        Data.toBS clusterArn,
         "/nodes/count"
       ]
 
-instance Core.ToQuery UpdateBrokerCount where
+instance Data.ToQuery UpdateBrokerCount where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBrokerCountResponse' smart constructor.

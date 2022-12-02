@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.NodeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.BrokerNodeInfo
 import Amazonka.Kafka.Types.NodeType
 import Amazonka.Kafka.Types.ZookeeperNodeInfo
@@ -100,18 +101,18 @@ nodeInfo_instanceType = Lens.lens (\NodeInfo' {instanceType} -> instanceType) (\
 nodeInfo_addedToClusterTime :: Lens.Lens' NodeInfo (Prelude.Maybe Prelude.Text)
 nodeInfo_addedToClusterTime = Lens.lens (\NodeInfo' {addedToClusterTime} -> addedToClusterTime) (\s@NodeInfo' {} a -> s {addedToClusterTime = a} :: NodeInfo)
 
-instance Core.FromJSON NodeInfo where
+instance Data.FromJSON NodeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeInfo"
       ( \x ->
           NodeInfo'
-            Prelude.<$> (x Core..:? "brokerNodeInfo")
-            Prelude.<*> (x Core..:? "zookeeperNodeInfo")
-            Prelude.<*> (x Core..:? "nodeType")
-            Prelude.<*> (x Core..:? "nodeARN")
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "addedToClusterTime")
+            Prelude.<$> (x Data..:? "brokerNodeInfo")
+            Prelude.<*> (x Data..:? "zookeeperNodeInfo")
+            Prelude.<*> (x Data..:? "nodeType")
+            Prelude.<*> (x Data..:? "nodeARN")
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "addedToClusterTime")
       )
 
 instance Prelude.Hashable NodeInfo where

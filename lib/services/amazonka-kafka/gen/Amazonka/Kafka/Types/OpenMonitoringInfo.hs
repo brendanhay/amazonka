@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.OpenMonitoringInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.PrometheusInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,13 +54,13 @@ newOpenMonitoringInfo pPrometheus_ =
 openMonitoringInfo_prometheus :: Lens.Lens' OpenMonitoringInfo PrometheusInfo
 openMonitoringInfo_prometheus = Lens.lens (\OpenMonitoringInfo' {prometheus} -> prometheus) (\s@OpenMonitoringInfo' {} a -> s {prometheus = a} :: OpenMonitoringInfo)
 
-instance Core.FromJSON OpenMonitoringInfo where
+instance Data.FromJSON OpenMonitoringInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OpenMonitoringInfo"
       ( \x ->
           OpenMonitoringInfo'
-            Prelude.<$> (x Core..: "prometheus")
+            Prelude.<$> (x Data..: "prometheus")
       )
 
 instance Prelude.Hashable OpenMonitoringInfo where
@@ -69,9 +70,9 @@ instance Prelude.Hashable OpenMonitoringInfo where
 instance Prelude.NFData OpenMonitoringInfo where
   rnf OpenMonitoringInfo' {..} = Prelude.rnf prometheus
 
-instance Core.ToJSON OpenMonitoringInfo where
+instance Data.ToJSON OpenMonitoringInfo where
   toJSON OpenMonitoringInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("prometheus" Core..= prometheus)]
+          [Prelude.Just ("prometheus" Data..= prometheus)]
       )

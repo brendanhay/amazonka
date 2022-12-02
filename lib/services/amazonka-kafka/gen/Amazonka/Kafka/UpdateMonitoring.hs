@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -144,8 +145,8 @@ instance Core.AWSRequest UpdateMonitoring where
     Response.receiveJSON
       ( \s h x ->
           UpdateMonitoringResponse'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "clusterOperationArn")
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,40 +166,40 @@ instance Prelude.NFData UpdateMonitoring where
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf currentVersion
 
-instance Core.ToHeaders UpdateMonitoring where
+instance Data.ToHeaders UpdateMonitoring where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMonitoring where
+instance Data.ToJSON UpdateMonitoring where
   toJSON UpdateMonitoring' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("openMonitoring" Core..=)
+          [ ("openMonitoring" Data..=)
               Prelude.<$> openMonitoring,
-            ("loggingInfo" Core..=) Prelude.<$> loggingInfo,
-            ("enhancedMonitoring" Core..=)
+            ("loggingInfo" Data..=) Prelude.<$> loggingInfo,
+            ("enhancedMonitoring" Data..=)
               Prelude.<$> enhancedMonitoring,
             Prelude.Just
-              ("currentVersion" Core..= currentVersion)
+              ("currentVersion" Data..= currentVersion)
           ]
       )
 
-instance Core.ToPath UpdateMonitoring where
+instance Data.ToPath UpdateMonitoring where
   toPath UpdateMonitoring' {..} =
     Prelude.mconcat
       [ "/v1/clusters/",
-        Core.toBS clusterArn,
+        Data.toBS clusterArn,
         "/monitoring"
       ]
 
-instance Core.ToQuery UpdateMonitoring where
+instance Data.ToQuery UpdateMonitoring where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMonitoringResponse' smart constructor.

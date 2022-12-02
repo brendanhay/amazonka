@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Iam where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for IAM access control.
@@ -49,11 +50,11 @@ newIam = Iam' {enabled = Prelude.Nothing}
 iam_enabled :: Lens.Lens' Iam (Prelude.Maybe Prelude.Bool)
 iam_enabled = Lens.lens (\Iam' {enabled} -> enabled) (\s@Iam' {} a -> s {enabled = a} :: Iam)
 
-instance Core.FromJSON Iam where
+instance Data.FromJSON Iam where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Iam"
-      (\x -> Iam' Prelude.<$> (x Core..:? "enabled"))
+      (\x -> Iam' Prelude.<$> (x Data..:? "enabled"))
 
 instance Prelude.Hashable Iam where
   hashWithSalt _salt Iam' {..} =
@@ -62,9 +63,9 @@ instance Prelude.Hashable Iam where
 instance Prelude.NFData Iam where
   rnf Iam' {..} = Prelude.rnf enabled
 
-instance Core.ToJSON Iam where
+instance Data.ToJSON Iam where
   toJSON Iam' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("enabled" Core..=) Prelude.<$> enabled]
+          [("enabled" Data..=) Prelude.<$> enabled]
       )

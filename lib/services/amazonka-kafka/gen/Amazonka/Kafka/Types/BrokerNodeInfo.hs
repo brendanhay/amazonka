@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.BrokerNodeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.BrokerSoftwareInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -101,18 +102,18 @@ brokerNodeInfo_attachedENIId = Lens.lens (\BrokerNodeInfo' {attachedENIId} -> at
 brokerNodeInfo_currentBrokerSoftwareInfo :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe BrokerSoftwareInfo)
 brokerNodeInfo_currentBrokerSoftwareInfo = Lens.lens (\BrokerNodeInfo' {currentBrokerSoftwareInfo} -> currentBrokerSoftwareInfo) (\s@BrokerNodeInfo' {} a -> s {currentBrokerSoftwareInfo = a} :: BrokerNodeInfo)
 
-instance Core.FromJSON BrokerNodeInfo where
+instance Data.FromJSON BrokerNodeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerNodeInfo"
       ( \x ->
           BrokerNodeInfo'
-            Prelude.<$> (x Core..:? "clientSubnet")
-            Prelude.<*> (x Core..:? "endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "brokerId")
-            Prelude.<*> (x Core..:? "clientVpcIpAddress")
-            Prelude.<*> (x Core..:? "attachedENIId")
-            Prelude.<*> (x Core..:? "currentBrokerSoftwareInfo")
+            Prelude.<$> (x Data..:? "clientSubnet")
+            Prelude.<*> (x Data..:? "endpoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "brokerId")
+            Prelude.<*> (x Data..:? "clientVpcIpAddress")
+            Prelude.<*> (x Data..:? "attachedENIId")
+            Prelude.<*> (x Data..:? "currentBrokerSoftwareInfo")
       )
 
 instance Prelude.Hashable BrokerNodeInfo where

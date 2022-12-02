@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.BrokerNodeGroupInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.BrokerAZDistribution
 import Amazonka.Kafka.Types.ConnectivityInfo
 import Amazonka.Kafka.Types.StorageInfo
@@ -154,18 +155,18 @@ brokerNodeGroupInfo_clientSubnets = Lens.lens (\BrokerNodeGroupInfo' {clientSubn
 brokerNodeGroupInfo_instanceType :: Lens.Lens' BrokerNodeGroupInfo Prelude.Text
 brokerNodeGroupInfo_instanceType = Lens.lens (\BrokerNodeGroupInfo' {instanceType} -> instanceType) (\s@BrokerNodeGroupInfo' {} a -> s {instanceType = a} :: BrokerNodeGroupInfo)
 
-instance Core.FromJSON BrokerNodeGroupInfo where
+instance Data.FromJSON BrokerNodeGroupInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BrokerNodeGroupInfo"
       ( \x ->
           BrokerNodeGroupInfo'
-            Prelude.<$> (x Core..:? "storageInfo")
-            Prelude.<*> (x Core..:? "connectivityInfo")
-            Prelude.<*> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "brokerAZDistribution")
-            Prelude.<*> (x Core..:? "clientSubnets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "instanceType")
+            Prelude.<$> (x Data..:? "storageInfo")
+            Prelude.<*> (x Data..:? "connectivityInfo")
+            Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "brokerAZDistribution")
+            Prelude.<*> (x Data..:? "clientSubnets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "instanceType")
       )
 
 instance Prelude.Hashable BrokerNodeGroupInfo where
@@ -186,18 +187,18 @@ instance Prelude.NFData BrokerNodeGroupInfo where
       `Prelude.seq` Prelude.rnf clientSubnets
       `Prelude.seq` Prelude.rnf instanceType
 
-instance Core.ToJSON BrokerNodeGroupInfo where
+instance Data.ToJSON BrokerNodeGroupInfo where
   toJSON BrokerNodeGroupInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("storageInfo" Core..=) Prelude.<$> storageInfo,
-            ("connectivityInfo" Core..=)
+          [ ("storageInfo" Data..=) Prelude.<$> storageInfo,
+            ("connectivityInfo" Data..=)
               Prelude.<$> connectivityInfo,
-            ("securityGroups" Core..=)
+            ("securityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("brokerAZDistribution" Core..=)
+            ("brokerAZDistribution" Data..=)
               Prelude.<$> brokerAZDistribution,
-            Prelude.Just ("clientSubnets" Core..= clientSubnets),
-            Prelude.Just ("instanceType" Core..= instanceType)
+            Prelude.Just ("clientSubnets" Data..= clientSubnets),
+            Prelude.Just ("instanceType" Data..= instanceType)
           ]
       )

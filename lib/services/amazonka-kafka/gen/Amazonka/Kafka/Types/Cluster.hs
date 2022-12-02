@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Cluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ClusterState
 import Amazonka.Kafka.Types.ClusterType
 import Amazonka.Kafka.Types.Provisioned
@@ -48,7 +49,7 @@ data Cluster = Cluster'
     -- | Information about the provisioned cluster.
     provisioned :: Prelude.Maybe Provisioned,
     -- | The time when the cluster was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) that uniquely identifies a cluster
     -- operation.
     activeOperationArn :: Prelude.Maybe Prelude.Text,
@@ -138,7 +139,7 @@ cluster_provisioned = Lens.lens (\Cluster' {provisioned} -> provisioned) (\s@Clu
 
 -- | The time when the cluster was created.
 cluster_creationTime :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
-cluster_creationTime = Lens.lens (\Cluster' {creationTime} -> creationTime) (\s@Cluster' {} a -> s {creationTime = a} :: Cluster) Prelude.. Lens.mapping Core._Time
+cluster_creationTime = Lens.lens (\Cluster' {creationTime} -> creationTime) (\s@Cluster' {} a -> s {creationTime = a} :: Cluster) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies a cluster
 -- operation.
@@ -153,23 +154,23 @@ cluster_clusterType = Lens.lens (\Cluster' {clusterType} -> clusterType) (\s@Clu
 cluster_clusterName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterName = Lens.lens (\Cluster' {clusterName} -> clusterName) (\s@Cluster' {} a -> s {clusterName = a} :: Cluster)
 
-instance Core.FromJSON Cluster where
+instance Data.FromJSON Cluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "clusterArn")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "serverless")
-            Prelude.<*> (x Core..:? "stateInfo")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "currentVersion")
-            Prelude.<*> (x Core..:? "provisioned")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "activeOperationArn")
-            Prelude.<*> (x Core..:? "clusterType")
-            Prelude.<*> (x Core..:? "clusterName")
+            Prelude.<$> (x Data..:? "clusterArn")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "serverless")
+            Prelude.<*> (x Data..:? "stateInfo")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "currentVersion")
+            Prelude.<*> (x Data..:? "provisioned")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "activeOperationArn")
+            Prelude.<*> (x Data..:? "clusterType")
+            Prelude.<*> (x Data..:? "clusterName")
       )
 
 instance Prelude.Hashable Cluster where

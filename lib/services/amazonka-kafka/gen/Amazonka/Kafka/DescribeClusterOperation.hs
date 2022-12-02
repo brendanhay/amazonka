@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,7 +90,7 @@ instance Core.AWSRequest DescribeClusterOperation where
     Response.receiveJSON
       ( \s h x ->
           DescribeClusterOperationResponse'
-            Prelude.<$> (x Core..?> "clusterOperationInfo")
+            Prelude.<$> (x Data..?> "clusterOperationInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -101,23 +102,23 @@ instance Prelude.NFData DescribeClusterOperation where
   rnf DescribeClusterOperation' {..} =
     Prelude.rnf clusterOperationArn
 
-instance Core.ToHeaders DescribeClusterOperation where
+instance Data.ToHeaders DescribeClusterOperation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeClusterOperation where
+instance Data.ToPath DescribeClusterOperation where
   toPath DescribeClusterOperation' {..} =
     Prelude.mconcat
-      ["/v1/operations/", Core.toBS clusterOperationArn]
+      ["/v1/operations/", Data.toBS clusterOperationArn]
 
-instance Core.ToQuery DescribeClusterOperation where
+instance Data.ToQuery DescribeClusterOperation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeClusterOperationResponse' smart constructor.

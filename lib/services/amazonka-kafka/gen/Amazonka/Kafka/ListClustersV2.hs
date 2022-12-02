@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,10 +151,10 @@ instance Core.AWSRequest ListClustersV2 where
     Response.receiveJSON
       ( \s h x ->
           ListClustersV2Response'
-            Prelude.<$> ( x Core..?> "clusterInfoList"
+            Prelude.<$> ( x Data..?> "clusterInfoList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,27 +172,27 @@ instance Prelude.NFData ListClustersV2 where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clusterNameFilter
 
-instance Core.ToHeaders ListClustersV2 where
+instance Data.ToHeaders ListClustersV2 where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListClustersV2 where
+instance Data.ToPath ListClustersV2 where
   toPath = Prelude.const "/api/v2/clusters"
 
-instance Core.ToQuery ListClustersV2 where
+instance Data.ToQuery ListClustersV2 where
   toQuery ListClustersV2' {..} =
     Prelude.mconcat
-      [ "clusterTypeFilter" Core.=: clusterTypeFilter,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "clusterNameFilter" Core.=: clusterNameFilter
+      [ "clusterTypeFilter" Data.=: clusterTypeFilter,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "clusterNameFilter" Data.=: clusterNameFilter
       ]
 
 -- | /See:/ 'newListClustersV2Response' smart constructor.

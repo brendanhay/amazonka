@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ZookeeperNodeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Zookeeper node information.
@@ -88,17 +89,17 @@ zookeeperNodeInfo_attachedENIId = Lens.lens (\ZookeeperNodeInfo' {attachedENIId}
 zookeeperNodeInfo_zookeeperId :: Lens.Lens' ZookeeperNodeInfo (Prelude.Maybe Prelude.Double)
 zookeeperNodeInfo_zookeeperId = Lens.lens (\ZookeeperNodeInfo' {zookeeperId} -> zookeeperId) (\s@ZookeeperNodeInfo' {} a -> s {zookeeperId = a} :: ZookeeperNodeInfo)
 
-instance Core.FromJSON ZookeeperNodeInfo where
+instance Data.FromJSON ZookeeperNodeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ZookeeperNodeInfo"
       ( \x ->
           ZookeeperNodeInfo'
-            Prelude.<$> (x Core..:? "endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "zookeeperVersion")
-            Prelude.<*> (x Core..:? "clientVpcIpAddress")
-            Prelude.<*> (x Core..:? "attachedENIId")
-            Prelude.<*> (x Core..:? "zookeeperId")
+            Prelude.<$> (x Data..:? "endpoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "zookeeperVersion")
+            Prelude.<*> (x Data..:? "clientVpcIpAddress")
+            Prelude.<*> (x Data..:? "attachedENIId")
+            Prelude.<*> (x Data..:? "zookeeperId")
       )
 
 instance Prelude.Hashable ZookeeperNodeInfo where

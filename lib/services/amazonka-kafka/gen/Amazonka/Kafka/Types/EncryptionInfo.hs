@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.EncryptionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.EncryptionAtRest
 import Amazonka.Kafka.Types.EncryptionInTransit
 import qualified Amazonka.Prelude as Prelude
@@ -66,14 +67,14 @@ encryptionInfo_encryptionInTransit = Lens.lens (\EncryptionInfo' {encryptionInTr
 encryptionInfo_encryptionAtRest :: Lens.Lens' EncryptionInfo (Prelude.Maybe EncryptionAtRest)
 encryptionInfo_encryptionAtRest = Lens.lens (\EncryptionInfo' {encryptionAtRest} -> encryptionAtRest) (\s@EncryptionInfo' {} a -> s {encryptionAtRest = a} :: EncryptionInfo)
 
-instance Core.FromJSON EncryptionInfo where
+instance Data.FromJSON EncryptionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncryptionInfo"
       ( \x ->
           EncryptionInfo'
-            Prelude.<$> (x Core..:? "encryptionInTransit")
-            Prelude.<*> (x Core..:? "encryptionAtRest")
+            Prelude.<$> (x Data..:? "encryptionInTransit")
+            Prelude.<*> (x Data..:? "encryptionAtRest")
       )
 
 instance Prelude.Hashable EncryptionInfo where
@@ -86,13 +87,13 @@ instance Prelude.NFData EncryptionInfo where
     Prelude.rnf encryptionInTransit
       `Prelude.seq` Prelude.rnf encryptionAtRest
 
-instance Core.ToJSON EncryptionInfo where
+instance Data.ToJSON EncryptionInfo where
   toJSON EncryptionInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionInTransit" Core..=)
+          [ ("encryptionInTransit" Data..=)
               Prelude.<$> encryptionInTransit,
-            ("encryptionAtRest" Core..=)
+            ("encryptionAtRest" Data..=)
               Prelude.<$> encryptionAtRest
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.S3 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newS3' smart constructor.
@@ -67,15 +68,15 @@ s3_prefix = Lens.lens (\S3' {prefix} -> prefix) (\s@S3' {} a -> s {prefix = a} :
 s3_enabled :: Lens.Lens' S3 Prelude.Bool
 s3_enabled = Lens.lens (\S3' {enabled} -> enabled) (\s@S3' {} a -> s {enabled = a} :: S3)
 
-instance Core.FromJSON S3 where
+instance Data.FromJSON S3 where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3"
       ( \x ->
           S3'
-            Prelude.<$> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "prefix")
-            Prelude.<*> (x Core..: "enabled")
+            Prelude.<$> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable S3 where
@@ -90,12 +91,12 @@ instance Prelude.NFData S3 where
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON S3 where
+instance Data.ToJSON S3 where
   toJSON S3' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bucket" Core..=) Prelude.<$> bucket,
-            ("prefix" Core..=) Prelude.<$> prefix,
-            Prelude.Just ("enabled" Core..= enabled)
+          [ ("bucket" Data..=) Prelude.<$> bucket,
+            ("prefix" Data..=) Prelude.<$> prefix,
+            Prelude.Just ("enabled" Data..= enabled)
           ]
       )

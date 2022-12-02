@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Tls where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for client authentication using TLS.
@@ -61,16 +62,16 @@ tls_certificateAuthorityArnList = Lens.lens (\Tls' {certificateAuthorityArnList}
 tls_enabled :: Lens.Lens' Tls (Prelude.Maybe Prelude.Bool)
 tls_enabled = Lens.lens (\Tls' {enabled} -> enabled) (\s@Tls' {} a -> s {enabled = a} :: Tls)
 
-instance Core.FromJSON Tls where
+instance Data.FromJSON Tls where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Tls"
       ( \x ->
           Tls'
-            Prelude.<$> ( x Core..:? "certificateAuthorityArnList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "certificateAuthorityArnList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "enabled")
+            Prelude.<*> (x Data..:? "enabled")
       )
 
 instance Prelude.Hashable Tls where
@@ -84,12 +85,12 @@ instance Prelude.NFData Tls where
     Prelude.rnf certificateAuthorityArnList
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToJSON Tls where
+instance Data.ToJSON Tls where
   toJSON Tls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("certificateAuthorityArnList" Core..=)
+          [ ("certificateAuthorityArnList" Data..=)
               Prelude.<$> certificateAuthorityArnList,
-            ("enabled" Core..=) Prelude.<$> enabled
+            ("enabled" Data..=) Prelude.<$> enabled
           ]
       )

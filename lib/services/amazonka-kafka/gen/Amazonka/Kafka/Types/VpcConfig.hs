@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.VpcConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the Amazon VPCs for the cluster.
@@ -61,16 +62,16 @@ vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securi
 vpcConfig_subnetIds :: Lens.Lens' VpcConfig [Prelude.Text]
 vpcConfig_subnetIds = Lens.lens (\VpcConfig' {subnetIds} -> subnetIds) (\s@VpcConfig' {} a -> s {subnetIds = a} :: VpcConfig) Prelude.. Lens.coerced
 
-instance Core.FromJSON VpcConfig where
+instance Data.FromJSON VpcConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcConfig"
       ( \x ->
           VpcConfig'
-            Prelude.<$> ( x Core..:? "securityGroupIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "securityGroupIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VpcConfig where
@@ -83,12 +84,12 @@ instance Prelude.NFData VpcConfig where
     Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToJSON VpcConfig where
+instance Data.ToJSON VpcConfig where
   toJSON VpcConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("securityGroupIds" Core..=)
+          [ ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            Prelude.Just ("subnetIds" Core..= subnetIds)
+            Prelude.Just ("subnetIds" Data..= subnetIds)
           ]
       )

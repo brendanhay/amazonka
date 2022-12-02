@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ConfigurationRevision where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a configuration revision.
@@ -32,7 +33,7 @@ data ConfigurationRevision = ConfigurationRevision'
     -- | The revision number.
     revision :: Prelude.Integer,
     -- | The time when the configuration revision was created.
-    creationTime :: Core.POSIX
+    creationTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,7 +61,7 @@ newConfigurationRevision pRevision_ pCreationTime_ =
     { description =
         Prelude.Nothing,
       revision = pRevision_,
-      creationTime = Core._Time Lens.# pCreationTime_
+      creationTime = Data._Time Lens.# pCreationTime_
     }
 
 -- | The description of the configuration revision.
@@ -73,17 +74,17 @@ configurationRevision_revision = Lens.lens (\ConfigurationRevision' {revision} -
 
 -- | The time when the configuration revision was created.
 configurationRevision_creationTime :: Lens.Lens' ConfigurationRevision Prelude.UTCTime
-configurationRevision_creationTime = Lens.lens (\ConfigurationRevision' {creationTime} -> creationTime) (\s@ConfigurationRevision' {} a -> s {creationTime = a} :: ConfigurationRevision) Prelude.. Core._Time
+configurationRevision_creationTime = Lens.lens (\ConfigurationRevision' {creationTime} -> creationTime) (\s@ConfigurationRevision' {} a -> s {creationTime = a} :: ConfigurationRevision) Prelude.. Data._Time
 
-instance Core.FromJSON ConfigurationRevision where
+instance Data.FromJSON ConfigurationRevision where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConfigurationRevision"
       ( \x ->
           ConfigurationRevision'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..: "revision")
-            Prelude.<*> (x Core..: "creationTime")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..: "revision")
+            Prelude.<*> (x Data..: "creationTime")
       )
 
 instance Prelude.Hashable ConfigurationRevision where

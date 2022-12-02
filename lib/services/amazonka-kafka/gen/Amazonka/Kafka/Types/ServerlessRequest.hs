@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ServerlessRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ServerlessClientAuthentication
 import Amazonka.Kafka.Types.VpcConfig
 import qualified Amazonka.Prelude as Prelude
@@ -74,12 +75,12 @@ instance Prelude.NFData ServerlessRequest where
     Prelude.rnf clientAuthentication
       `Prelude.seq` Prelude.rnf vpcConfigs
 
-instance Core.ToJSON ServerlessRequest where
+instance Data.ToJSON ServerlessRequest where
   toJSON ServerlessRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientAuthentication" Core..=)
+          [ ("clientAuthentication" Data..=)
               Prelude.<$> clientAuthentication,
-            Prelude.Just ("vpcConfigs" Core..= vpcConfigs)
+            Prelude.Just ("vpcConfigs" Data..= vpcConfigs)
           ]
       )

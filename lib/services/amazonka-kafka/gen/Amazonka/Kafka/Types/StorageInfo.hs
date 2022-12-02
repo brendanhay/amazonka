@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.StorageInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.EBSStorageInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newStorageInfo =
 storageInfo_ebsStorageInfo :: Lens.Lens' StorageInfo (Prelude.Maybe EBSStorageInfo)
 storageInfo_ebsStorageInfo = Lens.lens (\StorageInfo' {ebsStorageInfo} -> ebsStorageInfo) (\s@StorageInfo' {} a -> s {ebsStorageInfo = a} :: StorageInfo)
 
-instance Core.FromJSON StorageInfo where
+instance Data.FromJSON StorageInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StorageInfo"
       ( \x ->
           StorageInfo'
-            Prelude.<$> (x Core..:? "ebsStorageInfo")
+            Prelude.<$> (x Data..:? "ebsStorageInfo")
       )
 
 instance Prelude.Hashable StorageInfo where
@@ -67,11 +68,11 @@ instance Prelude.Hashable StorageInfo where
 instance Prelude.NFData StorageInfo where
   rnf StorageInfo' {..} = Prelude.rnf ebsStorageInfo
 
-instance Core.ToJSON StorageInfo where
+instance Data.ToJSON StorageInfo where
   toJSON StorageInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ebsStorageInfo" Core..=)
+          [ ("ebsStorageInfo" Data..=)
               Prelude.<$> ebsStorageInfo
           ]
       )

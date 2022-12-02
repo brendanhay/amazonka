@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ServerlessClientAuthentication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ServerlessSasl
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newServerlessClientAuthentication =
 serverlessClientAuthentication_sasl :: Lens.Lens' ServerlessClientAuthentication (Prelude.Maybe ServerlessSasl)
 serverlessClientAuthentication_sasl = Lens.lens (\ServerlessClientAuthentication' {sasl} -> sasl) (\s@ServerlessClientAuthentication' {} a -> s {sasl = a} :: ServerlessClientAuthentication)
 
-instance Core.FromJSON ServerlessClientAuthentication where
+instance Data.FromJSON ServerlessClientAuthentication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServerlessClientAuthentication"
       ( \x ->
           ServerlessClientAuthentication'
-            Prelude.<$> (x Core..:? "sasl")
+            Prelude.<$> (x Data..:? "sasl")
       )
 
 instance
@@ -79,9 +80,9 @@ instance
   rnf ServerlessClientAuthentication' {..} =
     Prelude.rnf sasl
 
-instance Core.ToJSON ServerlessClientAuthentication where
+instance Data.ToJSON ServerlessClientAuthentication where
   toJSON ServerlessClientAuthentication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("sasl" Core..=) Prelude.<$> sasl]
+          [("sasl" Data..=) Prelude.<$> sasl]
       )

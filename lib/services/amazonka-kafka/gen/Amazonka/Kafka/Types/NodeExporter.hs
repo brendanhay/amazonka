@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.NodeExporter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether you want to turn on or turn off the Node Exporter.
@@ -52,13 +53,13 @@ newNodeExporter pEnabledInBroker_ =
 nodeExporter_enabledInBroker :: Lens.Lens' NodeExporter Prelude.Bool
 nodeExporter_enabledInBroker = Lens.lens (\NodeExporter' {enabledInBroker} -> enabledInBroker) (\s@NodeExporter' {} a -> s {enabledInBroker = a} :: NodeExporter)
 
-instance Core.FromJSON NodeExporter where
+instance Data.FromJSON NodeExporter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeExporter"
       ( \x ->
           NodeExporter'
-            Prelude.<$> (x Core..: "enabledInBroker")
+            Prelude.<$> (x Data..: "enabledInBroker")
       )
 
 instance Prelude.Hashable NodeExporter where

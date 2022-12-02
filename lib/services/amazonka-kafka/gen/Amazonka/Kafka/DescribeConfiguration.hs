@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,13 +93,13 @@ instance Core.AWSRequest DescribeConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationResponse'
-            Prelude.<$> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "kafkaVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<$> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "kafkaVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,23 +110,23 @@ instance Prelude.Hashable DescribeConfiguration where
 instance Prelude.NFData DescribeConfiguration where
   rnf DescribeConfiguration' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DescribeConfiguration where
+instance Data.ToHeaders DescribeConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeConfiguration where
+instance Data.ToPath DescribeConfiguration where
   toPath DescribeConfiguration' {..} =
     Prelude.mconcat
-      ["/v1/configurations/", Core.toBS arn]
+      ["/v1/configurations/", Data.toBS arn]
 
-instance Core.ToQuery DescribeConfiguration where
+instance Data.ToQuery DescribeConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConfigurationResponse' smart constructor.
@@ -145,7 +146,7 @@ data DescribeConfigurationResponse = DescribeConfigurationResponse'
     -- | The description of the configuration.
     description :: Prelude.Maybe Prelude.Text,
     -- | The time when the configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,7 +222,7 @@ describeConfigurationResponse_description = Lens.lens (\DescribeConfigurationRes
 
 -- | The time when the configuration was created.
 describeConfigurationResponse_creationTime :: Lens.Lens' DescribeConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeConfigurationResponse_creationTime = Lens.lens (\DescribeConfigurationResponse' {creationTime} -> creationTime) (\s@DescribeConfigurationResponse' {} a -> s {creationTime = a} :: DescribeConfigurationResponse) Prelude.. Lens.mapping Core._Time
+describeConfigurationResponse_creationTime = Lens.lens (\DescribeConfigurationResponse' {creationTime} -> creationTime) (\s@DescribeConfigurationResponse' {} a -> s {creationTime = a} :: DescribeConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeConfigurationResponse_httpStatus :: Lens.Lens' DescribeConfigurationResponse Prelude.Int

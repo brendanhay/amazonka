@@ -21,6 +21,7 @@ module Amazonka.LexRuntime.Types.ActiveContextTimeToLive where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The length of time or number of turns that a context remains active.
@@ -74,14 +75,14 @@ activeContextTimeToLive_timeToLiveInSeconds = Lens.lens (\ActiveContextTimeToLiv
 activeContextTimeToLive_turnsToLive :: Lens.Lens' ActiveContextTimeToLive (Prelude.Maybe Prelude.Natural)
 activeContextTimeToLive_turnsToLive = Lens.lens (\ActiveContextTimeToLive' {turnsToLive} -> turnsToLive) (\s@ActiveContextTimeToLive' {} a -> s {turnsToLive = a} :: ActiveContextTimeToLive)
 
-instance Core.FromJSON ActiveContextTimeToLive where
+instance Data.FromJSON ActiveContextTimeToLive where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActiveContextTimeToLive"
       ( \x ->
           ActiveContextTimeToLive'
-            Prelude.<$> (x Core..:? "timeToLiveInSeconds")
-            Prelude.<*> (x Core..:? "turnsToLive")
+            Prelude.<$> (x Data..:? "timeToLiveInSeconds")
+            Prelude.<*> (x Data..:? "turnsToLive")
       )
 
 instance Prelude.Hashable ActiveContextTimeToLive where
@@ -94,12 +95,12 @@ instance Prelude.NFData ActiveContextTimeToLive where
     Prelude.rnf timeToLiveInSeconds
       `Prelude.seq` Prelude.rnf turnsToLive
 
-instance Core.ToJSON ActiveContextTimeToLive where
+instance Data.ToJSON ActiveContextTimeToLive where
   toJSON ActiveContextTimeToLive' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("timeToLiveInSeconds" Core..=)
+          [ ("timeToLiveInSeconds" Data..=)
               Prelude.<$> timeToLiveInSeconds,
-            ("turnsToLive" Core..=) Prelude.<$> turnsToLive
+            ("turnsToLive" Data..=) Prelude.<$> turnsToLive
           ]
       )

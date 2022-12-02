@@ -21,6 +21,7 @@ module Amazonka.LexRuntime.Types.SentimentResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The sentiment expressed in an utterance.
@@ -69,14 +70,14 @@ sentimentResponse_sentimentLabel = Lens.lens (\SentimentResponse' {sentimentLabe
 sentimentResponse_sentimentScore :: Lens.Lens' SentimentResponse (Prelude.Maybe Prelude.Text)
 sentimentResponse_sentimentScore = Lens.lens (\SentimentResponse' {sentimentScore} -> sentimentScore) (\s@SentimentResponse' {} a -> s {sentimentScore = a} :: SentimentResponse)
 
-instance Core.FromJSON SentimentResponse where
+instance Data.FromJSON SentimentResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SentimentResponse"
       ( \x ->
           SentimentResponse'
-            Prelude.<$> (x Core..:? "sentimentLabel")
-            Prelude.<*> (x Core..:? "sentimentScore")
+            Prelude.<$> (x Data..:? "sentimentLabel")
+            Prelude.<*> (x Data..:? "sentimentScore")
       )
 
 instance Prelude.Hashable SentimentResponse where

@@ -21,6 +21,7 @@ module Amazonka.LexRuntime.Types.PredictedIntent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Types.IntentConfidence
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,7 +38,7 @@ data PredictedIntent = PredictedIntent'
     -- user\'s intent.
     nluIntentConfidence :: Prelude.Maybe IntentConfidence,
     -- | The slot and slot values associated with the predicted intent.
-    slots :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text))
+    slots :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -77,17 +78,17 @@ predictedIntent_nluIntentConfidence = Lens.lens (\PredictedIntent' {nluIntentCon
 
 -- | The slot and slot values associated with the predicted intent.
 predictedIntent_slots :: Lens.Lens' PredictedIntent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-predictedIntent_slots = Lens.lens (\PredictedIntent' {slots} -> slots) (\s@PredictedIntent' {} a -> s {slots = a} :: PredictedIntent) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+predictedIntent_slots = Lens.lens (\PredictedIntent' {slots} -> slots) (\s@PredictedIntent' {} a -> s {slots = a} :: PredictedIntent) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
-instance Core.FromJSON PredictedIntent where
+instance Data.FromJSON PredictedIntent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PredictedIntent"
       ( \x ->
           PredictedIntent'
-            Prelude.<$> (x Core..:? "intentName")
-            Prelude.<*> (x Core..:? "nluIntentConfidence")
-            Prelude.<*> (x Core..:? "slots" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "intentName")
+            Prelude.<*> (x Data..:? "nluIntentConfidence")
+            Prelude.<*> (x Data..:? "slots" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PredictedIntent where

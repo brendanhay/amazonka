@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,13 +138,13 @@ instance Core.AWSRequest GetSession where
     Response.receiveJSON
       ( \s h x ->
           GetSessionResponse'
-            Prelude.<$> (x Core..?> "dialogAction")
-            Prelude.<*> ( x Core..?> "sessionAttributes"
+            Prelude.<$> (x Data..?> "dialogAction")
+            Prelude.<*> ( x Data..?> "sessionAttributes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "sessionId")
-            Prelude.<*> (x Core..?> "activeContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "recentIntentSummaryView"
+            Prelude.<*> (x Data..?> "sessionId")
+            Prelude.<*> (x Data..?> "activeContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "recentIntentSummaryView"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,34 +164,34 @@ instance Prelude.NFData GetSession where
       `Prelude.seq` Prelude.rnf botAlias
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders GetSession where
+instance Data.ToHeaders GetSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSession where
+instance Data.ToPath GetSession where
   toPath GetSession' {..} =
     Prelude.mconcat
       [ "/bot/",
-        Core.toBS botName,
+        Data.toBS botName,
         "/alias/",
-        Core.toBS botAlias,
+        Data.toBS botAlias,
         "/user/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/session/"
       ]
 
-instance Core.ToQuery GetSession where
+instance Data.ToQuery GetSession where
   toQuery GetSession' {..} =
     Prelude.mconcat
       [ "checkpointLabelFilter"
-          Core.=: checkpointLabelFilter
+          Data.=: checkpointLabelFilter
       ]
 
 -- | /See:/ 'newGetSessionResponse' smart constructor.
@@ -200,7 +201,7 @@ data GetSessionResponse = GetSessionResponse'
     -- | Map of key\/value pairs representing the session-specific context
     -- information. It contains application information passed between Amazon
     -- Lex and a client application.
-    sessionAttributes :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    sessionAttributes :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | A unique identifier for the session.
     sessionId :: Prelude.Maybe Prelude.Text,
     -- | A list of active contexts for the session. A context can be set when an
@@ -209,7 +210,7 @@ data GetSessionResponse = GetSessionResponse'
     --
     -- You can use a context to control the intents that can follow up an
     -- intent, or to modify the operation of your application.
-    activeContexts :: Prelude.Maybe (Core.Sensitive [ActiveContext]),
+    activeContexts :: Prelude.Maybe (Data.Sensitive [ActiveContext]),
     -- | An array of information about the intents used in the session. The array
     -- can contain a maximum of three summaries. If more than three intents are
     -- used in the session, the @recentIntentSummaryView@ operation contains
@@ -277,7 +278,7 @@ getSessionResponse_dialogAction = Lens.lens (\GetSessionResponse' {dialogAction}
 -- information. It contains application information passed between Amazon
 -- Lex and a client application.
 getSessionResponse_sessionAttributes :: Lens.Lens' GetSessionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSessionResponse_sessionAttributes = Lens.lens (\GetSessionResponse' {sessionAttributes} -> sessionAttributes) (\s@GetSessionResponse' {} a -> s {sessionAttributes = a} :: GetSessionResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getSessionResponse_sessionAttributes = Lens.lens (\GetSessionResponse' {sessionAttributes} -> sessionAttributes) (\s@GetSessionResponse' {} a -> s {sessionAttributes = a} :: GetSessionResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A unique identifier for the session.
 getSessionResponse_sessionId :: Lens.Lens' GetSessionResponse (Prelude.Maybe Prelude.Text)
@@ -290,7 +291,7 @@ getSessionResponse_sessionId = Lens.lens (\GetSessionResponse' {sessionId} -> se
 -- You can use a context to control the intents that can follow up an
 -- intent, or to modify the operation of your application.
 getSessionResponse_activeContexts :: Lens.Lens' GetSessionResponse (Prelude.Maybe [ActiveContext])
-getSessionResponse_activeContexts = Lens.lens (\GetSessionResponse' {activeContexts} -> activeContexts) (\s@GetSessionResponse' {} a -> s {activeContexts = a} :: GetSessionResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+getSessionResponse_activeContexts = Lens.lens (\GetSessionResponse' {activeContexts} -> activeContexts) (\s@GetSessionResponse' {} a -> s {activeContexts = a} :: GetSessionResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An array of information about the intents used in the session. The array
 -- can contain a maximum of three summaries. If more than three intents are

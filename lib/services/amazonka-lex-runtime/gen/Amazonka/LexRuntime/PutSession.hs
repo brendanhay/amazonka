@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -77,7 +78,7 @@ data PutSession = PutSession'
     -- | Map of key\/value pairs representing the session-specific context
     -- information. It contains application information passed between Amazon
     -- Lex and a client application.
-    sessionAttributes :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    sessionAttributes :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The message that Amazon Lex returns in the response can be either text
     -- or speech based depending on the value of this field.
     --
@@ -112,7 +113,7 @@ data PutSession = PutSession'
     -- If you don\'t specify a list of contexts, Amazon Lex will use the
     -- current list of contexts for the session. If you specify an empty list,
     -- all contexts for the session are cleared.
-    activeContexts :: Prelude.Maybe (Core.Sensitive [ActiveContext]),
+    activeContexts :: Prelude.Maybe (Data.Sensitive [ActiveContext]),
     -- | A summary of the recent intents for the bot. You can use the intent
     -- summary view to set a checkpoint label on an intent and modify
     -- attributes of intents. You can also use it to remove or add intent
@@ -250,7 +251,7 @@ putSession_dialogAction = Lens.lens (\PutSession' {dialogAction} -> dialogAction
 -- information. It contains application information passed between Amazon
 -- Lex and a client application.
 putSession_sessionAttributes :: Lens.Lens' PutSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putSession_sessionAttributes = Lens.lens (\PutSession' {sessionAttributes} -> sessionAttributes) (\s@PutSession' {} a -> s {sessionAttributes = a} :: PutSession) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+putSession_sessionAttributes = Lens.lens (\PutSession' {sessionAttributes} -> sessionAttributes) (\s@PutSession' {} a -> s {sessionAttributes = a} :: PutSession) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The message that Amazon Lex returns in the response can be either text
 -- or speech based depending on the value of this field.
@@ -289,7 +290,7 @@ putSession_accept = Lens.lens (\PutSession' {accept} -> accept) (\s@PutSession' 
 -- current list of contexts for the session. If you specify an empty list,
 -- all contexts for the session are cleared.
 putSession_activeContexts :: Lens.Lens' PutSession (Prelude.Maybe [ActiveContext])
-putSession_activeContexts = Lens.lens (\PutSession' {activeContexts} -> activeContexts) (\s@PutSession' {} a -> s {activeContexts = a} :: PutSession) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+putSession_activeContexts = Lens.lens (\PutSession' {activeContexts} -> activeContexts) (\s@PutSession' {} a -> s {activeContexts = a} :: PutSession) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A summary of the recent intents for the bot. You can use the intent
 -- summary view to set a checkpoint label on an intent and modify
@@ -335,17 +336,17 @@ instance Core.AWSRequest PutSession where
     Response.receiveBody
       ( \s h x ->
           PutSessionResponse'
-            Prelude.<$> (h Core..#? "x-amz-lex-message")
-            Prelude.<*> (h Core..#? "x-amz-lex-slot-to-elicit")
-            Prelude.<*> (h Core..#? "x-amz-lex-dialog-state")
-            Prelude.<*> (h Core..#? "x-amz-lex-session-attributes")
-            Prelude.<*> (h Core..#? "x-amz-lex-message-format")
-            Prelude.<*> (h Core..#? "x-amz-lex-encoded-message")
-            Prelude.<*> (h Core..#? "x-amz-lex-session-id")
-            Prelude.<*> (h Core..#? "x-amz-lex-intent-name")
-            Prelude.<*> (h Core..#? "x-amz-lex-active-contexts")
-            Prelude.<*> (h Core..#? "x-amz-lex-slots")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<$> (h Data..#? "x-amz-lex-message")
+            Prelude.<*> (h Data..#? "x-amz-lex-slot-to-elicit")
+            Prelude.<*> (h Data..#? "x-amz-lex-dialog-state")
+            Prelude.<*> (h Data..#? "x-amz-lex-session-attributes")
+            Prelude.<*> (h Data..#? "x-amz-lex-message-format")
+            Prelude.<*> (h Data..#? "x-amz-lex-encoded-message")
+            Prelude.<*> (h Data..#? "x-amz-lex-session-id")
+            Prelude.<*> (h Data..#? "x-amz-lex-intent-name")
+            Prelude.<*> (h Data..#? "x-amz-lex-active-contexts")
+            Prelude.<*> (h Data..#? "x-amz-lex-slots")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -372,41 +373,41 @@ instance Prelude.NFData PutSession where
       `Prelude.seq` Prelude.rnf botAlias
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders PutSession where
+instance Data.ToHeaders PutSession where
   toHeaders PutSession' {..} =
     Prelude.mconcat
-      [ "Accept" Core.=# accept,
+      [ "Accept" Data.=# accept,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON PutSession where
+instance Data.ToJSON PutSession where
   toJSON PutSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dialogAction" Core..=) Prelude.<$> dialogAction,
-            ("sessionAttributes" Core..=)
+          [ ("dialogAction" Data..=) Prelude.<$> dialogAction,
+            ("sessionAttributes" Data..=)
               Prelude.<$> sessionAttributes,
-            ("activeContexts" Core..=)
+            ("activeContexts" Data..=)
               Prelude.<$> activeContexts,
-            ("recentIntentSummaryView" Core..=)
+            ("recentIntentSummaryView" Data..=)
               Prelude.<$> recentIntentSummaryView
           ]
       )
 
-instance Core.ToPath PutSession where
+instance Data.ToPath PutSession where
   toPath PutSession' {..} =
     Prelude.mconcat
       [ "/bot/",
-        Core.toBS botName,
+        Data.toBS botName,
         "/alias/",
-        Core.toBS botAlias,
+        Data.toBS botAlias,
         "/user/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/session"
       ]
 
-instance Core.ToQuery PutSession where
+instance Data.ToQuery PutSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutSessionResponse' smart constructor.
@@ -417,7 +418,7 @@ data PutSessionResponse = PutSessionResponse'
     -- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
     -- @message@ field is null. You should use the @encodedMessage@ field
     -- instead.
-    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    message :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | If the @dialogState@ is @ElicitSlot@, returns the name of the slot for
     -- which Amazon Lex is eliciting a value.
     slotToElicit :: Prelude.Maybe Prelude.Text,
@@ -459,13 +460,13 @@ data PutSessionResponse = PutSessionResponse'
     --
     -- The @encodedMessage@ field is base-64 encoded. You must decode the field
     -- before you can use the value.
-    encodedMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    encodedMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A unique identifier for the session.
     sessionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the current intent.
     intentName :: Prelude.Maybe Prelude.Text,
     -- | A list of active contexts for the session.
-    activeContexts :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    activeContexts :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Map of zero or more intent slots Amazon Lex detected from the user input
     -- during the conversation.
     --
@@ -484,7 +485,7 @@ data PutSessionResponse = PutSessionResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The audio version of the message to convey to the user.
-    audioStream :: Core.ResponseBody
+    audioStream :: Data.ResponseBody
   }
   deriving (Prelude.Show, Prelude.Generic)
 
@@ -573,7 +574,7 @@ newPutSessionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'audioStream'
-  Core.ResponseBody ->
+  Data.ResponseBody ->
   PutSessionResponse
 newPutSessionResponse pHttpStatus_ pAudioStream_ =
   PutSessionResponse'
@@ -599,7 +600,7 @@ newPutSessionResponse pHttpStatus_ pAudioStream_ =
 -- @message@ field is null. You should use the @encodedMessage@ field
 -- instead.
 putSessionResponse_message :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_message = Lens.lens (\PutSessionResponse' {message} -> message) (\s@PutSessionResponse' {} a -> s {message = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+putSessionResponse_message = Lens.lens (\PutSessionResponse' {message} -> message) (\s@PutSessionResponse' {} a -> s {message = a} :: PutSessionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | If the @dialogState@ is @ElicitSlot@, returns the name of the slot for
 -- which Amazon Lex is eliciting a value.
@@ -651,7 +652,7 @@ putSessionResponse_messageFormat = Lens.lens (\PutSessionResponse' {messageForma
 -- The @encodedMessage@ field is base-64 encoded. You must decode the field
 -- before you can use the value.
 putSessionResponse_encodedMessage :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_encodedMessage = Lens.lens (\PutSessionResponse' {encodedMessage} -> encodedMessage) (\s@PutSessionResponse' {} a -> s {encodedMessage = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+putSessionResponse_encodedMessage = Lens.lens (\PutSessionResponse' {encodedMessage} -> encodedMessage) (\s@PutSessionResponse' {} a -> s {encodedMessage = a} :: PutSessionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A unique identifier for the session.
 putSessionResponse_sessionId :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
@@ -663,7 +664,7 @@ putSessionResponse_intentName = Lens.lens (\PutSessionResponse' {intentName} -> 
 
 -- | A list of active contexts for the session.
 putSessionResponse_activeContexts :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_activeContexts = Lens.lens (\PutSessionResponse' {activeContexts} -> activeContexts) (\s@PutSessionResponse' {} a -> s {activeContexts = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+putSessionResponse_activeContexts = Lens.lens (\PutSessionResponse' {activeContexts} -> activeContexts) (\s@PutSessionResponse' {} a -> s {activeContexts = a} :: PutSessionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Map of zero or more intent slots Amazon Lex detected from the user input
 -- during the conversation.
@@ -689,5 +690,5 @@ putSessionResponse_httpStatus :: Lens.Lens' PutSessionResponse Prelude.Int
 putSessionResponse_httpStatus = Lens.lens (\PutSessionResponse' {httpStatus} -> httpStatus) (\s@PutSessionResponse' {} a -> s {httpStatus = a} :: PutSessionResponse)
 
 -- | The audio version of the message to convey to the user.
-putSessionResponse_audioStream :: Lens.Lens' PutSessionResponse Core.ResponseBody
+putSessionResponse_audioStream :: Lens.Lens' PutSessionResponse Data.ResponseBody
 putSessionResponse_audioStream = Lens.lens (\PutSessionResponse' {audioStream} -> audioStream) (\s@PutSessionResponse' {} a -> s {audioStream = a} :: PutSessionResponse)

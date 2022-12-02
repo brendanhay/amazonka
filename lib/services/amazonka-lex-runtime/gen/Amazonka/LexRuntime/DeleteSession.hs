@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -112,10 +113,10 @@ instance Core.AWSRequest DeleteSession where
     Response.receiveJSON
       ( \s h x ->
           DeleteSessionResponse'
-            Prelude.<$> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "sessionId")
-            Prelude.<*> (x Core..?> "userId")
-            Prelude.<*> (x Core..?> "botAlias")
+            Prelude.<$> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "sessionId")
+            Prelude.<*> (x Data..?> "userId")
+            Prelude.<*> (x Data..?> "botAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,30 +132,30 @@ instance Prelude.NFData DeleteSession where
       `Prelude.seq` Prelude.rnf botAlias
       `Prelude.seq` Prelude.rnf userId
 
-instance Core.ToHeaders DeleteSession where
+instance Data.ToHeaders DeleteSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteSession where
+instance Data.ToPath DeleteSession where
   toPath DeleteSession' {..} =
     Prelude.mconcat
       [ "/bot/",
-        Core.toBS botName,
+        Data.toBS botName,
         "/alias/",
-        Core.toBS botAlias,
+        Data.toBS botAlias,
         "/user/",
-        Core.toBS userId,
+        Data.toBS userId,
         "/session"
       ]
 
-instance Core.ToQuery DeleteSession where
+instance Data.ToQuery DeleteSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSessionResponse' smart constructor.

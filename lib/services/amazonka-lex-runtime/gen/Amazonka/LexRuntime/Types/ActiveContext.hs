@@ -21,6 +21,7 @@ module Amazonka.LexRuntime.Types.ActiveContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Types.ActiveContextTimeToLive
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,7 @@ data ActiveContext = ActiveContext'
     timeToLive :: ActiveContextTimeToLive,
     -- | State variables for the current context. You can use these values as
     -- default values for slots in subsequent events.
-    parameters :: Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)
+    parameters :: Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -82,15 +83,15 @@ activeContext_timeToLive = Lens.lens (\ActiveContext' {timeToLive} -> timeToLive
 activeContext_parameters :: Lens.Lens' ActiveContext (Prelude.HashMap Prelude.Text Prelude.Text)
 activeContext_parameters = Lens.lens (\ActiveContext' {parameters} -> parameters) (\s@ActiveContext' {} a -> s {parameters = a} :: ActiveContext) Prelude.. Lens.coerced
 
-instance Core.FromJSON ActiveContext where
+instance Data.FromJSON ActiveContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActiveContext"
       ( \x ->
           ActiveContext'
-            Prelude.<$> (x Core..: "name")
-            Prelude.<*> (x Core..: "timeToLive")
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "timeToLive")
+            Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ActiveContext where
@@ -105,12 +106,12 @@ instance Prelude.NFData ActiveContext where
       `Prelude.seq` Prelude.rnf timeToLive
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON ActiveContext where
+instance Data.ToJSON ActiveContext where
   toJSON ActiveContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("timeToLive" Core..= timeToLive),
-            Prelude.Just ("parameters" Core..= parameters)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("timeToLive" Data..= timeToLive),
+            Prelude.Just ("parameters" Data..= parameters)
           ]
       )

@@ -50,6 +50,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -63,11 +64,11 @@ data CreateBillingGroup = CreateBillingGroup'
     -- currently supported, but will be implemented in a future update.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the billing group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The account ID that serves as the main account in a billing group.
     primaryAccountId :: Prelude.Maybe Prelude.Text,
     -- | The billing group name. The names must be unique.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The set of accounts that will be under the billing group. The set of
     -- accounts resemble the linked accounts in a consolidated family.
     accountGrouping :: AccountGrouping,
@@ -119,7 +120,7 @@ newCreateBillingGroup
         clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
         primaryAccountId = Prelude.Nothing,
-        name = Core._Sensitive Lens.# pName_,
+        name = Data._Sensitive Lens.# pName_,
         accountGrouping = pAccountGrouping_,
         computationPreference = pComputationPreference_
       }
@@ -136,7 +137,7 @@ createBillingGroup_clientToken = Lens.lens (\CreateBillingGroup' {clientToken} -
 
 -- | The description of the billing group.
 createBillingGroup_description :: Lens.Lens' CreateBillingGroup (Prelude.Maybe Prelude.Text)
-createBillingGroup_description = Lens.lens (\CreateBillingGroup' {description} -> description) (\s@CreateBillingGroup' {} a -> s {description = a} :: CreateBillingGroup) Prelude.. Lens.mapping Core._Sensitive
+createBillingGroup_description = Lens.lens (\CreateBillingGroup' {description} -> description) (\s@CreateBillingGroup' {} a -> s {description = a} :: CreateBillingGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The account ID that serves as the main account in a billing group.
 createBillingGroup_primaryAccountId :: Lens.Lens' CreateBillingGroup (Prelude.Maybe Prelude.Text)
@@ -144,7 +145,7 @@ createBillingGroup_primaryAccountId = Lens.lens (\CreateBillingGroup' {primaryAc
 
 -- | The billing group name. The names must be unique.
 createBillingGroup_name :: Lens.Lens' CreateBillingGroup Prelude.Text
-createBillingGroup_name = Lens.lens (\CreateBillingGroup' {name} -> name) (\s@CreateBillingGroup' {} a -> s {name = a} :: CreateBillingGroup) Prelude.. Core._Sensitive
+createBillingGroup_name = Lens.lens (\CreateBillingGroup' {name} -> name) (\s@CreateBillingGroup' {} a -> s {name = a} :: CreateBillingGroup) Prelude.. Data._Sensitive
 
 -- | The set of accounts that will be under the billing group. The set of
 -- accounts resemble the linked accounts in a consolidated family.
@@ -166,7 +167,7 @@ instance Core.AWSRequest CreateBillingGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateBillingGroupResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,36 +191,36 @@ instance Prelude.NFData CreateBillingGroup where
       `Prelude.seq` Prelude.rnf accountGrouping
       `Prelude.seq` Prelude.rnf computationPreference
 
-instance Core.ToHeaders CreateBillingGroup where
+instance Data.ToHeaders CreateBillingGroup where
   toHeaders CreateBillingGroup' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateBillingGroup where
+instance Data.ToJSON CreateBillingGroup where
   toJSON CreateBillingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PrimaryAccountId" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("PrimaryAccountId" Data..=)
               Prelude.<$> primaryAccountId,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("AccountGrouping" Core..= accountGrouping),
+              ("AccountGrouping" Data..= accountGrouping),
             Prelude.Just
               ( "ComputationPreference"
-                  Core..= computationPreference
+                  Data..= computationPreference
               )
           ]
       )
 
-instance Core.ToPath CreateBillingGroup where
+instance Data.ToPath CreateBillingGroup where
   toPath = Prelude.const "/create-billing-group"
 
-instance Core.ToQuery CreateBillingGroup where
+instance Data.ToQuery CreateBillingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBillingGroupResponse' smart constructor.

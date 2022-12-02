@@ -23,6 +23,7 @@ import Amazonka.BillingConductor.Types.UpdateCustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemPercentageChargeDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of the new charge details of a custom line item. This
@@ -90,13 +91,13 @@ instance
       `Prelude.seq` Prelude.rnf percentage
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateCustomLineItemChargeDetails
   where
   toJSON UpdateCustomLineItemChargeDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Flat" Core..=) Prelude.<$> flat,
-            ("Percentage" Core..=) Prelude.<$> percentage
+          [ ("Flat" Data..=) Prelude.<$> flat,
+            ("Percentage" Data..=) Prelude.<$> percentage
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.BillingConductor.Types.BillingGroupStatus
 import Amazonka.BillingConductor.Types.ComputationPreference
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a billing group.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBillingGroupListElement' smart constructor.
 data BillingGroupListElement = BillingGroupListElement'
   { -- | The name of the billing group.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Number (ARN) that can be used to uniquely identify
     -- the billing group.
     arn :: Prelude.Maybe Prelude.Text,
@@ -41,7 +42,7 @@ data BillingGroupListElement = BillingGroupListElement'
     -- | The billing group status. Only one of the valid values can be used.
     status :: Prelude.Maybe BillingGroupStatus,
     -- | The description of the billing group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The most recent time when the billing group was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The time when the billing group was created.
@@ -98,7 +99,7 @@ newBillingGroupListElement =
 
 -- | The name of the billing group.
 billingGroupListElement_name :: Lens.Lens' BillingGroupListElement (Prelude.Maybe Prelude.Text)
-billingGroupListElement_name = Lens.lens (\BillingGroupListElement' {name} -> name) (\s@BillingGroupListElement' {} a -> s {name = a} :: BillingGroupListElement) Prelude.. Lens.mapping Core._Sensitive
+billingGroupListElement_name = Lens.lens (\BillingGroupListElement' {name} -> name) (\s@BillingGroupListElement' {} a -> s {name = a} :: BillingGroupListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Number (ARN) that can be used to uniquely identify
 -- the billing group.
@@ -119,7 +120,7 @@ billingGroupListElement_status = Lens.lens (\BillingGroupListElement' {status} -
 
 -- | The description of the billing group.
 billingGroupListElement_description :: Lens.Lens' BillingGroupListElement (Prelude.Maybe Prelude.Text)
-billingGroupListElement_description = Lens.lens (\BillingGroupListElement' {description} -> description) (\s@BillingGroupListElement' {} a -> s {description = a} :: BillingGroupListElement) Prelude.. Lens.mapping Core._Sensitive
+billingGroupListElement_description = Lens.lens (\BillingGroupListElement' {description} -> description) (\s@BillingGroupListElement' {} a -> s {description = a} :: BillingGroupListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The most recent time when the billing group was modified.
 billingGroupListElement_lastModifiedTime :: Lens.Lens' BillingGroupListElement (Prelude.Maybe Prelude.Integer)
@@ -137,22 +138,22 @@ billingGroupListElement_computationPreference = Lens.lens (\BillingGroupListElem
 billingGroupListElement_primaryAccountId :: Lens.Lens' BillingGroupListElement (Prelude.Maybe Prelude.Text)
 billingGroupListElement_primaryAccountId = Lens.lens (\BillingGroupListElement' {primaryAccountId} -> primaryAccountId) (\s@BillingGroupListElement' {} a -> s {primaryAccountId = a} :: BillingGroupListElement)
 
-instance Core.FromJSON BillingGroupListElement where
+instance Data.FromJSON BillingGroupListElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BillingGroupListElement"
       ( \x ->
           BillingGroupListElement'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ComputationPreference")
-            Prelude.<*> (x Core..:? "PrimaryAccountId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "StatusReason")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ComputationPreference")
+            Prelude.<*> (x Data..:? "PrimaryAccountId")
       )
 
 instance Prelude.Hashable BillingGroupListElement where

@@ -44,6 +44,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,7 +97,7 @@ instance Core.AWSRequest DeleteCustomLineItem where
     Response.receiveJSON
       ( \s h x ->
           DeleteCustomLineItemResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -110,31 +111,31 @@ instance Prelude.NFData DeleteCustomLineItem where
     Prelude.rnf billingPeriodRange
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders DeleteCustomLineItem where
+instance Data.ToHeaders DeleteCustomLineItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCustomLineItem where
+instance Data.ToJSON DeleteCustomLineItem where
   toJSON DeleteCustomLineItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BillingPeriodRange" Core..=)
+          [ ("BillingPeriodRange" Data..=)
               Prelude.<$> billingPeriodRange,
-            Prelude.Just ("Arn" Core..= arn)
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath DeleteCustomLineItem where
+instance Data.ToPath DeleteCustomLineItem where
   toPath = Prelude.const "/delete-custom-line-item"
 
-instance Core.ToQuery DeleteCustomLineItem where
+instance Data.ToQuery DeleteCustomLineItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCustomLineItemResponse' smart constructor.

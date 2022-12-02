@@ -54,6 +54,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -62,12 +63,12 @@ import qualified Amazonka.Response as Response
 data UpdateBillingGroup = UpdateBillingGroup'
   { -- | The name of the billing group. The names must be unique to each billing
     -- group.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The status of the billing group. Only one of the valid values can be
     -- used.
     status :: Prelude.Maybe BillingGroupStatus,
     -- | A description of the billing group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The preferences and settings that will be used to compute the Amazon Web
     -- Services charges for a billing group.
     computationPreference :: Prelude.Maybe ComputationPreference,
@@ -112,7 +113,7 @@ newUpdateBillingGroup pArn_ =
 -- | The name of the billing group. The names must be unique to each billing
 -- group.
 updateBillingGroup_name :: Lens.Lens' UpdateBillingGroup (Prelude.Maybe Prelude.Text)
-updateBillingGroup_name = Lens.lens (\UpdateBillingGroup' {name} -> name) (\s@UpdateBillingGroup' {} a -> s {name = a} :: UpdateBillingGroup) Prelude.. Lens.mapping Core._Sensitive
+updateBillingGroup_name = Lens.lens (\UpdateBillingGroup' {name} -> name) (\s@UpdateBillingGroup' {} a -> s {name = a} :: UpdateBillingGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The status of the billing group. Only one of the valid values can be
 -- used.
@@ -121,7 +122,7 @@ updateBillingGroup_status = Lens.lens (\UpdateBillingGroup' {status} -> status) 
 
 -- | A description of the billing group.
 updateBillingGroup_description :: Lens.Lens' UpdateBillingGroup (Prelude.Maybe Prelude.Text)
-updateBillingGroup_description = Lens.lens (\UpdateBillingGroup' {description} -> description) (\s@UpdateBillingGroup' {} a -> s {description = a} :: UpdateBillingGroup) Prelude.. Lens.mapping Core._Sensitive
+updateBillingGroup_description = Lens.lens (\UpdateBillingGroup' {description} -> description) (\s@UpdateBillingGroup' {} a -> s {description = a} :: UpdateBillingGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The preferences and settings that will be used to compute the Amazon Web
 -- Services charges for a billing group.
@@ -142,15 +143,15 @@ instance Core.AWSRequest UpdateBillingGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateBillingGroupResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "StatusReason")
-            Prelude.<*> (x Core..?> "Size")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "PricingPlanArn")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "PrimaryAccountId")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "StatusReason")
+            Prelude.<*> (x Data..?> "Size")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "PricingPlanArn")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "PrimaryAccountId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,41 +171,41 @@ instance Prelude.NFData UpdateBillingGroup where
       `Prelude.seq` Prelude.rnf computationPreference
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdateBillingGroup where
+instance Data.ToHeaders UpdateBillingGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateBillingGroup where
+instance Data.ToJSON UpdateBillingGroup where
   toJSON UpdateBillingGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ComputationPreference" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Description" Data..=) Prelude.<$> description,
+            ("ComputationPreference" Data..=)
               Prelude.<$> computationPreference,
-            Prelude.Just ("Arn" Core..= arn)
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdateBillingGroup where
+instance Data.ToPath UpdateBillingGroup where
   toPath = Prelude.const "/update-billing-group"
 
-instance Core.ToQuery UpdateBillingGroup where
+instance Data.ToQuery UpdateBillingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateBillingGroupResponse' smart constructor.
 data UpdateBillingGroupResponse = UpdateBillingGroupResponse'
   { -- | The name of the billing group. The names must be unique to each billing
     -- group.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the billing group that was updated.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The reason why the billing group is in its current status.
@@ -215,7 +216,7 @@ data UpdateBillingGroupResponse = UpdateBillingGroupResponse'
     -- used.
     status :: Prelude.Maybe BillingGroupStatus,
     -- | A description of the billing group.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the pricing plan to compute Amazon Web
     -- Services charges for the billing group.
     pricingPlanArn :: Prelude.Maybe Prelude.Text,
@@ -279,7 +280,7 @@ newUpdateBillingGroupResponse pHttpStatus_ =
 -- | The name of the billing group. The names must be unique to each billing
 -- group.
 updateBillingGroupResponse_name :: Lens.Lens' UpdateBillingGroupResponse (Prelude.Maybe Prelude.Text)
-updateBillingGroupResponse_name = Lens.lens (\UpdateBillingGroupResponse' {name} -> name) (\s@UpdateBillingGroupResponse' {} a -> s {name = a} :: UpdateBillingGroupResponse) Prelude.. Lens.mapping Core._Sensitive
+updateBillingGroupResponse_name = Lens.lens (\UpdateBillingGroupResponse' {name} -> name) (\s@UpdateBillingGroupResponse' {} a -> s {name = a} :: UpdateBillingGroupResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the billing group that was updated.
 updateBillingGroupResponse_arn :: Lens.Lens' UpdateBillingGroupResponse (Prelude.Maybe Prelude.Text)
@@ -300,7 +301,7 @@ updateBillingGroupResponse_status = Lens.lens (\UpdateBillingGroupResponse' {sta
 
 -- | A description of the billing group.
 updateBillingGroupResponse_description :: Lens.Lens' UpdateBillingGroupResponse (Prelude.Maybe Prelude.Text)
-updateBillingGroupResponse_description = Lens.lens (\UpdateBillingGroupResponse' {description} -> description) (\s@UpdateBillingGroupResponse' {} a -> s {description = a} :: UpdateBillingGroupResponse) Prelude.. Lens.mapping Core._Sensitive
+updateBillingGroupResponse_description = Lens.lens (\UpdateBillingGroupResponse' {description} -> description) (\s@UpdateBillingGroupResponse' {} a -> s {description = a} :: UpdateBillingGroupResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the pricing plan to compute Amazon Web
 -- Services charges for the billing group.

@@ -24,6 +24,7 @@ import Amazonka.BillingConductor.Types.CustomLineItemPercentageChargeDetails
 import Amazonka.BillingConductor.Types.CustomLineItemType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The charge details of a custom line item. It should contain only one of
@@ -98,12 +99,12 @@ instance Prelude.NFData CustomLineItemChargeDetails where
       `Prelude.seq` Prelude.rnf percentage
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON CustomLineItemChargeDetails where
+instance Data.ToJSON CustomLineItemChargeDetails where
   toJSON CustomLineItemChargeDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Flat" Core..=) Prelude.<$> flat,
-            ("Percentage" Core..=) Prelude.<$> percentage,
-            Prelude.Just ("Type" Core..= type')
+          [ ("Flat" Data..=) Prelude.<$> flat,
+            ("Percentage" Data..=) Prelude.<$> percentage,
+            Prelude.Just ("Type" Data..= type')
           ]
       )

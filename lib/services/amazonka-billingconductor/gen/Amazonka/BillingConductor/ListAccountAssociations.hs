@@ -51,6 +51,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,8 +164,8 @@ instance Core.AWSRequest ListAccountAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListAccountAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "LinkedAccounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "LinkedAccounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,31 +181,31 @@ instance Prelude.NFData ListAccountAssociations where
       `Prelude.seq` Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders ListAccountAssociations where
+instance Data.ToHeaders ListAccountAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAccountAssociations where
+instance Data.ToJSON ListAccountAssociations where
   toJSON ListAccountAssociations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Core..=) Prelude.<$> billingPeriod,
-            ("Filters" Core..=) Prelude.<$> filters
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+            ("Filters" Data..=) Prelude.<$> filters
           ]
       )
 
-instance Core.ToPath ListAccountAssociations where
+instance Data.ToPath ListAccountAssociations where
   toPath = Prelude.const "/list-account-associations"
 
-instance Core.ToQuery ListAccountAssociations where
+instance Data.ToQuery ListAccountAssociations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAccountAssociationsResponse' smart constructor.

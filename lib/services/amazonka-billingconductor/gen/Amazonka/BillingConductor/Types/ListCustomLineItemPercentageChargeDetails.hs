@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ListCustomLineItemPercentageChargeDetails
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of the charge details that are associated with a
@@ -64,15 +65,15 @@ listCustomLineItemPercentageChargeDetails_percentageValue :: Lens.Lens' ListCust
 listCustomLineItemPercentageChargeDetails_percentageValue = Lens.lens (\ListCustomLineItemPercentageChargeDetails' {percentageValue} -> percentageValue) (\s@ListCustomLineItemPercentageChargeDetails' {} a -> s {percentageValue = a} :: ListCustomLineItemPercentageChargeDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListCustomLineItemPercentageChargeDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListCustomLineItemPercentageChargeDetails"
       ( \x ->
           ListCustomLineItemPercentageChargeDetails'
-            Prelude.<$> (x Core..: "PercentageValue")
+            Prelude.<$> (x Data..: "PercentageValue")
       )
 
 instance

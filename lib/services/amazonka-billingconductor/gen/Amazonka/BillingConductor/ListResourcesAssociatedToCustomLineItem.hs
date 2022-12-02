@@ -50,6 +50,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -165,11 +166,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListResourcesAssociatedToCustomLineItemResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "AssociatedResources"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "AssociatedResources"
                               Core..!@ Prelude.mempty
                           )
-              Prelude.<*> (x Core..?> "Arn")
+              Prelude.<*> (x Data..?> "Arn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,36 +199,36 @@ instance
       `Prelude.seq` Prelude.rnf arn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListResourcesAssociatedToCustomLineItem
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListResourcesAssociatedToCustomLineItem
   where
   toJSON ListResourcesAssociatedToCustomLineItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Core..=) Prelude.<$> billingPeriod,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Arn" Core..= arn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListResourcesAssociatedToCustomLineItem
   where
   toPath =
@@ -235,7 +236,7 @@ instance
       "/list-resources-associated-to-custom-line-item"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListResourcesAssociatedToCustomLineItem
   where
   toQuery = Prelude.const Prelude.mempty

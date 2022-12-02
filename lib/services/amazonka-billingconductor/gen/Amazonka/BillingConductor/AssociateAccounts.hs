@@ -47,6 +47,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest AssociateAccounts where
     Response.receiveJSON
       ( \s h x ->
           AssociateAccountsResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,30 +119,30 @@ instance Prelude.NFData AssociateAccounts where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToHeaders AssociateAccounts where
+instance Data.ToHeaders AssociateAccounts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateAccounts where
+instance Data.ToJSON AssociateAccounts where
   toJSON AssociateAccounts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
-            Prelude.Just ("AccountIds" Core..= accountIds)
+          [ Prelude.Just ("Arn" Data..= arn),
+            Prelude.Just ("AccountIds" Data..= accountIds)
           ]
       )
 
-instance Core.ToPath AssociateAccounts where
+instance Data.ToPath AssociateAccounts where
   toPath = Prelude.const "/associate-accounts"
 
-instance Core.ToQuery AssociateAccounts where
+instance Data.ToQuery AssociateAccounts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateAccountsResponse' smart constructor.

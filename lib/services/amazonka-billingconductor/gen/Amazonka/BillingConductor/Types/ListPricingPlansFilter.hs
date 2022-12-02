@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ListPricingPlansFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter that specifies the Amazon Resource Names (ARNs) of pricing
@@ -61,9 +62,9 @@ instance Prelude.Hashable ListPricingPlansFilter where
 instance Prelude.NFData ListPricingPlansFilter where
   rnf ListPricingPlansFilter' {..} = Prelude.rnf arns
 
-instance Core.ToJSON ListPricingPlansFilter where
+instance Data.ToJSON ListPricingPlansFilter where
   toJSON ListPricingPlansFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Arns" Core..=) Prelude.<$> arns]
+          [("Arns" Data..=) Prelude.<$> arns]
       )

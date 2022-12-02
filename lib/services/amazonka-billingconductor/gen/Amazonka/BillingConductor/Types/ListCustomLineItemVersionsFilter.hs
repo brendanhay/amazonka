@@ -22,6 +22,7 @@ module Amazonka.BillingConductor.Types.ListCustomLineItemVersionsFilter where
 import Amazonka.BillingConductor.Types.ListCustomLineItemVersionsBillingPeriodRangeFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter that specifies the billing period range where the custom line
@@ -74,11 +75,11 @@ instance
   rnf ListCustomLineItemVersionsFilter' {..} =
     Prelude.rnf billingPeriodRange
 
-instance Core.ToJSON ListCustomLineItemVersionsFilter where
+instance Data.ToJSON ListCustomLineItemVersionsFilter where
   toJSON ListCustomLineItemVersionsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BillingPeriodRange" Core..=)
+          [ ("BillingPeriodRange" Data..=)
               Prelude.<$> billingPeriodRange
           ]
       )

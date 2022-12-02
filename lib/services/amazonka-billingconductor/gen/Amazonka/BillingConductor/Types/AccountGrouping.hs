@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.AccountGrouping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The set of accounts that will be under the billing group. The set of
@@ -70,11 +71,11 @@ instance Prelude.NFData AccountGrouping where
   rnf AccountGrouping' {..} =
     Prelude.rnf linkedAccountIds
 
-instance Core.ToJSON AccountGrouping where
+instance Data.ToJSON AccountGrouping where
   toJSON AccountGrouping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("LinkedAccountIds" Core..= linkedAccountIds)
+              ("LinkedAccountIds" Data..= linkedAccountIds)
           ]
       )

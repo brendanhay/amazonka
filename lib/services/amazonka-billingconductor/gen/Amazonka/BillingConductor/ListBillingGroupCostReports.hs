@@ -50,6 +50,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListBillingGroupCostReports where
     Response.receiveJSON
       ( \s h x ->
           ListBillingGroupCostReportsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "BillingGroupCostReports"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "BillingGroupCostReports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -165,33 +166,33 @@ instance Prelude.NFData ListBillingGroupCostReports where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListBillingGroupCostReports where
+instance Data.ToHeaders ListBillingGroupCostReports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListBillingGroupCostReports where
+instance Data.ToJSON ListBillingGroupCostReports where
   toJSON ListBillingGroupCostReports' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Core..=) Prelude.<$> billingPeriod,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListBillingGroupCostReports where
+instance Data.ToPath ListBillingGroupCostReports where
   toPath =
     Prelude.const "/list-billing-group-cost-reports"
 
-instance Core.ToQuery ListBillingGroupCostReports where
+instance Data.ToQuery ListBillingGroupCostReports where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListBillingGroupCostReportsResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.BillingConductor.Types.ListResourcesAssociatedToCustomLineItemRe
 import Amazonka.BillingConductor.Types.CustomLineItemRelationship
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a resource association for a custom line item.
@@ -78,17 +79,17 @@ listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod :: Lens.
 listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod = Lens.lens (\ListResourcesAssociatedToCustomLineItemResponseElement' {endBillingPeriod} -> endBillingPeriod) (\s@ListResourcesAssociatedToCustomLineItemResponseElement' {} a -> s {endBillingPeriod = a} :: ListResourcesAssociatedToCustomLineItemResponseElement)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListResourcesAssociatedToCustomLineItemResponseElement
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListResourcesAssociatedToCustomLineItemResponseElement"
       ( \x ->
           ListResourcesAssociatedToCustomLineItemResponseElement'
-            Prelude.<$> (x Core..:? "Relationship")
-              Prelude.<*> (x Core..:? "Arn")
-              Prelude.<*> (x Core..:? "EndBillingPeriod")
+            Prelude.<$> (x Data..:? "Relationship")
+              Prelude.<*> (x Data..:? "Arn")
+              Prelude.<*> (x Data..:? "EndBillingPeriod")
       )
 
 instance

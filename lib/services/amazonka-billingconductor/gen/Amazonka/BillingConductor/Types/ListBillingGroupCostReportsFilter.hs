@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ListBillingGroupCostReportsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The filter used to retrieve specific @BillingGroupCostReportElements@.
@@ -73,13 +74,13 @@ instance
     Prelude.rnf billingGroupArns
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListBillingGroupCostReportsFilter
   where
   toJSON ListBillingGroupCostReportsFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("BillingGroupArns" Core..=)
+          [ ("BillingGroupArns" Data..=)
               Prelude.<$> billingGroupArns
           ]
       )

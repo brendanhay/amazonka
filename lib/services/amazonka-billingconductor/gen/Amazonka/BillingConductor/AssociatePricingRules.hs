@@ -45,6 +45,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest AssociatePricingRules where
     Response.receiveJSON
       ( \s h x ->
           AssociatePricingRulesResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,31 +115,31 @@ instance Prelude.NFData AssociatePricingRules where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf pricingRuleArns
 
-instance Core.ToHeaders AssociatePricingRules where
+instance Data.ToHeaders AssociatePricingRules where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociatePricingRules where
+instance Data.ToJSON AssociatePricingRules where
   toJSON AssociatePricingRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
+          [ Prelude.Just ("Arn" Data..= arn),
             Prelude.Just
-              ("PricingRuleArns" Core..= pricingRuleArns)
+              ("PricingRuleArns" Data..= pricingRuleArns)
           ]
       )
 
-instance Core.ToPath AssociatePricingRules where
+instance Data.ToPath AssociatePricingRules where
   toPath = Prelude.const "/associate-pricing-rules"
 
-instance Core.ToQuery AssociatePricingRules where
+instance Data.ToQuery AssociatePricingRules where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociatePricingRulesResponse' smart constructor.

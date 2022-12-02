@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.BillingGroupCostReportElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary report of actual Amazon Web Services charges and calculated
@@ -103,18 +104,18 @@ billingGroupCostReportElement_currency = Lens.lens (\BillingGroupCostReportEleme
 billingGroupCostReportElement_margin :: Lens.Lens' BillingGroupCostReportElement (Prelude.Maybe Prelude.Text)
 billingGroupCostReportElement_margin = Lens.lens (\BillingGroupCostReportElement' {margin} -> margin) (\s@BillingGroupCostReportElement' {} a -> s {margin = a} :: BillingGroupCostReportElement)
 
-instance Core.FromJSON BillingGroupCostReportElement where
+instance Data.FromJSON BillingGroupCostReportElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BillingGroupCostReportElement"
       ( \x ->
           BillingGroupCostReportElement'
-            Prelude.<$> (x Core..:? "ProformaCost")
-            Prelude.<*> (x Core..:? "MarginPercentage")
-            Prelude.<*> (x Core..:? "AWSCost")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Currency")
-            Prelude.<*> (x Core..:? "Margin")
+            Prelude.<$> (x Data..:? "ProformaCost")
+            Prelude.<*> (x Data..:? "MarginPercentage")
+            Prelude.<*> (x Data..:? "AWSCost")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Currency")
+            Prelude.<*> (x Data..:? "Margin")
       )
 
 instance

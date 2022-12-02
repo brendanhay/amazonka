@@ -43,6 +43,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest DisassociateAccounts where
     Response.receiveJSON
       ( \s h x ->
           DisassociateAccountsResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,30 +115,30 @@ instance Prelude.NFData DisassociateAccounts where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf accountIds
 
-instance Core.ToHeaders DisassociateAccounts where
+instance Data.ToHeaders DisassociateAccounts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateAccounts where
+instance Data.ToJSON DisassociateAccounts where
   toJSON DisassociateAccounts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Core..= arn),
-            Prelude.Just ("AccountIds" Core..= accountIds)
+          [ Prelude.Just ("Arn" Data..= arn),
+            Prelude.Just ("AccountIds" Data..= accountIds)
           ]
       )
 
-instance Core.ToPath DisassociateAccounts where
+instance Data.ToPath DisassociateAccounts where
   toPath = Prelude.const "/disassociate-accounts"
 
-instance Core.ToQuery DisassociateAccounts where
+instance Data.ToQuery DisassociateAccounts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateAccountsResponse' smart constructor.

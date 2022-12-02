@@ -51,6 +51,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,10 +67,10 @@ data CreateCustomLineItem = CreateCustomLineItem'
     -- | A time range for which the custom line item is effective.
     billingPeriodRange :: Prelude.Maybe CustomLineItemBillingPeriodRange,
     -- | The name of the custom line item.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The description of the custom line item. This is shown on the Bills page
     -- in association with the charge value.
-    description :: Core.Sensitive Prelude.Text,
+    description :: Data.Sensitive Prelude.Text,
     -- | The Amazon Resource Name (ARN) that references the billing group where
     -- the custom line item applies to.
     billingGroupArn :: Prelude.Text,
@@ -124,8 +125,8 @@ newCreateCustomLineItem
       { tags = Prelude.Nothing,
         clientToken = Prelude.Nothing,
         billingPeriodRange = Prelude.Nothing,
-        name = Core._Sensitive Lens.# pName_,
-        description = Core._Sensitive Lens.# pDescription_,
+        name = Data._Sensitive Lens.# pName_,
+        description = Data._Sensitive Lens.# pDescription_,
         billingGroupArn = pBillingGroupArn_,
         chargeDetails = pChargeDetails_
       }
@@ -146,12 +147,12 @@ createCustomLineItem_billingPeriodRange = Lens.lens (\CreateCustomLineItem' {bil
 
 -- | The name of the custom line item.
 createCustomLineItem_name :: Lens.Lens' CreateCustomLineItem Prelude.Text
-createCustomLineItem_name = Lens.lens (\CreateCustomLineItem' {name} -> name) (\s@CreateCustomLineItem' {} a -> s {name = a} :: CreateCustomLineItem) Prelude.. Core._Sensitive
+createCustomLineItem_name = Lens.lens (\CreateCustomLineItem' {name} -> name) (\s@CreateCustomLineItem' {} a -> s {name = a} :: CreateCustomLineItem) Prelude.. Data._Sensitive
 
 -- | The description of the custom line item. This is shown on the Bills page
 -- in association with the charge value.
 createCustomLineItem_description :: Lens.Lens' CreateCustomLineItem Prelude.Text
-createCustomLineItem_description = Lens.lens (\CreateCustomLineItem' {description} -> description) (\s@CreateCustomLineItem' {} a -> s {description = a} :: CreateCustomLineItem) Prelude.. Core._Sensitive
+createCustomLineItem_description = Lens.lens (\CreateCustomLineItem' {description} -> description) (\s@CreateCustomLineItem' {} a -> s {description = a} :: CreateCustomLineItem) Prelude.. Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) that references the billing group where
 -- the custom line item applies to.
@@ -173,7 +174,7 @@ instance Core.AWSRequest CreateCustomLineItem where
     Response.receiveJSON
       ( \s h x ->
           CreateCustomLineItemResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,34 +198,34 @@ instance Prelude.NFData CreateCustomLineItem where
       `Prelude.seq` Prelude.rnf billingGroupArn
       `Prelude.seq` Prelude.rnf chargeDetails
 
-instance Core.ToHeaders CreateCustomLineItem where
+instance Data.ToHeaders CreateCustomLineItem where
   toHeaders CreateCustomLineItem' {..} =
     Prelude.mconcat
-      [ "X-Amzn-Client-Token" Core.=# clientToken,
+      [ "X-Amzn-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateCustomLineItem where
+instance Data.ToJSON CreateCustomLineItem where
   toJSON CreateCustomLineItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("BillingPeriodRange" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("BillingPeriodRange" Data..=)
               Prelude.<$> billingPeriodRange,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Description" Core..= description),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Description" Data..= description),
             Prelude.Just
-              ("BillingGroupArn" Core..= billingGroupArn),
+              ("BillingGroupArn" Data..= billingGroupArn),
             Prelude.Just
-              ("ChargeDetails" Core..= chargeDetails)
+              ("ChargeDetails" Data..= chargeDetails)
           ]
       )
 
-instance Core.ToPath CreateCustomLineItem where
+instance Data.ToPath CreateCustomLineItem where
   toPath = Prelude.const "/create-custom-line-item"
 
-instance Core.ToQuery CreateCustomLineItem where
+instance Data.ToQuery CreateCustomLineItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCustomLineItemResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.CustomLineItemBillingPeriodRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The billing period range in which the custom line item request will be
@@ -92,15 +93,15 @@ instance
     Prelude.rnf exclusiveEndBillingPeriod
       `Prelude.seq` Prelude.rnf inclusiveStartBillingPeriod
 
-instance Core.ToJSON CustomLineItemBillingPeriodRange where
+instance Data.ToJSON CustomLineItemBillingPeriodRange where
   toJSON CustomLineItemBillingPeriodRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExclusiveEndBillingPeriod" Core..=)
+          [ ("ExclusiveEndBillingPeriod" Data..=)
               Prelude.<$> exclusiveEndBillingPeriod,
             Prelude.Just
               ( "InclusiveStartBillingPeriod"
-                  Core..= inclusiveStartBillingPeriod
+                  Data..= inclusiveStartBillingPeriod
               )
           ]
       )

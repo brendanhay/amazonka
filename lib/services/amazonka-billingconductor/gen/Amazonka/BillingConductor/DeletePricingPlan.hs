@@ -43,6 +43,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest DeletePricingPlan where
     Response.receiveJSON
       ( \s h x ->
           DeletePricingPlanResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,28 +99,28 @@ instance Prelude.Hashable DeletePricingPlan where
 instance Prelude.NFData DeletePricingPlan where
   rnf DeletePricingPlan' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeletePricingPlan where
+instance Data.ToHeaders DeletePricingPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeletePricingPlan where
+instance Data.ToJSON DeletePricingPlan where
   toJSON DeletePricingPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Arn" Core..= arn)]
+          [Prelude.Just ("Arn" Data..= arn)]
       )
 
-instance Core.ToPath DeletePricingPlan where
+instance Data.ToPath DeletePricingPlan where
   toPath = Prelude.const "/delete-pricing-plan"
 
-instance Core.ToQuery DeletePricingPlan where
+instance Data.ToQuery DeletePricingPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePricingPlanResponse' smart constructor.

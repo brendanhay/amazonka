@@ -22,6 +22,7 @@ module Amazonka.BillingConductor.Types.ListResourcesAssociatedToCustomLineItemFi
 import Amazonka.BillingConductor.Types.CustomLineItemRelationship
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter that specifies the type of resource associations that should be
@@ -76,12 +77,12 @@ instance
       Prelude.rnf relationship
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListResourcesAssociatedToCustomLineItemFilter
   where
   toJSON
     ListResourcesAssociatedToCustomLineItemFilter' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("Relationship" Core..=) Prelude.<$> relationship]
+            [("Relationship" Data..=) Prelude.<$> relationship]
         )

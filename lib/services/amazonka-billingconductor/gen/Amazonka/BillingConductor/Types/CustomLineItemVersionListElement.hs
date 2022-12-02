@@ -23,6 +23,7 @@ import Amazonka.BillingConductor.Types.CurrencyCode
 import Amazonka.BillingConductor.Types.ListCustomLineItemChargeDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a custom line item version.
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCustomLineItemVersionListElement' smart constructor.
 data CustomLineItemVersionListElement = CustomLineItemVersionListElement'
   { -- | The name of the custom line item.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     chargeDetails :: Prelude.Maybe ListCustomLineItemChargeDetails,
     -- | The Amazon Resource Name (ARN) of the billing group that the custom line
     -- item applies to.
@@ -40,7 +41,7 @@ data CustomLineItemVersionListElement = CustomLineItemVersionListElement'
     -- | The product code that’s associated with the custom line item.
     productCode :: Prelude.Maybe Prelude.Text,
     -- | The description of the custom line item.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The charge value currency of the custom line item.
     currencyCode :: Prelude.Maybe CurrencyCode,
     -- | The most recent time that the custom line item version was modified.
@@ -104,7 +105,7 @@ newCustomLineItemVersionListElement =
 
 -- | The name of the custom line item.
 customLineItemVersionListElement_name :: Lens.Lens' CustomLineItemVersionListElement (Prelude.Maybe Prelude.Text)
-customLineItemVersionListElement_name = Lens.lens (\CustomLineItemVersionListElement' {name} -> name) (\s@CustomLineItemVersionListElement' {} a -> s {name = a} :: CustomLineItemVersionListElement) Prelude.. Lens.mapping Core._Sensitive
+customLineItemVersionListElement_name = Lens.lens (\CustomLineItemVersionListElement' {name} -> name) (\s@CustomLineItemVersionListElement' {} a -> s {name = a} :: CustomLineItemVersionListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Undocumented member.
 customLineItemVersionListElement_chargeDetails :: Lens.Lens' CustomLineItemVersionListElement (Prelude.Maybe ListCustomLineItemChargeDetails)
@@ -125,7 +126,7 @@ customLineItemVersionListElement_productCode = Lens.lens (\CustomLineItemVersion
 
 -- | The description of the custom line item.
 customLineItemVersionListElement_description :: Lens.Lens' CustomLineItemVersionListElement (Prelude.Maybe Prelude.Text)
-customLineItemVersionListElement_description = Lens.lens (\CustomLineItemVersionListElement' {description} -> description) (\s@CustomLineItemVersionListElement' {} a -> s {description = a} :: CustomLineItemVersionListElement) Prelude.. Lens.mapping Core._Sensitive
+customLineItemVersionListElement_description = Lens.lens (\CustomLineItemVersionListElement' {description} -> description) (\s@CustomLineItemVersionListElement' {} a -> s {description = a} :: CustomLineItemVersionListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The charge value currency of the custom line item.
 customLineItemVersionListElement_currencyCode :: Lens.Lens' CustomLineItemVersionListElement (Prelude.Maybe CurrencyCode)
@@ -148,25 +149,25 @@ customLineItemVersionListElement_creationTime :: Lens.Lens' CustomLineItemVersio
 customLineItemVersionListElement_creationTime = Lens.lens (\CustomLineItemVersionListElement' {creationTime} -> creationTime) (\s@CustomLineItemVersionListElement' {} a -> s {creationTime = a} :: CustomLineItemVersionListElement)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomLineItemVersionListElement
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomLineItemVersionListElement"
       ( \x ->
           CustomLineItemVersionListElement'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ChargeDetails")
-            Prelude.<*> (x Core..:? "BillingGroupArn")
-            Prelude.<*> (x Core..:? "AssociationSize")
-            Prelude.<*> (x Core..:? "ProductCode")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "StartBillingPeriod")
-            Prelude.<*> (x Core..:? "EndBillingPeriod")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ChargeDetails")
+            Prelude.<*> (x Data..:? "BillingGroupArn")
+            Prelude.<*> (x Data..:? "AssociationSize")
+            Prelude.<*> (x Data..:? "ProductCode")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "StartBillingPeriod")
+            Prelude.<*> (x Data..:? "EndBillingPeriod")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance

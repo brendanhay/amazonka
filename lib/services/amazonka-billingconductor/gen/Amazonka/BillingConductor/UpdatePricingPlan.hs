@@ -48,6 +48,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,9 +57,9 @@ import qualified Amazonka.Response as Response
 data UpdatePricingPlan = UpdatePricingPlan'
   { -- | The name of the pricing plan. The name must be unique to each pricing
     -- plan.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The description of the pricing plan.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the pricing plan that you\'re
     -- updating.
     arn :: Prelude.Text
@@ -94,11 +95,11 @@ newUpdatePricingPlan pArn_ =
 -- | The name of the pricing plan. The name must be unique to each pricing
 -- plan.
 updatePricingPlan_name :: Lens.Lens' UpdatePricingPlan (Prelude.Maybe Prelude.Text)
-updatePricingPlan_name = Lens.lens (\UpdatePricingPlan' {name} -> name) (\s@UpdatePricingPlan' {} a -> s {name = a} :: UpdatePricingPlan) Prelude.. Lens.mapping Core._Sensitive
+updatePricingPlan_name = Lens.lens (\UpdatePricingPlan' {name} -> name) (\s@UpdatePricingPlan' {} a -> s {name = a} :: UpdatePricingPlan) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The description of the pricing plan.
 updatePricingPlan_description :: Lens.Lens' UpdatePricingPlan (Prelude.Maybe Prelude.Text)
-updatePricingPlan_description = Lens.lens (\UpdatePricingPlan' {description} -> description) (\s@UpdatePricingPlan' {} a -> s {description = a} :: UpdatePricingPlan) Prelude.. Lens.mapping Core._Sensitive
+updatePricingPlan_description = Lens.lens (\UpdatePricingPlan' {description} -> description) (\s@UpdatePricingPlan' {} a -> s {description = a} :: UpdatePricingPlan) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the pricing plan that you\'re
 -- updating.
@@ -115,11 +116,11 @@ instance Core.AWSRequest UpdatePricingPlan where
     Response.receiveJSON
       ( \s h x ->
           UpdatePricingPlanResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Size")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Size")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,45 +136,45 @@ instance Prelude.NFData UpdatePricingPlan where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders UpdatePricingPlan where
+instance Data.ToHeaders UpdatePricingPlan where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePricingPlan where
+instance Data.ToJSON UpdatePricingPlan where
   toJSON UpdatePricingPlan' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Arn" Core..= arn)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath UpdatePricingPlan where
+instance Data.ToPath UpdatePricingPlan where
   toPath = Prelude.const "/update-pricing-plan"
 
-instance Core.ToQuery UpdatePricingPlan where
+instance Data.ToQuery UpdatePricingPlan where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePricingPlanResponse' smart constructor.
 data UpdatePricingPlanResponse = UpdatePricingPlanResponse'
   { -- | The name of the pricing plan. The name must be unique to each pricing
     -- plan.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the updated pricing plan.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The pricing rules count that\'s currently associated with this pricing
     -- plan list.
     size :: Prelude.Maybe Prelude.Natural,
     -- | The new description for the pricing rule.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The most recent time when the pricing plan was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
@@ -219,7 +220,7 @@ newUpdatePricingPlanResponse pHttpStatus_ =
 -- | The name of the pricing plan. The name must be unique to each pricing
 -- plan.
 updatePricingPlanResponse_name :: Lens.Lens' UpdatePricingPlanResponse (Prelude.Maybe Prelude.Text)
-updatePricingPlanResponse_name = Lens.lens (\UpdatePricingPlanResponse' {name} -> name) (\s@UpdatePricingPlanResponse' {} a -> s {name = a} :: UpdatePricingPlanResponse) Prelude.. Lens.mapping Core._Sensitive
+updatePricingPlanResponse_name = Lens.lens (\UpdatePricingPlanResponse' {name} -> name) (\s@UpdatePricingPlanResponse' {} a -> s {name = a} :: UpdatePricingPlanResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the updated pricing plan.
 updatePricingPlanResponse_arn :: Lens.Lens' UpdatePricingPlanResponse (Prelude.Maybe Prelude.Text)
@@ -232,7 +233,7 @@ updatePricingPlanResponse_size = Lens.lens (\UpdatePricingPlanResponse' {size} -
 
 -- | The new description for the pricing rule.
 updatePricingPlanResponse_description :: Lens.Lens' UpdatePricingPlanResponse (Prelude.Maybe Prelude.Text)
-updatePricingPlanResponse_description = Lens.lens (\UpdatePricingPlanResponse' {description} -> description) (\s@UpdatePricingPlanResponse' {} a -> s {description = a} :: UpdatePricingPlanResponse) Prelude.. Lens.mapping Core._Sensitive
+updatePricingPlanResponse_description = Lens.lens (\UpdatePricingPlanResponse' {description} -> description) (\s@UpdatePricingPlanResponse' {} a -> s {description = a} :: UpdatePricingPlanResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The most recent time when the pricing plan was modified.
 updatePricingPlanResponse_lastModifiedTime :: Lens.Lens' UpdatePricingPlanResponse (Prelude.Maybe Prelude.Integer)

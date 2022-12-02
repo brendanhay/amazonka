@@ -48,6 +48,7 @@ where
 import Amazonka.BillingConductor.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,8 +148,8 @@ instance Core.AWSRequest ListCustomLineItemVersions where
     Response.receiveJSON
       ( \s h x ->
           ListCustomLineItemVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "CustomLineItemVersions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "CustomLineItemVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,33 +169,33 @@ instance Prelude.NFData ListCustomLineItemVersions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders ListCustomLineItemVersions where
+instance Data.ToHeaders ListCustomLineItemVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCustomLineItemVersions where
+instance Data.ToJSON ListCustomLineItemVersions where
   toJSON ListCustomLineItemVersions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Arn" Core..= arn)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath ListCustomLineItemVersions where
+instance Data.ToPath ListCustomLineItemVersions where
   toPath =
     Prelude.const "/list-custom-line-item-versions"
 
-instance Core.ToQuery ListCustomLineItemVersions where
+instance Data.ToQuery ListCustomLineItemVersions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCustomLineItemVersionsResponse' smart constructor.

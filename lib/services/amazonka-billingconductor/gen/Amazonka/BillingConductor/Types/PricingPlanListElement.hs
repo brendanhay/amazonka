@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.PricingPlanListElement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of a pricing plan.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPricingPlanListElement' smart constructor.
 data PricingPlanListElement = PricingPlanListElement'
   { -- | The name of a pricing plan.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The pricing plan Amazon Resource Names (ARN). This can be used to
     -- uniquely identify a pricing plan.
     arn :: Prelude.Maybe Prelude.Text,
@@ -36,7 +37,7 @@ data PricingPlanListElement = PricingPlanListElement'
     -- plan list element.
     size :: Prelude.Maybe Prelude.Natural,
     -- | The pricing plan description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The most recent time when the pricing plan was modified.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The time when the pricing plan was created.
@@ -79,7 +80,7 @@ newPricingPlanListElement =
 
 -- | The name of a pricing plan.
 pricingPlanListElement_name :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Text)
-pricingPlanListElement_name = Lens.lens (\PricingPlanListElement' {name} -> name) (\s@PricingPlanListElement' {} a -> s {name = a} :: PricingPlanListElement) Prelude.. Lens.mapping Core._Sensitive
+pricingPlanListElement_name = Lens.lens (\PricingPlanListElement' {name} -> name) (\s@PricingPlanListElement' {} a -> s {name = a} :: PricingPlanListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The pricing plan Amazon Resource Names (ARN). This can be used to
 -- uniquely identify a pricing plan.
@@ -93,7 +94,7 @@ pricingPlanListElement_size = Lens.lens (\PricingPlanListElement' {size} -> size
 
 -- | The pricing plan description.
 pricingPlanListElement_description :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Text)
-pricingPlanListElement_description = Lens.lens (\PricingPlanListElement' {description} -> description) (\s@PricingPlanListElement' {} a -> s {description = a} :: PricingPlanListElement) Prelude.. Lens.mapping Core._Sensitive
+pricingPlanListElement_description = Lens.lens (\PricingPlanListElement' {description} -> description) (\s@PricingPlanListElement' {} a -> s {description = a} :: PricingPlanListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The most recent time when the pricing plan was modified.
 pricingPlanListElement_lastModifiedTime :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Integer)
@@ -103,18 +104,18 @@ pricingPlanListElement_lastModifiedTime = Lens.lens (\PricingPlanListElement' {l
 pricingPlanListElement_creationTime :: Lens.Lens' PricingPlanListElement (Prelude.Maybe Prelude.Integer)
 pricingPlanListElement_creationTime = Lens.lens (\PricingPlanListElement' {creationTime} -> creationTime) (\s@PricingPlanListElement' {} a -> s {creationTime = a} :: PricingPlanListElement)
 
-instance Core.FromJSON PricingPlanListElement where
+instance Data.FromJSON PricingPlanListElement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PricingPlanListElement"
       ( \x ->
           PricingPlanListElement'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable PricingPlanListElement where

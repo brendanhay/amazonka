@@ -48,6 +48,7 @@ where
 import Amazonka.CognitoSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,9 +101,9 @@ instance Core.AWSRequest GetIdentityPoolConfiguration where
     Response.receiveJSON
       ( \s h x ->
           GetIdentityPoolConfigurationResponse'
-            Prelude.<$> (x Core..?> "CognitoStreams")
-            Prelude.<*> (x Core..?> "IdentityPoolId")
-            Prelude.<*> (x Core..?> "PushSync")
+            Prelude.<$> (x Data..?> "CognitoStreams")
+            Prelude.<*> (x Data..?> "IdentityPoolId")
+            Prelude.<*> (x Data..?> "PushSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,26 +118,26 @@ instance Prelude.NFData GetIdentityPoolConfiguration where
   rnf GetIdentityPoolConfiguration' {..} =
     Prelude.rnf identityPoolId
 
-instance Core.ToHeaders GetIdentityPoolConfiguration where
+instance Data.ToHeaders GetIdentityPoolConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetIdentityPoolConfiguration where
+instance Data.ToPath GetIdentityPoolConfiguration where
   toPath GetIdentityPoolConfiguration' {..} =
     Prelude.mconcat
       [ "/identitypools/",
-        Core.toBS identityPoolId,
+        Data.toBS identityPoolId,
         "/configuration"
       ]
 
-instance Core.ToQuery GetIdentityPoolConfiguration where
+instance Data.ToQuery GetIdentityPoolConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the GetIdentityPoolConfiguration operation.

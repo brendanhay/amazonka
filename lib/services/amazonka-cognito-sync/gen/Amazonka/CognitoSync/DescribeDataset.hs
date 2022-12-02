@@ -51,6 +51,7 @@ where
 import Amazonka.CognitoSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,7 +138,7 @@ instance Core.AWSRequest DescribeDataset where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Prelude.<$> (x Core..?> "Dataset")
+            Prelude.<$> (x Data..?> "Dataset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,29 +154,29 @@ instance Prelude.NFData DescribeDataset where
       `Prelude.seq` Prelude.rnf identityId
       `Prelude.seq` Prelude.rnf datasetName
 
-instance Core.ToHeaders DescribeDataset where
+instance Data.ToHeaders DescribeDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeDataset where
+instance Data.ToPath DescribeDataset where
   toPath DescribeDataset' {..} =
     Prelude.mconcat
       [ "/identitypools/",
-        Core.toBS identityPoolId,
+        Data.toBS identityPoolId,
         "/identities/",
-        Core.toBS identityId,
+        Data.toBS identityId,
         "/datasets/",
-        Core.toBS datasetName
+        Data.toBS datasetName
       ]
 
-instance Core.ToQuery DescribeDataset where
+instance Data.ToQuery DescribeDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response to a successful DescribeDataset request.

@@ -48,6 +48,7 @@ where
 import Amazonka.CognitoSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -136,7 +137,7 @@ instance Core.AWSRequest RegisterDevice where
     Response.receiveJSON
       ( \s h x ->
           RegisterDeviceResponse'
-            Prelude.<$> (x Core..?> "DeviceId")
+            Prelude.<$> (x Data..?> "DeviceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,37 +155,37 @@ instance Prelude.NFData RegisterDevice where
       `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf token
 
-instance Core.ToHeaders RegisterDevice where
+instance Data.ToHeaders RegisterDevice where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterDevice where
+instance Data.ToJSON RegisterDevice where
   toJSON RegisterDevice' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Platform" Core..= platform),
-            Prelude.Just ("Token" Core..= token)
+          [ Prelude.Just ("Platform" Data..= platform),
+            Prelude.Just ("Token" Data..= token)
           ]
       )
 
-instance Core.ToPath RegisterDevice where
+instance Data.ToPath RegisterDevice where
   toPath RegisterDevice' {..} =
     Prelude.mconcat
       [ "/identitypools/",
-        Core.toBS identityPoolId,
+        Data.toBS identityPoolId,
         "/identity/",
-        Core.toBS identityId,
+        Data.toBS identityId,
         "/device"
       ]
 
-instance Core.ToQuery RegisterDevice where
+instance Data.ToQuery RegisterDevice where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Response to a RegisterDevice request.

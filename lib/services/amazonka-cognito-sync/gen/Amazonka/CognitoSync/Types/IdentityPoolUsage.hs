@@ -21,6 +21,7 @@ module Amazonka.CognitoSync.Types.IdentityPoolUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Usage information for the identity pool.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newIdentityPoolUsage' smart constructor.
 data IdentityPoolUsage = IdentityPoolUsage'
   { -- | Date on which the identity pool was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | Data storage information for the identity pool.
     dataStorage :: Prelude.Maybe Prelude.Integer,
     -- | Number of sync sessions for the identity pool.
@@ -70,7 +71,7 @@ newIdentityPoolUsage =
 
 -- | Date on which the identity pool was last modified.
 identityPoolUsage_lastModifiedDate :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.UTCTime)
-identityPoolUsage_lastModifiedDate = Lens.lens (\IdentityPoolUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityPoolUsage' {} a -> s {lastModifiedDate = a} :: IdentityPoolUsage) Prelude.. Lens.mapping Core._Time
+identityPoolUsage_lastModifiedDate = Lens.lens (\IdentityPoolUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityPoolUsage' {} a -> s {lastModifiedDate = a} :: IdentityPoolUsage) Prelude.. Lens.mapping Data._Time
 
 -- | Data storage information for the identity pool.
 identityPoolUsage_dataStorage :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Integer)
@@ -86,16 +87,16 @@ identityPoolUsage_syncSessionsCount = Lens.lens (\IdentityPoolUsage' {syncSessio
 identityPoolUsage_identityPoolId :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Text)
 identityPoolUsage_identityPoolId = Lens.lens (\IdentityPoolUsage' {identityPoolId} -> identityPoolId) (\s@IdentityPoolUsage' {} a -> s {identityPoolId = a} :: IdentityPoolUsage)
 
-instance Core.FromJSON IdentityPoolUsage where
+instance Data.FromJSON IdentityPoolUsage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityPoolUsage"
       ( \x ->
           IdentityPoolUsage'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "DataStorage")
-            Prelude.<*> (x Core..:? "SyncSessionsCount")
-            Prelude.<*> (x Core..:? "IdentityPoolId")
+            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "DataStorage")
+            Prelude.<*> (x Data..:? "SyncSessionsCount")
+            Prelude.<*> (x Data..:? "IdentityPoolId")
       )
 
 instance Prelude.Hashable IdentityPoolUsage where

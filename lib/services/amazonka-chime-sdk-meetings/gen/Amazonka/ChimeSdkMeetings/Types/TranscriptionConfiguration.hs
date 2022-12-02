@@ -23,6 +23,7 @@ import Amazonka.ChimeSdkMeetings.Types.EngineTranscribeMedicalSettings
 import Amazonka.ChimeSdkMeetings.Types.EngineTranscribeSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the current transcription operation. Must contain
@@ -79,13 +80,13 @@ instance Prelude.NFData TranscriptionConfiguration where
     Prelude.rnf engineTranscribeMedicalSettings
       `Prelude.seq` Prelude.rnf engineTranscribeSettings
 
-instance Core.ToJSON TranscriptionConfiguration where
+instance Data.ToJSON TranscriptionConfiguration where
   toJSON TranscriptionConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EngineTranscribeMedicalSettings" Core..=)
+          [ ("EngineTranscribeMedicalSettings" Data..=)
               Prelude.<$> engineTranscribeMedicalSettings,
-            ("EngineTranscribeSettings" Core..=)
+            ("EngineTranscribeSettings" Data..=)
               Prelude.<$> engineTranscribeSettings
           ]
       )

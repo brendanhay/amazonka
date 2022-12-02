@@ -65,6 +65,7 @@ where
 import Amazonka.ChimeSdkMeetings.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -167,37 +168,37 @@ instance
       `Prelude.seq` Prelude.rnf capabilities
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchUpdateAttendeeCapabilitiesExcept
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     BatchUpdateAttendeeCapabilitiesExcept
   where
   toJSON BatchUpdateAttendeeCapabilitiesExcept' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ExcludedAttendeeIds" Core..= excludedAttendeeIds),
-            Prelude.Just ("Capabilities" Core..= capabilities)
+              ("ExcludedAttendeeIds" Data..= excludedAttendeeIds),
+            Prelude.Just ("Capabilities" Data..= capabilities)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     BatchUpdateAttendeeCapabilitiesExcept
   where
   toPath BatchUpdateAttendeeCapabilitiesExcept' {..} =
     Prelude.mconcat
       [ "/meetings/",
-        Core.toBS meetingId,
+        Data.toBS meetingId,
         "/attendees/capabilities"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     BatchUpdateAttendeeCapabilitiesExcept
   where
   toQuery =

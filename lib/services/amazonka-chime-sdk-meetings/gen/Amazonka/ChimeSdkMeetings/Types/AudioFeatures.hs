@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMeetings.Types.AudioFeatures where
 import Amazonka.ChimeSdkMeetings.Types.MeetingFeatureStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An optional category of meeting features that contains audio-specific
@@ -52,13 +53,13 @@ newAudioFeatures =
 audioFeatures_echoReduction :: Lens.Lens' AudioFeatures (Prelude.Maybe MeetingFeatureStatus)
 audioFeatures_echoReduction = Lens.lens (\AudioFeatures' {echoReduction} -> echoReduction) (\s@AudioFeatures' {} a -> s {echoReduction = a} :: AudioFeatures)
 
-instance Core.FromJSON AudioFeatures where
+instance Data.FromJSON AudioFeatures where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioFeatures"
       ( \x ->
           AudioFeatures'
-            Prelude.<$> (x Core..:? "EchoReduction")
+            Prelude.<$> (x Data..:? "EchoReduction")
       )
 
 instance Prelude.Hashable AudioFeatures where
@@ -68,11 +69,11 @@ instance Prelude.Hashable AudioFeatures where
 instance Prelude.NFData AudioFeatures where
   rnf AudioFeatures' {..} = Prelude.rnf echoReduction
 
-instance Core.ToJSON AudioFeatures where
+instance Data.ToJSON AudioFeatures where
   toJSON AudioFeatures' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EchoReduction" Core..=)
+          [ ("EchoReduction" Data..=)
               Prelude.<$> echoReduction
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.ChimeSdkMeetings.Types.MediaPlacement
 import Amazonka.ChimeSdkMeetings.Types.MeetingFeaturesConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A meeting created using the Amazon Chime SDK.
@@ -32,7 +33,7 @@ data Meeting = Meeting'
   { -- | The features available to a meeting, such as Amazon Voice Focus.
     meetingFeatures :: Prelude.Maybe MeetingFeaturesConfiguration,
     -- | Reserved.
-    meetingHostId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    meetingHostId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Region in which you create the meeting. Available values:
     -- @af-south-1@, @ap-northeast-1@, @ap-northeast-2@, @ap-south-1@,
     -- @ap-southeast-1@, @ap-southeast-2@, @ca-central-1@, @eu-central-1@,
@@ -43,7 +44,7 @@ data Meeting = Meeting'
     -- @us-gov-west-1@.
     mediaRegion :: Prelude.Maybe Prelude.Text,
     -- | The external meeting ID.
-    externalMeetingId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    externalMeetingId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The media placement for the meeting.
     mediaPlacement :: Prelude.Maybe MediaPlacement,
     -- | The Amazon Chime SDK meeting ID.
@@ -112,7 +113,7 @@ meeting_meetingFeatures = Lens.lens (\Meeting' {meetingFeatures} -> meetingFeatu
 
 -- | Reserved.
 meeting_meetingHostId :: Lens.Lens' Meeting (Prelude.Maybe Prelude.Text)
-meeting_meetingHostId = Lens.lens (\Meeting' {meetingHostId} -> meetingHostId) (\s@Meeting' {} a -> s {meetingHostId = a} :: Meeting) Prelude.. Lens.mapping Core._Sensitive
+meeting_meetingHostId = Lens.lens (\Meeting' {meetingHostId} -> meetingHostId) (\s@Meeting' {} a -> s {meetingHostId = a} :: Meeting) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Region in which you create the meeting. Available values:
 -- @af-south-1@, @ap-northeast-1@, @ap-northeast-2@, @ap-south-1@,
@@ -127,7 +128,7 @@ meeting_mediaRegion = Lens.lens (\Meeting' {mediaRegion} -> mediaRegion) (\s@Mee
 
 -- | The external meeting ID.
 meeting_externalMeetingId :: Lens.Lens' Meeting (Prelude.Maybe Prelude.Text)
-meeting_externalMeetingId = Lens.lens (\Meeting' {externalMeetingId} -> externalMeetingId) (\s@Meeting' {} a -> s {externalMeetingId = a} :: Meeting) Prelude.. Lens.mapping Core._Sensitive
+meeting_externalMeetingId = Lens.lens (\Meeting' {externalMeetingId} -> externalMeetingId) (\s@Meeting' {} a -> s {externalMeetingId = a} :: Meeting) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The media placement for the meeting.
 meeting_mediaPlacement :: Lens.Lens' Meeting (Prelude.Maybe MediaPlacement)
@@ -150,21 +151,21 @@ meeting_meetingArn = Lens.lens (\Meeting' {meetingArn} -> meetingArn) (\s@Meetin
 meeting_primaryMeetingId :: Lens.Lens' Meeting (Prelude.Maybe Prelude.Text)
 meeting_primaryMeetingId = Lens.lens (\Meeting' {primaryMeetingId} -> primaryMeetingId) (\s@Meeting' {} a -> s {primaryMeetingId = a} :: Meeting)
 
-instance Core.FromJSON Meeting where
+instance Data.FromJSON Meeting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Meeting"
       ( \x ->
           Meeting'
-            Prelude.<$> (x Core..:? "MeetingFeatures")
-            Prelude.<*> (x Core..:? "MeetingHostId")
-            Prelude.<*> (x Core..:? "MediaRegion")
-            Prelude.<*> (x Core..:? "ExternalMeetingId")
-            Prelude.<*> (x Core..:? "MediaPlacement")
-            Prelude.<*> (x Core..:? "MeetingId")
-            Prelude.<*> (x Core..:? "TenantIds")
-            Prelude.<*> (x Core..:? "MeetingArn")
-            Prelude.<*> (x Core..:? "PrimaryMeetingId")
+            Prelude.<$> (x Data..:? "MeetingFeatures")
+            Prelude.<*> (x Data..:? "MeetingHostId")
+            Prelude.<*> (x Data..:? "MediaRegion")
+            Prelude.<*> (x Data..:? "ExternalMeetingId")
+            Prelude.<*> (x Data..:? "MediaPlacement")
+            Prelude.<*> (x Data..:? "MeetingId")
+            Prelude.<*> (x Data..:? "TenantIds")
+            Prelude.<*> (x Data..:? "MeetingArn")
+            Prelude.<*> (x Data..:? "PrimaryMeetingId")
       )
 
 instance Prelude.Hashable Meeting where

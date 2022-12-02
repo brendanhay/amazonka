@@ -21,6 +21,7 @@ module Amazonka.ChimeSdkMeetings.Types.CreateAttendeeError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of errors returned when errors are encountered during the
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data CreateAttendeeError = CreateAttendeeError'
   { -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
     -- attendee to an identity managed by a builder application.
-    externalUserId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    externalUserId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code.
@@ -66,7 +67,7 @@ newCreateAttendeeError =
 -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
 createAttendeeError_externalUserId :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
-createAttendeeError_externalUserId = Lens.lens (\CreateAttendeeError' {externalUserId} -> externalUserId) (\s@CreateAttendeeError' {} a -> s {externalUserId = a} :: CreateAttendeeError) Prelude.. Lens.mapping Core._Sensitive
+createAttendeeError_externalUserId = Lens.lens (\CreateAttendeeError' {externalUserId} -> externalUserId) (\s@CreateAttendeeError' {} a -> s {externalUserId = a} :: CreateAttendeeError) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The error message.
 createAttendeeError_errorMessage :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
@@ -76,15 +77,15 @@ createAttendeeError_errorMessage = Lens.lens (\CreateAttendeeError' {errorMessag
 createAttendeeError_errorCode :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
 createAttendeeError_errorCode = Lens.lens (\CreateAttendeeError' {errorCode} -> errorCode) (\s@CreateAttendeeError' {} a -> s {errorCode = a} :: CreateAttendeeError)
 
-instance Core.FromJSON CreateAttendeeError where
+instance Data.FromJSON CreateAttendeeError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateAttendeeError"
       ( \x ->
           CreateAttendeeError'
-            Prelude.<$> (x Core..:? "ExternalUserId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ExternalUserId")
+            Prelude.<*> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable CreateAttendeeError where

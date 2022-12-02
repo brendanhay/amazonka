@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMeetings.Types.AttendeeCapabilities where
 import Amazonka.ChimeSdkMeetings.Types.MediaCapabilities
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The media capabilities of an attendee: audio, video, or content.
@@ -101,15 +102,15 @@ attendeeCapabilities_video = Lens.lens (\AttendeeCapabilities' {video} -> video)
 attendeeCapabilities_content :: Lens.Lens' AttendeeCapabilities MediaCapabilities
 attendeeCapabilities_content = Lens.lens (\AttendeeCapabilities' {content} -> content) (\s@AttendeeCapabilities' {} a -> s {content = a} :: AttendeeCapabilities)
 
-instance Core.FromJSON AttendeeCapabilities where
+instance Data.FromJSON AttendeeCapabilities where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AttendeeCapabilities"
       ( \x ->
           AttendeeCapabilities'
-            Prelude.<$> (x Core..: "Audio")
-            Prelude.<*> (x Core..: "Video")
-            Prelude.<*> (x Core..: "Content")
+            Prelude.<$> (x Data..: "Audio")
+            Prelude.<*> (x Data..: "Video")
+            Prelude.<*> (x Data..: "Content")
       )
 
 instance Prelude.Hashable AttendeeCapabilities where
@@ -124,12 +125,12 @@ instance Prelude.NFData AttendeeCapabilities where
       `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON AttendeeCapabilities where
+instance Data.ToJSON AttendeeCapabilities where
   toJSON AttendeeCapabilities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Audio" Core..= audio),
-            Prelude.Just ("Video" Core..= video),
-            Prelude.Just ("Content" Core..= content)
+          [ Prelude.Just ("Audio" Data..= audio),
+            Prelude.Just ("Video" Data..= video),
+            Prelude.Just ("Content" Data..= content)
           ]
       )

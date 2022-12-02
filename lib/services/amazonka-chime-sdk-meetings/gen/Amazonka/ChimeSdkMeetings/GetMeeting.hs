@@ -45,6 +45,7 @@ where
 import Amazonka.ChimeSdkMeetings.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetMeeting where
     Response.receiveJSON
       ( \s h x ->
           GetMeetingResponse'
-            Prelude.<$> (x Core..?> "Meeting")
+            Prelude.<$> (x Data..?> "Meeting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,14 +96,14 @@ instance Prelude.Hashable GetMeeting where
 instance Prelude.NFData GetMeeting where
   rnf GetMeeting' {..} = Prelude.rnf meetingId
 
-instance Core.ToHeaders GetMeeting where
+instance Data.ToHeaders GetMeeting where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetMeeting where
+instance Data.ToPath GetMeeting where
   toPath GetMeeting' {..} =
-    Prelude.mconcat ["/meetings/", Core.toBS meetingId]
+    Prelude.mconcat ["/meetings/", Data.toBS meetingId]
 
-instance Core.ToQuery GetMeeting where
+instance Data.ToQuery GetMeeting where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMeetingResponse' smart constructor.

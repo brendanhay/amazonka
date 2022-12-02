@@ -22,6 +22,7 @@ module Amazonka.ChimeSdkMeetings.Types.MeetingFeaturesConfiguration where
 import Amazonka.ChimeSdkMeetings.Types.AudioFeatures
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings of the features available to a meeting.>
@@ -57,13 +58,13 @@ newMeetingFeaturesConfiguration =
 meetingFeaturesConfiguration_audio :: Lens.Lens' MeetingFeaturesConfiguration (Prelude.Maybe AudioFeatures)
 meetingFeaturesConfiguration_audio = Lens.lens (\MeetingFeaturesConfiguration' {audio} -> audio) (\s@MeetingFeaturesConfiguration' {} a -> s {audio = a} :: MeetingFeaturesConfiguration)
 
-instance Core.FromJSON MeetingFeaturesConfiguration where
+instance Data.FromJSON MeetingFeaturesConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MeetingFeaturesConfiguration"
       ( \x ->
           MeetingFeaturesConfiguration'
-            Prelude.<$> (x Core..:? "Audio")
+            Prelude.<$> (x Data..:? "Audio")
       )
 
 instance
@@ -77,9 +78,9 @@ instance Prelude.NFData MeetingFeaturesConfiguration where
   rnf MeetingFeaturesConfiguration' {..} =
     Prelude.rnf audio
 
-instance Core.ToJSON MeetingFeaturesConfiguration where
+instance Data.ToJSON MeetingFeaturesConfiguration where
   toJSON MeetingFeaturesConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Audio" Core..=) Prelude.<$> audio]
+          [("Audio" Data..=) Prelude.<$> audio]
       )

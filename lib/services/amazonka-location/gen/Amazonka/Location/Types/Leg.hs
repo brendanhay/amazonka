@@ -21,6 +21,7 @@ module Amazonka.Location.Types.Leg where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.LegGeometry
 import Amazonka.Location.Types.Step
 import qualified Amazonka.Prelude as Prelude
@@ -65,13 +66,13 @@ data Leg = Leg'
     --
     -- If the @EndPosition@ isn\'t located on a road, it\'s
     -- <https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html snapped to a nearby road>.
-    endPosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
+    endPosition :: Data.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The starting position of the leg. Follows the format
     -- @[longitude,latitude]@.
     --
     -- If the @StartPosition@ isn\'t located on a road, it\'s
     -- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>.
-    startPosition :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
+    startPosition :: Data.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | Contains a list of steps, which represent subsections of a leg. Each
     -- step provides instructions for how to move to the next step in the leg
     -- such as the step\'s start position, end position, travel distance,
@@ -136,10 +137,10 @@ newLeg
         distance = pDistance_,
         durationSeconds = pDurationSeconds_,
         endPosition =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pEndPosition_,
         startPosition =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pStartPosition_,
         steps = Prelude.mempty
       }
@@ -168,7 +169,7 @@ leg_durationSeconds = Lens.lens (\Leg' {durationSeconds} -> durationSeconds) (\s
 -- If the @EndPosition@ isn\'t located on a road, it\'s
 -- <https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html snapped to a nearby road>.
 leg_endPosition :: Lens.Lens' Leg (Prelude.NonEmpty Prelude.Double)
-leg_endPosition = Lens.lens (\Leg' {endPosition} -> endPosition) (\s@Leg' {} a -> s {endPosition = a} :: Leg) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+leg_endPosition = Lens.lens (\Leg' {endPosition} -> endPosition) (\s@Leg' {} a -> s {endPosition = a} :: Leg) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The starting position of the leg. Follows the format
 -- @[longitude,latitude]@.
@@ -176,7 +177,7 @@ leg_endPosition = Lens.lens (\Leg' {endPosition} -> endPosition) (\s@Leg' {} a -
 -- If the @StartPosition@ isn\'t located on a road, it\'s
 -- <https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html snapped to a nearby road>.
 leg_startPosition :: Lens.Lens' Leg (Prelude.NonEmpty Prelude.Double)
-leg_startPosition = Lens.lens (\Leg' {startPosition} -> startPosition) (\s@Leg' {} a -> s {startPosition = a} :: Leg) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+leg_startPosition = Lens.lens (\Leg' {startPosition} -> startPosition) (\s@Leg' {} a -> s {startPosition = a} :: Leg) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | Contains a list of steps, which represent subsections of a leg. Each
 -- step provides instructions for how to move to the next step in the leg
@@ -185,18 +186,18 @@ leg_startPosition = Lens.lens (\Leg' {startPosition} -> startPosition) (\s@Leg' 
 leg_steps :: Lens.Lens' Leg [Step]
 leg_steps = Lens.lens (\Leg' {steps} -> steps) (\s@Leg' {} a -> s {steps = a} :: Leg) Prelude.. Lens.coerced
 
-instance Core.FromJSON Leg where
+instance Data.FromJSON Leg where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Leg"
       ( \x ->
           Leg'
-            Prelude.<$> (x Core..:? "Geometry")
-            Prelude.<*> (x Core..: "Distance")
-            Prelude.<*> (x Core..: "DurationSeconds")
-            Prelude.<*> (x Core..: "EndPosition")
-            Prelude.<*> (x Core..: "StartPosition")
-            Prelude.<*> (x Core..:? "Steps" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Geometry")
+            Prelude.<*> (x Data..: "Distance")
+            Prelude.<*> (x Data..: "DurationSeconds")
+            Prelude.<*> (x Data..: "EndPosition")
+            Prelude.<*> (x Data..: "StartPosition")
+            Prelude.<*> (x Data..:? "Steps" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Leg where

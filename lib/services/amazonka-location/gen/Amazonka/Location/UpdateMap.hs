@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,9 +110,9 @@ instance Core.AWSRequest UpdateMap where
       ( \s h x ->
           UpdateMapResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "MapArn")
-            Prelude.<*> (x Core..:> "MapName")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "MapArn")
+            Prelude.<*> (x Data..:> "MapName")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable UpdateMap where
@@ -126,32 +127,32 @@ instance Prelude.NFData UpdateMap where
       `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf mapName
 
-instance Core.ToHeaders UpdateMap where
+instance Data.ToHeaders UpdateMap where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMap where
+instance Data.ToJSON UpdateMap where
   toJSON UpdateMap' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan
           ]
       )
 
-instance Core.ToPath UpdateMap where
+instance Data.ToPath UpdateMap where
   toPath UpdateMap' {..} =
     Prelude.mconcat
-      ["/maps/v0/maps/", Core.toBS mapName]
+      ["/maps/v0/maps/", Data.toBS mapName]
 
-instance Core.ToQuery UpdateMap where
+instance Data.ToQuery UpdateMap where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMapResponse' smart constructor.
@@ -168,7 +169,7 @@ data UpdateMapResponse = UpdateMapResponse'
     -- | The timestamp for when the map resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -211,7 +212,7 @@ newUpdateMapResponse
       { httpStatus = pHttpStatus_,
         mapArn = pMapArn_,
         mapName = pMapName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The response's http status code.
@@ -233,7 +234,7 @@ updateMapResponse_mapName = Lens.lens (\UpdateMapResponse' {mapName} -> mapName)
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 updateMapResponse_updateTime :: Lens.Lens' UpdateMapResponse Prelude.UTCTime
-updateMapResponse_updateTime = Lens.lens (\UpdateMapResponse' {updateTime} -> updateTime) (\s@UpdateMapResponse' {} a -> s {updateTime = a} :: UpdateMapResponse) Prelude.. Core._Time
+updateMapResponse_updateTime = Lens.lens (\UpdateMapResponse' {updateTime} -> updateTime) (\s@UpdateMapResponse' {} a -> s {updateTime = a} :: UpdateMapResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateMapResponse where
   rnf UpdateMapResponse' {..} =

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,7 +129,7 @@ instance Core.AWSRequest GetMapTile where
       ( \s h x ->
           GetMapTileResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,31 +147,31 @@ instance Prelude.NFData GetMapTile where
       `Prelude.seq` Prelude.rnf y
       `Prelude.seq` Prelude.rnf z
 
-instance Core.ToHeaders GetMapTile where
+instance Data.ToHeaders GetMapTile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetMapTile where
+instance Data.ToPath GetMapTile where
   toPath GetMapTile' {..} =
     Prelude.mconcat
       [ "/maps/v0/maps/",
-        Core.toBS mapName,
+        Data.toBS mapName,
         "/tiles/",
-        Core.toBS z,
+        Data.toBS z,
         "/",
-        Core.toBS x,
+        Data.toBS x,
         "/",
-        Core.toBS y
+        Data.toBS y
       ]
 
-instance Core.ToQuery GetMapTile where
+instance Data.ToQuery GetMapTile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMapTileResponse' smart constructor.

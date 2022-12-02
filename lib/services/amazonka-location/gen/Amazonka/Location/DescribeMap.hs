@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,16 +90,16 @@ instance Core.AWSRequest DescribeMap where
     Response.receiveJSON
       ( \s h x ->
           DescribeMapResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PricingPlan")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PricingPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Configuration")
-            Prelude.<*> (x Core..:> "CreateTime")
-            Prelude.<*> (x Core..:> "DataSource")
-            Prelude.<*> (x Core..:> "Description")
-            Prelude.<*> (x Core..:> "MapArn")
-            Prelude.<*> (x Core..:> "MapName")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "Configuration")
+            Prelude.<*> (x Data..:> "CreateTime")
+            Prelude.<*> (x Data..:> "DataSource")
+            Prelude.<*> (x Data..:> "Description")
+            Prelude.<*> (x Data..:> "MapArn")
+            Prelude.<*> (x Data..:> "MapName")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable DescribeMap where
@@ -108,23 +109,23 @@ instance Prelude.Hashable DescribeMap where
 instance Prelude.NFData DescribeMap where
   rnf DescribeMap' {..} = Prelude.rnf mapName
 
-instance Core.ToHeaders DescribeMap where
+instance Data.ToHeaders DescribeMap where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeMap where
+instance Data.ToPath DescribeMap where
   toPath DescribeMap' {..} =
     Prelude.mconcat
-      ["/maps/v0/maps/", Core.toBS mapName]
+      ["/maps/v0/maps/", Data.toBS mapName]
 
-instance Core.ToQuery DescribeMap where
+instance Data.ToQuery DescribeMap where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMapResponse' smart constructor.
@@ -140,7 +141,7 @@ data DescribeMapResponse = DescribeMapResponse'
     -- | The timestamp for when the map resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | Specifies the data provider for the associated map tiles.
     dataSource :: Prelude.Text,
     -- | The optional description for the map resource.
@@ -155,7 +156,7 @@ data DescribeMapResponse = DescribeMapResponse'
     -- | The timestamp for when the map resource was last update in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -225,12 +226,12 @@ newDescribeMapResponse
         pricingPlan = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         configuration = pConfiguration_,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
         description = pDescription_,
         mapArn = pMapArn_,
         mapName = pMapName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | Tags associated with the map resource.
@@ -253,7 +254,7 @@ describeMapResponse_configuration = Lens.lens (\DescribeMapResponse' {configurat
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 describeMapResponse_createTime :: Lens.Lens' DescribeMapResponse Prelude.UTCTime
-describeMapResponse_createTime = Lens.lens (\DescribeMapResponse' {createTime} -> createTime) (\s@DescribeMapResponse' {} a -> s {createTime = a} :: DescribeMapResponse) Prelude.. Core._Time
+describeMapResponse_createTime = Lens.lens (\DescribeMapResponse' {createTime} -> createTime) (\s@DescribeMapResponse' {} a -> s {createTime = a} :: DescribeMapResponse) Prelude.. Data._Time
 
 -- | Specifies the data provider for the associated map tiles.
 describeMapResponse_dataSource :: Lens.Lens' DescribeMapResponse Prelude.Text
@@ -278,7 +279,7 @@ describeMapResponse_mapName = Lens.lens (\DescribeMapResponse' {mapName} -> mapN
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 describeMapResponse_updateTime :: Lens.Lens' DescribeMapResponse Prelude.UTCTime
-describeMapResponse_updateTime = Lens.lens (\DescribeMapResponse' {updateTime} -> updateTime) (\s@DescribeMapResponse' {} a -> s {updateTime = a} :: DescribeMapResponse) Prelude.. Core._Time
+describeMapResponse_updateTime = Lens.lens (\DescribeMapResponse' {updateTime} -> updateTime) (\s@DescribeMapResponse' {} a -> s {updateTime = a} :: DescribeMapResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeMapResponse where
   rnf DescribeMapResponse' {..} =

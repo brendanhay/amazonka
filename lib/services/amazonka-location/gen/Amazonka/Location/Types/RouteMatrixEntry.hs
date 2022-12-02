@@ -21,6 +21,7 @@ module Amazonka.Location.Types.RouteMatrixEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.RouteMatrixEntryError
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ routeMatrixEntry_durationSeconds = Lens.lens (\RouteMatrixEntry' {durationSecond
 routeMatrixEntry_error :: Lens.Lens' RouteMatrixEntry (Prelude.Maybe RouteMatrixEntryError)
 routeMatrixEntry_error = Lens.lens (\RouteMatrixEntry' {error} -> error) (\s@RouteMatrixEntry' {} a -> s {error = a} :: RouteMatrixEntry)
 
-instance Core.FromJSON RouteMatrixEntry where
+instance Data.FromJSON RouteMatrixEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RouteMatrixEntry"
       ( \x ->
           RouteMatrixEntry'
-            Prelude.<$> (x Core..:? "Distance")
-            Prelude.<*> (x Core..:? "DurationSeconds")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Data..:? "Distance")
+            Prelude.<*> (x Data..:? "DurationSeconds")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable RouteMatrixEntry where

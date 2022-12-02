@@ -21,6 +21,7 @@ module Amazonka.Location.Types.SearchPlaceIndexForTextSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the request sent by using @SearchPlaceIndexForText@.
@@ -29,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
   { -- | Contains the coordinates for the optional bounding box specified in the
     -- request.
-    filterBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | The bounding box that fully contains all search results.
     --
     -- If you specified the optional @FilterBBox@ parameter in the request,
     -- @ResultBBox@ is contained within @FilterBBox@.
-    resultBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    resultBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | Contains the coordinates for the optional bias position specified in the
     -- request.
     --
@@ -44,7 +45,7 @@ data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
     --
     -- For example, @[-123.1174, 49.2847]@ represents the position with
     -- longitude @-123.1174@ and latitude @49.2847@.
-    biasPosition :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    biasPosition :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | Contains the optional country filter specified in the request.
     filterCountries :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Contains the optional result count limit specified in the request.
@@ -65,7 +66,7 @@ data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
     -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
     dataSource :: Prelude.Text,
     -- | The search text specified in the request.
-    text :: Core.Sensitive Prelude.Text
+    text :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -131,20 +132,20 @@ newSearchPlaceIndexForTextSummary pDataSource_ pText_ =
       maxResults = Prelude.Nothing,
       language = Prelude.Nothing,
       dataSource = pDataSource_,
-      text = Core._Sensitive Lens.# pText_
+      text = Data._Sensitive Lens.# pText_
     }
 
 -- | Contains the coordinates for the optional bounding box specified in the
 -- request.
 searchPlaceIndexForTextSummary_filterBBox :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForTextSummary_filterBBox = Lens.lens (\SearchPlaceIndexForTextSummary' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForTextSummary' {} a -> s {filterBBox = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForTextSummary_filterBBox = Lens.lens (\SearchPlaceIndexForTextSummary' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForTextSummary' {} a -> s {filterBBox = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The bounding box that fully contains all search results.
 --
 -- If you specified the optional @FilterBBox@ parameter in the request,
 -- @ResultBBox@ is contained within @FilterBBox@.
 searchPlaceIndexForTextSummary_resultBBox :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForTextSummary_resultBBox = Lens.lens (\SearchPlaceIndexForTextSummary' {resultBBox} -> resultBBox) (\s@SearchPlaceIndexForTextSummary' {} a -> s {resultBBox = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForTextSummary_resultBBox = Lens.lens (\SearchPlaceIndexForTextSummary' {resultBBox} -> resultBBox) (\s@SearchPlaceIndexForTextSummary' {} a -> s {resultBBox = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Contains the coordinates for the optional bias position specified in the
 -- request.
@@ -156,7 +157,7 @@ searchPlaceIndexForTextSummary_resultBBox = Lens.lens (\SearchPlaceIndexForTextS
 -- For example, @[-123.1174, 49.2847]@ represents the position with
 -- longitude @-123.1174@ and latitude @49.2847@.
 searchPlaceIndexForTextSummary_biasPosition :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForTextSummary_biasPosition = Lens.lens (\SearchPlaceIndexForTextSummary' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForTextSummary' {} a -> s {biasPosition = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForTextSummary_biasPosition = Lens.lens (\SearchPlaceIndexForTextSummary' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForTextSummary' {} a -> s {biasPosition = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Contains the optional country filter specified in the request.
 searchPlaceIndexForTextSummary_filterCountries :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -187,22 +188,22 @@ searchPlaceIndexForTextSummary_dataSource = Lens.lens (\SearchPlaceIndexForTextS
 
 -- | The search text specified in the request.
 searchPlaceIndexForTextSummary_text :: Lens.Lens' SearchPlaceIndexForTextSummary Prelude.Text
-searchPlaceIndexForTextSummary_text = Lens.lens (\SearchPlaceIndexForTextSummary' {text} -> text) (\s@SearchPlaceIndexForTextSummary' {} a -> s {text = a} :: SearchPlaceIndexForTextSummary) Prelude.. Core._Sensitive
+searchPlaceIndexForTextSummary_text = Lens.lens (\SearchPlaceIndexForTextSummary' {text} -> text) (\s@SearchPlaceIndexForTextSummary' {} a -> s {text = a} :: SearchPlaceIndexForTextSummary) Prelude.. Data._Sensitive
 
-instance Core.FromJSON SearchPlaceIndexForTextSummary where
+instance Data.FromJSON SearchPlaceIndexForTextSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchPlaceIndexForTextSummary"
       ( \x ->
           SearchPlaceIndexForTextSummary'
-            Prelude.<$> (x Core..:? "FilterBBox")
-            Prelude.<*> (x Core..:? "ResultBBox")
-            Prelude.<*> (x Core..:? "BiasPosition")
-            Prelude.<*> (x Core..:? "FilterCountries")
-            Prelude.<*> (x Core..:? "MaxResults")
-            Prelude.<*> (x Core..:? "Language")
-            Prelude.<*> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "Text")
+            Prelude.<$> (x Data..:? "FilterBBox")
+            Prelude.<*> (x Data..:? "ResultBBox")
+            Prelude.<*> (x Data..:? "BiasPosition")
+            Prelude.<*> (x Data..:? "FilterCountries")
+            Prelude.<*> (x Data..:? "MaxResults")
+            Prelude.<*> (x Data..:? "Language")
+            Prelude.<*> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "Text")
       )
 
 instance

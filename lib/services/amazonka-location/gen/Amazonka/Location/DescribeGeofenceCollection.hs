@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,16 +95,16 @@ instance Core.AWSRequest DescribeGeofenceCollection where
     Response.receiveJSON
       ( \s h x ->
           DescribeGeofenceCollectionResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PricingPlanDataSource")
-            Prelude.<*> (x Core..?> "PricingPlan")
-            Prelude.<*> (x Core..?> "KmsKeyId")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PricingPlanDataSource")
+            Prelude.<*> (x Data..?> "PricingPlan")
+            Prelude.<*> (x Data..?> "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CollectionArn")
-            Prelude.<*> (x Core..:> "CollectionName")
-            Prelude.<*> (x Core..:> "CreateTime")
-            Prelude.<*> (x Core..:> "Description")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "CollectionArn")
+            Prelude.<*> (x Data..:> "CollectionName")
+            Prelude.<*> (x Data..:> "CreateTime")
+            Prelude.<*> (x Data..:> "Description")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable DescribeGeofenceCollection where
@@ -114,25 +115,25 @@ instance Prelude.NFData DescribeGeofenceCollection where
   rnf DescribeGeofenceCollection' {..} =
     Prelude.rnf collectionName
 
-instance Core.ToHeaders DescribeGeofenceCollection where
+instance Data.ToHeaders DescribeGeofenceCollection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeGeofenceCollection where
+instance Data.ToPath DescribeGeofenceCollection where
   toPath DescribeGeofenceCollection' {..} =
     Prelude.mconcat
       [ "/geofencing/v0/collections/",
-        Core.toBS collectionName
+        Data.toBS collectionName
       ]
 
-instance Core.ToQuery DescribeGeofenceCollection where
+instance Data.ToQuery DescribeGeofenceCollection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGeofenceCollectionResponse' smart constructor.
@@ -160,13 +161,13 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
     -- | The timestamp for when the geofence resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The optional description for the geofence collection.
     description :: Prelude.Text,
     -- | The timestamp for when the geofence collection was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -238,10 +239,10 @@ newDescribeGeofenceCollectionResponse
         collectionArn = pCollectionArn_,
         collectionName = pCollectionName_,
         createTime =
-          Core._Time Lens.# pCreateTime_,
+          Data._Time Lens.# pCreateTime_,
         description = pDescription_,
         updateTime =
-          Core._Time Lens.# pUpdateTime_
+          Data._Time Lens.# pUpdateTime_
       }
 
 -- | Displays the key, value pairs of tags associated with this resource.
@@ -282,7 +283,7 @@ describeGeofenceCollectionResponse_collectionName = Lens.lens (\DescribeGeofence
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 describeGeofenceCollectionResponse_createTime :: Lens.Lens' DescribeGeofenceCollectionResponse Prelude.UTCTime
-describeGeofenceCollectionResponse_createTime = Lens.lens (\DescribeGeofenceCollectionResponse' {createTime} -> createTime) (\s@DescribeGeofenceCollectionResponse' {} a -> s {createTime = a} :: DescribeGeofenceCollectionResponse) Prelude.. Core._Time
+describeGeofenceCollectionResponse_createTime = Lens.lens (\DescribeGeofenceCollectionResponse' {createTime} -> createTime) (\s@DescribeGeofenceCollectionResponse' {} a -> s {createTime = a} :: DescribeGeofenceCollectionResponse) Prelude.. Data._Time
 
 -- | The optional description for the geofence collection.
 describeGeofenceCollectionResponse_description :: Lens.Lens' DescribeGeofenceCollectionResponse Prelude.Text
@@ -292,7 +293,7 @@ describeGeofenceCollectionResponse_description = Lens.lens (\DescribeGeofenceCol
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 describeGeofenceCollectionResponse_updateTime :: Lens.Lens' DescribeGeofenceCollectionResponse Prelude.UTCTime
-describeGeofenceCollectionResponse_updateTime = Lens.lens (\DescribeGeofenceCollectionResponse' {updateTime} -> updateTime) (\s@DescribeGeofenceCollectionResponse' {} a -> s {updateTime = a} :: DescribeGeofenceCollectionResponse) Prelude.. Core._Time
+describeGeofenceCollectionResponse_updateTime = Lens.lens (\DescribeGeofenceCollectionResponse' {updateTime} -> updateTime) (\s@DescribeGeofenceCollectionResponse' {} a -> s {updateTime = a} :: DescribeGeofenceCollectionResponse) Prelude.. Data._Time
 
 instance
   Prelude.NFData

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListRouteCalculators where
     Response.receiveJSON
       ( \s h x ->
           ListRouteCalculatorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Entries" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListRouteCalculators where
@@ -145,30 +146,30 @@ instance Prelude.NFData ListRouteCalculators where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListRouteCalculators where
+instance Data.ToHeaders ListRouteCalculators where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRouteCalculators where
+instance Data.ToJSON ListRouteCalculators where
   toJSON ListRouteCalculators' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListRouteCalculators where
+instance Data.ToPath ListRouteCalculators where
   toPath = Prelude.const "/routes/v0/list-calculators"
 
-instance Core.ToQuery ListRouteCalculators where
+instance Data.ToQuery ListRouteCalculators where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRouteCalculatorsResponse' smart constructor.

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,23 +94,23 @@ instance Prelude.Hashable DeleteMap where
 instance Prelude.NFData DeleteMap where
   rnf DeleteMap' {..} = Prelude.rnf mapName
 
-instance Core.ToHeaders DeleteMap where
+instance Data.ToHeaders DeleteMap where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteMap where
+instance Data.ToPath DeleteMap where
   toPath DeleteMap' {..} =
     Prelude.mconcat
-      ["/maps/v0/maps/", Core.toBS mapName]
+      ["/maps/v0/maps/", Data.toBS mapName]
 
-instance Core.ToQuery DeleteMap where
+instance Data.ToQuery DeleteMap where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteMapResponse' smart constructor.

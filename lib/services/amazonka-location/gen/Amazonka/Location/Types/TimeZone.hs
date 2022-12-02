@@ -21,6 +21,7 @@ module Amazonka.Location.Types.TimeZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a time zone. Includes the name of the time zone and
@@ -67,13 +68,13 @@ timeZone_offset = Lens.lens (\TimeZone' {offset} -> offset) (\s@TimeZone' {} a -
 timeZone_name :: Lens.Lens' TimeZone Prelude.Text
 timeZone_name = Lens.lens (\TimeZone' {name} -> name) (\s@TimeZone' {} a -> s {name = a} :: TimeZone)
 
-instance Core.FromJSON TimeZone where
+instance Data.FromJSON TimeZone where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimeZone"
       ( \x ->
           TimeZone'
-            Prelude.<$> (x Core..:? "Offset") Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..:? "Offset") Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable TimeZone where

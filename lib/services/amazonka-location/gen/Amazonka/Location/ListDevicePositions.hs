@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,9 +143,9 @@ instance Core.AWSRequest ListDevicePositions where
     Response.receiveJSON
       ( \s h x ->
           ListDevicePositionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Entries" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListDevicePositions where
@@ -159,35 +160,35 @@ instance Prelude.NFData ListDevicePositions where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf trackerName
 
-instance Core.ToHeaders ListDevicePositions where
+instance Data.ToHeaders ListDevicePositions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListDevicePositions where
+instance Data.ToJSON ListDevicePositions where
   toJSON ListDevicePositions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListDevicePositions where
+instance Data.ToPath ListDevicePositions where
   toPath ListDevicePositions' {..} =
     Prelude.mconcat
       [ "/tracking/v0/trackers/",
-        Core.toBS trackerName,
+        Data.toBS trackerName,
         "/list-positions"
       ]
 
-instance Core.ToQuery ListDevicePositions where
+instance Data.ToQuery ListDevicePositions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListDevicePositionsResponse' smart constructor.

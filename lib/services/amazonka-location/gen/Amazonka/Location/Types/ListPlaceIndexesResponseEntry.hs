@@ -21,6 +21,7 @@ module Amazonka.Location.Types.ListPlaceIndexesResponseEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PricingPlan
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ListPlaceIndexesResponseEntry = ListPlaceIndexesResponseEntry'
     -- | The timestamp for when the place index resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The data provider of geospatial data. Values can be one of the
     -- following:
     --
@@ -51,7 +52,7 @@ data ListPlaceIndexesResponseEntry = ListPlaceIndexesResponseEntry'
     -- | The timestamp for when the place index resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,11 +108,11 @@ newListPlaceIndexesResponseEntry
     ListPlaceIndexesResponseEntry'
       { pricingPlan =
           Prelude.Nothing,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
         description = pDescription_,
         indexName = pIndexName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | No longer used. Always returns @RequestBasedUsage@.
@@ -122,7 +123,7 @@ listPlaceIndexesResponseEntry_pricingPlan = Lens.lens (\ListPlaceIndexesResponse
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 listPlaceIndexesResponseEntry_createTime :: Lens.Lens' ListPlaceIndexesResponseEntry Prelude.UTCTime
-listPlaceIndexesResponseEntry_createTime = Lens.lens (\ListPlaceIndexesResponseEntry' {createTime} -> createTime) (\s@ListPlaceIndexesResponseEntry' {} a -> s {createTime = a} :: ListPlaceIndexesResponseEntry) Prelude.. Core._Time
+listPlaceIndexesResponseEntry_createTime = Lens.lens (\ListPlaceIndexesResponseEntry' {createTime} -> createTime) (\s@ListPlaceIndexesResponseEntry' {} a -> s {createTime = a} :: ListPlaceIndexesResponseEntry) Prelude.. Data._Time
 
 -- | The data provider of geospatial data. Values can be one of the
 -- following:
@@ -148,20 +149,20 @@ listPlaceIndexesResponseEntry_indexName = Lens.lens (\ListPlaceIndexesResponseEn
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 listPlaceIndexesResponseEntry_updateTime :: Lens.Lens' ListPlaceIndexesResponseEntry Prelude.UTCTime
-listPlaceIndexesResponseEntry_updateTime = Lens.lens (\ListPlaceIndexesResponseEntry' {updateTime} -> updateTime) (\s@ListPlaceIndexesResponseEntry' {} a -> s {updateTime = a} :: ListPlaceIndexesResponseEntry) Prelude.. Core._Time
+listPlaceIndexesResponseEntry_updateTime = Lens.lens (\ListPlaceIndexesResponseEntry' {updateTime} -> updateTime) (\s@ListPlaceIndexesResponseEntry' {} a -> s {updateTime = a} :: ListPlaceIndexesResponseEntry) Prelude.. Data._Time
 
-instance Core.FromJSON ListPlaceIndexesResponseEntry where
+instance Data.FromJSON ListPlaceIndexesResponseEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListPlaceIndexesResponseEntry"
       ( \x ->
           ListPlaceIndexesResponseEntry'
-            Prelude.<$> (x Core..:? "PricingPlan")
-            Prelude.<*> (x Core..: "CreateTime")
-            Prelude.<*> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "IndexName")
-            Prelude.<*> (x Core..: "UpdateTime")
+            Prelude.<$> (x Data..:? "PricingPlan")
+            Prelude.<*> (x Data..: "CreateTime")
+            Prelude.<*> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "Description")
+            Prelude.<*> (x Data..: "IndexName")
+            Prelude.<*> (x Data..: "UpdateTime")
       )
 
 instance

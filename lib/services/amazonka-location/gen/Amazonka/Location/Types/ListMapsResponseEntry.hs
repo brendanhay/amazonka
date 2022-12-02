@@ -21,6 +21,7 @@ module Amazonka.Location.Types.ListMapsResponseEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PricingPlan
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,7 +34,7 @@ data ListMapsResponseEntry = ListMapsResponseEntry'
     -- | The timestamp for when the map resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | Specifies the data provider for the associated map tiles.
     dataSource :: Prelude.Text,
     -- | The description for the map resource.
@@ -43,7 +44,7 @@ data ListMapsResponseEntry = ListMapsResponseEntry'
     -- | The timestamp for when the map resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,11 +92,11 @@ newListMapsResponseEntry
     ListMapsResponseEntry'
       { pricingPlan =
           Prelude.Nothing,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
         description = pDescription_,
         mapName = pMapName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | No longer used. Always returns @RequestBasedUsage@.
@@ -106,7 +107,7 @@ listMapsResponseEntry_pricingPlan = Lens.lens (\ListMapsResponseEntry' {pricingP
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 listMapsResponseEntry_createTime :: Lens.Lens' ListMapsResponseEntry Prelude.UTCTime
-listMapsResponseEntry_createTime = Lens.lens (\ListMapsResponseEntry' {createTime} -> createTime) (\s@ListMapsResponseEntry' {} a -> s {createTime = a} :: ListMapsResponseEntry) Prelude.. Core._Time
+listMapsResponseEntry_createTime = Lens.lens (\ListMapsResponseEntry' {createTime} -> createTime) (\s@ListMapsResponseEntry' {} a -> s {createTime = a} :: ListMapsResponseEntry) Prelude.. Data._Time
 
 -- | Specifies the data provider for the associated map tiles.
 listMapsResponseEntry_dataSource :: Lens.Lens' ListMapsResponseEntry Prelude.Text
@@ -124,20 +125,20 @@ listMapsResponseEntry_mapName = Lens.lens (\ListMapsResponseEntry' {mapName} -> 
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 listMapsResponseEntry_updateTime :: Lens.Lens' ListMapsResponseEntry Prelude.UTCTime
-listMapsResponseEntry_updateTime = Lens.lens (\ListMapsResponseEntry' {updateTime} -> updateTime) (\s@ListMapsResponseEntry' {} a -> s {updateTime = a} :: ListMapsResponseEntry) Prelude.. Core._Time
+listMapsResponseEntry_updateTime = Lens.lens (\ListMapsResponseEntry' {updateTime} -> updateTime) (\s@ListMapsResponseEntry' {} a -> s {updateTime = a} :: ListMapsResponseEntry) Prelude.. Data._Time
 
-instance Core.FromJSON ListMapsResponseEntry where
+instance Data.FromJSON ListMapsResponseEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListMapsResponseEntry"
       ( \x ->
           ListMapsResponseEntry'
-            Prelude.<$> (x Core..:? "PricingPlan")
-            Prelude.<*> (x Core..: "CreateTime")
-            Prelude.<*> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "MapName")
-            Prelude.<*> (x Core..: "UpdateTime")
+            Prelude.<$> (x Data..:? "PricingPlan")
+            Prelude.<*> (x Data..: "CreateTime")
+            Prelude.<*> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "Description")
+            Prelude.<*> (x Data..: "MapName")
+            Prelude.<*> (x Data..: "UpdateTime")
       )
 
 instance Prelude.Hashable ListMapsResponseEntry where

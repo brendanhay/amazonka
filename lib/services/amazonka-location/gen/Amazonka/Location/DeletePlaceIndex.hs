@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,23 +95,23 @@ instance Prelude.Hashable DeletePlaceIndex where
 instance Prelude.NFData DeletePlaceIndex where
   rnf DeletePlaceIndex' {..} = Prelude.rnf indexName
 
-instance Core.ToHeaders DeletePlaceIndex where
+instance Data.ToHeaders DeletePlaceIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeletePlaceIndex where
+instance Data.ToPath DeletePlaceIndex where
   toPath DeletePlaceIndex' {..} =
     Prelude.mconcat
-      ["/places/v0/indexes/", Core.toBS indexName]
+      ["/places/v0/indexes/", Data.toBS indexName]
 
-instance Core.ToQuery DeletePlaceIndex where
+instance Data.ToQuery DeletePlaceIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeletePlaceIndexResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Location.Types.GeofenceGeometry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.Circle
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,9 +57,9 @@ data GeofenceGeometry = GeofenceGeometry'
     --
     -- A linear ring for use in geofences can consist of between 4 and 1,000
     -- vertices.
-    polygon :: Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Core.Sensitive (Prelude.NonEmpty Prelude.Double)))),
+    polygon :: Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double)))),
     -- | A circle on the earth, as defined by a center point and a radius.
-    circle :: Prelude.Maybe (Core.Sensitive Circle)
+    circle :: Prelude.Maybe (Data.Sensitive Circle)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -125,16 +126,16 @@ geofenceGeometry_polygon = Lens.lens (\GeofenceGeometry' {polygon} -> polygon) (
 
 -- | A circle on the earth, as defined by a center point and a radius.
 geofenceGeometry_circle :: Lens.Lens' GeofenceGeometry (Prelude.Maybe Circle)
-geofenceGeometry_circle = Lens.lens (\GeofenceGeometry' {circle} -> circle) (\s@GeofenceGeometry' {} a -> s {circle = a} :: GeofenceGeometry) Prelude.. Lens.mapping Core._Sensitive
+geofenceGeometry_circle = Lens.lens (\GeofenceGeometry' {circle} -> circle) (\s@GeofenceGeometry' {} a -> s {circle = a} :: GeofenceGeometry) Prelude.. Lens.mapping Data._Sensitive
 
-instance Core.FromJSON GeofenceGeometry where
+instance Data.FromJSON GeofenceGeometry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GeofenceGeometry"
       ( \x ->
           GeofenceGeometry'
-            Prelude.<$> (x Core..:? "Polygon")
-            Prelude.<*> (x Core..:? "Circle")
+            Prelude.<$> (x Data..:? "Polygon")
+            Prelude.<*> (x Data..:? "Circle")
       )
 
 instance Prelude.Hashable GeofenceGeometry where
@@ -147,11 +148,11 @@ instance Prelude.NFData GeofenceGeometry where
     Prelude.rnf polygon
       `Prelude.seq` Prelude.rnf circle
 
-instance Core.ToJSON GeofenceGeometry where
+instance Data.ToJSON GeofenceGeometry where
   toJSON GeofenceGeometry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Polygon" Core..=) Prelude.<$> polygon,
-            ("Circle" Core..=) Prelude.<$> circle
+          [ ("Polygon" Data..=) Prelude.<$> polygon,
+            ("Circle" Data..=) Prelude.<$> circle
           ]
       )

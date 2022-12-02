@@ -21,6 +21,7 @@ module Amazonka.Location.Types.PlaceGeometry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Places uses a point geometry to specify a location or a Place.
@@ -34,7 +35,7 @@ data PlaceGeometry = PlaceGeometry'
     -- -   /x/ — Specifies the x coordinate or longitude.
     --
     -- -   /y/ — Specifies the y coordinate or latitude.
-    point :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double))
+    point :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -66,14 +67,14 @@ newPlaceGeometry =
 --
 -- -   /y/ — Specifies the y coordinate or latitude.
 placeGeometry_point :: Lens.Lens' PlaceGeometry (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-placeGeometry_point = Lens.lens (\PlaceGeometry' {point} -> point) (\s@PlaceGeometry' {} a -> s {point = a} :: PlaceGeometry) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+placeGeometry_point = Lens.lens (\PlaceGeometry' {point} -> point) (\s@PlaceGeometry' {} a -> s {point = a} :: PlaceGeometry) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
-instance Core.FromJSON PlaceGeometry where
+instance Data.FromJSON PlaceGeometry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlaceGeometry"
       ( \x ->
-          PlaceGeometry' Prelude.<$> (x Core..:? "Point")
+          PlaceGeometry' Prelude.<$> (x Data..:? "Point")
       )
 
 instance Prelude.Hashable PlaceGeometry where

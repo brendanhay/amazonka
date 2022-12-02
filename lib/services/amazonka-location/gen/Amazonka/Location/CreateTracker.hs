@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -326,9 +327,9 @@ instance Core.AWSRequest CreateTracker where
       ( \s h x ->
           CreateTrackerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CreateTime")
-            Prelude.<*> (x Core..:> "TrackerArn")
-            Prelude.<*> (x Core..:> "TrackerName")
+            Prelude.<*> (x Data..:> "CreateTime")
+            Prelude.<*> (x Data..:> "TrackerArn")
+            Prelude.<*> (x Data..:> "TrackerName")
       )
 
 instance Prelude.Hashable CreateTracker where
@@ -351,37 +352,37 @@ instance Prelude.NFData CreateTracker where
       `Prelude.seq` Prelude.rnf positionFiltering
       `Prelude.seq` Prelude.rnf trackerName
 
-instance Core.ToHeaders CreateTracker where
+instance Data.ToHeaders CreateTracker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTracker where
+instance Data.ToJSON CreateTracker where
   toJSON CreateTracker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlanDataSource" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlanDataSource" Data..=)
               Prelude.<$> pricingPlanDataSource,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("PositionFiltering" Core..=)
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("PositionFiltering" Data..=)
               Prelude.<$> positionFiltering,
-            Prelude.Just ("TrackerName" Core..= trackerName)
+            Prelude.Just ("TrackerName" Data..= trackerName)
           ]
       )
 
-instance Core.ToPath CreateTracker where
+instance Data.ToPath CreateTracker where
   toPath = Prelude.const "/tracking/v0/trackers"
 
-instance Core.ToQuery CreateTracker where
+instance Data.ToQuery CreateTracker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTrackerResponse' smart constructor.
@@ -391,7 +392,7 @@ data CreateTrackerResponse = CreateTrackerResponse'
     -- | The timestamp for when the tracker resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the tracker resource. Used when you
     -- need to specify a resource across all AWS.
     --
@@ -441,7 +442,7 @@ newCreateTrackerResponse
   pTrackerName_ =
     CreateTrackerResponse'
       { httpStatus = pHttpStatus_,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         trackerArn = pTrackerArn_,
         trackerName = pTrackerName_
       }
@@ -454,7 +455,7 @@ createTrackerResponse_httpStatus = Lens.lens (\CreateTrackerResponse' {httpStatu
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 createTrackerResponse_createTime :: Lens.Lens' CreateTrackerResponse Prelude.UTCTime
-createTrackerResponse_createTime = Lens.lens (\CreateTrackerResponse' {createTime} -> createTime) (\s@CreateTrackerResponse' {} a -> s {createTime = a} :: CreateTrackerResponse) Prelude.. Core._Time
+createTrackerResponse_createTime = Lens.lens (\CreateTrackerResponse' {createTime} -> createTime) (\s@CreateTrackerResponse' {} a -> s {createTime = a} :: CreateTrackerResponse) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) for the tracker resource. Used when you
 -- need to specify a resource across all AWS.

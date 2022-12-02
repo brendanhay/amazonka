@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,7 +130,7 @@ instance Core.AWSRequest BatchEvaluateGeofences where
       ( \s h x ->
           BatchEvaluateGeofencesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchEvaluateGeofences where
@@ -142,37 +143,37 @@ instance Prelude.NFData BatchEvaluateGeofences where
     Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf devicePositionUpdates
 
-instance Core.ToHeaders BatchEvaluateGeofences where
+instance Data.ToHeaders BatchEvaluateGeofences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchEvaluateGeofences where
+instance Data.ToJSON BatchEvaluateGeofences where
   toJSON BatchEvaluateGeofences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "DevicePositionUpdates"
-                  Core..= devicePositionUpdates
+                  Data..= devicePositionUpdates
               )
           ]
       )
 
-instance Core.ToPath BatchEvaluateGeofences where
+instance Data.ToPath BatchEvaluateGeofences where
   toPath BatchEvaluateGeofences' {..} =
     Prelude.mconcat
       [ "/geofencing/v0/collections/",
-        Core.toBS collectionName,
+        Data.toBS collectionName,
         "/positions"
       ]
 
-instance Core.ToQuery BatchEvaluateGeofences where
+instance Data.ToQuery BatchEvaluateGeofences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchEvaluateGeofencesResponse' smart constructor.

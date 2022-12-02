@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,8 +103,8 @@ instance Core.AWSRequest BatchPutGeofence where
       ( \s h x ->
           BatchPutGeofenceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Successes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Successes" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchPutGeofence where
@@ -116,33 +117,33 @@ instance Prelude.NFData BatchPutGeofence where
     Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf entries
 
-instance Core.ToHeaders BatchPutGeofence where
+instance Data.ToHeaders BatchPutGeofence where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchPutGeofence where
+instance Data.ToJSON BatchPutGeofence where
   toJSON BatchPutGeofence' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Entries" Core..= entries)]
+          [Prelude.Just ("Entries" Data..= entries)]
       )
 
-instance Core.ToPath BatchPutGeofence where
+instance Data.ToPath BatchPutGeofence where
   toPath BatchPutGeofence' {..} =
     Prelude.mconcat
       [ "/geofencing/v0/collections/",
-        Core.toBS collectionName,
+        Data.toBS collectionName,
         "/put-geofences"
       ]
 
-instance Core.ToQuery BatchPutGeofence where
+instance Data.ToQuery BatchPutGeofence where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchPutGeofenceResponse' smart constructor.

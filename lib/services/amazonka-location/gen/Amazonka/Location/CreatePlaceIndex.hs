@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -318,9 +319,9 @@ instance Core.AWSRequest CreatePlaceIndex where
       ( \s h x ->
           CreatePlaceIndexResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CreateTime")
-            Prelude.<*> (x Core..:> "IndexArn")
-            Prelude.<*> (x Core..:> "IndexName")
+            Prelude.<*> (x Data..:> "CreateTime")
+            Prelude.<*> (x Data..:> "IndexArn")
+            Prelude.<*> (x Data..:> "IndexName")
       )
 
 instance Prelude.Hashable CreatePlaceIndex where
@@ -341,35 +342,35 @@ instance Prelude.NFData CreatePlaceIndex where
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf indexName
 
-instance Core.ToHeaders CreatePlaceIndex where
+instance Data.ToHeaders CreatePlaceIndex where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreatePlaceIndex where
+instance Data.ToJSON CreatePlaceIndex where
   toJSON CreatePlaceIndex' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("DataSourceConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("DataSourceConfiguration" Data..=)
               Prelude.<$> dataSourceConfiguration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
-            Prelude.Just ("DataSource" Core..= dataSource),
-            Prelude.Just ("IndexName" Core..= indexName)
+            ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            Prelude.Just ("DataSource" Data..= dataSource),
+            Prelude.Just ("IndexName" Data..= indexName)
           ]
       )
 
-instance Core.ToPath CreatePlaceIndex where
+instance Data.ToPath CreatePlaceIndex where
   toPath = Prelude.const "/places/v0/indexes"
 
-instance Core.ToQuery CreatePlaceIndex where
+instance Data.ToQuery CreatePlaceIndex where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreatePlaceIndexResponse' smart constructor.
@@ -379,7 +380,7 @@ data CreatePlaceIndexResponse = CreatePlaceIndexResponse'
     -- | The timestamp for when the place index resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the place index resource. Used to
     -- specify a resource across AWS.
     --
@@ -430,7 +431,7 @@ newCreatePlaceIndexResponse
     CreatePlaceIndexResponse'
       { httpStatus =
           pHttpStatus_,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         indexArn = pIndexArn_,
         indexName = pIndexName_
       }
@@ -443,7 +444,7 @@ createPlaceIndexResponse_httpStatus = Lens.lens (\CreatePlaceIndexResponse' {htt
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 createPlaceIndexResponse_createTime :: Lens.Lens' CreatePlaceIndexResponse Prelude.UTCTime
-createPlaceIndexResponse_createTime = Lens.lens (\CreatePlaceIndexResponse' {createTime} -> createTime) (\s@CreatePlaceIndexResponse' {} a -> s {createTime = a} :: CreatePlaceIndexResponse) Prelude.. Core._Time
+createPlaceIndexResponse_createTime = Lens.lens (\CreatePlaceIndexResponse' {createTime} -> createTime) (\s@CreatePlaceIndexResponse' {} a -> s {createTime = a} :: CreatePlaceIndexResponse) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) for the place index resource. Used to
 -- specify a resource across AWS.

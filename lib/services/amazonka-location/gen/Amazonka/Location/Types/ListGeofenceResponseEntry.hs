@@ -21,6 +21,7 @@ module Amazonka.Location.Types.ListGeofenceResponseEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.GeofenceGeometry
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,7 @@ data ListGeofenceResponseEntry = ListGeofenceResponseEntry'
   { -- | The timestamp for when the geofence was stored in a geofence collection
     -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The geofence identifier.
     geofenceId :: Prelude.Text,
     -- | Contains the geofence geometry details describing a polygon or a circle.
@@ -52,7 +53,7 @@ data ListGeofenceResponseEntry = ListGeofenceResponseEntry'
     -- | The timestamp for when the geofence was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -108,18 +109,18 @@ newListGeofenceResponseEntry
   pUpdateTime_ =
     ListGeofenceResponseEntry'
       { createTime =
-          Core._Time Lens.# pCreateTime_,
+          Data._Time Lens.# pCreateTime_,
         geofenceId = pGeofenceId_,
         geometry = pGeometry_,
         status = pStatus_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The timestamp for when the geofence was stored in a geofence collection
 -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 listGeofenceResponseEntry_createTime :: Lens.Lens' ListGeofenceResponseEntry Prelude.UTCTime
-listGeofenceResponseEntry_createTime = Lens.lens (\ListGeofenceResponseEntry' {createTime} -> createTime) (\s@ListGeofenceResponseEntry' {} a -> s {createTime = a} :: ListGeofenceResponseEntry) Prelude.. Core._Time
+listGeofenceResponseEntry_createTime = Lens.lens (\ListGeofenceResponseEntry' {createTime} -> createTime) (\s@ListGeofenceResponseEntry' {} a -> s {createTime = a} :: ListGeofenceResponseEntry) Prelude.. Data._Time
 
 -- | The geofence identifier.
 listGeofenceResponseEntry_geofenceId :: Lens.Lens' ListGeofenceResponseEntry Prelude.Text
@@ -148,19 +149,19 @@ listGeofenceResponseEntry_status = Lens.lens (\ListGeofenceResponseEntry' {statu
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 listGeofenceResponseEntry_updateTime :: Lens.Lens' ListGeofenceResponseEntry Prelude.UTCTime
-listGeofenceResponseEntry_updateTime = Lens.lens (\ListGeofenceResponseEntry' {updateTime} -> updateTime) (\s@ListGeofenceResponseEntry' {} a -> s {updateTime = a} :: ListGeofenceResponseEntry) Prelude.. Core._Time
+listGeofenceResponseEntry_updateTime = Lens.lens (\ListGeofenceResponseEntry' {updateTime} -> updateTime) (\s@ListGeofenceResponseEntry' {} a -> s {updateTime = a} :: ListGeofenceResponseEntry) Prelude.. Data._Time
 
-instance Core.FromJSON ListGeofenceResponseEntry where
+instance Data.FromJSON ListGeofenceResponseEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListGeofenceResponseEntry"
       ( \x ->
           ListGeofenceResponseEntry'
-            Prelude.<$> (x Core..: "CreateTime")
-            Prelude.<*> (x Core..: "GeofenceId")
-            Prelude.<*> (x Core..: "Geometry")
-            Prelude.<*> (x Core..: "Status")
-            Prelude.<*> (x Core..: "UpdateTime")
+            Prelude.<$> (x Data..: "CreateTime")
+            Prelude.<*> (x Data..: "GeofenceId")
+            Prelude.<*> (x Data..: "Geometry")
+            Prelude.<*> (x Data..: "Status")
+            Prelude.<*> (x Data..: "UpdateTime")
       )
 
 instance Prelude.Hashable ListGeofenceResponseEntry where

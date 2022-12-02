@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,7 +83,7 @@ data SearchPlaceIndexForSuggestions = SearchPlaceIndexForSuggestions'
     --
     -- @FilterBBox@ and @BiasPosition@ are mutually exclusive. Specifying both
     -- options results in an error.
-    filterBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | An optional parameter that indicates a preference for place suggestions
     -- that are closer to a specified position.
     --
@@ -95,7 +96,7 @@ data SearchPlaceIndexForSuggestions = SearchPlaceIndexForSuggestions'
     --
     -- @BiasPosition@ and @FilterBBox@ are mutually exclusive. Specifying both
     -- options results in an error.
-    biasPosition :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    biasPosition :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | An optional parameter that limits the search results by returning only
     -- suggestions within the provided list of countries.
     --
@@ -131,7 +132,7 @@ data SearchPlaceIndexForSuggestions = SearchPlaceIndexForSuggestions'
     indexName :: Prelude.Text,
     -- | The free-form partial text to use to generate place suggestions. For
     -- example, @eiffel tow@.
-    text :: Core.Sensitive Prelude.Text
+    text :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -224,7 +225,7 @@ newSearchPlaceIndexForSuggestions pIndexName_ pText_ =
       maxResults = Prelude.Nothing,
       language = Prelude.Nothing,
       indexName = pIndexName_,
-      text = Core._Sensitive Lens.# pText_
+      text = Data._Sensitive Lens.# pText_
     }
 
 -- | An optional parameter that limits the search results by returning only
@@ -245,7 +246,7 @@ newSearchPlaceIndexForSuggestions pIndexName_ pText_ =
 -- @FilterBBox@ and @BiasPosition@ are mutually exclusive. Specifying both
 -- options results in an error.
 searchPlaceIndexForSuggestions_filterBBox :: Lens.Lens' SearchPlaceIndexForSuggestions (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForSuggestions_filterBBox = Lens.lens (\SearchPlaceIndexForSuggestions' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForSuggestions' {} a -> s {filterBBox = a} :: SearchPlaceIndexForSuggestions) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForSuggestions_filterBBox = Lens.lens (\SearchPlaceIndexForSuggestions' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForSuggestions' {} a -> s {filterBBox = a} :: SearchPlaceIndexForSuggestions) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An optional parameter that indicates a preference for place suggestions
 -- that are closer to a specified position.
@@ -260,7 +261,7 @@ searchPlaceIndexForSuggestions_filterBBox = Lens.lens (\SearchPlaceIndexForSugge
 -- @BiasPosition@ and @FilterBBox@ are mutually exclusive. Specifying both
 -- options results in an error.
 searchPlaceIndexForSuggestions_biasPosition :: Lens.Lens' SearchPlaceIndexForSuggestions (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForSuggestions_biasPosition = Lens.lens (\SearchPlaceIndexForSuggestions' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForSuggestions' {} a -> s {biasPosition = a} :: SearchPlaceIndexForSuggestions) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForSuggestions_biasPosition = Lens.lens (\SearchPlaceIndexForSuggestions' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForSuggestions' {} a -> s {biasPosition = a} :: SearchPlaceIndexForSuggestions) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An optional parameter that limits the search results by returning only
 -- suggestions within the provided list of countries.
@@ -306,7 +307,7 @@ searchPlaceIndexForSuggestions_indexName = Lens.lens (\SearchPlaceIndexForSugges
 -- | The free-form partial text to use to generate place suggestions. For
 -- example, @eiffel tow@.
 searchPlaceIndexForSuggestions_text :: Lens.Lens' SearchPlaceIndexForSuggestions Prelude.Text
-searchPlaceIndexForSuggestions_text = Lens.lens (\SearchPlaceIndexForSuggestions' {text} -> text) (\s@SearchPlaceIndexForSuggestions' {} a -> s {text = a} :: SearchPlaceIndexForSuggestions) Prelude.. Core._Sensitive
+searchPlaceIndexForSuggestions_text = Lens.lens (\SearchPlaceIndexForSuggestions' {text} -> text) (\s@SearchPlaceIndexForSuggestions' {} a -> s {text = a} :: SearchPlaceIndexForSuggestions) Prelude.. Data._Sensitive
 
 instance
   Core.AWSRequest
@@ -322,8 +323,8 @@ instance
       ( \s h x ->
           SearchPlaceIndexForSuggestionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "Summary")
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "Summary")
       )
 
 instance
@@ -355,42 +356,42 @@ instance
       `Prelude.seq` Prelude.rnf text
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     SearchPlaceIndexForSuggestions
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchPlaceIndexForSuggestions where
+instance Data.ToJSON SearchPlaceIndexForSuggestions where
   toJSON SearchPlaceIndexForSuggestions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FilterBBox" Core..=) Prelude.<$> filterBBox,
-            ("BiasPosition" Core..=) Prelude.<$> biasPosition,
-            ("FilterCountries" Core..=)
+          [ ("FilterBBox" Data..=) Prelude.<$> filterBBox,
+            ("BiasPosition" Data..=) Prelude.<$> biasPosition,
+            ("FilterCountries" Data..=)
               Prelude.<$> filterCountries,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Language" Core..=) Prelude.<$> language,
-            Prelude.Just ("Text" Core..= text)
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("Language" Data..=) Prelude.<$> language,
+            Prelude.Just ("Text" Data..= text)
           ]
       )
 
-instance Core.ToPath SearchPlaceIndexForSuggestions where
+instance Data.ToPath SearchPlaceIndexForSuggestions where
   toPath SearchPlaceIndexForSuggestions' {..} =
     Prelude.mconcat
       [ "/places/v0/indexes/",
-        Core.toBS indexName,
+        Data.toBS indexName,
         "/search/suggestions"
       ]
 
-instance Core.ToQuery SearchPlaceIndexForSuggestions where
+instance Data.ToQuery SearchPlaceIndexForSuggestions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchPlaceIndexForSuggestionsResponse' smart constructor.

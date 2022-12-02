@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,17 +93,17 @@ instance Core.AWSRequest DescribeTracker where
     Response.receiveJSON
       ( \s h x ->
           DescribeTrackerResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PricingPlanDataSource")
-            Prelude.<*> (x Core..?> "PricingPlan")
-            Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "PositionFiltering")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PricingPlanDataSource")
+            Prelude.<*> (x Data..?> "PricingPlan")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "PositionFiltering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CreateTime")
-            Prelude.<*> (x Core..:> "Description")
-            Prelude.<*> (x Core..:> "TrackerArn")
-            Prelude.<*> (x Core..:> "TrackerName")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "CreateTime")
+            Prelude.<*> (x Data..:> "Description")
+            Prelude.<*> (x Data..:> "TrackerArn")
+            Prelude.<*> (x Data..:> "TrackerName")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable DescribeTracker where
@@ -112,23 +113,23 @@ instance Prelude.Hashable DescribeTracker where
 instance Prelude.NFData DescribeTracker where
   rnf DescribeTracker' {..} = Prelude.rnf trackerName
 
-instance Core.ToHeaders DescribeTracker where
+instance Data.ToHeaders DescribeTracker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeTracker where
+instance Data.ToPath DescribeTracker where
   toPath DescribeTracker' {..} =
     Prelude.mconcat
-      ["/tracking/v0/trackers/", Core.toBS trackerName]
+      ["/tracking/v0/trackers/", Data.toBS trackerName]
 
-instance Core.ToQuery DescribeTracker where
+instance Data.ToQuery DescribeTracker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeTrackerResponse' smart constructor.
@@ -150,7 +151,7 @@ data DescribeTrackerResponse = DescribeTrackerResponse'
     -- | The timestamp for when the tracker resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The optional description for the tracker resource.
     description :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the tracker resource. Used when you
@@ -164,7 +165,7 @@ data DescribeTrackerResponse = DescribeTrackerResponse'
     -- | The timestamp for when the tracker resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -235,11 +236,11 @@ newDescribeTrackerResponse
         kmsKeyId = Prelude.Nothing,
         positionFiltering = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         description = pDescription_,
         trackerArn = pTrackerArn_,
         trackerName = pTrackerName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The tags associated with the tracker resource.
@@ -272,7 +273,7 @@ describeTrackerResponse_httpStatus = Lens.lens (\DescribeTrackerResponse' {httpS
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 describeTrackerResponse_createTime :: Lens.Lens' DescribeTrackerResponse Prelude.UTCTime
-describeTrackerResponse_createTime = Lens.lens (\DescribeTrackerResponse' {createTime} -> createTime) (\s@DescribeTrackerResponse' {} a -> s {createTime = a} :: DescribeTrackerResponse) Prelude.. Core._Time
+describeTrackerResponse_createTime = Lens.lens (\DescribeTrackerResponse' {createTime} -> createTime) (\s@DescribeTrackerResponse' {} a -> s {createTime = a} :: DescribeTrackerResponse) Prelude.. Data._Time
 
 -- | The optional description for the tracker resource.
 describeTrackerResponse_description :: Lens.Lens' DescribeTrackerResponse Prelude.Text
@@ -294,7 +295,7 @@ describeTrackerResponse_trackerName = Lens.lens (\DescribeTrackerResponse' {trac
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 describeTrackerResponse_updateTime :: Lens.Lens' DescribeTrackerResponse Prelude.UTCTime
-describeTrackerResponse_updateTime = Lens.lens (\DescribeTrackerResponse' {updateTime} -> updateTime) (\s@DescribeTrackerResponse' {} a -> s {updateTime = a} :: DescribeTrackerResponse) Prelude.. Core._Time
+describeTrackerResponse_updateTime = Lens.lens (\DescribeTrackerResponse' {updateTime} -> updateTime) (\s@DescribeTrackerResponse' {} a -> s {updateTime = a} :: DescribeTrackerResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeTrackerResponse where
   rnf DescribeTrackerResponse' {..} =

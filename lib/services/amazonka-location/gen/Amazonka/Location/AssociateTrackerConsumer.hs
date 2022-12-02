@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,33 +140,33 @@ instance Prelude.NFData AssociateTrackerConsumer where
     Prelude.rnf consumerArn
       `Prelude.seq` Prelude.rnf trackerName
 
-instance Core.ToHeaders AssociateTrackerConsumer where
+instance Data.ToHeaders AssociateTrackerConsumer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateTrackerConsumer where
+instance Data.ToJSON AssociateTrackerConsumer where
   toJSON AssociateTrackerConsumer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ConsumerArn" Core..= consumerArn)]
+          [Prelude.Just ("ConsumerArn" Data..= consumerArn)]
       )
 
-instance Core.ToPath AssociateTrackerConsumer where
+instance Data.ToPath AssociateTrackerConsumer where
   toPath AssociateTrackerConsumer' {..} =
     Prelude.mconcat
       [ "/tracking/v0/trackers/",
-        Core.toBS trackerName,
+        Data.toBS trackerName,
         "/consumers"
       ]
 
-instance Core.ToQuery AssociateTrackerConsumer where
+instance Data.ToQuery AssociateTrackerConsumer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateTrackerConsumerResponse' smart constructor.

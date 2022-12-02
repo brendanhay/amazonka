@@ -21,6 +21,7 @@ module Amazonka.Location.Types.ListTrackersResponseEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PricingPlan
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,7 +36,7 @@ data ListTrackersResponseEntry = ListTrackersResponseEntry'
     -- | The timestamp for when the tracker resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The description for the tracker resource.
     description :: Prelude.Text,
     -- | The name of the tracker resource.
@@ -43,7 +44,7 @@ data ListTrackersResponseEntry = ListTrackersResponseEntry'
     -- | The timestamp at which the device\'s position was determined. Uses
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,10 +90,10 @@ newListTrackersResponseEntry
       { pricingPlanDataSource =
           Prelude.Nothing,
         pricingPlan = Prelude.Nothing,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         description = pDescription_,
         trackerName = pTrackerName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | No longer used. Always returns an empty string.
@@ -107,7 +108,7 @@ listTrackersResponseEntry_pricingPlan = Lens.lens (\ListTrackersResponseEntry' {
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 listTrackersResponseEntry_createTime :: Lens.Lens' ListTrackersResponseEntry Prelude.UTCTime
-listTrackersResponseEntry_createTime = Lens.lens (\ListTrackersResponseEntry' {createTime} -> createTime) (\s@ListTrackersResponseEntry' {} a -> s {createTime = a} :: ListTrackersResponseEntry) Prelude.. Core._Time
+listTrackersResponseEntry_createTime = Lens.lens (\ListTrackersResponseEntry' {createTime} -> createTime) (\s@ListTrackersResponseEntry' {} a -> s {createTime = a} :: ListTrackersResponseEntry) Prelude.. Data._Time
 
 -- | The description for the tracker resource.
 listTrackersResponseEntry_description :: Lens.Lens' ListTrackersResponseEntry Prelude.Text
@@ -121,20 +122,20 @@ listTrackersResponseEntry_trackerName = Lens.lens (\ListTrackersResponseEntry' {
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 listTrackersResponseEntry_updateTime :: Lens.Lens' ListTrackersResponseEntry Prelude.UTCTime
-listTrackersResponseEntry_updateTime = Lens.lens (\ListTrackersResponseEntry' {updateTime} -> updateTime) (\s@ListTrackersResponseEntry' {} a -> s {updateTime = a} :: ListTrackersResponseEntry) Prelude.. Core._Time
+listTrackersResponseEntry_updateTime = Lens.lens (\ListTrackersResponseEntry' {updateTime} -> updateTime) (\s@ListTrackersResponseEntry' {} a -> s {updateTime = a} :: ListTrackersResponseEntry) Prelude.. Data._Time
 
-instance Core.FromJSON ListTrackersResponseEntry where
+instance Data.FromJSON ListTrackersResponseEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListTrackersResponseEntry"
       ( \x ->
           ListTrackersResponseEntry'
-            Prelude.<$> (x Core..:? "PricingPlanDataSource")
-            Prelude.<*> (x Core..:? "PricingPlan")
-            Prelude.<*> (x Core..: "CreateTime")
-            Prelude.<*> (x Core..: "Description")
-            Prelude.<*> (x Core..: "TrackerName")
-            Prelude.<*> (x Core..: "UpdateTime")
+            Prelude.<$> (x Data..:? "PricingPlanDataSource")
+            Prelude.<*> (x Data..:? "PricingPlan")
+            Prelude.<*> (x Data..: "CreateTime")
+            Prelude.<*> (x Data..: "Description")
+            Prelude.<*> (x Data..: "TrackerName")
+            Prelude.<*> (x Data..: "UpdateTime")
       )
 
 instance Prelude.Hashable ListTrackersResponseEntry where

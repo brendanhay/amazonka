@@ -21,6 +21,7 @@ module Amazonka.Location.Types.DevicePositionUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PositionalAccuracy
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,17 +36,17 @@ data DevicePositionUpdate = DevicePositionUpdate'
     -- geofence event the update may trigger.
     --
     -- Format: @\"key\" : \"value\"@
-    positionProperties :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    positionProperties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The device associated to the position update.
     deviceId :: Prelude.Text,
     -- | The latest device position defined in
     -- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 WGS 84>
     -- format: @[X or longitude, Y or latitude]@.
-    position :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
+    position :: Data.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The timestamp at which the device\'s position was determined. Uses
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
-    sampleTime :: Core.POSIX
+    sampleTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -91,9 +92,9 @@ newDevicePositionUpdate
         positionProperties = Prelude.Nothing,
         deviceId = pDeviceId_,
         position =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pPosition_,
-        sampleTime = Core._Time Lens.# pSampleTime_
+        sampleTime = Data._Time Lens.# pSampleTime_
       }
 
 -- | The accuracy of the device position.
@@ -106,7 +107,7 @@ devicePositionUpdate_accuracy = Lens.lens (\DevicePositionUpdate' {accuracy} -> 
 --
 -- Format: @\"key\" : \"value\"@
 devicePositionUpdate_positionProperties :: Lens.Lens' DevicePositionUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-devicePositionUpdate_positionProperties = Lens.lens (\DevicePositionUpdate' {positionProperties} -> positionProperties) (\s@DevicePositionUpdate' {} a -> s {positionProperties = a} :: DevicePositionUpdate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+devicePositionUpdate_positionProperties = Lens.lens (\DevicePositionUpdate' {positionProperties} -> positionProperties) (\s@DevicePositionUpdate' {} a -> s {positionProperties = a} :: DevicePositionUpdate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The device associated to the position update.
 devicePositionUpdate_deviceId :: Lens.Lens' DevicePositionUpdate Prelude.Text
@@ -116,13 +117,13 @@ devicePositionUpdate_deviceId = Lens.lens (\DevicePositionUpdate' {deviceId} -> 
 -- <https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 WGS 84>
 -- format: @[X or longitude, Y or latitude]@.
 devicePositionUpdate_position :: Lens.Lens' DevicePositionUpdate (Prelude.NonEmpty Prelude.Double)
-devicePositionUpdate_position = Lens.lens (\DevicePositionUpdate' {position} -> position) (\s@DevicePositionUpdate' {} a -> s {position = a} :: DevicePositionUpdate) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+devicePositionUpdate_position = Lens.lens (\DevicePositionUpdate' {position} -> position) (\s@DevicePositionUpdate' {} a -> s {position = a} :: DevicePositionUpdate) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The timestamp at which the device\'s position was determined. Uses
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
 devicePositionUpdate_sampleTime :: Lens.Lens' DevicePositionUpdate Prelude.UTCTime
-devicePositionUpdate_sampleTime = Lens.lens (\DevicePositionUpdate' {sampleTime} -> sampleTime) (\s@DevicePositionUpdate' {} a -> s {sampleTime = a} :: DevicePositionUpdate) Prelude.. Core._Time
+devicePositionUpdate_sampleTime = Lens.lens (\DevicePositionUpdate' {sampleTime} -> sampleTime) (\s@DevicePositionUpdate' {} a -> s {sampleTime = a} :: DevicePositionUpdate) Prelude.. Data._Time
 
 instance Prelude.Hashable DevicePositionUpdate where
   hashWithSalt _salt DevicePositionUpdate' {..} =
@@ -140,15 +141,15 @@ instance Prelude.NFData DevicePositionUpdate where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf sampleTime
 
-instance Core.ToJSON DevicePositionUpdate where
+instance Data.ToJSON DevicePositionUpdate where
   toJSON DevicePositionUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Accuracy" Core..=) Prelude.<$> accuracy,
-            ("PositionProperties" Core..=)
+          [ ("Accuracy" Data..=) Prelude.<$> accuracy,
+            ("PositionProperties" Data..=)
               Prelude.<$> positionProperties,
-            Prelude.Just ("DeviceId" Core..= deviceId),
-            Prelude.Just ("Position" Core..= position),
-            Prelude.Just ("SampleTime" Core..= sampleTime)
+            Prelude.Just ("DeviceId" Data..= deviceId),
+            Prelude.Just ("Position" Data..= position),
+            Prelude.Just ("SampleTime" Data..= sampleTime)
           ]
       )

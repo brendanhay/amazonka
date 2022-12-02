@@ -21,6 +21,7 @@ module Amazonka.Location.Types.CalculateRouteMatrixSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.DistanceUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -123,16 +124,16 @@ calculateRouteMatrixSummary_errorCount = Lens.lens (\CalculateRouteMatrixSummary
 calculateRouteMatrixSummary_routeCount :: Lens.Lens' CalculateRouteMatrixSummary Prelude.Natural
 calculateRouteMatrixSummary_routeCount = Lens.lens (\CalculateRouteMatrixSummary' {routeCount} -> routeCount) (\s@CalculateRouteMatrixSummary' {} a -> s {routeCount = a} :: CalculateRouteMatrixSummary)
 
-instance Core.FromJSON CalculateRouteMatrixSummary where
+instance Data.FromJSON CalculateRouteMatrixSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CalculateRouteMatrixSummary"
       ( \x ->
           CalculateRouteMatrixSummary'
-            Prelude.<$> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "DistanceUnit")
-            Prelude.<*> (x Core..: "ErrorCount")
-            Prelude.<*> (x Core..: "RouteCount")
+            Prelude.<$> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "DistanceUnit")
+            Prelude.<*> (x Data..: "ErrorCount")
+            Prelude.<*> (x Data..: "RouteCount")
       )
 
 instance Prelude.Hashable CalculateRouteMatrixSummary where

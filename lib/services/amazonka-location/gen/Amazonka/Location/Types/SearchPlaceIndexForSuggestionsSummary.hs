@@ -21,6 +21,7 @@ module Amazonka.Location.Types.SearchPlaceIndexForSuggestionsSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the request sent by using @SearchPlaceIndexForSuggestions@.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data SearchPlaceIndexForSuggestionsSummary = SearchPlaceIndexForSuggestionsSummary'
   { -- | Contains the coordinates for the optional bounding box specified in the
     -- request.
-    filterBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | Contains the coordinates for the optional bias position specified in the
     -- request.
     --
@@ -39,7 +40,7 @@ data SearchPlaceIndexForSuggestionsSummary = SearchPlaceIndexForSuggestionsSumma
     --
     -- For example, @[-123.1174, 49.2847]@ represents the position with
     -- longitude @-123.1174@ and latitude @49.2847@.
-    biasPosition :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    biasPosition :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | Contains the optional country filter specified in the request.
     filterCountries :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Contains the optional result count limit specified in the request.
@@ -60,7 +61,7 @@ data SearchPlaceIndexForSuggestionsSummary = SearchPlaceIndexForSuggestionsSumma
     -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
     dataSource :: Prelude.Text,
     -- | The free-form partial text input specified in the request.
-    text :: Core.Sensitive Prelude.Text
+    text :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -122,13 +123,13 @@ newSearchPlaceIndexForSuggestionsSummary
         maxResults = Prelude.Nothing,
         language = Prelude.Nothing,
         dataSource = pDataSource_,
-        text = Core._Sensitive Lens.# pText_
+        text = Data._Sensitive Lens.# pText_
       }
 
 -- | Contains the coordinates for the optional bounding box specified in the
 -- request.
 searchPlaceIndexForSuggestionsSummary_filterBBox :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForSuggestionsSummary_filterBBox = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {filterBBox = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForSuggestionsSummary_filterBBox = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {filterBBox = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Contains the coordinates for the optional bias position specified in the
 -- request.
@@ -140,7 +141,7 @@ searchPlaceIndexForSuggestionsSummary_filterBBox = Lens.lens (\SearchPlaceIndexF
 -- For example, @[-123.1174, 49.2847]@ represents the position with
 -- longitude @-123.1174@ and latitude @49.2847@.
 searchPlaceIndexForSuggestionsSummary_biasPosition :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForSuggestionsSummary_biasPosition = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {biasPosition = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+searchPlaceIndexForSuggestionsSummary_biasPosition = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {biasPosition = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Contains the optional country filter specified in the request.
 searchPlaceIndexForSuggestionsSummary_filterCountries :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -171,24 +172,24 @@ searchPlaceIndexForSuggestionsSummary_dataSource = Lens.lens (\SearchPlaceIndexF
 
 -- | The free-form partial text input specified in the request.
 searchPlaceIndexForSuggestionsSummary_text :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary Prelude.Text
-searchPlaceIndexForSuggestionsSummary_text = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {text} -> text) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {text = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Core._Sensitive
+searchPlaceIndexForSuggestionsSummary_text = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {text} -> text) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {text = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Data._Sensitive
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SearchPlaceIndexForSuggestionsSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchPlaceIndexForSuggestionsSummary"
       ( \x ->
           SearchPlaceIndexForSuggestionsSummary'
-            Prelude.<$> (x Core..:? "FilterBBox")
-            Prelude.<*> (x Core..:? "BiasPosition")
-            Prelude.<*> (x Core..:? "FilterCountries")
-            Prelude.<*> (x Core..:? "MaxResults")
-            Prelude.<*> (x Core..:? "Language")
-            Prelude.<*> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "Text")
+            Prelude.<$> (x Data..:? "FilterBBox")
+            Prelude.<*> (x Data..:? "BiasPosition")
+            Prelude.<*> (x Data..:? "FilterCountries")
+            Prelude.<*> (x Data..:? "MaxResults")
+            Prelude.<*> (x Data..:? "Language")
+            Prelude.<*> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "Text")
       )
 
 instance

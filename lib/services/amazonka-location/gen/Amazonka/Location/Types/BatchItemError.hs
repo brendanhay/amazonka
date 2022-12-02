@@ -21,6 +21,7 @@ module Amazonka.Location.Types.BatchItemError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.BatchItemErrorCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -62,14 +63,14 @@ batchItemError_message = Lens.lens (\BatchItemError' {message} -> message) (\s@B
 batchItemError_code :: Lens.Lens' BatchItemError (Prelude.Maybe BatchItemErrorCode)
 batchItemError_code = Lens.lens (\BatchItemError' {code} -> code) (\s@BatchItemError' {} a -> s {code = a} :: BatchItemError)
 
-instance Core.FromJSON BatchItemError where
+instance Data.FromJSON BatchItemError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchItemError"
       ( \x ->
           BatchItemError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable BatchItemError where

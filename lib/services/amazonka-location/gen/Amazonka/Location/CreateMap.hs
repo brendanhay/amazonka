@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -228,9 +229,9 @@ instance Core.AWSRequest CreateMap where
       ( \s h x ->
           CreateMapResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "CreateTime")
-            Prelude.<*> (x Core..:> "MapArn")
-            Prelude.<*> (x Core..:> "MapName")
+            Prelude.<*> (x Data..:> "CreateTime")
+            Prelude.<*> (x Data..:> "MapArn")
+            Prelude.<*> (x Data..:> "MapName")
       )
 
 instance Prelude.Hashable CreateMap where
@@ -249,33 +250,33 @@ instance Prelude.NFData CreateMap where
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf mapName
 
-instance Core.ToHeaders CreateMap where
+instance Data.ToHeaders CreateMap where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateMap where
+instance Data.ToJSON CreateMap where
   toJSON CreateMap' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
-            Prelude.Just ("Configuration" Core..= configuration),
-            Prelude.Just ("MapName" Core..= mapName)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            Prelude.Just ("Configuration" Data..= configuration),
+            Prelude.Just ("MapName" Data..= mapName)
           ]
       )
 
-instance Core.ToPath CreateMap where
+instance Data.ToPath CreateMap where
   toPath = Prelude.const "/maps/v0/maps"
 
-instance Core.ToQuery CreateMap where
+instance Data.ToQuery CreateMap where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateMapResponse' smart constructor.
@@ -285,7 +286,7 @@ data CreateMapResponse = CreateMapResponse'
     -- | The timestamp for when the map resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    createTime :: Core.POSIX,
+    createTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
     -- resource across all AWS.
     --
@@ -333,7 +334,7 @@ newCreateMapResponse
   pMapName_ =
     CreateMapResponse'
       { httpStatus = pHttpStatus_,
-        createTime = Core._Time Lens.# pCreateTime_,
+        createTime = Data._Time Lens.# pCreateTime_,
         mapArn = pMapArn_,
         mapName = pMapName_
       }
@@ -346,7 +347,7 @@ createMapResponse_httpStatus = Lens.lens (\CreateMapResponse' {httpStatus} -> ht
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 createMapResponse_createTime :: Lens.Lens' CreateMapResponse Prelude.UTCTime
-createMapResponse_createTime = Lens.lens (\CreateMapResponse' {createTime} -> createTime) (\s@CreateMapResponse' {} a -> s {createTime = a} :: CreateMapResponse) Prelude.. Core._Time
+createMapResponse_createTime = Lens.lens (\CreateMapResponse' {createTime} -> createTime) (\s@CreateMapResponse' {} a -> s {createTime = a} :: CreateMapResponse) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
 -- resource across all AWS.

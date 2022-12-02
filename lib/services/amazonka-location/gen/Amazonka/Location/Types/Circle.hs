@@ -21,6 +21,7 @@ module Amazonka.Location.Types.Circle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A circle on the earth, as defined by a center point and a radius.
@@ -30,7 +31,7 @@ data Circle = Circle'
   { -- | A single point geometry, specifying the center of the circle, using
     -- <https://gisgeography.com/wgs84-world-geodetic-system/ WGS 84>
     -- coordinates, in the form @[longitude, latitude]@.
-    center :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
+    center :: Data.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The radius of the circle in meters. Must be greater than zero and no
     -- larger than 100,000 (100 kilometers).
     radius :: Prelude.Double
@@ -60,7 +61,7 @@ newCircle ::
 newCircle pCenter_ pRadius_ =
   Circle'
     { center =
-        Core._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive Prelude.. Lens.coerced
           Lens.# pCenter_,
       radius = pRadius_
     }
@@ -69,21 +70,21 @@ newCircle pCenter_ pRadius_ =
 -- <https://gisgeography.com/wgs84-world-geodetic-system/ WGS 84>
 -- coordinates, in the form @[longitude, latitude]@.
 circle_center :: Lens.Lens' Circle (Prelude.NonEmpty Prelude.Double)
-circle_center = Lens.lens (\Circle' {center} -> center) (\s@Circle' {} a -> s {center = a} :: Circle) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+circle_center = Lens.lens (\Circle' {center} -> center) (\s@Circle' {} a -> s {center = a} :: Circle) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The radius of the circle in meters. Must be greater than zero and no
 -- larger than 100,000 (100 kilometers).
 circle_radius :: Lens.Lens' Circle Prelude.Double
 circle_radius = Lens.lens (\Circle' {radius} -> radius) (\s@Circle' {} a -> s {radius = a} :: Circle)
 
-instance Core.FromJSON Circle where
+instance Data.FromJSON Circle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Circle"
       ( \x ->
           Circle'
-            Prelude.<$> (x Core..: "Center")
-            Prelude.<*> (x Core..: "Radius")
+            Prelude.<$> (x Data..: "Center")
+            Prelude.<*> (x Data..: "Radius")
       )
 
 instance Prelude.Hashable Circle where
@@ -95,11 +96,11 @@ instance Prelude.NFData Circle where
   rnf Circle' {..} =
     Prelude.rnf center `Prelude.seq` Prelude.rnf radius
 
-instance Core.ToJSON Circle where
+instance Data.ToJSON Circle where
   toJSON Circle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Center" Core..= center),
-            Prelude.Just ("Radius" Core..= radius)
+          [ Prelude.Just ("Center" Data..= center),
+            Prelude.Just ("Radius" Data..= radius)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Location.Types.TruckWeight where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.VehicleWeightUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -85,11 +86,11 @@ instance Prelude.NFData TruckWeight where
   rnf TruckWeight' {..} =
     Prelude.rnf total `Prelude.seq` Prelude.rnf unit
 
-instance Core.ToJSON TruckWeight where
+instance Data.ToJSON TruckWeight where
   toJSON TruckWeight' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Total" Core..=) Prelude.<$> total,
-            ("Unit" Core..=) Prelude.<$> unit
+          [ ("Total" Data..=) Prelude.<$> total,
+            ("Unit" Data..=) Prelude.<$> unit
           ]
       )

@@ -48,6 +48,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,34 +128,34 @@ instance Prelude.NFData UpdateCase where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf fields
 
-instance Core.ToHeaders UpdateCase where
+instance Data.ToHeaders UpdateCase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateCase where
+instance Data.ToJSON UpdateCase where
   toJSON UpdateCase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("fields" Core..= fields)]
+          [Prelude.Just ("fields" Data..= fields)]
       )
 
-instance Core.ToPath UpdateCase where
+instance Data.ToPath UpdateCase where
   toPath UpdateCase' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/cases/",
-        Core.toBS caseId
+        Data.toBS caseId
       ]
 
-instance Core.ToQuery UpdateCase where
+instance Data.ToQuery UpdateCase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateCaseResponse' smart constructor.

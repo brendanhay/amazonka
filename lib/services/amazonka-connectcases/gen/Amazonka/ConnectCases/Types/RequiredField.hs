@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.RequiredField where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of fields that must have a value provided to create a case.
@@ -52,12 +53,12 @@ newRequiredField pFieldId_ =
 requiredField_fieldId :: Lens.Lens' RequiredField Prelude.Text
 requiredField_fieldId = Lens.lens (\RequiredField' {fieldId} -> fieldId) (\s@RequiredField' {} a -> s {fieldId = a} :: RequiredField)
 
-instance Core.FromJSON RequiredField where
+instance Data.FromJSON RequiredField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RequiredField"
       ( \x ->
-          RequiredField' Prelude.<$> (x Core..: "fieldId")
+          RequiredField' Prelude.<$> (x Data..: "fieldId")
       )
 
 instance Prelude.Hashable RequiredField where
@@ -67,9 +68,9 @@ instance Prelude.Hashable RequiredField where
 instance Prelude.NFData RequiredField where
   rnf RequiredField' {..} = Prelude.rnf fieldId
 
-instance Core.ToJSON RequiredField where
+instance Data.ToJSON RequiredField where
   toJSON RequiredField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("fieldId" Core..= fieldId)]
+          [Prelude.Just ("fieldId" Data..= fieldId)]
       )

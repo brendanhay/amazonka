@@ -44,6 +44,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,36 +132,36 @@ instance Prelude.NFData UpdateField where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf fieldId
 
-instance Core.ToHeaders UpdateField where
+instance Data.ToHeaders UpdateField where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateField where
+instance Data.ToJSON UpdateField where
   toJSON UpdateField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description
+          [ ("name" Data..=) Prelude.<$> name,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateField where
+instance Data.ToPath UpdateField where
   toPath UpdateField' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/fields/",
-        Core.toBS fieldId
+        Data.toBS fieldId
       ]
 
-instance Core.ToQuery UpdateField where
+instance Data.ToQuery UpdateField where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFieldResponse' smart constructor.

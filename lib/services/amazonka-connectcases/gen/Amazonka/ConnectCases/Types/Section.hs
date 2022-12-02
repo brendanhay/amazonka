@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.Section where
 import Amazonka.ConnectCases.Types.FieldGroup
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This represents a sections within a panel or tab of the page layout.
@@ -50,12 +51,12 @@ newSection = Section' {fieldGroup = Prelude.Nothing}
 section_fieldGroup :: Lens.Lens' Section (Prelude.Maybe FieldGroup)
 section_fieldGroup = Lens.lens (\Section' {fieldGroup} -> fieldGroup) (\s@Section' {} a -> s {fieldGroup = a} :: Section)
 
-instance Core.FromJSON Section where
+instance Data.FromJSON Section where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Section"
       ( \x ->
-          Section' Prelude.<$> (x Core..:? "fieldGroup")
+          Section' Prelude.<$> (x Data..:? "fieldGroup")
       )
 
 instance Prelude.Hashable Section where
@@ -65,9 +66,9 @@ instance Prelude.Hashable Section where
 instance Prelude.NFData Section where
   rnf Section' {..} = Prelude.rnf fieldGroup
 
-instance Core.ToJSON Section where
+instance Data.ToJSON Section where
   toJSON Section' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("fieldGroup" Core..=) Prelude.<$> fieldGroup]
+          [("fieldGroup" Data..=) Prelude.<$> fieldGroup]
       )

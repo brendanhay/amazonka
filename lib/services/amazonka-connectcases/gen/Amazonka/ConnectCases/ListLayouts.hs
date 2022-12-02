@@ -46,6 +46,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,9 +112,9 @@ instance Core.AWSRequest ListLayouts where
     Response.receiveJSON
       ( \s h x ->
           ListLayoutsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "layouts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "layouts" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListLayouts where
@@ -128,30 +129,30 @@ instance Prelude.NFData ListLayouts where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainId
 
-instance Core.ToHeaders ListLayouts where
+instance Data.ToHeaders ListLayouts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListLayouts where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListLayouts where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListLayouts where
+instance Data.ToPath ListLayouts where
   toPath ListLayouts' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainId, "/layouts-list"]
+      ["/domains/", Data.toBS domainId, "/layouts-list"]
 
-instance Core.ToQuery ListLayouts where
+instance Data.ToQuery ListLayouts where
   toQuery ListLayouts' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListLayoutsResponse' smart constructor.

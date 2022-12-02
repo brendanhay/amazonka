@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.FieldValueUnion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object to store union of Field values.
@@ -76,15 +77,15 @@ fieldValueUnion_booleanValue = Lens.lens (\FieldValueUnion' {booleanValue} -> bo
 fieldValueUnion_stringValue :: Lens.Lens' FieldValueUnion (Prelude.Maybe Prelude.Text)
 fieldValueUnion_stringValue = Lens.lens (\FieldValueUnion' {stringValue} -> stringValue) (\s@FieldValueUnion' {} a -> s {stringValue = a} :: FieldValueUnion)
 
-instance Core.FromJSON FieldValueUnion where
+instance Data.FromJSON FieldValueUnion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldValueUnion"
       ( \x ->
           FieldValueUnion'
-            Prelude.<$> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "booleanValue")
-            Prelude.<*> (x Core..:? "stringValue")
+            Prelude.<$> (x Data..:? "doubleValue")
+            Prelude.<*> (x Data..:? "booleanValue")
+            Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable FieldValueUnion where
@@ -99,12 +100,12 @@ instance Prelude.NFData FieldValueUnion where
       `Prelude.seq` Prelude.rnf booleanValue
       `Prelude.seq` Prelude.rnf stringValue
 
-instance Core.ToJSON FieldValueUnion where
+instance Data.ToJSON FieldValueUnion where
   toJSON FieldValueUnion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("booleanValue" Core..=) Prelude.<$> booleanValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue
+          [ ("doubleValue" Data..=) Prelude.<$> doubleValue,
+            ("booleanValue" Data..=) Prelude.<$> booleanValue,
+            ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

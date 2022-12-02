@@ -53,6 +53,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,36 +144,36 @@ instance Prelude.NFData UpdateLayout where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf layoutId
 
-instance Core.ToHeaders UpdateLayout where
+instance Data.ToHeaders UpdateLayout where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLayout where
+instance Data.ToJSON UpdateLayout where
   toJSON UpdateLayout' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("content" Core..=) Prelude.<$> content
+          [ ("name" Data..=) Prelude.<$> name,
+            ("content" Data..=) Prelude.<$> content
           ]
       )
 
-instance Core.ToPath UpdateLayout where
+instance Data.ToPath UpdateLayout where
   toPath UpdateLayout' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/layouts/",
-        Core.toBS layoutId
+        Data.toBS layoutId
       ]
 
-instance Core.ToQuery UpdateLayout where
+instance Data.ToQuery UpdateLayout where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLayoutResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,15 +103,15 @@ instance Core.AWSRequest GetTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "layoutConfiguration")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "requiredFields" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "layoutConfiguration")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "requiredFields" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "status")
-            Prelude.<*> (x Core..:> "templateArn")
-            Prelude.<*> (x Core..:> "templateId")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "templateArn")
+            Prelude.<*> (x Data..:> "templateId")
       )
 
 instance Prelude.Hashable GetTemplate where
@@ -123,30 +124,30 @@ instance Prelude.NFData GetTemplate where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf templateId
 
-instance Core.ToHeaders GetTemplate where
+instance Data.ToHeaders GetTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetTemplate where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetTemplate where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetTemplate where
+instance Data.ToPath GetTemplate where
   toPath GetTemplate' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/templates/",
-        Core.toBS templateId
+        Data.toBS templateId
       ]
 
-instance Core.ToQuery GetTemplate where
+instance Data.ToQuery GetTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetTemplateResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.SearchCasesResponseItem where
 import Amazonka.ConnectCases.Types.FieldValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of items that represent cases.
@@ -87,16 +88,16 @@ searchCasesResponseItem_fields = Lens.lens (\SearchCasesResponseItem' {fields} -
 searchCasesResponseItem_templateId :: Lens.Lens' SearchCasesResponseItem Prelude.Text
 searchCasesResponseItem_templateId = Lens.lens (\SearchCasesResponseItem' {templateId} -> templateId) (\s@SearchCasesResponseItem' {} a -> s {templateId = a} :: SearchCasesResponseItem)
 
-instance Core.FromJSON SearchCasesResponseItem where
+instance Data.FromJSON SearchCasesResponseItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SearchCasesResponseItem"
       ( \x ->
           SearchCasesResponseItem'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "caseId")
-            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "templateId")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "caseId")
+            Prelude.<*> (x Data..:? "fields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "templateId")
       )
 
 instance Prelude.Hashable SearchCasesResponseItem where

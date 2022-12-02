@@ -52,6 +52,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -178,9 +179,9 @@ instance Core.AWSRequest SearchCases where
     Response.receiveJSON
       ( \s h x ->
           SearchCasesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "cases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "cases" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable SearchCases where
@@ -203,36 +204,36 @@ instance Prelude.NFData SearchCases where
       `Prelude.seq` Prelude.rnf sorts
       `Prelude.seq` Prelude.rnf domainId
 
-instance Core.ToHeaders SearchCases where
+instance Data.ToHeaders SearchCases where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchCases where
+instance Data.ToJSON SearchCases where
   toJSON SearchCases' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("fields" Core..=) Prelude.<$> fields,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("searchTerm" Core..=) Prelude.<$> searchTerm,
-            ("sorts" Core..=) Prelude.<$> sorts
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("fields" Data..=) Prelude.<$> fields,
+            ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("searchTerm" Data..=) Prelude.<$> searchTerm,
+            ("sorts" Data..=) Prelude.<$> sorts
           ]
       )
 
-instance Core.ToPath SearchCases where
+instance Data.ToPath SearchCases where
   toPath SearchCases' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainId, "/cases-search"]
+      ["/domains/", Data.toBS domainId, "/cases-search"]
 
-instance Core.ToQuery SearchCases where
+instance Data.ToQuery SearchCases where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchCasesResponse' smart constructor.

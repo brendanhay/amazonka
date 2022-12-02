@@ -42,6 +42,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetCaseEventConfiguration where
       ( \s h x ->
           GetCaseEventConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "eventBridge")
+            Prelude.<*> (x Data..:> "eventBridge")
       )
 
 instance Prelude.Hashable GetCaseEventConfiguration where
@@ -95,29 +96,29 @@ instance Prelude.NFData GetCaseEventConfiguration where
   rnf GetCaseEventConfiguration' {..} =
     Prelude.rnf domainId
 
-instance Core.ToHeaders GetCaseEventConfiguration where
+instance Data.ToHeaders GetCaseEventConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCaseEventConfiguration where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetCaseEventConfiguration where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetCaseEventConfiguration where
+instance Data.ToPath GetCaseEventConfiguration where
   toPath GetCaseEventConfiguration' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/case-event-configuration"
       ]
 
-instance Core.ToQuery GetCaseEventConfiguration where
+instance Data.ToQuery GetCaseEventConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCaseEventConfigurationResponse' smart constructor.

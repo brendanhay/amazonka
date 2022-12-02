@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.FieldValue where
 import Amazonka.ConnectCases.Types.FieldValueUnion
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for case field values.
@@ -63,13 +64,13 @@ fieldValue_id = Lens.lens (\FieldValue' {id} -> id) (\s@FieldValue' {} a -> s {i
 fieldValue_value :: Lens.Lens' FieldValue FieldValueUnion
 fieldValue_value = Lens.lens (\FieldValue' {value} -> value) (\s@FieldValue' {} a -> s {value = a} :: FieldValue)
 
-instance Core.FromJSON FieldValue where
+instance Data.FromJSON FieldValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldValue"
       ( \x ->
           FieldValue'
-            Prelude.<$> (x Core..: "id") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "id") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable FieldValue where
@@ -81,11 +82,11 @@ instance Prelude.NFData FieldValue where
   rnf FieldValue' {..} =
     Prelude.rnf id `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON FieldValue where
+instance Data.ToJSON FieldValue where
   toJSON FieldValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("id" Core..= id),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("id" Data..= id),
+            Prelude.Just ("value" Data..= value)
           ]
       )

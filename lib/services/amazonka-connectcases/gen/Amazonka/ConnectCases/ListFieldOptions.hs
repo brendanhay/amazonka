@@ -47,6 +47,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,9 +135,9 @@ instance Core.AWSRequest ListFieldOptions where
     Response.receiveJSON
       ( \s h x ->
           ListFieldOptionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "options" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "options" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListFieldOptions where
@@ -155,38 +156,38 @@ instance Prelude.NFData ListFieldOptions where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf fieldId
 
-instance Core.ToHeaders ListFieldOptions where
+instance Data.ToHeaders ListFieldOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFieldOptions where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON ListFieldOptions where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath ListFieldOptions where
+instance Data.ToPath ListFieldOptions where
   toPath ListFieldOptions' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/fields/",
-        Core.toBS fieldId,
+        Data.toBS fieldId,
         "/options-list"
       ]
 
-instance Core.ToQuery ListFieldOptions where
+instance Data.ToQuery ListFieldOptions where
   toQuery ListFieldOptions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
         "values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]
 
 -- | /See:/ 'newListFieldOptionsResponse' smart constructor.

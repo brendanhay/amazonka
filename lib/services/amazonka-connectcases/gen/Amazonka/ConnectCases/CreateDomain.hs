@@ -51,6 +51,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,9 +94,9 @@ instance Core.AWSRequest CreateDomain where
       ( \s h x ->
           CreateDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "domainArn")
-            Prelude.<*> (x Core..:> "domainId")
-            Prelude.<*> (x Core..:> "domainStatus")
+            Prelude.<*> (x Data..:> "domainArn")
+            Prelude.<*> (x Data..:> "domainId")
+            Prelude.<*> (x Data..:> "domainStatus")
       )
 
 instance Prelude.Hashable CreateDomain where
@@ -105,28 +106,28 @@ instance Prelude.Hashable CreateDomain where
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} = Prelude.rnf name
 
-instance Core.ToHeaders CreateDomain where
+instance Data.ToHeaders CreateDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDomain where
+instance Data.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath CreateDomain where
+instance Data.ToPath CreateDomain where
   toPath = Prelude.const "/domains"
 
-instance Core.ToQuery CreateDomain where
+instance Data.ToQuery CreateDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDomainResponse' smart constructor.

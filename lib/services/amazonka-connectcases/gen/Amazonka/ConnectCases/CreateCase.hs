@@ -49,6 +49,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -132,8 +133,8 @@ instance Core.AWSRequest CreateCase where
       ( \s h x ->
           CreateCaseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "caseArn")
-            Prelude.<*> (x Core..:> "caseId")
+            Prelude.<*> (x Data..:> "caseArn")
+            Prelude.<*> (x Data..:> "caseId")
       )
 
 instance Prelude.Hashable CreateCase where
@@ -150,33 +151,33 @@ instance Prelude.NFData CreateCase where
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf templateId
 
-instance Core.ToHeaders CreateCase where
+instance Data.ToHeaders CreateCase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCase where
+instance Data.ToJSON CreateCase where
   toJSON CreateCase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("fields" Core..= fields),
-            Prelude.Just ("templateId" Core..= templateId)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("fields" Data..= fields),
+            Prelude.Just ("templateId" Data..= templateId)
           ]
       )
 
-instance Core.ToPath CreateCase where
+instance Data.ToPath CreateCase where
   toPath CreateCase' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainId, "/cases"]
+      ["/domains/", Data.toBS domainId, "/cases"]
 
-instance Core.ToQuery CreateCase where
+instance Data.ToQuery CreateCase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCaseResponse' smart constructor.

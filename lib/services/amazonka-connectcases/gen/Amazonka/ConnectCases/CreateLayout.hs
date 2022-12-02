@@ -54,6 +54,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,8 +122,8 @@ instance Core.AWSRequest CreateLayout where
       ( \s h x ->
           CreateLayoutResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "layoutArn")
-            Prelude.<*> (x Core..:> "layoutId")
+            Prelude.<*> (x Data..:> "layoutArn")
+            Prelude.<*> (x Data..:> "layoutId")
       )
 
 instance Prelude.Hashable CreateLayout where
@@ -137,32 +138,32 @@ instance Prelude.NFData CreateLayout where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateLayout where
+instance Data.ToHeaders CreateLayout where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLayout where
+instance Data.ToJSON CreateLayout where
   toJSON CreateLayout' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("content" Core..= content),
-            Prelude.Just ("name" Core..= name)
+          [ Prelude.Just ("content" Data..= content),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateLayout where
+instance Data.ToPath CreateLayout where
   toPath CreateLayout' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainId, "/layouts"]
+      ["/domains/", Data.toBS domainId, "/layouts"]
 
-instance Core.ToQuery CreateLayout where
+instance Data.ToQuery CreateLayout where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLayoutResponse' smart constructor.

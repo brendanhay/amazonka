@@ -52,6 +52,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,9 +162,9 @@ instance Core.AWSRequest SearchRelatedItems where
     Response.receiveJSON
       ( \s h x ->
           SearchRelatedItemsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "relatedItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "relatedItems" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable SearchRelatedItems where
@@ -182,38 +183,38 @@ instance Prelude.NFData SearchRelatedItems where
       `Prelude.seq` Prelude.rnf caseId
       `Prelude.seq` Prelude.rnf domainId
 
-instance Core.ToHeaders SearchRelatedItems where
+instance Data.ToHeaders SearchRelatedItems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchRelatedItems where
+instance Data.ToJSON SearchRelatedItems where
   toJSON SearchRelatedItems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath SearchRelatedItems where
+instance Data.ToPath SearchRelatedItems where
   toPath SearchRelatedItems' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/cases/",
-        Core.toBS caseId,
+        Data.toBS caseId,
         "/related-items-search"
       ]
 
-instance Core.ToQuery SearchRelatedItems where
+instance Data.ToQuery SearchRelatedItems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchRelatedItemsResponse' smart constructor.

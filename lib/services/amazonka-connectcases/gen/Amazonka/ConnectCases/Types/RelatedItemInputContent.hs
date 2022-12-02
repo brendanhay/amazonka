@@ -23,6 +23,7 @@ import Amazonka.ConnectCases.Types.CommentContent
 import Amazonka.ConnectCases.Types.Contact
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the content of a related item to be created.
@@ -73,11 +74,11 @@ instance Prelude.NFData RelatedItemInputContent where
     Prelude.rnf contact
       `Prelude.seq` Prelude.rnf comment
 
-instance Core.ToJSON RelatedItemInputContent where
+instance Data.ToJSON RelatedItemInputContent where
   toJSON RelatedItemInputContent' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("contact" Core..=) Prelude.<$> contact,
-            ("comment" Core..=) Prelude.<$> comment
+          [ ("contact" Data..=) Prelude.<$> contact,
+            ("comment" Data..=) Prelude.<$> comment
           ]
       )

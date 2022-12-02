@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.ContactFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter for related items of type @Contact@.
@@ -71,11 +72,11 @@ instance Prelude.NFData ContactFilter where
     Prelude.rnf channel
       `Prelude.seq` Prelude.rnf contactArn
 
-instance Core.ToJSON ContactFilter where
+instance Data.ToJSON ContactFilter where
   toJSON ContactFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("channel" Core..=) Prelude.<$> channel,
-            ("contactArn" Core..=) Prelude.<$> contactArn
+          [ ("channel" Data..=) Prelude.<$> channel,
+            ("contactArn" Data..=) Prelude.<$> contactArn
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.FieldGroup where
 import Amazonka.ConnectCases.Types.FieldItem
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for a group of fields and associated properties.
@@ -62,14 +63,14 @@ fieldGroup_name = Lens.lens (\FieldGroup' {name} -> name) (\s@FieldGroup' {} a -
 fieldGroup_fields :: Lens.Lens' FieldGroup [FieldItem]
 fieldGroup_fields = Lens.lens (\FieldGroup' {fields} -> fields) (\s@FieldGroup' {} a -> s {fields = a} :: FieldGroup) Prelude.. Lens.coerced
 
-instance Core.FromJSON FieldGroup where
+instance Data.FromJSON FieldGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldGroup"
       ( \x ->
           FieldGroup'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "fields" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FieldGroup where
@@ -81,11 +82,11 @@ instance Prelude.NFData FieldGroup where
   rnf FieldGroup' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf fields
 
-instance Core.ToJSON FieldGroup where
+instance Data.ToJSON FieldGroup where
   toJSON FieldGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            Prelude.Just ("fields" Core..= fields)
+          [ ("name" Data..=) Prelude.<$> name,
+            Prelude.Just ("fields" Data..= fields)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.FieldError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for errors on fields.
@@ -74,15 +75,15 @@ fieldError_errorCode = Lens.lens (\FieldError' {errorCode} -> errorCode) (\s@Fie
 fieldError_id :: Lens.Lens' FieldError Prelude.Text
 fieldError_id = Lens.lens (\FieldError' {id} -> id) (\s@FieldError' {} a -> s {id = a} :: FieldError)
 
-instance Core.FromJSON FieldError where
+instance Data.FromJSON FieldError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldError"
       ( \x ->
           FieldError'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..: "errorCode")
-            Prelude.<*> (x Core..: "id")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..: "errorCode")
+            Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable FieldError where

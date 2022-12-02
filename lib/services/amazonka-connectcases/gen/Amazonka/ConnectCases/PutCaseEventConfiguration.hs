@@ -42,6 +42,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,33 +113,33 @@ instance Prelude.NFData PutCaseEventConfiguration where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf eventBridge
 
-instance Core.ToHeaders PutCaseEventConfiguration where
+instance Data.ToHeaders PutCaseEventConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutCaseEventConfiguration where
+instance Data.ToJSON PutCaseEventConfiguration where
   toJSON PutCaseEventConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("eventBridge" Core..= eventBridge)]
+          [Prelude.Just ("eventBridge" Data..= eventBridge)]
       )
 
-instance Core.ToPath PutCaseEventConfiguration where
+instance Data.ToPath PutCaseEventConfiguration where
   toPath PutCaseEventConfiguration' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/case-event-configuration"
       ]
 
-instance Core.ToQuery PutCaseEventConfiguration where
+instance Data.ToQuery PutCaseEventConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutCaseEventConfigurationResponse' smart constructor.

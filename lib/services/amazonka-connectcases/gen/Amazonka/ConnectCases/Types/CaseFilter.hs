@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.CaseFilter where
 import Amazonka.ConnectCases.Types.FieldFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter for cases. Only one value can be provided.
@@ -82,12 +83,12 @@ instance Prelude.NFData CaseFilter where
       `Prelude.seq` Prelude.rnf andAll
       `Prelude.seq` Prelude.rnf not
 
-instance Core.ToJSON CaseFilter where
+instance Data.ToJSON CaseFilter where
   toJSON CaseFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("field" Core..=) Prelude.<$> field,
-            ("andAll" Core..=) Prelude.<$> andAll,
-            ("not" Core..=) Prelude.<$> not
+          [ ("field" Data..=) Prelude.<$> field,
+            ("andAll" Data..=) Prelude.<$> andAll,
+            ("not" Data..=) Prelude.<$> not
           ]
       )

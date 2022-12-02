@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.Sort where
 import Amazonka.ConnectCases.Types.Order
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structured set of sort terms.
@@ -73,11 +74,11 @@ instance Prelude.NFData Sort where
     Prelude.rnf fieldId
       `Prelude.seq` Prelude.rnf sortOrder
 
-instance Core.ToJSON Sort where
+instance Data.ToJSON Sort where
   toJSON Sort' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("fieldId" Core..= fieldId),
-            Prelude.Just ("sortOrder" Core..= sortOrder)
+          [ Prelude.Just ("fieldId" Data..= fieldId),
+            Prelude.Just ("sortOrder" Data..= sortOrder)
           ]
       )

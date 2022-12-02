@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.LayoutConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object to store configuration of layouts associated to the template.
@@ -53,13 +54,13 @@ newLayoutConfiguration =
 layoutConfiguration_defaultLayout :: Lens.Lens' LayoutConfiguration (Prelude.Maybe Prelude.Text)
 layoutConfiguration_defaultLayout = Lens.lens (\LayoutConfiguration' {defaultLayout} -> defaultLayout) (\s@LayoutConfiguration' {} a -> s {defaultLayout = a} :: LayoutConfiguration)
 
-instance Core.FromJSON LayoutConfiguration where
+instance Data.FromJSON LayoutConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LayoutConfiguration"
       ( \x ->
           LayoutConfiguration'
-            Prelude.<$> (x Core..:? "defaultLayout")
+            Prelude.<$> (x Data..:? "defaultLayout")
       )
 
 instance Prelude.Hashable LayoutConfiguration where
@@ -70,11 +71,11 @@ instance Prelude.NFData LayoutConfiguration where
   rnf LayoutConfiguration' {..} =
     Prelude.rnf defaultLayout
 
-instance Core.ToJSON LayoutConfiguration where
+instance Data.ToJSON LayoutConfiguration where
   toJSON LayoutConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("defaultLayout" Core..=)
+          [ ("defaultLayout" Data..=)
               Prelude.<$> defaultLayout
           ]
       )

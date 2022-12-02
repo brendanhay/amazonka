@@ -48,6 +48,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,11 +127,11 @@ instance Core.AWSRequest GetCase where
     Response.receiveJSON
       ( \s h x ->
           GetCaseResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..:> "templateId")
+            Prelude.<*> (x Data..?> "fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "templateId")
       )
 
 instance Prelude.Hashable GetCase where
@@ -147,36 +148,36 @@ instance Prelude.NFData GetCase where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf fields
 
-instance Core.ToHeaders GetCase where
+instance Data.ToHeaders GetCase where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCase where
+instance Data.ToJSON GetCase where
   toJSON GetCase' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            Prelude.Just ("fields" Core..= fields)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            Prelude.Just ("fields" Data..= fields)
           ]
       )
 
-instance Core.ToPath GetCase where
+instance Data.ToPath GetCase where
   toPath GetCase' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/cases/",
-        Core.toBS caseId
+        Data.toBS caseId
       ]
 
-instance Core.ToQuery GetCase where
+instance Data.ToQuery GetCase where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCaseResponse' smart constructor.

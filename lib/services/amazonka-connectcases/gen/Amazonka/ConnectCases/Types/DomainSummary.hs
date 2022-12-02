@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.DomainSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for the summarized details of the domain.
@@ -76,15 +77,15 @@ domainSummary_domainId = Lens.lens (\DomainSummary' {domainId} -> domainId) (\s@
 domainSummary_name :: Lens.Lens' DomainSummary Prelude.Text
 domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummary' {} a -> s {name = a} :: DomainSummary)
 
-instance Core.FromJSON DomainSummary where
+instance Data.FromJSON DomainSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DomainSummary"
       ( \x ->
           DomainSummary'
-            Prelude.<$> (x Core..: "domainArn")
-            Prelude.<*> (x Core..: "domainId")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..: "domainArn")
+            Prelude.<*> (x Data..: "domainId")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable DomainSummary where

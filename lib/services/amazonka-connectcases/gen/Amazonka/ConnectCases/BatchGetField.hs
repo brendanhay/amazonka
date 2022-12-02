@@ -45,6 +45,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,8 +101,8 @@ instance Core.AWSRequest BatchGetField where
       ( \s h x ->
           BatchGetFieldResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "fields" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchGetField where
@@ -114,30 +115,30 @@ instance Prelude.NFData BatchGetField where
     Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf fields
 
-instance Core.ToHeaders BatchGetField where
+instance Data.ToHeaders BatchGetField where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetField where
+instance Data.ToJSON BatchGetField where
   toJSON BatchGetField' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("fields" Core..= fields)]
+          [Prelude.Just ("fields" Data..= fields)]
       )
 
-instance Core.ToPath BatchGetField where
+instance Data.ToPath BatchGetField where
   toPath BatchGetField' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainId, "/fields-batch"]
+      ["/domains/", Data.toBS domainId, "/fields-batch"]
 
-instance Core.ToQuery BatchGetField where
+instance Data.ToQuery BatchGetField where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetFieldResponse' smart constructor.

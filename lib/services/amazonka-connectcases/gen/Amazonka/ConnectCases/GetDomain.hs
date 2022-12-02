@@ -47,6 +47,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,13 +87,13 @@ instance Core.AWSRequest GetDomain where
     Response.receiveJSON
       ( \s h x ->
           GetDomainResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "createdTime")
-            Prelude.<*> (x Core..:> "domainArn")
-            Prelude.<*> (x Core..:> "domainId")
-            Prelude.<*> (x Core..:> "domainStatus")
-            Prelude.<*> (x Core..:> "name")
+            Prelude.<*> (x Data..:> "createdTime")
+            Prelude.<*> (x Data..:> "domainArn")
+            Prelude.<*> (x Data..:> "domainId")
+            Prelude.<*> (x Data..:> "domainStatus")
+            Prelude.<*> (x Data..:> "name")
       )
 
 instance Prelude.Hashable GetDomain where
@@ -102,25 +103,25 @@ instance Prelude.Hashable GetDomain where
 instance Prelude.NFData GetDomain where
   rnf GetDomain' {..} = Prelude.rnf domainId
 
-instance Core.ToHeaders GetDomain where
+instance Data.ToHeaders GetDomain where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDomain where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetDomain where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetDomain where
+instance Data.ToPath GetDomain where
   toPath GetDomain' {..} =
-    Prelude.mconcat ["/domains/", Core.toBS domainId]
+    Prelude.mconcat ["/domains/", Data.toBS domainId]
 
-instance Core.ToQuery GetDomain where
+instance Data.ToQuery GetDomain where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDomainResponse' smart constructor.
@@ -131,7 +132,7 @@ data GetDomainResponse = GetDomainResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The timestamp when the Cases domain was created.
-    createdTime :: Core.POSIX,
+    createdTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the Cases domain.
     domainArn :: Prelude.Text,
     -- | The unique identifier of the Cases domain.
@@ -189,7 +190,7 @@ newGetDomainResponse
     GetDomainResponse'
       { tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
+        createdTime = Data._Time Lens.# pCreatedTime_,
         domainArn = pDomainArn_,
         domainId = pDomainId_,
         domainStatus = pDomainStatus_,
@@ -207,7 +208,7 @@ getDomainResponse_httpStatus = Lens.lens (\GetDomainResponse' {httpStatus} -> ht
 
 -- | The timestamp when the Cases domain was created.
 getDomainResponse_createdTime :: Lens.Lens' GetDomainResponse Prelude.UTCTime
-getDomainResponse_createdTime = Lens.lens (\GetDomainResponse' {createdTime} -> createdTime) (\s@GetDomainResponse' {} a -> s {createdTime = a} :: GetDomainResponse) Prelude.. Core._Time
+getDomainResponse_createdTime = Lens.lens (\GetDomainResponse' {createdTime} -> createdTime) (\s@GetDomainResponse' {} a -> s {createdTime = a} :: GetDomainResponse) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) for the Cases domain.
 getDomainResponse_domainArn :: Lens.Lens' GetDomainResponse Prelude.Text

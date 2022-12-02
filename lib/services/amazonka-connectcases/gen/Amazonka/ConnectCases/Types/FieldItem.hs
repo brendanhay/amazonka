@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.FieldItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for field related information.
@@ -51,11 +52,11 @@ newFieldItem pId_ = FieldItem' {id = pId_}
 fieldItem_id :: Lens.Lens' FieldItem Prelude.Text
 fieldItem_id = Lens.lens (\FieldItem' {id} -> id) (\s@FieldItem' {} a -> s {id = a} :: FieldItem)
 
-instance Core.FromJSON FieldItem where
+instance Data.FromJSON FieldItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldItem"
-      (\x -> FieldItem' Prelude.<$> (x Core..: "id"))
+      (\x -> FieldItem' Prelude.<$> (x Data..: "id"))
 
 instance Prelude.Hashable FieldItem where
   hashWithSalt _salt FieldItem' {..} =
@@ -64,7 +65,7 @@ instance Prelude.Hashable FieldItem where
 instance Prelude.NFData FieldItem where
   rnf FieldItem' {..} = Prelude.rnf id
 
-instance Core.ToJSON FieldItem where
+instance Data.ToJSON FieldItem where
   toJSON FieldItem' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])

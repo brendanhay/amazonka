@@ -54,6 +54,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -149,8 +150,8 @@ instance Core.AWSRequest CreateTemplate where
       ( \s h x ->
           CreateTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "templateArn")
-            Prelude.<*> (x Core..:> "templateId")
+            Prelude.<*> (x Data..:> "templateArn")
+            Prelude.<*> (x Data..:> "templateId")
       )
 
 instance Prelude.Hashable CreateTemplate where
@@ -171,37 +172,37 @@ instance Prelude.NFData CreateTemplate where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateTemplate where
+instance Data.ToHeaders CreateTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTemplate where
+instance Data.ToJSON CreateTemplate where
   toJSON CreateTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("layoutConfiguration" Core..=)
+          [ ("layoutConfiguration" Data..=)
               Prelude.<$> layoutConfiguration,
-            ("status" Core..=) Prelude.<$> status,
-            ("description" Core..=) Prelude.<$> description,
-            ("requiredFields" Core..=)
+            ("status" Data..=) Prelude.<$> status,
+            ("description" Data..=) Prelude.<$> description,
+            ("requiredFields" Data..=)
               Prelude.<$> requiredFields,
-            Prelude.Just ("name" Core..= name)
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateTemplate where
+instance Data.ToPath CreateTemplate where
   toPath CreateTemplate' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainId, "/templates"]
+      ["/domains/", Data.toBS domainId, "/templates"]
 
-instance Core.ToQuery CreateTemplate where
+instance Data.ToQuery CreateTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateTemplateResponse' smart constructor.

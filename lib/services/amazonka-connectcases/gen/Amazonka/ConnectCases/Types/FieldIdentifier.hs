@@ -21,6 +21,7 @@ module Amazonka.ConnectCases.Types.FieldIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object for unique identifier of a field.
@@ -51,12 +52,12 @@ newFieldIdentifier pId_ = FieldIdentifier' {id = pId_}
 fieldIdentifier_id :: Lens.Lens' FieldIdentifier Prelude.Text
 fieldIdentifier_id = Lens.lens (\FieldIdentifier' {id} -> id) (\s@FieldIdentifier' {} a -> s {id = a} :: FieldIdentifier)
 
-instance Core.FromJSON FieldIdentifier where
+instance Data.FromJSON FieldIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FieldIdentifier"
       ( \x ->
-          FieldIdentifier' Prelude.<$> (x Core..: "id")
+          FieldIdentifier' Prelude.<$> (x Data..: "id")
       )
 
 instance Prelude.Hashable FieldIdentifier where
@@ -66,7 +67,7 @@ instance Prelude.Hashable FieldIdentifier where
 instance Prelude.NFData FieldIdentifier where
   rnf FieldIdentifier' {..} = Prelude.rnf id
 
-instance Core.ToJSON FieldIdentifier where
+instance Data.ToJSON FieldIdentifier where
   toJSON FieldIdentifier' {..} =
-    Core.object
-      (Prelude.catMaybes [Prelude.Just ("id" Core..= id)])
+    Data.object
+      (Prelude.catMaybes [Prelude.Just ("id" Data..= id)])

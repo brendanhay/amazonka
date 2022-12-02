@@ -53,6 +53,7 @@ where
 import Amazonka.ConnectCases.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +135,8 @@ instance Core.AWSRequest CreateRelatedItem where
       ( \s h x ->
           CreateRelatedItemResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "relatedItemArn")
-            Prelude.<*> (x Core..:> "relatedItemId")
+            Prelude.<*> (x Data..:> "relatedItemArn")
+            Prelude.<*> (x Data..:> "relatedItemId")
       )
 
 instance Prelude.Hashable CreateRelatedItem where
@@ -152,37 +153,37 @@ instance Prelude.NFData CreateRelatedItem where
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateRelatedItem where
+instance Data.ToHeaders CreateRelatedItem where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRelatedItem where
+instance Data.ToJSON CreateRelatedItem where
   toJSON CreateRelatedItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("content" Core..= content),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("content" Data..= content),
+            Prelude.Just ("type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateRelatedItem where
+instance Data.ToPath CreateRelatedItem where
   toPath CreateRelatedItem' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainId,
+        Data.toBS domainId,
         "/cases/",
-        Core.toBS caseId,
+        Data.toBS caseId,
         "/related-items/"
       ]
 
-instance Core.ToQuery CreateRelatedItem where
+instance Data.ToQuery CreateRelatedItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRelatedItemResponse' smart constructor.

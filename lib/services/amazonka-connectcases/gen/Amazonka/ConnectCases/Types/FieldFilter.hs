@@ -22,6 +22,7 @@ module Amazonka.ConnectCases.Types.FieldFilter where
 import Amazonka.ConnectCases.Types.FieldValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A filter for fields. Only one value can be provided.
@@ -116,17 +117,17 @@ instance Prelude.NFData FieldFilter where
       `Prelude.seq` Prelude.rnf lessThanOrEqualTo
       `Prelude.seq` Prelude.rnf greaterThan
 
-instance Core.ToJSON FieldFilter where
+instance Data.ToJSON FieldFilter where
   toJSON FieldFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("lessThan" Core..=) Prelude.<$> lessThan,
-            ("contains" Core..=) Prelude.<$> contains,
-            ("greaterThanOrEqualTo" Core..=)
+          [ ("lessThan" Data..=) Prelude.<$> lessThan,
+            ("contains" Data..=) Prelude.<$> contains,
+            ("greaterThanOrEqualTo" Data..=)
               Prelude.<$> greaterThanOrEqualTo,
-            ("equalTo" Core..=) Prelude.<$> equalTo,
-            ("lessThanOrEqualTo" Core..=)
+            ("equalTo" Data..=) Prelude.<$> equalTo,
+            ("lessThanOrEqualTo" Data..=)
               Prelude.<$> lessThanOrEqualTo,
-            ("greaterThan" Core..=) Prelude.<$> greaterThan
+            ("greaterThan" Data..=) Prelude.<$> greaterThan
           ]
       )

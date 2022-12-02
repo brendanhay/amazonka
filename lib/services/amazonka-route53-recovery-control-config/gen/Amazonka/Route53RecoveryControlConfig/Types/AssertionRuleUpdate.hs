@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.AssertionRuleUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An update to an assertion rule. You can update the name or the
@@ -106,13 +107,13 @@ instance Prelude.NFData AssertionRuleUpdate where
       `Prelude.seq` Prelude.rnf waitPeriodMs
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON AssertionRuleUpdate where
+instance Data.ToJSON AssertionRuleUpdate where
   toJSON AssertionRuleUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SafetyRuleArn" Core..= safetyRuleArn),
-            Prelude.Just ("WaitPeriodMs" Core..= waitPeriodMs),
-            Prelude.Just ("Name" Core..= name)
+              ("SafetyRuleArn" Data..= safetyRuleArn),
+            Prelude.Just ("WaitPeriodMs" Data..= waitPeriodMs),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

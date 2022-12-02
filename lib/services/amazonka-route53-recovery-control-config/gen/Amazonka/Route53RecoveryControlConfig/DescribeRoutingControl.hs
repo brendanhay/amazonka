@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest DescribeRoutingControl where
     Response.receiveJSON
       ( \s h x ->
           DescribeRoutingControlResponse'
-            Prelude.<$> (x Core..?> "RoutingControl")
+            Prelude.<$> (x Data..?> "RoutingControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,23 +106,23 @@ instance Prelude.NFData DescribeRoutingControl where
   rnf DescribeRoutingControl' {..} =
     Prelude.rnf routingControlArn
 
-instance Core.ToHeaders DescribeRoutingControl where
+instance Data.ToHeaders DescribeRoutingControl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRoutingControl where
+instance Data.ToPath DescribeRoutingControl where
   toPath DescribeRoutingControl' {..} =
     Prelude.mconcat
-      ["/routingcontrol/", Core.toBS routingControlArn]
+      ["/routingcontrol/", Data.toBS routingControlArn]
 
-instance Core.ToQuery DescribeRoutingControl where
+instance Data.ToQuery DescribeRoutingControl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRoutingControlResponse' smart constructor.

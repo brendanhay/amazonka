@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.NewGatingRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
 
@@ -176,18 +177,18 @@ instance Prelude.NFData NewGatingRule where
       `Prelude.seq` Prelude.rnf waitPeriodMs
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON NewGatingRule where
+instance Data.ToJSON NewGatingRule where
   toJSON NewGatingRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TargetControls" Core..= targetControls),
+              ("TargetControls" Data..= targetControls),
             Prelude.Just
-              ("ControlPanelArn" Core..= controlPanelArn),
+              ("ControlPanelArn" Data..= controlPanelArn),
             Prelude.Just
-              ("GatingControls" Core..= gatingControls),
-            Prelude.Just ("RuleConfig" Core..= ruleConfig),
-            Prelude.Just ("WaitPeriodMs" Core..= waitPeriodMs),
-            Prelude.Just ("Name" Core..= name)
+              ("GatingControls" Data..= gatingControls),
+            Prelude.Just ("RuleConfig" Data..= ruleConfig),
+            Prelude.Just ("WaitPeriodMs" Data..= waitPeriodMs),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

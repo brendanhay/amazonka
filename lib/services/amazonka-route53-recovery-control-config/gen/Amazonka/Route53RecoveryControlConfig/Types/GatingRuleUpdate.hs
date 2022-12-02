@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.GatingRuleUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Update to a gating rule. You can update the name or the evaluation
@@ -105,13 +106,13 @@ instance Prelude.NFData GatingRuleUpdate where
       `Prelude.seq` Prelude.rnf waitPeriodMs
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON GatingRuleUpdate where
+instance Data.ToJSON GatingRuleUpdate where
   toJSON GatingRuleUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SafetyRuleArn" Core..= safetyRuleArn),
-            Prelude.Just ("WaitPeriodMs" Core..= waitPeriodMs),
-            Prelude.Just ("Name" Core..= name)
+              ("SafetyRuleArn" Data..= safetyRuleArn),
+            Prelude.Just ("WaitPeriodMs" Data..= waitPeriodMs),
+            Prelude.Just ("Name" Data..= name)
           ]
       )

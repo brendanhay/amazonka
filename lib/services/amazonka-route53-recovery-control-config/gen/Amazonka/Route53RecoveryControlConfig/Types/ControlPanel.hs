@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.ControlPanel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.Status
 
@@ -120,18 +121,18 @@ controlPanel_status = Lens.lens (\ControlPanel' {status} -> status) (\s@ControlP
 controlPanel_routingControlCount :: Lens.Lens' ControlPanel (Prelude.Maybe Prelude.Int)
 controlPanel_routingControlCount = Lens.lens (\ControlPanel' {routingControlCount} -> routingControlCount) (\s@ControlPanel' {} a -> s {routingControlCount = a} :: ControlPanel)
 
-instance Core.FromJSON ControlPanel where
+instance Data.FromJSON ControlPanel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ControlPanel"
       ( \x ->
           ControlPanel'
-            Prelude.<$> (x Core..:? "ClusterArn")
-            Prelude.<*> (x Core..:? "DefaultControlPanel")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ControlPanelArn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "RoutingControlCount")
+            Prelude.<$> (x Data..:? "ClusterArn")
+            Prelude.<*> (x Data..:? "DefaultControlPanel")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ControlPanelArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "RoutingControlCount")
       )
 
 instance Prelude.Hashable ControlPanel where

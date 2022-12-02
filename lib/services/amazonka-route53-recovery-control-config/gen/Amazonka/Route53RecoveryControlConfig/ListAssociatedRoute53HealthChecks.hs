@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,8 +113,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAssociatedRoute53HealthChecksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> (x Core..?> "HealthCheckIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "HealthCheckIds" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,38 +139,38 @@ instance
       `Prelude.seq` Prelude.rnf routingControlArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListAssociatedRoute53HealthChecks
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListAssociatedRoute53HealthChecks
   where
   toPath ListAssociatedRoute53HealthChecks' {..} =
     Prelude.mconcat
       [ "/routingcontrol/",
-        Core.toBS routingControlArn,
+        Data.toBS routingControlArn,
         "/associatedRoute53HealthChecks"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListAssociatedRoute53HealthChecks
   where
   toQuery ListAssociatedRoute53HealthChecks' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListAssociatedRoute53HealthChecksResponse' smart constructor.

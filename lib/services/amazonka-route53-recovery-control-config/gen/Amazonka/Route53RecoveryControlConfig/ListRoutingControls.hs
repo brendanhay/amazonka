@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,8 +111,8 @@ instance Core.AWSRequest ListRoutingControls where
     Response.receiveJSON
       ( \s h x ->
           ListRoutingControlsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RoutingControls"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RoutingControls"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,30 +130,30 @@ instance Prelude.NFData ListRoutingControls where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf controlPanelArn
 
-instance Core.ToHeaders ListRoutingControls where
+instance Data.ToHeaders ListRoutingControls where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRoutingControls where
+instance Data.ToPath ListRoutingControls where
   toPath ListRoutingControls' {..} =
     Prelude.mconcat
       [ "/controlpanel/",
-        Core.toBS controlPanelArn,
+        Data.toBS controlPanelArn,
         "/routingcontrols"
       ]
 
-instance Core.ToQuery ListRoutingControls where
+instance Data.ToQuery ListRoutingControls where
   toQuery ListRoutingControls' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListRoutingControlsResponse' smart constructor.

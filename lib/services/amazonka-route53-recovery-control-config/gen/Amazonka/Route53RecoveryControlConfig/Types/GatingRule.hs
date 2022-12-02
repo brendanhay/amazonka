@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.GatingRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
 import Amazonka.Route53RecoveryControlConfig.Types.Status
@@ -193,20 +194,20 @@ gatingRule_waitPeriodMs = Lens.lens (\GatingRule' {waitPeriodMs} -> waitPeriodMs
 gatingRule_name :: Lens.Lens' GatingRule Prelude.Text
 gatingRule_name = Lens.lens (\GatingRule' {name} -> name) (\s@GatingRule' {} a -> s {name = a} :: GatingRule)
 
-instance Core.FromJSON GatingRule where
+instance Data.FromJSON GatingRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GatingRule"
       ( \x ->
           GatingRule'
-            Prelude.<$> (x Core..: "Status")
-            Prelude.<*> (x Core..:? "TargetControls" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ControlPanelArn")
-            Prelude.<*> (x Core..: "SafetyRuleArn")
-            Prelude.<*> (x Core..:? "GatingControls" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "RuleConfig")
-            Prelude.<*> (x Core..: "WaitPeriodMs")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<$> (x Data..: "Status")
+            Prelude.<*> (x Data..:? "TargetControls" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ControlPanelArn")
+            Prelude.<*> (x Data..: "SafetyRuleArn")
+            Prelude.<*> (x Data..:? "GatingControls" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "RuleConfig")
+            Prelude.<*> (x Data..: "WaitPeriodMs")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable GatingRule where

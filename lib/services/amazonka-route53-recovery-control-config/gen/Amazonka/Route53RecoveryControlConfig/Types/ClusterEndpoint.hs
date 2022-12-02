@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.ClusterEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A cluster endpoint. Specify an endpoint when you want to set or retrieve
@@ -74,14 +75,14 @@ clusterEndpoint_region = Lens.lens (\ClusterEndpoint' {region} -> region) (\s@Cl
 clusterEndpoint_endpoint :: Lens.Lens' ClusterEndpoint (Prelude.Maybe Prelude.Text)
 clusterEndpoint_endpoint = Lens.lens (\ClusterEndpoint' {endpoint} -> endpoint) (\s@ClusterEndpoint' {} a -> s {endpoint = a} :: ClusterEndpoint)
 
-instance Core.FromJSON ClusterEndpoint where
+instance Data.FromJSON ClusterEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterEndpoint"
       ( \x ->
           ClusterEndpoint'
-            Prelude.<$> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<$> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Endpoint")
       )
 
 instance Prelude.Hashable ClusterEndpoint where

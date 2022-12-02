@@ -28,6 +28,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.Status
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The deployment status of a resource. Status can be one of the following:
@@ -39,7 +40,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- PENDING_DELETION: Amazon Route 53 Application Recovery Controller is
 -- deleting the resource.
-newtype Status = Status' {fromStatus :: Core.Text}
+newtype Status = Status' {fromStatus :: Data.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -50,18 +51,18 @@ newtype Status = Status' {fromStatus :: Core.Text}
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern Status_DEPLOYED :: Status

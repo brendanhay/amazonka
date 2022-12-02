@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.Rule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.AssertionRule
 import Amazonka.Route53RecoveryControlConfig.Types.GatingRule
@@ -111,14 +112,14 @@ rule_assertion = Lens.lens (\Rule' {assertion} -> assertion) (\s@Rule' {} a -> s
 rule_gating :: Lens.Lens' Rule (Prelude.Maybe GatingRule)
 rule_gating = Lens.lens (\Rule' {gating} -> gating) (\s@Rule' {} a -> s {gating = a} :: Rule)
 
-instance Core.FromJSON Rule where
+instance Data.FromJSON Rule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "ASSERTION")
-            Prelude.<*> (x Core..:? "GATING")
+            Prelude.<$> (x Data..:? "ASSERTION")
+            Prelude.<*> (x Data..:? "GATING")
       )
 
 instance Prelude.Hashable Rule where

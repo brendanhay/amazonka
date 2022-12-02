@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeControlPanel where
     Response.receiveJSON
       ( \s h x ->
           DescribeControlPanelResponse'
-            Prelude.<$> (x Core..?> "ControlPanel")
+            Prelude.<$> (x Data..?> "ControlPanel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,23 +99,23 @@ instance Prelude.NFData DescribeControlPanel where
   rnf DescribeControlPanel' {..} =
     Prelude.rnf controlPanelArn
 
-instance Core.ToHeaders DescribeControlPanel where
+instance Data.ToHeaders DescribeControlPanel where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeControlPanel where
+instance Data.ToPath DescribeControlPanel where
   toPath DescribeControlPanel' {..} =
     Prelude.mconcat
-      ["/controlpanel/", Core.toBS controlPanelArn]
+      ["/controlpanel/", Data.toBS controlPanelArn]
 
-instance Core.ToQuery DescribeControlPanel where
+instance Data.ToQuery DescribeControlPanel where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeControlPanelResponse' smart constructor.

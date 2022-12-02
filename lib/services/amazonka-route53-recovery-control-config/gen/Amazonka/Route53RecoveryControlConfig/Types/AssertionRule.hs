@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.AssertionRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
 import Amazonka.Route53RecoveryControlConfig.Types.Status
@@ -174,21 +175,21 @@ assertionRule_waitPeriodMs = Lens.lens (\AssertionRule' {waitPeriodMs} -> waitPe
 assertionRule_name :: Lens.Lens' AssertionRule Prelude.Text
 assertionRule_name = Lens.lens (\AssertionRule' {name} -> name) (\s@AssertionRule' {} a -> s {name = a} :: AssertionRule)
 
-instance Core.FromJSON AssertionRule where
+instance Data.FromJSON AssertionRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssertionRule"
       ( \x ->
           AssertionRule'
-            Prelude.<$> (x Core..: "Status")
-            Prelude.<*> (x Core..: "ControlPanelArn")
-            Prelude.<*> (x Core..: "SafetyRuleArn")
-            Prelude.<*> ( x Core..:? "AssertedControls"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "Status")
+            Prelude.<*> (x Data..: "ControlPanelArn")
+            Prelude.<*> (x Data..: "SafetyRuleArn")
+            Prelude.<*> ( x Data..:? "AssertedControls"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "RuleConfig")
-            Prelude.<*> (x Core..: "WaitPeriodMs")
-            Prelude.<*> (x Core..: "Name")
+            Prelude.<*> (x Data..: "RuleConfig")
+            Prelude.<*> (x Data..: "WaitPeriodMs")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable AssertionRule where

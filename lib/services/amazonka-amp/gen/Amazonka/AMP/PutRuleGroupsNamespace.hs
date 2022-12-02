@@ -48,6 +48,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -60,7 +61,7 @@ data PutRuleGroupsNamespace = PutRuleGroupsNamespace'
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The namespace data that define the rule groups.
-    data' :: Core.Base64,
+    data' :: Data.Base64,
     -- | The rule groups namespace name.
     name :: Prelude.Text,
     -- | The ID of the workspace in which to update the rule group namespace.
@@ -100,7 +101,7 @@ newPutRuleGroupsNamespace pData_ pName_ pWorkspaceId_ =
   PutRuleGroupsNamespace'
     { clientToken =
         Prelude.Nothing,
-      data' = Core._Base64 Lens.# pData_,
+      data' = Data._Base64 Lens.# pData_,
       name = pName_,
       workspaceId = pWorkspaceId_
     }
@@ -116,7 +117,7 @@ putRuleGroupsNamespace_clientToken = Lens.lens (\PutRuleGroupsNamespace' {client
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 putRuleGroupsNamespace_data :: Lens.Lens' PutRuleGroupsNamespace Prelude.ByteString
-putRuleGroupsNamespace_data = Lens.lens (\PutRuleGroupsNamespace' {data'} -> data') (\s@PutRuleGroupsNamespace' {} a -> s {data' = a} :: PutRuleGroupsNamespace) Prelude.. Core._Base64
+putRuleGroupsNamespace_data = Lens.lens (\PutRuleGroupsNamespace' {data'} -> data') (\s@PutRuleGroupsNamespace' {} a -> s {data' = a} :: PutRuleGroupsNamespace) Prelude.. Data._Base64
 
 -- | The rule groups namespace name.
 putRuleGroupsNamespace_name :: Lens.Lens' PutRuleGroupsNamespace Prelude.Text
@@ -136,11 +137,11 @@ instance Core.AWSRequest PutRuleGroupsNamespace where
     Response.receiveJSON
       ( \s h x ->
           PutRuleGroupsNamespaceResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "arn")
-            Prelude.<*> (x Core..:> "name")
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "arn")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable PutRuleGroupsNamespace where
@@ -157,36 +158,36 @@ instance Prelude.NFData PutRuleGroupsNamespace where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders PutRuleGroupsNamespace where
+instance Data.ToHeaders PutRuleGroupsNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutRuleGroupsNamespace where
+instance Data.ToJSON PutRuleGroupsNamespace where
   toJSON PutRuleGroupsNamespace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("data" Core..= data')
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("data" Data..= data')
           ]
       )
 
-instance Core.ToPath PutRuleGroupsNamespace where
+instance Data.ToPath PutRuleGroupsNamespace where
   toPath PutRuleGroupsNamespace' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/rulegroupsnamespaces/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery PutRuleGroupsNamespace where
+instance Data.ToQuery PutRuleGroupsNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a PutRuleGroupsNamespace operation.

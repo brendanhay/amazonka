@@ -44,6 +44,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ data CreateAlertManagerDefinition = CreateAlertManagerDefinition'
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The alert manager definition data.
-    data' :: Core.Base64,
+    data' :: Data.Base64,
     -- | The ID of the workspace in which to create the alert manager definition.
     workspaceId :: Prelude.Text
   }
@@ -90,7 +91,7 @@ newCreateAlertManagerDefinition pData_ pWorkspaceId_ =
   CreateAlertManagerDefinition'
     { clientToken =
         Prelude.Nothing,
-      data' = Core._Base64 Lens.# pData_,
+      data' = Data._Base64 Lens.# pData_,
       workspaceId = pWorkspaceId_
     }
 
@@ -105,7 +106,7 @@ createAlertManagerDefinition_clientToken = Lens.lens (\CreateAlertManagerDefinit
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 createAlertManagerDefinition_data :: Lens.Lens' CreateAlertManagerDefinition Prelude.ByteString
-createAlertManagerDefinition_data = Lens.lens (\CreateAlertManagerDefinition' {data'} -> data') (\s@CreateAlertManagerDefinition' {} a -> s {data' = a} :: CreateAlertManagerDefinition) Prelude.. Core._Base64
+createAlertManagerDefinition_data = Lens.lens (\CreateAlertManagerDefinition' {data'} -> data') (\s@CreateAlertManagerDefinition' {} a -> s {data' = a} :: CreateAlertManagerDefinition) Prelude.. Data._Base64
 
 -- | The ID of the workspace in which to create the alert manager definition.
 createAlertManagerDefinition_workspaceId :: Lens.Lens' CreateAlertManagerDefinition Prelude.Text
@@ -122,7 +123,7 @@ instance Core.AWSRequest CreateAlertManagerDefinition where
       ( \s h x ->
           CreateAlertManagerDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance
@@ -140,35 +141,35 @@ instance Prelude.NFData CreateAlertManagerDefinition where
       `Prelude.seq` Prelude.rnf data'
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders CreateAlertManagerDefinition where
+instance Data.ToHeaders CreateAlertManagerDefinition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAlertManagerDefinition where
+instance Data.ToJSON CreateAlertManagerDefinition where
   toJSON CreateAlertManagerDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("data" Core..= data')
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("data" Data..= data')
           ]
       )
 
-instance Core.ToPath CreateAlertManagerDefinition where
+instance Data.ToPath CreateAlertManagerDefinition where
   toPath CreateAlertManagerDefinition' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/alertmanager/definition"
       ]
 
-instance Core.ToQuery CreateAlertManagerDefinition where
+instance Data.ToQuery CreateAlertManagerDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a CreateAlertManagerDefinition operation.

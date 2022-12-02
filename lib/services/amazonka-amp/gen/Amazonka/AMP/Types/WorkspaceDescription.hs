@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.WorkspaceDescription where
 import Amazonka.AMP.Types.WorkspaceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the properties of a workspace.
@@ -37,7 +38,7 @@ data WorkspaceDescription = WorkspaceDescription'
     -- | The Amazon Resource Name (ARN) of this workspace.
     arn :: Prelude.Text,
     -- | The time when the workspace was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The status of this workspace.
     status :: WorkspaceStatus,
     -- | Unique string identifying this workspace.
@@ -86,7 +87,7 @@ newWorkspaceDescription
         tags = Prelude.Nothing,
         prometheusEndpoint = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         status = pStatus_,
         workspaceId = pWorkspaceId_
       }
@@ -109,7 +110,7 @@ workspaceDescription_arn = Lens.lens (\WorkspaceDescription' {arn} -> arn) (\s@W
 
 -- | The time when the workspace was created.
 workspaceDescription_createdAt :: Lens.Lens' WorkspaceDescription Prelude.UTCTime
-workspaceDescription_createdAt = Lens.lens (\WorkspaceDescription' {createdAt} -> createdAt) (\s@WorkspaceDescription' {} a -> s {createdAt = a} :: WorkspaceDescription) Prelude.. Core._Time
+workspaceDescription_createdAt = Lens.lens (\WorkspaceDescription' {createdAt} -> createdAt) (\s@WorkspaceDescription' {} a -> s {createdAt = a} :: WorkspaceDescription) Prelude.. Data._Time
 
 -- | The status of this workspace.
 workspaceDescription_status :: Lens.Lens' WorkspaceDescription WorkspaceStatus
@@ -119,19 +120,19 @@ workspaceDescription_status = Lens.lens (\WorkspaceDescription' {status} -> stat
 workspaceDescription_workspaceId :: Lens.Lens' WorkspaceDescription Prelude.Text
 workspaceDescription_workspaceId = Lens.lens (\WorkspaceDescription' {workspaceId} -> workspaceId) (\s@WorkspaceDescription' {} a -> s {workspaceId = a} :: WorkspaceDescription)
 
-instance Core.FromJSON WorkspaceDescription where
+instance Data.FromJSON WorkspaceDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceDescription"
       ( \x ->
           WorkspaceDescription'
-            Prelude.<$> (x Core..:? "alias")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "prometheusEndpoint")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "workspaceId")
+            Prelude.<$> (x Data..:? "alias")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "prometheusEndpoint")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "workspaceId")
       )
 
 instance Prelude.Hashable WorkspaceDescription where

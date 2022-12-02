@@ -40,6 +40,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,32 +118,32 @@ instance Prelude.NFData UpdateWorkspaceAlias where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders UpdateWorkspaceAlias where
+instance Data.ToHeaders UpdateWorkspaceAlias where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkspaceAlias where
+instance Data.ToJSON UpdateWorkspaceAlias where
   toJSON UpdateWorkspaceAlias' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("alias" Core..=) Prelude.<$> alias,
-            ("clientToken" Core..=) Prelude.<$> clientToken
+          [ ("alias" Data..=) Prelude.<$> alias,
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 
-instance Core.ToPath UpdateWorkspaceAlias where
+instance Data.ToPath UpdateWorkspaceAlias where
   toPath UpdateWorkspaceAlias' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId, "/alias"]
+      ["/workspaces/", Data.toBS workspaceId, "/alias"]
 
-instance Core.ToQuery UpdateWorkspaceAlias where
+instance Data.ToQuery UpdateWorkspaceAlias where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkspaceAliasResponse' smart constructor.

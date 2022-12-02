@@ -21,6 +21,7 @@ import Amazonka.AMP.Lens
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
@@ -37,7 +38,7 @@ newWorkspaceActive =
             ( describeWorkspaceResponse_workspace
                 Prelude.. workspaceDescription_status
                 Prelude.. workspaceStatus_statusCode
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "UPDATING"
@@ -45,7 +46,7 @@ newWorkspaceActive =
             ( describeWorkspaceResponse_workspace
                 Prelude.. workspaceDescription_status
                 Prelude.. workspaceStatus_statusCode
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "CREATING"
@@ -53,7 +54,7 @@ newWorkspaceActive =
             ( describeWorkspaceResponse_workspace
                 Prelude.. workspaceDescription_status
                 Prelude.. workspaceStatus_statusCode
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -75,7 +76,7 @@ newWorkspaceDeleted =
             ( describeWorkspaceResponse_workspace
                 Prelude.. workspaceDescription_status
                 Prelude.. workspaceStatus_statusCode
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

@@ -39,6 +39,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,25 +108,25 @@ instance Prelude.NFData DeleteLoggingConfiguration where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders DeleteLoggingConfiguration where
+instance Data.ToHeaders DeleteLoggingConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteLoggingConfiguration where
+instance Data.ToPath DeleteLoggingConfiguration where
   toPath DeleteLoggingConfiguration' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId, "/logging"]
+      ["/workspaces/", Data.toBS workspaceId, "/logging"]
 
-instance Core.ToQuery DeleteLoggingConfiguration where
+instance Data.ToQuery DeleteLoggingConfiguration where
   toQuery DeleteLoggingConfiguration' {..} =
-    Prelude.mconcat ["clientToken" Core.=: clientToken]
+    Prelude.mconcat ["clientToken" Data.=: clientToken]
 
 -- | /See:/ 'newDeleteLoggingConfigurationResponse' smart constructor.
 data DeleteLoggingConfigurationResponse = DeleteLoggingConfigurationResponse'

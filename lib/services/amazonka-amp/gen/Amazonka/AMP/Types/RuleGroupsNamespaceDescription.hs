@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.RuleGroupsNamespaceDescription where
 import Amazonka.AMP.Types.RuleGroupsNamespaceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a description of the rule groups namespace.
@@ -33,11 +34,11 @@ data RuleGroupsNamespaceDescription = RuleGroupsNamespaceDescription'
     -- | The Amazon Resource Name (ARN) of this rule groups namespace.
     arn :: Prelude.Text,
     -- | The time when the rule groups namespace was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The rule groups namespace data.
-    data' :: Core.Base64,
+    data' :: Data.Base64,
     -- | The time when the rule groups namespace was modified.
-    modifiedAt :: Core.POSIX,
+    modifiedAt :: Data.POSIX,
     -- | The rule groups namespace name.
     name :: Prelude.Text,
     -- | The status of rule groups namespace.
@@ -95,9 +96,9 @@ newRuleGroupsNamespaceDescription
       { tags =
           Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        data' = Core._Base64 Lens.# pData_,
-        modifiedAt = Core._Time Lens.# pModifiedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        data' = Data._Base64 Lens.# pData_,
+        modifiedAt = Data._Time Lens.# pModifiedAt_,
         name = pName_,
         status = pStatus_
       }
@@ -112,7 +113,7 @@ ruleGroupsNamespaceDescription_arn = Lens.lens (\RuleGroupsNamespaceDescription'
 
 -- | The time when the rule groups namespace was created.
 ruleGroupsNamespaceDescription_createdAt :: Lens.Lens' RuleGroupsNamespaceDescription Prelude.UTCTime
-ruleGroupsNamespaceDescription_createdAt = Lens.lens (\RuleGroupsNamespaceDescription' {createdAt} -> createdAt) (\s@RuleGroupsNamespaceDescription' {} a -> s {createdAt = a} :: RuleGroupsNamespaceDescription) Prelude.. Core._Time
+ruleGroupsNamespaceDescription_createdAt = Lens.lens (\RuleGroupsNamespaceDescription' {createdAt} -> createdAt) (\s@RuleGroupsNamespaceDescription' {} a -> s {createdAt = a} :: RuleGroupsNamespaceDescription) Prelude.. Data._Time
 
 -- | The rule groups namespace data.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -120,11 +121,11 @@ ruleGroupsNamespaceDescription_createdAt = Lens.lens (\RuleGroupsNamespaceDescri
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 ruleGroupsNamespaceDescription_data :: Lens.Lens' RuleGroupsNamespaceDescription Prelude.ByteString
-ruleGroupsNamespaceDescription_data = Lens.lens (\RuleGroupsNamespaceDescription' {data'} -> data') (\s@RuleGroupsNamespaceDescription' {} a -> s {data' = a} :: RuleGroupsNamespaceDescription) Prelude.. Core._Base64
+ruleGroupsNamespaceDescription_data = Lens.lens (\RuleGroupsNamespaceDescription' {data'} -> data') (\s@RuleGroupsNamespaceDescription' {} a -> s {data' = a} :: RuleGroupsNamespaceDescription) Prelude.. Data._Base64
 
 -- | The time when the rule groups namespace was modified.
 ruleGroupsNamespaceDescription_modifiedAt :: Lens.Lens' RuleGroupsNamespaceDescription Prelude.UTCTime
-ruleGroupsNamespaceDescription_modifiedAt = Lens.lens (\RuleGroupsNamespaceDescription' {modifiedAt} -> modifiedAt) (\s@RuleGroupsNamespaceDescription' {} a -> s {modifiedAt = a} :: RuleGroupsNamespaceDescription) Prelude.. Core._Time
+ruleGroupsNamespaceDescription_modifiedAt = Lens.lens (\RuleGroupsNamespaceDescription' {modifiedAt} -> modifiedAt) (\s@RuleGroupsNamespaceDescription' {} a -> s {modifiedAt = a} :: RuleGroupsNamespaceDescription) Prelude.. Data._Time
 
 -- | The rule groups namespace name.
 ruleGroupsNamespaceDescription_name :: Lens.Lens' RuleGroupsNamespaceDescription Prelude.Text
@@ -134,19 +135,19 @@ ruleGroupsNamespaceDescription_name = Lens.lens (\RuleGroupsNamespaceDescription
 ruleGroupsNamespaceDescription_status :: Lens.Lens' RuleGroupsNamespaceDescription RuleGroupsNamespaceStatus
 ruleGroupsNamespaceDescription_status = Lens.lens (\RuleGroupsNamespaceDescription' {status} -> status) (\s@RuleGroupsNamespaceDescription' {} a -> s {status = a} :: RuleGroupsNamespaceDescription)
 
-instance Core.FromJSON RuleGroupsNamespaceDescription where
+instance Data.FromJSON RuleGroupsNamespaceDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleGroupsNamespaceDescription"
       ( \x ->
           RuleGroupsNamespaceDescription'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "data")
-            Prelude.<*> (x Core..: "modifiedAt")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "data")
+            Prelude.<*> (x Data..: "modifiedAt")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance

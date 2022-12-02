@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.LoggingConfigurationMetadata where
 import Amazonka.AMP.Types.LoggingConfigurationStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the properties of a logging configuration metadata.
@@ -29,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLoggingConfigurationMetadata' smart constructor.
 data LoggingConfigurationMetadata = LoggingConfigurationMetadata'
   { -- | The time when the logging configuration was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The ARN of the CW log group to which the vended log data will be
     -- published.
     logGroupArn :: Prelude.Text,
     -- | The time when the logging configuration was modified.
-    modifiedAt :: Core.POSIX,
+    modifiedAt :: Data.POSIX,
     -- | The status of the logging configuration.
     status :: LoggingConfigurationStatus,
     -- | The workspace where the logging configuration exists.
@@ -80,16 +81,16 @@ newLoggingConfigurationMetadata
   pWorkspace_ =
     LoggingConfigurationMetadata'
       { createdAt =
-          Core._Time Lens.# pCreatedAt_,
+          Data._Time Lens.# pCreatedAt_,
         logGroupArn = pLogGroupArn_,
-        modifiedAt = Core._Time Lens.# pModifiedAt_,
+        modifiedAt = Data._Time Lens.# pModifiedAt_,
         status = pStatus_,
         workspace = pWorkspace_
       }
 
 -- | The time when the logging configuration was created.
 loggingConfigurationMetadata_createdAt :: Lens.Lens' LoggingConfigurationMetadata Prelude.UTCTime
-loggingConfigurationMetadata_createdAt = Lens.lens (\LoggingConfigurationMetadata' {createdAt} -> createdAt) (\s@LoggingConfigurationMetadata' {} a -> s {createdAt = a} :: LoggingConfigurationMetadata) Prelude.. Core._Time
+loggingConfigurationMetadata_createdAt = Lens.lens (\LoggingConfigurationMetadata' {createdAt} -> createdAt) (\s@LoggingConfigurationMetadata' {} a -> s {createdAt = a} :: LoggingConfigurationMetadata) Prelude.. Data._Time
 
 -- | The ARN of the CW log group to which the vended log data will be
 -- published.
@@ -98,7 +99,7 @@ loggingConfigurationMetadata_logGroupArn = Lens.lens (\LoggingConfigurationMetad
 
 -- | The time when the logging configuration was modified.
 loggingConfigurationMetadata_modifiedAt :: Lens.Lens' LoggingConfigurationMetadata Prelude.UTCTime
-loggingConfigurationMetadata_modifiedAt = Lens.lens (\LoggingConfigurationMetadata' {modifiedAt} -> modifiedAt) (\s@LoggingConfigurationMetadata' {} a -> s {modifiedAt = a} :: LoggingConfigurationMetadata) Prelude.. Core._Time
+loggingConfigurationMetadata_modifiedAt = Lens.lens (\LoggingConfigurationMetadata' {modifiedAt} -> modifiedAt) (\s@LoggingConfigurationMetadata' {} a -> s {modifiedAt = a} :: LoggingConfigurationMetadata) Prelude.. Data._Time
 
 -- | The status of the logging configuration.
 loggingConfigurationMetadata_status :: Lens.Lens' LoggingConfigurationMetadata LoggingConfigurationStatus
@@ -108,17 +109,17 @@ loggingConfigurationMetadata_status = Lens.lens (\LoggingConfigurationMetadata' 
 loggingConfigurationMetadata_workspace :: Lens.Lens' LoggingConfigurationMetadata Prelude.Text
 loggingConfigurationMetadata_workspace = Lens.lens (\LoggingConfigurationMetadata' {workspace} -> workspace) (\s@LoggingConfigurationMetadata' {} a -> s {workspace = a} :: LoggingConfigurationMetadata)
 
-instance Core.FromJSON LoggingConfigurationMetadata where
+instance Data.FromJSON LoggingConfigurationMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoggingConfigurationMetadata"
       ( \x ->
           LoggingConfigurationMetadata'
-            Prelude.<$> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "logGroupArn")
-            Prelude.<*> (x Core..: "modifiedAt")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "workspace")
+            Prelude.<$> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "logGroupArn")
+            Prelude.<*> (x Data..: "modifiedAt")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "workspace")
       )
 
 instance

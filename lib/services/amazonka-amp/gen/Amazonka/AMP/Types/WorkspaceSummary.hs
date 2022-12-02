@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.WorkspaceSummary where
 import Amazonka.AMP.Types.WorkspaceStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a summary of the properties of a workspace.
@@ -35,7 +36,7 @@ data WorkspaceSummary = WorkspaceSummary'
     -- | The AmazonResourceName of this workspace.
     arn :: Prelude.Text,
     -- | The time when the workspace was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The status of this workspace.
     status :: WorkspaceStatus,
     -- | Unique string identifying this workspace.
@@ -81,7 +82,7 @@ newWorkspaceSummary
       { alias = Prelude.Nothing,
         tags = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         status = pStatus_,
         workspaceId = pWorkspaceId_
       }
@@ -100,7 +101,7 @@ workspaceSummary_arn = Lens.lens (\WorkspaceSummary' {arn} -> arn) (\s@Workspace
 
 -- | The time when the workspace was created.
 workspaceSummary_createdAt :: Lens.Lens' WorkspaceSummary Prelude.UTCTime
-workspaceSummary_createdAt = Lens.lens (\WorkspaceSummary' {createdAt} -> createdAt) (\s@WorkspaceSummary' {} a -> s {createdAt = a} :: WorkspaceSummary) Prelude.. Core._Time
+workspaceSummary_createdAt = Lens.lens (\WorkspaceSummary' {createdAt} -> createdAt) (\s@WorkspaceSummary' {} a -> s {createdAt = a} :: WorkspaceSummary) Prelude.. Data._Time
 
 -- | The status of this workspace.
 workspaceSummary_status :: Lens.Lens' WorkspaceSummary WorkspaceStatus
@@ -110,18 +111,18 @@ workspaceSummary_status = Lens.lens (\WorkspaceSummary' {status} -> status) (\s@
 workspaceSummary_workspaceId :: Lens.Lens' WorkspaceSummary Prelude.Text
 workspaceSummary_workspaceId = Lens.lens (\WorkspaceSummary' {workspaceId} -> workspaceId) (\s@WorkspaceSummary' {} a -> s {workspaceId = a} :: WorkspaceSummary)
 
-instance Core.FromJSON WorkspaceSummary where
+instance Data.FromJSON WorkspaceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkspaceSummary"
       ( \x ->
           WorkspaceSummary'
-            Prelude.<$> (x Core..:? "alias")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "workspaceId")
+            Prelude.<$> (x Data..:? "alias")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "workspaceId")
       )
 
 instance Prelude.Hashable WorkspaceSummary where

@@ -43,6 +43,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest DescribeRuleGroupsNamespace where
       ( \s h x ->
           DescribeRuleGroupsNamespaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ruleGroupsNamespace")
+            Prelude.<*> (x Data..:> "ruleGroupsNamespace")
       )
 
 instance Prelude.Hashable DescribeRuleGroupsNamespace where
@@ -113,27 +114,27 @@ instance Prelude.NFData DescribeRuleGroupsNamespace where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders DescribeRuleGroupsNamespace where
+instance Data.ToHeaders DescribeRuleGroupsNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRuleGroupsNamespace where
+instance Data.ToPath DescribeRuleGroupsNamespace where
   toPath DescribeRuleGroupsNamespace' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/rulegroupsnamespaces/",
-        Core.toBS name
+        Data.toBS name
       ]
 
-instance Core.ToQuery DescribeRuleGroupsNamespace where
+instance Data.ToQuery DescribeRuleGroupsNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a DescribeRuleGroupsNamespace operation.

@@ -47,6 +47,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,9 +136,9 @@ instance Core.AWSRequest ListWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           ListWorkspacesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "workspaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "workspaces" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListWorkspaces where
@@ -152,26 +153,26 @@ instance Prelude.NFData ListWorkspaces where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListWorkspaces where
+instance Data.ToHeaders ListWorkspaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListWorkspaces where
+instance Data.ToPath ListWorkspaces where
   toPath = Prelude.const "/workspaces"
 
-instance Core.ToQuery ListWorkspaces where
+instance Data.ToQuery ListWorkspaces where
   toQuery ListWorkspaces' {..} =
     Prelude.mconcat
-      [ "alias" Core.=: alias,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "alias" Data.=: alias,
+        "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Represents the output of a ListWorkspaces operation.

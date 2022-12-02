@@ -42,6 +42,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance
       ( \s h x ->
           DescribeAlertManagerDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "alertManagerDefinition")
+            Prelude.<*> (x Data..:> "alertManagerDefinition")
       )
 
 instance
@@ -112,28 +113,28 @@ instance
     Prelude.rnf workspaceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeAlertManagerDefinition
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeAlertManagerDefinition where
+instance Data.ToPath DescribeAlertManagerDefinition where
   toPath DescribeAlertManagerDefinition' {..} =
     Prelude.mconcat
       [ "/workspaces/",
-        Core.toBS workspaceId,
+        Data.toBS workspaceId,
         "/alertmanager/definition"
       ]
 
-instance Core.ToQuery DescribeAlertManagerDefinition where
+instance Data.ToQuery DescribeAlertManagerDefinition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a DescribeAlertManagerDefinition operation.

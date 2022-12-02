@@ -22,6 +22,7 @@ module Amazonka.AMP.Types.AlertManagerDefinitionStatus where
 import Amazonka.AMP.Types.AlertManagerDefinitionStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the status of a definition.
@@ -65,14 +66,14 @@ alertManagerDefinitionStatus_statusReason = Lens.lens (\AlertManagerDefinitionSt
 alertManagerDefinitionStatus_statusCode :: Lens.Lens' AlertManagerDefinitionStatus AlertManagerDefinitionStatusCode
 alertManagerDefinitionStatus_statusCode = Lens.lens (\AlertManagerDefinitionStatus' {statusCode} -> statusCode) (\s@AlertManagerDefinitionStatus' {} a -> s {statusCode = a} :: AlertManagerDefinitionStatus)
 
-instance Core.FromJSON AlertManagerDefinitionStatus where
+instance Data.FromJSON AlertManagerDefinitionStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AlertManagerDefinitionStatus"
       ( \x ->
           AlertManagerDefinitionStatus'
-            Prelude.<$> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..: "statusCode")
+            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..: "statusCode")
       )
 
 instance

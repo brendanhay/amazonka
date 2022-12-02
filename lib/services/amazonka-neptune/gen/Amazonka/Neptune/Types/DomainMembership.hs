@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.DomainMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An Active Directory Domain membership record associated with a DB
@@ -86,13 +87,13 @@ domainMembership_status = Lens.lens (\DomainMembership' {status} -> status) (\s@
 domainMembership_iAMRoleName :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
 domainMembership_iAMRoleName = Lens.lens (\DomainMembership' {iAMRoleName} -> iAMRoleName) (\s@DomainMembership' {} a -> s {iAMRoleName = a} :: DomainMembership)
 
-instance Core.FromXML DomainMembership where
+instance Data.FromXML DomainMembership where
   parseXML x =
     DomainMembership'
-      Prelude.<$> (x Core..@? "Domain")
-      Prelude.<*> (x Core..@? "FQDN")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "IAMRoleName")
+      Prelude.<$> (x Data..@? "Domain")
+      Prelude.<*> (x Data..@? "FQDN")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "IAMRoleName")
 
 instance Prelude.Hashable DomainMembership where
   hashWithSalt _salt DomainMembership' {..} =

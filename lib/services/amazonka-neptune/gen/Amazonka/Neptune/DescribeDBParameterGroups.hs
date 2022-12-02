@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,10 +188,10 @@ instance Core.AWSRequest DescribeDBParameterGroups where
       "DescribeDBParameterGroupsResult"
       ( \s h x ->
           DescribeDBParameterGroupsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBParameterGroups"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBParameterGroups"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBParameterGroup")
+                            Prelude.>>= Core.may (Data.parseXMLList "DBParameterGroup")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -209,25 +210,25 @@ instance Prelude.NFData DescribeDBParameterGroups where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeDBParameterGroups where
+instance Data.ToHeaders DescribeDBParameterGroups where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBParameterGroups where
+instance Data.ToPath DescribeDBParameterGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBParameterGroups where
+instance Data.ToQuery DescribeDBParameterGroups where
   toQuery DescribeDBParameterGroups' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBParameterGroups" :: Prelude.ByteString),
+          Data.=: ("DescribeDBParameterGroups" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeDBParameterGroupsResponse' smart constructor.

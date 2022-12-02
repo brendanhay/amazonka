@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,7 +165,7 @@ instance Core.AWSRequest CreateGlobalCluster where
       "CreateGlobalClusterResult"
       ( \s h x ->
           CreateGlobalClusterResponse'
-            Prelude.<$> (x Core..@? "GlobalCluster")
+            Prelude.<$> (x Data..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,27 +188,27 @@ instance Prelude.NFData CreateGlobalCluster where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf globalClusterIdentifier
 
-instance Core.ToHeaders CreateGlobalCluster where
+instance Data.ToHeaders CreateGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateGlobalCluster where
+instance Data.ToPath CreateGlobalCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateGlobalCluster where
+instance Data.ToQuery CreateGlobalCluster where
   toQuery CreateGlobalCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateGlobalCluster" :: Prelude.ByteString),
+          Data.=: ("CreateGlobalCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "SourceDBClusterIdentifier"
-          Core.=: sourceDBClusterIdentifier,
-        "StorageEncrypted" Core.=: storageEncrypted,
-        "Engine" Core.=: engine,
-        "DeletionProtection" Core.=: deletionProtection,
-        "EngineVersion" Core.=: engineVersion,
+          Data.=: sourceDBClusterIdentifier,
+        "StorageEncrypted" Data.=: storageEncrypted,
+        "Engine" Data.=: engine,
+        "DeletionProtection" Data.=: deletionProtection,
+        "EngineVersion" Data.=: engineVersion,
         "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier
+          Data.=: globalClusterIdentifier
       ]
 
 -- | /See:/ 'newCreateGlobalClusterResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.OptionGroupMembership where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Not supported by Neptune.
@@ -62,11 +63,11 @@ optionGroupMembership_optionGroupName = Lens.lens (\OptionGroupMembership' {opti
 optionGroupMembership_status :: Lens.Lens' OptionGroupMembership (Prelude.Maybe Prelude.Text)
 optionGroupMembership_status = Lens.lens (\OptionGroupMembership' {status} -> status) (\s@OptionGroupMembership' {} a -> s {status = a} :: OptionGroupMembership)
 
-instance Core.FromXML OptionGroupMembership where
+instance Data.FromXML OptionGroupMembership where
   parseXML x =
     OptionGroupMembership'
-      Prelude.<$> (x Core..@? "OptionGroupName")
-      Prelude.<*> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "OptionGroupName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable OptionGroupMembership where
   hashWithSalt _salt OptionGroupMembership' {..} =

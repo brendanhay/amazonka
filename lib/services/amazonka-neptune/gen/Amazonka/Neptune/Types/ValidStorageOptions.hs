@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.ValidStorageOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types.DoubleRange
 import Amazonka.Neptune.Types.Range
 import qualified Amazonka.Prelude as Prelude
@@ -91,20 +92,20 @@ validStorageOptions_provisionedIops = Lens.lens (\ValidStorageOptions' {provisio
 validStorageOptions_storageType :: Lens.Lens' ValidStorageOptions (Prelude.Maybe Prelude.Text)
 validStorageOptions_storageType = Lens.lens (\ValidStorageOptions' {storageType} -> storageType) (\s@ValidStorageOptions' {} a -> s {storageType = a} :: ValidStorageOptions)
 
-instance Core.FromXML ValidStorageOptions where
+instance Data.FromXML ValidStorageOptions where
   parseXML x =
     ValidStorageOptions'
-      Prelude.<$> ( x Core..@? "StorageSize" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Range")
+      Prelude.<$> ( x Data..@? "StorageSize" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
-      Prelude.<*> ( x Core..@? "IopsToStorageRatio"
+      Prelude.<*> ( x Data..@? "IopsToStorageRatio"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DoubleRange")
+                      Prelude.>>= Core.may (Data.parseXMLList "DoubleRange")
                   )
-      Prelude.<*> ( x Core..@? "ProvisionedIops" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Range")
+      Prelude.<*> ( x Data..@? "ProvisionedIops" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
-      Prelude.<*> (x Core..@? "StorageType")
+      Prelude.<*> (x Data..@? "StorageType")
 
 instance Prelude.Hashable ValidStorageOptions where
   hashWithSalt _salt ValidStorageOptions' {..} =

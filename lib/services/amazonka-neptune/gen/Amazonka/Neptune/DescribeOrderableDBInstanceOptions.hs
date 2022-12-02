@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -231,11 +232,11 @@ instance
       "DescribeOrderableDBInstanceOptionsResult"
       ( \s h x ->
           DescribeOrderableDBInstanceOptionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> ( x Core..@? "OrderableDBInstanceOptions"
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> ( x Data..@? "OrderableDBInstanceOptions"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may
-                                (Core.parseXMLList "OrderableDBInstanceOption")
+                                (Data.parseXMLList "OrderableDBInstanceOption")
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -271,39 +272,39 @@ instance
       `Prelude.seq` Prelude.rnf engine
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeOrderableDBInstanceOptions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeOrderableDBInstanceOptions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeOrderableDBInstanceOptions
   where
   toQuery DescribeOrderableDBInstanceOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeOrderableDBInstanceOptions" ::
+          Data.=: ( "DescribeOrderableDBInstanceOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceClass" Core.=: dbInstanceClass,
-        "Marker" Core.=: marker,
-        "Vpc" Core.=: vpc,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "Marker" Data.=: marker,
+        "Vpc" Data.=: vpc,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "EngineVersion" Core.=: engineVersion,
-        "LicenseModel" Core.=: licenseModel,
-        "Engine" Core.=: engine
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "EngineVersion" Data.=: engineVersion,
+        "LicenseModel" Data.=: licenseModel,
+        "Engine" Data.=: engine
       ]
 
 -- | /See:/ 'newDescribeOrderableDBInstanceOptionsResponse' smart constructor.

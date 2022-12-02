@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.GlobalCluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types.GlobalClusterMember
 import qualified Amazonka.Prelude as Prelude
 
@@ -143,21 +144,21 @@ globalCluster_globalClusterResourceId = Lens.lens (\GlobalCluster' {globalCluste
 globalCluster_engineVersion :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_engineVersion = Lens.lens (\GlobalCluster' {engineVersion} -> engineVersion) (\s@GlobalCluster' {} a -> s {engineVersion = a} :: GlobalCluster)
 
-instance Core.FromXML GlobalCluster where
+instance Data.FromXML GlobalCluster where
   parseXML x =
     GlobalCluster'
-      Prelude.<$> ( x Core..@? "GlobalClusterMembers"
+      Prelude.<$> ( x Data..@? "GlobalClusterMembers"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "GlobalClusterMember")
+                      Prelude.>>= Core.may (Data.parseXMLList "GlobalClusterMember")
                   )
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "GlobalClusterArn")
-      Prelude.<*> (x Core..@? "StorageEncrypted")
-      Prelude.<*> (x Core..@? "GlobalClusterIdentifier")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "DeletionProtection")
-      Prelude.<*> (x Core..@? "GlobalClusterResourceId")
-      Prelude.<*> (x Core..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "GlobalClusterArn")
+      Prelude.<*> (x Data..@? "StorageEncrypted")
+      Prelude.<*> (x Data..@? "GlobalClusterIdentifier")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "DeletionProtection")
+      Prelude.<*> (x Data..@? "GlobalClusterResourceId")
+      Prelude.<*> (x Data..@? "EngineVersion")
 
 instance Prelude.Hashable GlobalCluster where
   hashWithSalt _salt GlobalCluster' {..} =

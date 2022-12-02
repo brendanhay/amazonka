@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.ResourcePendingMaintenanceActions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types.PendingMaintenanceAction
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,16 +69,16 @@ resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' 
 resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResourcePendingMaintenanceActions
   where
   parseXML x =
     ResourcePendingMaintenanceActions'
-      Prelude.<$> (x Core..@? "ResourceIdentifier")
-      Prelude.<*> ( x Core..@? "PendingMaintenanceActionDetails"
+      Prelude.<$> (x Data..@? "ResourceIdentifier")
+      Prelude.<*> ( x Data..@? "PendingMaintenanceActionDetails"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "PendingMaintenanceAction")
+                        (Data.parseXMLList "PendingMaintenanceAction")
                   )
 
 instance

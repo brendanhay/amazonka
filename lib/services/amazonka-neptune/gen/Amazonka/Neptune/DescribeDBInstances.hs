@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -233,9 +234,9 @@ instance Core.AWSRequest DescribeDBInstances where
       "DescribeDBInstancesResult"
       ( \s h x ->
           DescribeDBInstancesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBInstances" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBInstance")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBInstances" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "DBInstance")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -254,25 +255,25 @@ instance Prelude.NFData DescribeDBInstances where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeDBInstances where
+instance Data.ToHeaders DescribeDBInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBInstances where
+instance Data.ToPath DescribeDBInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBInstances where
+instance Data.ToQuery DescribeDBInstances where
   toQuery DescribeDBInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBInstances" :: Prelude.ByteString),
+          Data.=: ("DescribeDBInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeDBInstancesResponse' smart constructor.

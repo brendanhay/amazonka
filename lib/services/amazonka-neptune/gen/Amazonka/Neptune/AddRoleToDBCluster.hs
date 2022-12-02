@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,22 +128,22 @@ instance Prelude.NFData AddRoleToDBCluster where
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders AddRoleToDBCluster where
+instance Data.ToHeaders AddRoleToDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AddRoleToDBCluster where
+instance Data.ToPath AddRoleToDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddRoleToDBCluster where
+instance Data.ToQuery AddRoleToDBCluster where
   toQuery AddRoleToDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AddRoleToDBCluster" :: Prelude.ByteString),
+          Data.=: ("AddRoleToDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "FeatureName" Core.=: featureName,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "RoleArn" Core.=: roleArn
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "FeatureName" Data.=: featureName,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "RoleArn" Data.=: roleArn
       ]
 
 -- | /See:/ 'newAddRoleToDBClusterResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.DBParameterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of an Amazon Neptune DB parameter group.
@@ -86,13 +87,13 @@ dbParameterGroup_dbParameterGroupFamily = Lens.lens (\DBParameterGroup' {dbParam
 dbParameterGroup_dbParameterGroupArn :: Lens.Lens' DBParameterGroup (Prelude.Maybe Prelude.Text)
 dbParameterGroup_dbParameterGroupArn = Lens.lens (\DBParameterGroup' {dbParameterGroupArn} -> dbParameterGroupArn) (\s@DBParameterGroup' {} a -> s {dbParameterGroupArn = a} :: DBParameterGroup)
 
-instance Core.FromXML DBParameterGroup where
+instance Data.FromXML DBParameterGroup where
   parseXML x =
     DBParameterGroup'
-      Prelude.<$> (x Core..@? "DBParameterGroupName")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "DBParameterGroupFamily")
-      Prelude.<*> (x Core..@? "DBParameterGroupArn")
+      Prelude.<$> (x Data..@? "DBParameterGroupName")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "DBParameterGroupFamily")
+      Prelude.<*> (x Data..@? "DBParameterGroupArn")
 
 instance Prelude.Hashable DBParameterGroup where
   hashWithSalt _salt DBParameterGroup' {..} =

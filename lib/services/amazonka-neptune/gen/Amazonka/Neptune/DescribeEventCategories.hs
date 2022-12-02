@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,9 +105,9 @@ instance Core.AWSRequest DescribeEventCategories where
       "DescribeEventCategoriesResult"
       ( \s h x ->
           DescribeEventCategoriesResponse'
-            Prelude.<$> ( x Core..@? "EventCategoriesMapList"
+            Prelude.<$> ( x Data..@? "EventCategoriesMapList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "EventCategoriesMap")
+                            Prelude.>>= Core.may (Data.parseXMLList "EventCategoriesMap")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -121,23 +122,23 @@ instance Prelude.NFData DescribeEventCategories where
     Prelude.rnf filters
       `Prelude.seq` Prelude.rnf sourceType
 
-instance Core.ToHeaders DescribeEventCategories where
+instance Data.ToHeaders DescribeEventCategories where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEventCategories where
+instance Data.ToPath DescribeEventCategories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventCategories where
+instance Data.ToQuery DescribeEventCategories where
   toQuery DescribeEventCategories' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEventCategories" :: Prelude.ByteString),
+          Data.=: ("DescribeEventCategories" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "SourceType" Core.=: sourceType
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "SourceType" Data.=: sourceType
       ]
 
 -- | /See:/ 'newDescribeEventCategoriesResponse' smart constructor.

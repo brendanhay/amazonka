@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.DBClusterEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This data type represents the information you need to connect to an
@@ -180,23 +181,23 @@ dbClusterEndpoint_dbClusterEndpointArn = Lens.lens (\DBClusterEndpoint' {dbClust
 dbClusterEndpoint_endpoint :: Lens.Lens' DBClusterEndpoint (Prelude.Maybe Prelude.Text)
 dbClusterEndpoint_endpoint = Lens.lens (\DBClusterEndpoint' {endpoint} -> endpoint) (\s@DBClusterEndpoint' {} a -> s {endpoint = a} :: DBClusterEndpoint)
 
-instance Core.FromXML DBClusterEndpoint where
+instance Data.FromXML DBClusterEndpoint where
   parseXML x =
     DBClusterEndpoint'
-      Prelude.<$> (x Core..@? "DBClusterEndpointResourceIdentifier")
-      Prelude.<*> ( x Core..@? "StaticMembers" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "DBClusterEndpointResourceIdentifier")
+      Prelude.<*> ( x Data..@? "StaticMembers" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DBClusterIdentifier")
-      Prelude.<*> ( x Core..@? "ExcludedMembers" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "DBClusterIdentifier")
+      Prelude.<*> ( x Data..@? "ExcludedMembers" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "CustomEndpointType")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "EndpointType")
-      Prelude.<*> (x Core..@? "DBClusterEndpointIdentifier")
-      Prelude.<*> (x Core..@? "DBClusterEndpointArn")
-      Prelude.<*> (x Core..@? "Endpoint")
+      Prelude.<*> (x Data..@? "CustomEndpointType")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "EndpointType")
+      Prelude.<*> (x Data..@? "DBClusterEndpointIdentifier")
+      Prelude.<*> (x Data..@? "DBClusterEndpointArn")
+      Prelude.<*> (x Data..@? "Endpoint")
 
 instance Prelude.Hashable DBClusterEndpoint where
   hashWithSalt _salt DBClusterEndpoint' {..} =

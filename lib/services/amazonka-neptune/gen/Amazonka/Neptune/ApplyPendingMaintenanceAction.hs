@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -166,7 +167,7 @@ instance
       "ApplyPendingMaintenanceActionResult"
       ( \s h x ->
           ApplyPendingMaintenanceActionResponse'
-            Prelude.<$> (x Core..@? "ResourcePendingMaintenanceActions")
+            Prelude.<$> (x Data..@? "ResourcePendingMaintenanceActions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,24 +186,24 @@ instance Prelude.NFData ApplyPendingMaintenanceAction where
       `Prelude.seq` Prelude.rnf applyAction
       `Prelude.seq` Prelude.rnf optInType
 
-instance Core.ToHeaders ApplyPendingMaintenanceAction where
+instance Data.ToHeaders ApplyPendingMaintenanceAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ApplyPendingMaintenanceAction where
+instance Data.ToPath ApplyPendingMaintenanceAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ApplyPendingMaintenanceAction where
+instance Data.ToQuery ApplyPendingMaintenanceAction where
   toQuery ApplyPendingMaintenanceAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ApplyPendingMaintenanceAction" ::
+          Data.=: ( "ApplyPendingMaintenanceAction" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ResourceIdentifier" Core.=: resourceIdentifier,
-        "ApplyAction" Core.=: applyAction,
-        "OptInType" Core.=: optInType
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "ResourceIdentifier" Data.=: resourceIdentifier,
+        "ApplyAction" Data.=: applyAction,
+        "OptInType" Data.=: optInType
       ]
 
 -- | /See:/ 'newApplyPendingMaintenanceActionResponse' smart constructor.

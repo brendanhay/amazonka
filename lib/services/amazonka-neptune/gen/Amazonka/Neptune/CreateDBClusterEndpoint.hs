@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,20 +170,20 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
       "CreateDBClusterEndpointResult"
       ( \s h x ->
           CreateDBClusterEndpointResponse'
-            Prelude.<$> (x Core..@? "DBClusterEndpointResourceIdentifier")
-            Prelude.<*> ( x Core..@? "StaticMembers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "DBClusterEndpointResourceIdentifier")
+            Prelude.<*> ( x Data..@? "StaticMembers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "DBClusterIdentifier")
-            Prelude.<*> ( x Core..@? "ExcludedMembers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> (x Data..@? "DBClusterIdentifier")
+            Prelude.<*> ( x Data..@? "ExcludedMembers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "CustomEndpointType")
-            Prelude.<*> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "EndpointType")
-            Prelude.<*> (x Core..@? "DBClusterEndpointIdentifier")
-            Prelude.<*> (x Core..@? "DBClusterEndpointArn")
-            Prelude.<*> (x Core..@? "Endpoint")
+            Prelude.<*> (x Data..@? "CustomEndpointType")
+            Prelude.<*> (x Data..@? "Status")
+            Prelude.<*> (x Data..@? "EndpointType")
+            Prelude.<*> (x Data..@? "DBClusterEndpointIdentifier")
+            Prelude.<*> (x Data..@? "DBClusterEndpointArn")
+            Prelude.<*> (x Data..@? "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,36 +205,36 @@ instance Prelude.NFData CreateDBClusterEndpoint where
       `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
       `Prelude.seq` Prelude.rnf endpointType
 
-instance Core.ToHeaders CreateDBClusterEndpoint where
+instance Data.ToHeaders CreateDBClusterEndpoint where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateDBClusterEndpoint where
+instance Data.ToPath CreateDBClusterEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDBClusterEndpoint where
+instance Data.ToQuery CreateDBClusterEndpoint where
   toQuery CreateDBClusterEndpoint' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateDBClusterEndpoint" :: Prelude.ByteString),
+          Data.=: ("CreateDBClusterEndpoint" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "StaticMembers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> staticMembers
             ),
         "ExcludedMembers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> excludedMembers
             ),
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "DBClusterEndpointIdentifier"
-          Core.=: dbClusterEndpointIdentifier,
-        "EndpointType" Core.=: endpointType
+          Data.=: dbClusterEndpointIdentifier,
+        "EndpointType" Data.=: endpointType
       ]
 
 -- | This data type represents the information you need to connect to an

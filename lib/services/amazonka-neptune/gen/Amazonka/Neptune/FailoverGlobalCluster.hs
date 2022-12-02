@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -136,7 +137,7 @@ instance Core.AWSRequest FailoverGlobalCluster where
       "FailoverGlobalClusterResult"
       ( \s h x ->
           FailoverGlobalClusterResponse'
-            Prelude.<$> (x Core..@? "GlobalCluster")
+            Prelude.<$> (x Data..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,23 +152,23 @@ instance Prelude.NFData FailoverGlobalCluster where
     Prelude.rnf globalClusterIdentifier
       `Prelude.seq` Prelude.rnf targetDbClusterIdentifier
 
-instance Core.ToHeaders FailoverGlobalCluster where
+instance Data.ToHeaders FailoverGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath FailoverGlobalCluster where
+instance Data.ToPath FailoverGlobalCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery FailoverGlobalCluster where
+instance Data.ToQuery FailoverGlobalCluster where
   toQuery FailoverGlobalCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("FailoverGlobalCluster" :: Prelude.ByteString),
+          Data.=: ("FailoverGlobalCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier,
+          Data.=: globalClusterIdentifier,
         "TargetDbClusterIdentifier"
-          Core.=: targetDbClusterIdentifier
+          Data.=: targetDbClusterIdentifier
       ]
 
 -- | /See:/ 'newFailoverGlobalClusterResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.PendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types.PendingCloudwatchLogsExports
 import qualified Amazonka.Prelude as Prelude
 
@@ -192,23 +193,23 @@ pendingModifiedValues_multiAZ = Lens.lens (\PendingModifiedValues' {multiAZ} -> 
 pendingModifiedValues_licenseModel :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_licenseModel = Lens.lens (\PendingModifiedValues' {licenseModel} -> licenseModel) (\s@PendingModifiedValues' {} a -> s {licenseModel = a} :: PendingModifiedValues)
 
-instance Core.FromXML PendingModifiedValues where
+instance Data.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "BackupRetentionPeriod")
-      Prelude.<*> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "DBSubnetGroupName")
-      Prelude.<*> (x Core..@? "DBInstanceIdentifier")
-      Prelude.<*> (x Core..@? "PendingCloudwatchLogsExports")
-      Prelude.<*> (x Core..@? "MasterUserPassword")
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> (x Core..@? "CACertificateIdentifier")
-      Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "Iops")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "MultiAZ")
-      Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Data..@? "DBInstanceClass")
+      Prelude.<*> (x Data..@? "DBSubnetGroupName")
+      Prelude.<*> (x Data..@? "DBInstanceIdentifier")
+      Prelude.<*> (x Data..@? "PendingCloudwatchLogsExports")
+      Prelude.<*> (x Data..@? "MasterUserPassword")
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> (x Data..@? "CACertificateIdentifier")
+      Prelude.<*> (x Data..@? "AllocatedStorage")
+      Prelude.<*> (x Data..@? "Iops")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "MultiAZ")
+      Prelude.<*> (x Data..@? "LicenseModel")
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =

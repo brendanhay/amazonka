@@ -21,6 +21,7 @@ module Amazonka.Neptune.Types.DBInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types.DBInstanceStatusInfo
 import Amazonka.Neptune.Types.DBParameterGroupStatus
 import Amazonka.Neptune.Types.DBSecurityGroupMembership
@@ -77,7 +78,7 @@ data DBInstance = DBInstance'
     dbInstancePort :: Prelude.Maybe Prelude.Int,
     -- | Specifies the latest time to which a database can be restored with
     -- point-in-time restore.
-    latestRestorableTime :: Prelude.Maybe Core.ISO8601,
+    latestRestorableTime :: Prelude.Maybe Data.ISO8601,
     -- | Contains one or more identifiers of the Read Replicas associated with
     -- this DB instance.
     readReplicaDBInstanceIdentifiers :: Prelude.Maybe [Prelude.Text],
@@ -106,7 +107,7 @@ data DBInstance = DBInstance'
     -- | /(Not supported by Neptune)/
     performanceInsightsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Provides the date and time the DB instance was created.
-    instanceCreateTime :: Prelude.Maybe Core.ISO8601,
+    instanceCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | Specifies the name of the Availability Zone the DB instance is located
     -- in.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -462,7 +463,7 @@ dbInstance_dbInstancePort = Lens.lens (\DBInstance' {dbInstancePort} -> dbInstan
 -- | Specifies the latest time to which a database can be restored with
 -- point-in-time restore.
 dbInstance_latestRestorableTime :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.UTCTime)
-dbInstance_latestRestorableTime = Lens.lens (\DBInstance' {latestRestorableTime} -> latestRestorableTime) (\s@DBInstance' {} a -> s {latestRestorableTime = a} :: DBInstance) Prelude.. Lens.mapping Core._Time
+dbInstance_latestRestorableTime = Lens.lens (\DBInstance' {latestRestorableTime} -> latestRestorableTime) (\s@DBInstance' {} a -> s {latestRestorableTime = a} :: DBInstance) Prelude.. Lens.mapping Data._Time
 
 -- | Contains one or more identifiers of the Read Replicas associated with
 -- this DB instance.
@@ -513,7 +514,7 @@ dbInstance_performanceInsightsEnabled = Lens.lens (\DBInstance' {performanceInsi
 
 -- | Provides the date and time the DB instance was created.
 dbInstance_instanceCreateTime :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.UTCTime)
-dbInstance_instanceCreateTime = Lens.lens (\DBInstance' {instanceCreateTime} -> instanceCreateTime) (\s@DBInstance' {} a -> s {instanceCreateTime = a} :: DBInstance) Prelude.. Lens.mapping Core._Time
+dbInstance_instanceCreateTime = Lens.lens (\DBInstance' {instanceCreateTime} -> instanceCreateTime) (\s@DBInstance' {} a -> s {instanceCreateTime = a} :: DBInstance) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies the name of the Availability Zone the DB instance is located
 -- in.
@@ -647,92 +648,92 @@ dbInstance_statusInfos = Lens.lens (\DBInstance' {statusInfos} -> statusInfos) (
 dbInstance_vpcSecurityGroups :: Lens.Lens' DBInstance (Prelude.Maybe [VpcSecurityGroupMembership])
 dbInstance_vpcSecurityGroups = Lens.lens (\DBInstance' {vpcSecurityGroups} -> vpcSecurityGroups) (\s@DBInstance' {} a -> s {vpcSecurityGroups = a} :: DBInstance) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML DBInstance where
+instance Data.FromXML DBInstance where
   parseXML x =
     DBInstance'
-      Prelude.<$> (x Core..@? "DBInstanceStatus")
-      Prelude.<*> ( x Core..@? "OptionGroupMemberships"
+      Prelude.<$> (x Data..@? "DBInstanceStatus")
+      Prelude.<*> ( x Data..@? "OptionGroupMemberships"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "OptionGroupMembership")
+                      Prelude.>>= Core.may (Data.parseXMLList "OptionGroupMembership")
                   )
-      Prelude.<*> (x Core..@? "PreferredBackupWindow")
-      Prelude.<*> (x Core..@? "BackupRetentionPeriod")
-      Prelude.<*> (x Core..@? "DBInstanceClass")
-      Prelude.<*> (x Core..@? "CharacterSetName")
-      Prelude.<*> (x Core..@? "MasterUsername")
-      Prelude.<*> (x Core..@? "CopyTagsToSnapshot")
-      Prelude.<*> (x Core..@? "PromotionTier")
-      Prelude.<*> (x Core..@? "SecondaryAvailabilityZone")
-      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
-      Prelude.<*> (x Core..@? "DBInstanceIdentifier")
-      Prelude.<*> (x Core..@? "DbInstancePort")
-      Prelude.<*> (x Core..@? "LatestRestorableTime")
-      Prelude.<*> ( x Core..@? "ReadReplicaDBInstanceIdentifiers"
+      Prelude.<*> (x Data..@? "PreferredBackupWindow")
+      Prelude.<*> (x Data..@? "BackupRetentionPeriod")
+      Prelude.<*> (x Data..@? "DBInstanceClass")
+      Prelude.<*> (x Data..@? "CharacterSetName")
+      Prelude.<*> (x Data..@? "MasterUsername")
+      Prelude.<*> (x Data..@? "CopyTagsToSnapshot")
+      Prelude.<*> (x Data..@? "PromotionTier")
+      Prelude.<*> (x Data..@? "SecondaryAvailabilityZone")
+      Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
+      Prelude.<*> (x Data..@? "DBInstanceIdentifier")
+      Prelude.<*> (x Data..@? "DbInstancePort")
+      Prelude.<*> (x Data..@? "LatestRestorableTime")
+      Prelude.<*> ( x Data..@? "ReadReplicaDBInstanceIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        ( Core.parseXMLList
+                        ( Data.parseXMLList
                             "ReadReplicaDBInstanceIdentifier"
                         )
                   )
-      Prelude.<*> (x Core..@? "EnhancedMonitoringResourceArn")
-      Prelude.<*> (x Core..@? "DBClusterIdentifier")
-      Prelude.<*> ( x Core..@? "DomainMemberships"
+      Prelude.<*> (x Data..@? "EnhancedMonitoringResourceArn")
+      Prelude.<*> (x Data..@? "DBClusterIdentifier")
+      Prelude.<*> ( x Data..@? "DomainMemberships"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DomainMembership")
+                      Prelude.>>= Core.may (Data.parseXMLList "DomainMembership")
                   )
-      Prelude.<*> (x Core..@? "Timezone")
-      Prelude.<*> (x Core..@? "PerformanceInsightsKMSKeyId")
-      Prelude.<*> ( x Core..@? "DBSecurityGroups"
+      Prelude.<*> (x Data..@? "Timezone")
+      Prelude.<*> (x Data..@? "PerformanceInsightsKMSKeyId")
+      Prelude.<*> ( x Data..@? "DBSecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBSecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "DBSecurityGroup")
                   )
-      Prelude.<*> (x Core..@? "DBSubnetGroup")
-      Prelude.<*> (x Core..@? "MonitoringInterval")
-      Prelude.<*> (x Core..@? "PerformanceInsightsEnabled")
-      Prelude.<*> (x Core..@? "InstanceCreateTime")
-      Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@? "PubliclyAccessible")
-      Prelude.<*> (x Core..@? "StorageType")
-      Prelude.<*> ( x Core..@? "ReadReplicaDBClusterIdentifiers"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may
-                        (Core.parseXMLList "ReadReplicaDBClusterIdentifier")
-                  )
-      Prelude.<*> (x Core..@? "TdeCredentialArn")
-      Prelude.<*> (x Core..@? "DBInstanceArn")
-      Prelude.<*> (x Core..@? "CACertificateIdentifier")
-      Prelude.<*> (x Core..@? "MonitoringRoleArn")
-      Prelude.<*> (x Core..@? "StorageEncrypted")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "AllocatedStorage")
-      Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Prelude.<*> (x Core..@? "DeletionProtection")
-      Prelude.<*> (x Core..@? "PendingModifiedValues")
-      Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
-      Prelude.<*> (x Core..@? "Endpoint")
-      Prelude.<*> (x Core..@? "DbiResourceId")
-      Prelude.<*> ( x Core..@? "DBParameterGroups"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBParameterGroup")
-                  )
-      Prelude.<*> ( x Core..@? "EnabledCloudwatchLogsExports"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
-                  )
-      Prelude.<*> (x Core..@? "Iops")
-      Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "DBName")
-      Prelude.<*> (x Core..@? "MultiAZ")
-      Prelude.<*> (x Core..@? "ReadReplicaSourceDBInstanceIdentifier")
-      Prelude.<*> (x Core..@? "LicenseModel")
-      Prelude.<*> ( x Core..@? "StatusInfos" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "DBInstanceStatusInfo")
-                  )
-      Prelude.<*> ( x Core..@? "VpcSecurityGroups"
+      Prelude.<*> (x Data..@? "DBSubnetGroup")
+      Prelude.<*> (x Data..@? "MonitoringInterval")
+      Prelude.<*> (x Data..@? "PerformanceInsightsEnabled")
+      Prelude.<*> (x Data..@? "InstanceCreateTime")
+      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@? "PubliclyAccessible")
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> ( x Data..@? "ReadReplicaDBClusterIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "VpcSecurityGroupMembership")
+                        (Data.parseXMLList "ReadReplicaDBClusterIdentifier")
+                  )
+      Prelude.<*> (x Data..@? "TdeCredentialArn")
+      Prelude.<*> (x Data..@? "DBInstanceArn")
+      Prelude.<*> (x Data..@? "CACertificateIdentifier")
+      Prelude.<*> (x Data..@? "MonitoringRoleArn")
+      Prelude.<*> (x Data..@? "StorageEncrypted")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "AllocatedStorage")
+      Prelude.<*> (x Data..@? "IAMDatabaseAuthenticationEnabled")
+      Prelude.<*> (x Data..@? "DeletionProtection")
+      Prelude.<*> (x Data..@? "PendingModifiedValues")
+      Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
+      Prelude.<*> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "DbiResourceId")
+      Prelude.<*> ( x Data..@? "DBParameterGroups"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "DBParameterGroup")
+                  )
+      Prelude.<*> ( x Data..@? "EnabledCloudwatchLogsExports"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
+      Prelude.<*> (x Data..@? "Iops")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "DBName")
+      Prelude.<*> (x Data..@? "MultiAZ")
+      Prelude.<*> (x Data..@? "ReadReplicaSourceDBInstanceIdentifier")
+      Prelude.<*> (x Data..@? "LicenseModel")
+      Prelude.<*> ( x Data..@? "StatusInfos" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "DBInstanceStatusInfo")
+                  )
+      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Data.parseXMLList "VpcSecurityGroupMembership")
                   )
 
 instance Prelude.Hashable DBInstance where

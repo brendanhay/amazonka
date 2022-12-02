@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -106,7 +107,7 @@ instance
       "DescribeDBClusterSnapshotAttributesResult"
       ( \s h x ->
           DescribeDBClusterSnapshotAttributesResponse'
-            Prelude.<$> (x Core..@? "DBClusterSnapshotAttributesResult")
+            Prelude.<$> (x Data..@? "DBClusterSnapshotAttributesResult")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,31 +129,31 @@ instance
     Prelude.rnf dbClusterSnapshotIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeDBClusterSnapshotAttributes
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeDBClusterSnapshotAttributes
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeDBClusterSnapshotAttributes
   where
   toQuery DescribeDBClusterSnapshotAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeDBClusterSnapshotAttributes" ::
+          Data.=: ( "DescribeDBClusterSnapshotAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
         "DBClusterSnapshotIdentifier"
-          Core.=: dbClusterSnapshotIdentifier
+          Data.=: dbClusterSnapshotIdentifier
       ]
 
 -- | /See:/ 'newDescribeDBClusterSnapshotAttributesResponse' smart constructor.

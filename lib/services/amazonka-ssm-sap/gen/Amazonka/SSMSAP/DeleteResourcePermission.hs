@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest DeleteResourcePermission where
     Response.receiveJSON
       ( \s h x ->
           DeleteResourcePermissionResponse'
-            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,32 +120,32 @@ instance Prelude.NFData DeleteResourcePermission where
       `Prelude.seq` Prelude.rnf sourceResourceArn
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders DeleteResourcePermission where
+instance Data.ToHeaders DeleteResourcePermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteResourcePermission where
+instance Data.ToJSON DeleteResourcePermission where
   toJSON DeleteResourcePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActionType" Core..=) Prelude.<$> actionType,
-            ("SourceResourceArn" Core..=)
+          [ ("ActionType" Data..=) Prelude.<$> actionType,
+            ("SourceResourceArn" Data..=)
               Prelude.<$> sourceResourceArn,
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath DeleteResourcePermission where
+instance Data.ToPath DeleteResourcePermission where
   toPath = Prelude.const "/delete-resource-permission"
 
-instance Core.ToQuery DeleteResourcePermission where
+instance Data.ToQuery DeleteResourcePermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteResourcePermissionResponse' smart constructor.

@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -159,8 +160,8 @@ instance Core.AWSRequest RegisterApplication where
     Response.receiveJSON
       ( \s h x ->
           RegisterApplicationResponse'
-            Prelude.<$> (x Core..?> "Application")
-            Prelude.<*> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "Application")
+            Prelude.<*> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,37 +185,37 @@ instance Prelude.NFData RegisterApplication where
       `Prelude.seq` Prelude.rnf instances
       `Prelude.seq` Prelude.rnf credentials
 
-instance Core.ToHeaders RegisterApplication where
+instance Data.ToHeaders RegisterApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterApplication where
+instance Data.ToJSON RegisterApplication where
   toJSON RegisterApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Sid" Core..=) Prelude.<$> sid,
-            ("SapInstanceNumber" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Sid" Data..=) Prelude.<$> sid,
+            ("SapInstanceNumber" Data..=)
               Prelude.<$> sapInstanceNumber,
-            Prelude.Just ("ApplicationId" Core..= applicationId),
+            Prelude.Just ("ApplicationId" Data..= applicationId),
             Prelude.Just
-              ("ApplicationType" Core..= applicationType),
-            Prelude.Just ("Instances" Core..= instances),
-            Prelude.Just ("Credentials" Core..= credentials)
+              ("ApplicationType" Data..= applicationType),
+            Prelude.Just ("Instances" Data..= instances),
+            Prelude.Just ("Credentials" Data..= credentials)
           ]
       )
 
-instance Core.ToPath RegisterApplication where
+instance Data.ToPath RegisterApplication where
   toPath = Prelude.const "/register-application"
 
-instance Core.ToQuery RegisterApplication where
+instance Data.ToQuery RegisterApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterApplicationResponse' smart constructor.

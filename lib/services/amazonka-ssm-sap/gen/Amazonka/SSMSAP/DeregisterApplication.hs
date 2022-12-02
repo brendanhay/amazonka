@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,30 +98,30 @@ instance Prelude.NFData DeregisterApplication where
   rnf DeregisterApplication' {..} =
     Prelude.rnf applicationId
 
-instance Core.ToHeaders DeregisterApplication where
+instance Data.ToHeaders DeregisterApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeregisterApplication where
+instance Data.ToJSON DeregisterApplication where
   toJSON DeregisterApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ApplicationId" Core..= applicationId)
+              ("ApplicationId" Data..= applicationId)
           ]
       )
 
-instance Core.ToPath DeregisterApplication where
+instance Data.ToPath DeregisterApplication where
   toPath = Prelude.const "/deregister-application"
 
-instance Core.ToQuery DeregisterApplication where
+instance Data.ToQuery DeregisterApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeregisterApplicationResponse' smart constructor.

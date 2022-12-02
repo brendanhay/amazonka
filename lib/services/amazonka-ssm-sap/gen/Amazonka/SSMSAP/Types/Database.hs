@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.Database where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.ApplicationCredential
 import Amazonka.SSMSAP.Types.DatabaseStatus
@@ -37,7 +38,7 @@ data Database = Database'
     databaseType :: Prelude.Maybe DatabaseType,
     databaseId :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe DatabaseStatus,
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     credentials :: Prelude.Maybe (Prelude.NonEmpty ApplicationCredential),
     componentId :: Prelude.Maybe Prelude.Text,
     applicationId :: Prelude.Maybe Prelude.Text
@@ -120,7 +121,7 @@ database_status = Lens.lens (\Database' {status} -> status) (\s@Database' {} a -
 
 -- |
 database_lastUpdated :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
-database_lastUpdated = Lens.lens (\Database' {lastUpdated} -> lastUpdated) (\s@Database' {} a -> s {lastUpdated = a} :: Database) Prelude.. Lens.mapping Core._Time
+database_lastUpdated = Lens.lens (\Database' {lastUpdated} -> lastUpdated) (\s@Database' {} a -> s {lastUpdated = a} :: Database) Prelude.. Lens.mapping Data._Time
 
 -- |
 database_credentials :: Lens.Lens' Database (Prelude.Maybe (Prelude.NonEmpty ApplicationCredential))
@@ -134,23 +135,23 @@ database_componentId = Lens.lens (\Database' {componentId} -> componentId) (\s@D
 database_applicationId :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_applicationId = Lens.lens (\Database' {applicationId} -> applicationId) (\s@Database' {} a -> s {applicationId = a} :: Database)
 
-instance Core.FromJSON Database where
+instance Data.FromJSON Database where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Database"
       ( \x ->
           Database'
-            Prelude.<$> (x Core..:? "PrimaryHost")
-            Prelude.<*> (x Core..:? "SQLPort")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "DatabaseType")
-            Prelude.<*> (x Core..:? "DatabaseId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "Credentials")
-            Prelude.<*> (x Core..:? "ComponentId")
-            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<$> (x Data..:? "PrimaryHost")
+            Prelude.<*> (x Data..:? "SQLPort")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "DatabaseType")
+            Prelude.<*> (x Data..:? "DatabaseId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "Credentials")
+            Prelude.<*> (x Data..:? "ComponentId")
+            Prelude.<*> (x Data..:? "ApplicationId")
       )
 
 instance Prelude.Hashable Database where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance Core.AWSRequest UpdateApplicationSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateApplicationSettingsResponse'
-            Prelude.<$> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "OperationIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "OperationIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,34 +120,34 @@ instance Prelude.NFData UpdateApplicationSettings where
       `Prelude.seq` Prelude.rnf credentialsToAddOrUpdate
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders UpdateApplicationSettings where
+instance Data.ToHeaders UpdateApplicationSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplicationSettings where
+instance Data.ToJSON UpdateApplicationSettings where
   toJSON UpdateApplicationSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CredentialsToRemove" Core..=)
+          [ ("CredentialsToRemove" Data..=)
               Prelude.<$> credentialsToRemove,
-            ("CredentialsToAddOrUpdate" Core..=)
+            ("CredentialsToAddOrUpdate" Data..=)
               Prelude.<$> credentialsToAddOrUpdate,
             Prelude.Just
-              ("ApplicationId" Core..= applicationId)
+              ("ApplicationId" Data..= applicationId)
           ]
       )
 
-instance Core.ToPath UpdateApplicationSettings where
+instance Data.ToPath UpdateApplicationSettings where
   toPath = Prelude.const "/update-application-settings"
 
-instance Core.ToQuery UpdateApplicationSettings where
+instance Data.ToQuery UpdateApplicationSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationSettingsResponse' smart constructor.

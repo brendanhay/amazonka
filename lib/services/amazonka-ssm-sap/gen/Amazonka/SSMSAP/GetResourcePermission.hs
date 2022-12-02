@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,7 +95,7 @@ instance Core.AWSRequest GetResourcePermission where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePermissionResponse'
-            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,30 +109,30 @@ instance Prelude.NFData GetResourcePermission where
     Prelude.rnf actionType
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders GetResourcePermission where
+instance Data.ToHeaders GetResourcePermission where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourcePermission where
+instance Data.ToJSON GetResourcePermission where
   toJSON GetResourcePermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ActionType" Core..=) Prelude.<$> actionType,
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+          [ ("ActionType" Data..=) Prelude.<$> actionType,
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath GetResourcePermission where
+instance Data.ToPath GetResourcePermission where
   toPath = Prelude.const "/get-resource-permission"
 
-instance Core.ToQuery GetResourcePermission where
+instance Data.ToQuery GetResourcePermission where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourcePermissionResponse' smart constructor.

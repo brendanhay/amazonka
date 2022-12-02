@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.Component where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.ComponentStatus
 import Amazonka.SSMSAP.Types.ComponentType
@@ -33,7 +34,7 @@ data Component = Component'
   { primaryHost :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe ComponentStatus,
     hosts :: Prelude.Maybe [Host],
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     componentId :: Prelude.Maybe Prelude.Text,
     applicationId :: Prelude.Maybe Prelude.Text,
     componentType :: Prelude.Maybe ComponentType,
@@ -92,7 +93,7 @@ component_hosts = Lens.lens (\Component' {hosts} -> hosts) (\s@Component' {} a -
 
 -- |
 component_lastUpdated :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
-component_lastUpdated = Lens.lens (\Component' {lastUpdated} -> lastUpdated) (\s@Component' {} a -> s {lastUpdated = a} :: Component) Prelude.. Lens.mapping Core._Time
+component_lastUpdated = Lens.lens (\Component' {lastUpdated} -> lastUpdated) (\s@Component' {} a -> s {lastUpdated = a} :: Component) Prelude.. Lens.mapping Data._Time
 
 -- |
 component_componentId :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
@@ -110,20 +111,20 @@ component_componentType = Lens.lens (\Component' {componentType} -> componentTyp
 component_databases :: Lens.Lens' Component (Prelude.Maybe [Prelude.Text])
 component_databases = Lens.lens (\Component' {databases} -> databases) (\s@Component' {} a -> s {databases = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Component where
+instance Data.FromJSON Component where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Component"
       ( \x ->
           Component'
-            Prelude.<$> (x Core..:? "PrimaryHost")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Hosts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "ComponentId")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "ComponentType")
-            Prelude.<*> (x Core..:? "Databases" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "PrimaryHost")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Hosts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "ComponentId")
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "ComponentType")
+            Prelude.<*> (x Data..:? "Databases" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Component where

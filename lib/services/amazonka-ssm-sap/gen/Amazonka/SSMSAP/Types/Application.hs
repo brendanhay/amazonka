@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.Application where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.ApplicationStatus
 import Amazonka.SSMSAP.Types.ApplicationType
@@ -35,7 +36,7 @@ data Application = Application'
     status :: Prelude.Maybe ApplicationStatus,
     id :: Prelude.Maybe Prelude.Text,
     components :: Prelude.Maybe [Prelude.Text],
-    lastUpdated :: Prelude.Maybe Core.POSIX,
+    lastUpdated :: Prelude.Maybe Data.POSIX,
     statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,26 +104,26 @@ application_components = Lens.lens (\Application' {components} -> components) (\
 
 -- |
 application_lastUpdated :: Lens.Lens' Application (Prelude.Maybe Prelude.UTCTime)
-application_lastUpdated = Lens.lens (\Application' {lastUpdated} -> lastUpdated) (\s@Application' {} a -> s {lastUpdated = a} :: Application) Prelude.. Lens.mapping Core._Time
+application_lastUpdated = Lens.lens (\Application' {lastUpdated} -> lastUpdated) (\s@Application' {} a -> s {lastUpdated = a} :: Application) Prelude.. Lens.mapping Data._Time
 
 -- |
 application_statusMessage :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_statusMessage = Lens.lens (\Application' {statusMessage} -> statusMessage) (\s@Application' {} a -> s {statusMessage = a} :: Application)
 
-instance Core.FromJSON Application where
+instance Data.FromJSON Application where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "AppRegistryArn")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Components" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "AppRegistryArn")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Components" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable Application where

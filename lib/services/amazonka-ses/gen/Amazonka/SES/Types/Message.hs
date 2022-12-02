@@ -21,6 +21,7 @@ module Amazonka.SES.Types.Message where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.Body
 import Amazonka.SES.Types.Content
@@ -76,7 +77,7 @@ instance Prelude.NFData Message where
   rnf Message' {..} =
     Prelude.rnf subject `Prelude.seq` Prelude.rnf body
 
-instance Core.ToQuery Message where
+instance Data.ToQuery Message where
   toQuery Message' {..} =
     Prelude.mconcat
-      ["Subject" Core.=: subject, "Body" Core.=: body]
+      ["Subject" Data.=: subject, "Body" Data.=: body]

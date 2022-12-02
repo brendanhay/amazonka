@@ -21,6 +21,7 @@ module Amazonka.SES.Types.IdentityVerificationAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.VerificationStatus
 
@@ -72,11 +73,11 @@ identityVerificationAttributes_verificationToken = Lens.lens (\IdentityVerificat
 identityVerificationAttributes_verificationStatus :: Lens.Lens' IdentityVerificationAttributes VerificationStatus
 identityVerificationAttributes_verificationStatus = Lens.lens (\IdentityVerificationAttributes' {verificationStatus} -> verificationStatus) (\s@IdentityVerificationAttributes' {} a -> s {verificationStatus = a} :: IdentityVerificationAttributes)
 
-instance Core.FromXML IdentityVerificationAttributes where
+instance Data.FromXML IdentityVerificationAttributes where
   parseXML x =
     IdentityVerificationAttributes'
-      Prelude.<$> (x Core..@? "VerificationToken")
-      Prelude.<*> (x Core..@ "VerificationStatus")
+      Prelude.<$> (x Data..@? "VerificationToken")
+      Prelude.<*> (x Data..@ "VerificationStatus")
 
 instance
   Prelude.Hashable

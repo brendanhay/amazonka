@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,7 +73,7 @@ instance Core.AWSRequest GetAccountSendingEnabled where
       "GetAccountSendingEnabledResult"
       ( \s h x ->
           GetAccountSendingEnabledResponse'
-            Prelude.<$> (x Core..@? "Enabled")
+            Prelude.<$> (x Data..@? "Enabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -83,20 +84,20 @@ instance Prelude.Hashable GetAccountSendingEnabled where
 instance Prelude.NFData GetAccountSendingEnabled where
   rnf _ = ()
 
-instance Core.ToHeaders GetAccountSendingEnabled where
+instance Data.ToHeaders GetAccountSendingEnabled where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAccountSendingEnabled where
+instance Data.ToPath GetAccountSendingEnabled where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccountSendingEnabled where
+instance Data.ToQuery GetAccountSendingEnabled where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetAccountSendingEnabled" :: Prelude.ByteString),
+              Data.=: ("GetAccountSendingEnabled" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2010-12-01" :: Prelude.ByteString)
+              Data.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 

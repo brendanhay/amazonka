@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -122,21 +123,21 @@ instance Prelude.NFData DeleteReceiptRule where
     Prelude.rnf ruleSetName
       `Prelude.seq` Prelude.rnf ruleName
 
-instance Core.ToHeaders DeleteReceiptRule where
+instance Data.ToHeaders DeleteReceiptRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteReceiptRule where
+instance Data.ToPath DeleteReceiptRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteReceiptRule where
+instance Data.ToQuery DeleteReceiptRule where
   toQuery DeleteReceiptRule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteReceiptRule" :: Prelude.ByteString),
+          Data.=: ("DeleteReceiptRule" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "RuleSetName" Core.=: ruleSetName,
-        "RuleName" Core.=: ruleName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "RuleSetName" Data.=: ruleSetName,
+        "RuleName" Data.=: ruleName
       ]
 
 -- | An empty element returned on a successful request.

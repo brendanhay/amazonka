@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,9 +82,9 @@ instance Core.AWSRequest DescribeActiveReceiptRuleSet where
       "DescribeActiveReceiptRuleSetResult"
       ( \s h x ->
           DescribeActiveReceiptRuleSetResponse'
-            Prelude.<$> (x Core..@? "Metadata")
-            Prelude.<*> ( x Core..@? "Rules" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Metadata")
+            Prelude.<*> ( x Data..@? "Rules" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -98,22 +99,22 @@ instance
 instance Prelude.NFData DescribeActiveReceiptRuleSet where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeActiveReceiptRuleSet where
+instance Data.ToHeaders DescribeActiveReceiptRuleSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeActiveReceiptRuleSet where
+instance Data.ToPath DescribeActiveReceiptRuleSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeActiveReceiptRuleSet where
+instance Data.ToQuery DescribeActiveReceiptRuleSet where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ( "DescribeActiveReceiptRuleSet" ::
+              Data.=: ( "DescribeActiveReceiptRuleSet" ::
                           Prelude.ByteString
                       ),
             "Version"
-              Core.=: ("2010-12-01" :: Prelude.ByteString)
+              Data.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 

@@ -21,6 +21,7 @@ module Amazonka.SES.Types.RawMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the raw data of the message.
@@ -47,7 +48,7 @@ data RawMessage = RawMessage'
     --
     -- For more information, go to the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.
-    data' :: Core.Base64
+    data' :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,7 +89,7 @@ newRawMessage ::
   Prelude.ByteString ->
   RawMessage
 newRawMessage pData_ =
-  RawMessage' {data' = Core._Base64 Lens.# pData_}
+  RawMessage' {data' = Data._Base64 Lens.# pData_}
 
 -- | The raw data of the message. This data needs to base64-encoded if you
 -- are accessing Amazon SES directly through the HTTPS interface. If you
@@ -115,7 +116,7 @@ newRawMessage pData_ =
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 rawMessage_data :: Lens.Lens' RawMessage Prelude.ByteString
-rawMessage_data = Lens.lens (\RawMessage' {data'} -> data') (\s@RawMessage' {} a -> s {data' = a} :: RawMessage) Prelude.. Core._Base64
+rawMessage_data = Lens.lens (\RawMessage' {data'} -> data') (\s@RawMessage' {} a -> s {data' = a} :: RawMessage) Prelude.. Data._Base64
 
 instance Prelude.Hashable RawMessage where
   hashWithSalt _salt RawMessage' {..} =
@@ -124,6 +125,6 @@ instance Prelude.Hashable RawMessage where
 instance Prelude.NFData RawMessage where
   rnf RawMessage' {..} = Prelude.rnf data'
 
-instance Core.ToQuery RawMessage where
+instance Data.ToQuery RawMessage where
   toQuery RawMessage' {..} =
-    Prelude.mconcat ["Data" Core.=: data']
+    Prelude.mconcat ["Data" Data.=: data']

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,10 +143,10 @@ instance Core.AWSRequest ListIdentities where
       "ListIdentitiesResult"
       ( \s h x ->
           ListIdentitiesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "Identities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+            Prelude.<*> ( x Data..@? "Identities" Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -161,22 +162,22 @@ instance Prelude.NFData ListIdentities where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf identityType
 
-instance Core.ToHeaders ListIdentities where
+instance Data.ToHeaders ListIdentities where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListIdentities where
+instance Data.ToPath ListIdentities where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListIdentities where
+instance Data.ToQuery ListIdentities where
   toQuery ListIdentities' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListIdentities" :: Prelude.ByteString),
+          Data.=: ("ListIdentities" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxItems" Core.=: maxItems,
-        "IdentityType" Core.=: identityType
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "MaxItems" Data.=: maxItems,
+        "IdentityType" Data.=: identityType
       ]
 
 -- | A list of all identities that you have attempted to verify under your

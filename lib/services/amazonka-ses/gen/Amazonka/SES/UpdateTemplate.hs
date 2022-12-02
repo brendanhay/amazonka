@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,20 +98,20 @@ instance Prelude.Hashable UpdateTemplate where
 instance Prelude.NFData UpdateTemplate where
   rnf UpdateTemplate' {..} = Prelude.rnf template
 
-instance Core.ToHeaders UpdateTemplate where
+instance Data.ToHeaders UpdateTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath UpdateTemplate where
+instance Data.ToPath UpdateTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTemplate where
+instance Data.ToQuery UpdateTemplate where
   toQuery UpdateTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("UpdateTemplate" :: Prelude.ByteString),
+          Data.=: ("UpdateTemplate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "Template" Core.=: template
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "Template" Data.=: template
       ]
 
 -- | /See:/ 'newUpdateTemplateResponse' smart constructor.

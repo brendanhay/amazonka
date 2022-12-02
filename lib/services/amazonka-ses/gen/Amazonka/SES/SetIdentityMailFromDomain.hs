@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -180,22 +181,22 @@ instance Prelude.NFData SetIdentityMailFromDomain where
       `Prelude.seq` Prelude.rnf behaviorOnMXFailure
       `Prelude.seq` Prelude.rnf identity
 
-instance Core.ToHeaders SetIdentityMailFromDomain where
+instance Data.ToHeaders SetIdentityMailFromDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetIdentityMailFromDomain where
+instance Data.ToPath SetIdentityMailFromDomain where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetIdentityMailFromDomain where
+instance Data.ToQuery SetIdentityMailFromDomain where
   toQuery SetIdentityMailFromDomain' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetIdentityMailFromDomain" :: Prelude.ByteString),
+          Data.=: ("SetIdentityMailFromDomain" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "MailFromDomain" Core.=: mailFromDomain,
-        "BehaviorOnMXFailure" Core.=: behaviorOnMXFailure,
-        "Identity" Core.=: identity
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "MailFromDomain" Data.=: mailFromDomain,
+        "BehaviorOnMXFailure" Data.=: behaviorOnMXFailure,
+        "Identity" Data.=: identity
       ]
 
 -- | An empty element returned on a successful request.

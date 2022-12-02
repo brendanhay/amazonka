@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,9 +118,9 @@ instance
       ( \s h x ->
           GetIdentityVerificationAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..@? "VerificationAttributes"
+              Prelude.<*> ( x Data..@? "VerificationAttributes"
                               Core..!@ Prelude.mempty
-                              Prelude.>>= Core.parseXMLMap "entry" "key" "value"
+                              Prelude.>>= Data.parseXMLMap "entry" "key" "value"
                           )
       )
 
@@ -140,31 +141,31 @@ instance
     Prelude.rnf identities
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetIdentityVerificationAttributes
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetIdentityVerificationAttributes
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetIdentityVerificationAttributes
   where
   toQuery GetIdentityVerificationAttributes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetIdentityVerificationAttributes" ::
+          Data.=: ( "GetIdentityVerificationAttributes" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Identities"
-          Core.=: Core.toQueryList "member" identities
+          Data.=: Data.toQueryList "member" identities
       ]
 
 -- | The Amazon SES verification status of a list of identities. For domain

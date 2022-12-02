@@ -21,6 +21,7 @@ module Amazonka.SES.Types.SendDataPoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents sending statistics data. Each @SendDataPoint@ contains
@@ -33,7 +34,7 @@ data SendDataPoint = SendDataPoint'
     -- | Number of emails rejected by Amazon SES.
     rejects :: Prelude.Maybe Prelude.Integer,
     -- | Time of the data point.
-    timestamp :: Prelude.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Data.ISO8601,
     -- | Number of emails that have bounced.
     bounces :: Prelude.Maybe Prelude.Integer,
     -- | Number of unwanted emails that were rejected by recipients.
@@ -79,7 +80,7 @@ sendDataPoint_rejects = Lens.lens (\SendDataPoint' {rejects} -> rejects) (\s@Sen
 
 -- | Time of the data point.
 sendDataPoint_timestamp :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.UTCTime)
-sendDataPoint_timestamp = Lens.lens (\SendDataPoint' {timestamp} -> timestamp) (\s@SendDataPoint' {} a -> s {timestamp = a} :: SendDataPoint) Prelude.. Lens.mapping Core._Time
+sendDataPoint_timestamp = Lens.lens (\SendDataPoint' {timestamp} -> timestamp) (\s@SendDataPoint' {} a -> s {timestamp = a} :: SendDataPoint) Prelude.. Lens.mapping Data._Time
 
 -- | Number of emails that have bounced.
 sendDataPoint_bounces :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
@@ -89,14 +90,14 @@ sendDataPoint_bounces = Lens.lens (\SendDataPoint' {bounces} -> bounces) (\s@Sen
 sendDataPoint_complaints :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
 sendDataPoint_complaints = Lens.lens (\SendDataPoint' {complaints} -> complaints) (\s@SendDataPoint' {} a -> s {complaints = a} :: SendDataPoint)
 
-instance Core.FromXML SendDataPoint where
+instance Data.FromXML SendDataPoint where
   parseXML x =
     SendDataPoint'
-      Prelude.<$> (x Core..@? "DeliveryAttempts")
-      Prelude.<*> (x Core..@? "Rejects")
-      Prelude.<*> (x Core..@? "Timestamp")
-      Prelude.<*> (x Core..@? "Bounces")
-      Prelude.<*> (x Core..@? "Complaints")
+      Prelude.<$> (x Data..@? "DeliveryAttempts")
+      Prelude.<*> (x Data..@? "Rejects")
+      Prelude.<*> (x Data..@? "Timestamp")
+      Prelude.<*> (x Data..@? "Bounces")
+      Prelude.<*> (x Data..@? "Complaints")
 
 instance Prelude.Hashable SendDataPoint where
   hashWithSalt _salt SendDataPoint' {..} =

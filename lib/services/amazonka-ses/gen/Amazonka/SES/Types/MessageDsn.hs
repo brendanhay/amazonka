@@ -21,6 +21,7 @@ module Amazonka.SES.Types.MessageDsn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.ExtensionField
 
@@ -38,7 +39,7 @@ data MessageDsn = MessageDsn'
     -- | When the message was received by the reporting mail transfer agent
     -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
     -- format.
-    arrivalDate :: Prelude.Maybe Core.ISO8601,
+    arrivalDate :: Prelude.Maybe Data.ISO8601,
     -- | The reporting MTA that attempted to deliver the message, formatted as
     -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
     -- (@mta-name-type; mta-name@). The default value is
@@ -84,7 +85,7 @@ messageDsn_extensionFields = Lens.lens (\MessageDsn' {extensionFields} -> extens
 -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
 -- format.
 messageDsn_arrivalDate :: Lens.Lens' MessageDsn (Prelude.Maybe Prelude.UTCTime)
-messageDsn_arrivalDate = Lens.lens (\MessageDsn' {arrivalDate} -> arrivalDate) (\s@MessageDsn' {} a -> s {arrivalDate = a} :: MessageDsn) Prelude.. Lens.mapping Core._Time
+messageDsn_arrivalDate = Lens.lens (\MessageDsn' {arrivalDate} -> arrivalDate) (\s@MessageDsn' {} a -> s {arrivalDate = a} :: MessageDsn) Prelude.. Lens.mapping Data._Time
 
 -- | The reporting MTA that attempted to deliver the message, formatted as
 -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
@@ -105,14 +106,14 @@ instance Prelude.NFData MessageDsn where
       `Prelude.seq` Prelude.rnf arrivalDate
       `Prelude.seq` Prelude.rnf reportingMta
 
-instance Core.ToQuery MessageDsn where
+instance Data.ToQuery MessageDsn where
   toQuery MessageDsn' {..} =
     Prelude.mconcat
       [ "ExtensionFields"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> extensionFields
             ),
-        "ArrivalDate" Core.=: arrivalDate,
-        "ReportingMta" Core.=: reportingMta
+        "ArrivalDate" Data.=: arrivalDate,
+        "ReportingMta" Data.=: reportingMta
       ]

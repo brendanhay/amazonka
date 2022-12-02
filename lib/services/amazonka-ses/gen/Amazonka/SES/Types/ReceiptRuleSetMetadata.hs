@@ -21,6 +21,7 @@ module Amazonka.SES.Types.ReceiptRuleSetMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a receipt rule set.
@@ -44,7 +45,7 @@ data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
     -- -   Contain less than 64 characters.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time the receipt rule set was created.
-    createdTimestamp :: Prelude.Maybe Core.ISO8601
+    createdTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,13 +88,13 @@ receiptRuleSetMetadata_name = Lens.lens (\ReceiptRuleSetMetadata' {name} -> name
 
 -- | The date and time the receipt rule set was created.
 receiptRuleSetMetadata_createdTimestamp :: Lens.Lens' ReceiptRuleSetMetadata (Prelude.Maybe Prelude.UTCTime)
-receiptRuleSetMetadata_createdTimestamp = Lens.lens (\ReceiptRuleSetMetadata' {createdTimestamp} -> createdTimestamp) (\s@ReceiptRuleSetMetadata' {} a -> s {createdTimestamp = a} :: ReceiptRuleSetMetadata) Prelude.. Lens.mapping Core._Time
+receiptRuleSetMetadata_createdTimestamp = Lens.lens (\ReceiptRuleSetMetadata' {createdTimestamp} -> createdTimestamp) (\s@ReceiptRuleSetMetadata' {} a -> s {createdTimestamp = a} :: ReceiptRuleSetMetadata) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML ReceiptRuleSetMetadata where
+instance Data.FromXML ReceiptRuleSetMetadata where
   parseXML x =
     ReceiptRuleSetMetadata'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> (x Core..@? "CreatedTimestamp")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "CreatedTimestamp")
 
 instance Prelude.Hashable ReceiptRuleSetMetadata where
   hashWithSalt _salt ReceiptRuleSetMetadata' {..} =

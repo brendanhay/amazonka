@@ -21,6 +21,7 @@ module Amazonka.SES.Types.BouncedRecipientInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.BounceType
 import Amazonka.SES.Types.RecipientDsnFields
@@ -124,11 +125,11 @@ instance Prelude.NFData BouncedRecipientInfo where
       `Prelude.seq` Prelude.rnf recipientDsnFields
       `Prelude.seq` Prelude.rnf recipient
 
-instance Core.ToQuery BouncedRecipientInfo where
+instance Data.ToQuery BouncedRecipientInfo where
   toQuery BouncedRecipientInfo' {..} =
     Prelude.mconcat
-      [ "RecipientArn" Core.=: recipientArn,
-        "BounceType" Core.=: bounceType,
-        "RecipientDsnFields" Core.=: recipientDsnFields,
-        "Recipient" Core.=: recipient
+      [ "RecipientArn" Data.=: recipientArn,
+        "BounceType" Data.=: bounceType,
+        "RecipientDsnFields" Data.=: recipientDsnFields,
+        "Recipient" Data.=: recipient
       ]

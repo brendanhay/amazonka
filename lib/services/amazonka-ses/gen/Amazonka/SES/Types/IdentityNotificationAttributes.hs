@@ -21,6 +21,7 @@ module Amazonka.SES.Types.IdentityNotificationAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the notification attributes of an identity, including whether
@@ -181,16 +182,16 @@ identityNotificationAttributes_deliveryTopic = Lens.lens (\IdentityNotificationA
 identityNotificationAttributes_forwardingEnabled :: Lens.Lens' IdentityNotificationAttributes Prelude.Bool
 identityNotificationAttributes_forwardingEnabled = Lens.lens (\IdentityNotificationAttributes' {forwardingEnabled} -> forwardingEnabled) (\s@IdentityNotificationAttributes' {} a -> s {forwardingEnabled = a} :: IdentityNotificationAttributes)
 
-instance Core.FromXML IdentityNotificationAttributes where
+instance Data.FromXML IdentityNotificationAttributes where
   parseXML x =
     IdentityNotificationAttributes'
-      Prelude.<$> (x Core..@? "HeadersInDeliveryNotificationsEnabled")
-      Prelude.<*> (x Core..@? "HeadersInComplaintNotificationsEnabled")
-      Prelude.<*> (x Core..@? "HeadersInBounceNotificationsEnabled")
-      Prelude.<*> (x Core..@ "BounceTopic")
-      Prelude.<*> (x Core..@ "ComplaintTopic")
-      Prelude.<*> (x Core..@ "DeliveryTopic")
-      Prelude.<*> (x Core..@ "ForwardingEnabled")
+      Prelude.<$> (x Data..@? "HeadersInDeliveryNotificationsEnabled")
+      Prelude.<*> (x Data..@? "HeadersInComplaintNotificationsEnabled")
+      Prelude.<*> (x Data..@? "HeadersInBounceNotificationsEnabled")
+      Prelude.<*> (x Data..@ "BounceTopic")
+      Prelude.<*> (x Data..@ "ComplaintTopic")
+      Prelude.<*> (x Data..@ "DeliveryTopic")
+      Prelude.<*> (x Data..@ "ForwardingEnabled")
 
 instance
   Prelude.Hashable

@@ -21,6 +21,7 @@ module Amazonka.SES.Types.ReceiptRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.ReceiptAction
 import Amazonka.SES.Types.TlsPolicy
@@ -156,19 +157,19 @@ receiptRule_actions = Lens.lens (\ReceiptRule' {actions} -> actions) (\s@Receipt
 receiptRule_name :: Lens.Lens' ReceiptRule Prelude.Text
 receiptRule_name = Lens.lens (\ReceiptRule' {name} -> name) (\s@ReceiptRule' {} a -> s {name = a} :: ReceiptRule)
 
-instance Core.FromXML ReceiptRule where
+instance Data.FromXML ReceiptRule where
   parseXML x =
     ReceiptRule'
-      Prelude.<$> (x Core..@? "ScanEnabled")
-      Prelude.<*> ( x Core..@? "Recipients" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "ScanEnabled")
+      Prelude.<*> ( x Data..@? "Recipients" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Enabled")
-      Prelude.<*> (x Core..@? "TlsPolicy")
-      Prelude.<*> ( x Core..@? "Actions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "Enabled")
+      Prelude.<*> (x Data..@? "TlsPolicy")
+      Prelude.<*> ( x Data..@? "Actions" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@ "Name")
+      Prelude.<*> (x Data..@ "Name")
 
 instance Prelude.Hashable ReceiptRule where
   hashWithSalt _salt ReceiptRule' {..} =
@@ -188,17 +189,17 @@ instance Prelude.NFData ReceiptRule where
       `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToQuery ReceiptRule where
+instance Data.ToQuery ReceiptRule where
   toQuery ReceiptRule' {..} =
     Prelude.mconcat
-      [ "ScanEnabled" Core.=: scanEnabled,
+      [ "ScanEnabled" Data.=: scanEnabled,
         "Recipients"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> recipients),
-        "Enabled" Core.=: enabled,
-        "TlsPolicy" Core.=: tlsPolicy,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> recipients),
+        "Enabled" Data.=: enabled,
+        "TlsPolicy" Data.=: tlsPolicy,
         "Actions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> actions),
-        "Name" Core.=: name
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> actions),
+        "Name" Data.=: name
       ]

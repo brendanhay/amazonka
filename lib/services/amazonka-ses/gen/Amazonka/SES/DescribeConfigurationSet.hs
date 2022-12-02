@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -110,13 +111,13 @@ instance Core.AWSRequest DescribeConfigurationSet where
       "DescribeConfigurationSetResult"
       ( \s h x ->
           DescribeConfigurationSetResponse'
-            Prelude.<$> (x Core..@? "ReputationOptions")
-            Prelude.<*> (x Core..@? "DeliveryOptions")
-            Prelude.<*> (x Core..@? "TrackingOptions")
-            Prelude.<*> (x Core..@? "ConfigurationSet")
-            Prelude.<*> ( x Core..@? "EventDestinations"
+            Prelude.<$> (x Data..@? "ReputationOptions")
+            Prelude.<*> (x Data..@? "DeliveryOptions")
+            Prelude.<*> (x Data..@? "TrackingOptions")
+            Prelude.<*> (x Data..@? "ConfigurationSet")
+            Prelude.<*> ( x Data..@? "EventDestinations"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -132,25 +133,25 @@ instance Prelude.NFData DescribeConfigurationSet where
     Prelude.rnf configurationSetAttributeNames
       `Prelude.seq` Prelude.rnf configurationSetName
 
-instance Core.ToHeaders DescribeConfigurationSet where
+instance Data.ToHeaders DescribeConfigurationSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeConfigurationSet where
+instance Data.ToPath DescribeConfigurationSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConfigurationSet where
+instance Data.ToQuery DescribeConfigurationSet where
   toQuery DescribeConfigurationSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeConfigurationSet" :: Prelude.ByteString),
+          Data.=: ("DescribeConfigurationSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "ConfigurationSetAttributeNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> configurationSetAttributeNames
             ),
-        "ConfigurationSetName" Core.=: configurationSetName
+        "ConfigurationSetName" Data.=: configurationSetName
       ]
 
 -- | Represents the details of a configuration set. Configuration sets enable

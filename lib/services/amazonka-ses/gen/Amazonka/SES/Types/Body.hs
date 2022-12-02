@@ -21,6 +21,7 @@ module Amazonka.SES.Types.Body where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.Content
 
@@ -85,7 +86,7 @@ instance Prelude.NFData Body where
   rnf Body' {..} =
     Prelude.rnf html `Prelude.seq` Prelude.rnf text
 
-instance Core.ToQuery Body where
+instance Data.ToQuery Body where
   toQuery Body' {..} =
     Prelude.mconcat
-      ["Html" Core.=: html, "Text" Core.=: text]
+      ["Html" Data.=: html, "Text" Data.=: text]

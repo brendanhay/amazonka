@@ -136,6 +136,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -553,7 +554,7 @@ instance Core.AWSRequest SendRawEmail where
       ( \s h x ->
           SendRawEmailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "MessageId")
+            Prelude.<*> (x Data..@ "MessageId")
       )
 
 instance Prelude.Hashable SendRawEmail where
@@ -578,31 +579,31 @@ instance Prelude.NFData SendRawEmail where
       `Prelude.seq` Prelude.rnf destinations
       `Prelude.seq` Prelude.rnf rawMessage
 
-instance Core.ToHeaders SendRawEmail where
+instance Data.ToHeaders SendRawEmail where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SendRawEmail where
+instance Data.ToPath SendRawEmail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendRawEmail where
+instance Data.ToQuery SendRawEmail where
   toQuery SendRawEmail' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SendRawEmail" :: Prelude.ByteString),
+          Data.=: ("SendRawEmail" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "FromArn" Core.=: fromArn,
-        "SourceArn" Core.=: sourceArn,
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "ReturnPathArn" Core.=: returnPathArn,
-        "Source" Core.=: source,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "FromArn" Data.=: fromArn,
+        "SourceArn" Data.=: sourceArn,
+        "ConfigurationSetName" Data.=: configurationSetName,
+        "ReturnPathArn" Data.=: returnPathArn,
+        "Source" Data.=: source,
         "Destinations"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> destinations),
-        "RawMessage" Core.=: rawMessage
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> destinations),
+        "RawMessage" Data.=: rawMessage
       ]
 
 -- | Represents a unique message ID.

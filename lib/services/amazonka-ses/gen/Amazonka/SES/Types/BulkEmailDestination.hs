@@ -21,6 +21,7 @@ module Amazonka.SES.Types.BulkEmailDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.Destination
 import Amazonka.SES.Types.MessageTag
@@ -102,15 +103,15 @@ instance Prelude.NFData BulkEmailDestination where
       `Prelude.seq` Prelude.rnf replacementTemplateData
       `Prelude.seq` Prelude.rnf destination
 
-instance Core.ToQuery BulkEmailDestination where
+instance Data.ToQuery BulkEmailDestination where
   toQuery BulkEmailDestination' {..} =
     Prelude.mconcat
       [ "ReplacementTags"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> replacementTags
             ),
         "ReplacementTemplateData"
-          Core.=: replacementTemplateData,
-        "Destination" Core.=: destination
+          Data.=: replacementTemplateData,
+        "Destination" Data.=: destination
       ]

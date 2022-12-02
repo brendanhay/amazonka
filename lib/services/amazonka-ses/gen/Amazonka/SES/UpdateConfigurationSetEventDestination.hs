@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,31 +152,31 @@ instance
       `Prelude.seq` Prelude.rnf eventDestination
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateConfigurationSetEventDestination
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateConfigurationSetEventDestination
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateConfigurationSetEventDestination
   where
   toQuery UpdateConfigurationSetEventDestination' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "UpdateConfigurationSetEventDestination" ::
+          Data.=: ( "UpdateConfigurationSetEventDestination" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "EventDestination" Core.=: eventDestination
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "ConfigurationSetName" Data.=: configurationSetName,
+        "EventDestination" Data.=: eventDestination
       ]
 
 -- | An empty element returned on a successful request.

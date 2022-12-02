@@ -21,6 +21,7 @@ module Amazonka.SES.Types.EventDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.CloudWatchDestination
 import Amazonka.SES.Types.EventType
@@ -148,17 +149,17 @@ eventDestination_name = Lens.lens (\EventDestination' {name} -> name) (\s@EventD
 eventDestination_matchingEventTypes :: Lens.Lens' EventDestination [EventType]
 eventDestination_matchingEventTypes = Lens.lens (\EventDestination' {matchingEventTypes} -> matchingEventTypes) (\s@EventDestination' {} a -> s {matchingEventTypes = a} :: EventDestination) Prelude.. Lens.coerced
 
-instance Core.FromXML EventDestination where
+instance Data.FromXML EventDestination where
   parseXML x =
     EventDestination'
-      Prelude.<$> (x Core..@? "SNSDestination")
-      Prelude.<*> (x Core..@? "Enabled")
-      Prelude.<*> (x Core..@? "CloudWatchDestination")
-      Prelude.<*> (x Core..@? "KinesisFirehoseDestination")
-      Prelude.<*> (x Core..@ "Name")
-      Prelude.<*> ( x Core..@? "MatchingEventTypes"
+      Prelude.<$> (x Data..@? "SNSDestination")
+      Prelude.<*> (x Data..@? "Enabled")
+      Prelude.<*> (x Data..@? "CloudWatchDestination")
+      Prelude.<*> (x Data..@? "KinesisFirehoseDestination")
+      Prelude.<*> (x Data..@ "Name")
+      Prelude.<*> ( x Data..@? "MatchingEventTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+                      Prelude.>>= Data.parseXMLList "member"
                   )
 
 instance Prelude.Hashable EventDestination where
@@ -179,16 +180,16 @@ instance Prelude.NFData EventDestination where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf matchingEventTypes
 
-instance Core.ToQuery EventDestination where
+instance Data.ToQuery EventDestination where
   toQuery EventDestination' {..} =
     Prelude.mconcat
-      [ "SNSDestination" Core.=: sNSDestination,
-        "Enabled" Core.=: enabled,
+      [ "SNSDestination" Data.=: sNSDestination,
+        "Enabled" Data.=: enabled,
         "CloudWatchDestination"
-          Core.=: cloudWatchDestination,
+          Data.=: cloudWatchDestination,
         "KinesisFirehoseDestination"
-          Core.=: kinesisFirehoseDestination,
-        "Name" Core.=: name,
+          Data.=: kinesisFirehoseDestination,
+        "Name" Data.=: name,
         "MatchingEventTypes"
-          Core.=: Core.toQueryList "member" matchingEventTypes
+          Data.=: Data.toQueryList "member" matchingEventTypes
       ]

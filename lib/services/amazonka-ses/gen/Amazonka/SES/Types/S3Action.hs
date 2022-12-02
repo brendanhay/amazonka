@@ -21,6 +21,7 @@ module Amazonka.SES.Types.S3Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When included in a receipt rule, this action saves the received message
@@ -223,13 +224,13 @@ s3Action_kmsKeyArn = Lens.lens (\S3Action' {kmsKeyArn} -> kmsKeyArn) (\s@S3Actio
 s3Action_bucketName :: Lens.Lens' S3Action Prelude.Text
 s3Action_bucketName = Lens.lens (\S3Action' {bucketName} -> bucketName) (\s@S3Action' {} a -> s {bucketName = a} :: S3Action)
 
-instance Core.FromXML S3Action where
+instance Data.FromXML S3Action where
   parseXML x =
     S3Action'
-      Prelude.<$> (x Core..@? "ObjectKeyPrefix")
-      Prelude.<*> (x Core..@? "TopicArn")
-      Prelude.<*> (x Core..@? "KmsKeyArn")
-      Prelude.<*> (x Core..@ "BucketName")
+      Prelude.<$> (x Data..@? "ObjectKeyPrefix")
+      Prelude.<*> (x Data..@? "TopicArn")
+      Prelude.<*> (x Data..@? "KmsKeyArn")
+      Prelude.<*> (x Data..@ "BucketName")
 
 instance Prelude.Hashable S3Action where
   hashWithSalt _salt S3Action' {..} =
@@ -245,11 +246,11 @@ instance Prelude.NFData S3Action where
       `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToQuery S3Action where
+instance Data.ToQuery S3Action where
   toQuery S3Action' {..} =
     Prelude.mconcat
-      [ "ObjectKeyPrefix" Core.=: objectKeyPrefix,
-        "TopicArn" Core.=: topicArn,
-        "KmsKeyArn" Core.=: kmsKeyArn,
-        "BucketName" Core.=: bucketName
+      [ "ObjectKeyPrefix" Data.=: objectKeyPrefix,
+        "TopicArn" Data.=: topicArn,
+        "KmsKeyArn" Data.=: kmsKeyArn,
+        "BucketName" Data.=: bucketName
       ]

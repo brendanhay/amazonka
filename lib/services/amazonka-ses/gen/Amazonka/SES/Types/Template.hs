@@ -21,6 +21,7 @@ module Amazonka.SES.Types.Template where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The content of the email, composed of a subject line, an HTML part, and
@@ -91,13 +92,13 @@ template_htmlPart = Lens.lens (\Template' {htmlPart} -> htmlPart) (\s@Template' 
 template_templateName :: Lens.Lens' Template Prelude.Text
 template_templateName = Lens.lens (\Template' {templateName} -> templateName) (\s@Template' {} a -> s {templateName = a} :: Template)
 
-instance Core.FromXML Template where
+instance Data.FromXML Template where
   parseXML x =
     Template'
-      Prelude.<$> (x Core..@? "SubjectPart")
-      Prelude.<*> (x Core..@? "TextPart")
-      Prelude.<*> (x Core..@? "HtmlPart")
-      Prelude.<*> (x Core..@ "TemplateName")
+      Prelude.<$> (x Data..@? "SubjectPart")
+      Prelude.<*> (x Data..@? "TextPart")
+      Prelude.<*> (x Data..@? "HtmlPart")
+      Prelude.<*> (x Data..@ "TemplateName")
 
 instance Prelude.Hashable Template where
   hashWithSalt _salt Template' {..} =
@@ -113,11 +114,11 @@ instance Prelude.NFData Template where
       `Prelude.seq` Prelude.rnf htmlPart
       `Prelude.seq` Prelude.rnf templateName
 
-instance Core.ToQuery Template where
+instance Data.ToQuery Template where
   toQuery Template' {..} =
     Prelude.mconcat
-      [ "SubjectPart" Core.=: subjectPart,
-        "TextPart" Core.=: textPart,
-        "HtmlPart" Core.=: htmlPart,
-        "TemplateName" Core.=: templateName
+      [ "SubjectPart" Data.=: subjectPart,
+        "TextPart" Data.=: textPart,
+        "HtmlPart" Data.=: htmlPart,
+        "TemplateName" Data.=: templateName
       ]

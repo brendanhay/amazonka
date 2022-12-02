@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetTemplate where
       "GetTemplateResult"
       ( \s h x ->
           GetTemplateResponse'
-            Prelude.<$> (x Core..@? "Template")
+            Prelude.<$> (x Data..@? "Template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,20 +97,20 @@ instance Prelude.Hashable GetTemplate where
 instance Prelude.NFData GetTemplate where
   rnf GetTemplate' {..} = Prelude.rnf templateName
 
-instance Core.ToHeaders GetTemplate where
+instance Data.ToHeaders GetTemplate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetTemplate where
+instance Data.ToPath GetTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetTemplate where
+instance Data.ToQuery GetTemplate where
   toQuery GetTemplate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetTemplate" :: Prelude.ByteString),
+          Data.=: ("GetTemplate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Data.=: templateName
       ]
 
 -- | /See:/ 'newGetTemplateResponse' smart constructor.

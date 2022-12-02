@@ -21,6 +21,7 @@ module Amazonka.SES.Types.CustomVerificationEmailTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a custom verification email template.
@@ -95,14 +96,14 @@ customVerificationEmailTemplate_templateSubject = Lens.lens (\CustomVerification
 customVerificationEmailTemplate_failureRedirectionURL :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
 customVerificationEmailTemplate_failureRedirectionURL = Lens.lens (\CustomVerificationEmailTemplate' {failureRedirectionURL} -> failureRedirectionURL) (\s@CustomVerificationEmailTemplate' {} a -> s {failureRedirectionURL = a} :: CustomVerificationEmailTemplate)
 
-instance Core.FromXML CustomVerificationEmailTemplate where
+instance Data.FromXML CustomVerificationEmailTemplate where
   parseXML x =
     CustomVerificationEmailTemplate'
-      Prelude.<$> (x Core..@? "TemplateName")
-      Prelude.<*> (x Core..@? "SuccessRedirectionURL")
-      Prelude.<*> (x Core..@? "FromEmailAddress")
-      Prelude.<*> (x Core..@? "TemplateSubject")
-      Prelude.<*> (x Core..@? "FailureRedirectionURL")
+      Prelude.<$> (x Data..@? "TemplateName")
+      Prelude.<*> (x Data..@? "SuccessRedirectionURL")
+      Prelude.<*> (x Data..@? "FromEmailAddress")
+      Prelude.<*> (x Data..@? "TemplateSubject")
+      Prelude.<*> (x Data..@? "FailureRedirectionURL")
 
 instance
   Prelude.Hashable

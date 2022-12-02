@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,9 +124,9 @@ instance Core.AWSRequest ListReceiptRuleSets where
       "ListReceiptRuleSetsResult"
       ( \s h x ->
           ListReceiptRuleSetsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "RuleSets" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "RuleSets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,20 +138,20 @@ instance Prelude.Hashable ListReceiptRuleSets where
 instance Prelude.NFData ListReceiptRuleSets where
   rnf ListReceiptRuleSets' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListReceiptRuleSets where
+instance Data.ToHeaders ListReceiptRuleSets where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListReceiptRuleSets where
+instance Data.ToPath ListReceiptRuleSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListReceiptRuleSets where
+instance Data.ToQuery ListReceiptRuleSets where
   toQuery ListReceiptRuleSets' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListReceiptRuleSets" :: Prelude.ByteString),
+          Data.=: ("ListReceiptRuleSets" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken
       ]
 
 -- | A list of receipt rule sets that exist under your AWS account.

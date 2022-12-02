@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,20 +109,20 @@ instance Prelude.NFData CreateConfigurationSet where
   rnf CreateConfigurationSet' {..} =
     Prelude.rnf configurationSet
 
-instance Core.ToHeaders CreateConfigurationSet where
+instance Data.ToHeaders CreateConfigurationSet where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateConfigurationSet where
+instance Data.ToPath CreateConfigurationSet where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateConfigurationSet where
+instance Data.ToQuery CreateConfigurationSet where
   toQuery CreateConfigurationSet' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateConfigurationSet" :: Prelude.ByteString),
+          Data.=: ("CreateConfigurationSet" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSet" Core.=: configurationSet
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "ConfigurationSet" Data.=: configurationSet
       ]
 
 -- | An empty element returned on a successful request.

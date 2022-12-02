@@ -96,6 +96,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -441,7 +442,7 @@ instance Core.AWSRequest SendTemplatedEmail where
       ( \s h x ->
           SendTemplatedEmailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "MessageId")
+            Prelude.<*> (x Data..@ "MessageId")
       )
 
 instance Prelude.Hashable SendTemplatedEmail where
@@ -472,36 +473,36 @@ instance Prelude.NFData SendTemplatedEmail where
       `Prelude.seq` Prelude.rnf template
       `Prelude.seq` Prelude.rnf templateData
 
-instance Core.ToHeaders SendTemplatedEmail where
+instance Data.ToHeaders SendTemplatedEmail where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SendTemplatedEmail where
+instance Data.ToPath SendTemplatedEmail where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SendTemplatedEmail where
+instance Data.ToQuery SendTemplatedEmail where
   toQuery SendTemplatedEmail' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SendTemplatedEmail" :: Prelude.ByteString),
+          Data.=: ("SendTemplatedEmail" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "ReturnPath" Core.=: returnPath,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "ReturnPath" Data.=: returnPath,
         "ReplyToAddresses"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> replyToAddresses
             ),
-        "SourceArn" Core.=: sourceArn,
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "ReturnPathArn" Core.=: returnPathArn,
-        "TemplateArn" Core.=: templateArn,
-        "Source" Core.=: source,
-        "Destination" Core.=: destination,
-        "Template" Core.=: template,
-        "TemplateData" Core.=: templateData
+        "SourceArn" Data.=: sourceArn,
+        "ConfigurationSetName" Data.=: configurationSetName,
+        "ReturnPathArn" Data.=: returnPathArn,
+        "TemplateArn" Data.=: templateArn,
+        "Source" Data.=: source,
+        "Destination" Data.=: destination,
+        "Template" Data.=: template,
+        "TemplateData" Data.=: templateData
       ]
 
 -- | /See:/ 'newSendTemplatedEmailResponse' smart constructor.

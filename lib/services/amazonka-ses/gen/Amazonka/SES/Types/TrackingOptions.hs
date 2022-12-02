@@ -21,6 +21,7 @@ module Amazonka.SES.Types.TrackingOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A domain that is used to redirect email recipients to an Amazon
@@ -62,10 +63,10 @@ newTrackingOptions =
 trackingOptions_customRedirectDomain :: Lens.Lens' TrackingOptions (Prelude.Maybe Prelude.Text)
 trackingOptions_customRedirectDomain = Lens.lens (\TrackingOptions' {customRedirectDomain} -> customRedirectDomain) (\s@TrackingOptions' {} a -> s {customRedirectDomain = a} :: TrackingOptions)
 
-instance Core.FromXML TrackingOptions where
+instance Data.FromXML TrackingOptions where
   parseXML x =
     TrackingOptions'
-      Prelude.<$> (x Core..@? "CustomRedirectDomain")
+      Prelude.<$> (x Data..@? "CustomRedirectDomain")
 
 instance Prelude.Hashable TrackingOptions where
   hashWithSalt _salt TrackingOptions' {..} =
@@ -75,7 +76,7 @@ instance Prelude.NFData TrackingOptions where
   rnf TrackingOptions' {..} =
     Prelude.rnf customRedirectDomain
 
-instance Core.ToQuery TrackingOptions where
+instance Data.ToQuery TrackingOptions where
   toQuery TrackingOptions' {..} =
     Prelude.mconcat
-      ["CustomRedirectDomain" Core.=: customRedirectDomain]
+      ["CustomRedirectDomain" Data.=: customRedirectDomain]

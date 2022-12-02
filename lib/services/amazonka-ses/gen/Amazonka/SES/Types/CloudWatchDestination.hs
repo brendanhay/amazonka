@@ -21,6 +21,7 @@ module Amazonka.SES.Types.CloudWatchDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.CloudWatchDimensionConfiguration
 
@@ -63,12 +64,12 @@ newCloudWatchDestination =
 cloudWatchDestination_dimensionConfigurations :: Lens.Lens' CloudWatchDestination [CloudWatchDimensionConfiguration]
 cloudWatchDestination_dimensionConfigurations = Lens.lens (\CloudWatchDestination' {dimensionConfigurations} -> dimensionConfigurations) (\s@CloudWatchDestination' {} a -> s {dimensionConfigurations = a} :: CloudWatchDestination) Prelude.. Lens.coerced
 
-instance Core.FromXML CloudWatchDestination where
+instance Data.FromXML CloudWatchDestination where
   parseXML x =
     CloudWatchDestination'
-      Prelude.<$> ( x Core..@? "DimensionConfigurations"
+      Prelude.<$> ( x Data..@? "DimensionConfigurations"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.parseXMLList "member"
+                      Prelude.>>= Data.parseXMLList "member"
                   )
 
 instance Prelude.Hashable CloudWatchDestination where
@@ -80,9 +81,9 @@ instance Prelude.NFData CloudWatchDestination where
   rnf CloudWatchDestination' {..} =
     Prelude.rnf dimensionConfigurations
 
-instance Core.ToQuery CloudWatchDestination where
+instance Data.ToQuery CloudWatchDestination where
   toQuery CloudWatchDestination' {..} =
     Prelude.mconcat
       [ "DimensionConfigurations"
-          Core.=: Core.toQueryList "member" dimensionConfigurations
+          Data.=: Data.toQueryList "member" dimensionConfigurations
       ]

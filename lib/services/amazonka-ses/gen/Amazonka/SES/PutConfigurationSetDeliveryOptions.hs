@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,31 +132,31 @@ instance
       `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutConfigurationSetDeliveryOptions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     PutConfigurationSetDeliveryOptions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     PutConfigurationSetDeliveryOptions
   where
   toQuery PutConfigurationSetDeliveryOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "PutConfigurationSetDeliveryOptions" ::
+          Data.=: ( "PutConfigurationSetDeliveryOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "DeliveryOptions" Core.=: deliveryOptions,
-        "ConfigurationSetName" Core.=: configurationSetName
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "DeliveryOptions" Data.=: deliveryOptions,
+        "ConfigurationSetName" Data.=: configurationSetName
       ]
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

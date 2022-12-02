@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,31 +132,31 @@ instance
       `Prelude.seq` Prelude.rnf enabled
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateConfigurationSetSendingEnabled
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateConfigurationSetSendingEnabled
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateConfigurationSetSendingEnabled
   where
   toQuery UpdateConfigurationSetSendingEnabled' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "UpdateConfigurationSetSendingEnabled" ::
+          Data.=: ( "UpdateConfigurationSetSendingEnabled" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "Enabled" Core.=: enabled
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "ConfigurationSetName" Data.=: configurationSetName,
+        "Enabled" Data.=: enabled
       ]
 
 -- | /See:/ 'newUpdateConfigurationSetSendingEnabledResponse' smart constructor.

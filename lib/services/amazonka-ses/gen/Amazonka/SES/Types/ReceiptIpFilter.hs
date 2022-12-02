@@ -21,6 +21,7 @@ module Amazonka.SES.Types.ReceiptIpFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.ReceiptFilterPolicy
 
@@ -82,10 +83,10 @@ receiptIpFilter_policy = Lens.lens (\ReceiptIpFilter' {policy} -> policy) (\s@Re
 receiptIpFilter_cidr :: Lens.Lens' ReceiptIpFilter Prelude.Text
 receiptIpFilter_cidr = Lens.lens (\ReceiptIpFilter' {cidr} -> cidr) (\s@ReceiptIpFilter' {} a -> s {cidr = a} :: ReceiptIpFilter)
 
-instance Core.FromXML ReceiptIpFilter where
+instance Data.FromXML ReceiptIpFilter where
   parseXML x =
     ReceiptIpFilter'
-      Prelude.<$> (x Core..@ "Policy") Prelude.<*> (x Core..@ "Cidr")
+      Prelude.<$> (x Data..@ "Policy") Prelude.<*> (x Data..@ "Cidr")
 
 instance Prelude.Hashable ReceiptIpFilter where
   hashWithSalt _salt ReceiptIpFilter' {..} =
@@ -96,7 +97,7 @@ instance Prelude.NFData ReceiptIpFilter where
   rnf ReceiptIpFilter' {..} =
     Prelude.rnf policy `Prelude.seq` Prelude.rnf cidr
 
-instance Core.ToQuery ReceiptIpFilter where
+instance Data.ToQuery ReceiptIpFilter where
   toQuery ReceiptIpFilter' {..} =
     Prelude.mconcat
-      ["Policy" Core.=: policy, "Cidr" Core.=: cidr]
+      ["Policy" Data.=: policy, "Cidr" Data.=: cidr]

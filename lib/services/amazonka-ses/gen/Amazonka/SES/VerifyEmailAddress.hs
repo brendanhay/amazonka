@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,20 +92,20 @@ instance Prelude.NFData VerifyEmailAddress where
   rnf VerifyEmailAddress' {..} =
     Prelude.rnf emailAddress
 
-instance Core.ToHeaders VerifyEmailAddress where
+instance Data.ToHeaders VerifyEmailAddress where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath VerifyEmailAddress where
+instance Data.ToPath VerifyEmailAddress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery VerifyEmailAddress where
+instance Data.ToQuery VerifyEmailAddress where
   toQuery VerifyEmailAddress' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("VerifyEmailAddress" :: Prelude.ByteString),
+          Data.=: ("VerifyEmailAddress" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EmailAddress" Core.=: emailAddress
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EmailAddress" Data.=: emailAddress
       ]
 
 -- | /See:/ 'newVerifyEmailAddressResponse' smart constructor.

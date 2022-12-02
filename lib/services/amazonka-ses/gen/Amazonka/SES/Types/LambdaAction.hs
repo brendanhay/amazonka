@@ -21,6 +21,7 @@ module Amazonka.SES.Types.LambdaAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SES.Types.InvocationType
 
@@ -138,12 +139,12 @@ lambdaAction_invocationType = Lens.lens (\LambdaAction' {invocationType} -> invo
 lambdaAction_functionArn :: Lens.Lens' LambdaAction Prelude.Text
 lambdaAction_functionArn = Lens.lens (\LambdaAction' {functionArn} -> functionArn) (\s@LambdaAction' {} a -> s {functionArn = a} :: LambdaAction)
 
-instance Core.FromXML LambdaAction where
+instance Data.FromXML LambdaAction where
   parseXML x =
     LambdaAction'
-      Prelude.<$> (x Core..@? "TopicArn")
-      Prelude.<*> (x Core..@? "InvocationType")
-      Prelude.<*> (x Core..@ "FunctionArn")
+      Prelude.<$> (x Data..@? "TopicArn")
+      Prelude.<*> (x Data..@? "InvocationType")
+      Prelude.<*> (x Data..@ "FunctionArn")
 
 instance Prelude.Hashable LambdaAction where
   hashWithSalt _salt LambdaAction' {..} =
@@ -157,10 +158,10 @@ instance Prelude.NFData LambdaAction where
       `Prelude.seq` Prelude.rnf invocationType
       `Prelude.seq` Prelude.rnf functionArn
 
-instance Core.ToQuery LambdaAction where
+instance Data.ToQuery LambdaAction where
   toQuery LambdaAction' {..} =
     Prelude.mconcat
-      [ "TopicArn" Core.=: topicArn,
-        "InvocationType" Core.=: invocationType,
-        "FunctionArn" Core.=: functionArn
+      [ "TopicArn" Data.=: topicArn,
+        "InvocationType" Data.=: invocationType,
+        "FunctionArn" Data.=: functionArn
       ]

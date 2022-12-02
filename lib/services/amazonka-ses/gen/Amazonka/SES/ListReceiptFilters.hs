@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -79,8 +80,8 @@ instance Core.AWSRequest ListReceiptFilters where
       "ListReceiptFiltersResult"
       ( \s h x ->
           ListReceiptFiltersResponse'
-            Prelude.<$> ( x Core..@? "Filters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Filters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -92,20 +93,20 @@ instance Prelude.Hashable ListReceiptFilters where
 instance Prelude.NFData ListReceiptFilters where
   rnf _ = ()
 
-instance Core.ToHeaders ListReceiptFilters where
+instance Data.ToHeaders ListReceiptFilters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListReceiptFilters where
+instance Data.ToPath ListReceiptFilters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListReceiptFilters where
+instance Data.ToQuery ListReceiptFilters where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("ListReceiptFilters" :: Prelude.ByteString),
+              Data.=: ("ListReceiptFilters" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2010-12-01" :: Prelude.ByteString)
+              Data.=: ("2010-12-01" :: Prelude.ByteString)
           ]
       )
 

@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.RuleEvaluation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.SimpleRuleEvaluation
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newRuleEvaluation =
 ruleEvaluation_simpleRuleEvaluation :: Lens.Lens' RuleEvaluation (Prelude.Maybe SimpleRuleEvaluation)
 ruleEvaluation_simpleRuleEvaluation = Lens.lens (\RuleEvaluation' {simpleRuleEvaluation} -> simpleRuleEvaluation) (\s@RuleEvaluation' {} a -> s {simpleRuleEvaluation = a} :: RuleEvaluation)
 
-instance Core.FromJSON RuleEvaluation where
+instance Data.FromJSON RuleEvaluation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RuleEvaluation"
       ( \x ->
           RuleEvaluation'
-            Prelude.<$> (x Core..:? "simpleRuleEvaluation")
+            Prelude.<$> (x Data..:? "simpleRuleEvaluation")
       )
 
 instance Prelude.Hashable RuleEvaluation where

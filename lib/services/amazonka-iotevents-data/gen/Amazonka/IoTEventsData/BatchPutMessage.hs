@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest BatchPutMessage where
     Response.receiveJSON
       ( \s h x ->
           BatchPutMessageResponse'
-            Prelude.<$> ( x Core..?> "BatchPutMessageErrorEntries"
+            Prelude.<$> ( x Data..?> "BatchPutMessageErrorEntries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -107,20 +108,20 @@ instance Prelude.Hashable BatchPutMessage where
 instance Prelude.NFData BatchPutMessage where
   rnf BatchPutMessage' {..} = Prelude.rnf messages
 
-instance Core.ToHeaders BatchPutMessage where
+instance Data.ToHeaders BatchPutMessage where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON BatchPutMessage where
+instance Data.ToJSON BatchPutMessage where
   toJSON BatchPutMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("messages" Core..= messages)]
+          [Prelude.Just ("messages" Data..= messages)]
       )
 
-instance Core.ToPath BatchPutMessage where
+instance Data.ToPath BatchPutMessage where
   toPath = Prelude.const "/inputs/messages"
 
-instance Core.ToQuery BatchPutMessage where
+instance Data.ToQuery BatchPutMessage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchPutMessageResponse' smart constructor.

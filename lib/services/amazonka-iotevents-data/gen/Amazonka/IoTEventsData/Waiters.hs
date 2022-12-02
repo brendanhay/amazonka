@@ -18,6 +18,7 @@ module Amazonka.IoTEventsData.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Lens
 import Amazonka.IoTEventsData.Types
 import qualified Amazonka.Prelude as Prelude

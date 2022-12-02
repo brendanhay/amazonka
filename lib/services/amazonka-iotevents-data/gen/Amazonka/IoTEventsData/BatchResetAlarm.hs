@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest BatchResetAlarm where
     Response.receiveJSON
       ( \s h x ->
           BatchResetAlarmResponse'
-            Prelude.<$> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,22 +103,22 @@ instance Prelude.NFData BatchResetAlarm where
   rnf BatchResetAlarm' {..} =
     Prelude.rnf resetActionRequests
 
-instance Core.ToHeaders BatchResetAlarm where
+instance Data.ToHeaders BatchResetAlarm where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON BatchResetAlarm where
+instance Data.ToJSON BatchResetAlarm where
   toJSON BatchResetAlarm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("resetActionRequests" Core..= resetActionRequests)
+              ("resetActionRequests" Data..= resetActionRequests)
           ]
       )
 
-instance Core.ToPath BatchResetAlarm where
+instance Data.ToPath BatchResetAlarm where
   toPath = Prelude.const "/alarms/reset"
 
-instance Core.ToQuery BatchResetAlarm where
+instance Data.ToQuery BatchResetAlarm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchResetAlarmResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.SystemEvent where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.EventType
 import Amazonka.IoTEventsData.Types.StateChangeConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -66,14 +67,14 @@ systemEvent_eventType = Lens.lens (\SystemEvent' {eventType} -> eventType) (\s@S
 systemEvent_stateChangeConfiguration :: Lens.Lens' SystemEvent (Prelude.Maybe StateChangeConfiguration)
 systemEvent_stateChangeConfiguration = Lens.lens (\SystemEvent' {stateChangeConfiguration} -> stateChangeConfiguration) (\s@SystemEvent' {} a -> s {stateChangeConfiguration = a} :: SystemEvent)
 
-instance Core.FromJSON SystemEvent where
+instance Data.FromJSON SystemEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SystemEvent"
       ( \x ->
           SystemEvent'
-            Prelude.<$> (x Core..:? "eventType")
-            Prelude.<*> (x Core..:? "stateChangeConfiguration")
+            Prelude.<$> (x Data..:? "eventType")
+            Prelude.<*> (x Data..:? "stateChangeConfiguration")
       )
 
 instance Prelude.Hashable SystemEvent where

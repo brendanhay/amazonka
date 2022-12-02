@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.VariableDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The new value of the variable.
@@ -71,11 +72,11 @@ instance Prelude.NFData VariableDefinition where
   rnf VariableDefinition' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON VariableDefinition where
+instance Data.ToJSON VariableDefinition where
   toJSON VariableDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("value" Core..= value)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("value" Data..= value)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.Variable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The current state of the variable.
@@ -62,13 +63,13 @@ variable_name = Lens.lens (\Variable' {name} -> name) (\s@Variable' {} a -> s {n
 variable_value :: Lens.Lens' Variable Prelude.Text
 variable_value = Lens.lens (\Variable' {value} -> value) (\s@Variable' {} a -> s {value = a} :: Variable)
 
-instance Core.FromJSON Variable where
+instance Data.FromJSON Variable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Variable"
       ( \x ->
           Variable'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "value")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Variable where

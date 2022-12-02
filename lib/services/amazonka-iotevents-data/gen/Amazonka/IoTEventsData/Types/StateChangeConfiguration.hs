@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.StateChangeConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.TriggerType
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newStateChangeConfiguration =
 stateChangeConfiguration_triggerType :: Lens.Lens' StateChangeConfiguration (Prelude.Maybe TriggerType)
 stateChangeConfiguration_triggerType = Lens.lens (\StateChangeConfiguration' {triggerType} -> triggerType) (\s@StateChangeConfiguration' {} a -> s {triggerType = a} :: StateChangeConfiguration)
 
-instance Core.FromJSON StateChangeConfiguration where
+instance Data.FromJSON StateChangeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StateChangeConfiguration"
       ( \x ->
           StateChangeConfiguration'
-            Prelude.<$> (x Core..:? "triggerType")
+            Prelude.<$> (x Data..:? "triggerType")
       )
 
 instance Prelude.Hashable StateChangeConfiguration where

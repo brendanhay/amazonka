@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the configuration information of an acknowledge action.
@@ -53,13 +54,13 @@ newAcknowledgeActionConfiguration =
 acknowledgeActionConfiguration_note :: Lens.Lens' AcknowledgeActionConfiguration (Prelude.Maybe Prelude.Text)
 acknowledgeActionConfiguration_note = Lens.lens (\AcknowledgeActionConfiguration' {note} -> note) (\s@AcknowledgeActionConfiguration' {} a -> s {note = a} :: AcknowledgeActionConfiguration)
 
-instance Core.FromJSON AcknowledgeActionConfiguration where
+instance Data.FromJSON AcknowledgeActionConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AcknowledgeActionConfiguration"
       ( \x ->
           AcknowledgeActionConfiguration'
-            Prelude.<$> (x Core..:? "note")
+            Prelude.<$> (x Data..:? "note")
       )
 
 instance

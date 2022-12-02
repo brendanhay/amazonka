@@ -21,6 +21,7 @@ module Amazonka.IoTEventsData.Types.DetectorState where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types.Timer
 import Amazonka.IoTEventsData.Types.Variable
 import qualified Amazonka.Prelude as Prelude
@@ -74,15 +75,15 @@ detectorState_variables = Lens.lens (\DetectorState' {variables} -> variables) (
 detectorState_timers :: Lens.Lens' DetectorState [Timer]
 detectorState_timers = Lens.lens (\DetectorState' {timers} -> timers) (\s@DetectorState' {} a -> s {timers = a} :: DetectorState) Prelude.. Lens.coerced
 
-instance Core.FromJSON DetectorState where
+instance Data.FromJSON DetectorState where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectorState"
       ( \x ->
           DetectorState'
-            Prelude.<$> (x Core..: "stateName")
-            Prelude.<*> (x Core..:? "variables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timers" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..: "stateName")
+            Prelude.<*> (x Data..:? "variables" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DetectorState where

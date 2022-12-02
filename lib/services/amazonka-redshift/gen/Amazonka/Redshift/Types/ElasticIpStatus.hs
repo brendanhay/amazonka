@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ElasticIpStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -62,11 +63,11 @@ elasticIpStatus_elasticIp = Lens.lens (\ElasticIpStatus' {elasticIp} -> elasticI
 elasticIpStatus_status :: Lens.Lens' ElasticIpStatus (Prelude.Maybe Prelude.Text)
 elasticIpStatus_status = Lens.lens (\ElasticIpStatus' {status} -> status) (\s@ElasticIpStatus' {} a -> s {status = a} :: ElasticIpStatus)
 
-instance Core.FromXML ElasticIpStatus where
+instance Data.FromXML ElasticIpStatus where
   parseXML x =
     ElasticIpStatus'
-      Prelude.<$> (x Core..@? "ElasticIp")
-      Prelude.<*> (x Core..@? "Status")
+      Prelude.<$> (x Data..@? "ElasticIp")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable ElasticIpStatus where
   hashWithSalt _salt ElasticIpStatus' {..} =

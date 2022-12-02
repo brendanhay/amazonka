@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.EC2SecurityGroup
@@ -101,20 +102,20 @@ clusterSecurityGroup_eC2SecurityGroups = Lens.lens (\ClusterSecurityGroup' {eC2S
 clusterSecurityGroup_iPRanges :: Lens.Lens' ClusterSecurityGroup (Prelude.Maybe [IPRange])
 clusterSecurityGroup_iPRanges = Lens.lens (\ClusterSecurityGroup' {iPRanges} -> iPRanges) (\s@ClusterSecurityGroup' {} a -> s {iPRanges = a} :: ClusterSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML ClusterSecurityGroup where
+instance Data.FromXML ClusterSecurityGroup where
   parseXML x =
     ClusterSecurityGroup'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "ClusterSecurityGroupName")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> ( x Core..@? "EC2SecurityGroups"
+      Prelude.<*> (x Data..@? "ClusterSecurityGroupName")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> ( x Data..@? "EC2SecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EC2SecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "EC2SecurityGroup")
                   )
-      Prelude.<*> ( x Core..@? "IPRanges" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "IPRange")
+      Prelude.<*> ( x Data..@? "IPRanges" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "IPRange")
                   )
 
 instance Prelude.Hashable ClusterSecurityGroup where

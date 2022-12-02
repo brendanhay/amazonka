@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterIamRole where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -100,11 +101,11 @@ clusterIamRole_iamRoleArn = Lens.lens (\ClusterIamRole' {iamRoleArn} -> iamRoleA
 clusterIamRole_applyStatus :: Lens.Lens' ClusterIamRole (Prelude.Maybe Prelude.Text)
 clusterIamRole_applyStatus = Lens.lens (\ClusterIamRole' {applyStatus} -> applyStatus) (\s@ClusterIamRole' {} a -> s {applyStatus = a} :: ClusterIamRole)
 
-instance Core.FromXML ClusterIamRole where
+instance Data.FromXML ClusterIamRole where
   parseXML x =
     ClusterIamRole'
-      Prelude.<$> (x Core..@? "IamRoleArn")
-      Prelude.<*> (x Core..@? "ApplyStatus")
+      Prelude.<$> (x Data..@? "IamRoleArn")
+      Prelude.<*> (x Data..@? "ApplyStatus")
 
 instance Prelude.Hashable ClusterIamRole where
   hashWithSalt _salt ClusterIamRole' {..} =

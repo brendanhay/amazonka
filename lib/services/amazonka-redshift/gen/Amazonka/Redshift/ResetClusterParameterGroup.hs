@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -132,7 +133,7 @@ instance Core.AWSRequest ResetClusterParameterGroup where
   response =
     Response.receiveXMLWrapper
       "ResetClusterParameterGroupResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ResetClusterParameterGroup where
   hashWithSalt _salt ResetClusterParameterGroup' {..} =
@@ -146,24 +147,24 @@ instance Prelude.NFData ResetClusterParameterGroup where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf parameterGroupName
 
-instance Core.ToHeaders ResetClusterParameterGroup where
+instance Data.ToHeaders ResetClusterParameterGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ResetClusterParameterGroup where
+instance Data.ToPath ResetClusterParameterGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResetClusterParameterGroup where
+instance Data.ToQuery ResetClusterParameterGroup where
   toQuery ResetClusterParameterGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ResetClusterParameterGroup" :: Prelude.ByteString),
+          Data.=: ("ResetClusterParameterGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ResetAllParameters" Core.=: resetAllParameters,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ResetAllParameters" Data.=: resetAllParameters,
         "Parameters"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "Parameter"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "Parameter"
                 Prelude.<$> parameters
             ),
-        "ParameterGroupName" Core.=: parameterGroupName
+        "ParameterGroupName" Data.=: parameterGroupName
       ]

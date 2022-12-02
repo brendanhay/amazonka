@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -235,10 +236,10 @@ instance Core.AWSRequest DescribeSnapshotCopyGrants where
       "DescribeSnapshotCopyGrantsResult"
       ( \s h x ->
           DescribeSnapshotCopyGrantsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "SnapshotCopyGrants"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "SnapshotCopyGrants"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "SnapshotCopyGrant")
+                            Prelude.>>= Core.may (Data.parseXMLList "SnapshotCopyGrant")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -259,29 +260,29 @@ instance Prelude.NFData DescribeSnapshotCopyGrants where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf snapshotCopyGrantName
 
-instance Core.ToHeaders DescribeSnapshotCopyGrants where
+instance Data.ToHeaders DescribeSnapshotCopyGrants where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSnapshotCopyGrants where
+instance Data.ToPath DescribeSnapshotCopyGrants where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSnapshotCopyGrants where
+instance Data.ToQuery DescribeSnapshotCopyGrants where
   toQuery DescribeSnapshotCopyGrants' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSnapshotCopyGrants" :: Prelude.ByteString),
+          Data.=: ("DescribeSnapshotCopyGrants" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "MaxRecords" Data.=: maxRecords,
         "SnapshotCopyGrantName"
-          Core.=: snapshotCopyGrantName
+          Data.=: snapshotCopyGrantName
       ]
 
 -- |

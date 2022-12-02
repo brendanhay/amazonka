@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -243,10 +244,10 @@ instance Core.AWSRequest DescribeEventSubscriptions where
       "DescribeEventSubscriptionsResult"
       ( \s h x ->
           DescribeEventSubscriptionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "EventSubscriptionsList"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "EventSubscriptionsList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "EventSubscription")
+                            Prelude.>>= Core.may (Data.parseXMLList "EventSubscription")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -267,28 +268,28 @@ instance Prelude.NFData DescribeEventSubscriptions where
       `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeEventSubscriptions where
+instance Data.ToHeaders DescribeEventSubscriptions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEventSubscriptions where
+instance Data.ToPath DescribeEventSubscriptions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEventSubscriptions where
+instance Data.ToQuery DescribeEventSubscriptions where
   toQuery DescribeEventSubscriptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeEventSubscriptions" :: Prelude.ByteString),
+          Data.=: ("DescribeEventSubscriptions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "SubscriptionName" Core.=: subscriptionName,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "SubscriptionName" Data.=: subscriptionName,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- |

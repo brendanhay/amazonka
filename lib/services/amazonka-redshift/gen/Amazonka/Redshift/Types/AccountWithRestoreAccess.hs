@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.AccountWithRestoreAccess where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -73,11 +74,11 @@ accountWithRestoreAccess_accountAlias = Lens.lens (\AccountWithRestoreAccess' {a
 accountWithRestoreAccess_accountId :: Lens.Lens' AccountWithRestoreAccess (Prelude.Maybe Prelude.Text)
 accountWithRestoreAccess_accountId = Lens.lens (\AccountWithRestoreAccess' {accountId} -> accountId) (\s@AccountWithRestoreAccess' {} a -> s {accountId = a} :: AccountWithRestoreAccess)
 
-instance Core.FromXML AccountWithRestoreAccess where
+instance Data.FromXML AccountWithRestoreAccess where
   parseXML x =
     AccountWithRestoreAccess'
-      Prelude.<$> (x Core..@? "AccountAlias")
-      Prelude.<*> (x Core..@? "AccountId")
+      Prelude.<$> (x Data..@? "AccountAlias")
+      Prelude.<*> (x Data..@? "AccountId")
 
 instance Prelude.Hashable AccountWithRestoreAccess where
   hashWithSalt _salt AccountWithRestoreAccess' {..} =

@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterParameterGroupNameMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -70,13 +71,13 @@ clusterParameterGroupNameMessage_parameterGroupStatus :: Lens.Lens' ClusterParam
 clusterParameterGroupNameMessage_parameterGroupStatus = Lens.lens (\ClusterParameterGroupNameMessage' {parameterGroupStatus} -> parameterGroupStatus) (\s@ClusterParameterGroupNameMessage' {} a -> s {parameterGroupStatus = a} :: ClusterParameterGroupNameMessage)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ClusterParameterGroupNameMessage
   where
   parseXML x =
     ClusterParameterGroupNameMessage'
-      Prelude.<$> (x Core..@? "ParameterGroupName")
-      Prelude.<*> (x Core..@? "ParameterGroupStatus")
+      Prelude.<$> (x Data..@? "ParameterGroupName")
+      Prelude.<*> (x Data..@? "ParameterGroupStatus")
 
 instance
   Prelude.Hashable

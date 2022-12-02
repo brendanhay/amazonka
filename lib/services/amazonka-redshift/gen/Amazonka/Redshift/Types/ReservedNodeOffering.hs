@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ReservedNodeOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.RecurringCharge
@@ -142,21 +143,21 @@ reservedNodeOffering_fixedPrice = Lens.lens (\ReservedNodeOffering' {fixedPrice}
 reservedNodeOffering_usagePrice :: Lens.Lens' ReservedNodeOffering (Prelude.Maybe Prelude.Double)
 reservedNodeOffering_usagePrice = Lens.lens (\ReservedNodeOffering' {usagePrice} -> usagePrice) (\s@ReservedNodeOffering' {} a -> s {usagePrice = a} :: ReservedNodeOffering)
 
-instance Core.FromXML ReservedNodeOffering where
+instance Data.FromXML ReservedNodeOffering where
   parseXML x =
     ReservedNodeOffering'
-      Prelude.<$> ( x Core..@? "RecurringCharges"
+      Prelude.<$> ( x Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "RecurringCharge")
+                      Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
-      Prelude.<*> (x Core..@? "OfferingType")
-      Prelude.<*> (x Core..@? "NodeType")
-      Prelude.<*> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "CurrencyCode")
-      Prelude.<*> (x Core..@? "ReservedNodeOfferingType")
-      Prelude.<*> (x Core..@? "ReservedNodeOfferingId")
-      Prelude.<*> (x Core..@? "FixedPrice")
-      Prelude.<*> (x Core..@? "UsagePrice")
+      Prelude.<*> (x Data..@? "OfferingType")
+      Prelude.<*> (x Data..@? "NodeType")
+      Prelude.<*> (x Data..@? "Duration")
+      Prelude.<*> (x Data..@? "CurrencyCode")
+      Prelude.<*> (x Data..@? "ReservedNodeOfferingType")
+      Prelude.<*> (x Data..@? "ReservedNodeOfferingId")
+      Prelude.<*> (x Data..@? "FixedPrice")
+      Prelude.<*> (x Data..@? "UsagePrice")
 
 instance Prelude.Hashable ReservedNodeOffering where
   hashWithSalt _salt ReservedNodeOffering' {..} =

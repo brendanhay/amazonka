@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -261,9 +262,9 @@ instance Core.AWSRequest DescribeUsageLimits where
       "DescribeUsageLimitsResult"
       ( \s h x ->
           DescribeUsageLimitsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "UsageLimits" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "UsageLimits" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -288,30 +289,30 @@ instance Prelude.NFData DescribeUsageLimits where
       `Prelude.seq` Prelude.rnf featureType
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeUsageLimits where
+instance Data.ToHeaders DescribeUsageLimits where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeUsageLimits where
+instance Data.ToPath DescribeUsageLimits where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeUsageLimits where
+instance Data.ToQuery DescribeUsageLimits where
   toQuery DescribeUsageLimits' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeUsageLimits" :: Prelude.ByteString),
+          Data.=: ("DescribeUsageLimits" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
-        "UsageLimitId" Core.=: usageLimitId,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
+        "UsageLimitId" Data.=: usageLimitId,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "FeatureType" Core.=: featureType,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "FeatureType" Data.=: featureType,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeUsageLimitsResponse' smart constructor.

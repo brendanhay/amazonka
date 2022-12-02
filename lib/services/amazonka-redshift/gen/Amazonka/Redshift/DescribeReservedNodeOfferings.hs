@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -184,10 +185,10 @@ instance
       "DescribeReservedNodeOfferingsResult"
       ( \s h x ->
           DescribeReservedNodeOfferingsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "ReservedNodeOfferings"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "ReservedNodeOfferings"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ReservedNodeOffering")
+                            Prelude.>>= Core.may (Data.parseXMLList "ReservedNodeOffering")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -207,25 +208,25 @@ instance Prelude.NFData DescribeReservedNodeOfferings where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf reservedNodeOfferingId
 
-instance Core.ToHeaders DescribeReservedNodeOfferings where
+instance Data.ToHeaders DescribeReservedNodeOfferings where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeReservedNodeOfferings where
+instance Data.ToPath DescribeReservedNodeOfferings where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReservedNodeOfferings where
+instance Data.ToQuery DescribeReservedNodeOfferings where
   toQuery DescribeReservedNodeOfferings' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeReservedNodeOfferings" ::
+          Data.=: ( "DescribeReservedNodeOfferings" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
         "ReservedNodeOfferingId"
-          Core.=: reservedNodeOfferingId
+          Data.=: reservedNodeOfferingId
       ]
 
 -- |

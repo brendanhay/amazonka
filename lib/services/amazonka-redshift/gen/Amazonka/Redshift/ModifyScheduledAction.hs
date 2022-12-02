@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -76,12 +77,12 @@ data ModifyScheduledAction = ModifyScheduledAction'
     enable :: Prelude.Maybe Prelude.Bool,
     -- | A modified end time of the scheduled action. For more information about
     -- this parameter, see ScheduledAction.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | A modified description of the scheduled action.
     scheduledActionDescription :: Prelude.Maybe Prelude.Text,
     -- | A modified start time of the scheduled action. For more information
     -- about this parameter, see ScheduledAction.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the scheduled action to modify.
     scheduledActionName :: Prelude.Text
   }
@@ -155,7 +156,7 @@ modifyScheduledAction_enable = Lens.lens (\ModifyScheduledAction' {enable} -> en
 -- | A modified end time of the scheduled action. For more information about
 -- this parameter, see ScheduledAction.
 modifyScheduledAction_endTime :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.UTCTime)
-modifyScheduledAction_endTime = Lens.lens (\ModifyScheduledAction' {endTime} -> endTime) (\s@ModifyScheduledAction' {} a -> s {endTime = a} :: ModifyScheduledAction) Prelude.. Lens.mapping Core._Time
+modifyScheduledAction_endTime = Lens.lens (\ModifyScheduledAction' {endTime} -> endTime) (\s@ModifyScheduledAction' {} a -> s {endTime = a} :: ModifyScheduledAction) Prelude.. Lens.mapping Data._Time
 
 -- | A modified description of the scheduled action.
 modifyScheduledAction_scheduledActionDescription :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Text)
@@ -164,7 +165,7 @@ modifyScheduledAction_scheduledActionDescription = Lens.lens (\ModifyScheduledAc
 -- | A modified start time of the scheduled action. For more information
 -- about this parameter, see ScheduledAction.
 modifyScheduledAction_startTime :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.UTCTime)
-modifyScheduledAction_startTime = Lens.lens (\ModifyScheduledAction' {startTime} -> startTime) (\s@ModifyScheduledAction' {} a -> s {startTime = a} :: ModifyScheduledAction) Prelude.. Lens.mapping Core._Time
+modifyScheduledAction_startTime = Lens.lens (\ModifyScheduledAction' {startTime} -> startTime) (\s@ModifyScheduledAction' {} a -> s {startTime = a} :: ModifyScheduledAction) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the scheduled action to modify.
 modifyScheduledAction_scheduledActionName :: Lens.Lens' ModifyScheduledAction Prelude.Text
@@ -179,7 +180,7 @@ instance Core.AWSRequest ModifyScheduledAction where
   response =
     Response.receiveXMLWrapper
       "ModifyScheduledActionResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifyScheduledAction where
   hashWithSalt _salt ModifyScheduledAction' {..} =
@@ -203,26 +204,26 @@ instance Prelude.NFData ModifyScheduledAction where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf scheduledActionName
 
-instance Core.ToHeaders ModifyScheduledAction where
+instance Data.ToHeaders ModifyScheduledAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyScheduledAction where
+instance Data.ToPath ModifyScheduledAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyScheduledAction where
+instance Data.ToQuery ModifyScheduledAction where
   toQuery ModifyScheduledAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyScheduledAction" :: Prelude.ByteString),
+          Data.=: ("ModifyScheduledAction" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Schedule" Core.=: schedule,
-        "TargetAction" Core.=: targetAction,
-        "IamRole" Core.=: iamRole,
-        "Enable" Core.=: enable,
-        "EndTime" Core.=: endTime,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Schedule" Data.=: schedule,
+        "TargetAction" Data.=: targetAction,
+        "IamRole" Data.=: iamRole,
+        "Enable" Data.=: enable,
+        "EndTime" Data.=: endTime,
         "ScheduledActionDescription"
-          Core.=: scheduledActionDescription,
-        "StartTime" Core.=: startTime,
-        "ScheduledActionName" Core.=: scheduledActionName
+          Data.=: scheduledActionDescription,
+        "StartTime" Data.=: startTime,
+        "ScheduledActionName" Data.=: scheduledActionName
       ]

@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterParameterStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -144,12 +145,12 @@ clusterParameterStatus_parameterName = Lens.lens (\ClusterParameterStatus' {para
 clusterParameterStatus_parameterApplyStatus :: Lens.Lens' ClusterParameterStatus (Prelude.Maybe Prelude.Text)
 clusterParameterStatus_parameterApplyStatus = Lens.lens (\ClusterParameterStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@ClusterParameterStatus' {} a -> s {parameterApplyStatus = a} :: ClusterParameterStatus)
 
-instance Core.FromXML ClusterParameterStatus where
+instance Data.FromXML ClusterParameterStatus where
   parseXML x =
     ClusterParameterStatus'
-      Prelude.<$> (x Core..@? "ParameterApplyErrorDescription")
-      Prelude.<*> (x Core..@? "ParameterName")
-      Prelude.<*> (x Core..@? "ParameterApplyStatus")
+      Prelude.<$> (x Data..@? "ParameterApplyErrorDescription")
+      Prelude.<*> (x Data..@? "ParameterName")
+      Prelude.<*> (x Data..@? "ParameterApplyStatus")
 
 instance Prelude.Hashable ClusterParameterStatus where
   hashWithSalt _salt ClusterParameterStatus' {..} =

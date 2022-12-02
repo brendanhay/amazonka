@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.AccountAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.AttributeValueTarget
@@ -64,13 +65,13 @@ accountAttribute_attributeValues = Lens.lens (\AccountAttribute' {attributeValue
 accountAttribute_attributeName :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Text)
 accountAttribute_attributeName = Lens.lens (\AccountAttribute' {attributeName} -> attributeName) (\s@AccountAttribute' {} a -> s {attributeName = a} :: AccountAttribute)
 
-instance Core.FromXML AccountAttribute where
+instance Data.FromXML AccountAttribute where
   parseXML x =
     AccountAttribute'
-      Prelude.<$> ( x Core..@? "AttributeValues" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AttributeValueTarget")
+      Prelude.<$> ( x Data..@? "AttributeValues" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "AttributeValueTarget")
                   )
-      Prelude.<*> (x Core..@? "AttributeName")
+      Prelude.<*> (x Data..@? "AttributeName")
 
 instance Prelude.Hashable AccountAttribute where
   hashWithSalt _salt AccountAttribute' {..} =

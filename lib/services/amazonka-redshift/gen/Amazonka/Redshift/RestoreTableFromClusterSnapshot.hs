@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -217,7 +218,7 @@ instance
       "RestoreTableFromClusterSnapshotResult"
       ( \s h x ->
           RestoreTableFromClusterSnapshotResponse'
-            Prelude.<$> (x Core..@? "TableRestoreStatus")
+            Prelude.<$> (x Data..@? "TableRestoreStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -254,33 +255,33 @@ instance
       `Prelude.seq` Prelude.rnf newTableName'
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RestoreTableFromClusterSnapshot
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RestoreTableFromClusterSnapshot where
+instance Data.ToPath RestoreTableFromClusterSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RestoreTableFromClusterSnapshot where
+instance Data.ToQuery RestoreTableFromClusterSnapshot where
   toQuery RestoreTableFromClusterSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "RestoreTableFromClusterSnapshot" ::
+          Data.=: ( "RestoreTableFromClusterSnapshot" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "TargetSchemaName" Core.=: targetSchemaName,
-        "SourceSchemaName" Core.=: sourceSchemaName,
-        "TargetDatabaseName" Core.=: targetDatabaseName,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "TargetSchemaName" Data.=: targetSchemaName,
+        "SourceSchemaName" Data.=: sourceSchemaName,
+        "TargetDatabaseName" Data.=: targetDatabaseName,
         "EnableCaseSensitiveIdentifier"
-          Core.=: enableCaseSensitiveIdentifier,
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "SnapshotIdentifier" Core.=: snapshotIdentifier,
-        "SourceDatabaseName" Core.=: sourceDatabaseName,
-        "SourceTableName" Core.=: sourceTableName,
-        "NewTableName" Core.=: newTableName'
+          Data.=: enableCaseSensitiveIdentifier,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
+        "SourceDatabaseName" Data.=: sourceDatabaseName,
+        "SourceTableName" Data.=: sourceTableName,
+        "NewTableName" Data.=: newTableName'
       ]
 
 -- | /See:/ 'newRestoreTableFromClusterSnapshotResponse' smart constructor.

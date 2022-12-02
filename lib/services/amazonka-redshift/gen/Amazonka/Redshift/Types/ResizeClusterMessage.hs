@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ResizeClusterMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -123,16 +124,16 @@ resizeClusterMessage_targetReservedNodeOfferingId = Lens.lens (\ResizeClusterMes
 resizeClusterMessage_clusterIdentifier :: Lens.Lens' ResizeClusterMessage Prelude.Text
 resizeClusterMessage_clusterIdentifier = Lens.lens (\ResizeClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@ResizeClusterMessage' {} a -> s {clusterIdentifier = a} :: ResizeClusterMessage)
 
-instance Core.FromXML ResizeClusterMessage where
+instance Data.FromXML ResizeClusterMessage where
   parseXML x =
     ResizeClusterMessage'
-      Prelude.<$> (x Core..@? "ReservedNodeId")
-      Prelude.<*> (x Core..@? "NodeType")
-      Prelude.<*> (x Core..@? "Classic")
-      Prelude.<*> (x Core..@? "NumberOfNodes")
-      Prelude.<*> (x Core..@? "ClusterType")
-      Prelude.<*> (x Core..@? "TargetReservedNodeOfferingId")
-      Prelude.<*> (x Core..@ "ClusterIdentifier")
+      Prelude.<$> (x Data..@? "ReservedNodeId")
+      Prelude.<*> (x Data..@? "NodeType")
+      Prelude.<*> (x Data..@? "Classic")
+      Prelude.<*> (x Data..@? "NumberOfNodes")
+      Prelude.<*> (x Data..@? "ClusterType")
+      Prelude.<*> (x Data..@? "TargetReservedNodeOfferingId")
+      Prelude.<*> (x Data..@ "ClusterIdentifier")
 
 instance Prelude.Hashable ResizeClusterMessage where
   hashWithSalt _salt ResizeClusterMessage' {..} =
@@ -154,15 +155,15 @@ instance Prelude.NFData ResizeClusterMessage where
       `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToQuery ResizeClusterMessage where
+instance Data.ToQuery ResizeClusterMessage where
   toQuery ResizeClusterMessage' {..} =
     Prelude.mconcat
-      [ "ReservedNodeId" Core.=: reservedNodeId,
-        "NodeType" Core.=: nodeType,
-        "Classic" Core.=: classic,
-        "NumberOfNodes" Core.=: numberOfNodes,
-        "ClusterType" Core.=: clusterType,
+      [ "ReservedNodeId" Data.=: reservedNodeId,
+        "NodeType" Data.=: nodeType,
+        "Classic" Data.=: classic,
+        "NumberOfNodes" Data.=: numberOfNodes,
+        "ClusterType" Data.=: clusterType,
         "TargetReservedNodeOfferingId"
-          Core.=: targetReservedNodeOfferingId,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: targetReservedNodeOfferingId,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]

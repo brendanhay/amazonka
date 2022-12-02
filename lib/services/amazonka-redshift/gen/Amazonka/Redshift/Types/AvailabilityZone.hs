@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.SupportedPlatform
@@ -62,13 +63,13 @@ availabilityZone_name = Lens.lens (\AvailabilityZone' {name} -> name) (\s@Availa
 availabilityZone_supportedPlatforms :: Lens.Lens' AvailabilityZone (Prelude.Maybe [SupportedPlatform])
 availabilityZone_supportedPlatforms = Lens.lens (\AvailabilityZone' {supportedPlatforms} -> supportedPlatforms) (\s@AvailabilityZone' {} a -> s {supportedPlatforms = a} :: AvailabilityZone) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML AvailabilityZone where
+instance Data.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      Prelude.<$> (x Core..@? "Name")
-      Prelude.<*> ( x Core..@? "SupportedPlatforms"
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> ( x Data..@? "SupportedPlatforms"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "SupportedPlatform")
+                      Prelude.>>= Core.may (Data.parseXMLList "SupportedPlatform")
                   )
 
 instance Prelude.Hashable AvailabilityZone where

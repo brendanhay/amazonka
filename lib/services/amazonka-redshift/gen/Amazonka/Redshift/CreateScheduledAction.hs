@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -71,13 +72,13 @@ data CreateScheduledAction = CreateScheduledAction'
     -- | The end time in UTC of the scheduled action. After this time, the
     -- scheduled action does not trigger. For more information about this
     -- parameter, see ScheduledAction.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The description of the scheduled action.
     scheduledActionDescription :: Prelude.Maybe Prelude.Text,
     -- | The start time in UTC of the scheduled action. Before this time, the
     -- scheduled action does not trigger. For more information about this
     -- parameter, see ScheduledAction.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the scheduled action. The name must be unique within an
     -- account. For more information about this parameter, see ScheduledAction.
     scheduledActionName :: Prelude.Text,
@@ -164,7 +165,7 @@ createScheduledAction_enable = Lens.lens (\CreateScheduledAction' {enable} -> en
 -- scheduled action does not trigger. For more information about this
 -- parameter, see ScheduledAction.
 createScheduledAction_endTime :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.UTCTime)
-createScheduledAction_endTime = Lens.lens (\CreateScheduledAction' {endTime} -> endTime) (\s@CreateScheduledAction' {} a -> s {endTime = a} :: CreateScheduledAction) Prelude.. Lens.mapping Core._Time
+createScheduledAction_endTime = Lens.lens (\CreateScheduledAction' {endTime} -> endTime) (\s@CreateScheduledAction' {} a -> s {endTime = a} :: CreateScheduledAction) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the scheduled action.
 createScheduledAction_scheduledActionDescription :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.Text)
@@ -174,7 +175,7 @@ createScheduledAction_scheduledActionDescription = Lens.lens (\CreateScheduledAc
 -- scheduled action does not trigger. For more information about this
 -- parameter, see ScheduledAction.
 createScheduledAction_startTime :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.UTCTime)
-createScheduledAction_startTime = Lens.lens (\CreateScheduledAction' {startTime} -> startTime) (\s@CreateScheduledAction' {} a -> s {startTime = a} :: CreateScheduledAction) Prelude.. Lens.mapping Core._Time
+createScheduledAction_startTime = Lens.lens (\CreateScheduledAction' {startTime} -> startTime) (\s@CreateScheduledAction' {} a -> s {startTime = a} :: CreateScheduledAction) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the scheduled action. The name must be unique within an
 -- account. For more information about this parameter, see ScheduledAction.
@@ -206,7 +207,7 @@ instance Core.AWSRequest CreateScheduledAction where
   response =
     Response.receiveXMLWrapper
       "CreateScheduledActionResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateScheduledAction where
   hashWithSalt _salt CreateScheduledAction' {..} =
@@ -230,26 +231,26 @@ instance Prelude.NFData CreateScheduledAction where
       `Prelude.seq` Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf iamRole
 
-instance Core.ToHeaders CreateScheduledAction where
+instance Data.ToHeaders CreateScheduledAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateScheduledAction where
+instance Data.ToPath CreateScheduledAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateScheduledAction where
+instance Data.ToQuery CreateScheduledAction where
   toQuery CreateScheduledAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateScheduledAction" :: Prelude.ByteString),
+          Data.=: ("CreateScheduledAction" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Enable" Core.=: enable,
-        "EndTime" Core.=: endTime,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Enable" Data.=: enable,
+        "EndTime" Data.=: endTime,
         "ScheduledActionDescription"
-          Core.=: scheduledActionDescription,
-        "StartTime" Core.=: startTime,
-        "ScheduledActionName" Core.=: scheduledActionName,
-        "TargetAction" Core.=: targetAction,
-        "Schedule" Core.=: schedule,
-        "IamRole" Core.=: iamRole
+          Data.=: scheduledActionDescription,
+        "StartTime" Data.=: startTime,
+        "ScheduledActionName" Data.=: scheduledActionName,
+        "TargetAction" Data.=: targetAction,
+        "Schedule" Data.=: schedule,
+        "IamRole" Data.=: iamRole
       ]

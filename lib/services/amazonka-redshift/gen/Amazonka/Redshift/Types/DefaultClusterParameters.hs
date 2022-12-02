@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.DefaultClusterParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Parameter
@@ -91,13 +92,13 @@ defaultClusterParameters_marker = Lens.lens (\DefaultClusterParameters' {marker}
 defaultClusterParameters_parameters :: Lens.Lens' DefaultClusterParameters (Prelude.Maybe [Parameter])
 defaultClusterParameters_parameters = Lens.lens (\DefaultClusterParameters' {parameters} -> parameters) (\s@DefaultClusterParameters' {} a -> s {parameters = a} :: DefaultClusterParameters) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML DefaultClusterParameters where
+instance Data.FromXML DefaultClusterParameters where
   parseXML x =
     DefaultClusterParameters'
-      Prelude.<$> (x Core..@? "ParameterGroupFamily")
-      Prelude.<*> (x Core..@? "Marker")
-      Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+      Prelude.<$> (x Data..@? "ParameterGroupFamily")
+      Prelude.<*> (x Data..@? "Marker")
+      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 
 instance Prelude.Hashable DefaultClusterParameters where

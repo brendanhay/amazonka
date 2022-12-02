@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -71,12 +72,12 @@ clusterNode_publicIPAddress = Lens.lens (\ClusterNode' {publicIPAddress} -> publ
 clusterNode_privateIPAddress :: Lens.Lens' ClusterNode (Prelude.Maybe Prelude.Text)
 clusterNode_privateIPAddress = Lens.lens (\ClusterNode' {privateIPAddress} -> privateIPAddress) (\s@ClusterNode' {} a -> s {privateIPAddress = a} :: ClusterNode)
 
-instance Core.FromXML ClusterNode where
+instance Data.FromXML ClusterNode where
   parseXML x =
     ClusterNode'
-      Prelude.<$> (x Core..@? "NodeRole")
-      Prelude.<*> (x Core..@? "PublicIPAddress")
-      Prelude.<*> (x Core..@? "PrivateIPAddress")
+      Prelude.<$> (x Data..@? "NodeRole")
+      Prelude.<*> (x Data..@? "PublicIPAddress")
+      Prelude.<*> (x Data..@? "PrivateIPAddress")
 
 instance Prelude.Hashable ClusterNode where
   hashWithSalt _salt ClusterNode' {..} =

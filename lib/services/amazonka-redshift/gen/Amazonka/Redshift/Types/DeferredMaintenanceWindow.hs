@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.DeferredMaintenanceWindow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -31,10 +32,10 @@ data DeferredMaintenanceWindow = DeferredMaintenanceWindow'
   { -- | A unique identifier for the maintenance window.
     deferMaintenanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A timestamp for the end of the time period when we defer maintenance.
-    deferMaintenanceEndTime :: Prelude.Maybe Core.ISO8601,
+    deferMaintenanceEndTime :: Prelude.Maybe Data.ISO8601,
     -- | A timestamp for the beginning of the time period when we defer
     -- maintenance.
-    deferMaintenanceStartTime :: Prelude.Maybe Core.ISO8601
+    deferMaintenanceStartTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,19 +69,19 @@ deferredMaintenanceWindow_deferMaintenanceIdentifier = Lens.lens (\DeferredMaint
 
 -- | A timestamp for the end of the time period when we defer maintenance.
 deferredMaintenanceWindow_deferMaintenanceEndTime :: Lens.Lens' DeferredMaintenanceWindow (Prelude.Maybe Prelude.UTCTime)
-deferredMaintenanceWindow_deferMaintenanceEndTime = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceEndTime} -> deferMaintenanceEndTime) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceEndTime = a} :: DeferredMaintenanceWindow) Prelude.. Lens.mapping Core._Time
+deferredMaintenanceWindow_deferMaintenanceEndTime = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceEndTime} -> deferMaintenanceEndTime) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceEndTime = a} :: DeferredMaintenanceWindow) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp for the beginning of the time period when we defer
 -- maintenance.
 deferredMaintenanceWindow_deferMaintenanceStartTime :: Lens.Lens' DeferredMaintenanceWindow (Prelude.Maybe Prelude.UTCTime)
-deferredMaintenanceWindow_deferMaintenanceStartTime = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceStartTime} -> deferMaintenanceStartTime) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceStartTime = a} :: DeferredMaintenanceWindow) Prelude.. Lens.mapping Core._Time
+deferredMaintenanceWindow_deferMaintenanceStartTime = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceStartTime} -> deferMaintenanceStartTime) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceStartTime = a} :: DeferredMaintenanceWindow) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML DeferredMaintenanceWindow where
+instance Data.FromXML DeferredMaintenanceWindow where
   parseXML x =
     DeferredMaintenanceWindow'
-      Prelude.<$> (x Core..@? "DeferMaintenanceIdentifier")
-      Prelude.<*> (x Core..@? "DeferMaintenanceEndTime")
-      Prelude.<*> (x Core..@? "DeferMaintenanceStartTime")
+      Prelude.<$> (x Data..@? "DeferMaintenanceIdentifier")
+      Prelude.<*> (x Data..@? "DeferMaintenanceEndTime")
+      Prelude.<*> (x Data..@? "DeferMaintenanceStartTime")
 
 instance Prelude.Hashable DeferredMaintenanceWindow where
   hashWithSalt _salt DeferredMaintenanceWindow' {..} =

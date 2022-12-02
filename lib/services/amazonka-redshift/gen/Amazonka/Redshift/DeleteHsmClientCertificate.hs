@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -94,21 +95,21 @@ instance Prelude.NFData DeleteHsmClientCertificate where
   rnf DeleteHsmClientCertificate' {..} =
     Prelude.rnf hsmClientCertificateIdentifier
 
-instance Core.ToHeaders DeleteHsmClientCertificate where
+instance Data.ToHeaders DeleteHsmClientCertificate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteHsmClientCertificate where
+instance Data.ToPath DeleteHsmClientCertificate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteHsmClientCertificate where
+instance Data.ToQuery DeleteHsmClientCertificate where
   toQuery DeleteHsmClientCertificate' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteHsmClientCertificate" :: Prelude.ByteString),
+          Data.=: ("DeleteHsmClientCertificate" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "HsmClientCertificateIdentifier"
-          Core.=: hsmClientCertificateIdentifier
+          Data.=: hsmClientCertificateIdentifier
       ]
 
 -- | /See:/ 'newDeleteHsmClientCertificateResponse' smart constructor.

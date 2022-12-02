@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.SnapshotCopyGrant where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Tag
@@ -81,14 +82,14 @@ snapshotCopyGrant_snapshotCopyGrantName = Lens.lens (\SnapshotCopyGrant' {snapsh
 snapshotCopyGrant_kmsKeyId :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe Prelude.Text)
 snapshotCopyGrant_kmsKeyId = Lens.lens (\SnapshotCopyGrant' {kmsKeyId} -> kmsKeyId) (\s@SnapshotCopyGrant' {} a -> s {kmsKeyId = a} :: SnapshotCopyGrant)
 
-instance Core.FromXML SnapshotCopyGrant where
+instance Data.FromXML SnapshotCopyGrant where
   parseXML x =
     SnapshotCopyGrant'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "SnapshotCopyGrantName")
-      Prelude.<*> (x Core..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "SnapshotCopyGrantName")
+      Prelude.<*> (x Data..@? "KmsKeyId")
 
 instance Prelude.Hashable SnapshotCopyGrant where
   hashWithSalt _salt SnapshotCopyGrant' {..} =

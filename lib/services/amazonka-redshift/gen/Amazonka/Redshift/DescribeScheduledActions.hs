@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -72,7 +73,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
     filters :: Prelude.Maybe [ScheduledActionFilter],
     -- | The end time in UTC of the scheduled action to retrieve. Only active
     -- scheduled actions that have invocations before this time are retrieved.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -87,7 +88,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
     scheduledActionName :: Prelude.Maybe Prelude.Text,
     -- | The start time in UTC of the scheduled actions to retrieve. Only active
     -- scheduled actions that have invocations after this time are retrieved.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The type of the scheduled actions to retrieve.
     targetActionType :: Prelude.Maybe ScheduledActionTypeValues
   }
@@ -167,7 +168,7 @@ describeScheduledActions_filters = Lens.lens (\DescribeScheduledActions' {filter
 -- | The end time in UTC of the scheduled action to retrieve. Only active
 -- scheduled actions that have invocations before this time are retrieved.
 describeScheduledActions_endTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
-describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
+describeScheduledActions_endTime = Lens.lens (\DescribeScheduledActions' {endTime} -> endTime) (\s@DescribeScheduledActions' {} a -> s {endTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -188,7 +189,7 @@ describeScheduledActions_scheduledActionName = Lens.lens (\DescribeScheduledActi
 -- | The start time in UTC of the scheduled actions to retrieve. Only active
 -- scheduled actions that have invocations after this time are retrieved.
 describeScheduledActions_startTime :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.UTCTime)
-describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Core._Time
+describeScheduledActions_startTime = Lens.lens (\DescribeScheduledActions' {startTime} -> startTime) (\s@DescribeScheduledActions' {} a -> s {startTime = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Data._Time
 
 -- | The type of the scheduled actions to retrieve.
 describeScheduledActions_targetActionType :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe ScheduledActionTypeValues)
@@ -227,10 +228,10 @@ instance Core.AWSRequest DescribeScheduledActions where
       "DescribeScheduledActionsResult"
       ( \s h x ->
           DescribeScheduledActionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "ScheduledActions"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "ScheduledActions"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ScheduledAction")
+                            Prelude.>>= Core.may (Data.parseXMLList "ScheduledAction")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -257,31 +258,31 @@ instance Prelude.NFData DescribeScheduledActions where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf targetActionType
 
-instance Core.ToHeaders DescribeScheduledActions where
+instance Data.ToHeaders DescribeScheduledActions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeScheduledActions where
+instance Data.ToPath DescribeScheduledActions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScheduledActions where
+instance Data.ToQuery DescribeScheduledActions where
   toQuery DescribeScheduledActions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeScheduledActions" :: Prelude.ByteString),
+          Data.=: ("DescribeScheduledActions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "Active" Core.=: active,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "Active" Data.=: active,
         "Filters"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ScheduledActionFilter"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ScheduledActionFilter"
                 Prelude.<$> filters
             ),
-        "EndTime" Core.=: endTime,
-        "MaxRecords" Core.=: maxRecords,
-        "ScheduledActionName" Core.=: scheduledActionName,
-        "StartTime" Core.=: startTime,
-        "TargetActionType" Core.=: targetActionType
+        "EndTime" Data.=: endTime,
+        "MaxRecords" Data.=: maxRecords,
+        "ScheduledActionName" Data.=: scheduledActionName,
+        "StartTime" Data.=: startTime,
+        "TargetActionType" Data.=: targetActionType
       ]
 
 -- | /See:/ 'newDescribeScheduledActionsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.EventInfoMap where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -86,15 +87,15 @@ eventInfoMap_eventCategories = Lens.lens (\EventInfoMap' {eventCategories} -> ev
 eventInfoMap_eventDescription :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
 eventInfoMap_eventDescription = Lens.lens (\EventInfoMap' {eventDescription} -> eventDescription) (\s@EventInfoMap' {} a -> s {eventDescription = a} :: EventInfoMap)
 
-instance Core.FromXML EventInfoMap where
+instance Data.FromXML EventInfoMap where
   parseXML x =
     EventInfoMap'
-      Prelude.<$> (x Core..@? "Severity")
-      Prelude.<*> (x Core..@? "EventId")
-      Prelude.<*> ( x Core..@? "EventCategories" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
+      Prelude.<$> (x Data..@? "Severity")
+      Prelude.<*> (x Data..@? "EventId")
+      Prelude.<*> ( x Data..@? "EventCategories" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
-      Prelude.<*> (x Core..@? "EventDescription")
+      Prelude.<*> (x Data..@? "EventDescription")
 
 instance Prelude.Hashable EventInfoMap where
   hashWithSalt _salt EventInfoMap' {..} =

@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.PauseClusterMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -57,10 +58,10 @@ newPauseClusterMessage pClusterIdentifier_ =
 pauseClusterMessage_clusterIdentifier :: Lens.Lens' PauseClusterMessage Prelude.Text
 pauseClusterMessage_clusterIdentifier = Lens.lens (\PauseClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@PauseClusterMessage' {} a -> s {clusterIdentifier = a} :: PauseClusterMessage)
 
-instance Core.FromXML PauseClusterMessage where
+instance Data.FromXML PauseClusterMessage where
   parseXML x =
     PauseClusterMessage'
-      Prelude.<$> (x Core..@ "ClusterIdentifier")
+      Prelude.<$> (x Data..@ "ClusterIdentifier")
 
 instance Prelude.Hashable PauseClusterMessage where
   hashWithSalt _salt PauseClusterMessage' {..} =
@@ -70,7 +71,7 @@ instance Prelude.NFData PauseClusterMessage where
   rnf PauseClusterMessage' {..} =
     Prelude.rnf clusterIdentifier
 
-instance Core.ToQuery PauseClusterMessage where
+instance Data.ToQuery PauseClusterMessage where
   toQuery PauseClusterMessage' {..} =
     Prelude.mconcat
-      ["ClusterIdentifier" Core.=: clusterIdentifier]
+      ["ClusterIdentifier" Data.=: clusterIdentifier]

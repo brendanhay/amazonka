@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.PartnerIntegrationOutputMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -61,11 +62,11 @@ partnerIntegrationOutputMessage_databaseName = Lens.lens (\PartnerIntegrationOut
 partnerIntegrationOutputMessage_partnerName :: Lens.Lens' PartnerIntegrationOutputMessage (Prelude.Maybe Prelude.Text)
 partnerIntegrationOutputMessage_partnerName = Lens.lens (\PartnerIntegrationOutputMessage' {partnerName} -> partnerName) (\s@PartnerIntegrationOutputMessage' {} a -> s {partnerName = a} :: PartnerIntegrationOutputMessage)
 
-instance Core.FromXML PartnerIntegrationOutputMessage where
+instance Data.FromXML PartnerIntegrationOutputMessage where
   parseXML x =
     PartnerIntegrationOutputMessage'
-      Prelude.<$> (x Core..@? "DatabaseName")
-      Prelude.<*> (x Core..@? "PartnerName")
+      Prelude.<$> (x Data..@? "DatabaseName")
+      Prelude.<*> (x Data..@? "PartnerName")
 
 instance
   Prelude.Hashable

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -133,11 +134,11 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
       "BatchModifyClusterSnapshotsResult"
       ( \s h x ->
           BatchModifyClusterSnapshotsResponse'
-            Prelude.<$> ( x Core..@? "Errors" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "SnapshotErrorMessage")
+            Prelude.<$> ( x Data..@? "Errors" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "SnapshotErrorMessage")
                         )
-            Prelude.<*> ( x Core..@? "Resources" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "String")
+            Prelude.<*> ( x Data..@? "Resources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "String")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -155,26 +156,26 @@ instance Prelude.NFData BatchModifyClusterSnapshots where
       `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf snapshotIdentifierList
 
-instance Core.ToHeaders BatchModifyClusterSnapshots where
+instance Data.ToHeaders BatchModifyClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath BatchModifyClusterSnapshots where
+instance Data.ToPath BatchModifyClusterSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchModifyClusterSnapshots where
+instance Data.ToQuery BatchModifyClusterSnapshots where
   toQuery BatchModifyClusterSnapshots' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "BatchModifyClusterSnapshots" ::
+          Data.=: ( "BatchModifyClusterSnapshots" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "ManualSnapshotRetentionPeriod"
-          Core.=: manualSnapshotRetentionPeriod,
-        "Force" Core.=: force,
+          Data.=: manualSnapshotRetentionPeriod,
+        "Force" Data.=: force,
         "SnapshotIdentifierList"
-          Core.=: Core.toQueryList "String" snapshotIdentifierList
+          Data.=: Data.toQueryList "String" snapshotIdentifierList
       ]
 
 -- | /See:/ 'newBatchModifyClusterSnapshotsResponse' smart constructor.

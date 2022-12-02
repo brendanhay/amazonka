@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -842,7 +843,7 @@ instance Core.AWSRequest ModifyCluster where
       "ModifyClusterResult"
       ( \s h x ->
           ModifyClusterResponse'
-            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<$> (x Data..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -908,59 +909,59 @@ instance Prelude.NFData ModifyCluster where
       `Prelude.seq` Prelude.rnf
         clusterIdentifier
 
-instance Core.ToHeaders ModifyCluster where
+instance Data.ToHeaders ModifyCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyCluster where
+instance Data.ToPath ModifyCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyCluster where
+instance Data.ToQuery ModifyCluster where
   toQuery ModifyCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyCluster" :: Prelude.ByteString),
+          Data.=: ("ModifyCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Port" Core.=: port,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Port" Data.=: port,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "ElasticIp" Core.=: elasticIp,
+        "ElasticIp" Data.=: elasticIp,
         "ManualSnapshotRetentionPeriod"
-          Core.=: manualSnapshotRetentionPeriod,
-        "AllowVersionUpgrade" Core.=: allowVersionUpgrade,
-        "ClusterVersion" Core.=: clusterVersion,
-        "MaintenanceTrackName" Core.=: maintenanceTrackName,
+          Data.=: manualSnapshotRetentionPeriod,
+        "AllowVersionUpgrade" Data.=: allowVersionUpgrade,
+        "ClusterVersion" Data.=: clusterVersion,
+        "MaintenanceTrackName" Data.=: maintenanceTrackName,
         "HsmClientCertificateIdentifier"
-          Core.=: hsmClientCertificateIdentifier,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "MasterUserPassword" Core.=: masterUserPassword,
-        "NodeType" Core.=: nodeType,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
+          Data.=: hsmClientCertificateIdentifier,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "NodeType" Data.=: nodeType,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
         "ClusterParameterGroupName"
-          Core.=: clusterParameterGroupName,
-        "NewClusterIdentifier" Core.=: newClusterIdentifier',
-        "Encrypted" Core.=: encrypted,
-        "NumberOfNodes" Core.=: numberOfNodes,
-        "KmsKeyId" Core.=: kmsKeyId,
+          Data.=: clusterParameterGroupName,
+        "NewClusterIdentifier" Data.=: newClusterIdentifier',
+        "Encrypted" Data.=: encrypted,
+        "NumberOfNodes" Data.=: numberOfNodes,
+        "KmsKeyId" Data.=: kmsKeyId,
         "AvailabilityZoneRelocation"
-          Core.=: availabilityZoneRelocation,
-        "EnhancedVpcRouting" Core.=: enhancedVpcRouting,
+          Data.=: availabilityZoneRelocation,
+        "EnhancedVpcRouting" Data.=: enhancedVpcRouting,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "ClusterType" Core.=: clusterType,
+          Data.=: preferredMaintenanceWindow,
+        "ClusterType" Data.=: clusterType,
         "ClusterSecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ClusterSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ClusterSecurityGroupName"
                 Prelude.<$> clusterSecurityGroups
             ),
         "AutomatedSnapshotRetentionPeriod"
-          Core.=: automatedSnapshotRetentionPeriod,
+          Data.=: automatedSnapshotRetentionPeriod,
         "HsmConfigurationIdentifier"
-          Core.=: hsmConfigurationIdentifier,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: hsmConfigurationIdentifier,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newModifyClusterResponse' smart constructor.

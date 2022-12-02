@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -144,10 +145,10 @@ instance Core.AWSRequest DescribeClusterTracks where
       "DescribeClusterTracksResult"
       ( \s h x ->
           DescribeClusterTracksResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "MaintenanceTracks"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "MaintenanceTracks"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "MaintenanceTrack")
+                            Prelude.>>= Core.may (Data.parseXMLList "MaintenanceTrack")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -164,22 +165,22 @@ instance Prelude.NFData DescribeClusterTracks where
       `Prelude.seq` Prelude.rnf maintenanceTrackName
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeClusterTracks where
+instance Data.ToHeaders DescribeClusterTracks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClusterTracks where
+instance Data.ToPath DescribeClusterTracks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClusterTracks where
+instance Data.ToQuery DescribeClusterTracks where
   toQuery DescribeClusterTracks' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusterTracks" :: Prelude.ByteString),
+          Data.=: ("DescribeClusterTracks" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaintenanceTrackName" Core.=: maintenanceTrackName,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaintenanceTrackName" Data.=: maintenanceTrackName,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeClusterTracksResponse' smart constructor.

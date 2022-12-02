@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -103,21 +104,21 @@ instance Prelude.NFData DeleteTags where
     Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf tagKeys
 
-instance Core.ToHeaders DeleteTags where
+instance Data.ToHeaders DeleteTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteTags where
+instance Data.ToPath DeleteTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteTags where
+instance Data.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteTags" :: Prelude.ByteString),
+          Data.=: ("DeleteTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ResourceName" Core.=: resourceName,
-        "TagKeys" Core.=: Core.toQueryList "TagKey" tagKeys
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ResourceName" Data.=: resourceName,
+        "TagKeys" Data.=: Data.toQueryList "TagKey" tagKeys
       ]
 
 -- | /See:/ 'newDeleteTagsResponse' smart constructor.

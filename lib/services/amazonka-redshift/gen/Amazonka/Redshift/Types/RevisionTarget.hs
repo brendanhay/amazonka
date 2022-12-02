@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.RevisionTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -35,7 +36,7 @@ data RevisionTarget = RevisionTarget'
     -- You can use this value in ModifyClusterDbRevision.
     databaseRevision :: Prelude.Maybe Prelude.Text,
     -- | The date on which the database revision was released.
-    databaseRevisionReleaseDate :: Prelude.Maybe Core.ISO8601
+    databaseRevisionReleaseDate :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,14 +76,14 @@ revisionTarget_databaseRevision = Lens.lens (\RevisionTarget' {databaseRevision}
 
 -- | The date on which the database revision was released.
 revisionTarget_databaseRevisionReleaseDate :: Lens.Lens' RevisionTarget (Prelude.Maybe Prelude.UTCTime)
-revisionTarget_databaseRevisionReleaseDate = Lens.lens (\RevisionTarget' {databaseRevisionReleaseDate} -> databaseRevisionReleaseDate) (\s@RevisionTarget' {} a -> s {databaseRevisionReleaseDate = a} :: RevisionTarget) Prelude.. Lens.mapping Core._Time
+revisionTarget_databaseRevisionReleaseDate = Lens.lens (\RevisionTarget' {databaseRevisionReleaseDate} -> databaseRevisionReleaseDate) (\s@RevisionTarget' {} a -> s {databaseRevisionReleaseDate = a} :: RevisionTarget) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML RevisionTarget where
+instance Data.FromXML RevisionTarget where
   parseXML x =
     RevisionTarget'
-      Prelude.<$> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "DatabaseRevision")
-      Prelude.<*> (x Core..@? "DatabaseRevisionReleaseDate")
+      Prelude.<$> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "DatabaseRevision")
+      Prelude.<*> (x Data..@? "DatabaseRevisionReleaseDate")
 
 instance Prelude.Hashable RevisionTarget where
   hashWithSalt _salt RevisionTarget' {..} =

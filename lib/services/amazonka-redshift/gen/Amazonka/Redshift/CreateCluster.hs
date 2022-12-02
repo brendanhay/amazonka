@@ -81,6 +81,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -1059,7 +1060,7 @@ instance Core.AWSRequest CreateCluster where
       "CreateClusterResult"
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<$> (x Data..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -1152,75 +1153,75 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf
         masterUserPassword
 
-instance Core.ToHeaders CreateCluster where
+instance Data.ToHeaders CreateCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateCluster where
+instance Data.ToPath CreateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCluster where
+instance Data.ToQuery CreateCluster where
   toQuery CreateCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateCluster" :: Prelude.ByteString),
+          Data.=: ("CreateCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "Port" Data.=: port,
         "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "ElasticIp" Core.=: elasticIp,
+        "ElasticIp" Data.=: elasticIp,
         "ManualSnapshotRetentionPeriod"
-          Core.=: manualSnapshotRetentionPeriod,
-        "AdditionalInfo" Core.=: additionalInfo,
-        "AllowVersionUpgrade" Core.=: allowVersionUpgrade,
+          Data.=: manualSnapshotRetentionPeriod,
+        "AdditionalInfo" Data.=: additionalInfo,
+        "AllowVersionUpgrade" Data.=: allowVersionUpgrade,
         "ClusterSubnetGroupName"
-          Core.=: clusterSubnetGroupName,
+          Data.=: clusterSubnetGroupName,
         "SnapshotScheduleIdentifier"
-          Core.=: snapshotScheduleIdentifier,
+          Data.=: snapshotScheduleIdentifier,
         "AquaConfigurationStatus"
-          Core.=: aquaConfigurationStatus,
-        "ClusterVersion" Core.=: clusterVersion,
-        "LoadSampleData" Core.=: loadSampleData,
-        "MaintenanceTrackName" Core.=: maintenanceTrackName,
+          Data.=: aquaConfigurationStatus,
+        "ClusterVersion" Data.=: clusterVersion,
+        "LoadSampleData" Data.=: loadSampleData,
+        "MaintenanceTrackName" Data.=: maintenanceTrackName,
         "IamRoles"
-          Core.=: Core.toQuery
-            (Core.toQueryList "IamRoleArn" Prelude.<$> iamRoles),
+          Data.=: Data.toQuery
+            (Data.toQueryList "IamRoleArn" Prelude.<$> iamRoles),
         "HsmClientCertificateIdentifier"
-          Core.=: hsmClientCertificateIdentifier,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
+          Data.=: hsmClientCertificateIdentifier,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
         "ClusterParameterGroupName"
-          Core.=: clusterParameterGroupName,
-        "Encrypted" Core.=: encrypted,
-        "NumberOfNodes" Core.=: numberOfNodes,
-        "KmsKeyId" Core.=: kmsKeyId,
+          Data.=: clusterParameterGroupName,
+        "Encrypted" Data.=: encrypted,
+        "NumberOfNodes" Data.=: numberOfNodes,
+        "KmsKeyId" Data.=: kmsKeyId,
         "AvailabilityZoneRelocation"
-          Core.=: availabilityZoneRelocation,
-        "DefaultIamRoleArn" Core.=: defaultIamRoleArn,
-        "EnhancedVpcRouting" Core.=: enhancedVpcRouting,
+          Data.=: availabilityZoneRelocation,
+        "DefaultIamRoleArn" Data.=: defaultIamRoleArn,
+        "EnhancedVpcRouting" Data.=: enhancedVpcRouting,
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "ClusterType" Core.=: clusterType,
+          Data.=: preferredMaintenanceWindow,
+        "ClusterType" Data.=: clusterType,
         "ClusterSecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ClusterSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ClusterSecurityGroupName"
                 Prelude.<$> clusterSecurityGroups
             ),
         "AutomatedSnapshotRetentionPeriod"
-          Core.=: automatedSnapshotRetentionPeriod,
+          Data.=: automatedSnapshotRetentionPeriod,
         "HsmConfigurationIdentifier"
-          Core.=: hsmConfigurationIdentifier,
-        "DBName" Core.=: dbName,
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "NodeType" Core.=: nodeType,
-        "MasterUsername" Core.=: masterUsername,
-        "MasterUserPassword" Core.=: masterUserPassword
+          Data.=: hsmConfigurationIdentifier,
+        "DBName" Data.=: dbName,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "NodeType" Data.=: nodeType,
+        "MasterUsername" Data.=: masterUsername,
+        "MasterUserPassword" Data.=: masterUserPassword
       ]
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.

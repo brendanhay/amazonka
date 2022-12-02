@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance Core.AWSRequest CreateSnapshotSchedule where
   response =
     Response.receiveXMLWrapper
       "CreateSnapshotScheduleResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable CreateSnapshotSchedule where
   hashWithSalt _salt CreateSnapshotSchedule' {..} =
@@ -165,29 +166,29 @@ instance Prelude.NFData CreateSnapshotSchedule where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf scheduleDefinitions
 
-instance Core.ToHeaders CreateSnapshotSchedule where
+instance Data.ToHeaders CreateSnapshotSchedule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateSnapshotSchedule where
+instance Data.ToPath CreateSnapshotSchedule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSnapshotSchedule where
+instance Data.ToQuery CreateSnapshotSchedule where
   toQuery CreateSnapshotSchedule' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateSnapshotSchedule" :: Prelude.ByteString),
+          Data.=: ("CreateSnapshotSchedule" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "ScheduleDescription" Core.=: scheduleDescription,
-        "ScheduleIdentifier" Core.=: scheduleIdentifier,
-        "NextInvocations" Core.=: nextInvocations,
-        "DryRun" Core.=: dryRun,
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "ScheduleDescription" Data.=: scheduleDescription,
+        "ScheduleIdentifier" Data.=: scheduleIdentifier,
+        "NextInvocations" Data.=: nextInvocations,
+        "DryRun" Data.=: dryRun,
         "ScheduleDefinitions"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "ScheduleDefinition"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "ScheduleDefinition"
                 Prelude.<$> scheduleDefinitions
             )
       ]

@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.VpcEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.NetworkInterface
@@ -79,14 +80,14 @@ vpcEndpoint_vpcId = Lens.lens (\VpcEndpoint' {vpcId} -> vpcId) (\s@VpcEndpoint' 
 vpcEndpoint_networkInterfaces :: Lens.Lens' VpcEndpoint (Prelude.Maybe [NetworkInterface])
 vpcEndpoint_networkInterfaces = Lens.lens (\VpcEndpoint' {networkInterfaces} -> networkInterfaces) (\s@VpcEndpoint' {} a -> s {networkInterfaces = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML VpcEndpoint where
+instance Data.FromXML VpcEndpoint where
   parseXML x =
     VpcEndpoint'
-      Prelude.<$> (x Core..@? "VpcEndpointId")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> ( x Core..@? "NetworkInterfaces"
+      Prelude.<$> (x Data..@? "VpcEndpointId")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> ( x Data..@? "NetworkInterfaces"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "NetworkInterface")
+                      Prelude.>>= Core.may (Data.parseXMLList "NetworkInterface")
                   )
 
 instance Prelude.Hashable VpcEndpoint where

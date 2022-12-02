@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ResizeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -62,11 +63,11 @@ resizeInfo_allowCancelResize = Lens.lens (\ResizeInfo' {allowCancelResize} -> al
 resizeInfo_resizeType :: Lens.Lens' ResizeInfo (Prelude.Maybe Prelude.Text)
 resizeInfo_resizeType = Lens.lens (\ResizeInfo' {resizeType} -> resizeType) (\s@ResizeInfo' {} a -> s {resizeType = a} :: ResizeInfo)
 
-instance Core.FromXML ResizeInfo where
+instance Data.FromXML ResizeInfo where
   parseXML x =
     ResizeInfo'
-      Prelude.<$> (x Core..@? "AllowCancelResize")
-      Prelude.<*> (x Core..@? "ResizeType")
+      Prelude.<$> (x Data..@? "AllowCancelResize")
+      Prelude.<*> (x Data..@? "ResizeType")
 
 instance Prelude.Hashable ResizeInfo where
   hashWithSalt _salt ResizeInfo' {..} =

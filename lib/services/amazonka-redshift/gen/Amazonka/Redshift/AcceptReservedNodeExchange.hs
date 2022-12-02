@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -113,7 +114,7 @@ instance Core.AWSRequest AcceptReservedNodeExchange where
       "AcceptReservedNodeExchangeResult"
       ( \s h x ->
           AcceptReservedNodeExchangeResponse'
-            Prelude.<$> (x Core..@? "ExchangedReservedNode")
+            Prelude.<$> (x Data..@? "ExchangedReservedNode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,22 +128,22 @@ instance Prelude.NFData AcceptReservedNodeExchange where
     Prelude.rnf reservedNodeId
       `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
 
-instance Core.ToHeaders AcceptReservedNodeExchange where
+instance Data.ToHeaders AcceptReservedNodeExchange where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AcceptReservedNodeExchange where
+instance Data.ToPath AcceptReservedNodeExchange where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AcceptReservedNodeExchange where
+instance Data.ToQuery AcceptReservedNodeExchange where
   toQuery AcceptReservedNodeExchange' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AcceptReservedNodeExchange" :: Prelude.ByteString),
+          Data.=: ("AcceptReservedNodeExchange" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ReservedNodeId" Core.=: reservedNodeId,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ReservedNodeId" Data.=: reservedNodeId,
         "TargetReservedNodeOfferingId"
-          Core.=: targetReservedNodeOfferingId
+          Data.=: targetReservedNodeOfferingId
       ]
 
 -- | /See:/ 'newAcceptReservedNodeExchangeResponse' smart constructor.

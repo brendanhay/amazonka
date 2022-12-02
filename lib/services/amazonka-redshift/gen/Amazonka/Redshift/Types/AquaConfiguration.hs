@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.AquaConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.AquaConfigurationStatus
@@ -73,11 +74,11 @@ aquaConfiguration_aquaConfigurationStatus = Lens.lens (\AquaConfiguration' {aqua
 aquaConfiguration_aquaStatus :: Lens.Lens' AquaConfiguration (Prelude.Maybe AquaStatus)
 aquaConfiguration_aquaStatus = Lens.lens (\AquaConfiguration' {aquaStatus} -> aquaStatus) (\s@AquaConfiguration' {} a -> s {aquaStatus = a} :: AquaConfiguration)
 
-instance Core.FromXML AquaConfiguration where
+instance Data.FromXML AquaConfiguration where
   parseXML x =
     AquaConfiguration'
-      Prelude.<$> (x Core..@? "AquaConfigurationStatus")
-      Prelude.<*> (x Core..@? "AquaStatus")
+      Prelude.<$> (x Data..@? "AquaConfigurationStatus")
+      Prelude.<*> (x Data..@? "AquaStatus")
 
 instance Prelude.Hashable AquaConfiguration where
   hashWithSalt _salt AquaConfiguration' {..} =

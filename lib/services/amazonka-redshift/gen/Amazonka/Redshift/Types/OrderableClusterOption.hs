@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.OrderableClusterOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.AvailabilityZone
@@ -82,16 +83,16 @@ orderableClusterOption_nodeType = Lens.lens (\OrderableClusterOption' {nodeType}
 orderableClusterOption_clusterType :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)
 orderableClusterOption_clusterType = Lens.lens (\OrderableClusterOption' {clusterType} -> clusterType) (\s@OrderableClusterOption' {} a -> s {clusterType = a} :: OrderableClusterOption)
 
-instance Core.FromXML OrderableClusterOption where
+instance Data.FromXML OrderableClusterOption where
   parseXML x =
     OrderableClusterOption'
-      Prelude.<$> (x Core..@? "ClusterVersion")
-      Prelude.<*> ( x Core..@? "AvailabilityZones"
+      Prelude.<$> (x Data..@? "ClusterVersion")
+      Prelude.<*> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AvailabilityZone")
+                      Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
-      Prelude.<*> (x Core..@? "NodeType")
-      Prelude.<*> (x Core..@? "ClusterType")
+      Prelude.<*> (x Data..@? "NodeType")
+      Prelude.<*> (x Data..@? "ClusterType")
 
 instance Prelude.Hashable OrderableClusterOption where
   hashWithSalt _salt OrderableClusterOption' {..} =

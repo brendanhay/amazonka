@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.EndpointAuthorization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.AuthorizationStatus
@@ -41,7 +42,7 @@ data EndpointAuthorization = EndpointAuthorization'
     -- | The status of the authorization action.
     status :: Prelude.Maybe AuthorizationStatus,
     -- | The time (UTC) when the authorization was created.
-    authorizeTime :: Prelude.Maybe Core.ISO8601,
+    authorizeTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the cluster.
     clusterStatus :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID of the cluster owner.
@@ -116,7 +117,7 @@ endpointAuthorization_status = Lens.lens (\EndpointAuthorization' {status} -> st
 
 -- | The time (UTC) when the authorization was created.
 endpointAuthorization_authorizeTime :: Lens.Lens' EndpointAuthorization (Prelude.Maybe Prelude.UTCTime)
-endpointAuthorization_authorizeTime = Lens.lens (\EndpointAuthorization' {authorizeTime} -> authorizeTime) (\s@EndpointAuthorization' {} a -> s {authorizeTime = a} :: EndpointAuthorization) Prelude.. Lens.mapping Core._Time
+endpointAuthorization_authorizeTime = Lens.lens (\EndpointAuthorization' {authorizeTime} -> authorizeTime) (\s@EndpointAuthorization' {} a -> s {authorizeTime = a} :: EndpointAuthorization) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the cluster.
 endpointAuthorization_clusterStatus :: Lens.Lens' EndpointAuthorization (Prelude.Maybe Prelude.Text)
@@ -134,19 +135,19 @@ endpointAuthorization_grantee = Lens.lens (\EndpointAuthorization' {grantee} -> 
 endpointAuthorization_allowedVPCs :: Lens.Lens' EndpointAuthorization (Prelude.Maybe [Prelude.Text])
 endpointAuthorization_allowedVPCs = Lens.lens (\EndpointAuthorization' {allowedVPCs} -> allowedVPCs) (\s@EndpointAuthorization' {} a -> s {allowedVPCs = a} :: EndpointAuthorization) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML EndpointAuthorization where
+instance Data.FromXML EndpointAuthorization where
   parseXML x =
     EndpointAuthorization'
-      Prelude.<$> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "EndpointCount")
-      Prelude.<*> (x Core..@? "AllowedAllVPCs")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "AuthorizeTime")
-      Prelude.<*> (x Core..@? "ClusterStatus")
-      Prelude.<*> (x Core..@? "Grantor")
-      Prelude.<*> (x Core..@? "Grantee")
-      Prelude.<*> ( x Core..@? "AllowedVPCs" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "VpcIdentifier")
+      Prelude.<$> (x Data..@? "ClusterIdentifier")
+      Prelude.<*> (x Data..@? "EndpointCount")
+      Prelude.<*> (x Data..@? "AllowedAllVPCs")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "AuthorizeTime")
+      Prelude.<*> (x Data..@? "ClusterStatus")
+      Prelude.<*> (x Data..@? "Grantor")
+      Prelude.<*> (x Data..@? "Grantee")
+      Prelude.<*> ( x Data..@? "AllowedVPCs" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "VpcIdentifier")
                   )
 
 instance Prelude.Hashable EndpointAuthorization where

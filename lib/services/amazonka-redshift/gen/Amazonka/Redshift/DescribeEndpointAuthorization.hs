@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -186,10 +187,10 @@ instance
       "DescribeEndpointAuthorizationResult"
       ( \s h x ->
           DescribeEndpointAuthorizationResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "EndpointAuthorizationList"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "EndpointAuthorizationList"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -213,26 +214,26 @@ instance Prelude.NFData DescribeEndpointAuthorization where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf grantee
 
-instance Core.ToHeaders DescribeEndpointAuthorization where
+instance Data.ToHeaders DescribeEndpointAuthorization where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeEndpointAuthorization where
+instance Data.ToPath DescribeEndpointAuthorization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEndpointAuthorization where
+instance Data.ToQuery DescribeEndpointAuthorization where
   toQuery DescribeEndpointAuthorization' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeEndpointAuthorization" ::
+          Data.=: ( "DescribeEndpointAuthorization" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "Marker" Core.=: marker,
-        "Account" Core.=: account,
-        "MaxRecords" Core.=: maxRecords,
-        "Grantee" Core.=: grantee
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "Marker" Data.=: marker,
+        "Account" Data.=: account,
+        "MaxRecords" Data.=: maxRecords,
+        "Grantee" Data.=: grantee
       ]
 
 -- | /See:/ 'newDescribeEndpointAuthorizationResponse' smart constructor.

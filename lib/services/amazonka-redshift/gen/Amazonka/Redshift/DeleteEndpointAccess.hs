@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance Core.AWSRequest DeleteEndpointAccess where
   response =
     Response.receiveXMLWrapper
       "DeleteEndpointAccessResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable DeleteEndpointAccess where
   hashWithSalt _salt DeleteEndpointAccess' {..} =
@@ -103,18 +104,18 @@ instance Prelude.NFData DeleteEndpointAccess where
   rnf DeleteEndpointAccess' {..} =
     Prelude.rnf endpointName
 
-instance Core.ToHeaders DeleteEndpointAccess where
+instance Data.ToHeaders DeleteEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteEndpointAccess where
+instance Data.ToPath DeleteEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteEndpointAccess where
+instance Data.ToQuery DeleteEndpointAccess where
   toQuery DeleteEndpointAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteEndpointAccess" :: Prelude.ByteString),
+          Data.=: ("DeleteEndpointAccess" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "EndpointName" Core.=: endpointName
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "EndpointName" Data.=: endpointName
       ]

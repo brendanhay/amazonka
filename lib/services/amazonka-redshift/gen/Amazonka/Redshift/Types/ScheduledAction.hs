@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ScheduledAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.ScheduledActionState
@@ -62,17 +63,17 @@ data ScheduledAction = ScheduledAction'
     -- | The state of the scheduled action. For example, @DISABLED@.
     state :: Prelude.Maybe ScheduledActionState,
     -- | List of times when the scheduled action will run.
-    nextInvocations :: Prelude.Maybe [Core.ISO8601],
+    nextInvocations :: Prelude.Maybe [Data.ISO8601],
     -- | The end time in UTC when the schedule is no longer active. After this
     -- time, the scheduled action does not trigger.
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The description of the scheduled action.
     scheduledActionDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the scheduled action.
     scheduledActionName :: Prelude.Maybe Prelude.Text,
     -- | The start time in UTC when the schedule is active. Before this time, the
     -- scheduled action does not trigger.
-    startTime :: Prelude.Maybe Core.ISO8601
+    startTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -183,7 +184,7 @@ scheduledAction_nextInvocations = Lens.lens (\ScheduledAction' {nextInvocations}
 -- | The end time in UTC when the schedule is no longer active. After this
 -- time, the scheduled action does not trigger.
 scheduledAction_endTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
-scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s@ScheduledAction' {} a -> s {endTime = a} :: ScheduledAction) Prelude.. Lens.mapping Core._Time
+scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s@ScheduledAction' {} a -> s {endTime = a} :: ScheduledAction) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the scheduled action.
 scheduledAction_scheduledActionDescription :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.Text)
@@ -196,22 +197,22 @@ scheduledAction_scheduledActionName = Lens.lens (\ScheduledAction' {scheduledAct
 -- | The start time in UTC when the schedule is active. Before this time, the
 -- scheduled action does not trigger.
 scheduledAction_startTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
-scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Prelude.. Lens.mapping Core._Time
+scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromXML ScheduledAction where
+instance Data.FromXML ScheduledAction where
   parseXML x =
     ScheduledAction'
-      Prelude.<$> (x Core..@? "Schedule")
-      Prelude.<*> (x Core..@? "TargetAction")
-      Prelude.<*> (x Core..@? "IamRole")
-      Prelude.<*> (x Core..@? "State")
-      Prelude.<*> ( x Core..@? "NextInvocations" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "ScheduledActionTime")
+      Prelude.<$> (x Data..@? "Schedule")
+      Prelude.<*> (x Data..@? "TargetAction")
+      Prelude.<*> (x Data..@? "IamRole")
+      Prelude.<*> (x Data..@? "State")
+      Prelude.<*> ( x Data..@? "NextInvocations" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "ScheduledActionTime")
                   )
-      Prelude.<*> (x Core..@? "EndTime")
-      Prelude.<*> (x Core..@? "ScheduledActionDescription")
-      Prelude.<*> (x Core..@? "ScheduledActionName")
-      Prelude.<*> (x Core..@? "StartTime")
+      Prelude.<*> (x Data..@? "EndTime")
+      Prelude.<*> (x Data..@? "ScheduledActionDescription")
+      Prelude.<*> (x Data..@? "ScheduledActionName")
+      Prelude.<*> (x Data..@? "StartTime")
 
 instance Prelude.Hashable ScheduledAction where
   hashWithSalt _salt ScheduledAction' {..} =

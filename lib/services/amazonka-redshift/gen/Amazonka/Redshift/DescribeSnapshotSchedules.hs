@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -190,10 +191,10 @@ instance Core.AWSRequest DescribeSnapshotSchedules where
       "DescribeSnapshotSchedulesResult"
       ( \s h x ->
           DescribeSnapshotSchedulesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "SnapshotSchedules"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "SnapshotSchedules"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "SnapshotSchedule")
+                            Prelude.>>= Core.may (Data.parseXMLList "SnapshotSchedule")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -216,29 +217,29 @@ instance Prelude.NFData DescribeSnapshotSchedules where
       `Prelude.seq` Prelude.rnf scheduleIdentifier
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeSnapshotSchedules where
+instance Data.ToHeaders DescribeSnapshotSchedules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeSnapshotSchedules where
+instance Data.ToPath DescribeSnapshotSchedules where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeSnapshotSchedules where
+instance Data.ToQuery DescribeSnapshotSchedules where
   toQuery DescribeSnapshotSchedules' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeSnapshotSchedules" :: Prelude.ByteString),
+          Data.=: ("DescribeSnapshotSchedules" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "ScheduleIdentifier" Core.=: scheduleIdentifier,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "ScheduleIdentifier" Data.=: scheduleIdentifier,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeSnapshotSchedulesResponse' smart constructor.

@@ -61,6 +61,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -250,10 +251,10 @@ instance
       "DescribeHsmClientCertificatesResult"
       ( \s h x ->
           DescribeHsmClientCertificatesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "HsmClientCertificates"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "HsmClientCertificates"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "HsmClientCertificate")
+                            Prelude.>>= Core.may (Data.parseXMLList "HsmClientCertificate")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -277,31 +278,31 @@ instance Prelude.NFData DescribeHsmClientCertificates where
       `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeHsmClientCertificates where
+instance Data.ToHeaders DescribeHsmClientCertificates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeHsmClientCertificates where
+instance Data.ToPath DescribeHsmClientCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeHsmClientCertificates where
+instance Data.ToQuery DescribeHsmClientCertificates where
   toQuery DescribeHsmClientCertificates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeHsmClientCertificates" ::
+          Data.=: ( "DescribeHsmClientCertificates" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
         "HsmClientCertificateIdentifier"
-          Core.=: hsmClientCertificateIdentifier,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: hsmClientCertificateIdentifier,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- |

@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ReservedNode where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.RecurringCharge
@@ -71,7 +72,7 @@ data ReservedNode = ReservedNode'
     fixedPrice :: Prelude.Maybe Prelude.Double,
     -- | The time the reservation started. You purchase a reserved node offering
     -- for a duration. This is the start time of that duration.
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The hourly rate Amazon Redshift charges you for this reserved node.
     usagePrice :: Prelude.Maybe Prelude.Double
   }
@@ -209,31 +210,31 @@ reservedNode_fixedPrice = Lens.lens (\ReservedNode' {fixedPrice} -> fixedPrice) 
 -- | The time the reservation started. You purchase a reserved node offering
 -- for a duration. This is the start time of that duration.
 reservedNode_startTime :: Lens.Lens' ReservedNode (Prelude.Maybe Prelude.UTCTime)
-reservedNode_startTime = Lens.lens (\ReservedNode' {startTime} -> startTime) (\s@ReservedNode' {} a -> s {startTime = a} :: ReservedNode) Prelude.. Lens.mapping Core._Time
+reservedNode_startTime = Lens.lens (\ReservedNode' {startTime} -> startTime) (\s@ReservedNode' {} a -> s {startTime = a} :: ReservedNode) Prelude.. Lens.mapping Data._Time
 
 -- | The hourly rate Amazon Redshift charges you for this reserved node.
 reservedNode_usagePrice :: Lens.Lens' ReservedNode (Prelude.Maybe Prelude.Double)
 reservedNode_usagePrice = Lens.lens (\ReservedNode' {usagePrice} -> usagePrice) (\s@ReservedNode' {} a -> s {usagePrice = a} :: ReservedNode)
 
-instance Core.FromXML ReservedNode where
+instance Data.FromXML ReservedNode where
   parseXML x =
     ReservedNode'
-      Prelude.<$> ( x Core..@? "RecurringCharges"
+      Prelude.<$> ( x Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "RecurringCharge")
+                      Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
-      Prelude.<*> (x Core..@? "NodeCount")
-      Prelude.<*> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "OfferingType")
-      Prelude.<*> (x Core..@? "ReservedNodeId")
-      Prelude.<*> (x Core..@? "NodeType")
-      Prelude.<*> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "CurrencyCode")
-      Prelude.<*> (x Core..@? "ReservedNodeOfferingType")
-      Prelude.<*> (x Core..@? "ReservedNodeOfferingId")
-      Prelude.<*> (x Core..@? "FixedPrice")
-      Prelude.<*> (x Core..@? "StartTime")
-      Prelude.<*> (x Core..@? "UsagePrice")
+      Prelude.<*> (x Data..@? "NodeCount")
+      Prelude.<*> (x Data..@? "State")
+      Prelude.<*> (x Data..@? "OfferingType")
+      Prelude.<*> (x Data..@? "ReservedNodeId")
+      Prelude.<*> (x Data..@? "NodeType")
+      Prelude.<*> (x Data..@? "Duration")
+      Prelude.<*> (x Data..@? "CurrencyCode")
+      Prelude.<*> (x Data..@? "ReservedNodeOfferingType")
+      Prelude.<*> (x Data..@? "ReservedNodeOfferingId")
+      Prelude.<*> (x Data..@? "FixedPrice")
+      Prelude.<*> (x Data..@? "StartTime")
+      Prelude.<*> (x Data..@? "UsagePrice")
 
 instance Prelude.Hashable ReservedNode where
   hashWithSalt _salt ReservedNode' {..} =

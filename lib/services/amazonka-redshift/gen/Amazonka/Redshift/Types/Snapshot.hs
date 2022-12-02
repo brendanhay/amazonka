@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.AccountWithRestoreAccess
@@ -84,12 +85,12 @@ data Snapshot = Snapshot'
     elapsedTimeInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | A timestamp representing the start of the retention period for the
     -- snapshot.
-    snapshotRetentionStartTime :: Prelude.Maybe Core.ISO8601,
+    snapshotRetentionStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The Availability Zone in which the cluster was created.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The time (in UTC format) when Amazon Redshift began the snapshot. A
     -- snapshot contains a copy of the cluster data as of this exact time.
-    snapshotCreateTime :: Prelude.Maybe Core.ISO8601,
+    snapshotCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The node type of the nodes in the cluster.
     nodeType :: Prelude.Maybe Prelude.Text,
     -- | If @true@, the data in the snapshot is encrypted at rest.
@@ -128,7 +129,7 @@ data Snapshot = Snapshot'
     -- snapshot.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The time (UTC) when the cluster was originally created.
-    clusterCreateTime :: Prelude.Maybe Core.ISO8601,
+    clusterCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The number of megabytes that have been transferred to the snapshot
     -- backup.
     backupProgressInMegaBytes :: Prelude.Maybe Prelude.Double,
@@ -387,7 +388,7 @@ snapshot_elapsedTimeInSeconds = Lens.lens (\Snapshot' {elapsedTimeInSeconds} -> 
 -- | A timestamp representing the start of the retention period for the
 -- snapshot.
 snapshot_snapshotRetentionStartTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_snapshotRetentionStartTime = Lens.lens (\Snapshot' {snapshotRetentionStartTime} -> snapshotRetentionStartTime) (\s@Snapshot' {} a -> s {snapshotRetentionStartTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_snapshotRetentionStartTime = Lens.lens (\Snapshot' {snapshotRetentionStartTime} -> snapshotRetentionStartTime) (\s@Snapshot' {} a -> s {snapshotRetentionStartTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The Availability Zone in which the cluster was created.
 snapshot_availabilityZone :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
@@ -396,7 +397,7 @@ snapshot_availabilityZone = Lens.lens (\Snapshot' {availabilityZone} -> availabi
 -- | The time (in UTC format) when Amazon Redshift began the snapshot. A
 -- snapshot contains a copy of the cluster data as of this exact time.
 snapshot_snapshotCreateTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_snapshotCreateTime = Lens.lens (\Snapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@Snapshot' {} a -> s {snapshotCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_snapshotCreateTime = Lens.lens (\Snapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@Snapshot' {} a -> s {snapshotCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The node type of the nodes in the cluster.
 snapshot_nodeType :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
@@ -457,7 +458,7 @@ snapshot_ownerAccount = Lens.lens (\Snapshot' {ownerAccount} -> ownerAccount) (\
 
 -- | The time (UTC) when the cluster was originally created.
 snapshot_clusterCreateTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_clusterCreateTime = Lens.lens (\Snapshot' {clusterCreateTime} -> clusterCreateTime) (\s@Snapshot' {} a -> s {clusterCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+snapshot_clusterCreateTime = Lens.lens (\Snapshot' {clusterCreateTime} -> clusterCreateTime) (\s@Snapshot' {} a -> s {clusterCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The number of megabytes that have been transferred to the snapshot
 -- backup.
@@ -477,52 +478,52 @@ snapshot_actualIncrementalBackupSizeInMegaBytes = Lens.lens (\Snapshot' {actualI
 snapshot_snapshotType :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_snapshotType = Lens.lens (\Snapshot' {snapshotType} -> snapshotType) (\s@Snapshot' {} a -> s {snapshotType = a} :: Snapshot)
 
-instance Core.FromXML Snapshot where
+instance Data.FromXML Snapshot where
   parseXML x =
     Snapshot'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "ManualSnapshotRemainingDays")
-      Prelude.<*> (x Core..@? "ManualSnapshotRetentionPeriod")
-      Prelude.<*> (x Core..@? "MasterUsername")
-      Prelude.<*> (x Core..@? "SourceRegion")
-      Prelude.<*> (x Core..@? "CurrentBackupRateInMegaBytesPerSecond")
-      Prelude.<*> (x Core..@? "EngineFullVersion")
-      Prelude.<*> (x Core..@? "SnapshotIdentifier")
-      Prelude.<*> ( x Core..@? "RestorableNodeTypes"
+      Prelude.<*> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "ClusterIdentifier")
+      Prelude.<*> (x Data..@? "ManualSnapshotRemainingDays")
+      Prelude.<*> (x Data..@? "ManualSnapshotRetentionPeriod")
+      Prelude.<*> (x Data..@? "MasterUsername")
+      Prelude.<*> (x Data..@? "SourceRegion")
+      Prelude.<*> (x Data..@? "CurrentBackupRateInMegaBytesPerSecond")
+      Prelude.<*> (x Data..@? "EngineFullVersion")
+      Prelude.<*> (x Data..@? "SnapshotIdentifier")
+      Prelude.<*> ( x Data..@? "RestorableNodeTypes"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "NodeType")
+                      Prelude.>>= Core.may (Data.parseXMLList "NodeType")
                   )
-      Prelude.<*> (x Core..@? "ClusterVersion")
-      Prelude.<*> (x Core..@? "MaintenanceTrackName")
-      Prelude.<*> (x Core..@? "EncryptedWithHSM")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
-      Prelude.<*> (x Core..@? "SnapshotRetentionStartTime")
-      Prelude.<*> (x Core..@? "AvailabilityZone")
-      Prelude.<*> (x Core..@? "SnapshotCreateTime")
-      Prelude.<*> (x Core..@? "NodeType")
-      Prelude.<*> (x Core..@? "Encrypted")
-      Prelude.<*> (x Core..@? "EstimatedSecondsToCompletion")
-      Prelude.<*> (x Core..@? "NumberOfNodes")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "EnhancedVpcRouting")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> (x Core..@? "TotalBackupSizeInMegaBytes")
-      Prelude.<*> ( x Core..@? "AccountsWithRestoreAccess"
+      Prelude.<*> (x Data..@? "ClusterVersion")
+      Prelude.<*> (x Data..@? "MaintenanceTrackName")
+      Prelude.<*> (x Data..@? "EncryptedWithHSM")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "ElapsedTimeInSeconds")
+      Prelude.<*> (x Data..@? "SnapshotRetentionStartTime")
+      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@? "SnapshotCreateTime")
+      Prelude.<*> (x Data..@? "NodeType")
+      Prelude.<*> (x Data..@? "Encrypted")
+      Prelude.<*> (x Data..@? "EstimatedSecondsToCompletion")
+      Prelude.<*> (x Data..@? "NumberOfNodes")
+      Prelude.<*> (x Data..@? "KmsKeyId")
+      Prelude.<*> (x Data..@? "EnhancedVpcRouting")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "TotalBackupSizeInMegaBytes")
+      Prelude.<*> ( x Data..@? "AccountsWithRestoreAccess"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "AccountWithRestoreAccess")
+                        (Data.parseXMLList "AccountWithRestoreAccess")
                   )
-      Prelude.<*> (x Core..@? "OwnerAccount")
-      Prelude.<*> (x Core..@? "ClusterCreateTime")
-      Prelude.<*> (x Core..@? "BackupProgressInMegaBytes")
-      Prelude.<*> (x Core..@? "DBName")
-      Prelude.<*> (x Core..@? "ActualIncrementalBackupSizeInMegaBytes")
-      Prelude.<*> (x Core..@? "SnapshotType")
+      Prelude.<*> (x Data..@? "OwnerAccount")
+      Prelude.<*> (x Data..@? "ClusterCreateTime")
+      Prelude.<*> (x Data..@? "BackupProgressInMegaBytes")
+      Prelude.<*> (x Data..@? "DBName")
+      Prelude.<*> (x Data..@? "ActualIncrementalBackupSizeInMegaBytes")
+      Prelude.<*> (x Data..@? "SnapshotType")
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =

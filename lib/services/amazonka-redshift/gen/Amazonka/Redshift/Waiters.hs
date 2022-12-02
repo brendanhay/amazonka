@@ -18,6 +18,7 @@ module Amazonka.Redshift.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.DescribeClusterSnapshots
 import Amazonka.Redshift.DescribeClusters
@@ -43,7 +44,7 @@ newClusterAvailable =
                 )
                 Prelude.. cluster_clusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -56,7 +57,7 @@ newClusterAvailable =
                 )
                 Prelude.. cluster_clusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchError "ClusterNotFound" Core.AcceptRetry
         ]
@@ -83,7 +84,7 @@ newClusterRestored =
                 Prelude.. Lens._Just
                 Prelude.. restoreStatus_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleting"
@@ -96,7 +97,7 @@ newClusterRestored =
                 )
                 Prelude.. cluster_clusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -123,7 +124,7 @@ newClusterDeleted =
                 )
                 Prelude.. cluster_clusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "modifying"
@@ -136,7 +137,7 @@ newClusterDeleted =
                 )
                 Prelude.. cluster_clusterStatus
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -160,7 +161,7 @@ newSnapshotAvailable =
                 )
                 Prelude.. snapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "failed"
@@ -173,7 +174,7 @@ newSnapshotAvailable =
                 )
                 Prelude.. snapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "deleted"
@@ -186,7 +187,7 @@ newSnapshotAvailable =
                 )
                 Prelude.. snapshot_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

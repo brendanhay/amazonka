@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.EventSubscription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Tag
@@ -38,7 +39,7 @@ data EventSubscription = EventSubscription'
     severity :: Prelude.Maybe Prelude.Text,
     -- | The date and time the Amazon Redshift event notification subscription
     -- was created.
-    subscriptionCreationTime :: Prelude.Maybe Core.ISO8601,
+    subscriptionCreationTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the Amazon Redshift event notification subscription.
     custSubscriptionId :: Prelude.Maybe Prelude.Text,
     -- | A list of the sources that publish events to the Amazon Redshift event
@@ -160,7 +161,7 @@ eventSubscription_severity = Lens.lens (\EventSubscription' {severity} -> severi
 -- | The date and time the Amazon Redshift event notification subscription
 -- was created.
 eventSubscription_subscriptionCreationTime :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.UTCTime)
-eventSubscription_subscriptionCreationTime = Lens.lens (\EventSubscription' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@EventSubscription' {} a -> s {subscriptionCreationTime = a} :: EventSubscription) Prelude.. Lens.mapping Core._Time
+eventSubscription_subscriptionCreationTime = Lens.lens (\EventSubscription' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@EventSubscription' {} a -> s {subscriptionCreationTime = a} :: EventSubscription) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Amazon Redshift event notification subscription.
 eventSubscription_custSubscriptionId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
@@ -213,27 +214,27 @@ eventSubscription_eventCategoriesList = Lens.lens (\EventSubscription' {eventCat
 eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
 
-instance Core.FromXML EventSubscription where
+instance Data.FromXML EventSubscription where
   parseXML x =
     EventSubscription'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Tag")
+      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "Severity")
-      Prelude.<*> (x Core..@? "SubscriptionCreationTime")
-      Prelude.<*> (x Core..@? "CustSubscriptionId")
-      Prelude.<*> ( x Core..@? "SourceIdsList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "SourceId")
+      Prelude.<*> (x Data..@? "Severity")
+      Prelude.<*> (x Data..@? "SubscriptionCreationTime")
+      Prelude.<*> (x Data..@? "CustSubscriptionId")
+      Prelude.<*> ( x Data..@? "SourceIdsList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "SourceId")
                   )
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "SourceType")
-      Prelude.<*> (x Core..@? "Enabled")
-      Prelude.<*> (x Core..@? "SnsTopicArn")
-      Prelude.<*> ( x Core..@? "EventCategoriesList"
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "SourceType")
+      Prelude.<*> (x Data..@? "Enabled")
+      Prelude.<*> (x Data..@? "SnsTopicArn")
+      Prelude.<*> ( x Data..@? "EventCategoriesList"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
+                      Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
-      Prelude.<*> (x Core..@? "CustomerAwsId")
+      Prelude.<*> (x Data..@? "CustomerAwsId")
 
 instance Prelude.Hashable EventSubscription where
   hashWithSalt _salt EventSubscription' {..} =

@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -135,7 +136,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
     --
     -- Example: @2012-07-16T18:00:00Z@
-    endTime :: Prelude.Maybe Core.ISO8601,
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -158,7 +159,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
     --
     -- Example: @2012-07-16T18:00:00Z@
-    startTime :: Prelude.Maybe Core.ISO8601,
+    startTime :: Prelude.Maybe Data.ISO8601,
     -- | The type of snapshots for which you are requesting information. By
     -- default, snapshots of all types are returned.
     --
@@ -347,7 +348,7 @@ describeClusterSnapshots_snapshotIdentifier = Lens.lens (\DescribeClusterSnapsho
 --
 -- Example: @2012-07-16T18:00:00Z@
 describeClusterSnapshots_endTime :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.UTCTime)
-describeClusterSnapshots_endTime = Lens.lens (\DescribeClusterSnapshots' {endTime} -> endTime) (\s@DescribeClusterSnapshots' {} a -> s {endTime = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Core._Time
+describeClusterSnapshots_endTime = Lens.lens (\DescribeClusterSnapshots' {endTime} -> endTime) (\s@DescribeClusterSnapshots' {} a -> s {endTime = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -379,7 +380,7 @@ describeClusterSnapshots_sortingEntities = Lens.lens (\DescribeClusterSnapshots'
 --
 -- Example: @2012-07-16T18:00:00Z@
 describeClusterSnapshots_startTime :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.UTCTime)
-describeClusterSnapshots_startTime = Lens.lens (\DescribeClusterSnapshots' {startTime} -> startTime) (\s@DescribeClusterSnapshots' {} a -> s {startTime = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Core._Time
+describeClusterSnapshots_startTime = Lens.lens (\DescribeClusterSnapshots' {startTime} -> startTime) (\s@DescribeClusterSnapshots' {} a -> s {startTime = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Data._Time
 
 -- | The type of snapshots for which you are requesting information. By
 -- default, snapshots of all types are returned.
@@ -421,9 +422,9 @@ instance Core.AWSRequest DescribeClusterSnapshots where
       "DescribeClusterSnapshotsResult"
       ( \s h x ->
           DescribeClusterSnapshotsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "Snapshots" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "Snapshot")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "Snapshots" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "Snapshot")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -460,40 +461,40 @@ instance Prelude.NFData DescribeClusterSnapshots where
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf snapshotType
 
-instance Core.ToHeaders DescribeClusterSnapshots where
+instance Data.ToHeaders DescribeClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClusterSnapshots where
+instance Data.ToPath DescribeClusterSnapshots where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClusterSnapshots where
+instance Data.ToQuery DescribeClusterSnapshots where
   toQuery DescribeClusterSnapshots' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusterSnapshots" :: Prelude.ByteString),
+          Data.=: ("DescribeClusterSnapshots" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
         "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Core.=: marker,
-        "ClusterExists" Core.=: clusterExists,
-        "SnapshotArn" Core.=: snapshotArn,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Data.=: marker,
+        "ClusterExists" Data.=: clusterExists,
+        "SnapshotArn" Data.=: snapshotArn,
         "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "SnapshotIdentifier" Core.=: snapshotIdentifier,
-        "EndTime" Core.=: endTime,
-        "MaxRecords" Core.=: maxRecords,
-        "OwnerAccount" Core.=: ownerAccount,
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
+        "EndTime" Data.=: endTime,
+        "MaxRecords" Data.=: maxRecords,
+        "OwnerAccount" Data.=: ownerAccount,
         "SortingEntities"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "SnapshotSortingEntity"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "SnapshotSortingEntity"
                 Prelude.<$> sortingEntities
             ),
-        "StartTime" Core.=: startTime,
-        "SnapshotType" Core.=: snapshotType
+        "StartTime" Data.=: startTime,
+        "SnapshotType" Data.=: snapshotType
       ]
 
 -- | Contains the output from the DescribeClusterSnapshots action.

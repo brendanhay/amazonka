@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -218,10 +219,10 @@ instance Core.AWSRequest DescribeClusterVersions where
       "DescribeClusterVersionsResult"
       ( \s h x ->
           DescribeClusterVersionsResponse'
-            Prelude.<$> ( x Core..@? "ClusterVersions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ClusterVersion")
+            Prelude.<$> ( x Data..@? "ClusterVersions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "ClusterVersion")
                         )
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,24 +240,24 @@ instance Prelude.NFData DescribeClusterVersions where
       `Prelude.seq` Prelude.rnf clusterParameterGroupFamily
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeClusterVersions where
+instance Data.ToHeaders DescribeClusterVersions where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeClusterVersions where
+instance Data.ToPath DescribeClusterVersions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeClusterVersions where
+instance Data.ToQuery DescribeClusterVersions where
   toQuery DescribeClusterVersions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeClusterVersions" :: Prelude.ByteString),
+          Data.=: ("DescribeClusterVersions" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "ClusterVersion" Core.=: clusterVersion,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "ClusterVersion" Data.=: clusterVersion,
         "ClusterParameterGroupFamily"
-          Core.=: clusterParameterGroupFamily,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: clusterParameterGroupFamily,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeClusterVersions action.

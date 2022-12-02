@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -102,7 +103,7 @@ instance Core.AWSRequest ModifyAquaConfiguration where
       "ModifyAquaConfigurationResult"
       ( \s h x ->
           ModifyAquaConfigurationResponse'
-            Prelude.<$> (x Core..@? "AquaConfiguration")
+            Prelude.<$> (x Data..@? "AquaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,22 +118,22 @@ instance Prelude.NFData ModifyAquaConfiguration where
     Prelude.rnf aquaConfigurationStatus
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders ModifyAquaConfiguration where
+instance Data.ToHeaders ModifyAquaConfiguration where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyAquaConfiguration where
+instance Data.ToPath ModifyAquaConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyAquaConfiguration where
+instance Data.ToQuery ModifyAquaConfiguration where
   toQuery ModifyAquaConfiguration' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyAquaConfiguration" :: Prelude.ByteString),
+          Data.=: ("ModifyAquaConfiguration" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "AquaConfigurationStatus"
-          Core.=: aquaConfigurationStatus,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: aquaConfigurationStatus,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newModifyAquaConfigurationResponse' smart constructor.

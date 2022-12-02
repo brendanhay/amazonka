@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.AuthenticationProfile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -66,11 +67,11 @@ authenticationProfile_authenticationProfileName = Lens.lens (\AuthenticationProf
 authenticationProfile_authenticationProfileContent :: Lens.Lens' AuthenticationProfile (Prelude.Maybe Prelude.Text)
 authenticationProfile_authenticationProfileContent = Lens.lens (\AuthenticationProfile' {authenticationProfileContent} -> authenticationProfileContent) (\s@AuthenticationProfile' {} a -> s {authenticationProfileContent = a} :: AuthenticationProfile)
 
-instance Core.FromXML AuthenticationProfile where
+instance Data.FromXML AuthenticationProfile where
   parseXML x =
     AuthenticationProfile'
-      Prelude.<$> (x Core..@? "AuthenticationProfileName")
-      Prelude.<*> (x Core..@? "AuthenticationProfileContent")
+      Prelude.<$> (x Data..@? "AuthenticationProfileName")
+      Prelude.<*> (x Data..@? "AuthenticationProfileContent")
 
 instance Prelude.Hashable AuthenticationProfile where
   hashWithSalt _salt AuthenticationProfile' {..} =

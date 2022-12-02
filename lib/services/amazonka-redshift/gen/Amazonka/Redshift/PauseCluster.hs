@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest PauseCluster where
       "PauseClusterResult"
       ( \s h x ->
           PauseClusterResponse'
-            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<$> (x Data..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,20 +100,20 @@ instance Prelude.Hashable PauseCluster where
 instance Prelude.NFData PauseCluster where
   rnf PauseCluster' {..} = Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders PauseCluster where
+instance Data.ToHeaders PauseCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath PauseCluster where
+instance Data.ToPath PauseCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PauseCluster where
+instance Data.ToQuery PauseCluster where
   toQuery PauseCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("PauseCluster" :: Prelude.ByteString),
+          Data.=: ("PauseCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newPauseClusterResponse' smart constructor.

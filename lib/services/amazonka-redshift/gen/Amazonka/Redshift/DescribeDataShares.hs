@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -157,9 +158,9 @@ instance Core.AWSRequest DescribeDataShares where
       "DescribeDataSharesResult"
       ( \s h x ->
           DescribeDataSharesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DataShares" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DataShares" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -176,22 +177,22 @@ instance Prelude.NFData DescribeDataShares where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dataShareArn
 
-instance Core.ToHeaders DescribeDataShares where
+instance Data.ToHeaders DescribeDataShares where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDataShares where
+instance Data.ToPath DescribeDataShares where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDataShares where
+instance Data.ToQuery DescribeDataShares where
   toQuery DescribeDataShares' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDataShares" :: Prelude.ByteString),
+          Data.=: ("DescribeDataShares" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
-        "DataShareArn" Core.=: dataShareArn
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "DataShareArn" Data.=: dataShareArn
       ]
 
 -- | /See:/ 'newDescribeDataSharesResponse' smart constructor.

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -112,7 +113,7 @@ instance Core.AWSRequest AuthorizeEndpointAccess where
   response =
     Response.receiveXMLWrapper
       "AuthorizeEndpointAccessResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable AuthorizeEndpointAccess where
   hashWithSalt _salt AuthorizeEndpointAccess' {..} =
@@ -126,24 +127,24 @@ instance Prelude.NFData AuthorizeEndpointAccess where
       `Prelude.seq` Prelude.rnf vpcIds
       `Prelude.seq` Prelude.rnf account
 
-instance Core.ToHeaders AuthorizeEndpointAccess where
+instance Data.ToHeaders AuthorizeEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AuthorizeEndpointAccess where
+instance Data.ToPath AuthorizeEndpointAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AuthorizeEndpointAccess where
+instance Data.ToQuery AuthorizeEndpointAccess where
   toQuery AuthorizeEndpointAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AuthorizeEndpointAccess" :: Prelude.ByteString),
+          Data.=: ("AuthorizeEndpointAccess" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
         "VpcIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcIdentifier"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcIdentifier"
                 Prelude.<$> vpcIds
             ),
-        "Account" Core.=: account
+        "Account" Data.=: account
       ]

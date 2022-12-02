@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.PendingModifiedValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -182,20 +183,20 @@ pendingModifiedValues_clusterType = Lens.lens (\PendingModifiedValues' {clusterT
 pendingModifiedValues_automatedSnapshotRetentionPeriod :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
 pendingModifiedValues_automatedSnapshotRetentionPeriod = Lens.lens (\PendingModifiedValues' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@PendingModifiedValues' {} a -> s {automatedSnapshotRetentionPeriod = a} :: PendingModifiedValues)
 
-instance Core.FromXML PendingModifiedValues where
+instance Data.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
-      Prelude.<$> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "ClusterVersion")
-      Prelude.<*> (x Core..@? "MaintenanceTrackName")
-      Prelude.<*> (x Core..@? "MasterUserPassword")
-      Prelude.<*> (x Core..@? "NodeType")
-      Prelude.<*> (x Core..@? "PubliclyAccessible")
-      Prelude.<*> (x Core..@? "EncryptionType")
-      Prelude.<*> (x Core..@? "NumberOfNodes")
-      Prelude.<*> (x Core..@? "EnhancedVpcRouting")
-      Prelude.<*> (x Core..@? "ClusterType")
-      Prelude.<*> (x Core..@? "AutomatedSnapshotRetentionPeriod")
+      Prelude.<$> (x Data..@? "ClusterIdentifier")
+      Prelude.<*> (x Data..@? "ClusterVersion")
+      Prelude.<*> (x Data..@? "MaintenanceTrackName")
+      Prelude.<*> (x Data..@? "MasterUserPassword")
+      Prelude.<*> (x Data..@? "NodeType")
+      Prelude.<*> (x Data..@? "PubliclyAccessible")
+      Prelude.<*> (x Data..@? "EncryptionType")
+      Prelude.<*> (x Data..@? "NumberOfNodes")
+      Prelude.<*> (x Data..@? "EnhancedVpcRouting")
+      Prelude.<*> (x Data..@? "ClusterType")
+      Prelude.<*> (x Data..@? "AutomatedSnapshotRetentionPeriod")
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =

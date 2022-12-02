@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.HsmStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -89,12 +90,12 @@ hsmStatus_hsmClientCertificateIdentifier = Lens.lens (\HsmStatus' {hsmClientCert
 hsmStatus_hsmConfigurationIdentifier :: Lens.Lens' HsmStatus (Prelude.Maybe Prelude.Text)
 hsmStatus_hsmConfigurationIdentifier = Lens.lens (\HsmStatus' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@HsmStatus' {} a -> s {hsmConfigurationIdentifier = a} :: HsmStatus)
 
-instance Core.FromXML HsmStatus where
+instance Data.FromXML HsmStatus where
   parseXML x =
     HsmStatus'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "HsmClientCertificateIdentifier")
-      Prelude.<*> (x Core..@? "HsmConfigurationIdentifier")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "HsmClientCertificateIdentifier")
+      Prelude.<*> (x Data..@? "HsmConfigurationIdentifier")
 
 instance Prelude.Hashable HsmStatus where
   hashWithSalt _salt HsmStatus' {..} =

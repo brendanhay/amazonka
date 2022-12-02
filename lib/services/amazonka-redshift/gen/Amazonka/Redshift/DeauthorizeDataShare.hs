@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -110,7 +111,7 @@ instance Core.AWSRequest DeauthorizeDataShare where
   response =
     Response.receiveXMLWrapper
       "DeauthorizeDataShareResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable DeauthorizeDataShare where
   hashWithSalt _salt DeauthorizeDataShare' {..} =
@@ -122,19 +123,19 @@ instance Prelude.NFData DeauthorizeDataShare where
     Prelude.rnf dataShareArn
       `Prelude.seq` Prelude.rnf consumerIdentifier
 
-instance Core.ToHeaders DeauthorizeDataShare where
+instance Data.ToHeaders DeauthorizeDataShare where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeauthorizeDataShare where
+instance Data.ToPath DeauthorizeDataShare where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeauthorizeDataShare where
+instance Data.ToQuery DeauthorizeDataShare where
   toQuery DeauthorizeDataShare' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeauthorizeDataShare" :: Prelude.ByteString),
+          Data.=: ("DeauthorizeDataShare" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "DataShareArn" Core.=: dataShareArn,
-        "ConsumerIdentifier" Core.=: consumerIdentifier
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "DataShareArn" Data.=: dataShareArn,
+        "ConsumerIdentifier" Data.=: consumerIdentifier
       ]

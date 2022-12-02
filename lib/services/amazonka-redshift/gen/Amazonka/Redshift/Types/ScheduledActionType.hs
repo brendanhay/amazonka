@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ScheduledActionType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.PauseClusterMessage
@@ -76,12 +77,12 @@ scheduledActionType_resumeCluster = Lens.lens (\ScheduledActionType' {resumeClus
 scheduledActionType_pauseCluster :: Lens.Lens' ScheduledActionType (Prelude.Maybe PauseClusterMessage)
 scheduledActionType_pauseCluster = Lens.lens (\ScheduledActionType' {pauseCluster} -> pauseCluster) (\s@ScheduledActionType' {} a -> s {pauseCluster = a} :: ScheduledActionType)
 
-instance Core.FromXML ScheduledActionType where
+instance Data.FromXML ScheduledActionType where
   parseXML x =
     ScheduledActionType'
-      Prelude.<$> (x Core..@? "ResizeCluster")
-      Prelude.<*> (x Core..@? "ResumeCluster")
-      Prelude.<*> (x Core..@? "PauseCluster")
+      Prelude.<$> (x Data..@? "ResizeCluster")
+      Prelude.<*> (x Data..@? "ResumeCluster")
+      Prelude.<*> (x Data..@? "PauseCluster")
 
 instance Prelude.Hashable ScheduledActionType where
   hashWithSalt _salt ScheduledActionType' {..} =
@@ -95,10 +96,10 @@ instance Prelude.NFData ScheduledActionType where
       `Prelude.seq` Prelude.rnf resumeCluster
       `Prelude.seq` Prelude.rnf pauseCluster
 
-instance Core.ToQuery ScheduledActionType where
+instance Data.ToQuery ScheduledActionType where
   toQuery ScheduledActionType' {..} =
     Prelude.mconcat
-      [ "ResizeCluster" Core.=: resizeCluster,
-        "ResumeCluster" Core.=: resumeCluster,
-        "PauseCluster" Core.=: pauseCluster
+      [ "ResizeCluster" Data.=: resizeCluster,
+        "ResumeCluster" Data.=: resumeCluster,
+        "PauseCluster" Data.=: pauseCluster
       ]

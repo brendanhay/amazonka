@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -114,7 +115,7 @@ instance Core.AWSRequest ModifyClusterSubnetGroup where
       "ModifyClusterSubnetGroupResult"
       ( \s h x ->
           ModifyClusterSubnetGroupResponse'
-            Prelude.<$> (x Core..@? "ClusterSubnetGroup")
+            Prelude.<$> (x Data..@? "ClusterSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,24 +131,24 @@ instance Prelude.NFData ModifyClusterSubnetGroup where
       `Prelude.seq` Prelude.rnf clusterSubnetGroupName
       `Prelude.seq` Prelude.rnf subnetIds
 
-instance Core.ToHeaders ModifyClusterSubnetGroup where
+instance Data.ToHeaders ModifyClusterSubnetGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyClusterSubnetGroup where
+instance Data.ToPath ModifyClusterSubnetGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyClusterSubnetGroup where
+instance Data.ToQuery ModifyClusterSubnetGroup where
   toQuery ModifyClusterSubnetGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyClusterSubnetGroup" :: Prelude.ByteString),
+          Data.=: ("ModifyClusterSubnetGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Description" Core.=: description,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Description" Data.=: description,
         "ClusterSubnetGroupName"
-          Core.=: clusterSubnetGroupName,
+          Data.=: clusterSubnetGroupName,
         "SubnetIds"
-          Core.=: Core.toQueryList "SubnetIdentifier" subnetIds
+          Data.=: Data.toQueryList "SubnetIdentifier" subnetIds
       ]
 
 -- | /See:/ 'newModifyClusterSubnetGroupResponse' smart constructor.

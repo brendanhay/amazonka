@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -146,7 +147,7 @@ instance Core.AWSRequest AuthorizeSnapshotAccess where
       "AuthorizeSnapshotAccessResult"
       ( \s h x ->
           AuthorizeSnapshotAccessResponse'
-            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<$> (x Data..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,25 +165,25 @@ instance Prelude.NFData AuthorizeSnapshotAccess where
       `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
       `Prelude.seq` Prelude.rnf accountWithRestoreAccess
 
-instance Core.ToHeaders AuthorizeSnapshotAccess where
+instance Data.ToHeaders AuthorizeSnapshotAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AuthorizeSnapshotAccess where
+instance Data.ToPath AuthorizeSnapshotAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AuthorizeSnapshotAccess where
+instance Data.ToQuery AuthorizeSnapshotAccess where
   toQuery AuthorizeSnapshotAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AuthorizeSnapshotAccess" :: Prelude.ByteString),
+          Data.=: ("AuthorizeSnapshotAccess" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "SnapshotArn" Core.=: snapshotArn,
-        "SnapshotIdentifier" Core.=: snapshotIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "SnapshotArn" Data.=: snapshotArn,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "SnapshotClusterIdentifier"
-          Core.=: snapshotClusterIdentifier,
+          Data.=: snapshotClusterIdentifier,
         "AccountWithRestoreAccess"
-          Core.=: accountWithRestoreAccess
+          Data.=: accountWithRestoreAccess
       ]
 
 -- | /See:/ 'newAuthorizeSnapshotAccessResponse' smart constructor.

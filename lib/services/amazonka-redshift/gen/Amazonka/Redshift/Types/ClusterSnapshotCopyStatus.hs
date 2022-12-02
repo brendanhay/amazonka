@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.ClusterSnapshotCopyStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -100,13 +101,13 @@ clusterSnapshotCopyStatus_retentionPeriod = Lens.lens (\ClusterSnapshotCopyStatu
 clusterSnapshotCopyStatus_destinationRegion :: Lens.Lens' ClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Text)
 clusterSnapshotCopyStatus_destinationRegion = Lens.lens (\ClusterSnapshotCopyStatus' {destinationRegion} -> destinationRegion) (\s@ClusterSnapshotCopyStatus' {} a -> s {destinationRegion = a} :: ClusterSnapshotCopyStatus)
 
-instance Core.FromXML ClusterSnapshotCopyStatus where
+instance Data.FromXML ClusterSnapshotCopyStatus where
   parseXML x =
     ClusterSnapshotCopyStatus'
-      Prelude.<$> (x Core..@? "ManualSnapshotRetentionPeriod")
-      Prelude.<*> (x Core..@? "SnapshotCopyGrantName")
-      Prelude.<*> (x Core..@? "RetentionPeriod")
-      Prelude.<*> (x Core..@? "DestinationRegion")
+      Prelude.<$> (x Data..@? "ManualSnapshotRetentionPeriod")
+      Prelude.<*> (x Data..@? "SnapshotCopyGrantName")
+      Prelude.<*> (x Data..@? "RetentionPeriod")
+      Prelude.<*> (x Data..@? "DestinationRegion")
 
 instance Prelude.Hashable ClusterSnapshotCopyStatus where
   hashWithSalt _salt ClusterSnapshotCopyStatus' {..} =

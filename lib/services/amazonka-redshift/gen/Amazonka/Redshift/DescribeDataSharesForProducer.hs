@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -180,9 +181,9 @@ instance
       "DescribeDataSharesForProducerResult"
       ( \s h x ->
           DescribeDataSharesForProducerResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DataShares" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DataShares" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -204,25 +205,25 @@ instance Prelude.NFData DescribeDataSharesForProducer where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf producerArn
 
-instance Core.ToHeaders DescribeDataSharesForProducer where
+instance Data.ToHeaders DescribeDataSharesForProducer where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDataSharesForProducer where
+instance Data.ToPath DescribeDataSharesForProducer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDataSharesForProducer where
+instance Data.ToQuery DescribeDataSharesForProducer where
   toQuery DescribeDataSharesForProducer' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribeDataSharesForProducer" ::
+          Data.=: ( "DescribeDataSharesForProducer" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "Status" Core.=: status,
-        "MaxRecords" Core.=: maxRecords,
-        "ProducerArn" Core.=: producerArn
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "Status" Data.=: status,
+        "MaxRecords" Data.=: maxRecords,
+        "ProducerArn" Data.=: producerArn
       ]
 
 -- | /See:/ 'newDescribeDataSharesForProducerResponse' smart constructor.

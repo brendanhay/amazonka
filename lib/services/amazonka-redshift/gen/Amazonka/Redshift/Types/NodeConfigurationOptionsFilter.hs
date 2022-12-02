@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.NodeConfigurationOptionsFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.NodeConfigurationOptionsFilterName
@@ -112,12 +113,12 @@ instance
       `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToQuery NodeConfigurationOptionsFilter where
+instance Data.ToQuery NodeConfigurationOptionsFilter where
   toQuery NodeConfigurationOptionsFilter' {..} =
     Prelude.mconcat
-      [ "Name" Core.=: name,
-        "Operator" Core.=: operator,
+      [ "Name" Data.=: name,
+        "Operator" Data.=: operator,
         "Value"
-          Core.=: Core.toQuery
-            (Core.toQueryList "item" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "item" Prelude.<$> values)
       ]

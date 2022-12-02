@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.LoggingStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.LogDestinationType
@@ -30,7 +31,7 @@ import Amazonka.Redshift.Types.LogDestinationType
 -- /See:/ 'newLoggingStatus' smart constructor.
 data LoggingStatus = LoggingStatus'
   { -- | The last time that logs were delivered.
-    lastSuccessfulDeliveryTime :: Prelude.Maybe Core.ISO8601,
+    lastSuccessfulDeliveryTime :: Prelude.Maybe Data.ISO8601,
     -- | The prefix applied to the log file names.
     s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The message indicating that logs failed to be delivered.
@@ -43,7 +44,7 @@ data LoggingStatus = LoggingStatus'
     -- | The name of the S3 bucket where the log files are stored.
     bucketName :: Prelude.Maybe Prelude.Text,
     -- | The last time when logs failed to be delivered.
-    lastFailureTime :: Prelude.Maybe Core.ISO8601,
+    lastFailureTime :: Prelude.Maybe Data.ISO8601,
     -- | The log destination type. An enum with possible values of @s3@ and
     -- @cloudwatch@.
     logDestinationType :: Prelude.Maybe LogDestinationType
@@ -92,7 +93,7 @@ newLoggingStatus =
 
 -- | The last time that logs were delivered.
 loggingStatus_lastSuccessfulDeliveryTime :: Lens.Lens' LoggingStatus (Prelude.Maybe Prelude.UTCTime)
-loggingStatus_lastSuccessfulDeliveryTime = Lens.lens (\LoggingStatus' {lastSuccessfulDeliveryTime} -> lastSuccessfulDeliveryTime) (\s@LoggingStatus' {} a -> s {lastSuccessfulDeliveryTime = a} :: LoggingStatus) Prelude.. Lens.mapping Core._Time
+loggingStatus_lastSuccessfulDeliveryTime = Lens.lens (\LoggingStatus' {lastSuccessfulDeliveryTime} -> lastSuccessfulDeliveryTime) (\s@LoggingStatus' {} a -> s {lastSuccessfulDeliveryTime = a} :: LoggingStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The prefix applied to the log file names.
 loggingStatus_s3KeyPrefix :: Lens.Lens' LoggingStatus (Prelude.Maybe Prelude.Text)
@@ -117,26 +118,26 @@ loggingStatus_bucketName = Lens.lens (\LoggingStatus' {bucketName} -> bucketName
 
 -- | The last time when logs failed to be delivered.
 loggingStatus_lastFailureTime :: Lens.Lens' LoggingStatus (Prelude.Maybe Prelude.UTCTime)
-loggingStatus_lastFailureTime = Lens.lens (\LoggingStatus' {lastFailureTime} -> lastFailureTime) (\s@LoggingStatus' {} a -> s {lastFailureTime = a} :: LoggingStatus) Prelude.. Lens.mapping Core._Time
+loggingStatus_lastFailureTime = Lens.lens (\LoggingStatus' {lastFailureTime} -> lastFailureTime) (\s@LoggingStatus' {} a -> s {lastFailureTime = a} :: LoggingStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The log destination type. An enum with possible values of @s3@ and
 -- @cloudwatch@.
 loggingStatus_logDestinationType :: Lens.Lens' LoggingStatus (Prelude.Maybe LogDestinationType)
 loggingStatus_logDestinationType = Lens.lens (\LoggingStatus' {logDestinationType} -> logDestinationType) (\s@LoggingStatus' {} a -> s {logDestinationType = a} :: LoggingStatus)
 
-instance Core.FromXML LoggingStatus where
+instance Data.FromXML LoggingStatus where
   parseXML x =
     LoggingStatus'
-      Prelude.<$> (x Core..@? "LastSuccessfulDeliveryTime")
-      Prelude.<*> (x Core..@? "S3KeyPrefix")
-      Prelude.<*> (x Core..@? "LastFailureMessage")
-      Prelude.<*> (x Core..@? "LoggingEnabled")
-      Prelude.<*> ( x Core..@? "LogExports" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> (x Data..@? "LastSuccessfulDeliveryTime")
+      Prelude.<*> (x Data..@? "S3KeyPrefix")
+      Prelude.<*> (x Data..@? "LastFailureMessage")
+      Prelude.<*> (x Data..@? "LoggingEnabled")
+      Prelude.<*> ( x Data..@? "LogExports" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "BucketName")
-      Prelude.<*> (x Core..@? "LastFailureTime")
-      Prelude.<*> (x Core..@? "LogDestinationType")
+      Prelude.<*> (x Data..@? "BucketName")
+      Prelude.<*> (x Data..@? "LastFailureTime")
+      Prelude.<*> (x Data..@? "LogDestinationType")
 
 instance Prelude.Hashable LoggingStatus where
   hashWithSalt _salt LoggingStatus' {..} =

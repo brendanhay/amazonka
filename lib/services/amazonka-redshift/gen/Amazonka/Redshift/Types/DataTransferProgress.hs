@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.DataTransferProgress where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -109,15 +110,15 @@ dataTransferProgress_elapsedTimeInSeconds = Lens.lens (\DataTransferProgress' {e
 dataTransferProgress_estimatedTimeToCompletionInSeconds :: Lens.Lens' DataTransferProgress (Prelude.Maybe Prelude.Integer)
 dataTransferProgress_estimatedTimeToCompletionInSeconds = Lens.lens (\DataTransferProgress' {estimatedTimeToCompletionInSeconds} -> estimatedTimeToCompletionInSeconds) (\s@DataTransferProgress' {} a -> s {estimatedTimeToCompletionInSeconds = a} :: DataTransferProgress)
 
-instance Core.FromXML DataTransferProgress where
+instance Data.FromXML DataTransferProgress where
   parseXML x =
     DataTransferProgress'
-      Prelude.<$> (x Core..@? "TotalDataInMegaBytes")
-      Prelude.<*> (x Core..@? "CurrentRateInMegaBytesPerSecond")
-      Prelude.<*> (x Core..@? "DataTransferredInMegaBytes")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
-      Prelude.<*> (x Core..@? "EstimatedTimeToCompletionInSeconds")
+      Prelude.<$> (x Data..@? "TotalDataInMegaBytes")
+      Prelude.<*> (x Data..@? "CurrentRateInMegaBytesPerSecond")
+      Prelude.<*> (x Data..@? "DataTransferredInMegaBytes")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "ElapsedTimeInSeconds")
+      Prelude.<*> (x Data..@? "EstimatedTimeToCompletionInSeconds")
 
 instance Prelude.Hashable DataTransferProgress where
   hashWithSalt _salt DataTransferProgress' {..} =

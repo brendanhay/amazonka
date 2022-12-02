@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -89,20 +90,20 @@ instance Prelude.NFData DeleteScheduledAction where
   rnf DeleteScheduledAction' {..} =
     Prelude.rnf scheduledActionName
 
-instance Core.ToHeaders DeleteScheduledAction where
+instance Data.ToHeaders DeleteScheduledAction where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteScheduledAction where
+instance Data.ToPath DeleteScheduledAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteScheduledAction where
+instance Data.ToQuery DeleteScheduledAction where
   toQuery DeleteScheduledAction' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteScheduledAction" :: Prelude.ByteString),
+          Data.=: ("DeleteScheduledAction" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ScheduledActionName" Core.=: scheduledActionName
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ScheduledActionName" Data.=: scheduledActionName
       ]
 
 -- | /See:/ 'newDeleteScheduledActionResponse' smart constructor.

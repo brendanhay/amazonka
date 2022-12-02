@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.TaggedResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.Tag
@@ -147,12 +148,12 @@ taggedResource_resourceName = Lens.lens (\TaggedResource' {resourceName} -> reso
 taggedResource_tag :: Lens.Lens' TaggedResource (Prelude.Maybe Tag)
 taggedResource_tag = Lens.lens (\TaggedResource' {tag} -> tag) (\s@TaggedResource' {} a -> s {tag = a} :: TaggedResource)
 
-instance Core.FromXML TaggedResource where
+instance Data.FromXML TaggedResource where
   parseXML x =
     TaggedResource'
-      Prelude.<$> (x Core..@? "ResourceType")
-      Prelude.<*> (x Core..@? "ResourceName")
-      Prelude.<*> (x Core..@? "Tag")
+      Prelude.<$> (x Data..@? "ResourceType")
+      Prelude.<*> (x Data..@? "ResourceName")
+      Prelude.<*> (x Data..@? "Tag")
 
 instance Prelude.Hashable TaggedResource where
   hashWithSalt _salt TaggedResource' {..} =

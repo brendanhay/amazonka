@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -170,10 +171,10 @@ instance Core.AWSRequest DescribeReservedNodes where
       "DescribeReservedNodesResult"
       ( \s h x ->
           DescribeReservedNodesResponse'
-            Prelude.<$> ( x Core..@? "ReservedNodes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "ReservedNode")
+            Prelude.<$> ( x Data..@? "ReservedNodes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "ReservedNode")
                         )
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,22 +190,22 @@ instance Prelude.NFData DescribeReservedNodes where
       `Prelude.seq` Prelude.rnf reservedNodeId
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeReservedNodes where
+instance Data.ToHeaders DescribeReservedNodes where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeReservedNodes where
+instance Data.ToPath DescribeReservedNodes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeReservedNodes where
+instance Data.ToQuery DescribeReservedNodes where
   toQuery DescribeReservedNodes' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeReservedNodes" :: Prelude.ByteString),
+          Data.=: ("DescribeReservedNodes" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "ReservedNodeId" Core.=: reservedNodeId,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "ReservedNodeId" Data.=: reservedNodeId,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- |

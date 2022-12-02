@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.TableRestoreStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.TableRestoreStatusType
@@ -44,7 +45,7 @@ data TableRestoreStatus = TableRestoreStatus'
     targetSchemaName :: Prelude.Maybe Prelude.Text,
     -- | The time that the table restore request was made, in Universal
     -- Coordinated Time (UTC).
-    requestTime :: Prelude.Maybe Core.ISO8601,
+    requestTime :: Prelude.Maybe Data.ISO8601,
     -- | The identifier of the snapshot that the table is being restored from.
     snapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the source database that contains the table being restored.
@@ -156,7 +157,7 @@ tableRestoreStatus_targetSchemaName = Lens.lens (\TableRestoreStatus' {targetSch
 -- | The time that the table restore request was made, in Universal
 -- Coordinated Time (UTC).
 tableRestoreStatus_requestTime :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.UTCTime)
-tableRestoreStatus_requestTime = Lens.lens (\TableRestoreStatus' {requestTime} -> requestTime) (\s@TableRestoreStatus' {} a -> s {requestTime = a} :: TableRestoreStatus) Prelude.. Lens.mapping Core._Time
+tableRestoreStatus_requestTime = Lens.lens (\TableRestoreStatus' {requestTime} -> requestTime) (\s@TableRestoreStatus' {} a -> s {requestTime = a} :: TableRestoreStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the snapshot that the table is being restored from.
 tableRestoreStatus_snapshotIdentifier :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
@@ -193,23 +194,23 @@ tableRestoreStatus_progressInMegaBytes = Lens.lens (\TableRestoreStatus' {progre
 tableRestoreStatus_sourceTableName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
 tableRestoreStatus_sourceTableName = Lens.lens (\TableRestoreStatus' {sourceTableName} -> sourceTableName) (\s@TableRestoreStatus' {} a -> s {sourceTableName = a} :: TableRestoreStatus)
 
-instance Core.FromXML TableRestoreStatus where
+instance Data.FromXML TableRestoreStatus where
   parseXML x =
     TableRestoreStatus'
-      Prelude.<$> (x Core..@? "TotalDataInMegaBytes")
-      Prelude.<*> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "NewTableName")
-      Prelude.<*> (x Core..@? "TargetSchemaName")
-      Prelude.<*> (x Core..@? "RequestTime")
-      Prelude.<*> (x Core..@? "SnapshotIdentifier")
-      Prelude.<*> (x Core..@? "SourceDatabaseName")
-      Prelude.<*> (x Core..@? "SourceSchemaName")
-      Prelude.<*> (x Core..@? "TableRestoreRequestId")
-      Prelude.<*> (x Core..@? "TargetDatabaseName")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ProgressInMegaBytes")
-      Prelude.<*> (x Core..@? "SourceTableName")
+      Prelude.<$> (x Data..@? "TotalDataInMegaBytes")
+      Prelude.<*> (x Data..@? "ClusterIdentifier")
+      Prelude.<*> (x Data..@? "Message")
+      Prelude.<*> (x Data..@? "NewTableName")
+      Prelude.<*> (x Data..@? "TargetSchemaName")
+      Prelude.<*> (x Data..@? "RequestTime")
+      Prelude.<*> (x Data..@? "SnapshotIdentifier")
+      Prelude.<*> (x Data..@? "SourceDatabaseName")
+      Prelude.<*> (x Data..@? "SourceSchemaName")
+      Prelude.<*> (x Data..@? "TableRestoreRequestId")
+      Prelude.<*> (x Data..@? "TargetDatabaseName")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "ProgressInMegaBytes")
+      Prelude.<*> (x Data..@? "SourceTableName")
 
 instance Prelude.Hashable TableRestoreStatus where
   hashWithSalt _salt TableRestoreStatus' {..} =

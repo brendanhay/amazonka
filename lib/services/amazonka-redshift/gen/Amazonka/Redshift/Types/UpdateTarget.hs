@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.UpdateTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.SupportedOperation
@@ -73,15 +74,15 @@ updateTarget_maintenanceTrackName = Lens.lens (\UpdateTarget' {maintenanceTrackN
 updateTarget_databaseVersion :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
 updateTarget_databaseVersion = Lens.lens (\UpdateTarget' {databaseVersion} -> databaseVersion) (\s@UpdateTarget' {} a -> s {databaseVersion = a} :: UpdateTarget)
 
-instance Core.FromXML UpdateTarget where
+instance Data.FromXML UpdateTarget where
   parseXML x =
     UpdateTarget'
-      Prelude.<$> ( x Core..@? "SupportedOperations"
+      Prelude.<$> ( x Data..@? "SupportedOperations"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "SupportedOperation")
+                      Prelude.>>= Core.may (Data.parseXMLList "SupportedOperation")
                   )
-      Prelude.<*> (x Core..@? "MaintenanceTrackName")
-      Prelude.<*> (x Core..@? "DatabaseVersion")
+      Prelude.<*> (x Data..@? "MaintenanceTrackName")
+      Prelude.<*> (x Data..@? "DatabaseVersion")
 
 instance Prelude.Hashable UpdateTarget where
   hashWithSalt _salt UpdateTarget' {..} =

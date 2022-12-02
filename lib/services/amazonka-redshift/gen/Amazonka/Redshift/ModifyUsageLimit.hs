@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -115,7 +116,7 @@ instance Core.AWSRequest ModifyUsageLimit where
   response =
     Response.receiveXMLWrapper
       "ModifyUsageLimitResult"
-      (\s h x -> Core.parseXML x)
+      (\s h x -> Data.parseXML x)
 
 instance Prelude.Hashable ModifyUsageLimit where
   hashWithSalt _salt ModifyUsageLimit' {..} =
@@ -129,20 +130,20 @@ instance Prelude.NFData ModifyUsageLimit where
       `Prelude.seq` Prelude.rnf amount
       `Prelude.seq` Prelude.rnf usageLimitId
 
-instance Core.ToHeaders ModifyUsageLimit where
+instance Data.ToHeaders ModifyUsageLimit where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyUsageLimit where
+instance Data.ToPath ModifyUsageLimit where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyUsageLimit where
+instance Data.ToQuery ModifyUsageLimit where
   toQuery ModifyUsageLimit' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyUsageLimit" :: Prelude.ByteString),
+          Data.=: ("ModifyUsageLimit" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "BreachAction" Core.=: breachAction,
-        "Amount" Core.=: amount,
-        "UsageLimitId" Core.=: usageLimitId
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "BreachAction" Data.=: breachAction,
+        "Amount" Data.=: amount,
+        "UsageLimitId" Data.=: usageLimitId
       ]

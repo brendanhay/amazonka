@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -106,8 +107,8 @@ instance Core.AWSRequest CreateAuthenticationProfile where
       "CreateAuthenticationProfileResult"
       ( \s h x ->
           CreateAuthenticationProfileResponse'
-            Prelude.<$> (x Core..@? "AuthenticationProfileName")
-            Prelude.<*> (x Core..@? "AuthenticationProfileContent")
+            Prelude.<$> (x Data..@? "AuthenticationProfileName")
+            Prelude.<*> (x Data..@? "AuthenticationProfileContent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,25 +123,25 @@ instance Prelude.NFData CreateAuthenticationProfile where
     Prelude.rnf authenticationProfileName
       `Prelude.seq` Prelude.rnf authenticationProfileContent
 
-instance Core.ToHeaders CreateAuthenticationProfile where
+instance Data.ToHeaders CreateAuthenticationProfile where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateAuthenticationProfile where
+instance Data.ToPath CreateAuthenticationProfile where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAuthenticationProfile where
+instance Data.ToQuery CreateAuthenticationProfile where
   toQuery CreateAuthenticationProfile' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "CreateAuthenticationProfile" ::
+          Data.=: ( "CreateAuthenticationProfile" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "AuthenticationProfileName"
-          Core.=: authenticationProfileName,
+          Data.=: authenticationProfileName,
         "AuthenticationProfileContent"
-          Core.=: authenticationProfileContent
+          Data.=: authenticationProfileContent
       ]
 
 -- | /See:/ 'newCreateAuthenticationProfileResponse' smart constructor.

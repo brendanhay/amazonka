@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -140,10 +141,10 @@ instance Core.AWSRequest GetClusterCredentialsWithIAM where
       "GetClusterCredentialsWithIAMResult"
       ( \s h x ->
           GetClusterCredentialsWithIAMResponse'
-            Prelude.<$> (x Core..@? "Expiration")
-            Prelude.<*> (x Core..@? "DbPassword")
-            Prelude.<*> (x Core..@? "NextRefreshTime")
-            Prelude.<*> (x Core..@? "DbUser")
+            Prelude.<$> (x Data..@? "Expiration")
+            Prelude.<*> (x Data..@? "DbPassword")
+            Prelude.<*> (x Data..@? "NextRefreshTime")
+            Prelude.<*> (x Data..@? "DbUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,35 +163,35 @@ instance Prelude.NFData GetClusterCredentialsWithIAM where
       `Prelude.seq` Prelude.rnf dbName
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders GetClusterCredentialsWithIAM where
+instance Data.ToHeaders GetClusterCredentialsWithIAM where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetClusterCredentialsWithIAM where
+instance Data.ToPath GetClusterCredentialsWithIAM where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetClusterCredentialsWithIAM where
+instance Data.ToQuery GetClusterCredentialsWithIAM where
   toQuery GetClusterCredentialsWithIAM' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetClusterCredentialsWithIAM" ::
+          Data.=: ( "GetClusterCredentialsWithIAM" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "DurationSeconds" Core.=: durationSeconds,
-        "DbName" Core.=: dbName,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "DurationSeconds" Data.=: durationSeconds,
+        "DbName" Data.=: dbName,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newGetClusterCredentialsWithIAMResponse' smart constructor.
 data GetClusterCredentialsWithIAMResponse = GetClusterCredentialsWithIAMResponse'
   { -- | The time (UTC) when the temporary password expires. After this
     -- timestamp, a log in with the temporary password fails.
-    expiration :: Prelude.Maybe Core.ISO8601,
+    expiration :: Prelude.Maybe Data.ISO8601,
     -- | A temporary password that you provide when you connect to a database.
-    dbPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    dbPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Reserved for future use.
-    nextRefreshTime :: Prelude.Maybe Core.ISO8601,
+    nextRefreshTime :: Prelude.Maybe Data.ISO8601,
     -- | A database user name that you provide when you connect to a database.
     -- The database user is mapped 1:1 to the source IAM identity.
     dbUser :: Prelude.Maybe Prelude.Text,
@@ -235,15 +236,15 @@ newGetClusterCredentialsWithIAMResponse pHttpStatus_ =
 -- | The time (UTC) when the temporary password expires. After this
 -- timestamp, a log in with the temporary password fails.
 getClusterCredentialsWithIAMResponse_expiration :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.UTCTime)
-getClusterCredentialsWithIAMResponse_expiration = Lens.lens (\GetClusterCredentialsWithIAMResponse' {expiration} -> expiration) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {expiration = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Core._Time
+getClusterCredentialsWithIAMResponse_expiration = Lens.lens (\GetClusterCredentialsWithIAMResponse' {expiration} -> expiration) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {expiration = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A temporary password that you provide when you connect to a database.
 getClusterCredentialsWithIAMResponse_dbPassword :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.Text)
-getClusterCredentialsWithIAMResponse_dbPassword = Lens.lens (\GetClusterCredentialsWithIAMResponse' {dbPassword} -> dbPassword) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {dbPassword = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Core._Sensitive
+getClusterCredentialsWithIAMResponse_dbPassword = Lens.lens (\GetClusterCredentialsWithIAMResponse' {dbPassword} -> dbPassword) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {dbPassword = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Reserved for future use.
 getClusterCredentialsWithIAMResponse_nextRefreshTime :: Lens.Lens' GetClusterCredentialsWithIAMResponse (Prelude.Maybe Prelude.UTCTime)
-getClusterCredentialsWithIAMResponse_nextRefreshTime = Lens.lens (\GetClusterCredentialsWithIAMResponse' {nextRefreshTime} -> nextRefreshTime) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {nextRefreshTime = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Core._Time
+getClusterCredentialsWithIAMResponse_nextRefreshTime = Lens.lens (\GetClusterCredentialsWithIAMResponse' {nextRefreshTime} -> nextRefreshTime) (\s@GetClusterCredentialsWithIAMResponse' {} a -> s {nextRefreshTime = a} :: GetClusterCredentialsWithIAMResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A database user name that you provide when you connect to a database.
 -- The database user is mapped 1:1 to the source IAM identity.

@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -228,7 +229,7 @@ instance Core.AWSRequest CopyClusterSnapshot where
       "CopyClusterSnapshotResult"
       ( \s h x ->
           CopyClusterSnapshotResponse'
-            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<$> (x Data..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -247,27 +248,27 @@ instance Prelude.NFData CopyClusterSnapshot where
       `Prelude.seq` Prelude.rnf sourceSnapshotIdentifier
       `Prelude.seq` Prelude.rnf targetSnapshotIdentifier
 
-instance Core.ToHeaders CopyClusterSnapshot where
+instance Data.ToHeaders CopyClusterSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CopyClusterSnapshot where
+instance Data.ToPath CopyClusterSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CopyClusterSnapshot where
+instance Data.ToQuery CopyClusterSnapshot where
   toQuery CopyClusterSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CopyClusterSnapshot" :: Prelude.ByteString),
+          Data.=: ("CopyClusterSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
         "SourceSnapshotClusterIdentifier"
-          Core.=: sourceSnapshotClusterIdentifier,
+          Data.=: sourceSnapshotClusterIdentifier,
         "ManualSnapshotRetentionPeriod"
-          Core.=: manualSnapshotRetentionPeriod,
+          Data.=: manualSnapshotRetentionPeriod,
         "SourceSnapshotIdentifier"
-          Core.=: sourceSnapshotIdentifier,
+          Data.=: sourceSnapshotIdentifier,
         "TargetSnapshotIdentifier"
-          Core.=: targetSnapshotIdentifier
+          Data.=: targetSnapshotIdentifier
       ]
 
 -- | /See:/ 'newCopyClusterSnapshotResponse' smart constructor.

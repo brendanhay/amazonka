@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest RevokeSnapshotAccess where
       "RevokeSnapshotAccessResult"
       ( \s h x ->
           RevokeSnapshotAccessResponse'
-            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<$> (x Data..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,25 +160,25 @@ instance Prelude.NFData RevokeSnapshotAccess where
       `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
       `Prelude.seq` Prelude.rnf accountWithRestoreAccess
 
-instance Core.ToHeaders RevokeSnapshotAccess where
+instance Data.ToHeaders RevokeSnapshotAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RevokeSnapshotAccess where
+instance Data.ToPath RevokeSnapshotAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RevokeSnapshotAccess where
+instance Data.ToQuery RevokeSnapshotAccess where
   toQuery RevokeSnapshotAccess' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RevokeSnapshotAccess" :: Prelude.ByteString),
+          Data.=: ("RevokeSnapshotAccess" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "SnapshotArn" Core.=: snapshotArn,
-        "SnapshotIdentifier" Core.=: snapshotIdentifier,
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "SnapshotArn" Data.=: snapshotArn,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "SnapshotClusterIdentifier"
-          Core.=: snapshotClusterIdentifier,
+          Data.=: snapshotClusterIdentifier,
         "AccountWithRestoreAccess"
-          Core.=: accountWithRestoreAccess
+          Data.=: accountWithRestoreAccess
       ]
 
 -- | /See:/ 'newRevokeSnapshotAccessResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.DataShare where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 import Amazonka.Redshift.Types.DataShareAssociation
@@ -106,17 +107,17 @@ dataShare_dataShareArn = Lens.lens (\DataShare' {dataShareArn} -> dataShareArn) 
 dataShare_managedBy :: Lens.Lens' DataShare (Prelude.Maybe Prelude.Text)
 dataShare_managedBy = Lens.lens (\DataShare' {managedBy} -> managedBy) (\s@DataShare' {} a -> s {managedBy = a} :: DataShare)
 
-instance Core.FromXML DataShare where
+instance Data.FromXML DataShare where
   parseXML x =
     DataShare'
-      Prelude.<$> ( x Core..@? "DataShareAssociations"
+      Prelude.<$> ( x Data..@? "DataShareAssociations"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ProducerArn")
-      Prelude.<*> (x Core..@? "AllowPubliclyAccessibleConsumers")
-      Prelude.<*> (x Core..@? "DataShareArn")
-      Prelude.<*> (x Core..@? "ManagedBy")
+      Prelude.<*> (x Data..@? "ProducerArn")
+      Prelude.<*> (x Data..@? "AllowPubliclyAccessibleConsumers")
+      Prelude.<*> (x Data..@? "DataShareArn")
+      Prelude.<*> (x Data..@? "ManagedBy")
 
 instance Prelude.Hashable DataShare where
   hashWithSalt _salt DataShare' {..} =

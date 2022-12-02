@@ -50,6 +50,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,8 +173,8 @@ instance Core.AWSRequest ListRecommendationFeedback where
     Response.receiveJSON
       ( \s h x ->
           ListRecommendationFeedbackResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RecommendationFeedbackSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RecommendationFeedbackSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -195,38 +196,38 @@ instance Prelude.NFData ListRecommendationFeedback where
       `Prelude.seq` Prelude.rnf userIds
       `Prelude.seq` Prelude.rnf codeReviewArn
 
-instance Core.ToHeaders ListRecommendationFeedback where
+instance Data.ToHeaders ListRecommendationFeedback where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRecommendationFeedback where
+instance Data.ToPath ListRecommendationFeedback where
   toPath ListRecommendationFeedback' {..} =
     Prelude.mconcat
       [ "/feedback/",
-        Core.toBS codeReviewArn,
+        Data.toBS codeReviewArn,
         "/RecommendationFeedback"
       ]
 
-instance Core.ToQuery ListRecommendationFeedback where
+instance Data.ToQuery ListRecommendationFeedback where
   toQuery ListRecommendationFeedback' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
+      [ "NextToken" Data.=: nextToken,
         "RecommendationIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> recommendationIds
             ),
-        "MaxResults" Core.=: maxResults,
+        "MaxResults" Data.=: maxResults,
         "UserIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> userIds)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> userIds)
       ]
 
 -- | /See:/ 'newListRecommendationFeedbackResponse' smart constructor.

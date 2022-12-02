@@ -70,6 +70,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -194,8 +195,8 @@ instance Core.AWSRequest AssociateRepository where
     Response.receiveJSON
       ( \s h x ->
           AssociateRepositoryResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RepositoryAssociation")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RepositoryAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,33 +214,33 @@ instance Prelude.NFData AssociateRepository where
       `Prelude.seq` Prelude.rnf kmsKeyDetails
       `Prelude.seq` Prelude.rnf repository
 
-instance Core.ToHeaders AssociateRepository where
+instance Data.ToHeaders AssociateRepository where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateRepository where
+instance Data.ToJSON AssociateRepository where
   toJSON AssociateRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("KMSKeyDetails" Core..=) Prelude.<$> kmsKeyDetails,
-            Prelude.Just ("Repository" Core..= repository)
+            ("KMSKeyDetails" Data..=) Prelude.<$> kmsKeyDetails,
+            Prelude.Just ("Repository" Data..= repository)
           ]
       )
 
-instance Core.ToPath AssociateRepository where
+instance Data.ToPath AssociateRepository where
   toPath = Prelude.const "/associations"
 
-instance Core.ToQuery AssociateRepository where
+instance Data.ToQuery AssociateRepository where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateRepositoryResponse' smart constructor.

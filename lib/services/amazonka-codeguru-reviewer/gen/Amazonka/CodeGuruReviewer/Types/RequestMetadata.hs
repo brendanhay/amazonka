@@ -23,6 +23,7 @@ import Amazonka.CodeGuruReviewer.Types.EventInfo
 import Amazonka.CodeGuruReviewer.Types.VendorName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata that is associated with a code review. This applies to both
@@ -106,16 +107,16 @@ requestMetadata_requester = Lens.lens (\RequestMetadata' {requester} -> requeste
 requestMetadata_vendorName :: Lens.Lens' RequestMetadata (Prelude.Maybe VendorName)
 requestMetadata_vendorName = Lens.lens (\RequestMetadata' {vendorName} -> vendorName) (\s@RequestMetadata' {} a -> s {vendorName = a} :: RequestMetadata)
 
-instance Core.FromJSON RequestMetadata where
+instance Data.FromJSON RequestMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RequestMetadata"
       ( \x ->
           RequestMetadata'
-            Prelude.<$> (x Core..:? "EventInfo")
-            Prelude.<*> (x Core..:? "RequestId")
-            Prelude.<*> (x Core..:? "Requester")
-            Prelude.<*> (x Core..:? "VendorName")
+            Prelude.<$> (x Data..:? "EventInfo")
+            Prelude.<*> (x Data..:? "RequestId")
+            Prelude.<*> (x Data..:? "Requester")
+            Prelude.<*> (x Data..:? "VendorName")
       )
 
 instance Prelude.Hashable RequestMetadata where
@@ -132,13 +133,13 @@ instance Prelude.NFData RequestMetadata where
       `Prelude.seq` Prelude.rnf requester
       `Prelude.seq` Prelude.rnf vendorName
 
-instance Core.ToJSON RequestMetadata where
+instance Data.ToJSON RequestMetadata where
   toJSON RequestMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EventInfo" Core..=) Prelude.<$> eventInfo,
-            ("RequestId" Core..=) Prelude.<$> requestId,
-            ("Requester" Core..=) Prelude.<$> requester,
-            ("VendorName" Core..=) Prelude.<$> vendorName
+          [ ("EventInfo" Data..=) Prelude.<$> eventInfo,
+            ("RequestId" Data..=) Prelude.<$> requestId,
+            ("Requester" Data..=) Prelude.<$> requester,
+            ("VendorName" Data..=) Prelude.<$> vendorName
           ]
       )

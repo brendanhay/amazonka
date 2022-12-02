@@ -58,6 +58,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -314,8 +315,8 @@ instance Core.AWSRequest ListRepositoryAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListRepositoryAssociationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RepositoryAssociationSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "RepositoryAssociationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -339,39 +340,39 @@ instance Prelude.NFData ListRepositoryAssociations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf states
 
-instance Core.ToHeaders ListRepositoryAssociations where
+instance Data.ToHeaders ListRepositoryAssociations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListRepositoryAssociations where
+instance Data.ToPath ListRepositoryAssociations where
   toPath = Prelude.const "/associations"
 
-instance Core.ToQuery ListRepositoryAssociations where
+instance Data.ToQuery ListRepositoryAssociations where
   toQuery ListRepositoryAssociations' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
+      [ "NextToken" Data.=: nextToken,
         "ProviderType"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> providerTypes
             ),
         "Owner"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> owners),
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> owners),
         "Name"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> names),
-        "MaxResults" Core.=: maxResults,
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> names),
+        "MaxResults" Data.=: maxResults,
         "State"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListRepositoryAssociationsResponse' smart constructor.

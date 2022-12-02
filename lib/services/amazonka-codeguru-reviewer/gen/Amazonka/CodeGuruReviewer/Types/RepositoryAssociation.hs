@@ -25,6 +25,7 @@ import Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState
 import Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a repository association. The
@@ -35,14 +36,14 @@ import qualified Amazonka.Prelude as Prelude
 data RepositoryAssociation = RepositoryAssociation'
   { -- | The time, in milliseconds since the epoch, when the repository
     -- association was last updated.
-    lastUpdatedTimeStamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the repository.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) identifying the repository association.
     associationArn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the repository
     -- association was created.
-    createdTimeStamp :: Prelude.Maybe Core.POSIX,
+    createdTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | A @KMSKeyDetails@ object that contains:
     --
     -- -   The encryption option for this repository association. It is either
@@ -212,7 +213,7 @@ newRepositoryAssociation =
 -- | The time, in milliseconds since the epoch, when the repository
 -- association was last updated.
 repositoryAssociation_lastUpdatedTimeStamp :: Lens.Lens' RepositoryAssociation (Prelude.Maybe Prelude.UTCTime)
-repositoryAssociation_lastUpdatedTimeStamp = Lens.lens (\RepositoryAssociation' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@RepositoryAssociation' {} a -> s {lastUpdatedTimeStamp = a} :: RepositoryAssociation) Prelude.. Lens.mapping Core._Time
+repositoryAssociation_lastUpdatedTimeStamp = Lens.lens (\RepositoryAssociation' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@RepositoryAssociation' {} a -> s {lastUpdatedTimeStamp = a} :: RepositoryAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the repository.
 repositoryAssociation_name :: Lens.Lens' RepositoryAssociation (Prelude.Maybe Prelude.Text)
@@ -225,7 +226,7 @@ repositoryAssociation_associationArn = Lens.lens (\RepositoryAssociation' {assoc
 -- | The time, in milliseconds since the epoch, when the repository
 -- association was created.
 repositoryAssociation_createdTimeStamp :: Lens.Lens' RepositoryAssociation (Prelude.Maybe Prelude.UTCTime)
-repositoryAssociation_createdTimeStamp = Lens.lens (\RepositoryAssociation' {createdTimeStamp} -> createdTimeStamp) (\s@RepositoryAssociation' {} a -> s {createdTimeStamp = a} :: RepositoryAssociation) Prelude.. Lens.mapping Core._Time
+repositoryAssociation_createdTimeStamp = Lens.lens (\RepositoryAssociation' {createdTimeStamp} -> createdTimeStamp) (\s@RepositoryAssociation' {} a -> s {createdTimeStamp = a} :: RepositoryAssociation) Prelude.. Lens.mapping Data._Time
 
 -- | A @KMSKeyDetails@ object that contains:
 --
@@ -307,24 +308,24 @@ repositoryAssociation_stateReason = Lens.lens (\RepositoryAssociation' {stateRea
 repositoryAssociation_associationId :: Lens.Lens' RepositoryAssociation (Prelude.Maybe Prelude.Text)
 repositoryAssociation_associationId = Lens.lens (\RepositoryAssociation' {associationId} -> associationId) (\s@RepositoryAssociation' {} a -> s {associationId = a} :: RepositoryAssociation)
 
-instance Core.FromJSON RepositoryAssociation where
+instance Data.FromJSON RepositoryAssociation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryAssociation"
       ( \x ->
           RepositoryAssociation'
-            Prelude.<$> (x Core..:? "LastUpdatedTimeStamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "AssociationArn")
-            Prelude.<*> (x Core..:? "CreatedTimeStamp")
-            Prelude.<*> (x Core..:? "KMSKeyDetails")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "S3RepositoryDetails")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "ConnectionArn")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "StateReason")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Data..:? "LastUpdatedTimeStamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "AssociationArn")
+            Prelude.<*> (x Data..:? "CreatedTimeStamp")
+            Prelude.<*> (x Data..:? "KMSKeyDetails")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "S3RepositoryDetails")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "ConnectionArn")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "StateReason")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance Prelude.Hashable RepositoryAssociation where

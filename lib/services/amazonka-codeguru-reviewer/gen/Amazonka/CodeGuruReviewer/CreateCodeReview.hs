@@ -49,6 +49,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,7 +159,7 @@ instance Core.AWSRequest CreateCodeReview where
     Response.receiveJSON
       ( \s h x ->
           CreateCodeReviewResponse'
-            Prelude.<$> (x Core..?> "CodeReview")
+            Prelude.<$> (x Data..?> "CodeReview")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,36 +177,36 @@ instance Prelude.NFData CreateCodeReview where
       `Prelude.seq` Prelude.rnf repositoryAssociationArn
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders CreateCodeReview where
+instance Data.ToHeaders CreateCodeReview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCodeReview where
+instance Data.ToJSON CreateCodeReview where
   toJSON CreateCodeReview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "RepositoryAssociationArn"
-                  Core..= repositoryAssociationArn
+                  Data..= repositoryAssociationArn
               ),
-            Prelude.Just ("Type" Core..= type')
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath CreateCodeReview where
+instance Data.ToPath CreateCodeReview where
   toPath = Prelude.const "/codereviews"
 
-instance Core.ToQuery CreateCodeReview where
+instance Data.ToQuery CreateCodeReview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCodeReviewResponse' smart constructor.

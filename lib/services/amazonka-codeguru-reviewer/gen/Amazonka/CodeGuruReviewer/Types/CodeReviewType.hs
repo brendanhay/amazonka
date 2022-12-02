@@ -23,6 +23,7 @@ import Amazonka.CodeGuruReviewer.Types.AnalysisType
 import Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The type of a code review. There are two code review types:
@@ -98,12 +99,12 @@ instance Prelude.NFData CodeReviewType where
     Prelude.rnf analysisTypes
       `Prelude.seq` Prelude.rnf repositoryAnalysis
 
-instance Core.ToJSON CodeReviewType where
+instance Data.ToJSON CodeReviewType where
   toJSON CodeReviewType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AnalysisTypes" Core..=) Prelude.<$> analysisTypes,
+          [ ("AnalysisTypes" Data..=) Prelude.<$> analysisTypes,
             Prelude.Just
-              ("RepositoryAnalysis" Core..= repositoryAnalysis)
+              ("RepositoryAnalysis" Data..= repositoryAnalysis)
           ]
       )

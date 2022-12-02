@@ -46,6 +46,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,8 +103,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeRepositoryAssociationResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RepositoryAssociation")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "RepositoryAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,23 +119,23 @@ instance Prelude.NFData DescribeRepositoryAssociation where
   rnf DescribeRepositoryAssociation' {..} =
     Prelude.rnf associationArn
 
-instance Core.ToHeaders DescribeRepositoryAssociation where
+instance Data.ToHeaders DescribeRepositoryAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRepositoryAssociation where
+instance Data.ToPath DescribeRepositoryAssociation where
   toPath DescribeRepositoryAssociation' {..} =
     Prelude.mconcat
-      ["/associations/", Core.toBS associationArn]
+      ["/associations/", Data.toBS associationArn]
 
-instance Core.ToQuery DescribeRepositoryAssociation where
+instance Data.ToQuery DescribeRepositoryAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRepositoryAssociationResponse' smart constructor.

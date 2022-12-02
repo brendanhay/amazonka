@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A type of
@@ -71,14 +72,14 @@ branchDiffSourceCodeType_sourceBranchName = Lens.lens (\BranchDiffSourceCodeType
 branchDiffSourceCodeType_destinationBranchName :: Lens.Lens' BranchDiffSourceCodeType Prelude.Text
 branchDiffSourceCodeType_destinationBranchName = Lens.lens (\BranchDiffSourceCodeType' {destinationBranchName} -> destinationBranchName) (\s@BranchDiffSourceCodeType' {} a -> s {destinationBranchName = a} :: BranchDiffSourceCodeType)
 
-instance Core.FromJSON BranchDiffSourceCodeType where
+instance Data.FromJSON BranchDiffSourceCodeType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BranchDiffSourceCodeType"
       ( \x ->
           BranchDiffSourceCodeType'
-            Prelude.<$> (x Core..: "SourceBranchName")
-            Prelude.<*> (x Core..: "DestinationBranchName")
+            Prelude.<$> (x Data..: "SourceBranchName")
+            Prelude.<*> (x Data..: "DestinationBranchName")
       )
 
 instance Prelude.Hashable BranchDiffSourceCodeType where
@@ -91,15 +92,15 @@ instance Prelude.NFData BranchDiffSourceCodeType where
     Prelude.rnf sourceBranchName
       `Prelude.seq` Prelude.rnf destinationBranchName
 
-instance Core.ToJSON BranchDiffSourceCodeType where
+instance Data.ToJSON BranchDiffSourceCodeType where
   toJSON BranchDiffSourceCodeType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("SourceBranchName" Core..= sourceBranchName),
+              ("SourceBranchName" Data..= sourceBranchName),
             Prelude.Just
               ( "DestinationBranchName"
-                  Core..= destinationBranchName
+                  Data..= destinationBranchName
               )
           ]
       )

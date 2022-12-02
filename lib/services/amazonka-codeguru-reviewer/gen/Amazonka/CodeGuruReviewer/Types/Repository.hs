@@ -24,6 +24,7 @@ import Amazonka.CodeGuruReviewer.Types.S3Repository
 import Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an associated Amazon Web Services CodeCommit
@@ -99,14 +100,14 @@ instance Prelude.NFData Repository where
       `Prelude.seq` Prelude.rnf codeCommit
       `Prelude.seq` Prelude.rnf gitHubEnterpriseServer
 
-instance Core.ToJSON Repository where
+instance Data.ToJSON Repository where
   toJSON Repository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("Bitbucket" Core..=) Prelude.<$> bitbucket,
-            ("CodeCommit" Core..=) Prelude.<$> codeCommit,
-            ("GitHubEnterpriseServer" Core..=)
+          [ ("S3Bucket" Data..=) Prelude.<$> s3Bucket,
+            ("Bitbucket" Data..=) Prelude.<$> bitbucket,
+            ("CodeCommit" Data..=) Prelude.<$> codeCommit,
+            ("GitHubEnterpriseServer" Data..=)
               Prelude.<$> gitHubEnterpriseServer
           ]
       )

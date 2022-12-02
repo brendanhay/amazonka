@@ -26,6 +26,7 @@ import Amazonka.CodeGuruReviewer.Types.SourceCodeType
 import Amazonka.CodeGuruReviewer.Types.Type
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the summary of the code review.
@@ -34,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 data CodeReviewSummary = CodeReviewSummary'
   { -- | The time, in milliseconds since the epoch, when the code review was last
     -- updated.
-    lastUpdatedTimeStamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the code review.
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of the code review.
@@ -43,7 +44,7 @@ data CodeReviewSummary = CodeReviewSummary'
     pullRequestId :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the code review was
     -- created.
-    createdTimeStamp :: Prelude.Maybe Core.POSIX,
+    createdTimeStamp :: Prelude.Maybe Data.POSIX,
     sourceCodeType :: Prelude.Maybe SourceCodeType,
     -- | The name of the repository.
     repositoryName :: Prelude.Maybe Prelude.Text,
@@ -149,7 +150,7 @@ newCodeReviewSummary =
 -- | The time, in milliseconds since the epoch, when the code review was last
 -- updated.
 codeReviewSummary_lastUpdatedTimeStamp :: Lens.Lens' CodeReviewSummary (Prelude.Maybe Prelude.UTCTime)
-codeReviewSummary_lastUpdatedTimeStamp = Lens.lens (\CodeReviewSummary' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@CodeReviewSummary' {} a -> s {lastUpdatedTimeStamp = a} :: CodeReviewSummary) Prelude.. Lens.mapping Core._Time
+codeReviewSummary_lastUpdatedTimeStamp = Lens.lens (\CodeReviewSummary' {lastUpdatedTimeStamp} -> lastUpdatedTimeStamp) (\s@CodeReviewSummary' {} a -> s {lastUpdatedTimeStamp = a} :: CodeReviewSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the code review.
 codeReviewSummary_name :: Lens.Lens' CodeReviewSummary (Prelude.Maybe Prelude.Text)
@@ -166,7 +167,7 @@ codeReviewSummary_pullRequestId = Lens.lens (\CodeReviewSummary' {pullRequestId}
 -- | The time, in milliseconds since the epoch, when the code review was
 -- created.
 codeReviewSummary_createdTimeStamp :: Lens.Lens' CodeReviewSummary (Prelude.Maybe Prelude.UTCTime)
-codeReviewSummary_createdTimeStamp = Lens.lens (\CodeReviewSummary' {createdTimeStamp} -> createdTimeStamp) (\s@CodeReviewSummary' {} a -> s {createdTimeStamp = a} :: CodeReviewSummary) Prelude.. Lens.mapping Core._Time
+codeReviewSummary_createdTimeStamp = Lens.lens (\CodeReviewSummary' {createdTimeStamp} -> createdTimeStamp) (\s@CodeReviewSummary' {} a -> s {createdTimeStamp = a} :: CodeReviewSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 codeReviewSummary_sourceCodeType :: Lens.Lens' CodeReviewSummary (Prelude.Maybe SourceCodeType)
@@ -213,24 +214,24 @@ codeReviewSummary_providerType = Lens.lens (\CodeReviewSummary' {providerType} -
 codeReviewSummary_metricsSummary :: Lens.Lens' CodeReviewSummary (Prelude.Maybe MetricsSummary)
 codeReviewSummary_metricsSummary = Lens.lens (\CodeReviewSummary' {metricsSummary} -> metricsSummary) (\s@CodeReviewSummary' {} a -> s {metricsSummary = a} :: CodeReviewSummary)
 
-instance Core.FromJSON CodeReviewSummary where
+instance Data.FromJSON CodeReviewSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeReviewSummary"
       ( \x ->
           CodeReviewSummary'
-            Prelude.<$> (x Core..:? "LastUpdatedTimeStamp")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "PullRequestId")
-            Prelude.<*> (x Core..:? "CreatedTimeStamp")
-            Prelude.<*> (x Core..:? "SourceCodeType")
-            Prelude.<*> (x Core..:? "RepositoryName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CodeReviewArn")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "MetricsSummary")
+            Prelude.<$> (x Data..:? "LastUpdatedTimeStamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "PullRequestId")
+            Prelude.<*> (x Data..:? "CreatedTimeStamp")
+            Prelude.<*> (x Data..:? "SourceCodeType")
+            Prelude.<*> (x Data..:? "RepositoryName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CodeReviewArn")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "MetricsSummary")
       )
 
 instance Prelude.Hashable CodeReviewSummary where

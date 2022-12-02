@@ -43,6 +43,7 @@ where
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,7 +94,7 @@ instance Core.AWSRequest DescribeCodeReview where
     Response.receiveJSON
       ( \s h x ->
           DescribeCodeReviewResponse'
-            Prelude.<$> (x Core..?> "CodeReview")
+            Prelude.<$> (x Data..?> "CodeReview")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,23 +106,23 @@ instance Prelude.NFData DescribeCodeReview where
   rnf DescribeCodeReview' {..} =
     Prelude.rnf codeReviewArn
 
-instance Core.ToHeaders DescribeCodeReview where
+instance Data.ToHeaders DescribeCodeReview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeCodeReview where
+instance Data.ToPath DescribeCodeReview where
   toPath DescribeCodeReview' {..} =
     Prelude.mconcat
-      ["/codereviews/", Core.toBS codeReviewArn]
+      ["/codereviews/", Data.toBS codeReviewArn]
 
-instance Core.ToQuery DescribeCodeReview where
+instance Data.ToQuery DescribeCodeReview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCodeReviewResponse' smart constructor.

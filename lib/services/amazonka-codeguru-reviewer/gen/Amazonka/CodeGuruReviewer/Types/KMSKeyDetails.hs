@@ -22,6 +22,7 @@ module Amazonka.CodeGuruReviewer.Types.KMSKeyDetails where
 import Amazonka.CodeGuruReviewer.Types.EncryptionOption
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains:
@@ -78,14 +79,14 @@ kmsKeyDetails_encryptionOption = Lens.lens (\KMSKeyDetails' {encryptionOption} -
 kmsKeyDetails_kmsKeyId :: Lens.Lens' KMSKeyDetails (Prelude.Maybe Prelude.Text)
 kmsKeyDetails_kmsKeyId = Lens.lens (\KMSKeyDetails' {kmsKeyId} -> kmsKeyId) (\s@KMSKeyDetails' {} a -> s {kmsKeyId = a} :: KMSKeyDetails)
 
-instance Core.FromJSON KMSKeyDetails where
+instance Data.FromJSON KMSKeyDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KMSKeyDetails"
       ( \x ->
           KMSKeyDetails'
-            Prelude.<$> (x Core..:? "EncryptionOption")
-            Prelude.<*> (x Core..:? "KMSKeyId")
+            Prelude.<$> (x Data..:? "EncryptionOption")
+            Prelude.<*> (x Data..:? "KMSKeyId")
       )
 
 instance Prelude.Hashable KMSKeyDetails where
@@ -98,12 +99,12 @@ instance Prelude.NFData KMSKeyDetails where
     Prelude.rnf encryptionOption
       `Prelude.seq` Prelude.rnf kmsKeyId
 
-instance Core.ToJSON KMSKeyDetails where
+instance Data.ToJSON KMSKeyDetails where
   toJSON KMSKeyDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionOption" Core..=)
+          [ ("EncryptionOption" Data..=)
               Prelude.<$> encryptionOption,
-            ("KMSKeyId" Core..=) Prelude.<$> kmsKeyId
+            ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

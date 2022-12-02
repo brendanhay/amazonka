@@ -22,6 +22,7 @@ import Amazonka.CodeGuruReviewer.Lens
 import Amazonka.CodeGuruReviewer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation' every 10 seconds until a successful state is reached. An error is returned after 30 failed checks.
@@ -40,7 +41,7 @@ newRepositoryAssociationSucceeded =
                 Prelude.. Lens._Just
                 Prelude.. repositoryAssociation_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
@@ -49,7 +50,7 @@ newRepositoryAssociationSucceeded =
                 Prelude.. Lens._Just
                 Prelude.. repositoryAssociation_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Associating"
@@ -58,7 +59,7 @@ newRepositoryAssociationSucceeded =
                 Prelude.. Lens._Just
                 Prelude.. repositoryAssociation_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -78,7 +79,7 @@ newCodeReviewCompleted =
                 Prelude.. Lens._Just
                 Prelude.. codeReview_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
@@ -87,7 +88,7 @@ newCodeReviewCompleted =
                 Prelude.. Lens._Just
                 Prelude.. codeReview_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Pending"
@@ -96,7 +97,7 @@ newCodeReviewCompleted =
                 Prelude.. Lens._Just
                 Prelude.. codeReview_state
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

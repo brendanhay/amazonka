@@ -21,6 +21,7 @@ module Amazonka.CodeGuruReviewer.Types.CodeCommitRepository where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Web Services CodeCommit repository. The
@@ -71,9 +72,9 @@ instance Prelude.Hashable CodeCommitRepository where
 instance Prelude.NFData CodeCommitRepository where
   rnf CodeCommitRepository' {..} = Prelude.rnf name
 
-instance Core.ToJSON CodeCommitRepository where
+instance Data.ToJSON CodeCommitRepository where
   toJSON CodeCommitRepository' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Name" Core..= name)]
+          [Prelude.Just ("Name" Data..= name)]
       )

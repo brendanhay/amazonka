@@ -22,6 +22,7 @@ module Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails where
 import Amazonka.CodeGuruReviewer.Types.CodeArtifacts
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the name of an S3 bucket and a @CodeArtifacts@ object that
@@ -74,14 +75,14 @@ s3RepositoryDetails_codeArtifacts = Lens.lens (\S3RepositoryDetails' {codeArtifa
 s3RepositoryDetails_bucketName :: Lens.Lens' S3RepositoryDetails (Prelude.Maybe Prelude.Text)
 s3RepositoryDetails_bucketName = Lens.lens (\S3RepositoryDetails' {bucketName} -> bucketName) (\s@S3RepositoryDetails' {} a -> s {bucketName = a} :: S3RepositoryDetails)
 
-instance Core.FromJSON S3RepositoryDetails where
+instance Data.FromJSON S3RepositoryDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3RepositoryDetails"
       ( \x ->
           S3RepositoryDetails'
-            Prelude.<$> (x Core..:? "CodeArtifacts")
-            Prelude.<*> (x Core..:? "BucketName")
+            Prelude.<$> (x Data..:? "CodeArtifacts")
+            Prelude.<*> (x Data..:? "BucketName")
       )
 
 instance Prelude.Hashable S3RepositoryDetails where
@@ -94,11 +95,11 @@ instance Prelude.NFData S3RepositoryDetails where
     Prelude.rnf codeArtifacts
       `Prelude.seq` Prelude.rnf bucketName
 
-instance Core.ToJSON S3RepositoryDetails where
+instance Data.ToJSON S3RepositoryDetails where
   toJSON S3RepositoryDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CodeArtifacts" Core..=) Prelude.<$> codeArtifacts,
-            ("BucketName" Core..=) Prelude.<$> bucketName
+          [ ("CodeArtifacts" Data..=) Prelude.<$> codeArtifacts,
+            ("BucketName" Data..=) Prelude.<$> bucketName
           ]
       )
